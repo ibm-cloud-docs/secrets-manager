@@ -1,2 +1,4 @@
-# secrets-manager
-Documentation repository for secrets-manager
+# Secrets Manager documentation
+
+Welcome to the docs repo for Secrets Manager! Feedback and updates are always welcome.
+
