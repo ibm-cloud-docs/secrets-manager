@@ -1,0 +1,64 @@
+---
+
+copyright:
+  years: 2020
+lastupdated: "2020-09-23"
+
+keywords: public isolation for Secrets Manager, compute isolation for Secrets Manager, Secrets Manager architecture, workload isolation in Secrets Manager
+
+subcollection: secrets-manager
+
+---
+
+{:codeblock: .codeblock}
+{:screen: .screen}
+{:download: .download}
+{:external: target="_blank" .external}
+{:faq: data-hd-content-type='faq'}
+{:gif: data-image-type='gif'}
+{:important: .important}
+{:note: .note}
+{:pre: .pre}
+{:tip: .tip}
+{:preview: .preview}
+{:deprecated: .deprecated}
+{:beta: .beta}
+{:term: .term}
+{:shortdesc: .shortdesc}
+{:script: data-hd-video='script'}
+{:support: data-reuse='support'}
+{:table: .aria-labeledby="caption"}
+{:troubleshoot: data-hd-content-type='troubleshoot'}
+{:help: data-hd-content-type='help'}
+{:tsCauses: .tsCauses}
+{:tsResolve: .tsResolve}
+{:tsSymptoms: .tsSymptoms}
+{:java: .ph data-hd-programlang='java'}
+{:javascript: .ph data-hd-programlang='javascript'}
+{:swift: .ph data-hd-programlang='swift'}
+{:curl: .ph data-hd-programlang='curl'}
+{:video: .video}
+{:step: data-tutorial-type='step'}
+{:tutorial: data-hd-content-type='tutorial'}
+
+# Learning about {{site.data.keyword.secrets-manager_short}} architecture and workload isolation
+{: #compute-isolation}
+
+{{site.data.keyword.secrets-manager_full}} is a single tenant, dedicated service that is managed by both you and {{site.data.keyword.cloud_notm}}. To learn more, review the following architecture diagram to see how {{site.data.keyword.secrets-manager_short}} can meet the requirements of the sensitive workloads that you want to run in the cloud.
+{: shortdesc}
+
+## {{site.data.keyword.secrets-manager_short}} architecture
+{: #architecture}
+
+![This image is a visual representation of the architecture for {{site.data.keyword.secrets-manager_short}}.](images/secrets-arch.svg){: caption="Figure 1. {{site.data.keyword.secrets-manager_short}} architecture" caption-side="bottom"}
+
+1. A user creates an instance of {{site.data.keyword.secrets-manager_short}}. At provisioning, the user can configure a root key from Key Protect or choose to use a provider-managed encryption key. A dedicated instance of the service is created.
+2. When a user, CLI, application, or DevOps tool makes a request to the service by using the {{site.data.keyword.secrets-manager_short}} UI or APIs, the request is completed through their vault formation. 
+3. Service data and secrets are stored in a dedicated Cloud Object Storage bucket.
+
+## {{site.data.keyword.secrets-manager_short}} workload isolation
+{: #workload-isolation}
+
+{{site.data.keyword.secrets-manager_short}} is a single-tenant, dedicated service instance that is currently offered only as a Lite plan. Each workload is isolated within its own namespace within the data plane of the service clusters.
+
+
