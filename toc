@@ -1,0 +1,59 @@
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="secrets-manager" audience="service" category="security" href="/docs/secrets-manager?topic=secrets-manager-getting-started" product-page="https://www.ibm.com/cloud/secrets-manager" console-page="/catalog/secrets-manager" path="secrets-manager"}
+Secrets Manager (Beta)
+
+    {: .navgroup id="learn"}
+    getting-started.md
+
+    {: .topicgroup}
+    Best practices
+        best-practices/secret-mgmt.md
+    {: .navgroup-end}
+
+    {: .navgroup id="howto"}
+    {: .topicgroup}
+    Setting up the service
+        provision.md
+        assign-access.md
+        concepts/secret-engines.md
+
+    {: .topicgroup}
+    Working with secrets
+        concepts/secret-types.md
+        add-secret.md
+        access-secret.md
+        rotate-secret.md
+        delete-secret.md
+
+    concepts/secret-groups.md
+
+    {: .topicgroup}
+    Enhancing security
+        iam.md
+        architecture-workload-isolation.md
+        data-security.md
+        ha-dr.md
+        at-events.md
+    {: .navgroup-end}
+
+    {: .navgroup id="reference"}
+    {: topicgroup}
+    API reference
+        [Secrets Manager API](https://{DomainName}/apidocs/secrets-manager){: external}
+        vault-api.md
+
+    endpoints.md
+    limits.md
+    {: .navgroup-end}
+
+    {: .navgroup id="help"}
+    faqs.md
+
+    {: .topicgroup}
+    Troubleshooting
+        troubleshooting/troubleshoot-access.md
+        troubleshooting/troubleshoot-creation.md
+        troubleshooting/troubleshoot-delete-group.md
+    {: .navgroup-end}
