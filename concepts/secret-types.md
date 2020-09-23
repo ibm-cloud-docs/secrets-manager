@@ -53,7 +53,7 @@ By using secrets, you're able to authenticate to protected resources as you buil
 
 To learn more about the general characteristics of a secret, check out the following video. 
 
-![What is Secrets Management?](https://www.youtube.com/embed/iETENR5MEB8){: video output="iframe" data-script="secrets-mgmt-video-transcript" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![What is Secrets Management?](https://www.youtube.com/embed/iETENR5MEB8){: video output="iframe" data-script="#secrets-mgmt-video-transcript" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 #### Video transcript
 {: #secrets-mgmt-video-transcript}
