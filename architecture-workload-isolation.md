@@ -13,6 +13,7 @@ subcollection: secrets-manager
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:download: .download}
+{:notoc: .notoc}
 {:external: target="_blank" .external}
 {:faq: data-hd-content-type='faq'}
 {:gif: data-image-type='gif'}
@@ -50,7 +51,7 @@ subcollection: secrets-manager
 ## {{site.data.keyword.secrets-manager_short}} architecture
 {: #architecture}
 
-![This image is a visual representation of the architecture for {{site.data.keyword.secrets-manager_short}}.](images/secrets-arch.svg)
+![This image is a visual representation of the architecture for {{site.data.keyword.secrets-manager_short}}.](images/secrets-arch.svg){: caption="Figure 1. {{site.data.keyword.secrets-manager_short}} architecture" caption-side="bottom"}
 
 1. A user creates an instance of {{site.data.keyword.secrets-manager_short}}. At provisioning, the user can configure a root key from Key Protect or choose to use a provider-managed encryption key. A dedicated instance of the service is created.
 2. When a user, CLI, application, or DevOps tool makes a request to the service by using the {{site.data.keyword.secrets-manager_short}} UI or APIs, the request is completed through their vault formation. 
