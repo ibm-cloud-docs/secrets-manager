@@ -118,6 +118,6 @@ A successful request returns the endpoint URLs that are associated with the regi
 ```
 {: screen}
 
-To try this API, you can interact the following Swagger UI from your browser: `https://{region}.secrets-manager.cloud.ibm.com/swagger-ui/`.
+To try this API, you can interact with the following Swagger UI from your browser: `https://{region}.secrets-manager.cloud.ibm.com/swagger-ui/`.
 {: tip}
 
