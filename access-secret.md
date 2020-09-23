@@ -4,7 +4,7 @@ copyright:
   years: 2020
 lastupdated: "2020-09-23"
 
-keywords: access stored secrets, retrieve secrets, get secret value, get secrets, view secrets, search seacrets, get secret value
+keywords: access stored secrets, retrieve secrets, get secret value, get secrets, view secrets, search secrets, get secret value
 
 subcollection: secrets-manager
 
