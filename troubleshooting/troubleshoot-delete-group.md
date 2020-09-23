@@ -13,7 +13,6 @@ subcollection: secrets-manager
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:download: .download}
-{:notoc: .notoc}
 {:external: target="_blank" .external}
 {:faq: data-hd-content-type='faq'}
 {:gif: data-image-type='gif'}
