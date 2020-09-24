@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-09-24"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -250,7 +250,7 @@ curl --location --request PUT 'https://{instance_ID}.{region}.secrets-manager.ap
             "bss_acc": "791f5fb10986423e97aa8512f18b7e65",
             "grant_type": "urn:ibm:params:oauth:grant-type:apikey",
             "name": "secrets-manager-test-reader",
-            "resource": "crn:v1:staging:public:secrets-manager:us-south:a/791f5fb10986423e97aa8512f18b7e65:e415e570-f073-423a-abdc-55de9b58f54e::",
+            "resource": "crn:v1:bluemix:public:secrets-manager:us-south:a/791f5fb10986423e97aa8512f18b7e65:e415e570-f073-423a-abdc-55de9b58f54e::",
             "user": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0"
         },
         "lease_duration": 3600,
@@ -598,10 +598,10 @@ curl --location --request PUT 'https://{instance_ID}.{region}.secrets-manager.ap
     "lease_duration": 0,
     "data": {
         "created_at": "2020-08-04T10:05:41Z",
-        "crn": "crn:v1:staging:public:secret-manager:us-south:a/a2b41967b8284f612fd4b7fd00c39586:6291f1e2-c44d-45e4-8253-f776a2aa4986:secret:arbitrary:15bd3144-0b70-ef0f-f1ea-2c4469d14c19",
+        "crn": "crn:v1:bluemix:public:secret-manager:us-south:a/a2b41867c8294f612fd4c7fd10d39586:1ec90496-358e-4b51-b8b5-ecdcd44fb7dc:secret:arbitrary:49d8d88b-d2ee-4861-83f0-662172b550b5",
         "description": "",
         "expiration_date": "",
-        "id": "15bd3144-0b70-ef0f-f1ea-2c4469d14c19",
+        "id": "49d8d88b-d2ee-4861-83f0-662172b550b5",
         "name": "dave",
         "payload": "my arbitrary secret",
         "state": 1,
@@ -645,11 +645,11 @@ curl --location --request PUT 'https://{instance_ID}.{region}.secrets-manager.ap
     "lease_duration": 0,
     "data": {
         "created_at": "2020-08-04T10:05:41Z",
-        "crn": "crn:v1:staging:public:secret-manager:us-south:a/a2b41967b8284f612fd4b7fd00c39586:6291f1e2-c44d-45e4-8253-f776a2aa4986:secret:arbitrary:15bd3144-0b70-ef0f-f1ea-2c4469d14c19",
+        "crn": "crn:v1:bluemix:public:secret-manager:us-south:a/a2b41867c8294f612fd4c7fd10d39586:1ec90496-358e-4b51-b8b5-ecdcd44fb7dc:secret:arbitrary:49d8d88b-d2ee-4861-83f0-662172b550b5",
         "description": "",
         "expiration_date": "",
         "group_id": "c481f146-aa9f-5b9b-55b7-f9fd326027cd",
-        "id": "15bd3144-0b70-ef0f-f1ea-2c4469d14c19",
+        "id": "49d8d88b-d2ee-4861-83f0-662172b550b5",
         "name": "dave",
         "payload": "my arbitrary secret",
         "state": 1,
@@ -712,10 +712,10 @@ curl --location --request GET 'https://{instance_ID}.{region}.secrets-manager.ap
         "secrets": [
             {
                 "created_at": "2020-08-04T10:05:41Z",
-                "crn": "crn:v1:staging:public:secret-manager:us-south:a/a2b41967b8284f612fd4b7fd00c39586:6291f1e2-c44d-45e4-8253-f776a2aa4986:secret:arbitrary:15bd3144-0b70-ef0f-f1ea-2c4469d14c19",
+                "crn": "crn:v1:bluemix:public:secret-manager:us-south:a/a2b41867c8294f612fd4c7fd10d39586:1ec90496-358e-4b51-b8b5-ecdcd44fb7dc:secret:arbitrary:49d8d88b-d2ee-4861-83f0-662172b550b5",
                 "description": "",
                 "expiration_date": "",
-                "id": "15bd3144-0b70-ef0f-f1ea-2c4469d14c19",
+                "id": "49d8d88b-d2ee-4861-83f0-662172b550b5",
                 "name": "dave",
                 "state": 1,
                 "stateDescription": "Active",
@@ -725,7 +725,7 @@ curl --location --request GET 'https://{instance_ID}.{region}.secrets-manager.ap
             },
             {
                 "created_at": "2020-08-04T10:11:59Z",
-                "crn": "crn:v1:staging:public:secret-manager:us-south:a/a2b41967b8284f612fd4b7fd00c39586:6291f1e2-c44d-45e4-8253-f776a2aa4986:secret:arbitrary:4ca0715e-c999-34ad-f393-a5f8843ba16a",
+                "crn": "crn:v1:bluemix:public:secret-manager:us-south:a/a2b41867c8294f612fd4c7fd10d39586:1ec90496-358e-4b51-b8b5-ecdcd44fb7dc:secret:arbitrary:4ca0715e-c999-34ad-f393-a5f8843ba16a",
                 "description": "",
                 "expiration_date": "",
                 "id": "4ca0715e-c999-34ad-f393-a5f8843ba16a",
@@ -764,10 +764,10 @@ curl --location --request GET 'https://{instance_ID}.{region}.secrets-manager.ap
         "secrets": [
             {
                 "created_at": "2020-08-04T10:05:41Z",
-                "crn": "crn:v1:staging:public:secret-manager:us-south:a/a2b41967b8284f612fd4b7fd00c39586:6291f1e2-c44d-45e4-8253-f776a2aa4986:secret:arbitrary:15bd3144-0b70-ef0f-f1ea-2c4469d14c19",
+                "crn": "crn:v1:bluemix:public:secret-manager:us-south:a/a2b41867c8294f612fd4c7fd10d39586:1ec90496-358e-4b51-b8b5-ecdcd44fb7dc:secret:arbitrary:49d8d88b-d2ee-4861-83f0-662172b550b5",
                 "description": "",
                 "expiration_date": "",
-                "id": "15bd3144-0b70-ef0f-f1ea-2c4469d14c19",
+                "id": "49d8d88b-d2ee-4861-83f0-662172b550b5",
                 "name": "dave",
                 "state": 1,
                 "stateDescription": "Active",
@@ -777,7 +777,7 @@ curl --location --request GET 'https://{instance_ID}.{region}.secrets-manager.ap
             },
             {
                 "created_at": "2020-08-04T10:11:59Z",
-                "crn": "crn:v1:staging:public:secret-manager:us-south:a/a2b41967b8284f612fd4b7fd00c39586:6291f1e2-c44d-45e4-8253-f776a2aa4986:secret:arbitrary:4ca0715e-c999-34ad-f393-a5f8843ba16a",
+                "crn": "crn:v1:bluemix:public:secret-manager:us-south:a/a2b41867c8294f612fd4c7fd10d39586:1ec90496-358e-4b51-b8b5-ecdcd44fb7dc:secret:arbitrary:4ca0715e-c999-34ad-f393-a5f8843ba16a",
                 "description": "",
                 "expiration_date": "",
                 "id": "4ca0715e-c999-34ad-f393-a5f8843ba16a",
