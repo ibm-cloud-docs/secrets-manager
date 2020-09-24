@@ -50,7 +50,7 @@ Consider the following service limits as you use {{site.data.keyword.secrets-man
 ## General limits
 {: #general-limits}
 
-Review the following table to understand the limits that apply to {{site.data.keyword.secrets-manager_short}} service instances.
+The following limits apply to {{site.data.keyword.secrets-manager_short}} service instances.
 
 | Resource | Limit|
 | --- | --- |
