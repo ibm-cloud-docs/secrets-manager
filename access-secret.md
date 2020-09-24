@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-09-24"
 
 keywords: access stored secrets, retrieve secrets, get secret value, get secrets, view secrets, search secrets, get secret value
 
@@ -59,7 +59,7 @@ For a high-level view of your secrets, you can use the {{site.data.keyword.secre
 
 1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
-3. In the Secrets table, use the search bar to search for secrets by name, secret type, or label.
+3. In the **Secrets** table, use the search bar to search for secrets by name, secret type, or label.
 
     You can also use the {{site.data.keyword.secrets-manager_short}} APIs to search for secrets programmatically by type. To find out more, check out the [API docs](/apidocs/secrets-manager){: external}.
 

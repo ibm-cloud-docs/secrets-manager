@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-09-24"
 
 keywords: secret engines, IAM secrets manager connection, Identity and access management, vault engine, dynamic secrets
 
@@ -84,10 +84,10 @@ To allow your {{site.data.keyword.cloud_notm}} API key to create and manage othe
 1. [Create a service ID](/docs/account?topic=account-serviceidapikeys).
 2. Manage access for the service ID.
 
-   1. From the  **Actions** menu, click **Manage service ID**.
+   1. From the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg), click **Manage service ID**.
    2. Click **Assign access**.
    3. Select the **Account management** tile.
-   4. For the **IAM Access Groups Service**, add **Editor** platform access.
+   4. For the **IAM Access Groups Service**, add Editor platform access.
    5. For the **IAM Identity Service**, add Operator platform access
    6. Review your selections, and click **Assign**.
 3. Create an API key for the service ID.
@@ -99,7 +99,7 @@ To allow your {{site.data.keyword.cloud_notm}} API key to create and manage othe
 4. Use the API key to configure the IAM secret engine.
 
    1. In a new browser tab, go to your instance of {{site.data.keyword.secrets-manager_short}}.
-   2. From the {{site.data.keyword.secrets-manager_short}} UI, go to the **Settings** page.
+   2. Go to the **Settings** page.
    3. In the IAM secret engine section, enter the {{site.data.keyword.cloud_notm}} API key that you created in a previous step.
    4. Click **Save** to complete the configuration and enable the engine.
 
