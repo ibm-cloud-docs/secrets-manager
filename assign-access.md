@@ -65,7 +65,7 @@ To assign access to a {{site.data.keyword.secrets-manager_short}} instance and i
 1. [Create an access group](/docs/account?topic=account-groups#create_ag) for the users and service IDs that you want to give access to and add those users to the group. 
    
    For example, you might have a group of security admins that might need the same level of access.
-2. After you create a group and add users, go to the **Manage > Access (IAM) > Access Groups** page of the console.
+2. After you create a group and add users, go to **Manage > Access (IAM) > Access Groups**.
 3. Select a table row, and click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) to open a list of options for that access group.
 4. Click **Assign access**.
 5. Select **IAM services**. 
