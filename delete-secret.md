@@ -60,7 +60,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually delet
 1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. Use the **Secrets** table to browse the secrets in your instance.
-4. In the row for the secret that you want to delete, click the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> Delete**.
+4. In the row for the secret that you want to delete, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Delete**.
 5. Enter the name of the secret to confirm its deletion.
 6. Click **Delete**.
 

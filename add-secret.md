@@ -76,7 +76,7 @@ To store a username and password by using the {{site.data.keyword.secrets-manage
      1. To set an expiration date for the secret, switch the expiration toggle to **Yes**.
      2. To rotate your secret at a 30, 60, or 90-day interval, switch the rotate toggle to **Yes**. 
 
-10. Click **Add** to store the secret.
+10. Click **Add**.
 
 ### Adding user credentials by using the API
 {: #user-credentials-api}
@@ -141,7 +141,7 @@ To create IAM credentials by using the {{site.data.keyword.secrets-manager_short
 9. Set a lease duration or time-to-live (TTL) for the secret. 
 
     By setting a lease duration for your IAM credential, you determine how long its associated API key remains valid. After the IAM credential reaches the end of its lease, it is revoked automatically.
-10. Click **Add** to store the secret.
+10. Click **Add**.
 
 ### Creating IAM credentials by using the API
 {: #iam-credentials-api}
@@ -201,7 +201,7 @@ To add an arbitrary secret by using the {{site.data.keyword.secrets-manager_shor
 8. Optional: Add labels to help you to search for similar secrets in your instance.
 9. Optional: Enable expiration and rotation options to control the lifespan of the secret.
      1. To set an expiration date for the secret, switch the expiration toggle to **Yes**.
-10. Click **Add** to store the secret.
+10. Click **Add**.
 
 ### Adding arbitrary secrets by using the API
 {: #arbitrary-api}
