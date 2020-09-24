@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-09-24"
 
 keywords: limits, known issues, secrets manager limits, Secrets Manager resource limitations
 
@@ -44,7 +44,7 @@ subcollection: secrets-manager
 # {{site.data.keyword.secrets-manager_short}} limits
 {: #limits}
 
-Consider the following limitations as you use {{site.data.keyword.secrets-manager_full}}.
+Consider the following service limits as you use {{site.data.keyword.secrets-manager_full}}.
 {: shortdesc}
 
 ## General limits

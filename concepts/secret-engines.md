@@ -84,7 +84,7 @@ To allow your {{site.data.keyword.cloud_notm}} API key to create and manage othe
 1. [Create a service ID](/docs/account?topic=account-serviceidapikeys).
 2. Manage access for the service ID.
 
-   1. From the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg), click **Manage service ID**.
+   1. From the **Actions** menu ![Actions icon](../../icons/actions-icon-vertical.svg), click **Manage service ID**.
    2. Click **Assign access**.
    3. Select the **Account management** tile.
    4. For the **IAM Access Groups Service**, add Editor platform access.
