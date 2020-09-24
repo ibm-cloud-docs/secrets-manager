@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-09-24"
 
 keywords: delete secret, remove secret, destroy secret
 
@@ -59,10 +59,10 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually delet
 
 1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
-3. In the {{site.data.keyword.secrets-manager_short}} UI, use the **Secrets** table to browse the secrets in your instance.
-4. Click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) to open a list of options for the secret that you want to delete.
-5. From the menu, click **Delete**.
-6. Enter the name of the secret to confirm its deletion.
+3. Use the **Secrets** table to browse the secrets in your instance.
+4. In the row for the secret that you want to delete, click the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> Delete**.
+5. Enter the name of the secret to confirm its deletion.
+6. Click **Delete**.
 
     After you delete a secret, the secret transitions to the _Destroyed_ state. Secrets in this state are no longer recoverable. Metadata that is associated with the secret, such as the secret's deletion date, is kept in the {{site.data.keyword.secrets-manager_short}} database.
 

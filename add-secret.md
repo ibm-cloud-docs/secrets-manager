@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-09-24"
 
 keywords: create secrets, add secrets, store secrets, single tenant secret storage, manage secrets 
 
@@ -64,12 +64,12 @@ To store a username and password by using the {{site.data.keyword.secrets-manage
 
 1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
-3. In the Secrets table, click **Add**.
+3. In the **Secrets** table, click **Add**.
 4. Select the **User credentials** tile.
-5. In the **Add user credentials** page, give your secret a name and description.
-6. From the list of [secret groups](#x9968962){:term}, select the group that you want to assign to the secret.
+5. Add a name and description to easily identify your secret.
+6. Select the [secret group](#x9968962){:term} that you want to assign to the secret.
 
-    Don't have a secret group yet? In the Secret group field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
+    Don't have a secret group yet? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 7. Enter the username and password that you want to associate with the secret.
 8. Optional: Add labels to help you to search for similar secrets in your instance.
 9.  Optional: Enable expiration and rotation options to control the lifespan of the secret.
@@ -128,12 +128,12 @@ To create IAM credentials by using the {{site.data.keyword.secrets-manager_short
 
 1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
-3. In the Secrets table, click **Add**.
+3. In the **Secrets** table, click **Add**.
 4. Select the **IAM credentials** tile.
-5. In the **Create IAM credentials** page, give your secret a name and description.
-6. From the list of [secret groups](#x9968962){:term}, select the group that you want to assign to the secret.
+5. Add a name and description to easily identify your secret.
+6. Select the [secret group](#x9968962){:term} that you want to assign to the secret.
 
-    Don't have a secret group yet? In the Secret group field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
+    Don't have a secret group yet? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 7. Click **Select access group** to determine the scope of access for your IAM credential.
 
     By selecting an access group from your {{site.data.keyword.cloud_notm}} account, you determine the scope of access to assign to the service ID that is dynamically generated and associated with your new IAM credential. This step ensures that your IAM credentials are scoped with the wanted level of permissions in your {{site.data.keyword.cloud_notm}} account.
@@ -191,12 +191,12 @@ To add an arbitrary secret by using the {{site.data.keyword.secrets-manager_shor
 
 1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
-3. In the Secrets table, click **Add**.
+3. In the **Secrets** table, click **Add**.
 4. Select the **Other secret type** tile.
-5. In the **Add arbitrary secret** page, give your secret a name and description.
-6. From the list of [secret groups](#x9968962){:term}, select the group that you want to assign to the secret.
+5. Add a name and description to easily identify your secret.
+6. Select the [secret group](#x9968962){:term} that you want to assign to the secret.
 
-    Don't have a secret group yet? In the Secret group field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
+    Don't have a secret group yet? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 7. Select a file or enter the secret value that you want to associate with the secret.
 8. Optional: Add labels to help you to search for similar secrets in your instance.
 9. Optional: Enable expiration and rotation options to control the lifespan of the secret.
