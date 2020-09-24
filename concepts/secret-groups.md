@@ -76,11 +76,10 @@ You can create secret groups by using the console. You can also create a secret 
 
 1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
-3. In the {{site.data.keyword.secrets-manager_short}} UI, go to the **Secret groups** page.
-4. Click **Add**.
-5. Enter a name and description for your group.
-6. Click **Create**.
-7. Optional: Assign your secret group an [IAM policy](/docs/secrets-manager?topic=secrets-manager-assign-access).
+3. In the navigation, click **Secret groups > Create**.
+4. Add a name and description to easily identify your group.
+5. Click **Create**.
+6. Optional: Assign your secret group an [IAM policy](/docs/secrets-manager?topic=secrets-manager-assign-access).
 
 
 ### Creating secret groups with the API
