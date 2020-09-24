@@ -1,8 +1,8 @@
-<staging>---
+---
 
 copyright:
   years: 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-09-24"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets, 
 
