@@ -55,7 +55,7 @@ The following table lists the secret engines that are enabled for your instance 
 | ---- | ---- |
 | [User credentials](/docs/secrets-manager?topic=secrets-manager-secret-basics#user-credentials) | Stores a username and password that you can use to log in or access an application or resource. |
 | [Arbitrary text](/docs/secrets-manager?topic=secrets-manager-secret-basics#arbitrary-text) | Stores a custom secret, such as any structured or unstructured data, that you can use to access an application or resource. |
-{: caption="Table 1. Secret engines avilable by default" caption-side="top"}
+{: caption="Table 1. Secret engines that are available by default" caption-side="top"}
 
 
 
@@ -69,7 +69,7 @@ The following table lists the secret engines that are disabled for your instance
 | Engine type | Description |
 |:------------|:------------|
 | [IAM credentials](/docs/secrets-manager?topic=secrets-manager-secret-basics#iam-credentials) | Creates a service ID and an API key that you can use to access an {{site.data.keyword.cloud_notm}} resource. |
-{: caption="Table 2. Configurable secret types" caption-side="top"}
+{: caption="Table 2. Secret engines that are disabled by default" caption-side="top"}
 
 ### Enabling the IAM secret engine
 {: #configure-iam-engine}
