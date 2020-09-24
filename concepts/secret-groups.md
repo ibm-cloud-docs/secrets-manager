@@ -141,4 +141,3 @@ curl -X DELETE "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/a
   -H "Accept: application/json" 
 ```
 {: pre}
-
