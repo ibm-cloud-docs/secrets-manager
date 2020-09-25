@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-24"
+lastupdated: "2020-09-25"
 
 keywords: limits, known issues, secrets manager limits, Secrets Manager resource limitations
 
@@ -55,8 +55,8 @@ The following limits apply to {{site.data.keyword.secrets-manager_short}} servic
 | Resource | Limit|
 | --- | --- |
 | {{site.data.keyword.secrets-manager_short}} service instances | 1 per {{site.data.keyword.cloud_notm}} account |
-| Total secret groups | Up to 200 per {{site.data.keyword.secrets-manager_short}} service instance |
-| Total secrets | Unlimited |
+| Total secret groups | 200 per {{site.data.keyword.secrets-manager_short}} service instance |
+| Total secrets | - |
 {: caption="Table 1. Limits that apply to the {{site.data.keyword.secrets-manager_short}} service" caption-side="top"}
 
 ## Secret limits
@@ -74,8 +74,8 @@ The following limits apply to user credentials.
 | Name | 2 - 50 characters</br></br>The name of the secret can only contain alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
 | Description | 2 - 240 characters |
 | Username | 2 - 64 characters |
-| Password | Up to 64 characters |
-| Total versions | Up to 50 versions per secret |
+| Password | 64 characters |
+| Total versions | 50 versions per secret |
 {: caption="Table 2. Limits that apply to user credentials" caption-side="top"}
 
 ### Limits for IAM credentials
@@ -87,7 +87,7 @@ The following limits apply to IAM credentials.
 | --- | --- |
 | Name | 2 - 50 characters</br></br>The name of the secret can only contain alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
 | Description | 2 - 240 characters |
-| Maximum lease duration | Up to 90 days |
+| Maximum lease duration | 90 days |
 {: caption="Table 3. Limits that apply to IAM credentials" caption-side="top"}
 
 ### Limits for arbitrary secrets
@@ -99,8 +99,8 @@ The following limits apply to arbitrary secrets.
 | --- | --- |
 | Name | 2 - 50 characters</br></br>The name of the secret can only contain alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
 | Description | 2 - 240 characters |
-| Secret value | Up to 1 MB |
-| Total versions | Up to 50 versions per secret |
+| Secret value | 1 MB |
+| Total versions | 50 versions per secret |
 {: caption="Table 4. Limits that apply to arbitrary secrets" caption-side="top"}
 
 ## Secret group limits
@@ -111,6 +111,6 @@ Review the following table to understand the limits that apply to secret groups.
 | Attribute | Limit |
 | --- | --- |
 | Name | 2 - 64 characters |
-| Description | Up to 1024 characters |
-| Total secrets | Unlimited |
+| Description | 1024 characters |
+| Total secrets | - |
 {: caption="Table 4. Limits that apply to secret groups" caption-side="top"}
