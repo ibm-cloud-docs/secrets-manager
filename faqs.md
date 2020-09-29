@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-28"
+lastupdated: "2020-09-29"
 
 keywords: faqs, Frequently Asked Questions, question, Secrets Manager, dynamic what is a secret, what is an arbitrary secret, what is an IAM credential, arbitrary secret, IAM credential, what happens when secret expires 
 
@@ -79,7 +79,7 @@ A secret group is a means to organize and control access to the secrets that you
 {: #faq-credential}
 {: faq}
 
-An IAM credential is a type of dynamic secret that you can use to access an {{site.data.keyword.cloud_notm}} resource that requires IAM authentication. When you create an IAM credential through {{site.data.keyword.secrets-manager_short}}, the service creates a service ID and an API key on your behalf. For more information about creating and storing IAM credentials, see [Creating IAM credentials](/docs/secrets-manager?topic=secrets-manager-store-secrets#store-user-credentials)
+An IAM credential is a type of dynamic secret that you can use to access an {{site.data.keyword.cloud_notm}} resource that requires IAM authentication. When you create an IAM credential through {{site.data.keyword.secrets-manager_short}}, the service creates a service ID and an API key on your behalf. For more information about creating and storing IAM credentials, see [Creating IAM credentials](/docs/secrets-manager?topic=secrets-manager-store-secrets#store-user-credentials).
 
 
 ## What happens when I rotate my secret?
@@ -89,7 +89,7 @@ An IAM credential is a type of dynamic secret that you can use to access an {{si
 
 When a secret is rotated, a new version of its value becomes available for use. You can choose to manually add a value or automatically generate one at regular intervals by enabling automatic rotation. The previous values are stored by the service and can be retrieved by using the {{site.data.keyword.secrets-manager_short}} APIs if you ever need to audit the version history of your secret. 
 
-For more information about secret rotation, see [Rotating secrets](/docs/secrets-manager?topic=secrets-manager-rotate-secrets)
+For more information about secret rotation, see [Rotating secrets](/docs/secrets-manager?topic=secrets-manager-rotate-secrets).
 
 ## What happens when my secret expires?
 {: #faq-secret-expire}
