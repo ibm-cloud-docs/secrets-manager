@@ -58,8 +58,6 @@ A secret is a piece of sensitive information. For example, a secret might be a u
 
 In addition to the static secrets described, there are other types of secrets that you might work with in the {{site.data.keyword.secrets-manager_short}} service. To learn more about secret types, check out [Types of secrets](/docs/secrets-manager?topic=secrets-manager-secret-basics#secret-types).
 
-
-
 ## What is a secret engine?
 {: #faq-secret-engine}
 {: faq}

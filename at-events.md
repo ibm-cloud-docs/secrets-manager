@@ -1,8 +1,8 @@
-<staging>---
+---
 
 copyright:
   years: 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-09-30"
 
 keywords: activity tracker events for Secrets Manager, events, Secrets Manager actions
 
