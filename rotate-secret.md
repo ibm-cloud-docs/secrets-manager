@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-24"
+lastupdated: "2020-10-05"
 
 keywords: rotate secrets, manually rotate, new secret, automatically rotate, automatic rotation, set rotation policy
 
@@ -115,7 +115,7 @@ Currently, you can enable automatic rotation only for the user credentials (`use
 
 You can enable automatic rotation for your secret at its creation, or by editing the details of an existing secret. Choose between a 30, 60, or 90-day rotation interval.
 
-If you need more control over the rotation frequency of a secret, you can use the {{site.data.keyword.secrets-manager_short}} API to set an interval by using a different unit of time, such as `minute`, `day`, or `month`. For more information, see [Set secret policies](/apidocs/secrets-manager#put-policy){: external}.
+If you need more control over the rotation frequency of a secret, you can use the {{site.data.keyword.secrets-manager_short}} API to set a custom interval by using `day` or `month` units of time. For more information, see [Set secret policies](/apidocs/secrets-manager#put-policy){: external}.
 {: tip}
 
 1. If you're [adding a secret](/docs/secrets-manager?topic=secrets-manager-store-secrets#user-credentials-ui), enable the rotation option by selecting a 30, 60, or 90-day rotation interval.
