@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-10-05"
 
 keywords: IAM access for Secrets Manager, permissions for Secrets Manager, identity and access management for Secrets Manager, roles for Secrets Manager, actions for Secrets Manager, assigning access for Secrets Manager
 
@@ -55,7 +55,7 @@ Policies enable access to be granted at different levels. Some of the options in
 After you define the scope of the access policy, you assign a role, which determines the user's level of access. Review the following tables that outline what actions each role allows within the {{site.data.keyword.secrets-manager_short}} service.
 
 ## Platform roles
-{: #secret-manager-platform-roles}
+{: #platform-roles}
 
 Use platform roles to grant access to {{site.data.keyword.secrets-manager_short}} at the platform level, such as the ability to create or delete instances or assign user access to {{site.data.keyword.secrets-manager_short}} in your IBM Cloud account.
 
@@ -72,7 +72,7 @@ The following table shows how platform roles map to {{site.data.keyword.secrets-
 {: summary="The rows are read from left to right. The first column is the platform management role. The second column is a description of the actions in the service that the platform management role permits."}
 
 ## Service roles
-{: #secret-manager-service-roles}
+{: #service-roles}
 
 Use service roles to grant access to {{site.data.keyword.secrets-manager_short}} at the instance level, such as the ability to view, create, or delete secrets and secret groups. 
 
