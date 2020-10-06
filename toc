@@ -11,6 +11,8 @@ Secrets Manager (Beta)
     {: .topicgroup}
     Best practices
         best-practices/secret-mgmt.md
+
+    integrations.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
