@@ -31,13 +31,13 @@ Secrets Manager (Beta)
         delete-secret.md
 
     concepts/secret-groups.md
+    ha-dr.md
 
     {: .topicgroup}
     Enhancing security
         iam.md
         architecture-workload-isolation.md
         data-security.md
-        ha-dr.md
         at-events.md
     {: .navgroup-end}
 
