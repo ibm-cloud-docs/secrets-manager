@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-24"
+lastupdated: "2020-10-07"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -41,7 +41,7 @@ subcollection: secrets-manager
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
 
-# Using the Vault APIs
+# Using the Vault API
 {: #vault-api}
 
 If you're already using the HashiCorp Vault HTTP API, you can use its API format and guidelines to interact with {{site.data.keyword.secrets-manager_full}}.
