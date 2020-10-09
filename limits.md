@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-07"
+lastupdated: "2020-10-09"
 
 keywords: limits, known issues, secrets manager limits, Secrets Manager resource limitations
 
@@ -86,8 +86,8 @@ The following limits apply to IAM credentials.
 | Attribute | Limit |
 | --- | --- |
 | Name | 2 - 50 characters</br></br>The name of the secret can only contain alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
-| Description | 2 - 240 characters |
-| Access groups | 1 - 10 groups |
+| Description | 2 - 240 characters |</staging>
+| Access groups | 1 - 10 groups |</staging>
 | Maximum lease duration | 90 days |
 {: caption="Table 3. Limits that apply to IAM credentials" caption-side="top"}
 
