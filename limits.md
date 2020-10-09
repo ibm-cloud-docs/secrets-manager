@@ -86,8 +86,7 @@ The following limits apply to IAM credentials.
 | Attribute | Limit |
 | --- | --- |
 | Name | 2 - 50 characters</br></br>The name of the secret can only contain alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
-| Description | 2 - 240 characters |</staging>
-| Access groups | 1 - 10 groups |</staging>
+| Description | 2 - 240 characters |
 | Maximum lease duration | 90 days |
 {: caption="Table 3. Limits that apply to IAM credentials" caption-side="top"}
 
