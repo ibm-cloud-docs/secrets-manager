@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-24"
+lastupdated: "2020-10-09"
 
 keywords: create secrets, add secrets, store secrets, single tenant secret storage, manage secrets 
 
@@ -136,7 +136,7 @@ To create IAM credentials by using the {{site.data.keyword.secrets-manager_short
     Don't have a secret group yet? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 7. Click **Select access group** to determine the scope of access for your IAM credential.
 
-    By selecting an access group from your {{site.data.keyword.cloud_notm}} account, you determine the scope of access to assign to the service ID that is dynamically generated and associated with your new IAM credential. This step ensures that your IAM credentials are scoped with the wanted level of permissions in your {{site.data.keyword.cloud_notm}} account.
+    By selecting an access group from your {{site.data.keyword.cloud_notm}} account, you determine the scope of access to assign to the service ID that is dynamically generated and associated with your new IAM credential. This step ensures that your IAM credentials are scoped with the wanted level of permissions in your {{site.data.keyword.cloud_notm}} account. 
 8. Optional: Add labels to help you to search for similar secrets in your instance.
 9. Set a lease duration or time-to-live (TTL) for the secret. 
 

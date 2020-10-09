@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-05"
+lastupdated: "2020-10-07"
 
 keywords: IAM access for Secrets Manager, permissions for Secrets Manager, identity and access management for Secrets Manager, roles for Secrets Manager, actions for Secrets Manager, assigning access for Secrets Manager
 
@@ -74,7 +74,7 @@ The following table shows how platform roles map to {{site.data.keyword.secrets-
 ## Service roles
 {: #service-roles}
 
-Use service roles to grant access to {{site.data.keyword.secrets-manager_short}} at the instance level, such as the ability to view, create, or delete secrets and secret groups. 
+You can use service roles to grant access to {{site.data.keyword.secrets-manager_short}} at the instance level, such as the ability to view, create, or delete secrets and secret groups. 
 
 The following table shows how service roles map to {{site.data.keyword.secrets-manager_short}} actions.
 

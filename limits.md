@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-25"
+lastupdated: "2020-10-09"
 
 keywords: limits, known issues, secrets manager limits, Secrets Manager resource limitations
 
