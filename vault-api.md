@@ -100,7 +100,7 @@ This API follows the Vault HTTP API guidelines. All field names are formatted in
 ## Methods
 {: #vault-api-methods}
 
-### Configure a Vault login token
+### Configure a login token
 {: #vault-configure-login-token}
 
 Configures the duration or time-to-live (TTL) and lifespan (MaxTTL) of a Vault login token. 
@@ -119,15 +119,6 @@ Use a duration string such as `300s` or `2h45m`. Valid time units are `s`, `m`, 
 
 #### Sample request
 {: #vault-configure-login-token-request}
-
-Using the CLI:
-
-```sh
-vault write auth/ibmcloud/manage/login token_ttl=30m token_max_ttl=2h
-```
-{: pre}
-
-Using the API:
 
 ```sh
 curl --location --request PUT 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/login' \
