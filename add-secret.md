@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-09"
+lastupdated: "2020-10-20"
 
 keywords: create secrets, add secrets, store secrets, single tenant secret storage, manage secrets 
 
@@ -179,7 +179,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
 
-## Storing custom secrets
+## Storing arbitrary secrets
 {: #store-arbitrary-secrets}
 
 You can use {{site.data.keyword.secrets-manager_short}} to store arbitrary or custom secrets, such as API keys, that you can use inside or outside of {{site.data.keyword.cloud_notm}}.
