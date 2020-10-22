@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-06"
+lastupdated: "2020-10-22"
 
 keywords: Secrets Manager integrations, enable integration, service to service, grant access between services
 
@@ -56,7 +56,7 @@ The following table lists the services that can be authorized to work with {{sit
 
 | Service | Description |
 | ------------------ | ----------- |
-| [Catalog management](/docs/account?topic=account-create-private-catalog#using-secrets-manager) | Centrally manage access to products in the {{site.data.keyword.cloud_notm}} catalog by creating and customizing private catalogs.    |
+| [Catalog management](/docs/account?topic=account-create-private-catalog) | Centrally manage access to products in the {{site.data.keyword.cloud_notm}} catalog by creating and customizing private catalogs.    |
 {: caption="Table 1. Available integrations" caption-side="top"}
 
 ## Creating an authorization between {{site.data.keyword.secrets-manager_short}} and another service

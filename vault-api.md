@@ -100,7 +100,7 @@ This API follows the Vault HTTP API guidelines. All field names are formatted in
 ## Methods
 {: #vault-api-methods}
 
-### Configure a Vault login token
+### Configure a login token
 {: #vault-configure-login-token}
 
 Configures the duration or time-to-live (TTL) and lifespan (MaxTTL) of a Vault login token. 
@@ -120,15 +120,6 @@ Use a duration string such as `300s` or `2h45m`. Valid time units are `s`, `m`, 
 #### Sample request
 {: #vault-configure-login-token-request}
 
-Using the CLI:
-
-```sh
-vault write auth/ibmcloud/manage/login token_ttl=30m token_max_ttl=2h
-```
-{: pre}
-
-Using the API:
-
 ```sh
 curl --location --request PUT 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/login' \
 --header 'Accept: application/json' \
@@ -146,22 +137,13 @@ curl --location --request PUT 'https://{instance_ID}.{region}.secrets-manager.ap
 
 This operation returns `HTTP 204 No Content`.
 
-### Read the configuration of a Vault login token
+### Read the configuration of a login token
 {: #vault-read-token-config}
 
 Reads the login configuration of a Vault token.
 
 #### Sample request
 {: #vault-read-token-config-request}
-
-Using the CLI:
-
-```sh
-vault read -format=json  auth/ibmcloud/manage/login
-```
-{: pre}
-
-Using the API:
 
 ```sh
 curl --location --request GET 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/login' \
@@ -207,15 +189,6 @@ Logs in to Vault by using an {{site.data.keyword.cloud_notm}} IAM token and obta
 
 #### Sample request
 {: #vault-login-request}
-
-Using the CLI:
-
-```sh
-vault write auth/ibmcloud/login token={iam_token}
-```
-{: pre}
-
-Using the API:
 
 ```sh
 curl --location --request PUT 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/login' \
@@ -277,22 +250,13 @@ Creates a secret group.
 
 <dl>
     <dt><code>name</code></dt>
-    <dd>The human-readable alias that you want to assign to the secret group. The name must start and end with an alphanumeric character. The name must be between 2 - 64 characters.</dd>
+    <dd>The human-readable alias that you want to assign to the secret group.</dd>
     <dt><code>description</code></dt> 
-    <dd>(Optional) An extended description of the secret group. The description can't exceed 1024 characters.</dd>
+    <dd>(Optional) An extended description of the secret group.</dd>
 </dl>
 
 #### Sample request
 {: #vault-create-secret-group-request}
-
-Using the CLI:
-
-```sh
-vault write auth/ibmcloud/manage/groups name={name} description={description}
-```
-{: pre}
-
-Using the API:
 
 ```sh
 curl --location --request PUT 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/groups' \
@@ -337,15 +301,6 @@ Lists the secret groups that are available in your {{site.data.keyword.secrets-m
 
 #### Sample request
 {: #vault-list-secret-groups-request}
-
-Using the CLI:
-
-```sh
-vault read -format=json auth/ibmcloud/manage/groups
-```
-{: pre}
-
-Using the API:
 
 ```sh
 curl --location --request GET 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/groups' \
@@ -394,22 +349,13 @@ Updates the details of an existing secret group.
     <dt><code>id</code></dt>
     <dd>The ID of the secret group.</dd>
     <dt><code>name</code></dt>
-    <dd>The human-readable alias that you want to assign to the secret group. The name must start and end with an alphanumeric character. The name must be between 2 - 64 characters.</dd>
+    <dd>The human-readable alias that you want to assign to the secret group.</dd>
     <dt><code>description</code></dt> 
-    <dd>(Optional) An extended description of the secret group. The description can't exceed 1024 characters.</dd>
+    <dd>(Optional) An extended description of the secret group.</dd>
 </dl>
 
 #### Sample request
 {: #vault-update-secret-group-request}
-
-Using the CLI:
-
-```sh
-vault write auth/ibmcloud/manage/groups/{id} name={name} description={description}
-```
-{: pre}
-
-Using the API:
 
 ```sh
 curl --location --request POST 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/groups/{id}' \
@@ -463,15 +409,6 @@ Retrieves a secret group and its details.
 #### Sample request
 {: #vault-get-secret-group-request}
 
-Using the CLI:
-
-```sh
-vault read -format=json auth/ibmcloud/manage/groups/{id} 
-```
-{: pre}
-
-Using the API:
-
 ```sh
 curl --location --request GET 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/groups/{id}' \
 --header 'Accept: application/json' \
@@ -519,15 +456,6 @@ Deletes a secret group.
 #### Sample request
 {: #vault-delete-secret-group-request}
 
-Using the CLI:
-
-```sh
-vault delete auth/ibmcloud/manage/groups/{id} 
-```
-{: pre}
-
-Using the API:
-
 ```sh
 curl --location --request DELETE 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/groups/9894c07f-89aa-920f-447e-82c32b2200ae' \
 --header 'Accept: application/json' \
@@ -566,21 +494,7 @@ Creates a secret by using the {{site.data.keyword.secrets-manager_short}} secret
 #### Sample requests and responses
 {: #vault-create-secret-request-response}
 
-Create a secret in the `default` secret group by using the CLI:
-
-```sh
-vault write ibmcloud/{secret_type}/secrets params
-```
-{: pre}
-
-Create a secret in an existing secret group by using the CLI:
-
-```sh
-vault write ibmcloud/{secret_type}/secrets/groups/{group_id} params
-```
-{: pre}
-
-Create a secret in the `default` secret group by using the API:
+Create a secret in the `default` secret group:
 
 ```sh
 curl --location --request PUT 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets' \
@@ -627,7 +541,7 @@ curl --location --request PUT 'https://{instance_ID}.{region}.secrets-manager.ap
 ```
 {: screen}
 
-Create a secret in an existing secret group by using the API:
+Create a secret in an existing secret group:
 
 ```sh
 curl --location --request PUT 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/groups/c481f146-aa9f-5b9b-55b7-f9fd326027cd' \
@@ -683,21 +597,7 @@ Retrieve a list of secrets that are available in a {{site.data.keyword.secrets-m
 #### Sample requests and responses
 {: #vault-list-secrets-request-response}
 
-List all secrets by using the CLI:
-
-```sh
-vault read ibmcloud/{secret_type}/secrets
-```
-{: pre}
-
-List secrets in a secret group by using the CLI:
-
-```sh
-vault read ibmcloud/{secret_type}/secrets/groups/{group_id}
-```
-{:pre}
-
-List all secrets by using the API:
+List all secrets:
 
 ```sh
 curl --location --request GET 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets' \
@@ -749,7 +649,7 @@ curl --location --request GET 'https://{instance_ID}.{region}.secrets-manager.ap
 ```
 {: screen}
 
-List secrets in a secret group by using the API:
+List secrets in a secret group:
 
 ```sh
 curl --location --request GET 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/groups/c481f146-aa9f-5b9b-55b7-f9fd326027cd' \
@@ -809,21 +709,7 @@ Deletes a secret from a {{site.data.keyword.secrets-manager_short}} Vault secret
 #### Sample requests and responses
 {: #vault-delete-secret-request-response}
 
-Delete a secret in the `default` secret group by using the CLI:
-
-```sh
-vault delete ibmcloud/{secret_type}/secrets/{secret_id}
-```
-{: pre}
-
-Delete a secret in an existing secret group by using the CLI:
-
-```sh
-vault write ibmcloud/{secret_type}/secrets/groups/{group_id}/{secret_id}
-```
-{: pre}
-
-Delete a secret in the `default` secret group by using the API:
+Delete a secret in the `default` secret group:
 
 ```sh
 curl --location --request DELETE 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/{secret_id}' \
