@@ -15,10 +15,6 @@ Secrets Manager (Beta)
     integrations.md
     {: .navgroup-end}
 
-    {: .navgroup id="tutorial"}
-    tutorials/access-storage.md
-    {: .navgroup-end}
-
     {: .navgroup id="howto"}
     {: .topicgroup}
     Setting up the service
