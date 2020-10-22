@@ -47,6 +47,14 @@ Secrets Manager (Beta)
         [Secrets Manager API](https://{DomainName}/apidocs/secrets-manager){: external}
         vault-api.md
 
+    {: topicgroup}
+    CLI reference
+
+        {: topicgroup}
+        Vault CLI
+            vault-cli-configure.md                                            
+            vault-cli.md
+
     endpoints.md
     limits.md
     {: .navgroup-end}
