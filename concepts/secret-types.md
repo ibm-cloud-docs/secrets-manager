@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-24"
+lastupdated: "2020-10-23"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets, 
 
@@ -55,7 +55,7 @@ To learn more about the general characteristics of a secret, check out the follo
 
 ![What is Secrets Management?](https://www.youtube.com/embed/iETENR5MEB8){: video output="iframe" data-script="#secrets-mgmt-video-transcript" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
-#### Video transcript
+## Video transcript
 {: #secrets-mgmt-video-transcript}
 {: notoc}
 
