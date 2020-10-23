@@ -284,7 +284,7 @@ You need the [**Reader** service role](/docs/secrets-manager?topic=secrets-manag
 
 <dl>
   <dt><code>SECRET_GROUP_ID</code></dt>
-  <dd>The ID of the secret group that you want to update.</dd>
+  <dd>The ID of the secret group that you want to retrieve.</dd>
   <dt>-format</dt>
   <dd>Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
 </dl>
@@ -1458,7 +1458,7 @@ vault delete ibmcloud/SECRET_ENGINE/roles/ROLE_ID
 
 Delete a role that's assigned to a secret group.
 ```
-vault write delete ibmcloud/SECRET_ENGINE/roles/groups/SECRET_GROUP_ID/ROLE_ID
+vault delete ibmcloud/SECRET_ENGINE/roles/groups/SECRET_GROUP_ID/ROLE_ID
 ```
 
 #### Prerequisites
