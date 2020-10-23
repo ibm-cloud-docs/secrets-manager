@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-22"
+lastupdated: "2020-10-23"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -160,7 +160,7 @@ The command returns the following output:
 Use this command to create a secret group.
 
 ```
-vault write auth/ibmcloud/manage/groups name=NAME [description="DESCRIPTION"]
+vault write [-format=FORMAT] auth/ibmcloud/manage/groups name=NAME [description="DESCRIPTION"]
 ```
 
 #### Prerequisites
@@ -176,6 +176,8 @@ You need the [**Manager** service role](/docs/secrets-manager?topic=secrets-mana
     <dd>The human-readable alias that you want to assign to the secret group.</dd>
     <dt><code>DESCRIPTION</code></dt> 
     <dd>(Optional) An extended description of the secret group.</dd>
+    <dt>-format</dt>
+    <dd>Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
 </dl>
    
 #### Examples
@@ -222,8 +224,8 @@ You need the [**Reader** service role](/docs/secrets-manager?topic=secrets-manag
 {: #vault-cli-list-secret-groups-options}
 
 <dl>
-<dt>-format</dt>
-<dd>Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
+  <dt>-format</dt>
+  <dd>Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
 </dl>
    
 #### Examples
@@ -269,7 +271,7 @@ The command returns the following output:
 Use this command to get the details of a secret group.
 
 ```
-vault read [-format=FORMAT] auth/ibmcloud/manage/groups/{id}
+vault read [-format=FORMAT] auth/ibmcloud/manage/groups/SECRET_GROUP_ID
 ```
 
 #### Prerequisites
@@ -281,8 +283,10 @@ You need the [**Reader** service role](/docs/secrets-manager?topic=secrets-manag
 {: #vault-cli-get-secret-group-options}
 
 <dl>
-<dt>-format</dt>
-<dd>Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
+  <dt><code>SECRET_GROUP_ID</code></dt>
+  <dd>The ID of the secret group that you want to update.</dd>
+  <dt>-format</dt>
+  <dd>Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
 </dl>
    
 #### Examples
@@ -324,7 +328,7 @@ The command returns the following output:
 Use this command to update a secret group.
 
 ```
-vault write auth/ibmcloud/manage/groups/{id} name=NAME [description="DESCRIPTION"]
+vault write [-format=FORMAT] auth/ibmcloud/manage/groups/SECRET_GROUP_ID name=NAME [description="DESCRIPTION"]
 ```
 
 
@@ -337,10 +341,14 @@ You need the [**Manager** service role](/docs/secrets-manager?topic=secrets-mana
 {: #vault-cli-update-secret-group-options}
 
 <dl>
+    <dt><code>SECRET_GROUP_ID</code></dt>
+    <dd>The ID of the secret group that you want to update.</dd>
     <dt><code>NAME</code></dt>
     <dd>The human-readable alias that you want to assign to the secret group.</dd>
     <dt><code>DESCRIPTION</code></dt> 
     <dd>(Optional) An extended description of the secret group.</dd>
+    <dt>-format</dt>
+    <dd>Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
 </dl>
    
 #### Examples
