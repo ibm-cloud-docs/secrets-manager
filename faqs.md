@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-29"
+lastupdated: "2020-10-26"
 
 keywords: faqs, Frequently Asked Questions, question, Secrets Manager, dynamic what is a secret, what is an arbitrary secret, what is an IAM credential, arbitrary secret, IAM credential, what happens when secret expires 
 
@@ -77,7 +77,7 @@ A secret group is a means to organize and control access to the secrets that you
 {: #faq-credential}
 {: faq}
 
-An IAM credential is a type of dynamic secret that you can use to access an {{site.data.keyword.cloud_notm}} resource that requires IAM authentication. When you create an IAM credential through {{site.data.keyword.secrets-manager_short}}, the service creates a service ID and an API key on your behalf. For more information about creating and storing IAM credentials, see [Creating IAM credentials](/docs/secrets-manager?topic=secrets-manager-store-secrets#store-user-credentials).
+An IAM credential is a type of dynamic secret that you can use to access an {{site.data.keyword.cloud_notm}} resource that requires IAM authentication. When you create an IAM credential through {{site.data.keyword.secrets-manager_short}}, the service creates a service ID and an API key on your behalf. For more information about creating and storing IAM credentials, see [Creating IAM credentials](/docs/secrets-manager?topic=secrets-manager-store-secrets#store-iam-credentials).
 
 
 ## What happens when I rotate my secret?
@@ -97,4 +97,15 @@ For more information about secret rotation, see [Rotating secrets](/docs/secrets
 If you are storing an arbitrary secret or user credentials, you can choose to set the date and time at which your secret expires. When the secret reaches its expiration date, it transitions to a *Destroyed* state. When that happens, the value that is associated with the secret is no longer recoverable.
 
 For more information about how your information is protected, see [Securing your data](/docs/secrets-manager?topic=secrets-manager-mng-data).
+
+## How is {{site.data.keyword.secrets-manager_short}} different from {{site.data.keyword.keymanagementserviceshort}}?
+{: #faq-differences-key-protect}
+{: faq}
+
+There are a few key differences between using {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.secrets-manager_short}} to store your sensitive data. {{site.data.keyword.secrets-manager_short}} offers flexibility with the types of secrets that you can create and lease to applications and services on-demand. Whereas, {{site.data.keyword.keymanagementserviceshort}} delivers on encryption keys that are rooted in FIPS 140-2 Level 3 [hardware security modules (HSMs)](#x6704988){: term}.
+
+Consider the following differences:
+
+- {{site.data.keyword.keymanagementserviceshort}} is a multi-tenant service that is designed for storage of symmetric encryption keys. The keys that you manage in {{site.data.keyword.keymanagementserviceshort}} are stored in FIPS-validated HSMs. 
+- {{site.data.keyword.secrets-manager_short}} is a single-tenant service that helps you to store and manage all types of sensitive data, including symmetric keys. However, the secrets that you manage in {{site.data.keyword.secrets-manager_short}} aren't stored in an HSM. Instead, your secrets are offloaded securely to Cloud Object Storage, where they are encrypted at rest with your root key. 
 
