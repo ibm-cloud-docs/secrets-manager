@@ -863,7 +863,7 @@ vault write -format=json ibmcloud/username_password/secrets/cb32abc1-2a4b-e0fd-f
 ```
 {:pre}
 
-Replace the password that is stored for a `username_password` secret with a randomnly generated 32-character password.
+Replace the password that is stored for a `username_password` secret with a randomly generated 32-character password.
 
 ```
 vault write -format=json -force ibmcloud/username_password/secrets/cb32abc1-2a4b-e0fd-f403-233e5249e130/rotate
