@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-23"
+lastupdated: "2020-10-26"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -843,7 +843,7 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
     <dt>-format</dt>
     <dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
     <dt>-force</dt>
-    <dd>(Optional) Replaces the password that is stored for a `username_password` secret with a randomnly generated, 32-character password that contains upercase letters, lowercase letters, digits, and symbols.</dd>
+    <dd>(Optional) Replaces the password that is stored for a `username_password` secret with a randomly generated, 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.</dd>
 </dl>
    
 #### Examples
