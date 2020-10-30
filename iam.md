@@ -86,8 +86,8 @@ The following table describes the types tasks that can be completed when each se
 
 | Service role | Description of actions | 
 |---------------------|------------------------|
-| Reader             | As a reader, you can perform read-only actions within {{site.data.keyword.secrets-manager_short}}, such as viewing service-specific resources, but you can't view or retrieve the payload of a secret.  | 
-| SecretsReader | As a secrets reader, you can perform read-only actions, and you can view or retrieve the payload of a secret. |
+| Reader             | As a reader, you can perform read-only actions within {{site.data.keyword.secrets-manager_short}}, such as viewing service-specific resources. Readers can't access the payload of a secret.  | 
+| SecretsReader | As a secrets reader, you can perform read-only actions, and you can access the payload of a secret. A secrets reader can't create secrets or modify the value of an existing secret. |
 | Writer            | As a writer, you have permissions beyond the reader role, including the ability to create and edit service-specific resources. Writers can't create secret groups, manage the rotation policies of a secret, or configure secret engines.           |
 | Manager             | As a manager, you have permissions beyond the writer role to complete privileged actions, such as managing secret groups, configuring secret engines, and managing secret policies.         | 
 {: row-headers}

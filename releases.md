@@ -52,8 +52,8 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 You can now choose between the Reader and SecretsReader IAM roles for better control over access to the payload of your secrets.
 
-- As a **Reader**, you can browse a high-level view of secrets in your instance. Readers can't access or modify the payload of a secret.
-- As a **SecretsReader**, you can browse a high-level view of secrets, and you can access the payload of a secret. A secrets reader can't create secrets or modify the value of an existing secret.
+- As a reader, you can browse a high-level view of secrets in your instance. Readers can't access the payload of a secret.
+- As a secrets reader, you can browse a high-level view of secrets, and you can access the payload of a secret. A secrets reader can't create secrets or modify the value of an existing secret.
 
 To learn more about service access roles, see [Managing IAM access for {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-iam).
 

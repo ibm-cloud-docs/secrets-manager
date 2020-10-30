@@ -102,10 +102,10 @@ For more information about how your information is protected, see [Securing your
 {: #faq-differences-secretsreader-roles}
 {: faq}
 
-Both the **Reader** and **SecretsReader** roles help you to assign read-only access to {{site.data.keyword.secrets-manager_short}} resources.
+Both the Reader and SecretsReader roles help you to assign read-only access to {{site.data.keyword.secrets-manager_short}} resources.
 
-- As a **Reader**, you can browse a high-level view of secrets in your instance. Readers can't access or modify the payload of a secret.
-- As a **SecretsReader**, you can browse a high-level view of secrets, and you can access the payload of a secret. A secrets reader can't create secrets or modify the value of an existing secret.
+- As a reader, you can browse a high-level view of secrets in your instance. Readers can't access the payload of a secret.
+- As a secrets reader, you can browse a high-level view of secrets, and you can access the payload of a secret. A secrets reader can't create secrets or modify the value of an existing secret.
 
 ## How is {{site.data.keyword.secrets-manager_short}} different from {{site.data.keyword.keymanagementserviceshort}}?
 {: #faq-differences-key-protect}
