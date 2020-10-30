@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-07"
+lastupdated: "2020-10-30"
 
 keywords: IAM access for Secrets Manager, permissions for Secrets Manager, identity and access management for Secrets Manager, roles for Secrets Manager, actions for Secrets Manager, assigning access for Secrets Manager
 
@@ -41,52 +41,58 @@ subcollection: secrets-manager
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
 
-# Managing access for {{site.data.keyword.secrets-manager_short}}
+# Managing IAM access for {{site.data.keyword.secrets-manager_short}}
 {: #iam}
 
-Access to {{site.data.keyword.secrets-manager_short}} service instances for users in your account is controlled by {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM). Every user that accesses the {{site.data.keyword.secrets-manager_short}} service in your account must be assigned an access policy with an IAM role defined. The policy determines what actions a user can perform within the context of the service or instance that you select. The allowable actions are customized and defined by the {{site.data.keyword.cloud_notm}} service as operations that are allowed to be performed on the service. The actions are then mapped to IAM user roles.
+Access to {{site.data.keyword.secrets-manager_full}} service instances for users in your account is controlled by [{cloud}] Identity and Access Management (IAM). Every user that accesses the {{site.data.keyword.secrets-manager_short}} service in your account must be assigned an access policy with an IAM role. Review the following roles, actions, and more to help determine the best way to assign access to {{site.data.keyword.secrets-manager_short}}.
+{: shortdesc} 
 
-Policies enable access to be granted at different levels. Some of the options include the following: 
+The access policy that you assign users in your account determines what actions a user can perform within the context of the service or specific instance that you select. The allowable actions are customized and defined by the {{site.data.keyword.secrets-manager_short}} as operations that are allowed to be performed on the service. Each actions is mapped to an IAM platform or service role that you can assign to a user.
 
-* Access across all instances of the service in your account
-* Access to an individual service instance in your account
-* Access to a specific resource within an instance such as specific secret groups
+If a specific role and its actions don't fit the use case that you're looking to address, you can [create a custom role](/docs/account?topic=account-custom-roles#custom-access-roles) and pick the actions to include.
+{: tip}
 
-After you define the scope of the access policy, you assign a role, which determines the user's level of access. Review the following tables that outline what actions each role allows within the {{site.data.keyword.secrets-manager_short}} service.
+IAM access policies enable access to be granted at different levels. Some of the options include the following: 
 
-## Platform roles
-{: #platform-roles}
+- Access across all instances of the service in your account
+- Access to an individual service instance in your account
+- Access to a specific resource within an instance, such as specific secret groups
 
-Use platform roles to grant access to {{site.data.keyword.secrets-manager_short}} at the platform level, such as the ability to create or delete instances or assign user access to {{site.data.keyword.secrets-manager_short}} in your IBM Cloud account.
+Review the following tables that outline what types of tasks each role allows for when you're working with the {{site.data.keyword.secrets-manager_short}} service.
 
-The following table shows how platform roles map to {{site.data.keyword.secrets-manager_short}} actions.
+When you assign policies to users for this service, use {{site.data.keyword.secrets-manager_short}} for the service name in the CLI command or API call.
+{: important}
 
-| Role | Description of actions | 
+The following table describes the types of tasks that can be completed with each platform management role assigned. Platform management roles enable users to perform tasks on service resources at the platform level, for example, assign user access to the service, create or delete instances, and bind instances to applications.
+
+For information about the exact actions mapped to each role, see [{{site.data.keyword.secrets-manager_short}}](/docs/account?topic=account-iam-service-roles-actions#secrets-manager).
+{: tip}
+
+
+
+| Platform role | Description of actions | 
 |----------------|------------------------|
-| Viewer         | View instances of {{site.data.keyword.secrets-manager_short}}. |
-| Operator       | View instances of {{site.data.keyword.secrets-manager_short}}. |
-| Editor         | Create, update, or delete instances of {{site.data.keyword.secrets-manager_short}}. | 
-| Administrator  | Invite new users and manage access policies. |
+| Viewer         | As a viewer, you can view instances of {{site.data.keyword.secrets-manager_short}}, but you can't modify them. |
+| Operator       | As an operator, you can perform platform actions required to configure and operate {{site.data.keyword.secrets-manager_short}} service instances, such as viewing the service's dashboard. |
+| Editor         | As an editor, you can create, modify, and delete instances of {{site.data.keyword.secrets-manager_short}}, but you can't assign access policies for others. | 
+| Administrator  | As an administrator, you can perform all platform actions based on the resource this role is being assigned, including the ability to assign access policies for others. |
 {: row-headers}
-{: caption="Table 1. IAM platform roles and actions" caption-side="top"}
+{: caption="Table 1. IAM platform roles" caption-side="top"}
 {: summary="The rows are read from left to right. The first column is the platform management role. The second column is a description of the actions in the service that the platform management role permits."}
 
-## Service roles
-{: #service-roles}
 
-You can use service roles to grant access to {{site.data.keyword.secrets-manager_short}} at the instance level, such as the ability to view, create, or delete secrets and secret groups. 
+The following table describes the types tasks that can be completed when each service access role is assigned. Service access roles enable users access to {{site.data.keyword.secrets-manager_short}} and the ability to call the {{site.data.keyword.secrets-manager_short}} API.
 
-The following table shows how service roles map to {{site.data.keyword.secrets-manager_short}} actions.
 
-| Role | Description of actions | 
-|----------------|------------------------|
-| Reader         | List the available secrets in your instance. <br> View the metadata of a secret. </br> List the secret groups that are available in your instance. </br>View the details of a secret group. </br> View the service endpoints. </br> List the available versions of a secret. |
-| Writer         | All of the actions that the Reader role allows. </br> Create and rotate secrets. </br> View the details of a secret. </br> Update the metadata of a secret. </br> |
-| Manager        | All of the actions that the Writer role allows. </br> Delete the Cloud IAM API key that is associated with a secret. </br> Delete a secret. </br> Set and view secret policies. </br> Create, update, and delete a secret group. </br> Set and view your secret engine configuration.| 
+| Service role | Description of actions | 
+|---------------------|------------------------|
+| Reader             | As a reader, you can perform read-only actions within {{site.data.keyword.secrets-manager_short}}, such as viewing service-specific resources, but you can't view or retrieve the payload of a secret.  | 
+| SecretsReader | As a secrets reader, you can perform read-only actions, and you can view or retrieve the payload of a secret. |
+| Writer            | As a writer, you have permissions beyond the reader role, including the ability to create and edit service-specific resources. Writers can't create secret groups, manage the rotation policies of a secret, or configure secret engines.           |
+| Manager             | As a manager, you have permissions beyond the writer role to complete privileged actions, such as managing secret groups, configuring secret engines, and managing secret policies.         | 
 {: row-headers}
-{: caption="Table 1. IAM platform roles and actions" caption-side="top"}
-{: summary="The rows are read from left to right. The first column is the platform management role. The second column is a description of the actions in the service that the platform management role permits."}
+{: caption="Table 2. IAM service access role descriptions" caption-side="top"}
+{: summary="The rows are read from left to right. The first column is the service access role. The second column is a description of the actions in the service that the service access role permits."}
 
-For information about assigning user roles in the console, see [Managing access to resources](/docs/account?topic=account-assign-access-resources).
-
+For information about the steps to assign IAM access, see [Managing access to resources](/docs/account?topic=account-assign-access-resources).
 
