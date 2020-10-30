@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-26"
+lastupdated: "2020-10-30"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -680,7 +680,7 @@ vault read [-format=FORMAT] ibmcloud/SECRET_ENGINE/secrets/groups/SECRET_GROUP_I
 #### Prerequisites
 {: #vault-cli-get-static-secret-prereqs}
 
-You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manager-iam) to retrieve secrets.
+You need the [**SecretsReader** or **Writer** service role](/docs/secrets-manager?topic=secrets-manager-iam) to retrieve secrets.
 
 #### Command options 
 {: #vault-cli-get-static-secret-options}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-24"
+lastupdated: "2020-10-30"
 
 keywords: access stored secrets, retrieve secrets, get secret value, get secrets, view secrets, search secrets, get secret value
 
@@ -50,7 +50,7 @@ After you store secrets in your {{site.data.keyword.secrets-manager_full}} servi
 ## Before you begin
 {: #before-access-secrets}
 
-Before you begin, be sure that you have the required level of access. To view a list of your available secrets, you need the [**Reader** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam). To retrieve the value of a secret, you need the [**Writer** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam).
+Before you begin, be sure that you have the required level of access. To view a list of your available secrets, you need the [**Reader** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam). To retrieve the value of a secret, you need the [**SecretsReader** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam).
 
 ## Searching for secrets in your instance
 {: #search-secrets-ui}
