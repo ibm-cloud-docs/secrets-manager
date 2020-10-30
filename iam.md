@@ -60,7 +60,7 @@ IAM access policies enable access to be granted at different levels. Some of the
 
 Review the following tables that outline what types of tasks each role allows for when you're working with the {{site.data.keyword.secrets-manager_short}} service.
 
-When you assign policies to users for this service, use {{site.data.keyword.secrets-manager_short}} for the service name in the CLI command or API call.
+When you assign policies to users for this service, use `secrets-manager` for the service name in the CLI command or API call.
 {: important}
 
 The following table describes the types of tasks that can be completed with each platform management role assigned. Platform management roles enable users to perform tasks on service resources at the platform level, for example, assign user access to the service, create or delete instances, and bind instances to applications.

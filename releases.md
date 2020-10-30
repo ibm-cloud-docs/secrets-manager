@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-29"
+lastupdated: "2020-10-30"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -46,6 +46,16 @@ subcollection: secrets-manager
 
 Use these release notes to learn about the latest changes to {{site.data.keyword.secrets-manager_full}} that are grouped by date. 
 {:shortdesc}
+
+## 1 November 2020
+{: 2020-11-01}
+
+You can now choose between the Reader and SecretsReader IAM roles for better control over access to the payload of your secrets.
+
+- As a **Reader**, you can browse a high-level view of secrets in your instance. Readers can't access or modify the payload of a secret.
+- As a **SecretsReader**, you can browse a high-level view of secrets, and you can access the payload of a secret. A secrets reader can't create secrets or modify the value of an existing secret.
+
+To learn more about service access roles, see [Managing IAM access for {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-iam).
 
 ## 24 September 2020
 {: 2020-09-24}
