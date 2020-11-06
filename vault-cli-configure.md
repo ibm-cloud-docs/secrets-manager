@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-22"
+lastupdated: "2020-11-06"
 
 keywords: Vault CLI, configure the Vault CLI, use Secrets Manager with Vault CLI, CLI commands, log in to Vault
 
@@ -93,7 +93,7 @@ First, set up your environment to access a {{site.data.keyword.secrets-manager_s
         </tr>
         <tr>
             <td><code>IBM_CLOUD_API_KEY</code></td>
-            <td>An {{site.data.keyword.cloud_notm}} API key that has at least [**Viewer** platform access](/docs/secrets-manager?topic=secrets-manager-iam#platform-roles) and [**Reader** service access](/docs/secrets-manager?topic=secrets-manager-iam#service-roles) to your {{site.data.keyword.secrets-manager_short}} instance.</td>
+            <td>An {{site.data.keyword.cloud_notm}} API key that has at least [**Viewer** platform access](/docs/secrets-manager?topic=secrets-manager-iam) and [**Reader** service access](/docs/secrets-manager?topic=secrets-manager-iam) to your {{site.data.keyword.secrets-manager_short}} instance.</td>
         </tr>
         <tr>
             <td><code>VAULT_ADDR</code></td>

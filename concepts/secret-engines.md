@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-20"
+lastupdated: "2020-11-06"
 
 keywords: secret engines, IAM secrets manager connection, Identity and access management, vault engine, dynamic secrets
 
@@ -47,7 +47,7 @@ subcollection: secrets-manager
 After you create your {{site.data.keyword.secrets-manager_full}} service instance and assign access, you can enable secret engines so that you can create secrets of various types.
 {: shortdesc} 
 
-Secret engines are components in {{site.data.keyword.secrets-manager_short}} that are used to process operations for secrets of different types. These engines serve as backends for those secrets. Depending on its type, a secret engine is either enabled or disabled by default for your service instance. 
+Secret engines are components in {{site.data.keyword.secrets-manager_short}} that are used to process operations for secrets of different types. These engines serve as back-ends for those secrets. Depending on its type, a secret engine is either enabled or disabled by default for your service instance. 
 
 The following table lists the secret engines that are enabled for your instance by default.
 

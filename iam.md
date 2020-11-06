@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-11-02"
+lastupdated: "2020-11-06"
 
 keywords: IAM access for Secrets Manager, permissions for Secrets Manager, identity and access management for Secrets Manager, roles for Secrets Manager, actions for Secrets Manager, assigning access for Secrets Manager
 
@@ -44,7 +44,7 @@ subcollection: secrets-manager
 # Managing IAM access for {{site.data.keyword.secrets-manager_short}}
 {: #iam}
 
-Access to {{site.data.keyword.secrets-manager_full}} service instances for users in your account is controlled by [{cloud}] Identity and Access Management (IAM). Every user that accesses the {{site.data.keyword.secrets-manager_short}} service in your account must be assigned an access policy with an IAM role. Review the following roles, actions, and more to help determine the best way to assign access to {{site.data.keyword.secrets-manager_short}}.
+Access to {{site.data.keyword.secrets-manager_full}} service instances for users in your account is controlled by {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM). Every user that accesses the {{site.data.keyword.secrets-manager_short}} service in your account must be assigned an access policy with an IAM role. Review the following roles, actions, and more to help determine the best way to assign access to {{site.data.keyword.secrets-manager_short}}.
 {: shortdesc} 
 
 The access policy that you assign users in your account determines what actions a user can perform within the context of the service or specific instance that you select. The allowable actions are customized and defined by the {{site.data.keyword.secrets-manager_short}} as operations that are allowed to be performed on the service. Each actions is mapped to an IAM platform or service role that you can assign to a user.
@@ -83,11 +83,9 @@ For information about the exact actions mapped to each role, see [{{site.data.ke
 
 The following table describes the types tasks that can be completed when each service access role is assigned. Service access roles enable users access to {{site.data.keyword.secrets-manager_short}} and the ability to call the {{site.data.keyword.secrets-manager_short}} API.
 
-
 | Service role | Description of actions | 
 |---------------------|------------------------|
-| Reader             | As a reader, you can perform read-only actions within {{site.data.keyword.secrets-manager_short}}, such as viewing service-specific resources. Readers can't access the payload of a secret.  | 
-| SecretsReader | As a secrets reader, you can perform read-only actions, and you can access the payload of a secret. A secrets reader can't create secrets or modify the value of an existing secret. |
+| Reader             | As a reader, you can perform read-only actions within {{site.data.keyword.secrets-manager_short}}, such as viewing service-specific resources. Readers can't access the payload of a secret.  |
 | Writer            | As a writer, you have permissions beyond the secrets reader role, including the ability to create and edit service-specific resources. Writers can't create secret groups, manage the rotation policies of a secret, or configure secret engines.           |
 | Manager             | As a manager, you have permissions beyond the writer role to complete privileged actions, such as managing secret groups, configuring secret engines, and managing secret policies.         | 
 {: row-headers}
