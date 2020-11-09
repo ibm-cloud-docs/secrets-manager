@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-30"
+lastupdated: "2020-11-09"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -47,8 +47,8 @@ subcollection: secrets-manager
 Use these release notes to learn about the latest changes to {{site.data.keyword.secrets-manager_full}} that are grouped by date. 
 {:shortdesc}
 
-## 1 November 2020
-{: 2020-11-01}
+## 9 November 2020
+{: 2020-11-09}
 
 You can now choose between the Reader and SecretsReader IAM roles for better control over access to the payload of your secrets.
 
