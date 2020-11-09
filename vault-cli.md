@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-26"
+lastupdated: "2020-10-30"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -680,7 +680,7 @@ vault read [-format=FORMAT] ibmcloud/SECRET_ENGINE/secrets/groups/SECRET_GROUP_I
 #### Prerequisites
 {: #vault-cli-get-static-secret-prereqs}
 
-You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manager-iam) to retrieve secrets.
+You need the [**SecretsReader** or **Writer** service role](/docs/secrets-manager?topic=secrets-manager-iam) to retrieve secrets.
 
 #### Command options 
 {: #vault-cli-get-static-secret-options}
@@ -863,7 +863,7 @@ vault write -format=json ibmcloud/username_password/secrets/cb32abc1-2a4b-e0fd-f
 ```
 {:pre}
 
-Replace the password that is stored for a `username_password` secret with a randomnly generated 32-character password.
+Replace the password that is stored for a `username_password` secret with a randomly generated 32-character password.
 
 ```
 vault write -format=json -force ibmcloud/username_password/secrets/cb32abc1-2a4b-e0fd-f403-233e5249e130/rotate

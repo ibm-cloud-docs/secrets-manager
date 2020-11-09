@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-22"
+lastupdated: "2020-11-06"
 
 keywords: Vault CLI, configure the Vault CLI, use Secrets Manager with Vault CLI, CLI commands, log in to Vault
 
@@ -50,7 +50,7 @@ If you're already using the HashiCorp Vault command-line interface (CLI), you ca
 All operations follow the guidelines that are available for the Vault CLI. To learn more about using the Vault CLI, check out the [Vault documentation](https://www.vaultproject.io/docs/commands){: external}.
 
 ## Prerequisites
-{: #vault-cli-prereqs}
+{: #configure-vault-cli-prereqs}
 
 - [Download and install the Vault CLI](https://www.vaultproject.io/docs/install){: external}.
 - [Create an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-manapikey) or generate an {{site.data.keyword.cloud_notm}} IAM access token.
@@ -61,7 +61,7 @@ All operations follow the guidelines that are available for the Vault CLI. To le
    `jq` helps you slice up JSON data. You use `jq` in this tutorial to grab and use an access token that's returned when you call the IAM Identity Service API.
 
 ## Setting up your environment
-{: #vault-cli-configure-env}
+{: #configure-vault-cli-env}
 
 First, set up your environment to access a {{site.data.keyword.secrets-manager_short}} service instance by using Vault.
    
@@ -93,7 +93,7 @@ First, set up your environment to access a {{site.data.keyword.secrets-manager_s
         </tr>
         <tr>
             <td><code>IBM_CLOUD_API_KEY</code></td>
-            <td>An {{site.data.keyword.cloud_notm}} API key that has at least [**Viewer** platform access](/docs/secrets-manager?topic=secrets-manager-iam#platform-roles) and [**Reader** service access](/docs/secrets-manager?topic=secrets-manager-iam#service-roles) to your {{site.data.keyword.secrets-manager_short}} instance.</td>
+            <td>An {{site.data.keyword.cloud_notm}} API key that has at least [**Viewer** platform access](/docs/secrets-manager?topic=secrets-manager-iam) and [**Reader** service access](/docs/secrets-manager?topic=secrets-manager-iam) to your {{site.data.keyword.secrets-manager_short}} instance.</td>
         </tr>
         <tr>
             <td><code>VAULT_ADDR</code></td>
@@ -126,7 +126,7 @@ First, set up your environment to access a {{site.data.keyword.secrets-manager_s
     {:screen}
 
 ## Logging in to Vault
-{: #vault-cli-login} 
+{: #configure-vault-cli-login} 
 
 After you configure your environment, log in to Vault to start interacting with your {{site.data.keyword.secrets-manager_short}} instance.
 
