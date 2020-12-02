@@ -2,11 +2,13 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-12-02"
 
 keywords: troubleshoot secrets manager, troubleshooting for secrets manager provisioning, provisioning stuck, provisioning stuck, troubleshooting Secrets Manager, unable to create instance, can't create instance
 
 subcollection: secrets-manager
+
+content-type: troubleshoot
 
 ---
 

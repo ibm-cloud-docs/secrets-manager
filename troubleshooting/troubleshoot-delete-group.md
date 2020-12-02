@@ -2,11 +2,13 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-12-02"
 
 keywords: troubleshoot secrets manager, troubleshooting for secret group, delete secret group, can't delete secret group, unable to delete secret group, troubleshooting Secrets Manager
 
 subcollection: secrets-manager
+
+content-type: troubleshoot
 
 ---
 

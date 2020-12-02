@@ -50,6 +50,8 @@ Secrets Manager (Beta)
     {: topicgroup}
     CLI reference
 
+        /secrets-manager-cli-plugin/secrets-manager-cli-plugin
+        
         {: topicgroup}
         Vault CLI
             vault-cli-configure.md                                            

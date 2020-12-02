@@ -2,14 +2,17 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-11-09"
+lastupdated: "2020-12-02"
 
 keywords: faqs, Frequently Asked Questions, question, Secrets Manager, dynamic what is a secret, what is an arbitrary secret, what is an IAM credential, arbitrary secret, IAM credential, what happens when secret expires 
 
 subcollection: secrets-manager
 
+content-type: faq
+
 ---
 
+{:faq: data-hd-content-type='faq'}
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:download: .download}
