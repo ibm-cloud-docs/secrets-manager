@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-20"
+lastupdated: "2020-12-02"
 
 keywords: limits, known issues, secrets manager limits, Secrets Manager resource limitations
 
@@ -75,7 +75,8 @@ The following limits apply to user credentials.
 | Description | 2 - 240 characters |
 | Username | 2 - 64 characters |
 | Password | 64 characters |
-| Total versions | 50 versions per secret |
+| Labels | 2 - 30 characters</br></br>30 labels per secret |
+| Versions | 50 versions per secret |
 {: caption="Table 2. Limits that apply to user credentials" caption-side="top"}
 
 ### Limits for IAM credentials
@@ -88,6 +89,7 @@ The following limits apply to IAM credentials.
 | Name | 2 - 50 characters</br></br>The name of the secret can only contain alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
 | Description | 2 - 240 characters |
 | Access groups | 1 - 10 groups |
+| Labels | 2 - 30 characters</br></br>30 labels per secret |
 | Maximum lease duration | 90 days |
 {: caption="Table 3. Limits that apply to IAM credentials" caption-side="top"}
 
@@ -101,7 +103,8 @@ The following limits apply to arbitrary secrets.
 | Name | 2 - 50 characters</br></br>The name of the secret can only contain alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
 | Description | 2 - 240 characters |
 | Secret value | 1 MB |
-| Total versions | 50 versions per secret |
+| Labels | 2 - 30 characters</br></br>30 labels per secret |
+| Versions | 50 versions per secret |
 {: caption="Table 4. Limits that apply to arbitrary secrets" caption-side="top"}
 
 ## Secret group limits
@@ -113,5 +116,6 @@ Review the following table to understand the limits that apply to secret groups.
 | --- | --- |
 | Name | 2 - 64 characters |
 | Description | 1024 characters |
+| Labels | 2 - 30 characters</br></br>30 labels per secret group |
 | Total secrets | - |
 {: caption="Table 4. Limits that apply to secret groups" caption-side="top"}

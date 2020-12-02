@@ -6,6 +6,7 @@ Secrets Manager (Beta)
 
     {: .navgroup id="learn"}
     getting-started.md
+
     [Video: What is secrets management?](https://www.youtube.com/watch?v=iETENR5MEB8){: external}
 
     {: .topicgroup}
@@ -49,8 +50,6 @@ Secrets Manager (Beta)
 
     {: topicgroup}
     CLI reference
-
-        /secrets-manager-cli-plugin/secrets-manager-cli-plugin
 
         {: topicgroup}
         Vault CLI
