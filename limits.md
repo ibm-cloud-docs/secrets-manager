@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-02"
+lastupdated: "2020-12-03"
 
 keywords: limits, known issues, secrets manager limits, Secrets Manager resource limitations
 
@@ -59,6 +59,18 @@ The following limits apply to {{site.data.keyword.secrets-manager_short}} servic
 | Total secrets | - |
 {: caption="Table 1. Limits that apply to the {{site.data.keyword.secrets-manager_short}} service" caption-side="top"}
 
+## API rate limits
+{: #api-rate-limits}
+
+The following rate limits apply to {{site.data.keyword.secrets-manager_short}} APIs.
+
+| APIs | Limit |
+| --- | --- |
+| APIs for reading data | 50 requests per 1 second per client host IP |
+| APIs for deleting data | 50 requests per 1 second per client host IP |
+| APIs for writing data | 20 requests per 1 second per client host IP |
+{: caption="Table 2. Rate limits that apply to {{site.data.keyword.secrets-manager_short}} service APIs" caption-side="top"}
+
 ## Secret limits
 {: #secret-limits}
 
@@ -77,7 +89,7 @@ The following limits apply to user credentials.
 | Password | 64 characters |
 | Labels | 2 - 30 characters</br></br>30 labels per secret |
 | Versions | 50 versions per secret |
-{: caption="Table 2. Limits that apply to user credentials" caption-side="top"}
+{: caption="Table 3. Limits that apply to user credentials" caption-side="top"}
 
 ### Limits for IAM credentials
 {: #iam-credential-limits}
@@ -91,7 +103,7 @@ The following limits apply to IAM credentials.
 | Access groups | 1 - 10 groups |
 | Labels | 2 - 30 characters</br></br>30 labels per secret |
 | Maximum lease duration | 90 days |
-{: caption="Table 3. Limits that apply to IAM credentials" caption-side="top"}
+{: caption="Table 4. Limits that apply to IAM credentials" caption-side="top"}
 
 ### Limits for arbitrary secrets
 {: #arbitrary-secret-limits}
@@ -105,7 +117,7 @@ The following limits apply to arbitrary secrets.
 | Secret value | 1 MB |
 | Labels | 2 - 30 characters</br></br>30 labels per secret |
 | Versions | 50 versions per secret |
-{: caption="Table 4. Limits that apply to arbitrary secrets" caption-side="top"}
+{: caption="Table 5. Limits that apply to arbitrary secrets" caption-side="top"}
 
 ## Secret group limits
 {: #secret-group-limits}
@@ -118,4 +130,4 @@ Review the following table to understand the limits that apply to secret groups.
 | Description | 1024 characters |
 | Labels | 2 - 30 characters</br></br>30 labels per secret group |
 | Total secrets | - |
-{: caption="Table 4. Limits that apply to secret groups" caption-side="top"}
+{: caption="Table 6. Limits that apply to secret groups" caption-side="top"}
