@@ -6,7 +6,6 @@ Secrets Manager (Beta)
 
     {: .navgroup id="learn"}
     getting-started.md
-
     [Video: What is secrets management?](https://www.youtube.com/watch?v=iETENR5MEB8){: external}
 
     {: .topicgroup}
