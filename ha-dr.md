@@ -47,7 +47,7 @@ subcollection: secrets-manager
 {{site.data.keyword.secrets-manager_full}} is a highly available, regional service that runs in the Dallas (`us-south`) and Frankfurt (`eu-de`) regions.
 {: shortdesc}
 
-In each supported region, the service exists in multiple availability zones with no single point of failure. All of the data that is associated with your instance of the service, including your secrets, is backed up across regions is backed up across regions. 
+In each supported region, the service exists in multiple availability zones with no single point of failure. All of the data that is associated with your instance of the service, including your secrets, is backed up across regions. 
 
 However, because {{site.data.keyword.secrets-manager_short}} is a regional service, there is no automatic cross-regional failover or cross-regional disaster recovery. If all of the availability zones in a region fail, {{site.data.keyword.secrets-manager_short}} becomes unavailable in that location. When the region is available again, data and traffic is restored without any need for action from you.
 
