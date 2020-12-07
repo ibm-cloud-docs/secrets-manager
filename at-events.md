@@ -51,7 +51,7 @@ As a security officer, auditor, or manager, you can use the Activity Tracker ser
 
 For more information, see the [getting started tutorial for {{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-getting-started){: external}.
 
-Audit devices that you can enable with Vault, such as the `syslog` audit device, are not supported with {{site.data.keyword.secrets-manager_short}}. To audit events that change the state of your {{site.data.keyword.secrets-manager_short}} instance, use {{site.data.keyword.at_full_notm}}.
+Audit devices that you can enable with Vault, such as the [`syslog` audit device](https://www.vaultproject.io/docs/audit/syslog){: external}, are not supported with {{site.data.keyword.secrets-manager_short}}. To audit events that change the state of your {{site.data.keyword.secrets-manager_short}} instance, use {{site.data.keyword.at_full_notm}}.
 {: note}
 
 ## Events for secrets
