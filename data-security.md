@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-11-10"
+lastupdated: "2020-12-07"
 
 keywords: Data security for Secrets Manager, byok, kyok, data storage, data encryption in Secrets Manager, customer managed keys
 
@@ -108,5 +108,5 @@ As a beta service, {{site.data.keyword.secrets-manager_short}} does not yet supp
 ## Deleting your data in {{site.data.keyword.secrets-manager_short}}
 {: #data-delete}
 
-When you delete, a secret, secret group, or an instance of {{site.data.keyword.secrets-manager_short}}, your data is removed from {{site.data.keyword.secrets-manager_short}}. For more information about the {{site.data.keyword.secrets-manager_short}} data retention policy, see the [{{site.data.keyword.cloud_notm}} Terms and Notices](/docs/overview?topic=overview-terms).
 
+When you delete a secret, secret group, or an instance of {{site.data.keyword.secrets-manager_short}}, your data is removed from {{site.data.keyword.secrets-manager_short}}. For more information about the {{site.data.keyword.secrets-manager_short}} data retention policy, see the [{{site.data.keyword.cloud_notm}} Terms and Notices](/docs/overview?topic=overview-terms).
