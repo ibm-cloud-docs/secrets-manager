@@ -53,9 +53,9 @@ Secrets Manager (Beta)
         Vault CLI
             vault-cli-configure.md                                            
             vault-cli.md
-    ha-dr.md
     endpoints.md
     limits.md
+    ha-dr.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}
