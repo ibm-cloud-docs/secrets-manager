@@ -93,7 +93,6 @@ The following table lists the instance operation actions that generate an event.
 
 | Action                                   | Description                        | 
 |------------------------------------------|------------------------------------|
-| `secrets-manager.instance.login`           | Log in to Vault.                        |
 | `secrets-manager.secret-engine-config.set` | Set secret engine configuration.    |
 | `secrets-manager.secret-engine-config.get` | Get secret engine configuration.    |
 | `secrets-manager.endpoints.get`            | Get service instance endpoints.     |
