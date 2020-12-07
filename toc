@@ -31,7 +31,6 @@ Secrets Manager (Beta)
         delete-secret.md
 
     concepts/secret-groups.md
-    ha-dr.md
 
     {: .topicgroup}
     Enhancing security
@@ -54,7 +53,7 @@ Secrets Manager (Beta)
         Vault CLI
             vault-cli-configure.md                                            
             vault-cli.md
-
+    ha-dr.md
     endpoints.md
     limits.md
     {: .navgroup-end}
