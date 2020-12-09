@@ -68,10 +68,10 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} from the {{
 6. Optional: Add tags to help you to organize the instance in your account.
 7. Determine an option for enabling customer-managed encryption for your instance.
 
-  You can enhance the security of your secrets at rest by integrating with {{site.data.keyword.keymanagementserviceshort}}. For more information about customer-managed encryption, check out [Protecting your sensitive data in {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption).
+  You can enhance the security of your secrets at rest by integrating with a key management service. For more information about customer-managed encryption, check out [Protecting your sensitive data in {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption).
 9. Click **Create** to create an instance of {{site.data.keyword.secrets-manager_short}} in the account, region, and resource group that you selected.
 
-  Provisioning your dedicated {{site.data.keyword.secrets-manager_short}} instance can take between 4 - 5 minutes to complete. 
+  Provisioning your dedicated {{site.data.keyword.secrets-manager_short}} instance can take between 5 - 8 minutes to complete. 
 
 ## Creating a {{site.data.keyword.secrets-manager_short}} instance with the CLI
 {: #create-instance-cli}
