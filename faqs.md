@@ -122,18 +122,19 @@ There are a few key differences between using {{site.data.keyword.keymanagements
 For more information, see [Managing secrets in {{site.data.keyword.cloud_notm}}](/docs/secrets-manager?topic=secrets-manager-manage-secrets-ibm-cloud).
 
 ## How is {{site.data.keyword.secrets-manager_short}} different from Vault?
-{: #faq-secrets-manager-vault-differences}
+{: #faq-differences-vault}
 {: faq}
 
 With {{site.data.keyword.secrets-manager_short}}, you can centrally manage secrets for your services or apps in a dedicated, single tenant instance. To control who on your team has access to specific secrets, you can create secret groups that map to [Identity and Access Management (IAM)](/docs/secrets-manager?topic=secrets-manager-iam) access policies in your {{site.data.keyword.cloud_notm}} account. And, you can use [{{site.data.keyword.at_full_notm}}](/docs/secrets-manager?topic=secrets-manager-at-events) to track how users and applications interact with your {{site.data.keyword.secrets-manager_short}} instance. 
 
 ## Are community plug-ins for Vault supported by {{site.data.keyword.secrets-manager_short}}?
-{: #supported-vault-components}
+{: #faq-vault-community-plugins}
+{: faq}
 
 It is not possible to integrate community plug-ins for Vault with {{site.data.keyword.secrets-manager_short}} . The service uses a custom version of open source Vault to support operations in {{site.data.keyword.secrets-manager_short}} for [various secret types](/docs/secrets-manager?topic=secrets-manager-secret-basics#secret-types). All other plug-ins or added components that are offered by the open source Vault community are not accessible by {{site.data.keyword.secrets-manager_short}}.
 
 ## Can I manage {{site.data.keyword.cloud_notm}} secrets by using an on-premises Vault?
-{: #faq-vault-plugins}
+{: #faq-ibm-cloud-plugins-for-vault}
 {: faq}
 
  To manage {{site.data.keyword.cloud_notm}} secrets by using the full Vault native experience, you can use the standalone {{site.data.keyword.cloud_notm}} plug-ins for Vault. These open source plug-ins can be used independently from each other so that you can manage {{site.data.keyword.cloud_notm}} secrets through your on-premises Vault server.
