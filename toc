@@ -54,7 +54,6 @@ Secrets Manager (Beta)
             vault-cli-configure.md                                            
             vault-cli.md
     endpoints.md
-    limits.md
     ha-dr.md
     {: .navgroup-end}
 
@@ -67,5 +66,6 @@ Secrets Manager (Beta)
         troubleshooting/troubleshoot-creation.md
         troubleshooting/troubleshoot-delete-group.md
 
+    known-issues.md
     releases.md
     {: .navgroup-end}

@@ -49,7 +49,7 @@ subcollection: secrets-manager
 # Integrations
 {: #integrations}<staging>
 
-# Integrations with {{site.data.keyword.cloud_notm}} services
+# Integrations
 {: #cloud-integrations}<staging>
 
 With {{site.data.keyword.secrets-manager_full}}, you can save time with platform integrations that help you to dynamically create and retrieve secrets while you work with supported {{site.data.keyword.cloud_notm}} services.

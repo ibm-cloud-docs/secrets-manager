@@ -62,6 +62,6 @@ When you try to create an instance of the service in the {{site.data.keyword.clo
 Because an instance of the service is created that is dedicated only to you, provisioning might take a few minutes to complete. Or, there might be an error in the provisioning process.
 {: tsCauses}
 
-To resolve the issue, try waiting 4 - 5 minutes and refreshing your web browser. If the problem persists, contact {{site.data.keyword.cloud_notm}} support.
+To resolve the issue, try waiting 5 - 8 minutes and refreshing your web browser. If the problem persists, contact {{site.data.keyword.cloud_notm}} support.
 {: tsResolve}
 

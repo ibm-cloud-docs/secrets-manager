@@ -57,6 +57,7 @@ You can create {{site.data.keyword.secrets-manager_short}} resources in one of t
 
 - Dallas (`us-south`)
 - Frankfurt (`eu-de`)
+- Sydney (`au-syd`)
 
 
 
@@ -69,6 +70,7 @@ If you are managing your {{site.data.keyword.secrets-manager_short}} resources p
 | ------------- | ---------------------------- |
 | Dallas        | `https://{instance_ID}.us-south.secrets-manager.appdomain.cloud/api` |
 | Frankfurt     | `https://{instance_ID}.eu-de.secrets-manager.appdomain.cloud/api`    |
+| Sydney        | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud/api`   |
 {: caption="Table 1. Endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using standard {{site.data.keyword.cloud_notm}} APIs" caption-side="top"}
 {: #table-1}
 {: tab-title="Service API"}
@@ -79,6 +81,7 @@ If you are managing your {{site.data.keyword.secrets-manager_short}} resources p
 | ------------- | ---------------------------- |
 | Dallas        | `https://{instance_ID}.us-south.secrets-manager.appdomain.cloud` |
 | Frankfurt     | `https://{instance_ID}.eu-de.secrets-manager.appdomain.cloud`    |
+| Sydney        | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud`   |
 {: caption="Table 2. Endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
 {: #table-2}
 {: tab-title="Vault API"}
