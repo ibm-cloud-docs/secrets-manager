@@ -130,7 +130,7 @@ With {{site.data.keyword.secrets-manager_short}}, you can centrally manage secre
 ## Are community plug-ins for Vault supported by {{site.data.keyword.secrets-manager_short}}?
 {: #supported-vault-components}
 
-No. {{site.data.keyword.secrets-manager_short}} doesn't support community that are available for Vault. Instead, the service builds on a custom version of open source Vault to support operations in {{site.data.keyword.secrets-manager_short}} for various secret types.
+{{site.data.keyword.secrets-manager_short}} does not support community plug-ins that are available for Vault. The service uses a custom version of open source Vault to support operations in {{site.data.keyword.secrets-manager_short}} for [various secret types](/docs/secrets-manager?topic=secrets-manager-secret-basics#secret-types). All other plug-ins or added components that are offered by the open source Vault community are not accessible by Secrets Manager.
 
 ## Can I manage {{site.data.keyword.cloud_notm}} secrets by using an on-premises Vault?
 {: #faq-vault-plugins}
@@ -145,4 +145,4 @@ If you're running your own on-premises Vault, you can still integrate with {{sit
 {: #faq-vault-secrets-manager}
 {: faq}
 
-Yes! To use {{site.data.keyword.secrets-manager_short}}, you don't need to install Vault or the {{site.data.keyword.cloud_notm}} plug-ins for Vault. You can try {{site.data.keyword.secrets-manager_short}} for free, without needing an extensive background on how to use Vault. To get started, [choose the type of secret](/docs/secrets-manager?topic=secrets-manager-secret-basics) that you want to create. Then, you can integrate with the standard [Secrets Manager APIs](/apidocs/secrets-manager){:external} so that you can access the secret programmatically.
+Yes. To use {{site.data.keyword.secrets-manager_short}}, you don't need to install Vault or the {{site.data.keyword.cloud_notm}} plug-ins for Vault. You can try {{site.data.keyword.secrets-manager_short}} for free, without needing an extensive background on how to use Vault. To get started, [choose the type of secret](/docs/secrets-manager?topic=secrets-manager-secret-basics) that you want to create. Then, you can integrate with the standard [Secrets Manager APIs](/apidocs/secrets-manager){:external} so that you can access the secret programmatically.
