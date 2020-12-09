@@ -130,13 +130,13 @@ With {{site.data.keyword.secrets-manager_short}}, you can centrally manage secre
 ## Are community plug-ins for Vault supported by {{site.data.keyword.secrets-manager_short}}?
 {: #supported-vault-components}
 
-It is not possible to integrate community plug-ins for Vault with {{site.data.keyword.secrets-manager_short}} . The service uses a custom version of open source Vault to support operations in {{site.data.keyword.secrets-manager_short}} for [various secret types](/docs/secrets-manager?topic=secrets-manager-secret-basics#secret-types). All other plug-ins or added components that are offered by the open source Vault community are not accessible by Secrets Manager.
+It is not possible to integrate community plug-ins for Vault with {{site.data.keyword.secrets-manager_short}} . The service uses a custom version of open source Vault to support operations in {{site.data.keyword.secrets-manager_short}} for [various secret types](/docs/secrets-manager?topic=secrets-manager-secret-basics#secret-types). All other plug-ins or added components that are offered by the open source Vault community are not accessible by {{site.data.keyword.secrets-manager_short}}.
 
 ## Can I manage {{site.data.keyword.cloud_notm}} secrets by using an on-premises Vault?
 {: #faq-vault-plugins}
 {: faq}
 
-If you're running your own on-premises Vault, you can still integrate with {{site.data.keyword.secrets-manager_short}} by using {{site.data.keyword.cloud_notm}} open source plug-ins for Vault. These plug-ins can be used independently from each other so that you can manage {{site.data.keyword.cloud_notm}} secrets through your on-premises Vault server.
+ To manage {{site.data.keyword.cloud_notm}} secrets by using the full Vault native experience, you can use the standalone {{site.data.keyword.cloud_notm}} plug-ins for Vault. These plug-ins can be used independently from each other so that you can manage {{site.data.keyword.cloud_notm}} secrets through your on-premises Vault server.
 
 - To set up authentication between Vault and your {{site.data.keyword.cloud_notm}} account, you can use the [{{site.data.keyword.cloud_notm}} Auth Method plug-in for Vault](https://github.com/ibm-cloud-security/vault-plugin-auth-ibmcloud){:external}.
 - To dynamically create API keys for {{site.data.keyword.cloud_notm}} service IDs, you can use the [{{site.data.keyword.cloud_notm}} Secrets Backend plug-in for Vault](https://github.com/ibm-cloud-security/vault-plugin-secrets-ibmcloud){: external}.
