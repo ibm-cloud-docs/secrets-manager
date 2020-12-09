@@ -59,9 +59,12 @@ To use the standard REST API for {{site.data.keyword.secrets-manager_short}}, ch
 ## Introduction
 {: #vault-api-intro}
 
-{{site.data.keyword.secrets-manager_short}} uses a custom version of open source HashiCorp Vault. This custom version adds the {{site.data.keyword.cloud_notm}} IAM auth method and a set of secret engines to support operations in {{site.data.keyword.secrets-manager_short}} for various secret types.
+{{site.data.keyword.secrets-manager_short}} uses a custom version of open source HashiCorp Vault. This custom version adds the {{site.data.keyword.cloud_notm}} IAM `auth` method and a set of secret engines to support operations in {{site.data.keyword.secrets-manager_short}} for various secret types.
 
 All operations follow the REST API standards that are available for the Vault HTTP APIs. For more information about how to authenticate and use the Vault HTTP APIs, check out the [Vault documentation](https://www.vaultproject.io/api-docs/index){: external}.
+
+Plug-ins and other components that are offered by the open source Vault community are not accessible by {{site.data.keyword.secrets-manager_short}}.
+{: note}
 
 ### Endpoint URLs
 {: #vault-api-base-url}
@@ -74,6 +77,7 @@ The following table lists the endpoint URLs by region that can be used to intera
 | ---- | ---- |
 | Dallas | `https://{instance_ID}.us-south.secrets-manager.appdomain.cloud` |
 | Frankfurt | `https://{instance_ID}.eu-de.secrets-manager.appdomain.cloud` |
+| Sydney | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud` |
 {: caption="Table 1. Vault endpoint URLs" caption-side="top"}
 
 You can find your unique endpoint URL in the **Endpoints** section of the {{site.data.keyword.secrets-manager_short}} UI, or by retrieving it by HTTP request. For more information, see [Retrieving your service endpoint URLs](/docs/secrets-manager?topic=secrets-manager-endpoints#retrieve-service-endpoints).
