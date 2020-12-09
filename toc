@@ -59,6 +59,7 @@ Secrets Manager (Beta)
 
     {: .navgroup id="help"}
     faqs.md
+    known-issues.md
 
     {: .topicgroup}
     Troubleshooting
@@ -66,6 +67,5 @@ Secrets Manager (Beta)
         troubleshooting/troubleshoot-creation.md
         troubleshooting/troubleshoot-delete-group.md
 
-    known-issues.md
     releases.md
     {: .navgroup-end}
