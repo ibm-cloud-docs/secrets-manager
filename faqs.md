@@ -130,7 +130,7 @@ With {{site.data.keyword.secrets-manager_short}}, you can centrally manage secre
 ## Are community plug-ins for Vault supported by {{site.data.keyword.secrets-manager_short}}?
 {: #supported-vault-components}
 
-{{site.data.keyword.secrets-manager_short}} does not support community plug-ins that are available for Vault. The service uses a custom version of open source Vault to support operations in {{site.data.keyword.secrets-manager_short}} for [various secret types](/docs/secrets-manager?topic=secrets-manager-secret-basics#secret-types). All other plug-ins or added components that are offered by the open source Vault community are not accessible by Secrets Manager.
+It is not possible to integrate community plug-ins for Vault with {{site.data.keyword.secrets-manager_short}} . The service uses a custom version of open source Vault to support operations in {{site.data.keyword.secrets-manager_short}} for [various secret types](/docs/secrets-manager?topic=secrets-manager-secret-basics#secret-types). All other plug-ins or added components that are offered by the open source Vault community are not accessible by Secrets Manager.
 
 ## Can I manage {{site.data.keyword.cloud_notm}} secrets by using an on-premises Vault?
 {: #faq-vault-plugins}
