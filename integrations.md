@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-11-09"
+lastupdated: "2020-12-09"
 
 keywords: Secrets Manager integrations, enable integration, service to service, grant access between services
 
@@ -41,10 +41,15 @@ subcollection: secrets-manager
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
 
-# Integrations
-{: #integrations}
 
-With {{site.data.keyword.secrets-manager_full}}, you can save time with {{site.data.keyword.cloud_notm}} integrations that help you to dynamically create and retrieve secrets while you work with supported services.
+
+# Integrations
+{: #integrations}<staging>
+
+# Integrations with other {{site.data.keyword.cloud_notm}} services
+{: #cloud-integrations}<staging>
+
+With {{site.data.keyword.secrets-manager_full}}, you can save time with platform integrations that help you to dynamically create and retrieve secrets while you work with supported {{site.data.keyword.cloud_notm}} services.
 {: shortdesc}
 
 Start by creating an authorization between your {{site.data.keyword.secrets-manager_short}} instance and the {{site.data.keyword.cloud_notm}} service that supports an integration. 
@@ -59,7 +64,7 @@ The following table lists the services that can be authorized to work with {{sit
 | [Catalog management](/docs/account?topic=account-create-private-catalog) | Centrally manage access to products in the {{site.data.keyword.cloud_notm}} catalog by creating and customizing private catalogs.    |
 {: caption="Table 1. Available integrations" caption-side="top"}
 
-## Creating an authorization between {{site.data.keyword.secrets-manager_short}} and another service
+## Creating an authorization between {{site.data.keyword.secrets-manager_short}} and another {{site.data.keyword.cloud_notm}} service
 {: #create-authorization}
 
 To authorize another service to use a secret that's stored your {{site.data.keyword.secrets-manager_short}} instance, you can [create an authorization between the services](/docs/account?topic=account-serviceauth). Be sure that you have the [**SecretsReader** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam) on your {{site.data.keyword.secrets-manager_short}} instance.
