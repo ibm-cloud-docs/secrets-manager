@@ -44,13 +44,13 @@ subcollection: secrets-manager
 {:cli: .ph data-hd-interface='cli'} 
 {:ui: .ph data-hd-interface='ui'}
 
-# WIP - Vault integrations
+# WIP - Integrations with HashiCorp Vault
 {: #vault-integrations}
 
 Learn about how {{site.data.keyword.secrets-manager_full}} integrates with open source HashiCorp Vault.
 {: shortdesc}
 
-## How is {[sm-long]} different from Vault?
+## How is {{site.data.keyword.secrets-manager_short}} different from Vault?
 {: #secrets-manager-vault-differences}
 
 With {{site.data.keyword.secrets-manager_short}}, you can centrally manage secrets for your services or apps in a dedicated, single tenant instance. To control who on your team has access to specific secrets, you can create secret groups that map to [Identity and Access Management (IAM)](/docs/secrets-manager?topic=secrets-manager-iam) access policies in your {{site.data.keyword.cloud_notm}} account. And, you can use [{{site.data.keyword.at_full_notm}}](/docs/secrets-manager?topic=secrets-manager-at-events) to track how users and applications interact with your {{site.data.keyword.secrets-manager_short}} instance. Because {{site.data.keyword.secrets-manager_short}} is a managed cloud service, you can focus on defining your secrets strategy without the added cost and complexity of building and managing your own infrastructure. To use {{site.data.keyword.secrets-manager_short}}, you don't need to install Vault or the {{site.data.keyword.cloud_notm}} plug-ins for Vault.
