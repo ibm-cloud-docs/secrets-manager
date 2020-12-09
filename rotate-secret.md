@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-05"
+lastupdated: "2020-12-09"
 
 keywords: rotate secrets, manually rotate, new secret, automatically rotate, automatic rotation, set rotation policy
 
@@ -40,6 +40,9 @@ subcollection: secrets-manager
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
+{:api: .ph data-hd-interface='api'} 
+{:cli: .ph data-hd-interface='cli'} 
+{:ui: .ph data-hd-interface='ui'}
 
 # Rotating secrets
 {: #rotate-secrets}

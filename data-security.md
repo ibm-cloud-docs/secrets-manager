@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-07"
+lastupdated: "2020-12-09"
 
 keywords: Data security for Secrets Manager, byok, kyok, data storage, data encryption in Secrets Manager, customer managed keys
 
@@ -40,6 +40,9 @@ subcollection: secrets-manager
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
+{:api: .ph data-hd-interface='api'} 
+{:cli: .ph data-hd-interface='cli'} 
+{:ui: .ph data-hd-interface='ui'}
 
 # Securing your data in {{site.data.keyword.secrets-manager_short}}
 {: #mng-data}

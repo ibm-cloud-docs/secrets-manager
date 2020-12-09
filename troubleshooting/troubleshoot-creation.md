@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-02"
+lastupdated: "2020-12-09"
 
 keywords: troubleshoot secrets manager, troubleshooting for secrets manager provisioning, provisioning stuck, provisioning stuck, troubleshooting Secrets Manager, unable to create instance, can't create instance
 
@@ -42,6 +42,9 @@ content-type: troubleshoot
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
+{:api: .ph data-hd-interface='api'} 
+{:cli: .ph data-hd-interface='cli'} 
+{:ui: .ph data-hd-interface='ui'}
 
 
 # Why is my instance of {{site.data.keyword.secrets-manager_short}} stuck on provisioning?

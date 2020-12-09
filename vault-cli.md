@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-30"
+lastupdated: "2020-12-09"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -40,6 +40,9 @@ subcollection: secrets-manager
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
+{:api: .ph data-hd-interface='api'} 
+{:cli: .ph data-hd-interface='cli'} 
+{:ui: .ph data-hd-interface='ui'}
 
 # Using the Vault CLI
 {: #vault-cli}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-02"
+lastupdated: "2020-12-09"
 
 keywords: troubleshoot secrets manager, troubleshooting for credentials, IAM credentials, unable to create credentials, troubleshooting Secrets Manager
 
@@ -42,6 +42,9 @@ content-type: troubleshoot
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
+{:api: .ph data-hd-interface='api'} 
+{:cli: .ph data-hd-interface='cli'} 
+{:ui: .ph data-hd-interface='ui'}
 
 
 # Why can't I create an IAM credential?

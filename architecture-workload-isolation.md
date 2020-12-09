@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-01"
+lastupdated: "2020-12-09"
 
 keywords: public isolation for Secrets Manager, compute isolation for Secrets Manager, Secrets Manager architecture, workload isolation in Secrets Manager
 
@@ -40,6 +40,9 @@ subcollection: secrets-manager
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
+{:api: .ph data-hd-interface='api'} 
+{:cli: .ph data-hd-interface='cli'} 
+{:ui: .ph data-hd-interface='ui'}
 
 # Learning about {{site.data.keyword.secrets-manager_short}} architecture and workload isolation
 {: #compute-isolation}
