@@ -91,7 +91,7 @@ To store a username and password by using the {{site.data.keyword.secrets-manage
 To store a username and password by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. You can specify the type of secret by using the `--secret-type username_password` option. For example, the following command creates and stores a secret called `example-username-password-secret`.
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-type username_password --metadata '{"collection_type": "application/vnd.ibm.secrets-manager.secret+json", "collection_total": 1}' --resources '[{"name": "example-username-password-secret","description": "Extended description for my secret.","username": "user123","password": "cloud-rainy-coffee-book"}]'
+ibmcloud secrets-manager secret-create --secret-type username_password --metadata '{"collection_type": "application/vnd.ibm.secrets-manager.secret+json", "collection_total": 1}' --resources '[{"name": "example-username-password-secret","description": "Extended description for my secret.","username": "user123","password": "cloudy-rainy-coffee-book"}]'
 ```
 {: pre}
 
@@ -121,7 +121,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
           "description": "Extended description for my secret.",
           "secret_group_id": "432b91f1-ff6d-4b47-9f06-82debc236d90",
           "username": "user123", 
-          "password": "hHRhuuK2zRRjtehNb_Fj",
+          "password": "cloudy-rainy-coffee-book",
           "expiration_date": "2020-12-31T00:00:00Z",
           "labels": [ 
             "dev", 
