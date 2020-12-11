@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-09"
+lastupdated: "2020-12-11"
 
 keywords: IAM access for Secrets Manager, permissions for Secrets Manager, identity and access management for Secrets Manager, roles for Secrets Manager, actions for Secrets Manager, assigning access for Secrets Manager
 
@@ -33,15 +33,17 @@ subcollection: secrets-manager
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
 {:tsSymptoms: .tsSymptoms}
-{:java: .ph data-hd-programlang='java'}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:swift: .ph data-hd-programlang='swift'}
-{:curl: .ph data-hd-programlang='curl'}
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
-{:api: .ph data-hd-interface='api'} 
-{:cli: .ph data-hd-interface='cli'} 
+{:curl: .ph data-hd-programlang='curl'}
+{:go: .ph data-hd-programlang='go'} 
+{:javascript: .ph data-hd-programlang='javascript'}
+{:java: .ph data-hd-programlang='java'}
+{:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
+{:api: .ph data-hd-interface='api'}
+{:cli: .ph data-hd-interface='cli'}
 {:ui: .ph data-hd-interface='ui'}
 
 # Managing IAM access for {{site.data.keyword.secrets-manager_short}}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-10"
+lastupdated: "2020-12-11"
 
 keywords: faqs, Frequently Asked Questions, question, Secrets Manager, dynamic what is a secret, what is an arbitrary secret, what is an IAM credential, arbitrary secret, IAM credential, what happens when secret expires 
 
@@ -36,15 +36,17 @@ content-type: faq
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
 {:tsSymptoms: .tsSymptoms}
-{:java: .ph data-hd-programlang='java'}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:swift: .ph data-hd-programlang='swift'}
-{:curl: .ph data-hd-programlang='curl'}
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
-{:api: .ph data-hd-interface='api'} 
-{:cli: .ph data-hd-interface='cli'} 
+{:curl: .ph data-hd-programlang='curl'}
+{:go: .ph data-hd-programlang='go'} 
+{:javascript: .ph data-hd-programlang='javascript'}
+{:java: .ph data-hd-programlang='java'}
+{:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
+{:api: .ph data-hd-interface='api'}
+{:cli: .ph data-hd-interface='cli'}
 {:ui: .ph data-hd-interface='ui'}
 
 # FAQs for {{site.data.keyword.secrets-manager_short}}
