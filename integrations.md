@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-11"
+lastupdated: "2020-12-14"
 
 keywords: Secrets Manager integrations, enable integration, service to service, grant access between services
 
@@ -46,13 +46,8 @@ subcollection: secrets-manager
 {:cli: .ph data-hd-interface='cli'}
 {:ui: .ph data-hd-interface='ui'}
 
-
-
 # Integrations
-{: #integrations}<staging>
-
-# Integrations
-{: #cloud-integrations}<staging>
+{: #integrations}
 
 With {{site.data.keyword.secrets-manager_full}}, you can save time with platform integrations that help you to dynamically create and retrieve secrets while you work with supported {{site.data.keyword.cloud_notm}} services.
 {: shortdesc}
