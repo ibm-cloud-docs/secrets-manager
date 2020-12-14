@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-11"
+lastupdated: "2020-12-14"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -52,8 +52,15 @@ subcollection: secrets-manager
 Use these release notes to learn about the latest changes to {{site.data.keyword.secrets-manager_full}} that are grouped by date. 
 {:shortdesc}
 
+## 14 December 2020
+{: #2020-11-14}
+
+The {{site.data.keyword.secrets-manager_short}} CLI plug-in is now available for download!
+
+You can use the {{site.data.keyword.secrets-manager_short}} CLI to interact with the secrets that you store in your {{site.data.keyword.secrets-manager_short}} instance. To install the plug-in, log in to the IBM Cloud CLI and run `ibmcloud plugin install secrets-manager`. To find out more about the plug-in, see the [CLI reference](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli).
+
 ## 9 November 2020
-{: 2020-11-09}
+{: #2020-11-09}
 
 You can now choose between the Reader and SecretsReader IAM roles for better control over access to the payload of your secrets.
 
@@ -63,7 +70,7 @@ You can now choose between the Reader and SecretsReader IAM roles for better con
 To learn more about service access roles, see [Managing IAM access for {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-iam).
 
 ## 24 September 2020
-{: 2020-09-24}
+{: #2020-09-24}
 
 {{site.data.keyword.secrets-manager_short}} is now available as a beta service in the {{site.data.keyword.cloud_notm}} catalog!
 
