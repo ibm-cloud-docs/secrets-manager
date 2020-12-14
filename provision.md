@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-11"
+lastupdated: "2020-12-14"
 
 keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, lite plan
 
@@ -57,8 +57,9 @@ When you provision {{site.data.keyword.secrets-manager_short}} in your {{site.da
 You can create only one Lite plan instance of {{site.data.keyword.secrets-manager_short}} per {{site.data.keyword.cloud_notm}} account. The Lite plan includes access to all service capabilities for free.
 {: note}
 
-## Creating a {{site.data.keyword.secrets-manager_short}} instance in the console
+## Creating a {{site.data.keyword.secrets-manager_short}} instance in the UI
 {: #create-instance-ui}
+{: ui}
 
 To create an instance of {{site.data.keyword.secrets-manager_short}} from the {{site.data.keyword.cloud_notm}} console, complete the following steps.
 
@@ -75,8 +76,9 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} from the {{
 
   Provisioning your dedicated {{site.data.keyword.secrets-manager_short}} instance can take between 5 - 8 minutes to complete. 
 
-## Creating a {{site.data.keyword.secrets-manager_short}} instance with the CLI
+## Creating a {{site.data.keyword.secrets-manager_short}} instance from the CLI
 {: #create-instance-cli}
+{: cli}
 
 You can also create an instance of {{site.data.keyword.secrets-manager_short}} by using the {{site.data.keyword.cloud_notm}} CLI. 
 
