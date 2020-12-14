@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-11"
+lastupdated: "2020-12-14"
 
 keywords: create secrets, add secrets, store secrets, single tenant secret storage, manage secrets 
 
@@ -47,18 +47,18 @@ subcollection: secrets-manager
 {:ui: .ph data-hd-interface='ui'}
 
 # Creating secrets
-{: #create-secrets}
+{: #store-secrets}
 
 With {{site.data.keyword.secrets-manager_full}}, you can create or add secrets that you can centrally manage from the {{site.data.keyword.cloud_notm}} console. Your secrets are stored in a dedicated, single-tenant instance of the service.
 {: shortdesc}
 
 ## Before you begin
-{: #before-create-secrets}
+{: #before-store-secrets}
 
 Before you get started, be sure that you have the required level of access. To create or add secrets, you need the [**Writer** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam).
 
 ## Creating user credentials
-{: #create-user-credentials}
+{: #store-user-credentials}
 
 You can use {{site.data.keyword.secrets-manager_short}} to store a username and password that you can use to log in to and access a protected service inside or outside of {{site.data.keyword.cloud_notm}}.
 
@@ -136,7 +136,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
 
 ## Creating IAM credentials
-{: #create-iam-credentials}
+{: #store-iam-credentials}
 
 You can use the {{site.data.keyword.secrets-manager_short}} to create dynamic IAM credentials for accessing an {{site.data.keyword.cloud_notm}} resource that requires IAM authentication. When you create your credentials, {{site.data.keyword.secrets-manager_short}} creates a service ID and an API key. Your credentials are dynamically generated only when you or your application needs to access a protected {{site.data.keyword.cloud_notm}} resource. After the credentials reach the end of their lease, {{site.data.keyword.secrets-manager_short}} revokes them automatically on your behalf.
 
@@ -219,7 +219,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
 
 ## Creating arbitrary secrets
-{: #create-arbitrary-secrets}
+{: #store-arbitrary-secrets}
 
 You can use {{site.data.keyword.secrets-manager_short}} to store arbitrary or custom secrets, such as API keys, that you can use inside or outside of {{site.data.keyword.cloud_notm}}.
 
