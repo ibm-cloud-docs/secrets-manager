@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-11"
+lastupdated: "2020-12-15"
 
 keywords: Data security for Secrets Manager, byok, kyok, data storage, data encryption in Secrets Manager, customer managed keys
 
@@ -55,7 +55,7 @@ To ensure that you can securely manage your data when you use {{site.data.keywor
 ## How your data is stored and encrypted in {{site.data.keyword.secrets-manager_short}}
 {: #data-storage}
 
-When you work with the {{site.data.keyword.secrets-manager_short}} service, you store secrets that allow users or services to access your protected resources. Your secrets are encrypted at rest by using {{site.data.keyword.keymanagementserviceshort}} root keys to validate the security of each interaction. At no time are your credentials available in clear text while they are stored by the service.
+When you work with the {{site.data.keyword.secrets-manager_short}} service, you store secrets that allow users or services to access your protected resources. Your secrets are encrypted at rest by using [envelope encryption](#x9860393){: term}. At no time are your credentials available in clear text while they are stored by the service.
 
 {{site.data.keyword.secrets-manager_short}} also uses the following security mechanisms to protect your data in transit.
 
