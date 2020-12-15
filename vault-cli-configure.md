@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-11"
+lastupdated: "2020-12-15"
 
 keywords: Vault CLI, configure the Vault CLI, use Secrets Manager with Vault CLI, CLI commands, log in to Vault
 
@@ -172,8 +172,8 @@ After you configure your environment, log in to Vault to start interacting with 
     The following screen shows the example output.
 
     ```
-    Success! You are now authenticated. The token information displayed below
-    is already stored in the token helper. You do NOT need to run "vault login"
+    Success! You are now authenticated. The token information displayed is 
+    already stored in the token helper. You do NOT need to run "vault login"
     again. Future Vault requests will automatically use this token.
 
     Key                      Value
