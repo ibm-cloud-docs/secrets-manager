@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-14"
+lastupdated: "2020-12-15"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -51,6 +51,13 @@ subcollection: secrets-manager
 
 Use these release notes to learn about the latest changes to {{site.data.keyword.secrets-manager_full}} that are grouped by date. 
 {:shortdesc}
+
+## 15 December 2020
+{: #2020-11-15}
+
+You can now create a {{site.data.keyword.secrets-manager_short}} service instance in the Sydney (`au-syd`) region.
+
+For more information, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
 
 ## 14 December 2020
 {: #2020-11-14}
