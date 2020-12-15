@@ -101,7 +101,7 @@ As a beta service, {{site.data.keyword.secrets-manager_short}} does not yet supp
     3. Select the instance of the {{site.data.keyword.keymanagementserviceshort}} as the target service.
     4. Select the key that you created in the previous steps.
     5. Assign the Reader role.
-    6. Click **Authorize** to confirm the delegated authorization.
+    6. Click **Authorize** to confirm the authorization.
 
 4. Create an instance of the {{site.data.keyword.secrets-manager_short}} service. 
 
