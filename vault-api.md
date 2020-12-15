@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-11"
+lastupdated: "2020-12-15"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -46,19 +46,18 @@ subcollection: secrets-manager
 {:cli: .ph data-hd-interface='cli'}
 {:ui: .ph data-hd-interface='ui'}
 
-
-
-
-# Using the Vault APIs
+# Vault API
 {: #vault-api}
-
 
 If you're already using the HashiCorp Vault HTTP API, you can use its API format and guidelines to interact with {{site.data.keyword.secrets-manager_full}}.
 {: shortdesc}
 
 To use the standard REST API for {{site.data.keyword.secrets-manager_short}}, check out the [{{site.data.keyword.secrets-manager_short}} API reference](/apidocs/secrets-manager){: external}.
 
-## Introduction
+## Overview
+{: #vault-api-overview}
+
+### Introduction
 {: #vault-api-intro}
 
 {{site.data.keyword.secrets-manager_short}} uses a custom version of open source HashiCorp Vault. This custom version adds the {{site.data.keyword.cloud_notm}} IAM `auth` method and a set of secret engines to support operations in {{site.data.keyword.secrets-manager_short}} for various secret types.
@@ -66,7 +65,7 @@ To use the standard REST API for {{site.data.keyword.secrets-manager_short}}, ch
 All operations follow the REST API standards that are available for the Vault HTTP APIs. For more information about how to authenticate and use the Vault HTTP APIs, check out the [Vault documentation](https://www.vaultproject.io/api-docs/index){: external}.
 
 Plug-ins and other components that are offered by the open source Vault community might not be accessible by {{site.data.keyword.secrets-manager_short}}. For more information, see the [FAQs](/docs/secrets-manager?topic=secrets-manager-faqs#faq-differences-vault).
-{: note}
+{: important}
 
 ### Endpoint URLs
 {: #vault-api-base-url}
@@ -130,14 +129,14 @@ Use a duration string such as `300s` or `2h45m`. Valid time units are `s`, `m`, 
 {: #vault-configure-login-token-request}
 
 ```sh
-curl --location --request PUT 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/login' \
---header 'Accept: application/json' \
---header 'X-Vault-Token: {Vault_token}' \
---header 'Content-Type: application/json' \
---data-raw '{
+curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/login" \
+  -H "Accept: application/json" \
+  -H "X-Vault-Token: {Vault_token}" \
+  -H "Content-Type: application/json" \
+  -d '{
     "token_ttl": "30m",
     "token_max_ttl": "2h"
-}'
+  }'
 ```
 {: pre}
 
@@ -155,9 +154,9 @@ Reads the login configuration of a Vault token.
 {: #vault-read-token-config-request}
 
 ```sh
-curl --location --request GET 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/login' \
---header 'Accept: application/json' \
---header 'X-Vault-Token: {Vault-Token}'
+curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/login" \
+  -H "Accept: application/json" \
+  -H "X-Vault-Token: {Vault-Token}"
 ```
 {: pre}
 
@@ -192,7 +191,7 @@ Logs in to Vault by using an {{site.data.keyword.cloud_notm}} IAM token and obta
 {: #vault-login-params}
 
 <dl>
-    <dt><code>iam_token</code></dt>
+    <dt><code>IAM_token</code></dt>
     <dd>Your {{site.data.keyword.cloud_notm}} IAM access token.</dd>
 </dl>
 
@@ -200,12 +199,12 @@ Logs in to Vault by using an {{site.data.keyword.cloud_notm}} IAM token and obta
 {: #vault-login-request}
 
 ```sh
-curl --location --request PUT 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/login' \
---header 'Accept: application/json' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "token": "{iam_token}"
-}'
+curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/login" \
+  -H "Accept: application/json" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "token": "{IAM_token}"
+  }'
 ```
 {: pre}
 
@@ -268,14 +267,14 @@ Creates a secret group.
 {: #vault-create-secret-group-request}
 
 ```sh
-curl --location --request PUT 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/groups' \
---header 'Accept: application/json' \
---header 'X-Vault-Token: {Vault-Token}' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "name": "my-secret-group",
-    "description": "my new group"
-}'
+curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/groups" \
+  -H "Accept: application/json" \
+  -H "X-Vault-Token: {Vault-Token}" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "test-secret-group",
+    "description": "Extended description for my secret group."
+   }'
 ```
 {: pre}
 
@@ -284,17 +283,17 @@ curl --location --request PUT 'https://{instance_ID}.{region}.secrets-manager.ap
 
 ```json
 {
-    "request_id": "256b98f4-2fa2-1c96-efbc-c058562c1d1b",
+    "request_id": "f0e47267-940e-1a59-8742-e4e77401b06b",
     "lease_id": "",
     "renewable": false,
     "lease_duration": 0,
     "data": {
-        "created_at": "2020-08-03T09:27:01Z",
-        "description": "my new group",
-        "id": "b61632aa-ef40-68a2-ddca-de2da2af40a7",
-        "name": "my-secret-group",
-        "type": "application/secret.group+json",
-        "updated_at": ""
+        "creation_date": "2020-12-15T22:08:46Z",
+        "description": "Extended description for my secret group.",
+        "id": "2bcaa289-5d38-aa57-910d-970e418ab1b3",
+        "last_update_date": "2020-12-15T22:08:46Z",
+        "name": "test-secret-group",
+        "type": "application/vnd.ibm.secrets-manager.secret.group+json"
     },
     "wrap_info": null,
     "warnings": null,
@@ -312,9 +311,9 @@ Lists the secret groups that are available in your {{site.data.keyword.secrets-m
 {: #vault-list-secret-groups-request}
 
 ```sh
-curl --location --request GET 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/groups' \
---header 'Accept: application/json' \
---header 'X-Vault-Token: {Vault-Token}'
+curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/groups" \
+  -H "Accept: application/json" \
+  -H "X-Vault-Token: {Vault-Token}"
 ```
 {: pre}
 
@@ -323,19 +322,27 @@ curl --location --request GET 'https://{instance_ID}.{region}.secrets-manager.ap
 
 ```json
 {
-    "request_id": "5bce2444-9b41-5940-8da7-a8a48ebd5b23",
+    "request_id": "7ecc32f2-b78b-9290-015c-24803a1e87c9",
     "lease_id": "",
     "renewable": false,
     "lease_duration": 0,
     "data": {
         "groups": [
             {
-                "created_at": "2020-08-03T09:27:01Z",
-                "description": "my new group",
-                "id": "b61632aa-ef40-68a2-ddca-de2da2af40a7",
-                "name": "my-secret-group",
-                "type": "application/secret.group+json",
-                "updated_at": ""
+                "creation_date": "2020-12-14T14:48:55Z",
+                "description": "Read and write to Cloud Object storage buckets.",
+                "id": "714e070d-8122-6270-198c-fef9166729e3",
+                "last_update_date": "2020-12-14T14:48:55Z",
+                "name": "cloud-object-storage-writers",
+                "type": "application/vnd.ibm.secrets-manager.secret.group+json"
+            },
+            {
+                "creation_date": "2020-12-15T22:08:46Z",
+                "description": "Extended description for my secret group.",
+                "id": "2bcaa289-5d38-aa57-910d-970e418ab1b3",
+                "last_update_date": "2020-12-15T22:08:46Z",
+                "name": "test-secret-group",
+                "type": "application/vnd.ibm.secrets-manager.secret.group+json"
             }
         ]
     },
@@ -367,14 +374,14 @@ Updates the details of an existing secret group.
 {: #vault-update-secret-group-request}
 
 ```sh
-curl --location --request POST 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/groups/{id}' \
---header 'Accept: application/json' \
---header 'X-Vault-Token: {Vault-Token}' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "name": "my-new-secret-group",
-    "description": "my newer group"
-}'
+curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/groups/{id}" \
+  -H "Accept: application/json" \
+  -H "X-Vault-Token: {Vault-Token}" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "updated-secret-group-name",
+    "description": "Updated description for my secret group"
+  }'
 ```
 {: pre}
 
@@ -383,17 +390,17 @@ curl --location --request POST 'https://{instance_ID}.{region}.secrets-manager.a
 
 ```json
 {
-    "request_id": "a35b62a8-764e-8309-10cd-157d9fa412dc",
+    "request_id": "b02c5035-9da1-85fe-b7c7-3db2c77ddbb6",
     "lease_id": "",
     "renewable": false,
     "lease_duration": 0,
     "data": {
-        "created_at": "2020-08-03T09:27:01Z",
-        "description": "my newer group",
-        "id": "b61632aa-ef40-68a2-ddca-de2da2af40a7",
-        "name": "my-new-secret-group",
-        "type": "application/secret.group+json",
-        "updated_at": "2020-08-03T10:37:29Z"
+        "creation_date": "2020-12-15T22:08:46Z",
+        "description": "Updated description for my secret group.",
+        "id": "2bcaa289-5d38-aa57-910d-970e418ab1b3",
+        "last_update_date": "2020-12-15T22:16:32Z",
+        "name": "updated-secret-group-name",
+        "type": "application/vnd.ibm.secrets-manager.secret.group+json"
     },
     "wrap_info": null,
     "warnings": null,
@@ -419,9 +426,9 @@ Retrieves a secret group and its details.
 {: #vault-get-secret-group-request}
 
 ```sh
-curl --location --request GET 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/groups/{id}' \
---header 'Accept: application/json' \
---header 'X-Vault-Token: {Vault-Token}
+curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/groups/{id}" \
+  -H "Accept: application/json" \
+  -H "X-Vault-Token: {Vault-Token}"
 ```
 {: pre}
 
@@ -430,17 +437,17 @@ curl --location --request GET 'https://{instance_ID}.{region}.secrets-manager.ap
 
 ```json
 {
-    "request_id": "cd9d4cf9-4bb2-1e4d-69ce-3dbd9b43becc",
+    "request_id": "0d127ae6-8359-bc36-af53-3a56be4c3e24",
     "lease_id": "",
     "renewable": false,
     "lease_duration": 0,
     "data": {
-        "created_at": "2020-08-03T09:27:01Z",
-        "description": "my newer group",
-        "id": "b61632aa-ef40-68a2-ddca-de2da2af40a7",
-        "name": "my-new-secret-group",
-        "type": "application/secret.group+json",
-        "updated_at": "2020-08-03T10:37:29Z"
+        "creation_date": "2020-12-15T22:08:46Z",
+        "description": "Updated description for my secret group.",
+        "id": "2bcaa289-5d38-aa57-910d-970e418ab1b3",
+        "last_update_date": "2020-12-15T22:18:44Z",
+        "name": "updated-secret-group-name",
+        "type": "application/vnd.ibm.secrets-manager.secret.group+json"
     },
     "wrap_info": null,
     "warnings": null,
@@ -466,9 +473,9 @@ Deletes a secret group.
 {: #vault-delete-secret-group-request}
 
 ```sh
-curl --location --request DELETE 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/groups/9894c07f-89aa-920f-447e-82c32b2200ae' \
---header 'Accept: application/json' \
---header 'X-Vault-Token: {Vault-Token}'
+curl -X DELETE "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/groups/{id}" \
+  -H "Accept: application/json" \
+  -H "X-Vault-Token: {Vault-Token}"
 ```
 
 #### Sample response
@@ -476,18 +483,11 @@ curl --location --request DELETE 'https://{instance_ID}.{region}.secrets-manager
 
 ```json
 {
-    "request_id": "9d90136f-9eeb-eb93-ee3c-a729c708fa14",
+    "request_id": "37065859-3238-f671-941f-d43ac340ad99",
     "lease_id": "",
     "renewable": false,
     "lease_duration": 0,
-    "data": {
-        "created_at": "2020-08-04T08:05:45Z",
-        "description": "my new group",
-        "id": "9894c07f-89aa-920f-447e-82c32b2200ae",
-        "name": "my-secret-group",
-        "type": "application/secret.group+json",
-        "updated_at": ""
-    },
+    "data": null,
     "wrap_info": null,
     "warnings": null,
     "auth": null
