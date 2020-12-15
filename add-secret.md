@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-14"
+lastupdated: "2020-12-15"
 
 keywords: create secrets, add secrets, store secrets, single tenant secret storage, manage secrets 
 
@@ -202,7 +202,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
           "name": "example-IAM-credentials", 
           "description": "Extended description for my secret.",
           "access_groups": [
-            "e7e1a364-c5b9-4027-b4fe-083454499a20"
+            "AccessGroupId-e7e1a364-c5b9-4027-b4fe-083454499a20"
           ],
           "secret_group_id": "432b91f1-ff6d-4b47-9f06-82debc236d90",
           "ttl": "12h", 
