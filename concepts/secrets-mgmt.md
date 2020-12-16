@@ -4,7 +4,7 @@ copyright:
   years: 2020
 lastupdated: "2020-12-16"
 
-keywords: secrets management in IBM Cloud, differences between Secrets Manager and Key Protect, when to use Secrets Manager, Secrets Manager use cases, single tenant, multi-tenant
+keywords: secrets management in IBM Cloud, differences between {{site.data.keyword.secrets-manager_short}} and Key Protect, when to use {{site.data.keyword.secrets-manager_short}}, {{site.data.keyword.secrets-manager_short}} use cases, single tenant, multi-tenant
 
 subcollection: secrets-manager
 
@@ -51,7 +51,7 @@ subcollection: secrets-manager
 
 A secret is any piece of confidential information, such as an encryption key, a certificate, or a digital credential.
 
-With {{site.data.keyword.cloud_notm}}, you can choose from various secrets management and data protection offerings that help you to protect your sensitive data and centralize your secrets. If you need to integrate general purpose secrets to authenticate your apps, you can use Secrets Manager to create [dynamic secrets](#x9968958){:term} and manage their lifecycle. But for other application secrets, such as encryption keys, your business might require a higher level of control that relies on highly secure, customer-controlled cryptographic hardware.  
+With {{site.data.keyword.cloud_notm}}, you can choose from various secrets management and data protection offerings that help you to protect your sensitive data and centralize your secrets. If you need to integrate general purpose secrets to authenticate your apps, you can use {{site.data.keyword.secrets-manager_short}} to create [dynamic secrets](#x9968958){:term} and manage their lifecycle. But for other application secrets, such as encryption keys, your business might require a higher level of control that relies on highly secure, customer-controlled cryptographic hardware.  
 
 For example, consider the following scenarios and how they map to secrets management offerings and data protection offerings in {{site.data.keyword.cloud_notm}}.
 
@@ -65,8 +65,8 @@ The following table lists the different offerings that you can use with {{site.d
 
 | Scenario | What to use |
 | --- | --- |
-| As a DevOps team contributor, you need to create, lease, and manage API keys, credentials, database configurations, and other secrets for your services and applications. | With **[Secrets Manager](/docs/secrets-manager)**, you can manage secrets of various types in a dedicated instance. |
-| You need to generate, renew, and manage TLS/SSL certificates for your deployments. | You can use **[Certificate Manager](/docs/certificate-manager)** to manage the lifecycle of your certificates in a multi-tenant service. |
+| As a DevOps team contributor, you need to create, lease, and manage API keys, credentials, database configurations, and other secrets for your services and applications. | With **[{{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager)**, you can manage secrets of various types in a dedicated instance. |
+| You need to generate, renew, and manage TLS/SSL certificates for your deployments. | You can use **[{{site.data.keyword.cloudcerts_short}}](/docs/certificate-manager)** to manage the lifecycle of your certificates in a multi-tenant service. |
 | You need to create and manage encryption keys that are backed by FIPS 140-2 Level 3 validated hardware. | You can use **[{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect)** to generate and import encryption keys by using a multi-tenant service with shared hardware. |
 | You are an admin in an industry, such as finance or legal, that must adhere to governance over how data is protected and isolated. You need to create and manage encryption keys by using a dedicated, FIPS 140-2 Level 4 hardware security module that you control and manage. | With **[{{site.data.keyword.hscrypto}}](/docs/hs-crypto)**, you can manage encryption keys in a single-tenant service with dedicated hardware. |
 | You need a way to offload TLS handshake encryption to a dedicated, FIPS 140-2 Level 4 hardware security module that you control and manage. | You can also use **[{{site.data.keyword.hscrypto}}](/docs/hs-crypto)** to control your TLS/SSL keys in a dedicated HSM. |
@@ -77,17 +77,17 @@ The following table lists the different offerings that you can use with {{site.d
 
 As you plan your data protection strategy, some differences between services to consider include the level of data isolation that your workload requires. 
 
-For a higher level of security and control, your business might benefit from the data isolation that a single-tenant offering provides, such as Secrets Manager or {{site.data.keyword.hscrypto}}. You might also decide that the lower costs and scalability benefits of a multi-tenant service, such as {{site.data.keyword.keymanagementserviceshort}} and Certificate Manager, are better suited for your needs. The following table lists key features for each service.
+For a higher level of security and control, your business might benefit from the data isolation that a single-tenant offering provides, such as {{site.data.keyword.secrets-manager_short}} or {{site.data.keyword.hscrypto}}. You might also decide that the lower costs and scalability benefits of a multi-tenant service, such as {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.cloudcerts_short}}, are better suited for your needs. The following table lists key features for each service.
 
 | Service | Secret types | Multi-tenant[^multi-tenant] | Single-tenant[^single-tenant] | HSM backed[^hsm] | 
 | --- | --- | --- | --- |  --- |
-| **Secrets Manager** | User credentials<br>IAM credentials<br>Arbitrary secrets | | ![Check mark icon](../../icons/checkmark-icon.svg)| | 
-| **Certificate Manage**r | SSL/TLS certificates | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
+| **{{site.data.keyword.secrets-manager_short}}** | User credentials<br>IAM credentials<br>Arbitrary secrets | | ![Check mark icon](../../icons/checkmark-icon.svg)| | 
+| **{{site.data.keyword.cloudcerts_short}}** | SSL/TLS certificates | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
 | **{{site.data.keyword.keymanagementserviceshort}}** | Symmetric encryption keys | ![Check mark icon](../../icons/checkmark-icon.svg)| | ![Check mark icon](../../icons/checkmark-icon.svg) | | 
 | **{{site.data.keyword.hscrypto}}** | Symmetric encryption keys | |![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
 {: class="comparison-table"}	
 {: caption="Table 2. Key features for {{site.data.keyword.cloud_notm}} data protection services" caption-side="top"}
-{: summary="The table compares features across Secrets Manager, Certificate Manager, {{site.data.keyword.keymanagementserviceshort}}, and {{site.data.keyword.hscrypto}}. The first column lists the names of the services. The second column lists the types of secrets that are supported by each service. The third column uses check marks to indicate whether a service is multi-tenant. The fourth column uses check marks to indicate whether a service is single-tenant. The last column uses check marks to indicate whether a service is backed by a hardware security module (HSM)."}
+{: summary="The table compares features across {{site.data.keyword.secrets-manager_short}}, {{site.data.keyword.cloudcerts_short}}, {{site.data.keyword.keymanagementserviceshort}}, and {{site.data.keyword.hscrypto}}. The first column lists the names of the services. The second column lists the types of secrets that are supported by each service. The third column uses check marks to indicate whether a service is multi-tenant. The fourth column uses check marks to indicate whether a service is single-tenant. The last column uses check marks to indicate whether a service is backed by a hardware security module (HSM)."}
 
 [^multi-tenant]: A multi-tenant service uses a single instance of its software (and its underlying database and hardware) to serve multiple tenants. [Learn more](https://www.ibm.com/cloud/learn/multi-tenant){: external}.
 
@@ -100,7 +100,7 @@ For a higher level of security and control, your business might benefit from the
 
 Each service supports either a Lite plan or a free trial that you can use to try its service capabilities for free. Get started by creating an instance of a service from the {{site.data.keyword.cloud_notm}} catalog.
 
-- [Certificate Manager](/catalog/services/certificate-manager){:external}
+- [{{site.data.keyword.cloudcerts_short}}](/catalog/services/certificate-manager){:external}
 - [{{site.data.keyword.keymanagementserviceshort}}](/catalog/services/key-protect){:external}
 - [{{site.data.keyword.hscrypto}}](/catalog/services/hs-crypto){:external}
 - [{{site.data.keyword.secrets-manager_short}}](/catalog/services/secrets-manager){:external}
