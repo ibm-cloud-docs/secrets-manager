@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-11"
+lastupdated: "2020-12-16"
 
 keywords: secret groups, assign secret access, iam roles, secrets policies, organize secrets
 
@@ -74,8 +74,9 @@ Before you begin, be sure that you have the required level of access. To create 
 
 You can create secret groups by using the {{site.data.keyword.secrets-manager_short}} console or the APIs.
 
-### Creating secret groups with the console
+### Creating secret groups in the UI
 {: #create-group-ui}
+{: ui}
 
 You can create secret groups by using the console. You can also create a secret group during the process of adding or creating a secret.
 
@@ -89,6 +90,7 @@ You can create secret groups by using the console. You can also create a secret 
 
 ### Creating secret groups with the API
 {: #create-group-api}
+{: api}
 
 You can create secret groups by using the {{site.data.keyword.secrets-manager_short}} APIs.
 
@@ -123,8 +125,9 @@ To delete a secret group, it must be empty. If you need to remove a secret group
 {: note}
 
 
-### Deleting secret groups with the console
+### Deleting secret groups in the UI
 {: #delete-group-ui}
+{: ui}
 
 You can delete secret groups by using the console.
 
@@ -137,6 +140,7 @@ You can delete secret groups by using the console.
 
 ### Deleting secret groups with the API
 {: #delete-group-api}
+{: api}
 
 You can delete secret groups by using the {{site.data.keyword.secrets-manager_short}} APIs.
 

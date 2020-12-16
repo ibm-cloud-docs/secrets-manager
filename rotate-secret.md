@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-11"
+lastupdated: "2020-12-16"
 
 keywords: rotate secrets, manually rotate, new secret, automatically rotate, automatic rotation, set rotation policy
 
@@ -69,8 +69,9 @@ Before you get started, be sure that you have the required level of access. To r
 
 You can manually rotate user credentials and arbitrary secrets by using the console or APIs.
 
-### Rotating secrets manually with the console
+### Rotating secrets manually in the UI
 {: #manual-rotate-secret-ui}
+{: ui}
 
 You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotate your secrets.
 
@@ -89,6 +90,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 
 ### Rotating secrets manually by using the API
 {: #manual-rotate-secret-api}
+{: api}
 
 The following example request creates a new version of your secret.
 
@@ -115,8 +117,9 @@ After you set a rotation policy for a secret, the clock starts immediately based
 Currently, you can enable automatic rotation only for the user credentials (`username_password`) secret type.
 {: note}
 
-### Setting a rotation policy with the console
+### Setting a rotation policy in the UI
 {: #auto-rotate-secret-ui}
+{: ui}
 
 You can enable automatic rotation for your secret at its creation, or by editing the details of an existing secret. Choose between a 30, 60, or 90-day rotation interval.
 
@@ -131,6 +134,7 @@ If you need more control over the rotation frequency of a secret, you can use th
 
 ### Setting a rotation policy by using the API
 {: #auto-rotate-secret-api}
+{: api}
 
 The following example request sets a monthly rotation policy for a `username_password` secret type.
 

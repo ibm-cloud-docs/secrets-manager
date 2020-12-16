@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-11"
+lastupdated: "2020-12-16"
 
 keywords: delete secret, remove secret, destroy secret
 
@@ -57,8 +57,9 @@ You can use {{site.data.keyword.secrets-manager_full}} to delete a secret and it
 
 Before you begin, be sure that you have the required level of access. To delete secrets, you need the [**Manager** service role](/docs/secrets-manager?topic=secrets-manager-iam).
 
-## Deleting secrets with the console
+## Deleting secrets in the UI
 {: #delete-secret-ui}
+{: ui}
 
 You can use the {{site.data.keyword.secrets-manager_short}} UI to manually delete your secrets.
 
@@ -73,6 +74,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually delet
 
 ## Deleting secrets by using the API
 {: #delete-secret-api}
+{: api}
 
 The following example request deletes a secret and its contents.
 
