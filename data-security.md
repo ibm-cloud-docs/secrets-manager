@@ -113,7 +113,7 @@ If you choose to work with a key that you manage, you must ensure that valid IAM
     1. Select the region that corresponds to the region for the instance of the key management service that you created previously.
     2. Select your {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance.
     3. Select the **Root key** that you previously authorized.
-    4. Click **Create**.</staging>
+    4. Click **Create**.
 
 ## Deleting your data in {{site.data.keyword.secrets-manager_short}}
 {: #data-delete}
