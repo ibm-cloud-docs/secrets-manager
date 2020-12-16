@@ -57,7 +57,7 @@ To use the standard REST API for {{site.data.keyword.secrets-manager_short}}, ch
 ## Overview
 {: #vault-api-overview}
 
-{{site.data.keyword.secrets-manager_short}} uses a custom version of open source HashiCorp Vault. This custom version adds the {{site.data.keyword.cloud_notm}} IAM `auth` method and a set of secret engines to support operations in {{site.data.keyword.secrets-manager_short}} for various secret types.
+{{site.data.keyword.secrets-manager_short}} uses a custom version of open source HashiCorp Vault. This custom version adds the {{site.data.keyword.cloud_notm}} IAM Auth method and a set of secret engines to support operations in {{site.data.keyword.secrets-manager_short}} for various secret types.
 
 All operations follow the REST API standards that are available for the Vault HTTP APIs. For more information about how to authenticate and use the Vault HTTP APIs, check out the [Vault documentation](https://www.vaultproject.io/api-docs/index){: external}.
 
