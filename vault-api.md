@@ -557,7 +557,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/
     "name": "test-iam-credentials",
     "description": "Extended description for my secret.",
     "access_groups": [
-        "AccessGroupId-5f75a16d-7dbc-4270-b206-a2e5cd1e3183"
+        "AccessGroupId-0529f490-129c-4877-a2a0-b57f50d3e53b"
     ],
     "labels": [
         "dev",
@@ -579,7 +579,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/
     "name": "test-iam-credentials-in-group",
     "description": "Extended description for my secret.",
     "access_groups": [
-        "AccessGroupId-5f75a16d-7dbc-4270-b206-a2e5cd1e3183"
+        "AccessGroupId-0529f490-129c-4877-a2a0-b57f50d3e53b"
     ],
     "labels": [
         "dev",
@@ -644,9 +644,9 @@ A request to create an arbitrary secret in the `default` secret group returns th
   "renewable": false,
   "lease_duration": 0,
   "data": {
-    "created_by": "iam-ServiceId-7d655b20-9c5b-4b21-8a84-a7c73d87eba7",
+    "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
     "creation_date": "2020-12-15T22:34:53Z",
-    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:4b86ccee-494b-4c56-a1f5-a3797f3c5824:secret:a6972127-35ad-b36f-aac8-0223f0475cb6",
+    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0:secret:a6972127-35ad-b36f-aac8-0223f0475cb6",
     "description": "Extended description for my secret.",
     "expiration_date": "2030-04-01T09:30:00Z",
     "id": "a6972127-35ad-b36f-aac8-0223f0475cb6",
@@ -665,7 +665,7 @@ A request to create an arbitrary secret in the `default` secret group returns th
     "state_description": "Active",
     "versions": [
       {
-          "created_by": "iam-ServiceId-7d655b20-9c5b-4b21-8a84-a7c73d87eba7",
+          "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
           "creation_date": "2020-12-15T22:34:53Z",
           "id": "a7f55e6f-b068-977b-062e-4de644633982"
       }
@@ -687,9 +687,9 @@ A request to create an arbitrary secret in an existing secret group returns the 
   "renewable": false,
   "lease_duration": 0,
   "data": {
-    "created_by": "iam-ServiceId-7d655b20-9c5b-4b21-8a84-a7c73d87eba7",
+    "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
     "creation_date": "2020-12-15T22:34:53Z",
-    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:4b86ccee-494b-4c56-a1f5-a3797f3c5824:secret:a6972127-35ad-b36f-aac8-0223f0475cb6",
+    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0:secret:a6972127-35ad-b36f-aac8-0223f0475cb6",
     "description": "Extended description for my secret.",
     "expiration_date": "2030-04-01T09:30:00Z",
     "id": "a6972127-35ad-b36f-aac8-0223f0475cb6",
@@ -708,7 +708,7 @@ A request to create an arbitrary secret in an existing secret group returns the 
     "state_description": "Active",
     "versions": [
       {
-        "created_by": "iam-ServiceId-7d655b20-9c5b-4b21-8a84-a7c73d87eba7",
+        "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
         "creation_date": "2020-12-15T22:34:53Z",
         "id": "a7f55e6f-b068-977b-062e-4de644633982"
       }
@@ -731,11 +731,11 @@ A request to create IAM credentials in the `default` secret group returns the fo
     "lease_duration": 0,
     "data": {
         "access_groups": [
-            "AccessGroupId-5f75a16d-7dbc-4270-b206-a2e5cd1e3183"
+            "AccessGroupId-0529f490-129c-4877-a2a0-b57f50d3e53b"
         ],
-        "created_by": "iam-ServiceId-7d655b20-9c5b-4b21-8a84-a7c73d87eba7",
+        "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
         "creation_date": "2020-12-16T21:34:51Z",
-        "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:4b86ccee-494b-4c56-a1f5-a3797f3c5824:secret:8bc5eae8-e5b7-9599-de8e-525d1c3e2723",
+        "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0:secret:8bc5eae8-e5b7-9599-de8e-525d1c3e2723",
         "description": "Extended description for my secret.",
         "id": "8bc5eae8-e5b7-9599-de8e-525d1c3e2723",
         "labels": [
@@ -766,13 +766,13 @@ A request to create IAM credentials in an existing secret group returns the foll
   "lease_duration": 0,
   "data": {
     "access_groups": [
-      "AccessGroupId-5f75a16d-7dbc-4270-b206-a2e5cd1e3183"
+      "AccessGroupId-0529f490-129c-4877-a2a0-b57f50d3e53b"
     ],
-    "created_by": "iam-ServiceId-7d655b20-9c5b-4b21-8a84-a7c73d87eba7",
+    "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
     "creation_date": "2020-12-16T21:57:13Z",
-    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:4b86ccee-494b-4c56-a1f5-a3797f3c5824:secret:028cc769-33c6-3bf6-9201-8328dac89862",
+    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0:secret:99425779-0707-4877-81CB-ca11e28b6ef1",
     "description": "Extended description for my secret.",
-    "id": "028cc769-33c6-3bf6-9201-8328dac89862",
+    "id": "99425779-0707-4877-81CB-ca11e28b6ef1",
     "labels": [
       "dev",
       "us-south"
@@ -801,9 +801,9 @@ A request to create user credentials in the `default` secret group returns the f
   "renewable": false,
   "lease_duration": 0,
   "data": {
-    "created_by": "iam-ServiceId-7d655b20-9c5b-4b21-8a84-a7c73d87eba7",
+    "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
     "creation_date": "2020-12-15T22:43:36Z",
-    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:4b86ccee-494b-4c56-a1f5-a3797f3c5824:secret:2bd4c8fc-c1e4-f9d7-8026-6c04610f051f",
+    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0:secret:2bd4c8fc-c1e4-f9d7-8026-6c04610f051f",
     "description": "Extended description for my secret.",
     "expiration_date": "2020-12-31T00:00:00Z",
     "id": "2bd4c8fc-c1e4-f9d7-8026-6c04610f051f",
@@ -823,7 +823,7 @@ A request to create user credentials in the `default` secret group returns the f
     "versions": [
       {
         "auto_rotated": false,
-        "created_by": "iam-ServiceId-7d655b20-9c5b-4b21-8a84-a7c73d87eba7",
+        "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
         "creation_date": "2020-12-15T22:43:36Z",
         "id": "ae4b3afd-5e63-5951-790b-f1892e8c5267"
       }
@@ -845,9 +845,9 @@ A request to create user credentials in an existing secret group returns the fol
   "renewable": false,
   "lease_duration": 0,
   "data": {
-    "created_by": "iam-ServiceId-7d655b20-9c5b-4b21-8a84-a7c73d87eba7",
+    "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
     "creation_date": "2020-12-15T22:46:41Z",
-    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:4b86ccee-494b-4c56-a1f5-a3797f3c5824:secret:be4a0846-4cb5-3bfa-bab5-10a44dfc3e85",
+    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0:secret:be4a0846-4cb5-3bfa-bab5-10a44dfc3e85",
     "description": "Extended description for my secret.",
     "expiration_date": "2020-12-31T00:00:00Z",
     "id": "be4a0846-4cb5-3bfa-bab5-10a44dfc3e85",
@@ -868,7 +868,7 @@ A request to create user credentials in an existing secret group returns the fol
     "versions": [
       {
           "auto_rotated": false,
-          "created_by": "iam-ServiceId-7d655b20-9c5b-4b21-8a84-a7c73d87eba7",
+          "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
           "creation_date": "2020-12-15T22:46:41Z",
           "id": "a09c7a3c-13a5-7a17-fadc-e7850496d27a"
       }
@@ -946,9 +946,9 @@ A request to retrieve an arbitrary secret in the `default` secret group returns 
   "renewable": false,
   "lease_duration": 0,
   "data": {
-    "created_by": "iam-ServiceId-7d655b20-9c5b-4b21-8a84-a7c73d87eba7",
+    "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
     "creation_date": "2020-12-16T20:54:52Z",
-    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:4b86ccee-494b-4c56-a1f5-a3797f3c5824:secret:582a8f65-9a2b-a072-4fc3-e69ff3462c23",
+    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0:secret:582a8f65-9a2b-a072-4fc3-e69ff3462c23",
     "description": "Extended description for my secret.",
     "expiration_date": "2030-04-01T09:30:00Z",
     "id": "582a8f65-9a2b-a072-4fc3-e69ff3462c23",
@@ -966,7 +966,7 @@ A request to retrieve an arbitrary secret in the `default` secret group returns 
     "state_description": "Active",
     "versions": [
       {
-        "created_by": "iam-ServiceId-7d655b20-9c5b-4b21-8a84-a7c73d87eba7",
+        "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
         "creation_date": "2020-12-16T20:54:52Z",
         "id": "03d9ddb3-aa1d-d929-40c8-04027213ef08"
       }
@@ -988,9 +988,9 @@ A request to retrieve an arbitrary secret in an existing secret group returns th
   "renewable": false,
   "lease_duration": 0,
   "data": {
-    "created_by": "iam-ServiceId-7d655b20-9c5b-4b21-8a84-a7c73d87eba7",
+    "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
     "creation_date": "2020-12-15T22:34:53Z",
-    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:4b86ccee-494b-4c56-a1f5-a3797f3c5824:secret:a6972127-35ad-b36f-aac8-0223f0475cb6",
+    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0:secret:a6972127-35ad-b36f-aac8-0223f0475cb6",
     "description": "Extended description for my secret.",
     "expiration_date": "2030-04-01T09:30:00Z",
     "id": "a6972127-35ad-b36f-aac8-0223f0475cb6",
@@ -1009,7 +1009,7 @@ A request to retrieve an arbitrary secret in an existing secret group returns th
     "state_description": "Active",
     "versions": [
       {
-        "created_by": "iam-ServiceId-7d655b20-9c5b-4b21-8a84-a7c73d87eba7",
+        "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
         "creation_date": "2020-12-15T22:34:53Z",
         "id": "a7f55e6f-b068-977b-062e-4de644633982"
       }
@@ -1032,14 +1032,14 @@ A request to generate IAM credentials in the `default` secret group returns the 
   "lease_duration": 0,
   "data": {
     "access_groups": [
-      "AccessGroupId-5f75a16d-7dbc-4270-b206-a2e5cd1e3183"
+      "AccessGroupId-0529f490-129c-4877-a2a0-b57f50d3e53b"
     ],
     "api_key": "U40hERZ0h-0C0cnka2bEuL2yK5Yyz2MoHC8FKeYfcV7Z",
-    "created_by": "iam-ServiceId-7d655b20-9c5b-4b21-8a84-a7c73d87eba7",
+    "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
     "creation_date": "2020-12-16T21:55:31Z",
-    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:4b86ccee-494b-4c56-a1f5-a3797f3c5824:secret:93de88e3-37f7-c59f-6bdd-436051d3d7a6",
+    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0:secret:d7a2b83f-997c-4914-857a-86bfcdbf0873",
     "description": "Extended description for my secret.",
-    "id": "93de88e3-37f7-c59f-6bdd-436051d3d7a6",
+    "id": "d7a2b83f-997c-4914-857a-86bfcdbf0873",
     "labels": [
       "dev",
       "us-south"
@@ -1069,14 +1069,14 @@ A request to generate IAM credentials in an existing secret group returns the fo
   "lease_duration": 0,
   "data": {
     "access_groups": [
-      "AccessGroupId-5f75a16d-7dbc-4270-b206-a2e5cd1e3183"
+      "AccessGroupId-0529f490-129c-4877-a2a0-b57f50d3e53b"
     ],
     "api_key": "CFQY6wWPI3C3wKx6XLC9p0c3eiejr5WXd7lpRGiKr40a",
-    "created_by": "iam-ServiceId-7d655b20-9c5b-4b21-8a84-a7c73d87eba7",
+    "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
     "creation_date": "2020-12-16T21:57:13Z",
-    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:4b86ccee-494b-4c56-a1f5-a3797f3c5824:secret:028cc769-33c6-3bf6-9201-8328dac89862",
+    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0:secret:99425779-0707-4877-81CB-ca11e28b6ef1",
     "description": "Extended description for my secret.",
-    "id": "028cc769-33c6-3bf6-9201-8328dac89862",
+    "id": "99425779-0707-4877-81CB-ca11e28b6ef1",
     "labels": [
       "dev",
       "us-south"
@@ -1137,9 +1137,9 @@ A request to list all arbitrary secrets returns the following response:
   "data": {
     "secrets": [
       {
-        "created_by": "iam-ServiceId-7d655b20-9c5b-4b21-8a84-a7c73d87eba7",
+        "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
         "creation_date": "2020-12-15T22:34:53Z",
-        "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:4b86ccee-494b-4c56-a1f5-a3797f3c5824:secret:a6972127-35ad-b36f-aac8-0223f0475cb6",
+        "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0:secret:a6972127-35ad-b36f-aac8-0223f0475cb6",
         "description": "Extended description for my secret.",
         "expiration_date": "2030-04-01T09:30:00Z",
         "id": "a6972127-35ad-b36f-aac8-0223f0475cb6",
@@ -1155,9 +1155,9 @@ A request to list all arbitrary secrets returns the following response:
         "state_description": "Active"
       },
       {
-        "created_by": "iam-ServiceId-7d655b20-9c5b-4b21-8a84-a7c73d87eba7",
+        "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
         "creation_date": "2020-12-15T22:41:14Z",
-        "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:4b86ccee-494b-4c56-a1f5-a3797f3c5824:secret:ea1907c8-8c8e-6b83-3c20-05f2015b80d8",
+        "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0:secret:ea1907c8-8c8e-6b83-3c20-05f2015b80d8",
         "description": "Extended description for my secret.",
         "expiration_date": "2030-04-01T09:30:00Z",
         "id": "ea1907c8-8c8e-6b83-3c20-05f2015b80d8",
@@ -1187,7 +1187,7 @@ A request to list all arbitrary secrets returns the following response:
 
 Deletes a secret from a {{site.data.keyword.secrets-manager_short}} secrets engine.
 
-#### Example request
+#### Example requests
 {: #vault-delete-secret-request}
 
 Delete an arbitrary secret in the `default` secret group.
@@ -1212,6 +1212,16 @@ curl -X DELETE "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v
 {: #vault-delete-secret-response}
 
 ```json
+{
+    "request_id": "e48436e3-23d3-ab4a-7642-535cab8935a8",
+    "lease_id": "",
+    "renewable": false,
+    "lease_duration": 0,
+    "data": null,
+    "wrap_info": null,
+    "warnings": null,
+    "auth": null
+}
 ```
 {: screen}
 
