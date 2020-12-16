@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-15"
+lastupdated: "2020-12-16"
 
 keywords: Data security for Secrets Manager, byok, kyok, data storage, data encryption in Secrets Manager, customer managed keys
 
@@ -49,7 +49,7 @@ subcollection: secrets-manager
 # Securing your data in {{site.data.keyword.secrets-manager_short}}
 {: #mng-data}
 
-To ensure that you can securely manage your data when you use {{site.data.keyword.secrets-manager_full}}, it is important to know exactly what data is stored and encrypted and how you can delete it. Data encryption by using customer-managed keys is supported by using {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} with {{site.data.keyword.secrets-manager_short}}.
+To ensure that you can securely manage your data when you use {{site.data.keyword.secrets-manager_full}}, it is important to know exactly what data is stored and encrypted and how you can delete it. Data encryption by using customer-managed keys is supported by integrations with {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}.
 {: shortdesc}
 
 ## How your data is stored and encrypted in {{site.data.keyword.secrets-manager_short}}

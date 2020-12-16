@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-15"
+lastupdated: "2020-12-16"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -503,43 +503,57 @@ Creates a secret by using the {{site.data.keyword.secrets-manager_short}} secret
 #### Sample requests and responses
 {: #vault-create-secret-request-response}
 
-Create a secret in the `default` secret group:
+Create an arbitrary secret in the `default` secret group:
 
 ```sh
-curl --location --request PUT 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets' \
---header 'Accept: application/json' \
---header 'X-Vault-Token: {Vault-Token}' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "name": "dave",
-    "payload": "my arbitrary secret"
-}'
+curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets" \
+  -H "Accept: application/json" \
+  -H "X-Vault-Token: {Vault-Token}" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "test-arbitrary-secret",
+    "description": "Extended description for my secret."
+    "payload": "secret-data",
+    "labels": [
+        "dev",
+        "us-south"
+    ],
+    "expiration_date": "2030-04-01T09:30:00Z"
+  }'
 ```
 {: pre}
 
 ```json
 {
-    "request_id": "a0627556-112d-7733-2000-87effeed7ed8",
+    "request_id": "8c047529-de3a-a79d-7c2f-c382a8e75312",
     "lease_id": "",
     "renewable": false,
     "lease_duration": 0,
     "data": {
-        "created_at": "2020-08-04T10:05:41Z",
-        "crn": "crn:v1:bluemix:public:secret-manager:us-south:a/a2b41867c8294f612fd4c7fd10d39586:1ec90496-358e-4b51-b8b5-ecdcd44fb7dc:secret:arbitrary:49d8d88b-d2ee-4861-83f0-662172b550b5",
-        "description": "",
-        "expiration_date": "",
-        "id": "49d8d88b-d2ee-4861-83f0-662172b550b5",
-        "name": "dave",
-        "payload": "my arbitrary secret",
+        "created_by": "iam-ServiceId-7d655b20-9c5b-4b21-8a84-a7c73d87eba7",
+        "creation_date": "2020-12-15T22:34:53Z",
+        "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:4b86ccee-494b-4c56-a1f5-a3797f3c5824:secret:a6972127-35ad-b36f-aac8-0223f0475cb6",
+        "description": "Extended description for my secret.",
+        "expiration_date": "2030-04-01T09:30:00Z",
+        "id": "a6972127-35ad-b36f-aac8-0223f0475cb6",
+        "labels": [
+            "dev",
+            "us-south"
+        ],
+        "last_update_date": "2020-12-15T22:34:53Z",
+        "name": "test-arbitrary-secret-in-group",
+        "secret_data": {
+            "payload": "secret-data"
+        },
+        "secret_group_id": "339c026a-ac0f-1ea1-3d43-99adf871b49a",
+        "secret_type": "arbitrary",
         "state": 1,
-        "stateDescription": "Active",
-        "tags": [],
-        "type": "ARBITRARY",
-        "updated_at": "2020-08-04T10:05:41Z",
+        "state_description": "Active",
         "versions": [
             {
-                "id": "601d6a83-56a6-c2d9-b0dc-d5bea4f29d9f",
-                "updated_at": "2020-08-04T10:05:41.293237Z"
+                "created_by": "iam-ServiceId-7d655b20-9c5b-4b21-8a84-a7c73d87eba7",
+                "creation_date": "2020-12-15T22:34:53Z",
+                "id": "a7f55e6f-b068-977b-062e-4de644633982"
             }
         ]
     },
@@ -550,44 +564,184 @@ curl --location --request PUT 'https://{instance_ID}.{region}.secrets-manager.ap
 ```
 {: screen}
 
-Create a secret in an existing secret group:
+Create an arbitrary secret in an existing secret group:
 
 ```sh
-curl --location --request PUT 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/groups/c481f146-aa9f-5b9b-55b7-f9fd326027cd' \
---header 'Accept: application/json' \
---header 'X-Vault-Token: {Vault-Token}' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "name": "dave",
-    "payload": "my arbitrary secret"
-}'
+curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/groups/339c026a-ac0f-1ea1-3d43-99adf871b49a" \
+  -H "Accept: application/json" \
+  -H "X-Vault-Token: {Vault-Token}" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "test-arbitrary-secret-in-group",
+    "description": "Extended description for my secret.",
+    "payload": "secret-data",
+    "labels": [
+        "dev",
+        "us-south"
+    ],
+    "expiration_date": "2030-04-01T09:30:00Z"
+  }'
 ```
 {: pre}
 
 ```json
 {
-    "request_id": "a0627556-112d-7733-2000-87effeed7ed8",
+    "request_id": "8c047529-de3a-a79d-7c2f-c382a8e75312",
     "lease_id": "",
     "renewable": false,
     "lease_duration": 0,
     "data": {
-        "created_at": "2020-08-04T10:05:41Z",
-        "crn": "crn:v1:bluemix:public:secret-manager:us-south:a/a2b41867c8294f612fd4c7fd10d39586:1ec90496-358e-4b51-b8b5-ecdcd44fb7dc:secret:arbitrary:49d8d88b-d2ee-4861-83f0-662172b550b5",
-        "description": "",
-        "expiration_date": "",
-        "group_id": "c481f146-aa9f-5b9b-55b7-f9fd326027cd",
-        "id": "49d8d88b-d2ee-4861-83f0-662172b550b5",
-        "name": "dave",
-        "payload": "my arbitrary secret",
+        "created_by": "iam-ServiceId-7d655b20-9c5b-4b21-8a84-a7c73d87eba7",
+        "creation_date": "2020-12-15T22:34:53Z",
+        "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:4b86ccee-494b-4c56-a1f5-a3797f3c5824:secret:a6972127-35ad-b36f-aac8-0223f0475cb6",
+        "description": "Extended description for my secret.",
+        "expiration_date": "2030-04-01T09:30:00Z",
+        "id": "a6972127-35ad-b36f-aac8-0223f0475cb6",
+        "labels": [
+            "dev",
+            "us-south"
+        ],
+        "last_update_date": "2020-12-15T22:34:53Z",
+        "name": "test-arbitrary-secret-in-group",
+        "secret_data": {
+            "payload": "secret-data"
+        },
+        "secret_group_id": "339c026a-ac0f-1ea1-3d43-99adf871b49a",
+        "secret_type": "arbitrary",
         "state": 1,
-        "stateDescription": "Active",
-        "tags": [],
-        "type": "ARBITRARY",
-        "updated_at": "2020-08-04T10:05:41Z",
+        "state_description": "Active",
         "versions": [
             {
-                "id": "601d6a83-56a6-c2d9-b0dc-d5bea4f29d9f",
-                "updated_at": "2020-08-04T10:05:41.293237Z"
+                "created_by": "iam-ServiceId-7d655b20-9c5b-4b21-8a84-a7c73d87eba7",
+                "creation_date": "2020-12-15T22:34:53Z",
+                "id": "a7f55e6f-b068-977b-062e-4de644633982"
+            }
+        ]
+    },
+    "wrap_info": null,
+    "warnings": null,
+    "auth": null
+}
+```
+{: screen}
+
+Create user credentials in the `default` secret group:
+
+```sh
+curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/username_password/secrets" \
+  -H "Accept: application/json" \
+  -H "X-Vault-Token: {Vault-Token}" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "test-username-password",
+    "description": "Extended description for my secret.",
+    "username": "user123",
+    "password": "cloudy-rainy-coffee-book",
+    "expiration_date": "2020-12-31T00:00:00Z",
+    "labels": [
+        "dev",
+        "us-south"
+    ]
+  }'
+```
+{: pre}
+
+```json
+{
+    "request_id": "96fc9603-5aff-5daa-f25c-efc3599b374b",
+    "lease_id": "",
+    "renewable": false,
+    "lease_duration": 0,
+    "data": {
+        "created_by": "iam-ServiceId-7d655b20-9c5b-4b21-8a84-a7c73d87eba7",
+        "creation_date": "2020-12-15T22:43:36Z",
+        "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:4b86ccee-494b-4c56-a1f5-a3797f3c5824:secret:2bd4c8fc-c1e4-f9d7-8026-6c04610f051f",
+        "description": "Extended description for my secret.",
+        "expiration_date": "2020-12-31T00:00:00Z",
+        "id": "2bd4c8fc-c1e4-f9d7-8026-6c04610f051f",
+        "labels": [
+            "dev",
+            "us-south"
+        ],
+        "last_update_date": "2020-12-15T22:43:36Z",
+        "name": "test-username-password",
+        "secret_data": {
+            "password": "cloudy-rainy-coffee-book",
+            "username": "user123"
+        },
+        "secret_type": "username_password",
+        "state": 1,
+        "state_description": "Active",
+        "versions": [
+            {
+                "auto_rotated": false,
+                "created_by": "iam-ServiceId-7d655b20-9c5b-4b21-8a84-a7c73d87eba7",
+                "creation_date": "2020-12-15T22:43:36Z",
+                "id": "ae4b3afd-5e63-5951-790b-f1892e8c5267"
+            }
+        ]
+    },
+    "wrap_info": null,
+    "warnings": null,
+    "auth": null
+}
+```
+{: screen}
+
+Create user credentials in an existing secret group:
+
+```sh
+curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/username_password/secrets/groups/339c026a-ac0f-1ea1-3d43-99adf871b49a" \
+  -H "Accept: application/json" \
+  -H "X-Vault-Token: {Vault-Token}" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "test-username-password",
+    "description": "Extended description for my secret.",
+    "username": "user123",
+    "password": "cloudy-rainy-coffee-book",
+    "expiration_date": "2020-12-31T00:00:00Z",
+    "labels": [
+        "dev",
+        "us-south"
+    ]
+  }'
+```
+{: pre}
+
+```json
+{
+    "request_id": "4ccc9dd5-af3a-6865-293f-3f704d2866e1",
+    "lease_id": "",
+    "renewable": false,
+    "lease_duration": 0,
+    "data": {
+        "created_by": "iam-ServiceId-7d655b20-9c5b-4b21-8a84-a7c73d87eba7",
+        "creation_date": "2020-12-15T22:46:41Z",
+        "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:4b86ccee-494b-4c56-a1f5-a3797f3c5824:secret:be4a0846-4cb5-3bfa-bab5-10a44dfc3e85",
+        "description": "Extended description for my secret.",
+        "expiration_date": "2020-12-31T00:00:00Z",
+        "id": "be4a0846-4cb5-3bfa-bab5-10a44dfc3e85",
+        "labels": [
+            "dev",
+            "us-south"
+        ],
+        "last_update_date": "2020-12-15T22:46:41Z",
+        "name": "test-username-password-in-group",
+        "secret_data": {
+            "password": "cloudy-rainy-coffee-book",
+            "username": "user123"
+        },
+        "secret_group_id": "339c026a-ac0f-1ea1-3d43-99adf871b49a",
+        "secret_type": "username_password",
+        "state": 1,
+        "state_description": "Active",
+        "versions": [
+            {
+                "auto_rotated": false,
+                "created_by": "iam-ServiceId-7d655b20-9c5b-4b21-8a84-a7c73d87eba7",
+                "creation_date": "2020-12-15T22:46:41Z",
+                "id": "a09c7a3c-13a5-7a17-fadc-e7850496d27a"
             }
         ]
     },
