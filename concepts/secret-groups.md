@@ -134,7 +134,7 @@ You can delete secret groups by using the console.
 1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the navigation, click **Secret groups**.
-4. In the row for the secret group that you want to delete, click the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg).
+4. In the row for the secret group that you want to delete, click the **Actions** icon ![Actions icon](../../icons/actions-icon-vertical.svg).
 5. Click **Delete group**.
 6. Click **Delete**.
 
