@@ -118,7 +118,7 @@ Logs in to Vault by using an {{site.data.keyword.cloud_notm}} IAM token and obta
     <dd>Your {{site.data.keyword.cloud_notm}} IAM access token.</dd>
 </dl>
 
-#### Sample request
+#### Example request
 {: #vault-login-request}
 
 ```sh
@@ -131,7 +131,7 @@ curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/a
 ```
 {: codeblock}
 
-#### Sample response
+#### Example response
 {: #vault-login-response}
 
 ```json
@@ -188,7 +188,7 @@ Use a duration string such as `300s` or `2h45m`. Valid time units are `s`, `m`, 
     <dd>The initial time-to-live (TTL) of the login token to generate. Default is `1h`.</dd>
 </dl>
 
-#### Sample request
+#### Example request
 {: #vault-configure-login-token-request}
 
 ```sh
@@ -203,7 +203,7 @@ curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/a
 ```
 {: codeblock}
 
-#### Sample response
+#### Example response
 {: #vault-configure-login-token-response}
 
 This operation returns `HTTP 204 No Content`.
@@ -213,7 +213,7 @@ This operation returns `HTTP 204 No Content`.
 
 Retrieves the login configuration of a Vault token.
 
-#### Sample request
+#### Example request
 {: #vault-read-token-config-request}
 
 ```sh
@@ -223,7 +223,7 @@ curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/a
 ```
 {: codeblock}
 
-#### Sample response
+#### Example response
 {: #vault-read-token-config-response}
 
 ```json
@@ -263,7 +263,7 @@ Creates a secret group.
     <dd>(Optional) An extended description of the secret group.</dd>
 </dl>
 
-#### Sample request
+#### Example request
 {: #vault-create-secret-group-request}
 
 ```sh
@@ -278,7 +278,7 @@ curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/a
 ```
 {: codeblock}
 
-#### Sample response
+#### Example response
 {: #vault-create-secret-group-response}
 
 ```json
@@ -307,7 +307,7 @@ curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/a
 
 Lists the secret groups that are available in your {{site.data.keyword.secrets-manager_short}} service instance.
 
-#### Sample request
+#### Example request
 {: #vault-list-secret-groups-request}
 
 ```sh
@@ -317,7 +317,7 @@ curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/a
 ```
 {: codeblock}
 
-#### Sample response
+#### Example response
 {: #vault-create-list-groups-response}
 
 ```json
@@ -370,7 +370,7 @@ Updates the details of an existing secret group.
     <dd>(Optional) An extended description of the secret group.</dd>
 </dl>
 
-#### Sample request
+#### Example request
 {: #vault-update-secret-group-request}
 
 ```sh
@@ -385,7 +385,7 @@ curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/a
 ```
 {: codeblock}
 
-#### Sample response
+#### Example response
 {: #vault-update-secret-group-response}
 
 ```json
@@ -422,7 +422,7 @@ Retrieves a secret group and its details.
     <dd>The ID of the secret group.</dd>
 </dl>
 
-#### Sample request
+#### Example request
 {: #vault-get-secret-group-request}
 
 ```sh
@@ -432,7 +432,7 @@ curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/a
 ```
 {: codeblock}
 
-#### Sample response
+#### Example response
 {: #vault-get-secret-group-response}
 
 ```json
@@ -469,7 +469,7 @@ Deletes a secret group.
     <dd>The ID of the secret group.</dd>
 </dl>
 
-#### Sample request
+#### Example request
 {: #vault-delete-secret-group-request}
 
 ```sh
@@ -478,7 +478,7 @@ curl -X DELETE "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v
   -H 'X-Vault-Token: {Vault-Token}'
 ```
 
-#### Sample response
+#### Example response
 {: #vault-delete-secret-group-response}
 
 ```json
@@ -501,12 +501,12 @@ curl -X DELETE "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v
 ### Create a secret
 {: #vault-create-secret}
 
-Creates a secret by using the {{site.data.keyword.secrets-manager_short}} secret engines.
+Creates a secret by using the {{site.data.keyword.secrets-manager_short}} secrets engines.
 
-#### Sample requests and responses
-{: #vault-create-secret-request-response}
+#### Example requests
+{: #vault-create-secret-request}
 
-Create an arbitrary secret in the `default` secret group:
+Create an arbitrary secret in the `default` secret group.
 
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets" \
@@ -525,6 +525,117 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/
   }'
 ```
 {: codeblock}
+
+Create an arbitrary secret in an existing secret group.
+
+```sh
+curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/groups/{group_id}" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "name": "test-arbitrary-secret-in-group",
+    "description": "Extended description for my secret.",
+    "payload": "secret-data",
+    "labels": [
+      "dev",
+      "us-south"
+    ],
+    "expiration_date": "2030-04-01T09:30:00Z"
+  }'
+```
+{: codeblock}
+
+Create IAM credentials in the `default` secret group.
+
+```sh
+curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/iam_credentials/roles/{secret_name}" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "name": "test-iam-credentials",
+    "description": "Extended description for my secret.",
+    "access_groups": [
+        "AccessGroupId-5f75a16d-7dbc-4270-b206-a2e5cd1e3183"
+    ],
+    "labels": [
+        "dev",
+        "us-south"
+    ],
+    "ttl": "30m"
+  }'
+```
+{: codeblock}
+
+Create IAM credentials in an existing group.
+
+```sh
+curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/iam_credentials/roles/groups/{group_id}/{secret_name}" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "name": "test-iam-credentials-in-group",
+    "description": "Extended description for my secret.",
+    "access_groups": [
+        "AccessGroupId-5f75a16d-7dbc-4270-b206-a2e5cd1e3183"
+    ],
+    "labels": [
+        "dev",
+        "us-south"
+    ],
+    "ttl": "30m"
+  }'
+```
+{: codeblock}
+
+Create user credentials in the `default` secret group.
+
+```sh
+curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/username_password/secrets" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "name": "test-username-password",
+    "description": "Extended description for my secret.",
+    "username": "user123",
+    "password": "cloudy-rainy-coffee-book",
+    "expiration_date": "2020-12-31T00:00:00Z",
+    "labels": [
+      "dev",
+      "us-south"
+    ]
+  }'
+```
+{: codeblock}
+
+Create user credentials in an existing secret group:
+
+```sh
+curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/username_password/secrets/groups/{group_id}" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "name": "test-username-password-in-group",
+    "description": "Extended description for my secret.",
+    "username": "user123",
+    "password": "cloudy-rainy-coffee-book",
+    "expiration_date": "2020-12-31T00:00:00Z",
+    "labels": [
+      "dev",
+      "us-south"
+    ]
+  }'
+```
+{: codeblock}
+
+#### Example responses
+{: #vault-create-secret-response}
+
+A request to create an arbitrary secret in the `default` secret group returns the following response:
 
 ```json
 {
@@ -567,25 +678,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/
 ```
 {: screen}
 
-Create an arbitrary secret in an existing secret group:
-
-```sh
-curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/groups/339c026a-ac0f-1ea1-3d43-99adf871b49a" \
-  -H 'Accept: application/json' \
-  -H 'X-Vault-Token: {Vault-Token}' \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "name": "test-arbitrary-secret-in-group",
-    "description": "Extended description for my secret.",
-    "payload": "secret-data",
-    "labels": [
-      "dev",
-      "us-south"
-    ],
-    "expiration_date": "2030-04-01T09:30:00Z"
-  }'
-```
-{: codeblock}
+A request to create an arbitrary secret in an existing secret group returns the following response:
 
 ```json
 {
@@ -628,27 +721,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/
 ```
 {: screen}
 
-Create IAM credentials in the `default` secret group:
-
-```sh
-curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/iam_credentials/roles/{secret_name}" \
-  -H 'Accept: application/json' \
-  -H 'X-Vault-Token: {Vault-Token}' \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "name": "test-iam-credentials",
-    "description": "Extended description for my secret.",
-    "access_groups": [
-        "AccessGroupId-5f75a16d-7dbc-4270-b206-a2e5cd1e3183"
-    ],
-    "labels": [
-        "dev",
-        "us-south"
-    ],
-    "ttl": "30m"
-  }'
-```
-{: codeblock}
+A request to create IAM credentials in the `default` secret group returns the following response:
 
 ```json
 {
@@ -683,27 +756,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/
 ```
 {: screen}
 
-Create IAM credentials in an existing group:
-
-```sh
-curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/iam_credentials/roles/groups/{group_id}/{secret_name}" \
-  -H 'Accept: application/json' \
-  -H 'X-Vault-Token: {Vault-Token}' \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "name": "test-iam-credentials-in-group",
-    "description": "Extended description for my secret.",
-    "access_groups": [
-        "AccessGroupId-5f75a16d-7dbc-4270-b206-a2e5cd1e3183"
-    ],
-    "labels": [
-        "dev",
-        "us-south"
-    ],
-    "ttl": "30m"
-  }'
-```
-{: codeblock}
+A request to create IAM credentials in an existing secret group returns the following response:
 
 ```json
 {
@@ -739,26 +792,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/
 ```
 {: screen}
 
-Create user credentials in the `default` secret group:
-
-```sh
-curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/username_password/secrets" \
-  -H 'Accept: application/json' \
-  -H 'X-Vault-Token: {Vault-Token}' \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "name": "test-username-password",
-    "description": "Extended description for my secret.",
-    "username": "user123",
-    "password": "cloudy-rainy-coffee-book",
-    "expiration_date": "2020-12-31T00:00:00Z",
-    "labels": [
-      "dev",
-      "us-south"
-    ]
-  }'
-```
-{: codeblock}
+A request to create user credentials in the `default` secret group returns the following response:
 
 ```json
 {
@@ -802,26 +836,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/
 ```
 {: screen}
 
-Create user credentials in an existing secret group:
-
-```sh
-curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/username_password/secrets/groups/339c026a-ac0f-1ea1-3d43-99adf871b49a" \
-  -H 'Accept: application/json' \
-  -H 'X-Vault-Token: {Vault-Token}' \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "name": "test-username-password",
-    "description": "Extended description for my secret.",
-    "username": "user123",
-    "password": "cloudy-rainy-coffee-book",
-    "expiration_date": "2020-12-31T00:00:00Z",
-    "labels": [
-      "dev",
-      "us-south"
-    ]
-  }'
-```
-{: codeblock}
+A request to create user credentials in an existing secret group returns the following response:
 
 ```json
 {
@@ -871,10 +886,10 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/
 
 Get the value of a secret.
 
-#### Sample requests and responses
-{: #vault-get-secret-request-response}
+#### Example requests
+{: #vault-get-secret-request}
 
-Get an arbitrary secret in the `default` secret group:
+Get an arbitrary secret in the `default` secret group.
 
 ```sh
 curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/{id}" \
@@ -882,6 +897,47 @@ curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/i
   -H 'X-Vault-Token: {Vault-Token}'
 ```
 {: codeblock}
+
+Get an arbitrary secret in an existing secret group.
+
+```sh
+curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/groups/{group_id}/{secret_id}" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}'
+```
+{: codeblock}
+
+Get IAM credentials in the `default` secret group.
+
+```sh
+curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/iam_credentials/creds/{secret_id}" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}'
+```
+{: codeblock}
+
+Get IAM credentials in an existing secret group.
+
+```sh
+curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/iam_credentials/creds/groups/{group_id}/{secret_id}" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}'
+```
+{: codeblock}
+
+Get user credentials in the `default` secret group.
+
+```sh
+curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/username_password/secret/{id}" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}'
+```
+{: codeblock}
+
+#### Example responses
+{: #vault-get-secret-response}
+
+A request to retrieve an arbitrary secret in the `default` secret group returns the following response:
 
 ```json
 {
@@ -923,14 +979,7 @@ curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/i
 ```
 {: screen}
 
-Get an arbitrary secret in an existing secret group:
-
-```sh
-curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/groups/{group_id}/{secret_id}" \
-  -H 'Accept: application/json' \
-  -H 'X-Vault-Token: {Vault-Token}'
-```
-{: codeblock}
+A request to retrieve an arbitrary secret in an existing secret group returns the following response:
 
 ```json
 {
@@ -973,14 +1022,7 @@ curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/i
 ```
 {: screen}
 
-Get IAM credentials in the `default` secret group:
-
-```sh
-curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/iam_credentials/creds/{secret_id}" \
-  -H 'Accept: application/json' \
-  -H 'X-Vault-Token: {Vault-Token}'
-```
-{: codeblock}
+A request to generate IAM credentials in the `default` secret group returns the following response:
 
 ```json
 {
@@ -1017,14 +1059,7 @@ curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/i
 ```
 {: screen}
 
-Get IAM credentials in an existing secret group:
-
-```sh
-curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/iam_credentials/creds/groups/{group_id}/{secret_id}" \
-  -H 'Accept: application/json' \
-  -H 'X-Vault-Token: {Vault-Token}'
-```
-{: codeblock}
+A request to generate IAM credentials in an existing secret group returns the following response:
 
 ```json
 {
@@ -1062,24 +1097,15 @@ curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/i
 ```
 {: screen}
 
-Get user credentials in the `default` secret group:
-
-```sh
-curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/username_password/secret/{id}" \
-  -H 'Accept: application/json' \
-  -H 'X-Vault-Token: {Vault-Token}'
-```
-{: codeblock}
-
 ### List secrets
 {: #vault-list-secrets}
 
-Retrieve a list of secrets that are available in a {{site.data.keyword.secrets-manager_short}} Vault secret engine.
+Retrieve a list of secrets that are available in a {{site.data.keyword.secrets-manager_short}} secrets engine.
 
-#### Sample requests and responses
-{: #vault-list-secrets-request-response}
+#### Example requests
+{: #vault-list-secrets-request}
 
-List all arbitrary secrets:
+List arbitrary secrets.
 
 ```sh
 curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets" \
@@ -1087,49 +1113,6 @@ curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/i
   -H 'X-Vault-Token: {Vault-Token}'
 ```
 {: codeblock}
-
-```json
-{
-  "request_id": "b3dc1219-c296-6936-5433-4384053f740f",
-  "lease_id": "",
-  "renewable": false,
-  "lease_duration": 0,
-  "data": {
-    "secrets": [
-      {
-        "created_at": "2020-08-04T10:05:41Z",
-        "crn": "crn:v1:bluemix:public:secret-manager:us-south:a/a2b41867c8294f612fd4c7fd10d39586:1ec90496-358e-4b51-b8b5-ecdcd44fb7dc:secret:arbitrary:49d8d88b-d2ee-4861-83f0-662172b550b5",
-        "description": "",
-        "expiration_date": "",
-        "id": "49d8d88b-d2ee-4861-83f0-662172b550b5",
-        "name": "dave",
-        "state": 1,
-        "stateDescription": "Active",
-        "tags": [],
-        "type": "ARBITRARY",
-        "updated_at": "2020-08-04T10:05:41Z"
-      },
-      {
-        "created_at": "2020-08-04T10:11:59Z",
-        "crn": "crn:v1:bluemix:public:secret-manager:us-south:a/a2b41867c8294f612fd4c7fd10d39586:1ec90496-358e-4b51-b8b5-ecdcd44fb7dc:secret:arbitrary:4ca0715e-c999-34ad-f393-a5f8843ba16a",
-        "description": "",
-        "expiration_date": "",
-        "id": "4ca0715e-c999-34ad-f393-a5f8843ba16a",
-        "name": "dave",
-        "state": 1,
-        "stateDescription": "Active",
-        "tags": [],
-        "type": "ARBITRARY",
-        "updated_at": "2020-08-04T10:11:59Z"
-      }
-    ]
-  },
-  "wrap_info": null,
-  "warnings": null,
-  "auth": null
-}
-```
-{: screen}
 
 List arbitrary secrets in an existing secret group:
 
@@ -1139,6 +1122,11 @@ curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/i
   -H 'X-Vault-Token: {Vault-Token}' 
 ```
 {: codeblock}
+
+#### Example responses
+{: #vault-list-secrets-response}
+
+A request to list all arbitrary secrets returns the following response:
 
 ```json
 {
@@ -1197,17 +1185,34 @@ curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/i
 ### Delete a secret
 {: #vault-delete-secret}
 
-Deletes a secret from a {{site.data.keyword.secrets-manager_short}} Vault secret engine.
+Deletes a secret from a {{site.data.keyword.secrets-manager_short}} secrets engine.
 
-#### Sample requests and responses
-{: #vault-delete-secret-request-response}
+#### Example request
+{: #vault-delete-secret-request}
 
-Delete a secret in the `default` secret group:
+Delete an arbitrary secret in the `default` secret group.
 
 ```sh
-curl -X DELETE 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/{id}' \
+curl -X DELETE "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/{id}" \
   -H 'Accept: application/json' \
   -H 'X-Vault-Token: {Vault-Token}' 
 ```
 {: codeblock}
+
+Delete an arbitrary secret in an existing secret group.
+
+```sh
+curl -X DELETE "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/groups/{group_id}/{secret_id}" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}' 
+```
+{: codeblock}
+
+#### Example response
+{: #vault-delete-secret-response}
+
+```json
+```
+{: screen}
+
 
