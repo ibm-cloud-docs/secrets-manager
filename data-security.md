@@ -64,20 +64,28 @@ When you work with the {{site.data.keyword.secrets-manager_short}} service, you 
 - Web App Firewall and DDoS protection  
 - Ingress and Egress network rules to isolate your dedicated instance
 
-
 ## Protecting your sensitive data in {{site.data.keyword.secrets-manager_short}}
 {: #data-encryption}
 
-You can add a higher level of encryption control to your data at rest (when it is stored) by enabling integration with {{site.data.keyword.keymanagementservicelong_notm}}.
+You can add a higher level of encryption control to your data at rest (when it is stored) by enabling integration with a key management service.
 
-The data that you store in {{site.data.keyword.cloud_notm}} is encrypted at rest by using [envelope encryption](#x9860393){: term}. If you need to control the encryption keys, you can integrate {{site.data.keyword.keymanagementserviceshort}}. This process is commonly referred to as Bring your own keys (BYOK). With {{site.data.keyword.keymanagementserviceshort}} you can create, import, and manage encryption keys. You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service. 
+The data that you store in {{site.data.keyword.cloud_notm}} is encrypted at rest by using [envelope encryption](#x9860393){: term}. If you need to control the encryption keys, you can integrate a key management service. This process is commonly referred to as Bring your own keys (BYOK). With a key management service, you can create, import, and manage encryption keys. You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service. 
+
+The following table describes your options for managing the encryption of your {{site.data.keyword.secrets-manager_short}} data.
+
+| Encryption | Description | 
+| ---- | ---- | 
+| Provider-managed key | The data that you store in {{site.data.keyword.secrets-manager_short}} is encrypted at rest by using an IBM-managed key. This is the default setting. |
+| Customer-managed key | The data that is stored in {{site.data.keyword.secrets-manager_short}} is encrypted at rest by using an encryption key that you own and manage. You can use an existing key that you manage in the following services: <ul><li>{{site.data.keyword.keymanagementserviceshort}}</li><li>{{site.data.keyword.hscrypto}}</li></ul> |
+{: caption="Table 1. Encryption options for {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
 
 ### About customer-managed keys
 {: #about-encryption}
 
-{{site.data.keyword.secrets-manager_short}} uses [envelope encryption](#x9860393){: term} to implement both provider-managed or customer-managed keys. Envelope encryption describes encrypting one encryption key with another encryption key. The key used to encrypt the actual data is known as a [data encryption key (DEK)](#x4791827){: term}. The DEK itself is never stored but is wrapped by a second key that is known as the key encryption key (KEK) to create a wrapped DEK. To decrypt data, the wrapped DEK is unwrapped to get the DEK. This process is possible only by accessing the KEK, which in this case is your root key that is stored in {{site.data.keyword.keymanagementserviceshort}}.
+{{site.data.keyword.secrets-manager_short}} uses [envelope encryption](#x9860393){: term} to implement both provider-managed or customer-managed keys. Envelope encryption describes encrypting one encryption key with another encryption key. The key used to encrypt the actual data is known as a [data encryption key (DEK)](#x4791827){: term}. The DEK itself is never stored but is wrapped by a second key that is known as the key encryption key (KEK) to create a wrapped DEK. To decrypt data, the wrapped DEK is unwrapped to get the DEK. This process is possible only by accessing the KEK, which in this case is your root key that is stored in your key management service.
 
-{{site.data.keyword.keymanagementserviceshort}} keys are secured by FIPS 140-2 Level 3 certified cloud-based [hardware security modules (HSMs)](#x6704988){: term}.
+Depending on the sensitivity of your workload, you might choose to work with either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} to achieve your wanted level of encryption control. For more information, see [How is {{site.data.keyword.hscrypto}} different from {{site.data.keyword.keymanagementserviceshort}}?](/docs/hs-crypto?topic=hs-crypto-faq-basics#faq-differentiators-key-protect).
+{: note}
 
 
 ### Enabling customer-managed keys for {{site.data.keyword.secrets-manager_short}}
@@ -85,33 +93,90 @@ The data that you store in {{site.data.keyword.cloud_notm}} is encrypted at rest
 
 If you choose to work with a key that you manage, you must ensure that valid IAM authorization is assigned to the instance of {{site.data.keyword.secrets-manager_short}} that you're working with. To create that authorization, you can use the following steps.
 
-As a beta service, {{site.data.keyword.secrets-manager_short}} does not yet support state changes of the {{site.data.keyword.keymanagementserviceshort}} root key that you enable for the service.
-{: note}
+1. Create an instance of [{{site.data.keyword.keymanagementserviceshort}}](/catalog/services/key-protect) or [{{site.data.keyword.hscrypto}}](/catalog/services/hs-crypto)
+2. [Generate or import a root key](/docs/key-protect?topic=key-protect-create-root-keys) to your key management service instance.
 
-1. [Create an instance of {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-provision#provision-gui).
-2. [Generate or import your own root key](/docs/key-protect?topic=key-protect-create-root-keys) to your instance of {{site.data.keyword.keymanagementserviceshort}}.
+    When you use {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} to create a root key, the service generates cryptographic key material that is rooted in cloud-based HSMs. Be sure that the name of your key does not contain any personal information such as your name or location.
+3. Grant service access to {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}.
 
-    When you use {{site.data.keyword.keymanagementserviceshort}} to create a root key, the service generates cryptographic key material that is rooted in cloud-based HSMs. Be sure that the name of your key does not contain any personal information such as your name or location.
-3. Grant service access to {{site.data.keyword.keymanagementserviceshort}}.
-
-    You must be the account owner or an administrator for the instance of {{site.data.keyword.keymanagementserviceshort}} that you're working with. You must also have at least Viewer access for the {{site.data.keyword.secrets-manager_short}} service.
+    You must be the account owner or an administrator for the instance of the key management service that you're working with. You must also have at least Viewer access for the {{site.data.keyword.secrets-manager_short}} service.
 
     1. Go to **Manage > Access IAM > Authorizations**.
     2. Select the {{site.data.keyword.secrets-manager_short}} service as the source service.
-    3. Select the instance of the {{site.data.keyword.keymanagementserviceshort}} as the target service.
+    3. Select the instance of the {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} as the target service.
     4. Select the key that you created in the previous steps.
     5. Assign the Reader role.
     6. Click **Authorize** to confirm the authorization.
 
 4. Create an instance of the {{site.data.keyword.secrets-manager_short}} service. 
 
-    1. Select the region that corresponds to the region for the instance of {{site.data.keyword.keymanagementserviceshort}} that you created previously.
-    2. Select your **{{site.data.keyword.keymanagementserviceshort}} instance**.
+    1. Select the region that corresponds to the region for the instance of the key management service that you created previously.
+    2. Select your {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance.
     3. Select the **Root key** that you previously authorized.
-    4. Click **Create**.
+    4. Click **Create**.</staging>
 
 ## Deleting your data in {{site.data.keyword.secrets-manager_short}}
 {: #data-delete}
 
+When you delete your instance of {{site.data.keyword.secrets-manager_short}}, all of the user data that is associated with it is also deleted. When the service instance is deleted, a 7-day reclamation period begins. During that time, you're able to restore the instance and all of its associated user data. However, if the instance and data are permanently deleted, it can no longer be restored. {{site.data.keyword.secrets-manager_short}} does not store any data from permanently deleted instances.
 
-When you delete a secret, secret group, or an instance of {{site.data.keyword.secrets-manager_short}}, your data is removed from {{site.data.keyword.secrets-manager_short}}. For more information about the {{site.data.keyword.secrets-manager_short}} data retention policy, see the [{{site.data.keyword.cloud_notm}} Terms and Notices](/docs/overview?topic=overview-terms).
+The {{site.data.keyword.secrets-manager_short}} data retention policy describes how long your data is stored after you delete the service. The data retention policy is included in the {{site.data.keyword.secrets-manager_short}} service description, which you can find in the [{{site.data.keyword.cloud_notm}} Terms and Notices](/docs/overview?topic=overview-terms).
+
+### Deleting a {{site.data.keyword.secrets-manager_short}} instance
+{: #service-delete}
+
+If you no longer need an instance of {{site.data.keyword.secrets-manager_short}}, you can delete the service instance and any data that is stored. Your instance enters a disabled state, and after 7 days its data is permanently deleted. You can also choose to delete your service instance by using the console.
+
+1. Delete the service and place it in a reclamation period of 7 days.
+
+    ```
+    ibmcloud resource service-instance-delete "<instance_name>"
+    ```
+    {: pre}
+
+    Replace `<instance_name>` with the name of the {{site.data.keyword.secrets-manager_short}} instance that you want to delete.
+
+2. Optional: To permanently delete your instance, get the reclamation ID.
+
+    ```
+    ibmcloud resource reclamations --resource-instance-id <instance_ID>
+    ```
+    {: pre}
+
+    Replace `<instance_ID>` with your {{site.data.keyword.secrets-manager_short}} instance ID.
+
+    If you choose to permanently delete the instance by deleting its reclamation, you cannot restore your data.
+    {: pre}
+
+3. Optional: Permanently delete the reclamation instance.
+
+    ```
+    ibmcloud resource reclamation-delete <reclamation_ID>
+    ```
+    {: pre}
+
+    Replace `<reclamation_ID>` with the value that you retrieved in the previous step.
+
+### Restoring a deleted service instance
+{: #restore-instance}
+
+If you haven't permanently deleted your instance, you can restore it during the 7-day reclamation period. 
+
+1. View which service instances are available for restoration.
+
+  ```
+  ibmcloud resource reclamations
+  ```
+  {: codeblock}
+
+  From the list of available instances, copy the reclamation ID of the {{site.data.keyword.secrets-manager_short}} instance that you want to restore. 
+
+2. Restore the reclamation.
+
+  ```
+  ibmcloud resource reclamation-restore <reclamation_ID>
+  ```
+  {: codeblock}
+
+  Replace `<reclamation_ID>` with the value that you retrieved in the previous step.
+

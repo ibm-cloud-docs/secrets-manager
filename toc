@@ -7,12 +7,16 @@ Secrets Manager
     {: .navgroup id="learn"}
     getting-started.md
     [Video: What is secrets management?](https://www.youtube.com/watch?v=iETENR5MEB8){: external}
-
+    concepts/secrets-mgmt.md
     {: .topicgroup}
     Best practices
         best-practices/secret-organize.md
 
     integrations.md
+    {: .navgroup-end}
+
+    {: .navgroup id="tutorial"}
+    tutorials/access-storage.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
@@ -48,6 +52,7 @@ Secrets Manager
 
     {: topicgroup}
     CLI reference
+        /secrets-manager-cli-plugin/secrets-manager-cli-plugin-secrets-manager-cli
 
         {: topicgroup}
         Vault CLI
