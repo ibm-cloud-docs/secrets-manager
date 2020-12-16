@@ -288,7 +288,7 @@ Finally, configure your {{site.data.keyword.secrets-manager_short}} instance to 
 
 
 ## Create an IAM credential
-{: #create-iam-credential}
+{: #access-cos-create-iam-credential}
 {: step}
 
 IAM credentials are dynamic secrets that you can use to access an IBM Cloud resource on-demand, such as a Cloud Object Storage bucket. A set of IAM credentials consists of a service ID and an API key that is generated each time that the protected resource is read or accessed. You can define a time-to-live (TTL) or a lease duration for your IAM credential at its creation so that you shorten the amount of time that the secret exists. 
@@ -302,11 +302,11 @@ export SECRET_ID=`ibmcloud secrets-manager secret-create --secret-type iam_crede
 ```
 {: pre}
 
-You can also create an IAM credential by using the {{site.data.keyword.secrets-manager_short}} UI. For more information, see [Creating IAM credentials](/docs/secrets-manager?topic=secrets-manager-create-secrets#store-iam-credentials).
+You can also create an IAM credential by using the {{site.data.keyword.secrets-manager_short}} UI. For more information, see [Creating IAM credentials](/docs/secrets-manager?topic=secrets-manager-store-secrets#store-iam-credentials).
 {: note}
 
 ## Generate an API key
-{: #retrieve-api-key}
+{: #access-cos-retrieve-api-key}
 {: step}
 
 After you create the IAM credential, a user with lesser privileges can retrieve the secret when it's time to access the storage bucket.
@@ -369,7 +369,7 @@ To retrieve an IAM credential from the {{site.data.keyword.cloud_notm}} CLI, you
 
 
 ## Use the API key to generate an access token
-{: #generate-access-token}
+{: #access-cos-generate-access-token}
 {: step}
 
 By using the API key that you retrieved in the previous step, you can generate an IAM access token that is valid only for duration that you initially defined for the IAM credential.
@@ -478,7 +478,7 @@ A quick brown fox jumps over the lazy dog.
 {: screen}
 
 ## (Optional) Clean up resources
-{: #access-cos-bucket}
+{: #access-cos-clean-up}
 {: step}
 
 If you no longer need the resources that you created in this tutorial, you can complete the following steps to remove them from your account.
