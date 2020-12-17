@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-16"
+lastupdated: "2020-12-17"
 
 keywords: secrets management in IBM Cloud, differences between {{site.data.keyword.secrets-manager_short}} and Key Protect, when to use {{site.data.keyword.secrets-manager_short}}, {{site.data.keyword.secrets-manager_short}} use cases, single tenant, multi-tenant
 
@@ -51,7 +51,7 @@ subcollection: secrets-manager
 
 A secret is any piece of confidential information, such as an encryption key, a certificate, or a digital credential.
 
-With {{site.data.keyword.cloud_notm}}, you can choose from various secrets management and data protection offerings that help you to protect your sensitive data and centralize your secrets. If you need to integrate general purpose secrets to authenticate your apps, you can use {{site.data.keyword.secrets-manager_short}} to create [dynamic secrets](#x9968958){:term} and manage their lifecycle. But for other application secrets, such as encryption keys, your business might require a higher level of control that relies on highly secure, customer-controlled cryptographic hardware.  
+With {{site.data.keyword.cloud_notm}}, you can choose from various secrets management and data protection offerings that help you to protect your sensitive data and centralize your secrets. If you need to integrate general-purpose secrets to authenticate your apps, you can use {{site.data.keyword.secrets-manager_short}} to create [dynamic secrets](#x9968958){:term} and manage their lifecycle. But for other application secrets, such as encryption keys, your business might require a higher level of control that relies on highly secure, customer-controlled cryptographic hardware.  
 
 For example, consider the following scenarios and how they map to secrets management offerings and data protection offerings in {{site.data.keyword.cloud_notm}}.
 
@@ -77,7 +77,7 @@ The following table lists the different offerings that you can use with {{site.d
 
 As you plan your data protection strategy, some differences between services to consider include the level of data isolation that your workload requires. 
 
-For a higher level of security and control, your business might benefit from the data isolation that a single-tenant offering provides, such as {{site.data.keyword.secrets-manager_short}} or {{site.data.keyword.hscrypto}}. You might also decide that the lower costs and scalability benefits of a multi-tenant service, such as {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.cloudcerts_short}}, are better suited for your needs. The following table lists key features for each service.
+For a higher level of security and control, your business might benefit from the data isolation that a single-tenant offering provides, such as {{site.data.keyword.secrets-manager_short}} or {{site.data.keyword.hscrypto}}. You might also decide that the lower costs and scalability benefits of a multi-tenant service, such as {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.cloudcerts_short}}, are better suited to your needs. The following table lists key features for each service.
 
 | Service | Secret types | Multi-tenant[^multi-tenant] | Single-tenant[^single-tenant] | HSM backed[^hsm] | 
 | --- | --- | --- | --- |  --- |
