@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-24"
+lastupdated: "2020-12-16"
 
 keywords: secret groups, assign secret access, iam roles, secrets policies, organize secrets
 
@@ -33,13 +33,18 @@ subcollection: secrets-manager
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
 {:tsSymptoms: .tsSymptoms}
-{:java: .ph data-hd-programlang='java'}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:swift: .ph data-hd-programlang='swift'}
-{:curl: .ph data-hd-programlang='curl'}
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
+{:curl: .ph data-hd-programlang='curl'}
+{:go: .ph data-hd-programlang='go'} 
+{:javascript: .ph data-hd-programlang='javascript'}
+{:java: .ph data-hd-programlang='java'}
+{:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
+{:api: .ph data-hd-interface='api'}
+{:cli: .ph data-hd-interface='cli'}
+{:ui: .ph data-hd-interface='ui'}
 
 # Organizing your secrets
 {: #secret-groups}
@@ -69,8 +74,9 @@ Before you begin, be sure that you have the required level of access. To create 
 
 You can create secret groups by using the {{site.data.keyword.secrets-manager_short}} console or the APIs.
 
-### Creating secret groups with the console
+### Creating secret groups in the UI
 {: #create-group-ui}
+{: ui}
 
 You can create secret groups by using the console. You can also create a secret group during the process of adding or creating a secret.
 
@@ -84,6 +90,7 @@ You can create secret groups by using the console. You can also create a secret 
 
 ### Creating secret groups with the API
 {: #create-group-api}
+{: api}
 
 You can create secret groups by using the {{site.data.keyword.secrets-manager_short}} APIs.
 
@@ -118,20 +125,22 @@ To delete a secret group, it must be empty. If you need to remove a secret group
 {: note}
 
 
-### Deleting secret groups with the console
+### Deleting secret groups in the UI
 {: #delete-group-ui}
+{: ui}
 
 You can delete secret groups by using the console.
 
 1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the navigation, click **Secret groups**.
-4. In the row for the secret group that you want to delete, click the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg).
+4. In the row for the secret group that you want to delete, click the **Actions** icon ![Actions icon](../../icons/actions-icon-vertical.svg).
 5. Click **Delete group**.
 6. Click **Delete**.
 
 ### Deleting secret groups with the API
 {: #delete-group-api}
+{: api}
 
 You can delete secret groups by using the {{site.data.keyword.secrets-manager_short}} APIs.
 

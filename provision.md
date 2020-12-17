@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-24"
+lastupdated: "2020-12-14"
 
 keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, lite plan
 
@@ -33,13 +33,18 @@ subcollection: secrets-manager
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
 {:tsSymptoms: .tsSymptoms}
-{:java: .ph data-hd-programlang='java'}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:swift: .ph data-hd-programlang='swift'}
-{:curl: .ph data-hd-programlang='curl'}
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
+{:curl: .ph data-hd-programlang='curl'}
+{:go: .ph data-hd-programlang='go'} 
+{:javascript: .ph data-hd-programlang='javascript'}
+{:java: .ph data-hd-programlang='java'}
+{:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
+{:api: .ph data-hd-interface='api'}
+{:cli: .ph data-hd-interface='cli'}
+{:ui: .ph data-hd-interface='ui'}
 
 # Creating a {{site.data.keyword.secrets-manager_short}} service instance
 {: #create-instance}
@@ -52,8 +57,9 @@ When you provision {{site.data.keyword.secrets-manager_short}} in your {{site.da
 You can create only one Lite plan instance of {{site.data.keyword.secrets-manager_short}} per {{site.data.keyword.cloud_notm}} account. The Lite plan includes access to all service capabilities for free.
 {: note}
 
-## Creating a {{site.data.keyword.secrets-manager_short}} instance in the console
+## Creating a {{site.data.keyword.secrets-manager_short}} instance in the UI
 {: #create-instance-ui}
+{: ui}
 
 To create an instance of {{site.data.keyword.secrets-manager_short}} from the {{site.data.keyword.cloud_notm}} console, complete the following steps.
 
@@ -65,13 +71,14 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} from the {{
 6. Optional: Add tags to help you to organize the instance in your account.
 7. Determine an option for enabling customer-managed encryption for your instance.
 
-  You can enhance the security of your secrets at rest by integrating with {{site.data.keyword.keymanagementserviceshort}}. For more information about customer-managed encryption, check out [Protecting your sensitive data in {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption).
+  You can enhance the security of your secrets at rest by integrating with a key management service. For more information about customer-managed encryption, check out [Protecting your sensitive data in {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption).
 9. Click **Create** to create an instance of {{site.data.keyword.secrets-manager_short}} in the account, region, and resource group that you selected.
 
-  Provisioning your dedicated {{site.data.keyword.secrets-manager_short}} instance can take between 4 - 5 minutes to complete. 
+  Provisioning your dedicated {{site.data.keyword.secrets-manager_short}} instance can take between 5 - 8 minutes to complete. 
 
-## Creating a {{site.data.keyword.secrets-manager_short}} instance with the CLI
+## Creating a {{site.data.keyword.secrets-manager_short}} instance from the CLI
 {: #create-instance-cli}
+{: cli}
 
 You can also create an instance of {{site.data.keyword.secrets-manager_short}} by using the {{site.data.keyword.cloud_notm}} CLI. 
 

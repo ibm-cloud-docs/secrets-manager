@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-24"
+lastupdated: "2020-12-16"
 
 keywords: delete secret, remove secret, destroy secret
 
@@ -33,13 +33,18 @@ subcollection: secrets-manager
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
 {:tsSymptoms: .tsSymptoms}
-{:java: .ph data-hd-programlang='java'}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:swift: .ph data-hd-programlang='swift'}
-{:curl: .ph data-hd-programlang='curl'}
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
+{:curl: .ph data-hd-programlang='curl'}
+{:go: .ph data-hd-programlang='go'} 
+{:javascript: .ph data-hd-programlang='javascript'}
+{:java: .ph data-hd-programlang='java'}
+{:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
+{:api: .ph data-hd-interface='api'}
+{:cli: .ph data-hd-interface='cli'}
+{:ui: .ph data-hd-interface='ui'}
 
 # Deleting secrets
 {: #delete-secrets}
@@ -52,8 +57,9 @@ You can use {{site.data.keyword.secrets-manager_full}} to delete a secret and it
 
 Before you begin, be sure that you have the required level of access. To delete secrets, you need the [**Manager** service role](/docs/secrets-manager?topic=secrets-manager-iam).
 
-## Deleting secrets with the console
+## Deleting secrets in the UI
 {: #delete-secret-ui}
+{: ui}
 
 You can use the {{site.data.keyword.secrets-manager_short}} UI to manually delete your secrets.
 
@@ -68,6 +74,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually delet
 
 ## Deleting secrets by using the API
 {: #delete-secret-api}
+{: api}
 
 The following example request deletes a secret and its contents.
 

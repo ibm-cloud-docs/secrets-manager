@@ -2,17 +2,21 @@
 {:topicgroup: .topicgroup}
 
 {: .toc subcollection="secrets-manager" audience="service" category="security" href="/docs/secrets-manager?topic=secrets-manager-getting-started" product-page="https://www.ibm.com/cloud/secrets-manager" console-page="/catalog/secrets-manager" path="secrets-manager"}
-Secrets Manager (Beta)
+Secrets Manager
 
     {: .navgroup id="learn"}
     getting-started.md
     [Video: What is secrets management?](https://www.youtube.com/watch?v=iETENR5MEB8){: external}
-
+    concepts/secrets-mgmt.md
     {: .topicgroup}
     Best practices
-        best-practices/secret-mgmt.md
+        best-practices/secret-organize.md
 
     integrations.md
+    {: .navgroup-end}
+
+    {: .navgroup id="tutorial"}
+    tutorials/access-storage.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
@@ -31,7 +35,6 @@ Secrets Manager (Beta)
         delete-secret.md
 
     concepts/secret-groups.md
-    ha-dr.md
 
     {: .topicgroup}
     Enhancing security
@@ -49,18 +52,19 @@ Secrets Manager (Beta)
 
     {: topicgroup}
     CLI reference
+        /secrets-manager-cli-plugin/secrets-manager-cli-plugin-secrets-manager-cli
 
         {: topicgroup}
         Vault CLI
             vault-cli-configure.md                                            
             vault-cli.md
-
     endpoints.md
-    limits.md
+    ha-dr.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}
     faqs.md
+    known-issues.md
 
     {: .topicgroup}
     Troubleshooting

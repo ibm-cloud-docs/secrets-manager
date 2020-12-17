@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-24"
+lastupdated: "2020-12-17"
 
 keywords: assign access for Secrets Manager, secret group access, assign access for all secrets, grant access, add users
 
@@ -33,13 +33,18 @@ subcollection: secrets-manager
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
 {:tsSymptoms: .tsSymptoms}
-{:java: .ph data-hd-programlang='java'}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:swift: .ph data-hd-programlang='swift'}
-{:curl: .ph data-hd-programlang='curl'}
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
+{:curl: .ph data-hd-programlang='curl'}
+{:go: .ph data-hd-programlang='go'} 
+{:javascript: .ph data-hd-programlang='javascript'}
+{:java: .ph data-hd-programlang='java'}
+{:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
+{:api: .ph data-hd-interface='api'}
+{:cli: .ph data-hd-interface='cli'}
+{:ui: .ph data-hd-interface='ui'}
 
 # Assigning access
 {: #assign-access}
@@ -84,26 +89,14 @@ To assign access to a {{site.data.keyword.secrets-manager_short}} instance and i
 
 You can further narrow the scope of access to secrets in your instance by creating and managing [secret groups](#x9968962){: term}.
 
-[After you create a secret group for your instance](/docs/secrets-manager?topic=secrets-manager-secret-groups#create-secret-groups), you can use the **Access (IAM)** section of the console to manage its access.
+[After you create a secret group for your instance](/docs/secrets-manager?topic=secrets-manager-secret-groups#create-secret-groups), you can use the **Secret groups** section of the UI to manage its access.
 
-1. Retrieve the ID of the secret group that you want to manage.
-
-   1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List** to view a list of your resources.
-   2. Select your instance of {{site.data.keyword.secrets-manager_short}}.
-   3. In the navigation, click **Secret groups**.
-   4. Copy the ID of the secret group that you want to manage.
-   5. From the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg), click **Manage access** to go to the IAM section of the console.
-   
-2. Manage access for your secret group by updating its access policy.
-   
-   1. Go to **Manage > Access (IAM) > Access Groups**.
-   2. In the row for the access group that you want to manage, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Assign access**.
-   3. Select **IAM services**.
-   4. From the list of services, select **{{site.data.keyword.secrets-manager_short}}**.
-   5. From the list of options, select a region and a {{site.data.keyword.secrets-manager_short}} instance.
-   6. In the **Resource Type** field, enter `secret-group`.
-   7. In the **Resource** field, enter the ID that was assigned to your secret group by the {{site.data.keyword.secrets-manager_short}} service.
-   8. Choose a combination of [access roles](/docs/secrets-manager?topic=secrets-manager-iam) to assign.
-   9.  Click **Add**.
-   10. Review your selections and click **Assign**.
-
+1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List** to view a list of your resources.
+2. Select your instance of {{site.data.keyword.secrets-manager_short}}.
+3. In the navigation, click **Secret groups**.
+4. Use the **Secret groups** table to browse the groups in your instance.
+5. In the row of the group that you want to manage, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Manage access**.
+6. Select an access group to give its contained users and service IDs access to your secret group.
+7. Choose a combination of [access roles](/docs/secrets-manager?topic=secrets-manager-iam) to assign.
+8. Click **Review**.
+9. Review your selections and click **Assign**.

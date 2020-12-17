@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-09"
+lastupdated: "2020-12-16"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -33,32 +33,36 @@ subcollection: secrets-manager
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
 {:tsSymptoms: .tsSymptoms}
-{:java: .ph data-hd-programlang='java'}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:swift: .ph data-hd-programlang='swift'}
-{:curl: .ph data-hd-programlang='curl'}
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
+{:curl: .ph data-hd-programlang='curl'}
+{:go: .ph data-hd-programlang='go'} 
+{:javascript: .ph data-hd-programlang='javascript'}
+{:java: .ph data-hd-programlang='java'}
+{:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
+{:api: .ph data-hd-interface='api'}
+{:cli: .ph data-hd-interface='cli'}
+{:ui: .ph data-hd-interface='ui'}
 
-
-
-
-# Using the Vault APIs
+# Vault API
 {: #vault-api}
-
 
 If you're already using the HashiCorp Vault HTTP API, you can use its API format and guidelines to interact with {{site.data.keyword.secrets-manager_full}}.
 {: shortdesc}
 
 To use the standard REST API for {{site.data.keyword.secrets-manager_short}}, check out the [{{site.data.keyword.secrets-manager_short}} API reference](/apidocs/secrets-manager){: external}.
 
-## Introduction
-{: #vault-api-intro}
+## Overview
+{: #vault-api-overview}
 
-{{site.data.keyword.secrets-manager_short}} uses a custom version of open source HashiCorp Vault. This custom version adds the {{site.data.keyword.cloud_notm}} IAM auth method and a set of secret engines to support operations in {{site.data.keyword.secrets-manager_short}} for various secret types.
+{{site.data.keyword.secrets-manager_short}} uses a custom version of open source HashiCorp Vault. This custom version adds the {{site.data.keyword.cloud_notm}} IAM Auth method and a set of secret engines to support operations in {{site.data.keyword.secrets-manager_short}} for various secret types.
 
 All operations follow the REST API standards that are available for the Vault HTTP APIs. For more information about how to authenticate and use the Vault HTTP APIs, check out the [Vault documentation](https://www.vaultproject.io/api-docs/index){: external}.
+
+Plug-ins and other components that are offered by the open source Vault community might not be accessible by {{site.data.keyword.secrets-manager_short}}. For more information, see the [FAQs](/docs/secrets-manager?topic=secrets-manager-faqs#faq-differences-vault).
+{: important}
 
 ### Endpoint URLs
 {: #vault-api-base-url}
@@ -71,6 +75,7 @@ The following table lists the endpoint URLs by region that can be used to intera
 | ---- | ---- |
 | Dallas | `https://{instance_ID}.us-south.secrets-manager.appdomain.cloud` |
 | Frankfurt | `https://{instance_ID}.eu-de.secrets-manager.appdomain.cloud` |
+| Sydney | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud` |
 {: caption="Table 1. Vault endpoint URLs" caption-side="top"}
 
 You can find your unique endpoint URL in the **Endpoints** section of the {{site.data.keyword.secrets-manager_short}} UI, or by retrieving it by HTTP request. For more information, see [Retrieving your service endpoint URLs](/docs/secrets-manager?topic=secrets-manager-endpoints#retrieve-service-endpoints).
@@ -97,82 +102,8 @@ The timestamps in all requests and responses, such as creation and expiration da
 
 This API follows the Vault HTTP API guidelines. All field names are formatted in snake case (`snake_case`).
 
-## Methods
-{: #vault-api-methods}
-
-### Configure a login token
-{: #vault-configure-login-token}
-
-Configures the duration or time-to-live (TTL) and lifespan (MaxTTL) of a Vault login token. 
-
-Use a duration string such as `300s` or `2h45m`. Valid time units are `s`, `m`, and `h`. The {{site.data.keyword.cloud_notm}} auth plug-in sets the default login token duration (TTL) to 1 hour, and the default lifespan (MaxTTL) to 24 hours.
-
-#### Parameters
-{: #vault-configure-login-token-params}
-
-<dl>
-    <dt><code>token_max_ttl</code></dt>
-    <dd>The maximum lifetime of the login token. Default is `24h`. This value can't exceed the Vault <code>MaxLeaseTTL</code> value.</dd>
-    <dt><code>token_ttl</code></dt> 
-    <dd>The initial time-to-live (TTL) of the login token to generate. Default is `1h`.</dd>
-</dl>
-
-#### Sample request
-{: #vault-configure-login-token-request}
-
-```sh
-curl --location --request PUT 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/login' \
---header 'Accept: application/json' \
---header 'X-Vault-Token: {Vault_token}' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "token_ttl": "30m",
-    "token_max_ttl": "2h"
-}'
-```
-{: pre}
-
-#### Sample response
-{: #vault-configure-login-token-response}
-
-This operation returns `HTTP 204 No Content`.
-
-### Read the configuration of a login token
-{: #vault-read-token-config}
-
-Reads the login configuration of a Vault token.
-
-#### Sample request
-{: #vault-read-token-config-request}
-
-```sh
-curl --location --request GET 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/login' \
---header 'Accept: application/json' \
---header 'X-Vault-Token: {Vault-Token}'
-```
-{: pre}
-
-#### Sample response
-{: #vault-read-token-config-response}
-
-```json
-{
-    "request_id": "41bc89dc-c950-113f-aa8f-a025646d2975",
-    "lease_id": "",
-    "renewable": false,
-    "lease_duration": 0,
-    "data": {
-        "login": {
-            "token_max_ttl": "2h0m0s",
-            "token_ttl": "30m0s"
-        }
-    },
-    "wrap_info": null,
-    "warnings": null,
-    "auth": null
-}
-```
-{: screen}
+## Login
+{: #vault-api-login}
 
 ### Log in to Vault
 {: #vault-login}
@@ -183,24 +114,24 @@ Logs in to Vault by using an {{site.data.keyword.cloud_notm}} IAM token and obta
 {: #vault-login-params}
 
 <dl>
-    <dt><code>iam_token</code></dt>
+    <dt><code>IAM_token</code></dt>
     <dd>Your {{site.data.keyword.cloud_notm}} IAM access token.</dd>
 </dl>
 
-#### Sample request
+#### Example request
 {: #vault-login-request}
 
 ```sh
-curl --location --request PUT 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/login' \
---header 'Accept: application/json' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "token": "{iam_token}"
+curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/login" \
+-H 'Accept: application/json' \
+-H 'Content-Type: application/json' \
+-d '{
+  "token": "{IAM_token}"
 }'
 ```
-{: pre}
+{: codeblock}
 
-#### Sample response
+#### Example response
 {: #vault-login-response}
 
 ```json
@@ -240,6 +171,83 @@ curl --location --request PUT 'https://{instance_ID}.{region}.secrets-manager.ap
 ```
 {: screen}
 
+### Configure a login token
+{: #vault-configure-login-token}
+
+Configures the duration or time-to-live (TTL) and lifespan (MaxTTL) of a Vault login token. 
+
+Use a duration string such as `300s` or `2h45m`. Valid time units are `s`, `m`, and `h`. The {{site.data.keyword.cloud_notm}} auth plug-in sets the default login token duration (TTL) to 1 hour, and the default lifespan (MaxTTL) to 24 hours.
+
+#### Parameters
+{: #vault-configure-login-token-params}
+
+<dl>
+    <dt><code>token_max_ttl</code></dt>
+    <dd>The maximum lifetime of the login token. Default is `24h`. This value can't exceed the Vault <code>MaxLeaseTTL</code> value.</dd>
+    <dt><code>token_ttl</code></dt> 
+    <dd>The initial time-to-live (TTL) of the login token to generate. Default is `1h`.</dd>
+</dl>
+
+#### Example request
+{: #vault-configure-login-token-request}
+
+```sh
+curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/login" \
+-H 'Accept: application/json' \
+-H 'X-Vault-Token: {Vault_token}' \
+-H 'Content-Type: application/json' \
+-d '{
+  "token_ttl": "30m",
+  "token_max_ttl": "2h"
+}'
+```
+{: codeblock}
+
+#### Example response
+{: #vault-configure-login-token-response}
+
+This operation returns `HTTP 204 No Content`.
+
+### Get the configuration of a login token
+{: #vault-read-token-config}
+
+Retrieves the login configuration of a Vault token.
+
+#### Example request
+{: #vault-read-token-config-request}
+
+```sh
+curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/login" \
+-H 'Accept: application/json' \
+-H 'X-Vault-Token: {Vault-Token}'
+```
+{: codeblock}
+
+#### Example response
+{: #vault-read-token-config-response}
+
+```json
+{
+    "request_id": "41bc89dc-c950-113f-aa8f-a025646d2975",
+    "lease_id": "",
+    "renewable": false,
+    "lease_duration": 0,
+    "data": {
+        "login": {
+            "token_max_ttl": "2h0m0s",
+            "token_ttl": "30m0s"
+        }
+    },
+    "wrap_info": null,
+    "warnings": null,
+    "auth": null
+}
+```
+{: screen}
+
+## Secret groups
+{: #vault-api-secret-groups}
+
 ### Create a secret group
 {: #vault-create-secret-group}
 
@@ -255,37 +263,37 @@ Creates a secret group.
     <dd>(Optional) An extended description of the secret group.</dd>
 </dl>
 
-#### Sample request
+#### Example request
 {: #vault-create-secret-group-request}
 
 ```sh
-curl --location --request PUT 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/groups' \
---header 'Accept: application/json' \
---header 'X-Vault-Token: {Vault-Token}' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "name": "my-secret-group",
-    "description": "my new group"
-}'
+curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/groups" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "name": "test-secret-group",
+    "description": "Extended description for my secret group."
+  }'
 ```
-{: pre}
+{: codeblock}
 
-#### Sample response
+#### Example response
 {: #vault-create-secret-group-response}
 
 ```json
 {
-    "request_id": "256b98f4-2fa2-1c96-efbc-c058562c1d1b",
+    "request_id": "f0e47267-940e-1a59-8742-e4e77401b06b",
     "lease_id": "",
     "renewable": false,
     "lease_duration": 0,
     "data": {
-        "created_at": "2020-08-03T09:27:01Z",
-        "description": "my new group",
-        "id": "b61632aa-ef40-68a2-ddca-de2da2af40a7",
-        "name": "my-secret-group",
-        "type": "application/secret.group+json",
-        "updated_at": ""
+        "creation_date": "2020-12-15T22:08:46Z",
+        "description": "Extended description for my secret group.",
+        "id": "2bcaa289-5d38-aa57-910d-970e418ab1b3",
+        "last_update_date": "2020-12-15T22:08:46Z",
+        "name": "test-secret-group",
+        "type": "application/vnd.ibm.secrets-manager.secret.group+json"
     },
     "wrap_info": null,
     "warnings": null,
@@ -299,34 +307,42 @@ curl --location --request PUT 'https://{instance_ID}.{region}.secrets-manager.ap
 
 Lists the secret groups that are available in your {{site.data.keyword.secrets-manager_short}} service instance.
 
-#### Sample request
+#### Example request
 {: #vault-list-secret-groups-request}
 
 ```sh
-curl --location --request GET 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/groups' \
---header 'Accept: application/json' \
---header 'X-Vault-Token: {Vault-Token}'
+curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/groups" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}'
 ```
-{: pre}
+{: codeblock}
 
-#### Sample response
+#### Example response
 {: #vault-create-list-groups-response}
 
 ```json
 {
-    "request_id": "5bce2444-9b41-5940-8da7-a8a48ebd5b23",
+    "request_id": "7ecc32f2-b78b-9290-015c-24803a1e87c9",
     "lease_id": "",
     "renewable": false,
     "lease_duration": 0,
     "data": {
         "groups": [
             {
-                "created_at": "2020-08-03T09:27:01Z",
-                "description": "my new group",
-                "id": "b61632aa-ef40-68a2-ddca-de2da2af40a7",
-                "name": "my-secret-group",
-                "type": "application/secret.group+json",
-                "updated_at": ""
+                "creation_date": "2020-12-14T14:48:55Z",
+                "description": "Read and write to Cloud Object storage buckets.",
+                "id": "714e070d-8122-6270-198c-fef9166729e3",
+                "last_update_date": "2020-12-14T14:48:55Z",
+                "name": "cloud-object-storage-writers",
+                "type": "application/vnd.ibm.secrets-manager.secret.group+json"
+            },
+            {
+                "creation_date": "2020-12-15T22:08:46Z",
+                "description": "Extended description for my secret group.",
+                "id": "2bcaa289-5d38-aa57-910d-970e418ab1b3",
+                "last_update_date": "2020-12-15T22:08:46Z",
+                "name": "test-secret-group",
+                "type": "application/vnd.ibm.secrets-manager.secret.group+json"
             }
         ]
     },
@@ -354,37 +370,37 @@ Updates the details of an existing secret group.
     <dd>(Optional) An extended description of the secret group.</dd>
 </dl>
 
-#### Sample request
+#### Example request
 {: #vault-update-secret-group-request}
 
 ```sh
-curl --location --request POST 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/groups/{id}' \
---header 'Accept: application/json' \
---header 'X-Vault-Token: {Vault-Token}' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "name": "my-new-secret-group",
-    "description": "my newer group"
-}'
+curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/groups/{id}" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "name": "updated-secret-group-name",
+    "description": "Updated description for my secret group"
+  }'
 ```
-{: pre}
+{: codeblock}
 
-#### Sample response
+#### Example response
 {: #vault-update-secret-group-response}
 
 ```json
 {
-    "request_id": "a35b62a8-764e-8309-10cd-157d9fa412dc",
+    "request_id": "b02c5035-9da1-85fe-b7c7-3db2c77ddbb6",
     "lease_id": "",
     "renewable": false,
     "lease_duration": 0,
     "data": {
-        "created_at": "2020-08-03T09:27:01Z",
-        "description": "my newer group",
-        "id": "b61632aa-ef40-68a2-ddca-de2da2af40a7",
-        "name": "my-new-secret-group",
-        "type": "application/secret.group+json",
-        "updated_at": "2020-08-03T10:37:29Z"
+        "creation_date": "2020-12-15T22:08:46Z",
+        "description": "Updated description for my secret group.",
+        "id": "2bcaa289-5d38-aa57-910d-970e418ab1b3",
+        "last_update_date": "2020-12-15T22:16:32Z",
+        "name": "updated-secret-group-name",
+        "type": "application/vnd.ibm.secrets-manager.secret.group+json"
     },
     "wrap_info": null,
     "warnings": null,
@@ -406,32 +422,32 @@ Retrieves a secret group and its details.
     <dd>The ID of the secret group.</dd>
 </dl>
 
-#### Sample request
+#### Example request
 {: #vault-get-secret-group-request}
 
 ```sh
-curl --location --request GET 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/groups/{id}' \
---header 'Accept: application/json' \
---header 'X-Vault-Token: {Vault-Token}
+curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/groups/{id}" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}'
 ```
-{: pre}
+{: codeblock}
 
-#### Sample response
+#### Example response
 {: #vault-get-secret-group-response}
 
 ```json
 {
-    "request_id": "cd9d4cf9-4bb2-1e4d-69ce-3dbd9b43becc",
+    "request_id": "0d127ae6-8359-bc36-af53-3a56be4c3e24",
     "lease_id": "",
     "renewable": false,
     "lease_duration": 0,
     "data": {
-        "created_at": "2020-08-03T09:27:01Z",
-        "description": "my newer group",
-        "id": "b61632aa-ef40-68a2-ddca-de2da2af40a7",
-        "name": "my-new-secret-group",
-        "type": "application/secret.group+json",
-        "updated_at": "2020-08-03T10:37:29Z"
+        "creation_date": "2020-12-15T22:08:46Z",
+        "description": "Updated description for my secret group.",
+        "id": "2bcaa289-5d38-aa57-910d-970e418ab1b3",
+        "last_update_date": "2020-12-15T22:18:44Z",
+        "name": "updated-secret-group-name",
+        "type": "application/vnd.ibm.secrets-manager.secret.group+json"
     },
     "wrap_info": null,
     "warnings": null,
@@ -453,86 +469,285 @@ Deletes a secret group.
     <dd>The ID of the secret group.</dd>
 </dl>
 
-#### Sample request
+#### Example request
 {: #vault-delete-secret-group-request}
 
 ```sh
-curl --location --request DELETE 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/groups/9894c07f-89aa-920f-447e-82c32b2200ae' \
---header 'Accept: application/json' \
---header 'X-Vault-Token: {Vault-Token}'
+curl -X DELETE "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/groups/{id}" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}'
 ```
 
-#### Sample response
+#### Example response
 {: #vault-delete-secret-group-response}
 
 ```json
 {
-    "request_id": "9d90136f-9eeb-eb93-ee3c-a729c708fa14",
-    "lease_id": "",
-    "renewable": false,
-    "lease_duration": 0,
-    "data": {
-        "created_at": "2020-08-04T08:05:45Z",
-        "description": "my new group",
-        "id": "9894c07f-89aa-920f-447e-82c32b2200ae",
-        "name": "my-secret-group",
-        "type": "application/secret.group+json",
-        "updated_at": ""
-    },
-    "wrap_info": null,
-    "warnings": null,
-    "auth": null
+  "request_id": "37065859-3238-f671-941f-d43ac340ad99",
+  "lease_id": "",
+  "renewable": false,
+  "lease_duration": 0,
+  "data": null,
+  "wrap_info": null,
+  "warnings": null,
+  "auth": null
 }
 ```
 {: screen}
+
+## Secrets
+{: #vault-api-secrets}
 
 ### Create a secret
 {: #vault-create-secret}
 
-Creates a secret by using the {{site.data.keyword.secrets-manager_short}} secret engines.
+Creates a secret by using the {{site.data.keyword.secrets-manager_short}} secrets engines.
 
-#### Sample requests and responses
-{: #vault-create-secret-request-response}
+#### Example requests
+{: #vault-create-secret-request}
 
-Create a secret in the `default` secret group:
+Create an arbitrary secret in the `default` secret group.
 
 ```sh
-curl --location --request PUT 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets' \
---header 'Accept: application/json' \
---header 'X-Vault-Token: {Vault-Token}' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "name": "dave",
-    "payload": "my arbitrary secret"
-}'
+curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "name": "test-arbitrary-secret",
+    "description": "Extended description for my secret."
+    "payload": "secret-data",
+    "labels": [
+      "dev",
+      "us-south"
+    ],
+    "expiration_date": "2030-04-01T09:30:00Z"
+  }'
 ```
-{: pre}
+{: codeblock}
+
+Create an arbitrary secret in an existing secret group.
+
+```sh
+curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/groups/{group_id}" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "name": "test-arbitrary-secret-in-group",
+    "description": "Extended description for my secret.",
+    "payload": "secret-data",
+    "labels": [
+      "dev",
+      "us-south"
+    ],
+    "expiration_date": "2030-04-01T09:30:00Z"
+  }'
+```
+{: codeblock}
+
+Create IAM credentials in the `default` secret group.
+
+```sh
+curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/iam_credentials/roles/{secret_name}" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "name": "test-iam-credentials",
+    "description": "Extended description for my secret.",
+    "access_groups": [
+        "AccessGroupId-0529f490-129c-4877-a2a0-b57f50d3e53b"
+    ],
+    "labels": [
+        "dev",
+        "us-south"
+    ],
+    "ttl": "30m"
+  }'
+```
+{: codeblock}
+
+Create IAM credentials in an existing group.
+
+```sh
+curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/iam_credentials/roles/groups/{group_id}/{secret_name}" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "name": "test-iam-credentials-in-group",
+    "description": "Extended description for my secret.",
+    "access_groups": [
+        "AccessGroupId-0529f490-129c-4877-a2a0-b57f50d3e53b"
+    ],
+    "labels": [
+        "dev",
+        "us-south"
+    ],
+    "ttl": "30m"
+  }'
+```
+{: codeblock}
+
+Create user credentials in the `default` secret group.
+
+```sh
+curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/username_password/secrets" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "name": "test-username-password",
+    "description": "Extended description for my secret.",
+    "username": "user123",
+    "password": "cloudy-rainy-coffee-book",
+    "expiration_date": "2020-12-31T00:00:00Z",
+    "labels": [
+      "dev",
+      "us-south"
+    ]
+  }'
+```
+{: codeblock}
+
+Create user credentials in an existing secret group:
+
+```sh
+curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/username_password/secrets/groups/{group_id}" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "name": "test-username-password-in-group",
+    "description": "Extended description for my secret.",
+    "username": "user123",
+    "password": "cloudy-rainy-coffee-book",
+    "expiration_date": "2020-12-31T00:00:00Z",
+    "labels": [
+      "dev",
+      "us-south"
+    ]
+  }'
+```
+{: codeblock}
+
+#### Example responses
+{: #vault-create-secret-response}
+
+A request to create an arbitrary secret in the `default` secret group returns the following response:
 
 ```json
 {
-    "request_id": "a0627556-112d-7733-2000-87effeed7ed8",
+  "request_id": "8c047529-de3a-a79d-7c2f-c382a8e75312",
+  "lease_id": "",
+  "renewable": false,
+  "lease_duration": 0,
+  "data": {
+    "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
+    "creation_date": "2020-12-15T22:34:53Z",
+    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0:secret:a6972127-35ad-b36f-aac8-0223f0475cb6",
+    "description": "Extended description for my secret.",
+    "expiration_date": "2030-04-01T09:30:00Z",
+    "id": "a6972127-35ad-b36f-aac8-0223f0475cb6",
+    "labels": [
+      "dev",
+      "us-south"
+    ],
+    "last_update_date": "2020-12-15T22:34:53Z",
+    "name": "test-arbitrary-secret-in-group",
+    "secret_data": {
+      "payload": "secret-data"
+    },
+    "secret_group_id": "339c026a-ac0f-1ea1-3d43-99adf871b49a",
+    "secret_type": "arbitrary",
+    "state": 1,
+    "state_description": "Active",
+    "versions": [
+      {
+          "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
+          "creation_date": "2020-12-15T22:34:53Z",
+          "id": "a7f55e6f-b068-977b-062e-4de644633982"
+      }
+    ]
+  },
+  "wrap_info": null,
+  "warnings": null,
+  "auth": null
+}
+```
+{: screen}
+
+A request to create an arbitrary secret in an existing secret group returns the following response:
+
+```json
+{
+  "request_id": "8c047529-de3a-a79d-7c2f-c382a8e75312",
+  "lease_id": "",
+  "renewable": false,
+  "lease_duration": 0,
+  "data": {
+    "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
+    "creation_date": "2020-12-15T22:34:53Z",
+    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0:secret:a6972127-35ad-b36f-aac8-0223f0475cb6",
+    "description": "Extended description for my secret.",
+    "expiration_date": "2030-04-01T09:30:00Z",
+    "id": "a6972127-35ad-b36f-aac8-0223f0475cb6",
+    "labels": [
+      "dev",
+      "us-south"
+    ],
+    "last_update_date": "2020-12-15T22:34:53Z",
+    "name": "test-arbitrary-secret-in-group",
+    "secret_data": {
+      "payload": "secret-data"
+    },
+    "secret_group_id": "339c026a-ac0f-1ea1-3d43-99adf871b49a",
+    "secret_type": "arbitrary",
+    "state": 1,
+    "state_description": "Active",
+    "versions": [
+      {
+        "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
+        "creation_date": "2020-12-15T22:34:53Z",
+        "id": "a7f55e6f-b068-977b-062e-4de644633982"
+      }
+    ]
+  },
+  "wrap_info": null,
+  "warnings": null,
+  "auth": null
+}
+```
+{: screen}
+
+A request to create IAM credentials in the `default` secret group returns the following response:
+
+```json
+{
+    "request_id": "3bef24c5-5ab9-72f4-8a1a-dd35a6e7aa15",
     "lease_id": "",
     "renewable": false,
     "lease_duration": 0,
     "data": {
-        "created_at": "2020-08-04T10:05:41Z",
-        "crn": "crn:v1:bluemix:public:secret-manager:us-south:a/a2b41867c8294f612fd4c7fd10d39586:1ec90496-358e-4b51-b8b5-ecdcd44fb7dc:secret:arbitrary:49d8d88b-d2ee-4861-83f0-662172b550b5",
-        "description": "",
-        "expiration_date": "",
-        "id": "49d8d88b-d2ee-4861-83f0-662172b550b5",
-        "name": "dave",
-        "payload": "my arbitrary secret",
+        "access_groups": [
+            "AccessGroupId-0529f490-129c-4877-a2a0-b57f50d3e53b"
+        ],
+        "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
+        "creation_date": "2020-12-16T21:34:51Z",
+        "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0:secret:8bc5eae8-e5b7-9599-de8e-525d1c3e2723",
+        "description": "Extended description for my secret.",
+        "id": "8bc5eae8-e5b7-9599-de8e-525d1c3e2723",
+        "labels": [
+            "dev",
+            "us-south"
+        ],
+        "last_update_date": "2020-12-16T21:34:51Z",
+        "name": "test-iam-credentials",
+        "secret_type": "iam_credentials",
         "state": 1,
-        "stateDescription": "Active",
-        "tags": [],
-        "type": "ARBITRARY",
-        "updated_at": "2020-08-04T10:05:41Z",
-        "versions": [
-            {
-                "id": "601d6a83-56a6-c2d9-b0dc-d5bea4f29d9f",
-                "updated_at": "2020-08-04T10:05:41.293237Z"
-            }
-        ]
+        "state_description": "Active",
+        "ttl": 1800
     },
     "wrap_info": null,
     "warnings": null,
@@ -541,50 +756,343 @@ curl --location --request PUT 'https://{instance_ID}.{region}.secrets-manager.ap
 ```
 {: screen}
 
-Create a secret in an existing secret group:
-
-```sh
-curl --location --request PUT 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/groups/c481f146-aa9f-5b9b-55b7-f9fd326027cd' \
---header 'Accept: application/json' \
---header 'X-Vault-Token: {Vault-Token}' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "name": "dave",
-    "payload": "my arbitrary secret"
-}'
-```
-{: pre}
+A request to create IAM credentials in an existing secret group returns the following response:
 
 ```json
 {
-    "request_id": "a0627556-112d-7733-2000-87effeed7ed8",
-    "lease_id": "",
-    "renewable": false,
-    "lease_duration": 0,
-    "data": {
-        "created_at": "2020-08-04T10:05:41Z",
-        "crn": "crn:v1:bluemix:public:secret-manager:us-south:a/a2b41867c8294f612fd4c7fd10d39586:1ec90496-358e-4b51-b8b5-ecdcd44fb7dc:secret:arbitrary:49d8d88b-d2ee-4861-83f0-662172b550b5",
-        "description": "",
-        "expiration_date": "",
-        "group_id": "c481f146-aa9f-5b9b-55b7-f9fd326027cd",
-        "id": "49d8d88b-d2ee-4861-83f0-662172b550b5",
-        "name": "dave",
-        "payload": "my arbitrary secret",
-        "state": 1,
-        "stateDescription": "Active",
-        "tags": [],
-        "type": "ARBITRARY",
-        "updated_at": "2020-08-04T10:05:41Z",
-        "versions": [
-            {
-                "id": "601d6a83-56a6-c2d9-b0dc-d5bea4f29d9f",
-                "updated_at": "2020-08-04T10:05:41.293237Z"
-            }
-        ]
+  "request_id": "2278a441-6dbe-5ee8-4a4b-3b5b1e814231",
+  "lease_id": "",
+  "renewable": false,
+  "lease_duration": 0,
+  "data": {
+    "access_groups": [
+      "AccessGroupId-0529f490-129c-4877-a2a0-b57f50d3e53b"
+    ],
+    "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
+    "creation_date": "2020-12-16T21:57:13Z",
+    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0:secret:99425779-0707-4877-81CB-ca11e28b6ef1",
+    "description": "Extended description for my secret.",
+    "id": "99425779-0707-4877-81CB-ca11e28b6ef1",
+    "labels": [
+      "dev",
+      "us-south"
+    ],
+    "last_update_date": "2020-12-16T21:57:13Z",
+    "name": "test-iam-credentials-in-group",
+    "secret_group_id": "714e070d-8122-6270-198c-fef9166729e3",
+    "secret_type": "iam_credentials",
+    "state": 1,
+    "state_description": "Active",
+    "ttl": 1800
+  },
+  "wrap_info": null,
+  "warnings": null,
+  "auth": null
+}
+```
+{: screen}
+
+A request to create user credentials in the `default` secret group returns the following response:
+
+```json
+{
+  "request_id": "96fc9603-5aff-5daa-f25c-efc3599b374b",
+  "lease_id": "",
+  "renewable": false,
+  "lease_duration": 0,
+  "data": {
+    "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
+    "creation_date": "2020-12-15T22:43:36Z",
+    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0:secret:2bd4c8fc-c1e4-f9d7-8026-6c04610f051f",
+    "description": "Extended description for my secret.",
+    "expiration_date": "2020-12-31T00:00:00Z",
+    "id": "2bd4c8fc-c1e4-f9d7-8026-6c04610f051f",
+    "labels": [
+        "dev",
+        "us-south"
+    ],
+    "last_update_date": "2020-12-15T22:43:36Z",
+    "name": "test-username-password",
+    "secret_data": {
+      "password": "cloudy-rainy-coffee-book",
+      "username": "user123"
     },
-    "wrap_info": null,
-    "warnings": null,
-    "auth": null
+    "secret_type": "username_password",
+    "state": 1,
+    "state_description": "Active",
+    "versions": [
+      {
+        "auto_rotated": false,
+        "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
+        "creation_date": "2020-12-15T22:43:36Z",
+        "id": "ae4b3afd-5e63-5951-790b-f1892e8c5267"
+      }
+    ]
+  },
+  "wrap_info": null,
+  "warnings": null,
+  "auth": null
+}
+```
+{: screen}
+
+A request to create user credentials in an existing secret group returns the following response:
+
+```json
+{
+  "request_id": "4ccc9dd5-af3a-6865-293f-3f704d2866e1",
+  "lease_id": "",
+  "renewable": false,
+  "lease_duration": 0,
+  "data": {
+    "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
+    "creation_date": "2020-12-15T22:46:41Z",
+    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0:secret:be4a0846-4cb5-3bfa-bab5-10a44dfc3e85",
+    "description": "Extended description for my secret.",
+    "expiration_date": "2020-12-31T00:00:00Z",
+    "id": "be4a0846-4cb5-3bfa-bab5-10a44dfc3e85",
+    "labels": [
+      "dev",
+      "us-south"
+    ],
+    "last_update_date": "2020-12-15T22:46:41Z",
+    "name": "test-username-password-in-group",
+    "secret_data": {
+      "password": "cloudy-rainy-coffee-book",
+      "username": "user123"
+    },
+    "secret_group_id": "339c026a-ac0f-1ea1-3d43-99adf871b49a",
+    "secret_type": "username_password",
+    "state": 1,
+    "state_description": "Active",
+    "versions": [
+      {
+          "auto_rotated": false,
+          "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
+          "creation_date": "2020-12-15T22:46:41Z",
+          "id": "a09c7a3c-13a5-7a17-fadc-e7850496d27a"
+      }
+    ]
+  },
+  "wrap_info": null,
+  "warnings": null,
+  "auth": null
+}
+```
+{: screen}
+
+### Get a secret
+{: #vault-get-secret}
+
+Get the value of a secret.
+
+#### Example requests
+{: #vault-get-secret-request}
+
+Get an arbitrary secret in the `default` secret group.
+
+```sh
+curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/{id}" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}'
+```
+{: codeblock}
+
+Get an arbitrary secret in an existing secret group.
+
+```sh
+curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/groups/{group_id}/{secret_id}" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}'
+```
+{: codeblock}
+
+Get IAM credentials in the `default` secret group.
+
+```sh
+curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/iam_credentials/creds/{secret_id}" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}'
+```
+{: codeblock}
+
+Get IAM credentials in an existing secret group.
+
+```sh
+curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/iam_credentials/creds/groups/{group_id}/{secret_id}" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}'
+```
+{: codeblock}
+
+Get user credentials in the `default` secret group.
+
+```sh
+curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/username_password/secret/{id}" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}'
+```
+{: codeblock}
+
+#### Example responses
+{: #vault-get-secret-response}
+
+A request to retrieve an arbitrary secret in the `default` secret group returns the following response:
+
+```json
+{
+  "request_id": "463e84e8-3a0c-1061-1a6e-6ce1434c7ba2",
+  "lease_id": "",
+  "renewable": false,
+  "lease_duration": 0,
+  "data": {
+    "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
+    "creation_date": "2020-12-16T20:54:52Z",
+    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0:secret:582a8f65-9a2b-a072-4fc3-e69ff3462c23",
+    "description": "Extended description for my secret.",
+    "expiration_date": "2030-04-01T09:30:00Z",
+    "id": "582a8f65-9a2b-a072-4fc3-e69ff3462c23",
+    "labels": [
+      "dev",
+      "us-south"
+    ],
+    "last_update_date": "2020-12-16T20:54:52Z",
+    "name": "test-arbitrary-secret",
+    "secret_data": {
+      "payload": "secret-data"
+    },
+    "secret_type": "arbitrary",
+    "state": 1,
+    "state_description": "Active",
+    "versions": [
+      {
+        "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
+        "creation_date": "2020-12-16T20:54:52Z",
+        "id": "03d9ddb3-aa1d-d929-40c8-04027213ef08"
+      }
+    ]
+  },
+  "wrap_info": null,
+  "warnings": null,
+  "auth": null
+}
+```
+{: screen}
+
+A request to retrieve an arbitrary secret in an existing secret group returns the following response:
+
+```json
+{
+  "request_id": "791340bd-5664-c1e3-e779-d1391494f55d",
+  "lease_id": "",
+  "renewable": false,
+  "lease_duration": 0,
+  "data": {
+    "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
+    "creation_date": "2020-12-15T22:34:53Z",
+    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0:secret:a6972127-35ad-b36f-aac8-0223f0475cb6",
+    "description": "Extended description for my secret.",
+    "expiration_date": "2030-04-01T09:30:00Z",
+    "id": "a6972127-35ad-b36f-aac8-0223f0475cb6",
+    "labels": [
+      "dev",
+      "us-south"
+    ],
+    "last_update_date": "2020-12-15T22:34:53Z",
+    "name": "test-arbitrary-secret-in-group",
+    "secret_data": {
+      "payload": "secret-data"
+    },
+    "secret_group_id": "339c026a-ac0f-1ea1-3d43-99adf871b49a",
+    "secret_type": "arbitrary",
+    "state": 1,
+    "state_description": "Active",
+    "versions": [
+      {
+        "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
+        "creation_date": "2020-12-15T22:34:53Z",
+        "id": "a7f55e6f-b068-977b-062e-4de644633982"
+      }
+    ]
+  },
+  "wrap_info": null,
+  "warnings": null,
+  "auth": null
+}
+```
+{: screen}
+
+A request to generate IAM credentials in the `default` secret group returns the following response:
+
+```json
+{
+  "request_id": "c9716624-669f-2ef4-5560-a5d4e6618826",
+  "lease_id": "",
+  "renewable": false,
+  "lease_duration": 0,
+  "data": {
+    "access_groups": [
+      "AccessGroupId-0529f490-129c-4877-a2a0-b57f50d3e53b"
+    ],
+    "api_key": "U40hERZ0h-0C0cnka2bEuL2yK5Yyz2MoHC8FKeYfcV7Z",
+    "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
+    "creation_date": "2020-12-16T21:55:31Z",
+    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0:secret:d7a2b83f-997c-4914-857a-86bfcdbf0873",
+    "description": "Extended description for my secret.",
+    "id": "d7a2b83f-997c-4914-857a-86bfcdbf0873",
+    "labels": [
+      "dev",
+      "us-south"
+    ],
+    "last_update_date": "2020-12-16T22:05:16Z",
+    "name": "test-iam-credentials",
+    "secret_type": "iam_credentials",
+    "service_id": "ServiceId-43c79ec9-7f02-481d-92f1-e60363483298",
+    "state": 1,
+    "state_description": "Active",
+    "ttl": 1800
+  },
+  "wrap_info": null,
+  "warnings": null,
+  "auth": null
+}
+```
+{: screen}
+
+A request to generate IAM credentials in an existing secret group returns the following response:
+
+```json
+{
+  "request_id": "201eaa80-d5f1-2697-66dd-481d94a52685",
+  "lease_id": "",
+  "renewable": false,
+  "lease_duration": 0,
+  "data": {
+    "access_groups": [
+      "AccessGroupId-0529f490-129c-4877-a2a0-b57f50d3e53b"
+    ],
+    "api_key": "CFQY6wWPI3C3wKx6XLC9p0c3eiejr5WXd7lpRGiKr40a",
+    "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
+    "creation_date": "2020-12-16T21:57:13Z",
+    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0:secret:99425779-0707-4877-81CB-ca11e28b6ef1",
+    "description": "Extended description for my secret.",
+    "id": "99425779-0707-4877-81CB-ca11e28b6ef1",
+    "labels": [
+      "dev",
+      "us-south"
+    ],
+    "last_update_date": "2020-12-16T22:07:20Z",
+    "name": "test-iam-credentials-in-group",
+    "secret_group_id": "714e070d-8122-6270-198c-fef9166729e3",
+    "secret_type": "iam_credentials",
+    "service_id": "ServiceId-d1a99978-2108-4eec-9dae-bdf5691e7136",
+    "state": 1,
+    "state_description": "Active",
+    "ttl": 1800
+  },
+  "wrap_info": null,
+  "warnings": null,
+  "auth": null
 }
 ```
 {: screen}
@@ -592,111 +1100,84 @@ curl --location --request PUT 'https://{instance_ID}.{region}.secrets-manager.ap
 ### List secrets
 {: #vault-list-secrets}
 
-Retrieve a list of secrets that are available in a {{site.data.keyword.secrets-manager_short}} Vault secret engine.
+Retrieve a list of secrets that are available in a {{site.data.keyword.secrets-manager_short}} secrets engine.
 
-#### Sample requests and responses
-{: #vault-list-secrets-request-response}
+#### Example requests
+{: #vault-list-secrets-request}
 
-List all secrets:
+List arbitrary secrets.
 
 ```sh
-curl --location --request GET 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets' \
---header 'Accept: application/json' \
---header 'X-Vault-Token: {Vault-Token}'
+curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}'
 ```
-{: pre}
+{: codeblock}
+
+List arbitrary secrets in an existing secret group:
+
+```sh
+curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/groups/c481f146-aa9f-5b9b-55b7-f9fd326027cd" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}' 
+```
+{: codeblock}
+
+#### Example responses
+{: #vault-list-secrets-response}
+
+A request to list all arbitrary secrets returns the following response:
 
 ```json
 {
-    "request_id": "b3dc1219-c296-6936-5433-4384053f740f",
-    "lease_id": "",
-    "renewable": false,
-    "lease_duration": 0,
-    "data": {
-        "secrets": [
-            {
-                "created_at": "2020-08-04T10:05:41Z",
-                "crn": "crn:v1:bluemix:public:secret-manager:us-south:a/a2b41867c8294f612fd4c7fd10d39586:1ec90496-358e-4b51-b8b5-ecdcd44fb7dc:secret:arbitrary:49d8d88b-d2ee-4861-83f0-662172b550b5",
-                "description": "",
-                "expiration_date": "",
-                "id": "49d8d88b-d2ee-4861-83f0-662172b550b5",
-                "name": "dave",
-                "state": 1,
-                "stateDescription": "Active",
-                "tags": [],
-                "type": "ARBITRARY",
-                "updated_at": "2020-08-04T10:05:41Z"
-            },
-            {
-                "created_at": "2020-08-04T10:11:59Z",
-                "crn": "crn:v1:bluemix:public:secret-manager:us-south:a/a2b41867c8294f612fd4c7fd10d39586:1ec90496-358e-4b51-b8b5-ecdcd44fb7dc:secret:arbitrary:4ca0715e-c999-34ad-f393-a5f8843ba16a",
-                "description": "",
-                "expiration_date": "",
-                "id": "4ca0715e-c999-34ad-f393-a5f8843ba16a",
-                "name": "dave",
-                "state": 1,
-                "stateDescription": "Active",
-                "tags": [],
-                "type": "ARBITRARY",
-                "updated_at": "2020-08-04T10:11:59Z"
-            }
-        ]
-    },
-    "wrap_info": null,
-    "warnings": null,
-    "auth": null
-}
-```
-{: screen}
-
-List secrets in a secret group:
-
-```sh
-curl --location --request GET 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/groups/c481f146-aa9f-5b9b-55b7-f9fd326027cd' \
---header 'Accept: application/json' \
---header 'X-Vault-Token: {Vault-Token}' 
-```
-{: pre}
-
-```json
-{
-    "request_id": "b3dc1219-c296-6936-5433-4384053f740f",
-    "lease_id": "",
-    "renewable": false,
-    "lease_duration": 0,
-    "data": {
-        "secrets": [
-            {
-                "created_at": "2020-08-04T10:05:41Z",
-                "crn": "crn:v1:bluemix:public:secret-manager:us-south:a/a2b41867c8294f612fd4c7fd10d39586:1ec90496-358e-4b51-b8b5-ecdcd44fb7dc:secret:arbitrary:49d8d88b-d2ee-4861-83f0-662172b550b5",
-                "description": "",
-                "expiration_date": "",
-                "id": "49d8d88b-d2ee-4861-83f0-662172b550b5",
-                "name": "dave",
-                "state": 1,
-                "stateDescription": "Active",
-                "tags": [],
-                "type": "ARBITRARY",
-                "updated_at": "2020-08-04T10:05:41Z"
-            },
-            {
-                "created_at": "2020-08-04T10:11:59Z",
-                "crn": "crn:v1:bluemix:public:secret-manager:us-south:a/a2b41867c8294f612fd4c7fd10d39586:1ec90496-358e-4b51-b8b5-ecdcd44fb7dc:secret:arbitrary:4ca0715e-c999-34ad-f393-a5f8843ba16a",
-                "description": "",
-                "expiration_date": "",
-                "id": "4ca0715e-c999-34ad-f393-a5f8843ba16a",
-                "name": "dave",
-                "state": 1,
-                "stateDescription": "Active",
-                "tags": [],
-                "type": "ARBITRARY",
-                "updated_at": "2020-08-04T10:11:59Z"
-            }
-        ]
-    },
-    "wrap_info": null,
-    "warnings": null,
-    "auth": null
+  "request_id": "d8eb84fd-c0bd-08ae-c3ad-cff87606953c",
+  "lease_id": "",
+  "renewable": false,
+  "lease_duration": 0,
+  "data": {
+    "secrets": [
+      {
+        "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
+        "creation_date": "2020-12-15T22:34:53Z",
+        "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0:secret:a6972127-35ad-b36f-aac8-0223f0475cb6",
+        "description": "Extended description for my secret.",
+        "expiration_date": "2030-04-01T09:30:00Z",
+        "id": "a6972127-35ad-b36f-aac8-0223f0475cb6",
+        "labels": [
+            "dev",
+            "us-south"
+        ],
+        "last_update_date": "2020-12-15T22:34:53Z",
+        "name": "test-arbitrary-secret-in-group",
+        "secret_group_id": "339c026a-ac0f-1ea1-3d43-99adf871b49a",
+        "secret_type": "arbitrary",
+        "state": 1,
+        "state_description": "Active"
+      },
+      {
+        "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
+        "creation_date": "2020-12-15T22:41:14Z",
+        "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0:secret:ea1907c8-8c8e-6b83-3c20-05f2015b80d8",
+        "description": "Extended description for my secret.",
+        "expiration_date": "2030-04-01T09:30:00Z",
+        "id": "ea1907c8-8c8e-6b83-3c20-05f2015b80d8",
+        "labels": [
+            "dev",
+            "us-south"
+        ],
+        "last_update_date": "2020-12-15T22:41:14Z",
+        "name": "another-arbitrary-secret-in-group",
+        "secret_group_id": "339c026a-ac0f-1ea1-3d43-99adf871b49a",
+        "secret_type": "arbitrary",
+        "state": 1,
+        "state_description": "Active"
+      }
+    ],
+    "secrets_total": 2
+  },
+  "wrap_info": null,
+  "warnings": null,
+  "auth": null
 }
 ```
 {: screen}
@@ -704,17 +1185,44 @@ curl --location --request GET 'https://{instance_ID}.{region}.secrets-manager.ap
 ### Delete a secret
 {: #vault-delete-secret}
 
-Deletes a secret from a {{site.data.keyword.secrets-manager_short}} Vault secret engine.
+Deletes a secret from a {{site.data.keyword.secrets-manager_short}} secrets engine.
 
-#### Sample requests and responses
-{: #vault-delete-secret-request-response}
+#### Example requests
+{: #vault-delete-secret-request}
 
-Delete a secret in the `default` secret group:
+Delete an arbitrary secret in the `default` secret group.
 
 ```sh
-curl --location --request DELETE 'https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/{secret_id}' \
---header 'Accept: application/json' \
---header 'X-Vault-Token: {Vault-Token}' 
+curl -X DELETE "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/{id}" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}' 
 ```
-{: pre}
+{: codeblock}
+
+Delete an arbitrary secret in an existing secret group.
+
+```sh
+curl -X DELETE "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/groups/{group_id}/{secret_id}" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}' 
+```
+{: codeblock}
+
+#### Example response
+{: #vault-delete-secret-response}
+
+```json
+{
+    "request_id": "e48436e3-23d3-ab4a-7642-535cab8935a8",
+    "lease_id": "",
+    "renewable": false,
+    "lease_duration": 0,
+    "data": null,
+    "wrap_info": null,
+    "warnings": null,
+    "auth": null
+}
+```
+{: screen}
+
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-12-15"
 
 keywords: secrets management best practice, managing secrets, secrets strategy, secrets best practices, organizing secrets, assigning access to secrets
 
@@ -33,13 +33,18 @@ subcollection: secrets-manager
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
 {:tsSymptoms: .tsSymptoms}
-{:java: .ph data-hd-programlang='java'}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:swift: .ph data-hd-programlang='swift'}
-{:curl: .ph data-hd-programlang='curl'}
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
+{:curl: .ph data-hd-programlang='curl'}
+{:go: .ph data-hd-programlang='go'} 
+{:javascript: .ph data-hd-programlang='javascript'}
+{:java: .ph data-hd-programlang='java'}
+{:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
+{:api: .ph data-hd-interface='api'}
+{:cli: .ph data-hd-interface='cli'}
+{:ui: .ph data-hd-interface='ui'}
 
 # Best practices for organizing secrets and assigning access
 {: #best-practices-organize-secrets}
@@ -56,7 +61,7 @@ As you use {{site.data.keyword.secrets-manager_short}} to design your secrets ma
 
     If the resource groups in your account are organized by project environment level, for example development, test, and production, create a {{site.data.keyword.secrets-manager_short}} instance for each resource group so that you can separate your secrets according to each phase of development. For more information about using resource groups, see [What makes a good resource group strategy?](/docs/account?topic=account-account_setup#resource-group-strategy)
 
-    As a beta service, {{site.data.keyword.secrets-manager_short}} is limited to one instance per {{site.data.keyword.cloud_notm}} account by default. If you require more than one {{site.data.keyword.secrets-manager_short}} instance, contact [{{site.data.keyword.cloud_notm}} support](/unifiedsupport/supportcenter){:external}.
+    Currently, {{site.data.keyword.secrets-manager_short}} is limited to one instance per {{site.data.keyword.cloud_notm}} account by default. If you require more than one {{site.data.keyword.secrets-manager_short}} instance, contact [{{site.data.keyword.cloud_notm}} support](/unifiedsupport/supportcenter){:external}.
     {: note}
 2. Use access groups to organize the users and services IDs that require the same level of access to a {{site.data.keyword.secrets-manager_short}} instance. To create an access group, go to **Manage > Access (IAM) > Access groups**.
     
