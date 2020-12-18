@@ -58,6 +58,11 @@ Secrets Manager
         Vault CLI
             vault-cli-configure.md                                            
             vault-cli.md
+
+    {: topicgroup}
+    Vault plug-ins
+        [IBM Cloud Auth method](https://github.com/ibm-cloud-security/vault-plugin-auth-ibmcloud){: external}
+        [IBM Cloud Secrets backend](https://github.com/ibm-cloud-security/vault-plugin-secrets-ibmcloud){: external}
     endpoints.md
     ha-dr.md
     {: .navgroup-end}
