@@ -60,14 +60,14 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 To find out more about this release, check out the [announcement blog](https://www.ibm.com/cloud/blog/announcements/ibm-cloud-secrets-manager-is-now-generally-available){: external}. 
 
 ## 15 December 2020
-{: #2020-11-15}
+{: #2020-12-15}
 
 You can now create a {{site.data.keyword.secrets-manager_short}} service instance in the Sydney (`au-syd`) region.
 
 For more information, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
 
 ## 14 December 2020
-{: #2020-11-14}
+{: #2020-12-14}
 
 The {{site.data.keyword.secrets-manager_short}} CLI plug-in is now available for download!
 
