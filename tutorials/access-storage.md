@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-16"
+lastupdated: "2020-12-18"
 content-type: tutorial
 services: cloud-object-storage
 account-plan: lite
@@ -61,7 +61,7 @@ In this tutorial, you learn how to use {{site.data.keyword.secrets-manager_full}
 
 As an enterprise developer, you might be looking for ways to improve the security of your application secrets. When it comes to managing API keys, you want the ability to create your credentials dynamically so that they exist only when you need them to. You also want to lease an API key to someone else on your team and ensure that it is automatically revoked after a time duration that you specify.
 
-With {{site.data.keyword.secrets-manager_short}}, you can create a dynamic secret that you can use to access a protected resource, such as deployment logs that you store in a Cloud Object Storage bucket. For example, consider the following scenario.
+With {{site.data.keyword.secrets-manager_short}}, you can create a [dynamic secret](#x9968958){:term} that you can use to access a protected resource, such as deployment logs that you store in a Cloud Object Storage bucket. For example, consider the following scenario.
 
 ![The diagram shows the basic flow between the Secrets Manager and Cloud Object Storage services.](../images/iam-credential-flow.svg){: caption="Figure 1. IAM credential flow" caption-side="bottom"}
 
