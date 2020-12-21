@@ -8,6 +8,7 @@ Secrets Manager
     getting-started.md
     [Video: What is secrets management?](https://www.youtube.com/watch?v=iETENR5MEB8){: external}
     concepts/secrets-mgmt.md
+
     {: .topicgroup}
     Best practices
         best-practices/secret-organize.md
