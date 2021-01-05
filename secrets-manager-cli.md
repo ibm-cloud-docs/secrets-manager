@@ -49,7 +49,6 @@ keywords: Secrets Manager CLI, Secrets Manager command line , Secrets Manager te
 
 
 
-
 # {{site.data.keyword.secrets-manager_short}} CLI
 {: #secrets-manager-cli}
 
