@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-18"
+  years: 2021
+lastupdated: "2021-01-11"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -52,6 +52,10 @@ subcollection: secrets-manager
 Use these release notes to learn about the latest changes to {{site.data.keyword.secrets-manager_full}} that are grouped by date. 
 {:shortdesc}
 
+ 
+
+
+
 ## 18 December 2020
 {: #2020-12-18}
 
@@ -75,6 +79,13 @@ You can use the {{site.data.keyword.secrets-manager_short}} CLI to interact with
 
 - To see CLI usage examples for creating secrets of different types, check out [Creating secrets](/docs/secrets-manager?topic=secrets-manager-store-secrets).
 - To find out more about the CLI commands and options that are available for {{site.data.keyword.secrets-manager_short}}, see the [CLI reference](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli).
+
+## 24 November 2020
+{: #2020-11-24}
+
+You can now use the {{site.data.keyword.secrets-manager_notm}} Node.js SDK to connect to your {{site.data.keyword.secrets-manager_short}} service instance.
+
+For more information, check out the [{{site.data.keyword.secrets-manager_notm}} Node.js SDK repository in GitHub](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}. 
 
 ## 13 November 2020
 {: #2020-11-13}
