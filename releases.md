@@ -83,9 +83,9 @@ You can use the {{site.data.keyword.secrets-manager_short}} CLI to interact with
 ## 24 November 2020
 {: #2020-11-24}
 
-You can now use the {{site.data.keyword.secrets-manager_notm}} Node.js SDK to connect to your {{site.data.keyword.secrets-manager_short}} service instance.
+You can now use the {{site.data.keyword.secrets-manager_full_notm}} Node.js SDK to connect to your {{site.data.keyword.secrets-manager_short}} service instance.
 
-For more information, check out the [{{site.data.keyword.secrets-manager_notm}} Node.js SDK repository in GitHub](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}. 
+For more information, check out the [{{site.data.keyword.secrets-manager_full_notm}} Node.js SDK repository in GitHub](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}. 
 
 ## 13 November 2020
 {: #2020-11-13}
