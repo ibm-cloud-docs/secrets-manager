@@ -72,7 +72,7 @@ When you assign policies to users for this service, use `secrets-manager` for th
 
 The following table describes the types of tasks that can be completed with each platform management role assigned. Platform management roles enable users to perform tasks on service resources at the platform level, for example, assign user access to the service, create or delete instances, and bind instances to applications.
 
-For information about the exact actions mapped to each role, see [{{site.data.keyword.secrets-manager_short}}](/docs/account?topic=account-iam-service-roles-actions#secrets-manager).
+For information about the exact actions that are mapped to each role, see [{{site.data.keyword.secrets-manager_short}}](/docs/account?topic=account-iam-service-roles-actions#secrets-manager).
 {: tip}
 
 
@@ -80,7 +80,7 @@ For information about the exact actions mapped to each role, see [{{site.data.ke
 | Platform role | Description of actions | 
 |----------------|------------------------|
 | Viewer         | As a viewer, you can view instances of {{site.data.keyword.secrets-manager_short}}, but you can't modify them. |
-| Operator       | As an operator, you can perform platform actions required to configure and operate {{site.data.keyword.secrets-manager_short}} service instances, such as viewing the service's dashboard. |
+| Operator       | As an operator, you can perform platform actions that are required to configure and operate {{site.data.keyword.secrets-manager_short}} service instances, such as viewing the service's dashboard. |
 | Editor         | As an editor, you can create, modify, and delete instances of {{site.data.keyword.secrets-manager_short}}, but you can't assign access policies for others. | 
 | Administrator  | As an administrator, you can perform all platform actions based on the resource this role is being assigned, including the ability to assign access policies for others. |
 {: row-headers}
@@ -100,5 +100,5 @@ The following table describes the types tasks that can be completed when each se
 {: caption="Table 2. IAM service access role descriptions" caption-side="top"}
 {: summary="The rows are read from left to right. The first column is the service access role. The second column is a description of the actions in the service that the service access role permits."}
 
-For information about the steps to assign IAM access, see [Managing access to resources](/docs/account?topic=account-assign-access-resources).
+For more information about assigning IAM access, see [Managing access to resources](/docs/account?topic=account-assign-access-resources).
 
