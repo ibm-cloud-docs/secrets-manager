@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-16"
+  years: 2021
+lastupdated: "2021-01-19"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -928,7 +928,7 @@ curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/i
 Get user credentials in the `default` secret group.
 
 ```sh
-curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/username_password/secret/{id}" \
+curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/username_password/secrets/{id}" \
   -H 'Accept: application/json' \
   -H 'X-Vault-Token: {Vault-Token}'
 ```
