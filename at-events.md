@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-15"
+  years: 2021
+lastupdated: "2021-01-20"
 
 keywords: activity tracker events for Secrets Manager, events, Secrets Manager actions
 
