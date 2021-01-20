@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-01-07"
+  years: 2020, 2021
+lastupdated: "2021-01-20"
 
 keywords: known issues for Secrets Manager, known limitations for Secrets Manager
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-11"
+  years: 2020, 2021
+lastupdated: "2021-01-20"
 
 keywords: access stored secrets, retrieve secrets, get secret value, get secrets, view secrets, search secrets, get secret value
 
@@ -82,5 +82,7 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/
 ```
 {: pre}
 
-A successful response returns the value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Retrieve a secret](/apidocs/secrets-manager#get-secret){: external}.
+A successful response returns the value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Get a secret](/apidocs/secrets-manager#get-secret){: external}.
+
+
 
