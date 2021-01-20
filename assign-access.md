@@ -89,7 +89,7 @@ To assign access to a {{site.data.keyword.secrets-manager_short}} instance and i
 
 You can further narrow the scope of access to secrets in your instance by creating and managing [secret groups](#x9968962){: term}.
 
-[After you create a secret group for your instance](/docs/secrets-manager?topic=secrets-manager-secret-groups#create-secret-groups), you can use the **Secret groups** section of the {{site.data.keyword.secrets-manager_short}} dashboard to manage its access.
+[After you create a secret group for your instance](/docs/secrets-manager?topic=secrets-manager-secret-groups#create-secret-groups), you can use the **Secret groups** section of the {{site.data.keyword.secrets-manager_short}} UI to manage its access.
 
 1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List** to view a list of your resources.
 2. Select your instance of {{site.data.keyword.secrets-manager_short}}.
