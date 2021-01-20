@@ -62,8 +62,6 @@ To learn more about suggested guidelines for assigning access to secrets, check 
 
 Before you get started, be sure that you have [**Administrator** platform access](/docs/account?topic=account-assign-access-resources#assign_new_access) so that you can further assign roles and customize access policies for others.
 
-The following sections show you how to assign access to {{site.data.keyword.secrets-manager_short}} by using the {{site.data.keyword.cloud_notm}} console and tje {{site.data.keyword.secrets-manager_short}} dashboard. If you're using [**`ibmcloud iam`** commands](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_user_policy_create) to assign access in the command line, use `secrets-manager` as the service name when you create access policies for {{site.data.keyword.secrets-manager_short}}. For more information about using the {{site.data.keyword.cloud_notm}} CLI to assign access, see [Managing IAM access, API keys, service IDs, and access groups (ibmcloud iam)](/docs/cli?topic=cli-ibmcloud_commands_iam).
-
 ## Assigning access to a {{site.data.keyword.secrets-manager_short}} instance
 {: #assign-access-instance}
 
