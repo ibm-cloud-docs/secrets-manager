@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-01-19"
+lastupdated: "2021-01-20"
 
 keywords: assign access for Secrets Manager, secret group access, assign access for all secrets, grant access, add users
 
@@ -62,6 +62,8 @@ To learn more about suggested guidelines for assigning access to secrets, check 
 
 Before you get started, be sure that you have [**Administrator** platform access](/docs/account?topic=account-assign-access-resources#assign_new_access) so that you can further assign roles and customize access policies for others.
 
+The following sections show you how to assign access to {{site.data.keyword.secrets-manager_short}} by using the {{site.data.keyword.cloud_notm}} console and tje {{site.data.keyword.secrets-manager_short}} dashboard. If you're using [**`ibmcloud iam`** commands](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_user_policy_create) to assign access in the command line, use `secrets-manager` as the service name when you create access policies for {{site.data.keyword.secrets-manager_short}}. For more information about using the {{site.data.keyword.cloud_notm}} CLI to assign access, see [Managing IAM access, API keys, service IDs, and access groups (ibmcloud iam)](/docs/cli?topic=cli-ibmcloud_commands_iam).
+
 ## Assigning access to a {{site.data.keyword.secrets-manager_short}} instance
 {: #assign-access-instance}
 
@@ -89,7 +91,7 @@ To assign access to a {{site.data.keyword.secrets-manager_short}} instance and i
 
 You can further narrow the scope of access to secrets in your instance by creating and managing [secret groups](#x9968962){: term}.
 
-[After you create a secret group for your instance](/docs/secrets-manager?topic=secrets-manager-secret-groups#create-secret-groups), you can use the **Secret groups** section of the UI to manage its access.
+[After you create a secret group for your instance](/docs/secrets-manager?topic=secrets-manager-secret-groups#create-secret-groups), you can use the **Secret groups** section of the {{site.data.keyword.secrets-manager_short}} dashboard to manage its access.
 
 1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List** to view a list of your resources.
 2. Select your instance of {{site.data.keyword.secrets-manager_short}}.
