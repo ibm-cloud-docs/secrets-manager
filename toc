@@ -48,7 +48,7 @@ Secrets Manager
     {: .navgroup id="reference"}
     {: topicgroup}
     API reference
-        [Secrets Manager API](/apidocs/secrets-manager){: external}
+        [Secrets Manager API](https://cloud.ibm.com/apidocs/secrets-manager){: external}
         vault-api.md
 
     {: topicgroup}
