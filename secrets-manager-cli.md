@@ -2,7 +2,7 @@
  
 copyright:
   years: 2021
-lastupdated: "2021-01-05"
+lastupdated: "2021-01-26"
 
 subcollection: secrets-manager
 
@@ -109,7 +109,7 @@ ibmcloud secrets-manager config-update --secret-type SECRET-TYPE --engine-config
 <dt>--secret-type (string)</dt>
 <dd>The secret type. Required.</dd>
 <dd>Allowable values are: iam_credentials</dd>
-<dt>--engine-config-one-of (EngineConfigOneOf)</dt>
+<dt>--engine-config-one-of</dt>
 <dd> Required.</dd>
 </dl>
 
@@ -155,7 +155,7 @@ ibmcloud secrets-manager policy-update --secret-type SECRET-TYPE --id ID --metad
 <dt>--id (string)</dt>
 <dd>The v4 UUID that uniquely identifies the secret. Required.</dd>
 <dd>The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`</dd>
-<dt>--metadata (CollectionMetadata)</dt>
+<dt>--metadata</dt>
 <dd>The metadata that describes the resource array. Required.</dd>
 <dt>--resources (array)</dt>
 <dd>A collection of resources. Required.</dd>
@@ -208,7 +208,7 @@ ibmcloud secrets-manager secret-group-create --metadata METADATA --resources RES
 {: #secrets-manager-secret-group-create-cli-options}
 
 <dl> 
-<dt>--metadata (CollectionMetadata)</dt>
+<dt>--metadata</dt>
 <dd>The metadata that describes the resource array. Required.</dd>
 <dt>--resources (array)</dt>
 <dd>A collection of resources. Required.</dd>
@@ -260,7 +260,7 @@ ibmcloud secrets-manager secret-group-metadata-update --id ID --metadata METADAT
 <dt>--id (string)</dt>
 <dd>The v4 UUID that uniquely identifies the secret group. Required.</dd>
 <dd>The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`</dd>
-<dt>--metadata (CollectionMetadata)</dt>
+<dt>--metadata</dt>
 <dd>The metadata that describes the resource array. Required.</dd>
 <dt>--resources (array)</dt>
 <dd>A collection of resources. Required.</dd>
@@ -313,7 +313,7 @@ ibmcloud secrets-manager secret-create --secret-type SECRET-TYPE --metadata META
 <dt>--secret-type (string)</dt>
 <dd>The secret type. Required.</dd>
 <dd>Allowable values are: arbitrary, username_password, iam_credentials</dd>
-<dt>--metadata (CollectionMetadata)</dt>
+<dt>--metadata</dt>
 <dd>The metadata that describes the resource array. Required.</dd>
 <dt>--resources (array)</dt>
 <dd>A collection of resources. Required.</dd>
@@ -424,7 +424,7 @@ ibmcloud secrets-manager secret-update --secret-type SECRET-TYPE --id ID --actio
 <dt>--action (string)</dt>
 <dd>The action to perform on the specified secret. Required.</dd>
 <dd>Allowable values are: rotate, delete_credentials</dd>
-<dt>--secret-action-one-of (SecretActionOneOf)</dt>
+<dt>--secret-action-one-of</dt>
 <dd>The base request for invoking an action on a secret. Required.</dd>
 </dl>
 
@@ -498,7 +498,7 @@ ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id I
 <dt>--id (string)</dt>
 <dd>The v4 UUID that uniquely identifies the secret. Required.</dd>
 <dd>The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`</dd>
-<dt>--metadata (CollectionMetadata)</dt>
+<dt>--metadata</dt>
 <dd>The metadata that describes the resource array. Required.</dd>
 <dt>--resources (array)</dt>
 <dd>A collection of resources. Required.</dd>
