@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-11"
+  years: 2020, 2021
+lastupdated: "2021-01-26"
 
 keywords: HA for {{site.data.keyword.secrets-manager_short}}, DR for {{site.data.keyword.secrets-manager_short}}, high availability for {{site.data.keyword.secrets-manager_short}}, disaster recovery for {{site.data.keyword.secrets-manager_short}}, failover for {{site.data.keyword.secrets-manager_short}}
 
@@ -51,6 +51,8 @@ subcollection: secrets-manager
 
 {{site.data.keyword.secrets-manager_full}} is a highly available, regional service that runs in the Dallas (`us-south`), Frankfurt (`eu-de`), and Sydney (`au-syd`) regions.
 {: shortdesc}
+
+
 
 In each supported region, the service exists in multiple availability zones with no single point of failure. All of the data that is associated with your instance of the service, including your secrets, is backed up across regions. 
 
