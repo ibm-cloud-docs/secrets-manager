@@ -85,7 +85,7 @@ Before you get started, be sure that you have [**Administrator** platform access
 {: #access-cos-configure-env}
 {: step}
 
-To work with {{site.data.keyword.secrets-manager_short}} and Cloud Object Storage, you need to create instances of both services in your {{site.data.keyword.cloud_notm}} account. You also need to set up the right permissions so that you can run operations against both services.
+To work with {{site.data.keyword.secrets-manager_short}} and Cloud Object Storage, you need to create instances of both services in your {{site.data.keyword.cloud_notm}} account. You also need to configure permissions so that you can run operations against both services.
 
 In this step, you set up an access environment by creating an access group, a service ID, and an {{site.data.keyword.cloud_notm}} API key. At the end of the tutorial, you can easily remove both instances if you no longer need them.
 
