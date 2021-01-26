@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-01-11"
+lastupdated: "2021-01-26"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -52,7 +52,7 @@ subcollection: secrets-manager
 Use these release notes to learn about the latest changes to {{site.data.keyword.secrets-manager_full}} that are grouped by date. 
 {:shortdesc}
 
- 
+
 
 
 
