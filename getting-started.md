@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-01-20"
+  years: 2020, 2021
+lastupdated: "2021-01-26"
 
 keywords: secrets management, manage secrets, manage credentials, getting started tutorial, store username and password, add secrets, add credentials, get started with Secrets Manager
 

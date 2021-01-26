@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-14"
+  years: 2020, 2021
+lastupdated: "2021-01-26"
 
 keywords: Secrets Manager integrations, enable integration, service to service, grant access between services
 

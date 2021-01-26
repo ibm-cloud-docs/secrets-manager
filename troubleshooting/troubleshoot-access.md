@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-11"
+  years: 2020, 2021
+lastupdated: "2021-01-26"
 
 keywords: troubleshoot secrets manager, troubleshooting for credentials, IAM credentials, unable to create credentials, troubleshooting Secrets Manager
 

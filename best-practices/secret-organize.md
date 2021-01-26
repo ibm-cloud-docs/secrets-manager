@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-15"
+  years: 2020, 2021
+lastupdated: "2021-01-26"
 
 keywords: secrets management best practice, managing secrets, secrets strategy, secrets best practices, organizing secrets, assigning access to secrets
 

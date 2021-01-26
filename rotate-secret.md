@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-01-20"
+  years: 2020, 2021
+lastupdated: "2021-01-26"
 
 keywords: rotate secrets, manually rotate, new secret, automatically rotate, automatic rotation, set rotation policy
 
