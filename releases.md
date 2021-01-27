@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-01-26"
+lastupdated: "2021-01-27"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -54,6 +54,12 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 
 
+## 26 January 2021
+{: #2021-01-26}
+
+You can now use the {{site.data.keyword.secrets-manager_full_notm}} Go SDK to connect to your {{site.data.keyword.secrets-manager_short}} service instance.
+
+For more information, check out the [{{site.data.keyword.secrets-manager_full_notm}} Go SDK repository in GitHub](https://github.com/IBM/secrets-manager-go-sdk){: external}. 
 
 
 ## 18 December 2020
