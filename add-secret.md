@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-01-26"
+lastupdated: "2021-01-28"
 
 keywords: create secrets, add secrets, store secrets, single tenant secret storage, manage secrets 
 
@@ -71,7 +71,7 @@ To store a username and password by using the {{site.data.keyword.secrets-manage
 1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
-4. Select the **User credentials** tile.
+4. From the list of secret types, click the **User credentials** tile.
 5. Add a name and description to easily identify your secret.
 6. Select the [secret group](#x9968962){:term} that you want to assign to the secret.
 
@@ -152,7 +152,7 @@ To create IAM credentials by using the {{site.data.keyword.secrets-manager_short
 1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
-4. Select the **IAM credentials** tile.
+4. From the list of secret types, click the **IAM credentials** tile.
 5. Add a name and description to easily identify your secret.
 6. Select the secret group that you want to assign to the secret.
 
@@ -232,7 +232,7 @@ To add an arbitrary secret by using the {{site.data.keyword.secrets-manager_shor
 1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
-4. Select the **Other secret type** tile.
+4. From the list of secret types, click the **Other secret type** tile.
 5. Add a name and description to easily identify your secret.
 6. Select the secret group that you want to assign to the secret.
 
