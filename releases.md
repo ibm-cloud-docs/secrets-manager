@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-01-27"
+lastupdated: "2021-01-29"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -53,6 +53,13 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 {:shortdesc}
 
 
+
+## 27 January 2021
+{: #2021-01-27}
+
+You can now use the {{site.data.keyword.secrets-manager_full_notm}} Python SDK to connect to your {{site.data.keyword.secrets-manager_short}} service instance.
+
+For more information, check out the [{{site.data.keyword.secrets-manager_full_notm}} Python SDK repository in GitHub](https://github.com/IBM/secrets-manager-python-sdk){: external}. 
 
 ## 26 January 2021
 {: #2021-01-26}
