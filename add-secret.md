@@ -112,7 +112,7 @@ You can store a username and password by calling the [{{site.data.keyword.secret
 
 The following example shows a query that you can use to create a username and password secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 
-```bash
+```curl
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password" \
   -H "Authorization: Bearer {IAM_token}" \
   -H "Accept: application/json" \
@@ -192,9 +192,15 @@ The command outputs the ID value of the secret, along with other metadata. For m
 
 You can create IAM credentials by calling the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager#create-secret){: external}. 
 
-The following example shows a query that you can use to create a dynamic service ID and API key. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 
-```bash
+The following example shows a query that you can use to create a dynamic service ID and API key. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+{: curl}
+
+
+If you're using the {{site.data.keyword.secrets-manager_short}} Node.js SDK, you can call the `createSecret(params)` method to create a dynamic service ID and API key. The following same code shows an example call.
+{: node}
+
+```curl
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/iam_credentials" \
   -H "Authorization: Bearer {IAM_token}" \
   -H "Accept: application/json" \
@@ -222,6 +228,42 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
     }' 
 ```
 {: codeblock}
+{: curl}
+
+```node
+const params = {
+  secretType: 'iam_credentials',
+  'metadata': {
+    'collection_type': 'application/vnd.ibm.secrets-manager.secret+json',
+    'collection_total': 1,
+  },
+  'resources': [
+    {
+      'name': 'example-IAM-credentials',
+      'description': 'Extended description for my secret.',
+      'access_groups': [
+        'AccessGroupId-e7e1a364-c5b9-4027-b4fe-083454499a20'
+      ],
+      'secret_group_id: '432b91f1-ff6d-4b47-9f06-82debc236d90',
+      'ttl': '12h',
+      'labels': [
+        'dev',
+        'us-south'
+      ]
+    },
+  ],
+};
+
+secretsManagerApi.createRules(params)
+  .then(res => {
+    console.log('Create secret:\n', JSON.stringify(result.resources, null, 2));
+    })
+  .catch(err => {
+    console.warn(err)
+  });
+```
+{: codeblock}
+{: node}
 
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
 
@@ -271,7 +313,7 @@ You can create arbitrary secrets by calling the [{{site.data.keyword.secrets-man
 
 The following example shows a query that you can use to create and store a custom secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 
-```bash
+```curl
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/arbitrary" \
   -H "Authorization: Bearer {IAM_token}" \
   -H "Accept: application/json" \
