@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-01-30"
+lastupdated: "2021-02-04"
 
-keywords: create secrets, add secrets, store secrets, single tenant secret storage, manage secrets 
+keywords: create secrets, add secrets, store secrets, single tenant secret storage, manage secrets
 
 subcollection: secrets-manager
 
@@ -87,7 +87,7 @@ To store a username and password by using the {{site.data.keyword.secrets-manage
 8. Optional: Add labels to help you to search for similar secrets in your instance.
 9.  Optional: Enable expiration and rotation options to control the lifespan of the secret.
      1. To set an expiration date for the secret, switch the expiration toggle to **Yes**.
-     2. To rotate your secret at a 30, 60, or 90-day interval, switch the rotate toggle to **Yes**. 
+     2. To rotate your secret at a 30, 60, or 90-day interval, switch the rotate toggle to **Yes**.
 
 10. Click **Add**.
 
@@ -108,35 +108,35 @@ The command outputs the ID value of the secret, along with other metadata. For m
 {: #user-credentials-api}
 {: api}
 
-You can store a username and password by calling the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager#create-secret){: external}. 
+You can store a username and password by calling the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager#create-secret){: external}.
 
 The following example shows a query that you can use to create a username and password secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 
-```curl
+```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password" \
   -H "Authorization: Bearer {IAM_token}" \
   -H "Accept: application/json" \
   -H "Content-Type: application/json" \
-  -d '{ 
-    "metadata": { 
-      "collection_type": "application/vnd.ibm.secrets-manager.secret+json", 
-      "collection_total": 1 
-      }, 
-      "resources": [ 
-        { 
-          "name": "example-username-password-secret", 
+  -d '{
+    "metadata": {
+      "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
+      "collection_total": 1
+      },
+      "resources": [
+        {
+          "name": "example-username-password-secret",
           "description": "Extended description for my secret.",
           "secret_group_id": "432b91f1-ff6d-4b47-9f06-82debc236d90",
-          "username": "user123", 
+          "username": "user123",
           "password": "cloudy-rainy-coffee-book",
           "expiration_date": "2020-12-31T00:00:00Z",
-          "labels": [ 
-            "dev", 
-            "us-south" 
-          ] 
-        } 
-      ] 
-    }' 
+          "labels": [
+            "dev",
+            "us-south"
+          ]
+        }
+      ]
+    }'
 ```
 {: codeblock}
 
@@ -168,7 +168,7 @@ To create IAM credentials by using the {{site.data.keyword.secrets-manager_short
 
     By selecting an access group from your {{site.data.keyword.cloud_notm}} account, you determine the scope of access to assign to the service ID that is dynamically generated and associated with your new IAM credential. This step ensures that your IAM credentials are scoped with the wanted level of permissions in your {{site.data.keyword.cloud_notm}} account. You can assign up to 10 access groups.
 8. Optional: Add labels to help you to search for similar secrets in your instance.
-9. Set a lease duration or time-to-live (TTL) for the secret. 
+9. Set a lease duration or time-to-live (TTL) for the secret.
 
     By setting a lease duration for your IAM credential, you determine how long its associated API key remains valid. After the IAM credential reaches the end of its lease, it is revoked automatically.
 10. Click **Add**.
@@ -190,47 +190,47 @@ The command outputs the ID value of the secret, along with other metadata. For m
 {: #iam-credentials-api}
 {: api}
 
-You can create IAM credentials by calling the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager#create-secret){: external}. 
+You can create IAM credentials by calling the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager#create-secret){: external}.
 
 
 The following example shows a query that you can use to create a dynamic service ID and API key. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
-{: curl}
+{: sh}
 
 
 If you're using the {{site.data.keyword.secrets-manager_short}} Node.js SDK, you can call the `createSecret(params)` method to create a dynamic service ID and API key. The following same code shows an example call.
-{: node}
+{: javascript}
 
-```curl
+```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/iam_credentials" \
   -H "Authorization: Bearer {IAM_token}" \
   -H "Accept: application/json" \
   -H "Content-Type: application/json" \
-  -d '{ 
-    "metadata": { 
-      "collection_type": "application/vnd.ibm.secrets-manager.secret+json", 
-      "collection_total": 1 
-      }, 
-      "resources": [ 
-        { 
-          "name": "example-IAM-credentials", 
+  -d '{
+    "metadata": {
+      "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
+      "collection_total": 1
+      },
+      "resources": [
+        {
+          "name": "example-IAM-credentials",
           "description": "Extended description for my secret.",
           "access_groups": [
             "AccessGroupId-e7e1a364-c5b9-4027-b4fe-083454499a20"
           ],
           "secret_group_id": "432b91f1-ff6d-4b47-9f06-82debc236d90",
-          "ttl": "12h", 
-          "labels": [ 
-            "dev", 
-            "us-south" 
-          ] 
-        } 
-      ] 
-    }' 
+          "ttl": "12h",
+          "labels": [
+            "dev",
+            "us-south"
+          ]
+        }
+      ]
+    }'
 ```
 {: codeblock}
-{: curl}
+{: sh}
 
-```node
+```javascript
 const params = {
   secretType: 'iam_credentials',
   'metadata': {
@@ -309,7 +309,7 @@ The command outputs the ID value of the secret, along with other metadata. For m
 {: #arbitrary-api}
 {: api}
 
-You can create arbitrary secrets by calling the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager#create-secret){: external}. 
+You can create arbitrary secrets by calling the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager#create-secret){: external}.
 
 The following example shows a query that you can use to create and store a custom secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 
@@ -318,25 +318,25 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
   -H "Authorization: Bearer {IAM_token}" \
   -H "Accept: application/json" \
   -H "Content-Type: application/json" \
-  -d '{ 
-    "metadata": { 
-      "collection_type": "application/vnd.ibm.secrets-manager.secret+json", 
-      "collection_total": 1 
-      }, 
-      "resources": [ 
-        { 
-          "name": "example-arbitrary-secret", 
+  -d '{
+    "metadata": {
+      "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
+      "collection_total": 1
+      },
+      "resources": [
+        {
+          "name": "example-arbitrary-secret",
           "description": "Extended description for my secret.",
           "secret_group_id": "432b91f1-ff6d-4b47-9f06-82debc236d90",
-          "payload: "secret-data", 
+          "payload: "secret-data",
           "expiration_date": "2020-12-31T00:00:00Z",
-          "labels": [ 
-            "dev", 
-            "us-south" 
-          ] 
-        } 
-      ] 
-    }' 
+          "labels": [
+            "dev",
+            "us-south"
+          ]
+        }
+      ]
+    }'
 ```
 {: codeblock}
 
