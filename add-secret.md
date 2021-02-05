@@ -203,7 +203,7 @@ secret_resource = {
 }
 
 response = secretsManager.create_secret(
-    secret_type='arbitrary',
+    secret_type='username_password',
     metadata=collection_metadata,
     resources=[secret_resource]
 ).get_result()
@@ -489,7 +489,7 @@ The following example shows a query that you can use to create and store an arbi
 {: curl}
 
 
-If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `createSecret(params)` method create and store an arbitrary secret. The following code shows an example call.
+If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `createSecret(params)` method to create and store an arbitrary secret. The following code shows an example call.
 {: javascript}
 
 

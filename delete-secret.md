@@ -79,7 +79,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually delet
 
     After you delete a secret, the secret transitions to the _Destroyed_ state. Secrets in this state are no longer recoverable. Metadata that is associated with the secret, such as the secret's deletion date, is kept in the {{site.data.keyword.secrets-manager_short}} database.
 
-## Deleting secrets by using the API
+## Deleting secrets with the API
 {: #delete-secret-api}
 {: api}
 
@@ -149,4 +149,3 @@ if err != nil {
 {: codeblock}
 {: go}
 
-For more information, see [Delete a secret](/apidocs/secrets-manager#delete-secret){: external}.
