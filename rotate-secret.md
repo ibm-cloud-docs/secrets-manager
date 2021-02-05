@@ -59,7 +59,7 @@ subcollection: secrets-manager
 You can rotate your secrets manually by using {{site.data.keyword.secrets-manager_full}}.
 {: shortdesc}
 
-When you rotate a secret in {{site.data.keyword.secrets-manager_short}}, you create a new version of its value. By rotating your secret at regular intervals, you limit its lifespan and protect against inadvertent exposure of your sensitive data. 
+When you rotate a secret in {{site.data.keyword.secrets-manager_short}}, you create a new version of its value. By rotating your secret at regular intervals, you limit its lifespan and protect against inadvertent exposure of your sensitive data.
 
 
 
@@ -87,15 +87,15 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 3. Use the **Secrets** table to browse the secrets in your instance.
 4. In the row for the secret that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
 
-   If you initially provided a value for your secret, you can select a new file or enter a new value, depending on the type of secret that you are rotating. 
+   If you initially provided a value for your secret, you can select a new file or enter a new value, depending on the type of secret that you are rotating.
 
    For user credentials, you can choose to have the service generate a new password on your behalf. {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
    {: note}
 5. Click **Rotate**.
 
-  The previous version of your secret is now replaced by its latest value. If you need to audit your version history, you can use the {{site.data.keyword.secrets-manager_short}} API to retrieve the secret. To learn more, check out the [API docs](/apidocs/secrets-manager#get-secret){: external}. 
+  The previous version of your secret is now replaced by its latest value. If you need to audit your version history, you can use the {{site.data.keyword.secrets-manager_short}} API to retrieve the secret. To learn more, check out the [API docs](/apidocs/secrets-manager#get-secret){: external}.
 
-### Rotating secrets manually by using the API
+### Rotating secrets manually with the API
 {: #manual-rotate-secret-api}
 {: api}
 
@@ -103,14 +103,30 @@ The following example request creates a new version of your secret.
 
 ```bash
 curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}?action=rotate" \
-  -H "Authorization: Bearer {IAM_token}"  
-  -H "Accept: application/json" 
-  -H "Content-Type: application/json" 
-  -d '{ 
-    "payload": "new-secret-data" 
+  -H "Authorization: Bearer {IAM_token}"
+  -H "Accept: application/json"
+  -H "Content-Type: application/json"
+  -d '{
+    "payload": "new-secret-data"
   }'
 ```
-{: pre}
+{: codeblock}
+{: curl}
+
+```javascript
+```
+{: codeblock}
+{: javascript}
+
+```python
+```
+{: codeblock}
+{: python}
+
+```go
+```
+{: codeblock}
+{: go}
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see [Invoke an action on a secret](/apidocs/secrets-manager#update-secret){: external}.
 
@@ -139,7 +155,7 @@ If you need more control over the rotation frequency of a secret, you can use th
    2. In the row for the secret that you want to edit, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Edit details**.
    3. Use the **Automatic rotation** option to add or remove a rotation policy for the secret.
 
-### Setting a rotation policy by using the API
+### Setting a rotation policy with the API
 {: #auto-rotate-secret-api}
 {: api}
 
@@ -147,9 +163,9 @@ The following example request sets a monthly rotation policy for a `username_pas
 
 ```bash
 curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password/{id}/policies?policy=rotation" \
-  -H "Authorization: Bearer {IAM_token}"  
-  -H "Accept: application/json" 
-  -H "Content-Type: application/json" 
+  -H "Authorization: Bearer {IAM_token}"
+  -H "Accept: application/json"
+  -H "Content-Type: application/json"
   -d '{
   "metadata": {
     "collection_type": "application/vnd.ibm.secrets-manager.secret.policy+json",

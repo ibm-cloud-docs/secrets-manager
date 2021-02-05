@@ -87,8 +87,24 @@ The following example request deletes a secret and its contents.
 
 ```bash
 curl -X DELETE "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}" \
-  -H "Authorization: Bearer {IAM_token}" 
+  -H "Authorization: Bearer {IAM_token}"
 ```
-{: pre}
+{: codeblock}
+{: curl}
+
+```javascript
+```
+{: codeblock}
+{: javascript}
+
+```python
+```
+{: codeblock}
+{: python}
+
+```go
+```
+{: codeblock}
+{: go}
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see [Invoke an action on a secret](/apidocs/secrets-manager#update-secret){: external}.

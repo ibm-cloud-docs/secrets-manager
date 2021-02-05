@@ -84,10 +84,26 @@ The following example request retrieves a secret and its contents.
 
 ```bash
 curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}"
-  -H "Authorization: Bearer {IAM_token}" 
-  -H "Accept: application/json" 
+  -H "Authorization: Bearer {IAM_token}"
+  -H "Accept: application/json"
 ```
-{: pre}
+{: codeblock}
+{: curl}
+
+```javascript
+```
+{: codeblock}
+{: javascript}
+
+```python
+```
+{: codeblock}
+{: python}
+
+```go
+```
+{: codeblock}
+{: go}
 
 A successful response returns the value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Get a secret](/apidocs/secrets-manager#get-secret){: external}.
 

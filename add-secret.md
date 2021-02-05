@@ -104,7 +104,7 @@ ibmcloud secrets-manager secret-create --secret-type username_password --metadat
 
 The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
 
-### Creating user credentials by using the API
+### Creating user credentials with the API
 {: #user-credentials-api}
 {: api}
 
@@ -216,7 +216,7 @@ ibmcloud secrets-manager secret-create --secret-type username_password --metadat
 
 The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
 
-### Creating IAM credentials by using the API
+### Creating IAM credentials with the API
 {: #iam-credentials-api}
 {: api}
 
@@ -404,7 +404,7 @@ ibmcloud secrets-manager secret-create --secret-type username_password --metadat
 
 The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
 
-### Creating arbitrary secrets by using the API
+### Creating arbitrary secrets with the API
 {: #arbitrary-api}
 {: api}
 

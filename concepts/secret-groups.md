@@ -65,7 +65,7 @@ Similar to the way that [resource groups](#x2161955){: term} help to ensure corr
 
 As shown in the previous image, users with *Reader* access to a secret group can see that the group exists and understand which secrets are assigned to it. Users with *Writer* access can view and edit the secret group and secrets themselves. By design, the default secret group inherits all of the same permissions that are set for the instance.
 
-You can choose to group your secrets by phase of development, specific to the type of roles that people on your team have, or in any way that might help you. Each secret can be mapped to one group only and the mapping occurs at the time of secret creation. 
+You can choose to group your secrets by phase of development, specific to the type of roles that people on your team have, or in any way that might help you. Each secret can be mapped to one group only and the mapping occurs at the time of secret creation.
 
 To learn about the suggested guidelines for using secret groups, check out [Best practices for organizing secrets and assigning access](/docs/secrets-manager?topic=secrets-manager-best-practices-organize-secrets).
 {: tip}
@@ -106,21 +106,37 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
   -H "Authorization: Bearer {IAM_token}" \
   -H "Accept: application/json" \
   -H "Content-Type: application/json" \
-  -d '{ 
-    "metadata": { 
-      "collection_type": "application/vnd.ibm.secrets-manager.secret.group+json", 
-      "collection_total": 1 
-      }, 
-      "resources": [ 
-        { 
+  -d '{
+    "metadata": {
+      "collection_type": "application/vnd.ibm.secrets-manager.secret.group+json",
+      "collection_total": 1
+      },
+      "resources": [
+        {
           "type": "application/vnd.ibm.secrets-manager.secret.group+json",
-          "name": "example-secret-group", 
+          "name": "example-secret-group",
           "description": "Extended description for my secret group."
-        } 
-      ] 
-    }' 
+        }
+      ]
+    }'
 ```
-{: pre}
+{: codeblock}
+{: curl}
+
+```javascript
+```
+{: codeblock}
+{: javascript}
+
+```python
+```
+{: codeblock}
+{: python}
+
+```go
+```
+{: codeblock}
+{: go}
 
 
 ## Deleting secret groups
@@ -153,9 +169,25 @@ You can delete secret groups by using the {{site.data.keyword.secrets-manager_sh
 
 ```bash
 curl -X DELETE "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/secret_groups/{id}" \
-  -H "Authorization: Bearer {IAM_token}" 
-  -H "Accept: application/json" 
+  -H "Authorization: Bearer {IAM_token}"
+  -H "Accept: application/json"
 ```
-{: pre}
+{: codeblock}
+{: curl}
+
+```javascript
+```
+{: codeblock}
+{: javascript}
+
+```python
+```
+{: codeblock}
+{: python}
+
+```go
+```
+{: codeblock}
+{: go}
 
 
