@@ -194,7 +194,7 @@ You can create IAM credentials by calling the [{{site.data.keyword.secrets-manag
 
 
 The following example shows a query that you can use to create a dynamic service ID and API key. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
-{: generic}
+{: curl}
 
 
 If you're using the {{site.data.keyword.secrets-manager_short}} Node.js SDK, you can call the `createSecret(params)` method to create a dynamic service ID and API key. The following same code shows an example call.
