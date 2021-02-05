@@ -83,7 +83,23 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually delet
 {: #delete-secret-api}
 {: api}
 
-The following example request deletes a secret and its contents.
+
+You can delete secrets by calling the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager#create-secret){: external}.
+
+The following example request deletes a secret and its contents. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+{: curl}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `deleteSecret(params)` method to delete a secret. The following code shows an example call.
+{: javascript}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `delete_secret(params)` method to delete a secret. The following code shows an example call.
+{: python}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `DeleteSecret` method to delete a secret. The following code shows an example call.
+{: go}
 
 ```bash
 curl -X DELETE "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}" \
@@ -93,18 +109,44 @@ curl -X DELETE "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/a
 {: curl}
 
 ```javascript
+const params = {
+  secretType: '<secret_type>',
+  id: secretId,
+};
+
+secretsManagerApi.deleteSecret(params)
+  .then(res => {
+    console.log('Secret deleted.');
+    })
+  .catch(err => {
+    console.warn(err)
+  });
 ```
 {: codeblock}
 {: javascript}
 
 ```python
+response = secretsManager.delete_secret(
+    secret_type='<secret_type>',
+    id=secret_id_link
+).get_result()
+
+print(json.dumps(response, indent=2))
 ```
 {: codeblock}
 {: python}
 
 ```go
+deleteSecretOptions := secretsManagerApi.NewDeleteSecretOptions(
+    "<secret_type>", secretIdLink,
+)
+
+response, err := secretsManagerApi.DeleteSecret(deleteSecretOptions)
+if err != nil {
+    panic(err)
+}
 ```
 {: codeblock}
 {: go}
 
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see [Invoke an action on a secret](/apidocs/secrets-manager#update-secret){: external}.
+For more information, see [Delete a secret](/apidocs/secrets-manager#delete-secret){: external}.
