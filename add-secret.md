@@ -108,8 +108,8 @@ The command outputs the ID value of the secret, along with other metadata. For m
 {: #user-credentials-api}
 {: api}
 
-You can store a username and password by calling the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager#create-secret){: external}.
 
+You can store a username and password by calling the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager#create-secret){: external}.
 
 The following example shows a query that you can use to create a username and password secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
@@ -143,7 +143,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
           "secret_group_id": "432b91f1-ff6d-4b47-9f06-82debc236d90",
           "username": "user123",
           "password": "cloudy-rainy-coffee-book",
-          "expiration_date": "2020-12-31T00:00:00Z",
+          "expiration_date": "2030-12-31T00:00:00Z",
           "labels": [
             "dev",
             "us-south"
@@ -156,16 +156,90 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 {: curl}
 
 ```javascript
+const params = {
+  secretType: 'username_password',
+  'metadata': {
+    'collection_type': 'application/vnd.ibm.secrets-manager.secret+json',
+    'collection_total': 1,
+  },
+  'resources': [
+    {
+      'name': 'example-username-password-secret',
+      'description': 'Extended description for my secret.',
+      'secret_group_id': '432b91f1-ff6d-4b47-9f06-82debc236d90',
+      'username': 'user123',
+      'password': 'cloudy-rainy-coffee-book',
+      'labels': ['dev', 'us-south'],
+      'expiration_date': '2030-12-31T00:00:00Z',
+    },
+  ],
+};
+
+secretsManagerApi.createRules(params)
+  .then(res => {
+    console.log('Create secret:\n', JSON.stringify(result.resources, null, 2));
+    })
+  .catch(err => {
+    console.warn(err)
+  });
 ```
 {: codeblock}
 {: javascript}
 
 ```python
+collection_metadata = {
+    'collection_type': 'application/vnd.ibm.secrets-manager.secret+json',
+    'collection_total': 1
+}
+
+secret_resource = {
+    'name': 'example-username-password-secret',
+    'description': 'Extended description for my secret.',
+    'secret_group_id': '432b91f1-ff6d-4b47-9f06-82debc236d90',
+    'username': 'user123',
+    'password': 'cloudy-rainy-coffee-book',
+    'labels': ['dev', 'us-south'],
+    'expiration_date': '2030-12-31T00:00:00Z'
+}
+
+response = secretsManager.create_secret(
+    secret_type='arbitrary',
+    metadata=collection_metadata,
+    resources=[secret_resource]
+).get_result()
+
+print(json.dumps(response, indent=2))
 ```
 {: codeblock}
 {: python}
 
 ```go
+collectionMetadata := &sm.CollectionMetadata{
+    CollectionType: core.StringPtr("application/vnd.ibm.secrets-manager.secret+json"),
+    CollectionTotal: core.Int64Ptr(int64(1)),
+}
+
+secretResource := &sm.SecretResourceUsernamePasswordSecretResource{
+    Name: core.StringPtr("example-username-password-secret"),
+    Description: core.StringPtr("Extended description for this secret."),
+    SecretGroupID: core.StringPtr("bc656587-8fda-4d05-9ad8-b1de1ec7e712"),
+    Labels: []string{"dev","south"},
+    Username: core.StringPtr("user123"),
+    Password: core.StringPtr("cloud-rainy-coffee-book"),
+    ExpirationDate: core.StrfmtDateTimePtr(CreateMockDateTime()),
+}
+
+createSecretOptions := secretsManagerApi.NewCreateSecretOptions(
+    "username_password", collectionMetadata, []sm.SecretResourceIntf{secretResource},
+)
+
+result, response, err := secretsManagerApi.CreateSecret(createSecretOptions)
+if err != nil {
+    panic(err)
+}
+
+b, _ := json.MarshalIndent(result, "", "  ")
+fmt.Println(string(b))
 ```
 {: codeblock}
 {: go}
@@ -220,8 +294,8 @@ The command outputs the ID value of the secret, along with other metadata. For m
 {: #iam-credentials-api}
 {: api}
 
-You can create IAM credentials by calling the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager#create-secret){: external}.
 
+You can create IAM credentials by calling the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager#create-secret){: external}.
 
 The following example shows a query that you can use to create a dynamic service ID and API key. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
@@ -408,8 +482,8 @@ The command outputs the ID value of the secret, along with other metadata. For m
 {: #arbitrary-api}
 {: api}
 
-You can create arbitrary secrets by calling the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager#create-secret){: external}.
 
+You can create arbitrary secrets by calling the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager#create-secret){: external}.
 
 The following example shows a query that you can use to create and store an arbitrary secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
@@ -442,7 +516,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
           "description": "Extended description for my secret.",
           "secret_group_id": "432b91f1-ff6d-4b47-9f06-82debc236d90",
           "payload: "secret-data",
-          "expiration_date": "2020-12-31T00:00:00Z",
+          "expiration_date": "2030-12-31T00:00:00Z",
           "labels": [
             "dev",
             "us-south"
@@ -455,16 +529,88 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 {: curl}
 
 ```javascript
+const params = {
+  secretType: 'arbitrary',
+  'metadata': {
+    'collection_type': 'application/vnd.ibm.secrets-manager.secret+json',
+    'collection_total': 1,
+  },
+  'resources': [
+    {
+      'name': 'example-arbitrary-secret',
+      'description': 'Extended description for my secret.',
+      'secret_group_id': '432b91f1-ff6d-4b47-9f06-82debc236d90',
+      'payload': 'secret-data',
+      'expiration_date': '2030-12-31T00:00:00Z',
+      'labels': ['dev', 'us-south'],
+    },
+  ],
+};
+
+secretsManagerApi.createRules(params)
+  .then(res => {
+    console.log('Create secret:\n', JSON.stringify(result.resources, null, 2));
+    })
+  .catch(err => {
+    console.warn(err)
+  });
 ```
 {: codeblock}
 {: javascript}
 
 ```python
+collection_metadata = {
+    'collection_type': 'application/vnd.ibm.secrets-manager.secret+json',
+    'collection_total': 1
+}
+
+secret_resource = {
+    'name': 'example-arbitrary-secret',
+    'description': 'Extended description for this secret.',
+    'secret_group_id': '432b91f1-ff6d-4b47-9f06-82debc236d90',
+    'payload': 'secret-data',
+    'labels': ['dev', 'us-south']
+}
+
+response = secretsManager.create_secret(
+    secret_type='arbitrary',
+    metadata=collection_metadata,
+    resources=[secret_resource]
+).get_result()
+
+print(json.dumps(response, indent=2))
 ```
 {: codeblock}
 {: python}
 
 ```go
+collectionMetadata := &sm.CollectionMetadata{
+    CollectionType: core.StringPtr("application/vnd.ibm.secrets-manager.secret+json"),
+    CollectionTotal: core.Int64Ptr(int64(1)),
+}
+
+secretResource := &sm.SecretResourceArbitrarySecretResource{
+    Name: core.StringPtr("example-arbitrary-secret"),
+    Description: core.StringPtr("Extended description for this secret."),
+    SecretGroupID: core.StringPtr("bc656587-8fda-4d05-9ad8-b1de1ec7e712"),
+    Labels: []string{"dev","us-south"},
+    ExpirationDate: core.StrfmtDateTimePtr(CreateMockDateTime()),
+    Payload: core.StringPtr("secret-data"),
+}
+
+createSecretOptions := secretsManagerApi.NewCreateSecretOptions(
+    "arbitrary", collectionMetadata, []sm.SecretResourceIntf{secretResource},
+)
+
+result, response, err := secretsManagerApi.CreateSecret(createSecretOptions)
+if err != nil {
+    panic(err)
+}
+
+b, _ := json.MarshalIndent(result, "", "  ")
+fmt.Println(string(b))
+
+secretIdLink = *result.;
 ```
 {: codeblock}
 {: go}
