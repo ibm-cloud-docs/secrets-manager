@@ -99,7 +99,23 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 {: #manual-rotate-secret-api}
 {: api}
 
-The following example request creates a new version of your secret.
+
+You can delete secrets by calling the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager#update-secret){: external}.
+
+The following example request creates a new version of your secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+{: curl}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `updateSecret(params)` method to rotate a secret. The following code shows an example call.
+{: javascript}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `update_secret(params)` method to rotate a secret. The following code shows an example call.
+{: python}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `UpdateSecret` method to rotate a secret. The following code shows an example call.
+{: go}
 
 ```bash
 curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}?action=rotate" \
@@ -114,16 +130,57 @@ curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api
 {: curl}
 
 ```javascript
+const params = {
+  secretType: 'username_password',
+  id: secretId,
+  action: 'rotate',
+  password: 'new-secret-data',
+};
+
+secretsManagerApi.updateSecret(params)
+  .then(res => {
+    console.log('Rotate secret:\n', JSON.stringify(result.resources, null, 2));
+    })
+  .catch(err => {
+    console.warn(err)
+  });
 ```
 {: codeblock}
 {: javascript}
 
 ```python
+secret_data = {
+    'password': 'new-secret-data'
+}
+
+response = secretsManager.update_secret(
+    secret_type='username_password',
+    id=secret_id_link,
+    action='rotate',
+    secret_action_one_of=secret_data
+).get_result()
+
+print(json.dumps(response, indent=2))
 ```
 {: codeblock}
 {: python}
 
 ```go
+secretAction := &sm.SecretActionOneOfRotateArbitrarySecretBody{
+    Payload: core.StringPtr("new-secret-data"),
+}
+
+updateSecretOptions := secretsManagerApi.NewUpdateSecretOptions(
+    "arbitrary", secretIdLink, "rotate", secretAction,
+)
+
+result, response, err := secretsManagerApi.UpdateSecret(updateSecretOptions)
+if err != nil {
+    panic(err)
+}
+
+b, _ := json.MarshalIndent(result, "", "  ")
+fmt.Println(string(b))
 ```
 {: codeblock}
 {: go}
@@ -159,7 +216,23 @@ If you need more control over the rotation frequency of a secret, you can use th
 {: #auto-rotate-secret-api}
 {: api}
 
-The following example request sets a monthly rotation policy for a `username_password` secret type.
+
+You can set rotation policies by calling the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager#put-policy){: external}.
+
+The following example request sets a monthly rotation policy for a `username_password` secret type. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+{: curl}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `putPolicy(params)` method to set a rotation policy for a secret. The following code shows an example call.
+{: javascript}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `put_policy(params)` method to set a rotation policy for a secret. The following code shows an example call.
+{: python}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `PutPolicy` method to set a rotation policy for a secret. The following code shows an example call.
+{: go}
 
 ```bash
 curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password/{id}/policies?policy=rotation" \
@@ -182,7 +255,97 @@ curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api
   ]
 }'
 ```
-{: pre}
+{: codeblock}
+{: curl}
 
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see [Invoke an action on a secret](/apidocs/secrets-manager#update-secret){: external}.
+```javascript
+const params = {
+  secretType: 'username_password',
+  id: secretId,
+  'metadata': {
+    'collection_type': 'application/vnd.ibm.secrets-manager.secret.policy+json',
+    'collection_total': 1,
+  },
+  'resources': [
+    {
+      'type': 'application/vnd.ibm.secrets-manager.secret.policy+json',
+      'rotation': {
+        'interval': 1,
+        'unit': 'month',
+      },
+    },
+  ],
+};
+
+secretsManagerApi.putPolicy(params)
+  .then(res => {
+    console.log('Set rotation policy:\n', JSON.stringify(result.resources, null, 2));
+    })
+  .catch(err => {
+    console.warn(err)
+  });
+```
+{: codeblock}
+{: javascript}
+
+```python
+collection_metadata = {
+    'collection_type': 'application/vnd.ibm.secrets-manager.secret+json',
+    'collection_total': 1
+}
+
+rotation_policy_details = {
+    'interval': 1,
+    'unit': 'month'
+}
+
+secret_policy = {
+    'type': 'application/vnd.ibm.secrets-manager.secret.policy+json',
+    'rotation': rotation_policy_details
+}
+
+response = secretsManager.put_policy(
+    secret_type='username_password',
+    id=secret_id_link,
+    metadata=collection_metadata,
+    resources=[secret_policy]
+).get_result()
+
+print(json.dumps(response, indent=2))
+```
+{: codeblock}
+{: python}
+
+```go
+collectionMetadata := &sm.CollectionMetadata{
+    CollectionType: core.StringPtr("application/vnd.ibm.secrets-manager.secret.policy+json"),
+    CollectionTotal: core.Int64Ptr(int64(1)),
+}
+
+rotationPolicyDetails := &sm.SecretPolicyRotationRotation{
+    Interval: core.Int64Ptr(int64(1)),
+    Unit: core.StringPtr("month"),
+}
+
+secretPolicy := &sm.SecretPolicyRotation{
+    Type: core.StringPtr("application/vnd.ibm.secrets-manager.secret.policy+json"),
+    Rotation: rotationPolicyDetails,
+}
+
+setPolicyOptions := secretsManagerApi.NewPutPolicyOptions(
+    "username_password", secretIdLink, collectionMetadata, []sm.SecretPolicyRotation{*secretPolicy},
+)
+
+result, response, err := secretsManagerApi.PutPolicy(setPolicyOptions)
+if err != nil {
+    panic(err)
+}
+
+b, _ := json.MarshalIndent(result, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
+
+A successful response returns the ID value for the policy, along with other metadata. For more information about the required and optional request parameters, see [Set secret policies](/apidocs/secrets-manager#put-policy){: external}.
 

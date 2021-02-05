@@ -84,7 +84,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually delet
 {: api}
 
 
-You can delete secrets by calling the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager#create-secret){: external}.
+You can delete secrets by calling the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager#delete-secret){: external}.
 
 The following example request deletes a secret and its contents. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
