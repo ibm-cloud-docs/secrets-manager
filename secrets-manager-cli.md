@@ -2,7 +2,7 @@
  
 copyright:
   years: 2021
-lastupdated: "2021-01-30"
+lastupdated: "2021-02-05"
 
 subcollection: secrets-manager
 
@@ -39,7 +39,7 @@ keywords: Secrets Manager CLI, Secrets Manager command line , Secrets Manager te
 {:api: .ph data-hd-interface='api'}
 {:cli: .ph data-hd-interface='cli'}
 {:ui: .ph data-hd-interface='ui'}
-{:generic: .ph data-hd-programlang='generic'}
+{:curl: .ph data-hd-programlang='curl'}
 {:java: .ph data-hd-programlang='java'}
 {:ruby: .ph data-hd-programlang='ruby'}
 {:c#: .ph data-hd-programlang='c#'}

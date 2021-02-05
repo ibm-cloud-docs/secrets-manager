@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-04"
+lastupdated: "2021-02-05"
 
 keywords: create secrets, add secrets, store secrets, single tenant secret storage, manage secrets
 
@@ -39,7 +39,7 @@ subcollection: secrets-manager
 {:api: .ph data-hd-interface='api'}
 {:cli: .ph data-hd-interface='cli'}
 {:ui: .ph data-hd-interface='ui'}
-{:generic: .ph data-hd-programlang='generic'}
+{:curl: .ph data-hd-programlang='curl'}
 {:java: .ph data-hd-programlang='java'}
 {:ruby: .ph data-hd-programlang='ruby'}
 {:c#: .ph data-hd-programlang='c#'}
@@ -263,7 +263,7 @@ secretsManagerApi.createRules(params)
   });
 ```
 {: codeblock}
-{: node}
+{: javascript}
 
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
 
