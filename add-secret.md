@@ -110,7 +110,21 @@ The command outputs the ID value of the secret, along with other metadata. For m
 
 You can store a username and password by calling the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager#create-secret){: external}.
 
+
 The following example shows a query that you can use to create a username and password secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+{: curl}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `createSecret(params)` method to create a username and password secret. The following code shows an example call.
+{: javascript}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `create_secret(params)` method to create a username and password secret. The following code shows an example call.
+{: python}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `CreateSecret` method to create a username and password secret. The following code shows an example call.
+{: go}
 
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password" \
@@ -139,6 +153,22 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
     }'
 ```
 {: codeblock}
+{: curl}
+
+```javascript
+```
+{: codeblock}
+{: javascript}
+
+```python
+```
+{: codeblock}
+{: python}
+
+```go
+```
+{: codeblock}
+{: go}
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
 
@@ -197,15 +227,15 @@ The following example shows a query that you can use to create a dynamic service
 {: curl}
 
 
-If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `createSecret(params)` method to create a dynamic service ID and API key. The following same code shows an example call.
+If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `createSecret(params)` method to create a dynamic service ID and API key. The following code shows an example call.
 {: javascript}
 
 
-If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `create_secret(params)` method to create a dynamic service ID and API key. The following same code shows an example call.
+If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `create_secret(params)` method to create a dynamic service ID and API key. The following code shows an example call.
 {: python}
 
 
-If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `CreateSecret` method to create a dynamic service ID and API key. The following same code shows an example call.
+If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `CreateSecret` method to create a dynamic service ID and API key. The following code shows an example call.
 {: go}
 
 ```sh
@@ -380,7 +410,21 @@ The command outputs the ID value of the secret, along with other metadata. For m
 
 You can create arbitrary secrets by calling the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager#create-secret){: external}.
 
-The following example shows a query that you can use to create and store a custom secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+
+The following example shows a query that you can use to create and store an arbitrary secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+{: curl}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `createSecret(params)` method create and store an arbitrary secret. The following code shows an example call.
+{: javascript}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `create_secret(params)` method to create and store an arbitrary secret. The following code shows an example call.
+{: python}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `CreateSecret` method to create and store an arbitrary secret. The following code shows an example call.
+{: go}
 
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/arbitrary" \
@@ -408,6 +452,22 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
     }'
 ```
 {: codeblock}
+{: curl}
+
+```javascript
+```
+{: codeblock}
+{: javascript}
+
+```python
+```
+{: codeblock}
+{: python}
+
+```go
+```
+{: codeblock}
+{: go}
 
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
 
