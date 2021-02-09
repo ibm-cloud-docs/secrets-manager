@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-05"
+lastupdated: "2021-02-09"
 
 keywords: activity tracker events for Secrets Manager, events, Secrets Manager actions
 
@@ -118,7 +118,7 @@ The following table lists the instance operation actions that generate an event.
 ## Viewing events
 {: #at-ui}
 
- 
+
 
 
 
