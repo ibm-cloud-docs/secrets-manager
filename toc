@@ -57,8 +57,14 @@ Secrets Manager
 
         {: topicgroup}
         Vault CLI
-            vault-cli-configure.md                                            
+            vault-cli-configure.md
             vault-cli.md
+
+    {: topicgroup}
+    SDKs
+      [Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}
+      [Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}
+      [Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}
 
     {: topicgroup}
     Vault plug-ins
