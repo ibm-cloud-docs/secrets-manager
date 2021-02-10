@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-05"
+lastupdated: "2021-02-10"
 
 keywords: access stored secrets, retrieve secrets, get secret value, get secrets, view secrets, search secrets, get secret value
 
@@ -80,7 +80,21 @@ For a high-level view of your secrets, you can use the {{site.data.keyword.secre
 
 After you store a secret in your instance, you might need to retrieve its value so that you can connect to an external app or get access to a protected service. You can retrieve the value of a secret by using the {{site.data.keyword.secrets-manager_short}} API.
 
-The following example request retrieves a secret and its contents.
+
+The following example request retrieves a secret and its contents. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+{: curl}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `getSecret(params)` method to retrieve a secret and its contents. The following code shows an example call.
+{: javascript}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `get_secret(params)` method to retrieve a secret and its contents. The following code shows an example call.
+{: python}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `GetSecret` method to retrieve a secret and its contents. The following code shows an example call.
+{: go}
 
 ```bash
 curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}"
@@ -91,16 +105,46 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/
 {: curl}
 
 ```javascript
+const params = {
+  secretType: '<secret_type>',
+  id: secretId,
+};
+
+secretsManagerApi.getSecret(params)
+  .then(res => {
+    console.log('Get secret:\n', JSON.stringify(result.resources, null, 2));
+    })
+  .catch(err => {
+    console.warn(err)
+  });
 ```
 {: codeblock}
 {: javascript}
 
 ```python
+response = secretsManager.get_secret(
+    secret_type='<secret_type>',
+    id=secret_id_link
+).get_result()
+
+print(json.dumps(response, indent=2))
 ```
 {: codeblock}
 {: python}
 
 ```go
+getSecretOptions := secretsManagerApi.NewGetSecretOptions(
+    "<secret_type>",
+    secretIdLink,
+)
+
+result, response, err := secretsManagerApi.GetSecret(getSecretOptions)
+if err != nil {
+    panic(err)
+}
+
+b, _ := json.MarshalIndent(result, "", "  ")
+fmt.Println(string(b))
 ```
 {: codeblock}
 {: go}
