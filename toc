@@ -38,11 +38,15 @@ Secrets Manager
     concepts/secret-groups.md
 
     {: .topicgroup}
+    Logging and monitoring
+        at-events.md
+
+    {: .topicgroup}
     Enhancing security
         iam.md
         architecture-workload-isolation.md
+        seervice-connection.md
         data-security.md
-        at-events.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
