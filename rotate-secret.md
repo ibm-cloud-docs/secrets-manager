@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-05"
+lastupdated: "2021-02-11"
 
 keywords: rotate secrets, manually rotate, new secret, automatically rotate, automatic rotation, set rotation policy
 
@@ -100,7 +100,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 {: api}
 
 
-You can delete secrets by calling the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager#update-secret){: external}.
+You can delete secrets by calling the {{site.data.keyword.secrets-manager_short}} API.
 
 The following example request creates a new version of your secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
@@ -217,7 +217,7 @@ If you need more control over the rotation frequency of a secret, you can use th
 {: api}
 
 
-You can set rotation policies by calling the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager#put-policy){: external}.
+You can set rotation policies by calling the {{site.data.keyword.secrets-manager_short}} API.
 
 The following example request sets a monthly rotation policy for a `username_password` secret type. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}

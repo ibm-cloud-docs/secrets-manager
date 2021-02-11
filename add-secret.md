@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-05"
+lastupdated: "2021-02-11"
 
 keywords: create secrets, add secrets, store secrets, single tenant secret storage, manage secrets
 
@@ -295,7 +295,7 @@ The command outputs the ID value of the secret, along with other metadata. For m
 {: api}
 
 
-You can create IAM credentials by calling the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager#create-secret){: external}.
+You can create IAM credentials by calling the {{site.data.keyword.secrets-manager_short}} API.
 
 The following example shows a query that you can use to create a dynamic service ID and API key. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
