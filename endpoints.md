@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-05"
+lastupdated: "2021-02-18"
 
 keywords: Secrets Manager availability, regions, Secrets Manager endpoints, Vault endpoint
 
@@ -68,19 +68,19 @@ You can create {{site.data.keyword.secrets-manager_short}} resources in one of t
 - Frankfurt (`eu-de`)
 - Sydney (`au-syd`)
 
-
-
 ## Service endpoints
 {: #service-endpoints}
 
 If you are managing your {{site.data.keyword.secrets-manager_short}} resources programmatically, see the following table to determine the API endpoints to use when you connect to the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager){: external}.
+
+
 
 | Region        | Endpoint URL             |
 | ------------- | ---------------------------- |
 | Dallas        | `https://{instance_ID}.us-south.secrets-manager.appdomain.cloud/api` |
 | Frankfurt     | `https://{instance_ID}.eu-de.secrets-manager.appdomain.cloud/api`    |
 | Sydney        | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud/api`   |
-{: caption="Table 1. Endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using standard {{site.data.keyword.cloud_notm}} APIs" caption-side="top"}
+{: caption="Table 1. Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using standard {{site.data.keyword.cloud_notm}} APIs" caption-side="top"}
 {: #table-1}
 {: tab-title="Service API"}
 {: class="comparison-tab-table"}
@@ -91,7 +91,7 @@ If you are managing your {{site.data.keyword.secrets-manager_short}} resources p
 | Dallas        | `https://{instance_ID}.us-south.secrets-manager.appdomain.cloud` |
 | Frankfurt     | `https://{instance_ID}.eu-de.secrets-manager.appdomain.cloud`    |
 | Sydney        | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud`   |
-{: caption="Table 2. Endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
+{: caption="Table 2. Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
 {: #table-2}
 {: tab-title="Vault API"}
 {: class="comparison-tab-table"}
@@ -99,6 +99,8 @@ If you are managing your {{site.data.keyword.secrets-manager_short}} resources p
 
 Ready to try the APIs? To interact with a Swagger UI from your browser, remove `/api` from your service endpoint URL and replace it with `/swagger-ui`. For example, `https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/swagger-ui`.
 {: tip}
+
+
 
 ### Retrieving your service endpoint URLs
 {: #retrieve-service-endpoints}
