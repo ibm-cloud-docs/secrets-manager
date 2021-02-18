@@ -66,7 +66,7 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 You can now use the {{site.data.keyword.secrets-manager_full_notm}} Java SDK to connect to your {{site.data.keyword.secrets-manager_short}} service instance.
 
-For more information, check out the [{{site.data.keyword.secrets-manager_full_notm}} Python SDK repository in GitHub](https://github.com/IBM/secrets-manager-java-sdk){: external}.
+For more information, check out the [{{site.data.keyword.secrets-manager_full_notm}} Java SDK repository in GitHub](https://github.com/IBM/secrets-manager-java-sdk){: external}.
 
 ## 27 January 2021
 {: #2021-01-27}
