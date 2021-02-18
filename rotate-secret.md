@@ -106,23 +106,23 @@ The following example request creates a new version of your secret. When you cal
 {: curl}
 
 
-If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `updateSecret` method to rotate a secret. The following code shows an example call.
+If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `updateSecret` method to rotate a secret. The following code shows an example call to rotate an arbitrary secret.
 {: java}
 
 
-If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `updateSecret(params)` method to rotate a secret. The following code shows an example call.
+If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `updateSecret(params)` method to rotate a secret. The following code shows an example call to rotate an arbitrary secret.
 {: javascript}
 
 
-If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `update_secret(params)` method to rotate a secret. The following code shows an example call.
+If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `update_secret(params)` method to rotate a secret. The following code shows an example call to rotate an arbitrary secret.
 {: python}
 
 
-If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `UpdateSecret` method to rotate a secret. The following code shows an example call.
+If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `UpdateSecret` method to rotate a secret. The following code shows an example call to rotate an arbitrary secret.
 {: go}
 
 ```bash
-curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}?action=rotate" \
+curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/arbitrary/{id}?action=rotate" \
   -H "Authorization: Bearer {IAM_token}"
   -H "Accept: application/json"
   -H "Content-Type: application/json"
@@ -154,10 +154,10 @@ System.out.println(getSecret);
 
 ```javascript
 const params = {
-  secretType: 'username_password',
+  secretType: 'arbitrary',
   id: secretId,
   action: 'rotate',
-  password: 'new-secret-data',
+  payload: 'new-secret-data',
 };
 
 secretsManagerApi.updateSecret(params)
@@ -173,14 +173,13 @@ secretsManagerApi.updateSecret(params)
 
 ```python
 secret_data = {
-    'password': 'new-secret-data'
+    'payload': 'new-secret-data'
 }
 
 response = secretsManager.update_secret(
-    secret_type='username_password',
+    secret_type='arbitrary',
     id=secret_id_link,
-    action='rotate',
-    secret_action_one_of=secret_data
+    action='rotate'
 ).get_result()
 
 print(json.dumps(response, indent=2))
