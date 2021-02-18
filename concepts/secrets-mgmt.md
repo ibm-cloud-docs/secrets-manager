@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-01-26"
+lastupdated: "2021-02-05"
 
 keywords: secrets management in IBM Cloud, differences between {{site.data.keyword.secrets-manager_short}} and Key Protect, when to use {{site.data.keyword.secrets-manager_short}}, {{site.data.keyword.secrets-manager_short}} use cases, single tenant, multi-tenant
 
@@ -36,15 +36,22 @@ subcollection: secrets-manager
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
-{:curl: .ph data-hd-programlang='curl'}
-{:go: .ph data-hd-programlang='go'} 
-{:javascript: .ph data-hd-programlang='javascript'}
-{:java: .ph data-hd-programlang='java'}
-{:python: .ph data-hd-programlang='python'}
-{:ruby: .ph data-hd-programlang='ruby'}
 {:api: .ph data-hd-interface='api'}
 {:cli: .ph data-hd-interface='cli'}
 {:ui: .ph data-hd-interface='ui'}
+{:curl: .ph data-hd-programlang='curl'}
+{:java: .ph data-hd-programlang='java'}
+{:ruby: .ph data-hd-programlang='ruby'}
+{:c#: .ph data-hd-programlang='c#'}
+{:objectc: .ph data-hd-programlang='Objective C'}
+{:python: .ph data-hd-programlang='python'}
+{:javascript: .ph data-hd-programlang='javascript'}
+{:php: .ph data-hd-programlang='PHP'}
+{:swift: .ph data-hd-programlang='swift'}
+{:curl: .ph data-hd-programlang='curl'}
+{:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
+{:go: .ph data-hd-programlang='go'}
+{:unity: .ph data-hd-programlang='unity'}
 
 # Managing secrets in {{site.data.keyword.cloud_notm}}
 {: #manage-secrets-ibm-cloud}

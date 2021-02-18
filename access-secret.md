@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-01-20"
+lastupdated: "2021-02-18"
 
 keywords: access stored secrets, retrieve secrets, get secret value, get secrets, view secrets, search secrets, get secret value
 
@@ -36,15 +36,22 @@ subcollection: secrets-manager
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
-{:curl: .ph data-hd-programlang='curl'}
-{:go: .ph data-hd-programlang='go'} 
-{:javascript: .ph data-hd-programlang='javascript'}
-{:java: .ph data-hd-programlang='java'}
-{:python: .ph data-hd-programlang='python'}
-{:ruby: .ph data-hd-programlang='ruby'}
 {:api: .ph data-hd-interface='api'}
 {:cli: .ph data-hd-interface='cli'}
 {:ui: .ph data-hd-interface='ui'}
+{:curl: .ph data-hd-programlang='curl'}
+{:java: .ph data-hd-programlang='java'}
+{:ruby: .ph data-hd-programlang='ruby'}
+{:c#: .ph data-hd-programlang='c#'}
+{:objectc: .ph data-hd-programlang='Objective C'}
+{:python: .ph data-hd-programlang='python'}
+{:javascript: .ph data-hd-programlang='javascript'}
+{:php: .ph data-hd-programlang='PHP'}
+{:swift: .ph data-hd-programlang='swift'}
+{:curl: .ph data-hd-programlang='curl'}
+{:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
+{:go: .ph data-hd-programlang='go'}
+{:unity: .ph data-hd-programlang='unity'}
 
 # Accessing secrets
 {: #access-secrets}
@@ -73,14 +80,92 @@ For a high-level view of your secrets, you can use the {{site.data.keyword.secre
 
 After you store a secret in your instance, you might need to retrieve its value so that you can connect to an external app or get access to a protected service. You can retrieve the value of a secret by using the {{site.data.keyword.secrets-manager_short}} API.
 
-The following example request retrieves a secret and its contents.
+
+The following example request retrieves a secret and its contents. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+{: curl}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `getSecret` method to retrieve a secret and its contents. The following code shows an example call.
+{: java}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `getSecret(params)` method to retrieve a secret and its contents. The following code shows an example call.
+{: javascript}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `get_secret(params)` method to retrieve a secret and its contents. The following code shows an example call.
+{: python}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `GetSecret` method to retrieve a secret and its contents. The following code shows an example call.
+{: go}
 
 ```bash
 curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}"
-  -H "Authorization: Bearer {IAM_token}" 
-  -H "Accept: application/json" 
+  -H "Authorization: Bearer {IAM_token}"
+  -H "Accept: application/json"
 ```
-{: pre}
+{: codeblock}
+{: curl}
+
+```java
+GetSecretOptions getSecretOptions = new GetSecretOptions.Builder()
+  .secretType("<secret_type>")
+  .id(secretIdLink)
+  .build();
+
+Response<GetSecret> response = sm.getSecret(getSecretOptions).execute();
+GetSecret getSecret = response.getResult();
+
+System.out.println(getSecret);
+```
+{: codeblock}
+{: java}
+
+```javascript
+const params = {
+  secretType: '<secret_type>',
+  id: secretId,
+};
+
+secretsManagerApi.getSecret(params)
+  .then(res => {
+    console.log('Get secret:\n', JSON.stringify(result.resources, null, 2));
+    })
+  .catch(err => {
+    console.warn(err)
+  });
+```
+{: codeblock}
+{: javascript}
+
+```python
+response = secretsManager.get_secret(
+    secret_type='<secret_type>',
+    id=secret_id_link
+).get_result()
+
+print(json.dumps(response, indent=2))
+```
+{: codeblock}
+{: python}
+
+```go
+getSecretOptions := secretsManagerApi.NewGetSecretOptions(
+    "<secret_type>",
+    secretIdLink,
+)
+
+result, response, err := secretsManagerApi.GetSecret(getSecretOptions)
+if err != nil {
+    panic(err)
+}
+
+b, _ := json.MarshalIndent(result, "", "  ")
+fmt.Println(string(b))
+```
+{: codeblock}
+{: go}
 
 A successful response returns the value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Get a secret](/apidocs/secrets-manager#get-secret){: external}.
 

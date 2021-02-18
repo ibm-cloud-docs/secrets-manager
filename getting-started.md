@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-01-26"
+lastupdated: "2021-02-05"
 
 keywords: secrets management, manage secrets, manage credentials, getting started tutorial, store username and password, add secrets, add credentials, get started with Secrets Manager
 
@@ -36,15 +36,22 @@ subcollection: secrets-manager
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
-{:curl: .ph data-hd-programlang='curl'}
-{:go: .ph data-hd-programlang='go'} 
-{:javascript: .ph data-hd-programlang='javascript'}
-{:java: .ph data-hd-programlang='java'}
-{:python: .ph data-hd-programlang='python'}
-{:ruby: .ph data-hd-programlang='ruby'}
 {:api: .ph data-hd-interface='api'}
 {:cli: .ph data-hd-interface='cli'}
 {:ui: .ph data-hd-interface='ui'}
+{:curl: .ph data-hd-programlang='curl'}
+{:java: .ph data-hd-programlang='java'}
+{:ruby: .ph data-hd-programlang='ruby'}
+{:c#: .ph data-hd-programlang='c#'}
+{:objectc: .ph data-hd-programlang='Objective C'}
+{:python: .ph data-hd-programlang='python'}
+{:javascript: .ph data-hd-programlang='javascript'}
+{:php: .ph data-hd-programlang='PHP'}
+{:swift: .ph data-hd-programlang='swift'}
+{:curl: .ph data-hd-programlang='curl'}
+{:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
+{:go: .ph data-hd-programlang='go'}
+{:unity: .ph data-hd-programlang='unity'}
 
 # Getting started with {{site.data.keyword.secrets-manager_short}}
 {: #getting-started}
@@ -52,7 +59,7 @@ subcollection: secrets-manager
 {: toc-services="secrets-manager"}
 {: toc-completion-time="10m"}
 
-With {{site.data.keyword.secrets-manager_full}}, you can create, lease, and centrally manage secrets that are used in {{site.data.keyword.cloud_notm}} services or your custom-built applications. Secrets are stored in a dedicated Secrets Manager instance, backed by HashiCorp Vault.
+With {{site.data.keyword.secrets-manager_full}}, you can create, lease, and centrally manage secrets that are used in {{site.data.keyword.cloud_notm}} services or your custom-built applications. Secrets are stored in a dedicated {{site.data.keyword.secrets-manager_short}} instance, built on open source HashiCorp Vault.
 {:shortdesc}
 
 ## Objective

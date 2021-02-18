@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-01-26"
+lastupdated: "2021-02-18"
 
 keywords: delete secret, remove secret, destroy secret
 
@@ -36,15 +36,22 @@ subcollection: secrets-manager
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
-{:curl: .ph data-hd-programlang='curl'}
-{:go: .ph data-hd-programlang='go'} 
-{:javascript: .ph data-hd-programlang='javascript'}
-{:java: .ph data-hd-programlang='java'}
-{:python: .ph data-hd-programlang='python'}
-{:ruby: .ph data-hd-programlang='ruby'}
 {:api: .ph data-hd-interface='api'}
 {:cli: .ph data-hd-interface='cli'}
 {:ui: .ph data-hd-interface='ui'}
+{:curl: .ph data-hd-programlang='curl'}
+{:java: .ph data-hd-programlang='java'}
+{:ruby: .ph data-hd-programlang='ruby'}
+{:c#: .ph data-hd-programlang='c#'}
+{:objectc: .ph data-hd-programlang='Objective C'}
+{:python: .ph data-hd-programlang='python'}
+{:javascript: .ph data-hd-programlang='javascript'}
+{:php: .ph data-hd-programlang='PHP'}
+{:swift: .ph data-hd-programlang='swift'}
+{:curl: .ph data-hd-programlang='curl'}
+{:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
+{:go: .ph data-hd-programlang='go'}
+{:unity: .ph data-hd-programlang='unity'}
 
 # Deleting secrets
 {: #delete-secrets}
@@ -72,16 +79,88 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually delet
 
     After you delete a secret, the secret transitions to the _Destroyed_ state. Secrets in this state are no longer recoverable. Metadata that is associated with the secret, such as the secret's deletion date, is kept in the {{site.data.keyword.secrets-manager_short}} database.
 
-## Deleting secrets by using the API
+## Deleting secrets with the API
 {: #delete-secret-api}
 {: api}
 
-The following example request deletes a secret and its contents.
+
+You can delete secrets by calling the {{site.data.keyword.secrets-manager_short}} API.
+
+The following example request deletes a secret and its contents. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+{: curl}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `deleteSecret` method to delete a secret. The following code shows an example call.
+{: java}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `deleteSecret(params)` method to delete a secret. The following code shows an example call.
+{: javascript}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `delete_secret(params)` method to delete a secret. The following code shows an example call.
+{: python}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `DeleteSecret` method to delete a secret. The following code shows an example call.
+{: go}
 
 ```bash
 curl -X DELETE "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}" \
-  -H "Authorization: Bearer {IAM_token}" 
+  -H "Authorization: Bearer {IAM_token}"
 ```
-{: pre}
+{: codeblock}
+{: curl}
 
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see [Invoke an action on a secret](/apidocs/secrets-manager#update-secret){: external}.
+```java
+DeleteSecretOptions deleteSecretOptions = new DeleteSecretOptions.Builder()
+  .secretType("<secret_type>")
+  .id(secretIdLink)
+  .build();
+
+service.deleteSecret(deleteSecretOptions).execute();
+```
+{: codeblock}
+{: java}
+
+```javascript
+const params = {
+  secretType: '<secret_type>',
+  id: secretId,
+};
+
+secretsManagerApi.deleteSecret(params)
+  .then(res => {
+    console.log('Secret deleted.');
+    })
+  .catch(err => {
+    console.warn(err)
+  });
+```
+{: codeblock}
+{: javascript}
+
+```python
+response = secretsManager.delete_secret(
+    secret_type='<secret_type>',
+    id=secret_id_link
+).get_result()
+
+print(json.dumps(response, indent=2))
+```
+{: codeblock}
+{: python}
+
+```go
+deleteSecretOptions := secretsManagerApi.NewDeleteSecretOptions(
+    "<secret_type>", secretIdLink,
+)
+
+response, err := secretsManagerApi.DeleteSecret(deleteSecretOptions)
+if err != nil {
+    panic(err)
+}
+```
+{: codeblock}
+{: go}
+

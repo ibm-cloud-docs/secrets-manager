@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-01-26"
+lastupdated: "2021-02-05"
 
 keywords: troubleshoot secrets manager, troubleshooting for credentials, IAM credentials, unable to create credentials, troubleshooting Secrets Manager
 
@@ -38,15 +38,22 @@ content-type: troubleshoot
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
-{:curl: .ph data-hd-programlang='curl'}
-{:go: .ph data-hd-programlang='go'} 
-{:javascript: .ph data-hd-programlang='javascript'}
-{:java: .ph data-hd-programlang='java'}
-{:python: .ph data-hd-programlang='python'}
-{:ruby: .ph data-hd-programlang='ruby'}
 {:api: .ph data-hd-interface='api'}
 {:cli: .ph data-hd-interface='cli'}
 {:ui: .ph data-hd-interface='ui'}
+{:curl: .ph data-hd-programlang='curl'}
+{:java: .ph data-hd-programlang='java'}
+{:ruby: .ph data-hd-programlang='ruby'}
+{:c#: .ph data-hd-programlang='c#'}
+{:objectc: .ph data-hd-programlang='Objective C'}
+{:python: .ph data-hd-programlang='python'}
+{:javascript: .ph data-hd-programlang='javascript'}
+{:php: .ph data-hd-programlang='PHP'}
+{:swift: .ph data-hd-programlang='swift'}
+{:curl: .ph data-hd-programlang='curl'}
+{:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
+{:go: .ph data-hd-programlang='go'}
+{:unity: .ph data-hd-programlang='unity'}
 
 
 # Why can't I create an IAM credential?

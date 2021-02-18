@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-01-26"
+lastupdated: "2021-02-09"
 
 keywords: activity tracker events for Secrets Manager, events, Secrets Manager actions
 
@@ -36,15 +36,22 @@ subcollection: secrets-manager
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
-{:curl: .ph data-hd-programlang='curl'}
-{:go: .ph data-hd-programlang='go'} 
-{:javascript: .ph data-hd-programlang='javascript'}
-{:java: .ph data-hd-programlang='java'}
-{:python: .ph data-hd-programlang='python'}
-{:ruby: .ph data-hd-programlang='ruby'}
 {:api: .ph data-hd-interface='api'}
 {:cli: .ph data-hd-interface='cli'}
 {:ui: .ph data-hd-interface='ui'}
+{:curl: .ph data-hd-programlang='curl'}
+{:java: .ph data-hd-programlang='java'}
+{:ruby: .ph data-hd-programlang='ruby'}
+{:c#: .ph data-hd-programlang='c#'}
+{:objectc: .ph data-hd-programlang='Objective C'}
+{:python: .ph data-hd-programlang='python'}
+{:javascript: .ph data-hd-programlang='javascript'}
+{:php: .ph data-hd-programlang='PHP'}
+{:swift: .ph data-hd-programlang='swift'}
+{:curl: .ph data-hd-programlang='curl'}
+{:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
+{:go: .ph data-hd-programlang='go'}
+{:unity: .ph data-hd-programlang='unity'}
 
 # Auditing events for {{site.data.keyword.secrets-manager_short}}
 {: #at-events}
@@ -64,18 +71,18 @@ Audit devices that you can enable with Vault, such as the [`syslog` audit device
 
 The following table lists the secret actions that generate an event.
 
-| Action                                    | Description                                  | 
-|-------------------------------------------|----------------------------------------------|
-| `secrets-manager.secret.create`            | Create a secret.                              |
-| `secrets-manager.secrets.list`              | List secrets.                                 |
-| `secrets-manager.secret.read`               | Get a secret.                 |
-| `secrets-manager.secret.rotate`             | Rotate a secret.             |
+| Action                                      | Description                                                    |
+| ------------------------------------------- | -------------------------------------------------------------- |
+| `secrets-manager.secret.create`             | Create a secret.                                               |
+| `secrets-manager.secrets.list`              | List secrets.                                                  |
+| `secrets-manager.secret.read`               | Get a secret.                                                  |
+| `secrets-manager.secret.rotate`             | Rotate a secret.                                               |
 | `secrets-manager.secret-credentials.delete` | Delete the Cloud IAM API key that is associated with a secret. |
-| `secrets-manager.secret.delete`             | Delete a secret.                              |
-| `secrets-manager.secret-metadata.read`      | View the metadata of a secret.               |
-| `secrets-manager.secret-metadata.update`    | Update the metadata of a secret.             |
-| `secrets-manager.secret-policies.set`       | Set secret policies.                          |
-| `secrets-manager.secret-policies.get`       | Get secret policies.                          |
+| `secrets-manager.secret.delete`             | Delete a secret.                                               |
+| `secrets-manager.secret-metadata.read`      | View the metadata of a secret.                                 |
+| `secrets-manager.secret-metadata.update`    | Update the metadata of a secret.                               |
+| `secrets-manager.secret-policies.set`       | Set secret policies.                                           |
+| `secrets-manager.secret-policies.get`       | Get secret policies.                                           |
 {: caption="Table 1. List of secret events" caption-side="top"}
 
 
@@ -84,8 +91,8 @@ The following table lists the secret actions that generate an event.
 
 The following table lists the secret group actions that generate an event.
 
-| Action                              | Description                        | 
-|-------------------------------------|------------------------------------|
+| Action                                | Description                         |
+| ------------------------------------- | ----------------------------------- |
 | `secrets-manager.secret-group.create` | Create a secret group.              |
 | `secrets-manager.secret-groups.list`  | List secret groups.                 |
 | `secrets-manager.secret-group.read`   | View the details of a secret group. |
@@ -99,24 +106,23 @@ The following table lists the secret group actions that generate an event.
 
 The following table lists the instance operation actions that generate an event.
 
-| Action                                   | Description                        | 
-|------------------------------------------|------------------------------------|
-| `secrets-manager.instance.login`           | Log in to Vault.                    |
-| `secrets-manager.secret-engine-config.set` | Set secret engine configuration.    |
-| `secrets-manager.secret-engine-config.get` | Get secret engine configuration.    |
-| `secrets-manager.endpoints.get`            | Get service instance endpoints.     |
+| Action                                     | Description                      |
+| ------------------------------------------ | -------------------------------- |
+| `secrets-manager.instance.login`           | Log in to Vault.                 |
+| `secrets-manager.secret-engine-config.set` | Set secret engine configuration. |
+| `secrets-manager.secret-engine-config.get` | Get secret engine configuration. |
+| `secrets-manager.endpoints.get`            | Get service instance endpoints.  |
 {: caption="Table 3. List of instance operation events" caption-side="top"}
+
 
 ## Viewing events
 {: #at-ui}
 
- 
+
 
 
 
 Events that are generated by an instance of the {{site.data.keyword.secrets-manager_short}} service are automatically forwarded to the {{site.data.keyword.at_full_notm}} service instance that is available in the same location.
 
 {{site.data.keyword.at_full_notm}} can have only one instance per location. To view events, you must access the web UI of the {{site.data.keyword.at_full_notm}} service in the same location where your service instance is available. For more information, see [Launching the web UI through the IBM Cloud UI](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-launch#launch_cloud_ui).
-
-
 
