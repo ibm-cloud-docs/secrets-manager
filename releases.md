@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-05"
+lastupdated: "2021-02-18"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -56,24 +56,31 @@ subcollection: secrets-manager
 # Release notes
 {: #release-notes}
 
-Use these release notes to learn about the latest changes to {{site.data.keyword.secrets-manager_full}} that are grouped by date. 
+Use these release notes to learn about the latest changes to {{site.data.keyword.secrets-manager_full}} that are grouped by date.
 {:shortdesc}
 
 
+
+## 15 February 2021
+{: #2021-02-15}
+
+You can now use the {{site.data.keyword.secrets-manager_full_notm}} Java SDK to connect to your {{site.data.keyword.secrets-manager_short}} service instance.
+
+For more information, check out the [{{site.data.keyword.secrets-manager_full_notm}} Python SDK repository in GitHub](https://github.com/IBM/secrets-manager-java-sdk){: external}.
 
 ## 27 January 2021
 {: #2021-01-27}
 
 You can now use the {{site.data.keyword.secrets-manager_full_notm}} Python SDK to connect to your {{site.data.keyword.secrets-manager_short}} service instance.
 
-For more information, check out the [{{site.data.keyword.secrets-manager_full_notm}} Python SDK repository in GitHub](https://github.com/IBM/secrets-manager-python-sdk){: external}. 
+For more information, check out the [{{site.data.keyword.secrets-manager_full_notm}} Python SDK repository in GitHub](https://github.com/IBM/secrets-manager-python-sdk){: external}.
 
 ## 26 January 2021
 {: #2021-01-26}
 
 You can now use the {{site.data.keyword.secrets-manager_full_notm}} Go SDK to connect to your {{site.data.keyword.secrets-manager_short}} service instance.
 
-For more information, check out the [{{site.data.keyword.secrets-manager_full_notm}} Go SDK repository in GitHub](https://github.com/IBM/secrets-manager-go-sdk){: external}. 
+For more information, check out the [{{site.data.keyword.secrets-manager_full_notm}} Go SDK repository in GitHub](https://github.com/IBM/secrets-manager-go-sdk){: external}.
 
 
 ## 18 December 2020
@@ -81,7 +88,7 @@ For more information, check out the [{{site.data.keyword.secrets-manager_full_no
 
 {{site.data.keyword.secrets-manager_short}} is now generally available in the {{site.data.keyword.cloud_notm}} catalog!
 
-To find out more about this release, check out the [announcement blog](https://www.ibm.com/cloud/blog/announcements/ibm-cloud-secrets-manager-is-now-generally-available){: external}. 
+To find out more about this release, check out the [announcement blog](https://www.ibm.com/cloud/blog/announcements/ibm-cloud-secrets-manager-is-now-generally-available){: external}.
 
 ## 15 December 2020
 {: #2020-12-15}
@@ -95,7 +102,7 @@ For more information, see [Regions and endpoints](/docs/secrets-manager?topic=se
 
 The {{site.data.keyword.secrets-manager_short}} CLI plug-in is now available for download!
 
-You can use the {{site.data.keyword.secrets-manager_short}} CLI to interact with the secrets that you store in your {{site.data.keyword.secrets-manager_short}} instance. To install the plug-in, log in to the IBM Cloud CLI and run `ibmcloud plugin install secrets-manager`. 
+You can use the {{site.data.keyword.secrets-manager_short}} CLI to interact with the secrets that you store in your {{site.data.keyword.secrets-manager_short}} instance. To install the plug-in, log in to the IBM Cloud CLI and run `ibmcloud plugin install secrets-manager`.
 
 - To see CLI usage examples for creating secrets of different types, check out [Creating secrets](/docs/secrets-manager?topic=secrets-manager-store-secrets).
 - To find out more about the CLI commands and options that are available for {{site.data.keyword.secrets-manager_short}}, see the [CLI reference](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli).
@@ -105,7 +112,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} CLI to interact with
 
 You can now use the {{site.data.keyword.secrets-manager_full_notm}} Node.js SDK to connect to your {{site.data.keyword.secrets-manager_short}} service instance.
 
-For more information, check out the [{{site.data.keyword.secrets-manager_full_notm}} Node.js SDK repository in GitHub](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}. 
+For more information, check out the [{{site.data.keyword.secrets-manager_full_notm}} Node.js SDK repository in GitHub](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}.
 
 ## 13 November 2020
 {: #2020-11-13}
@@ -138,5 +145,5 @@ In this release, {{site.data.keyword.secrets-manager_short}} offers support for 
 - Arbitrary secrets, such as custom credentials that can be used to store any type of structured or  unstructured data.
 - User credentials, such as usernames and passwords that you can use to log in to applications.
 
-To find out more about capabilities and use cases for {{site.data.keyword.secrets-manager_short}}, check out the [announcement blog](https://www.ibm.com/cloud/blog/announcements/introducing-ibm-cloud-secrets-manager-beta){: external}. 
+To find out more about capabilities and use cases for {{site.data.keyword.secrets-manager_short}}, check out the [announcement blog](https://www.ibm.com/cloud/blog/announcements/introducing-ibm-cloud-secrets-manager-beta){: external}.
 
