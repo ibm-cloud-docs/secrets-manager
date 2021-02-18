@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-05"
+lastupdated: "2021-02-18"
 
 keywords: Data security for Secrets Manager, byok, kyok, data storage, data encryption in Secrets Manager, customer managed keys
 
@@ -76,22 +76,22 @@ When you work with the {{site.data.keyword.secrets-manager_short}} service, you 
 
 You can add a higher level of encryption control to your data at rest (when it is stored) by enabling integration with a key management service.
 
-The data that you store in {{site.data.keyword.cloud_notm}} is encrypted at rest by using envelope encryption. If you need to control the encryption keys, you can integrate a key management service. This process is commonly referred to as Bring your own keys (BYOK). With a key management service, you can create, import, and manage encryption keys. You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service. 
+The data that you store in {{site.data.keyword.cloud_notm}} is encrypted at rest by using envelope encryption. If you need to control the encryption keys, you can integrate a key management service. This process is commonly referred to as Bring your own keys (BYOK). With a key management service, you can create, import, and manage encryption keys. You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service.
 
 The following table describes your options for managing the encryption of your {{site.data.keyword.secrets-manager_short}} data.
 
-| Encryption | Description | 
-| ---- | ---- | 
-| Provider-managed key | The data that you store in {{site.data.keyword.secrets-manager_short}} is encrypted at rest by using an IBM-managed key. This is the default setting. |
-| Customer-managed key | The data that is stored in {{site.data.keyword.secrets-manager_short}} is encrypted at rest by using an encryption key that you own and manage. You can use an existing key that you manage in the following services: <ul><li>{{site.data.keyword.keymanagementserviceshort}}</li><li>{{site.data.keyword.hscrypto}}</li></ul> |
+| Encryption | Description |
+| ---- | ---- |
+| Provider-managed encryption | The data that you store in {{site.data.keyword.secrets-manager_short}} is encrypted at rest by using an IBM-managed key. This is the default setting. |
+| Customer-managed encryption | The data that is stored in {{site.data.keyword.secrets-manager_short}} is encrypted at rest by using an encryption key that you own and manage. You can use a root key that you manage in [{{site.data.keyword.keymanagementserviceshort}}](/catalog/services/key-protect) or [{{site.data.keyword.hscrypto}}](/catalog/services/hs-crypto). |
 {: caption="Table 1. Encryption options for {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
 
 ### About customer-managed keys
 {: #about-encryption}
 
-{{site.data.keyword.secrets-manager_short}} uses envelope encryption to implement both provider-managed or customer-managed keys. Envelope encryption describes encrypting one encryption key with another encryption key. The key used to encrypt the actual data is known as a [data encryption key (DEK)](#x4791827){: term}. The DEK itself is never stored but is wrapped by a second key that is known as the key encryption key (KEK) to create a wrapped DEK. To decrypt data, the wrapped DEK is unwrapped to get the DEK. This process is possible only by accessing the KEK, which in this case is your root key that is stored in your key management service.
+{{site.data.keyword.secrets-manager_short}} implements envelope encryption by using either provider-managed or customer-managed keys. Envelope encryption describes encrypting one encryption key with another encryption key. The key used to encrypt the actual data is known as a [data encryption key (DEK)](#x4791827){: term}. The DEK itself is never stored but is wrapped by a second key that is known as the key encryption key (KEK) to create a wrapped DEK. To decrypt data, the wrapped DEK is unwrapped to get the DEK. This process is possible only by accessing the KEK, which in this case is your root key that is stored in your key management service.
 
-Depending on the sensitivity of your workload, you might choose to work with either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} to achieve your wanted level of encryption control. For more information, see [How is {{site.data.keyword.hscrypto}} different from {{site.data.keyword.keymanagementserviceshort}}?](/docs/hs-crypto?topic=hs-crypto-faq-basics#faq-differentiators-key-protect).
+Depending on your use case and security requirements, the key management service that is most suited for your organization's needs can vary. To learn more about which key management solution is best for you, see [How is {{site.data.keyword.hscrypto}} different from {{site.data.keyword.keymanagementserviceshort}}?](/docs/hs-crypto?topic=hs-crypto-faq-basics#faq-differentiators-key-protect)
 {: note}
 
 
@@ -115,7 +115,7 @@ If you choose to work with a key that you manage, you must ensure that valid IAM
     5. Assign the Reader role.
     6. Click **Authorize** to confirm the authorization.
 
-4. Create an instance of the {{site.data.keyword.secrets-manager_short}} service. 
+4. Create an instance of the {{site.data.keyword.secrets-manager_short}} service.
 
     1. Select the region that corresponds to the region for the instance of the key management service that you created previously.
     2. Select your {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance.
@@ -167,23 +167,23 @@ If you no longer need an instance of {{site.data.keyword.secrets-manager_short}}
 ### Restoring a deleted service instance
 {: #restore-instance}
 
-If you haven't permanently deleted your instance, you can restore it during the 7-day reclamation period. 
+If you haven't permanently deleted your instance, you can restore it during the 7-day reclamation period.
 
 1. View which service instances are available for restoration.
 
   ```
   ibmcloud resource reclamations
   ```
-  {: codeblock}
+  {: pre}
 
-  From the list of available instances, copy the reclamation ID of the {{site.data.keyword.secrets-manager_short}} instance that you want to restore. 
+  From the list of available instances, copy the reclamation ID of the {{site.data.keyword.secrets-manager_short}} instance that you want to restore.
 
 2. Restore the reclamation.
 
   ```
   ibmcloud resource reclamation-restore <reclamation_ID>
   ```
-  {: codeblock}
+  {: pre}
 
   Replace `<reclamation_ID>` with the value that you retrieved in the previous step.
 
