@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-11"
+lastupdated: "2021-02-18"
 
 keywords: rotate secrets, manually rotate, new secret, automatically rotate, automatic rotation, set rotation policy
 
@@ -106,6 +106,10 @@ The following example request creates a new version of your secret. When you cal
 {: curl}
 
 
+If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `updateSecret` method to rotate a secret. The following code shows an example call.
+{: java}
+
+
 If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `updateSecret(params)` method to rotate a secret. The following code shows an example call.
 {: javascript}
 
@@ -128,6 +132,25 @@ curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api
 ```
 {: codeblock}
 {: curl}
+
+```java
+SecretActionOneOfRotateArbitrarySecretBody secretActionOneOfModel = new SecretActionOneOfRotateArbitrarySecretBody.Builder()
+  .payload("new-secret-data")
+  .build();
+UpdateSecretOptions updateSecretOptions = new UpdateSecretOptions.Builder()
+  .secretType("arbitrary")
+  .id(secretIdLink)
+  .action("rotate")
+  .secretActionOneOf(secretActionOneOfModel)
+  .build();
+
+Response<GetSecret> response = sm.updateSecret(updateSecretOptions).execute();
+GetSecret getSecret = response.getResult();
+
+System.out.println(getSecret);
+```
+{: codeblock}
+{: java}
 
 ```javascript
 const params = {
@@ -223,6 +246,10 @@ The following example request sets a monthly rotation policy for a `username_pas
 {: curl}
 
 
+If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `putPolicy` method to set a rotation policy for a secret. The following code shows an example call.
+{: java}
+
+
 If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `putPolicy(params)` method to set a rotation policy for a secret. The following code shows an example call.
 {: javascript}
 
@@ -257,6 +284,34 @@ curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api
 ```
 {: codeblock}
 {: curl}
+
+```java
+CollectionMetadata collectionMetadataModel = new CollectionMetadata.Builder()
+  .collectionType("application/vnd.ibm.secrets-manager.secret.policy+json")
+  .collectionTotal(Long.valueOf("1"))
+  .build();
+SecretPolicyRotationRotation secretPolicyRotationRotationModel = new SecretPolicyRotationRotation.Builder()
+  .interval(Long.valueOf("1"))
+  .unit("month")
+  .build();
+SecretPolicyRotation secretPolicyRotationModel = new SecretPolicyRotation.Builder()
+  .type("application/vnd.ibm.secrets-manager.secret.policy+json")
+  .rotation(secretPolicyRotationRotationModel)
+  .build();
+PutPolicyOptions putPolicyOptions = new PutPolicyOptions.Builder()
+  .secretType("username_password")
+  .id(secretIdLink)
+  .metadata(collectionMetadataModel)
+  .resources(new java.util.ArrayList<SecretPolicyRotation>(java.util.Arrays.asList(secretPolicyRotationModel)))
+  .build();
+
+Response<GetSecretPoliciesOneOf> response = sm.putPolicy(putPolicyOptions).execute();
+GetSecretPoliciesOneOf getSecretPoliciesOneOf = response.getResult();
+
+System.out.println(getSecretPoliciesOneOf);
+```
+{: codeblock}
+{: java}
 
 ```javascript
 const params = {

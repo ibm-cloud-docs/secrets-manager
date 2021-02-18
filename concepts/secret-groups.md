@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-05"
+lastupdated: "2021-02-18"
 
 keywords: secret groups, assign secret access, iam roles, secrets policies, organize secrets
 
@@ -79,7 +79,7 @@ Before you begin, be sure that you have the required level of access. To create 
 ## Creating secret groups
 {: #create-secret-groups}
 
-You can create secret groups by using the {{site.data.keyword.secrets-manager_short}} console or the APIs.
+You can create secret groups by using the {{site.data.keyword.secrets-manager_short}} console or the API.
 
 ### Creating secret groups in the UI
 {: #create-group-ui}
@@ -99,7 +99,7 @@ You can create secret groups by using the console. You can also create a secret 
 {: #create-group-api}
 {: api}
 
-You can create secret groups by using the {{site.data.keyword.secrets-manager_short}} APIs.
+You can create secret groups by using the {{site.data.keyword.secrets-manager_short}} API.
 
 ```bash
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secret_groups" \
@@ -123,17 +123,98 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 {: codeblock}
 {: curl}
 
+```java
+CollectionMetadata collectionMetadataModel = new CollectionMetadata.Builder()
+  .collectionType("application/vnd.ibm.secrets-manager.secret.group+json")
+  .collectionTotal(Long.valueOf("1"))
+  .build();
+SecretGroupResource secretGroupResourceModel = new SecretGroupResource.Builder()
+  .name("example-secret-group")
+  .description("Extended description for this group.")
+  .build();
+CreateSecretGroupOptions createSecretGroupOptions = new CreateSecretGroupOptions.Builder()
+  .metadata(collectionMetadataModel)
+  .resources(new java.util.ArrayList<SecretGroupResource>(java.util.Arrays.asList(secretGroupResourceModel)))
+  .build();
+
+Response<SecretGroupDef> response = sm.createSecretGroup(createSecretGroupOptions).execute();
+SecretGroupDef secretGroupDef = response.getResult();
+
+System.out.println(secretGroupDef);
+```
+{: codeblock}
+{: java}
+
 ```javascript
+const params = {
+  'metadata': {
+    'collection_type': 'application/vnd.ibm.secrets-manager.secret.group+json',
+    'collection_total': 1,
+  },
+  'resources': [
+    {
+      'name': 'example-secret-group',
+      'description': 'Extended description for my secret group.'
+    },
+  ],
+};
+
+secretsManagerApi.createSecretGroup(params)
+  .then(res => {
+    console.log('Create secret group:\n', JSON.stringify(result.resources, null, 2));
+    })
+  .catch(err => {
+    console.warn(err)
+  });
 ```
 {: codeblock}
 {: javascript}
 
 ```python
+collection_metadata = {
+    'collection_type': 'application/vnd.ibm.secrets-manager.secret.group+json',
+    'collection_total': 1
+}
+
+secret_group_resource = {
+    'name': 'example-secret-group',
+    'description': 'Extended description for this group.'
+}
+
+response = secretsManager.create_secret_group(
+    metadata={'collection_type':'application/vnd.ibm.secrets-manager.secret.group+json','collection_total':1},
+    resources=[secret_group_resource]
+).get_result()
+
+print(json.dumps(response, indent=2))
 ```
 {: codeblock}
 {: python}
 
 ```go
+collectionMetadata := &sm.CollectionMetadata{
+    CollectionType: core.StringPtr("application/vnd.ibm.secrets-manager.secret.group+json"),
+    CollectionTotal: core.Int64Ptr(int64(1)),
+}
+
+secretGroupResource := &sm.SecretGroupResource{
+    Name: core.StringPtr("example-secret-group"),
+    Description: core.StringPtr("Extended description for this group."),
+}
+
+createSecretGroupOptions := secretsManagerApi.NewCreateSecretGroupOptions(
+    collectionMetadata, []sm.SecretGroupResource{*secretGroupResource},
+)
+
+result, response, err := secretsManagerApi.CreateSecretGroup(createSecretGroupOptions)
+if err != nil {
+    panic(err)
+}
+
+b, _ := json.MarshalIndent(result, "", "  ")
+fmt.Println(string(b))
+
+secretGroupIdLink = *result.;
 ```
 {: codeblock}
 {: go}
@@ -142,7 +223,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 ## Deleting secret groups
 {: #delete-groups}
 
-If you no longer need to use a group, you can delete it by using the console or the APIs.
+If you no longer need to use a group, you can delete it by using the console or the API.
 
 To delete a secret group, it must be empty. If you need to remove a secret group that contains secrets, you must first [delete the secrets](/docs/secrets-manager?topic=secrets-manager-delete-secrets) that are part of the group.
 {: note}
@@ -165,7 +246,26 @@ You can delete secret groups by using the console.
 {: #delete-group-api}
 {: api}
 
-You can delete secret groups by using the {{site.data.keyword.secrets-manager_short}} APIs.
+You can delete secret groups by using the {{site.data.keyword.secrets-manager_short}} API.
+
+The following example request deletes a secret group. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+{: curl}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `deleteSecretGrouop` method to delete a secret group. The following code shows an example call.
+{: java}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `deleteSecretGroup(params)` method to delete a secret group. The following code shows an example call.
+{: javascript}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `delete_secret_group(params)` method to delete a secret group. The following code shows an example call.
+{: python}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `DeleteSecretGroup` method to delete a secret group. The following code shows an example call.
+{: go}
 
 ```bash
 curl -X DELETE "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/secret_groups/{id}" \
@@ -175,17 +275,51 @@ curl -X DELETE "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/a
 {: codeblock}
 {: curl}
 
+```java
+DeleteSecretGroupOptions deleteSecretGroupOptions = new DeleteSecretGroupOptions.Builder()
+  .id(secretGroupIdLink)
+  .build();
+
+service.deleteSecretGroup(deleteSecretGroupOptions).execute();
+```
+{: codeblock}
+{: java}
+
 ```javascript
+const params = {
+  id: secretGroupId,
+};
+
+secretsManagerApi.deleteSecretGroup(params)
+  .then(res => {
+    console.log('Secret group deleted');
+    })
+  .catch(err => {
+    console.warn(err)
+  });
 ```
 {: codeblock}
 {: javascript}
 
 ```python
+response = secretsManager.delete_secret_group(
+    id=secret_group_id_link
+).get_result()
+
+print(json.dumps(response, indent=2))
 ```
 {: codeblock}
 {: python}
 
 ```go
+deleteSecretGroupOptions := secretsManagerApi.NewDeleteSecretGroupOptions(
+    secretGroupIdLink,
+)
+
+response, err := secretsManagerApi.DeleteSecretGroup(deleteSecretGroupOptions)
+if err != nil {
+    panic(err)
+}
 ```
 {: codeblock}
 {: go}

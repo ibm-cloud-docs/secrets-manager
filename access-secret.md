@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-10"
+lastupdated: "2021-02-18"
 
 keywords: access stored secrets, retrieve secrets, get secret value, get secrets, view secrets, search secrets, get secret value
 
@@ -85,6 +85,10 @@ The following example request retrieves a secret and its contents. When you call
 {: curl}
 
 
+If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `getSecret` method to retrieve a secret and its contents. The following code shows an example call.
+{: java}
+
+
 If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `getSecret(params)` method to retrieve a secret and its contents. The following code shows an example call.
 {: javascript}
 
@@ -103,6 +107,20 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/
 ```
 {: codeblock}
 {: curl}
+
+```java
+GetSecretOptions getSecretOptions = new GetSecretOptions.Builder()
+  .secretType("<secret_type>")
+  .id(secretIdLink)
+  .build();
+
+Response<GetSecret> response = sm.getSecret(getSecretOptions).execute();
+GetSecret getSecret = response.getResult();
+
+System.out.println(getSecret);
+```
+{: codeblock}
+{: java}
 
 ```javascript
 const params = {

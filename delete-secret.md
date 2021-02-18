@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-11"
+lastupdated: "2021-02-18"
 
 keywords: delete secret, remove secret, destroy secret
 
@@ -90,6 +90,10 @@ The following example request deletes a secret and its contents. When you call t
 {: curl}
 
 
+If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `deleteSecret` method to delete a secret. The following code shows an example call.
+{: java}
+
+
 If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `deleteSecret(params)` method to delete a secret. The following code shows an example call.
 {: javascript}
 
@@ -107,6 +111,17 @@ curl -X DELETE "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/a
 ```
 {: codeblock}
 {: curl}
+
+```java
+DeleteSecretOptions deleteSecretOptions = new DeleteSecretOptions.Builder()
+  .secretType("<secret_type>")
+  .id(secretIdLink)
+  .build();
+
+service.deleteSecret(deleteSecretOptions).execute();
+```
+{: codeblock}
+{: java}
 
 ```javascript
 const params = {

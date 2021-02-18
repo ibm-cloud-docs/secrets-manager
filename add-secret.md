@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-11"
+lastupdated: "2021-02-18"
 
 keywords: create secrets, add secrets, store secrets, single tenant secret storage, manage secrets
 
@@ -109,10 +109,14 @@ The command outputs the ID value of the secret, along with other metadata. For m
 {: api}
 
 
-You can store a username and password by calling the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager#create-secret){: external}.
+You can store a username and password by calling the {{site.data.keyword.secrets-manager_short}} API.
 
 The following example shows a query that you can use to create a username and password secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `createSecret` method to create a username and password secret. The following code shows an example call.
+{: java}
 
 
 If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `createSecret(params)` method to create a username and password secret. The following code shows an example call.
@@ -154,6 +158,34 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 ```
 {: codeblock}
 {: curl}
+
+```java
+CollectionMetadata collectionMetadataModel = new CollectionMetadata.Builder()
+  .collectionType("application/vnd.ibm.secrets-manager.secret+json")
+  .collectionTotal(Long.valueOf("1"))
+  .build();
+SecretResourceUsernamePasswordSecretResource secretResourceModel = new SecretResourceUsernamePasswordSecretResource.Builder()
+  .name("example-username-password-secret")
+  .description("Extended description for this secret.")
+  .secretGroupId("432b91f1-ff6d-4b47-9f06-82debc236d90")
+  .labels(new java.util.ArrayList<String>(java.util.Arrays.asList("dev","us-south")))
+  .expirationDate(TestUtilities.createMockDateTime("2030-01-01T00:00:00Z"))
+  .username("user123")
+  .password("cloudy-rainy-coffee-book")
+  .build();
+CreateSecretOptions createSecretOptions = new CreateSecretOptions.Builder()
+  .secretType("username_password")
+  .metadata(collectionMetadataModel)
+  .resources(new java.util.ArrayList<SecretResource>(java.util.Arrays.asList(secretResourceModel)))
+  .build();
+
+Response<CreateSecret> response = sm.createSecret(createSecretOptions).execute();
+CreateSecret createSecret = response.getResult();
+
+System.out.println(createSecret);
+```
+{: codeblock}
+{: java}
 
 ```javascript
 const params = {
@@ -301,6 +333,10 @@ The following example shows a query that you can use to create a dynamic service
 {: curl}
 
 
+If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `createSecret` method to create a dynamic service ID and API key. The following code shows an example call.
+{: java}
+
+
 If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `createSecret(params)` method to create a dynamic service ID and API key. The following code shows an example call.
 {: javascript}
 
@@ -341,6 +377,33 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 ```
 {: codeblock}
 {: curl}
+
+```java
+CollectionMetadata collectionMetadataModel = new CollectionMetadata.Builder()
+  .collectionType("application/vnd.ibm.secrets-manager.secret+json")
+  .collectionTotal(Long.valueOf("1"))
+  .build();
+SecretResourceIAMSecretResource secretResourceModel = new SecretResourceIAMSecretResource.Builder()
+  .name("example-IAM-credentials")
+  .description("Extended description for this secret.")
+  .accessGroups(new java.util.ArrayList<String>(java.util.Arrays.asList("AccessGroupId-e7e1a364-c5b9-4027-b4fe-083454499a20")))
+  .secretGroupId("432b91f1-ff6d-4b47-9f06-82debc236d90")
+  .labels(new java.util.ArrayList<String>(java.util.Arrays.asList("dev","us-south")))
+  .ttl("12h")
+  .build();
+CreateSecretOptions createSecretOptions = new CreateSecretOptions.Builder()
+  .secretType("iam_credentials")
+  .metadata(collectionMetadataModel)
+  .resources(new java.util.ArrayList<SecretResource>(java.util.Arrays.asList(secretResourceModel)))
+  .build();
+
+Response<CreateSecret> response = sm.createSecret(createSecretOptions).execute();
+CreateSecret createSecret = response.getResult();
+
+System.out.println(createSecret);
+```
+{: codeblock}
+{: java}
 
 ```javascript
 const params = {
@@ -489,6 +552,10 @@ The following example shows a query that you can use to create and store an arbi
 {: curl}
 
 
+If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `createSecret` method to create and store an arbitrary secret. The following code shows an example call.
+{: java}
+
+
 If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `createSecret(params)` method to create and store an arbitrary secret. The following code shows an example call.
 {: javascript}
 
@@ -527,6 +594,33 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 ```
 {: codeblock}
 {: curl}
+
+```java
+CollectionMetadata collectionMetadataModel = new CollectionMetadata.Builder()
+  .collectionType("application/vnd.ibm.secrets-manager.secret+json")
+  .collectionTotal(Long.valueOf("1"))
+  .build();
+SecretResourceArbitrarySecretResource secretResourceModel = new SecretResourceArbitrarySecretResource.Builder()
+  .name("example-arbitrary-secret")
+  .description("Extended description for this secret.")
+  .secretGroupId("432b91f1-ff6d-4b47-9f06-82debc236d90")
+  .labels(new java.util.ArrayList<String>(java.util.Arrays.asList("testString")))
+  .expirationDate(TestUtilities.createMockDateTime("2030-01-01T00:00:00Z"))
+  .payload("secret-data")
+  .build();
+CreateSecretOptions createSecretOptions = new CreateSecretOptions.Builder()
+  .secretType("arbitrary")
+  .metadata(collectionMetadataModel)
+  .resources(new java.util.ArrayList<SecretResource>(java.util.Arrays.asList(secretResourceModel)))
+  .build();
+
+Response<CreateSecret> response = sm.createSecret(createSecretOptions).execute();
+CreateSecret createSecret = response.getResult();
+
+System.out.println(createSecret);
+```
+{: codeblock}
+{: java}
 
 ```javascript
 const params = {
