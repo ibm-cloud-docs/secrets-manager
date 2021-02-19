@@ -65,6 +65,7 @@ Secrets Manager
 
     {: topicgroup}
     SDKs
+        [Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}
         [Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}
         [Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}
         [Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}

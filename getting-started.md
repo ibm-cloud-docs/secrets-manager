@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-05"
+lastupdated: "2021-02-19"
 
-keywords: secrets management, manage secrets, manage credentials, getting started tutorial, store username and password, add secrets, add credentials, get started with Secrets Manager
+keywords: secrets management, manage secrets, manage credentials, store username and password, add secrets, add credentials, get started with Secrets Manager
 
 subcollection: secrets-manager
 
@@ -55,19 +55,14 @@ subcollection: secrets-manager
 
 # Getting started with {{site.data.keyword.secrets-manager_short}}
 {: #getting-started}
-{: toc-content-type="tutorial"} 
+{: toc-content-type="tutorial"}
 {: toc-services="secrets-manager"}
 {: toc-completion-time="10m"}
 
-With {{site.data.keyword.secrets-manager_full}}, you can create, lease, and centrally manage secrets that are used in {{site.data.keyword.cloud_notm}} services or your custom-built applications. Secrets are stored in a dedicated {{site.data.keyword.secrets-manager_short}} instance, built on open source HashiCorp Vault.
+This tutorial focuses on storing and managing a username and password in {{site.data.keyword.secrets-manager_full}}. With {{site.data.keyword.secrets-manager_short}}, you can create, lease, and centrally manage secrets that are used in {{site.data.keyword.cloud_notm}} services or your custom-built applications. Secrets are stored in a dedicated {{site.data.keyword.secrets-manager_short}} instance, built on open source HashiCorp Vault.
 {:shortdesc}
 
-## Objective
-{: #gs-objective}
-
-This tutorial focuses on storing and managing a username and password in {{site.data.keyword.secrets-manager_short}} by using the {{site.data.keyword.secrets-manager_short}} UI.
-
-Looking for a different secret type? You can also create Identity and Access Management (IAM) credentials to access an {{site.data.keyword.cloud_notm}} resource, or you can add custom secrets that can hold structured or unstructured data. 
+Looking for a different secret type? You can also create Identity and Access Management (IAM) credentials to access an {{site.data.keyword.cloud_notm}} resource, or you can add custom secrets that can hold structured or unstructured data.
 
 [![This image is a visual link to the instructions for creating IAM credentials](images/gs-iam-credentials.svg)](/docs/secrets-manager?topic=secrets-manager-store-secrets#store-iam-credentials)     [![This image is a visual link to the instructions on adding custom secrets.](images/gs-custom.svg)](/docs/secrets-manager?topic=secrets-manager-store-secrets#store-arbitrary-secrets)
 
@@ -80,9 +75,7 @@ Before you begin, be sure to [create a {{site.data.keyword.secrets-manager_short
 {: #gs-secret-type}
 {: step}
 
-A secret is a piece of sensitive information, such as an API key, a username and password, or any type of credential that you use to access a protected or confidential system. 
-
-You can get started with {{site.data.keyword.secrets-manager_short}} by choosing the type of secret that is required by the resource that you want to access. For this tutorial, complete the following steps to select a secret that contains a username and password.
+You can get started with {{site.data.keyword.secrets-manager_short}} by choosing the type of [secret](#x2789492){: term} that is required by the resource that you want to access. For this tutorial, complete the following steps to select a secret that contains a username and password.
 
 1. In the {{site.data.keyword.cloud_notm}} console, go to **Menu** ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
@@ -102,19 +95,19 @@ Complete the following steps to enter the details of a secret and store it secur
 1. In the **Add user credentials** page, add a name and description to easily identify your secret.
 2. Add the secret to a group to control who on your team has access to it.
 
-   You can click **Create** to provide a name and a description for a new group. Later, you can assign an access policy to the group so that you control who on your team has access to its contained secret. 
+   You can click **Create** to provide a name and a description for a new group. Later, you can assign an access policy to the group so that you control who on your team has access to its contained secret.
 3. Optional: Add labels to help you to search for similar secrets in your instance.
 4. Supply the username and password values that you want to associate with the secret.
 5. Optional: Set an expiration date for the secret.
 6. Click **Add**.
 
-  You did it! The username and password are now stored in your dedicated, single-tenant instance of {{site.data.keyword.secrets-manager_short}}. 
+  You did it! The username and password are now stored in your dedicated, single-tenant instance of {{site.data.keyword.secrets-manager_short}}.
 
 ## Manage its lifecycle
 {: #gs-manage-lifecycle}
 {: step}
 
-After you add a secret to your instance, you can establish a regular cadence for managing its lifecycle. For example, you might need to adhere to an internal requirement or regulatory control in your business for rotating secrets every 30 days. 
+After you add a secret to your instance, you can establish a regular cadence for managing its lifecycle. For example, you might need to adhere to an internal requirement or regulatory control in your business for rotating secrets every 30 days.
 
 1. In the **Secrets** table, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) to open a list of options for your secret.
    1. To view and edit details about the secret, click **Edit details**.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-05"
+lastupdated: "2021-02-19"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -57,7 +57,7 @@ subcollection: secrets-manager
 {: #vault-cli}
 
 You can use the HashiCorp Vault command-line interface (CLI) to interact with {{site.data.keyword.secrets-manager_full}}.
-{:shortdesc} 
+{:shortdesc}
 
 {{site.data.keyword.secrets-manager_short}} uses a custom version of open source HashiCorp Vault. This custom version adds the IBM Cloud IAM `auth` method and a set of secret engines to support operations in {{site.data.keyword.secrets-manager_short}} for various secret types.
 
@@ -81,7 +81,7 @@ vault write auth/ibmcloud/manage/login [token_ttl=DURATION] [token_max_ttl=MAX_D
 
 You need the [**Manager** service role](/docs/secrets-manager?topic=secrets-manager-iam) to manage the configuration of login tokens.
 
-#### Command options 
+#### Command options
 {: #vault-cli-write-token-config-options}
 
 <dl>
@@ -90,7 +90,7 @@ You need the [**Manager** service role](/docs/secrets-manager?topic=secrets-mana
 <dt><code>MAX_DURATION</code></dt>
 <dd>The maximum lifespan of the login token. Default is `24h`. This value can't exceed the Vault `MaxLeaseTTL` value.</dd>
 </dl>
-   
+
 #### Examples
 {: #vault-cli-write-token-config-examples}
 
@@ -124,14 +124,14 @@ vault read [-format=FORMAT] auth/ibmcloud/manage/login
 
 You need the [**Manager** service role](/docs/secrets-manager?topic=secrets-manager-iam) to manage the configuration of login tokens.
 
-#### Command options 
+#### Command options
 {: #vault-cli-read-token-config-options}
 
 <dl>
 <dt>-format</dt>
 <dd>Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
 </dl>
-   
+
 #### Examples
 {: #vault-cli-read-token-config-examples}
 
@@ -180,18 +180,18 @@ vault write [-format=FORMAT] auth/ibmcloud/manage/groups name=NAME [description=
 
 You need the [**Manager** service role](/docs/secrets-manager?topic=secrets-manager-iam) to create secret groups.
 
-#### Command options 
+#### Command options
 {: #vault-cli-create-secret-group-options}
 
 <dl>
     <dt><code>NAME</code></dt>
     <dd>The human-readable alias that you want to assign to the secret group.</dd>
-    <dt><code>DESCRIPTION</code></dt> 
+    <dt><code>DESCRIPTION</code></dt>
     <dd>(Optional) An extended description of the secret group.</dd>
     <dt>-format</dt>
     <dd>Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
 </dl>
-   
+
 #### Examples
 {: #vault-cli-create-secret-group-examples}
 
@@ -232,14 +232,14 @@ vault read [-format=FORMAT] auth/ibmcloud/manage/groups
 
 You need the [**Reader** service role](/docs/secrets-manager?topic=secrets-manager-iam) to list secret groups.
 
-#### Command options 
+#### Command options
 {: #vault-cli-list-secret-groups-options}
 
 <dl>
   <dt>-format</dt>
   <dd>Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
 </dl>
-   
+
 #### Examples
 {: #vault-cli-list-secret-groups-examples}
 
@@ -291,7 +291,7 @@ vault read [-format=FORMAT] auth/ibmcloud/manage/groups/SECRET_GROUP_ID
 
 You need the [**Reader** service role](/docs/secrets-manager?topic=secrets-manager-iam) to get the details of a secret group.
 
-#### Command options 
+#### Command options
 {: #vault-cli-get-secret-group-options}
 
 <dl>
@@ -300,7 +300,7 @@ You need the [**Reader** service role](/docs/secrets-manager?topic=secrets-manag
   <dt>-format</dt>
   <dd>Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
 </dl>
-   
+
 #### Examples
 {: #vault-cli-get-secret-group-examples}
 
@@ -349,7 +349,7 @@ vault write [-format=FORMAT] auth/ibmcloud/manage/groups/SECRET_GROUP_ID name=NA
 
 You need the [**Manager** service role](/docs/secrets-manager?topic=secrets-manager-iam) to update secret groups.
 
-#### Command options 
+#### Command options
 {: #vault-cli-update-secret-group-options}
 
 <dl>
@@ -357,12 +357,12 @@ You need the [**Manager** service role](/docs/secrets-manager?topic=secrets-mana
     <dd>The ID of the secret group that you want to update.</dd>
     <dt><code>NAME</code></dt>
     <dd>The human-readable alias that you want to assign to the secret group.</dd>
-    <dt><code>DESCRIPTION</code></dt> 
+    <dt><code>DESCRIPTION</code></dt>
     <dd>(Optional) An extended description of the secret group.</dd>
     <dt>-format</dt>
     <dd>Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
 </dl>
-   
+
 #### Examples
 {: #vault-cli-update-secret-group-examples}
 
@@ -404,14 +404,14 @@ vault delete auth/ibmcloud/manage/groups/SECRET_GROUP_ID
 
 You need the [**Manager** service role](/docs/secrets-manager?topic=secrets-manager-iam) to delete secret groups.
 
-#### Command options 
+#### Command options
 {: #vault-cli-delete-secret-group-options}
 
 <dl>
     <dt><code>SECRET_GROUP_ID</code></dt>
     <dd>The ID of the secret group that you want to delete.</dd>
 </dl>
-   
+
 #### Examples
 {: #vault-cli-delete-secret-group-examples}
 
@@ -441,12 +441,12 @@ Use the following commands to add a static secret, such as a user credential or 
 
 Create a secret in the `default` secret group.
 ```
-vault write [-format=FORMAT] ibmcloud/SECRET_ENGINE/secrets name=NAME [description="DESCRIPTION"] [username=USERNAME] [password=USERNAME] [payload=DATA] [expiration_date=EXPIRATION] [labels=LABEL,LABEL]
+vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets name=NAME [description="DESCRIPTION"] [username=USERNAME] [password=USERNAME] [payload=DATA] [expiration_date=EXPIRATION] [labels=LABEL,LABEL]
 ```
 
 Create a secret in a specified secret group.
 ```
-vault write [-format=FORMAT] ibmcloud/SECRET_ENGINE/secrets/group/SECRET_GROUP_ID name=NAME [description="DESCRIPTION"] [username=USERNAME] [password=USERNAME] [payload=DATA] [expiration_date=EXPIRATION] [labels=LABEL,LABEL]
+vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets/group/SECRET_GROUP_ID name=NAME [description="DESCRIPTION"] [username=USERNAME] [password=USERNAME] [payload=DATA] [expiration_date=EXPIRATION] [labels=LABEL,LABEL]
 ```
 
 #### Prerequisites
@@ -454,17 +454,17 @@ vault write [-format=FORMAT] ibmcloud/SECRET_ENGINE/secrets/group/SECRET_GROUP_I
 
 You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manager-iam) to create secrets.
 
-#### Command options 
+#### Command options
 {: #vault-cli-create-static-secret-options}
 
 <dl>
-    <dt><code>SECRET_ENGINE</code></dt>
-    <dd>The secret engine that identifies the type of secret that you want to create. Allowable values include: <code>username_password</code> and <code>arbitrary</code>.</dd>
+    <dt><code>SECRET_TYPE</code></dt>
+    <dd>The type of secret that you want to create. Allowable values include: <code>username_password</code> and <code>arbitrary</code>.</dd>
     <dt><code>SECRET_GROUP_ID</code></dt>
     <dd>The ID of the secret group that you want to assign to this secret.</dd>
     <dt><code>NAME</code></dt>
     <dd>The human-readable alias that you want to assign to the secret.</dd>
-    <dt><code>DESCRIPTION</code></dt> 
+    <dt><code>DESCRIPTION</code></dt>
     <dd>(Optional) An extended description to assign to the secret.</dd>
     <dt><code>USERNAME</code></dt>
     <dd>The username that you want to assign to the secret. Required for `username_password` secrets. </dd>
@@ -479,7 +479,7 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
     <dt>-format</dt>
     <dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
 </dl>
-   
+
 #### Examples
 {: ##vault-cli-create-static-secret-examples}
 
@@ -585,12 +585,12 @@ Use the following commands to list the static secrets in your {{site.data.keywor
 
 List secrets by type.
 ```
-vault read [-format=FORMAT] ibmcloud/SECRET_ENGINE/secrets 
+vault read [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets
 ```
 
 List secrets by secret group.
 ```
-vault read [-format=FORMAT] ibmcloud/SECRET_ENGINE/secrets/groups/ID 
+vault read [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets/groups/ID
 ```
 
 #### Prerequisites
@@ -598,23 +598,23 @@ vault read [-format=FORMAT] ibmcloud/SECRET_ENGINE/secrets/groups/ID
 
 You need the [**Reader** service role](/docs/secrets-manager?topic=secrets-manager-iam) to list secrets.
 
-#### Command options 
+#### Command options
 {: #vault-cli-list-static-secrets-options}
 
 <dl>
-<dt><code>SECRET_ENGINE</code></dt>
-<dd>The secret engine that identifies the type of secrets that you want to list. Allowable values include: <code>username_password</code> and <code>arbitrary</code>.</dd>
+<dt><code>SECRET_TYPE</code></dt>
+<dd>The type of secret that you want to list. Allowable values include: <code>username_password</code> and <code>arbitrary</code>.</dd>
 <dt>-format</dt>
 <dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
 </dl>
-   
+
 #### Examples
 {: #vault-cli-list-static-secrets-examples}
 
 Retrieve a list of available user credential secrets in the `default` secret group.
 
 ```
-vault read -format=json ibmcloud/username_password/secrets 
+vault read -format=json ibmcloud/username_password/secrets
 ```
 {: pre}
 
@@ -681,12 +681,12 @@ Use the following commands to retrieve a secret and its details.
 
 Get a secret that is in the `default` secret group.
 ```
-vault read [-format=FORMAT] ibmcloud/SECRET_ENGINE/secrets/SECRET_ID
+vault read [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets/SECRET_ID
 ```
 
 Get a secret that's assigned to a specified secret group.
 ```
-vault read [-format=FORMAT] ibmcloud/SECRET_ENGINE/secrets/groups/SECRET_GROUP_ID/SECRET_ID
+vault read [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets/groups/SECRET_GROUP_ID/SECRET_ID
 ```
 
 #### Prerequisites
@@ -694,12 +694,12 @@ vault read [-format=FORMAT] ibmcloud/SECRET_ENGINE/secrets/groups/SECRET_GROUP_I
 
 You need the [**SecretsReader** or **Writer** service role](/docs/secrets-manager?topic=secrets-manager-iam) to retrieve secrets.
 
-#### Command options 
+#### Command options
 {: #vault-cli-get-static-secret-options}
 
 <dl>
-<dt><code>SECRET_ENGINE</code></dt>
-<dd>The secret engine that identifies the type of secret that you want to retrieve. Allowable values include: <code>username_password</code> and <code>arbitrary</code>.</dd>
+<dt><code>SECRET_TYPE</code></dt>
+<dd>The type of secret that you want to retrieve. Allowable values include: <code>username_password</code> and <code>arbitrary</code>.</dd>
 <dt><code>SECRET_GROUP_ID</code></dt>
 <dd>The ID of the secret group that is assigned to the secret.</dd>
 <dt><code>SECRET_ID</code></dt>
@@ -707,7 +707,7 @@ You need the [**SecretsReader** or **Writer** service role](/docs/secrets-manage
 <dt>-format</dt>
 <dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
 </dl>
-   
+
 #### Examples
 {: #vault-cli-get-static-secret-examples}
 
@@ -761,7 +761,7 @@ The command returns the following output:
 Use this command to update the metadata of a secret, such as its name or description.
 
 ```
-vault write [-format=FORMAT] ibmcloud/SECRET_ENGINE/secrets/SECRET_ID/metadata name=NAME [description="DESCRIPTION"][expiration_date=EXPIRATION] [labels=LABEL,LABEL]
+vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets/SECRET_ID/metadata name=NAME [description="DESCRIPTION"][expiration_date=EXPIRATION] [labels=LABEL,LABEL]
 ```
 
 #### Prerequisites
@@ -769,17 +769,17 @@ vault write [-format=FORMAT] ibmcloud/SECRET_ENGINE/secrets/SECRET_ID/metadata n
 
 You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manager-iam) to update secrets.
 
-#### Command options 
+#### Command options
 {: #vault-cli-update-static-secret-options}
 
 <dl>
-    <dt><code>SECRET_ENGINE</code></dt>
-    <dd>The secret engine that identifies the type of secret that you want to update. Allowable values include: <code>username_password</code> and <code>arbitrary</code></dd>
+    <dt><code>SECRET_TYPE</code></dt>
+    <dd>The type of secret that you want to update. Allowable values include: <code>username_password</code> and <code>arbitrary</code></dd>
     <dt><code>SECRET_ID</code></dt>
     <dd>The ID of the secret that you want to update.</dd>
     <dt><code>NAME</code></dt>
     <dd>(Optional) The human-readable alias that you want to assign to the secret.</dd>
-    <dt><code>DESCRIPTION</code></dt> 
+    <dt><code>DESCRIPTION</code></dt>
     <dd>(Optional) An extended description to assign to the secret.</dd>
     <dt><code>EXPIRATION</code></dt>
     <dd>(Optional) The expiration date that you want to assign to the secret. The date format follows [RFC 3339](https://tools.ietf.org/html/rfc3339).</dd>
@@ -788,7 +788,7 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
     <dt>-format</dt>
     <dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
 </dl>
-   
+
 #### Examples
 {: #vault-cli-update-static-secret-examples}
 
@@ -832,7 +832,7 @@ The command returns the following output:
 Use this command to rotate a secret.
 
 ```
-vault write [-format=FORMAT] [-force] ibmcloud/SECRET_ENGINE/secrets/SECRET_ID/rotate [payload="SECRET_DATA"][username=USERNAME] [password=PASSWORD]
+vault write [-format=FORMAT] [-force] ibmcloud/SECRET_TYPE/secrets/SECRET_ID/rotate [payload="SECRET_DATA"][username=USERNAME] [password=PASSWORD]
 ```
 
 #### Prerequisites
@@ -840,12 +840,12 @@ vault write [-format=FORMAT] [-force] ibmcloud/SECRET_ENGINE/secrets/SECRET_ID/r
 
 You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manager-iam) to rotate secrets.
 
-#### Command options 
+#### Command options
 {: #vault-cli-rotate-static-secret-options}
 
 <dl>
-    <dt><code>SECRET_ENGINE</code></dt>
-    <dd>The secret engine that identifies the type of secret that you want to rotate. Allowable values include: <code>username_password</code> and <code>arbitrary</code></dd>
+    <dt><code>SECRET_TYPE</code></dt>
+    <dd>The type of secret that you want to rotate. Allowable values include: <code>username_password</code> and <code>arbitrary</code></dd>
     <dt><code>SECRET_ID</code></dt>
     <dd>The ID of the secret that you want to update.</dd>
     <dt><code>SECRET_DATA</code></dt>
@@ -857,7 +857,7 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
     <dt>-force</dt>
     <dd>(Optional) Replaces the password that is stored for a `username_password` secret with a randomly generated, 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.</dd>
 </dl>
-   
+
 #### Examples
 {: #vault-cli-rotate-static-secret-examples}
 
@@ -947,7 +947,7 @@ The command to manually rotate a `username_password` secret with a service-gener
 Use this command to delete a secret.
 
 ```
-vault delete ibmcloud/SECRET_ENGINE/secrets/SECRET_ID
+vault delete ibmcloud/SECRET_TYPE/secrets/SECRET_ID
 ```
 
 #### Prerequisites
@@ -955,16 +955,16 @@ vault delete ibmcloud/SECRET_ENGINE/secrets/SECRET_ID
 
 You need the [**Manager** service role](/docs/secrets-manager?topic=secrets-manager-iam) to delete secrets.
 
-#### Command options 
+#### Command options
 {: #vault-cli-delete-static-secret-options}
 
 <dl>
-    <dt><code>SECRET_ENGINE</code></dt>
-    <dd>The secret engine that identifies the type of secret that you want to delete. Allowable values include: <code>username_password</code> and <code>arbitrary</code></dd>
+    <dt><code>SECRET_TYPE</code></dt>
+    <dd>The type of secret that you want to delete. Allowable values include: <code>username_password</code> and <code>arbitrary</code></dd>
     <dt><code>SECRET_ID</code></dt>
     <dd>The ID of the secret that you want to delete.</dd>
 </dl>
-   
+
 #### Examples
 {: #vault-cli-delete-static-secret-examples}
 
@@ -994,17 +994,17 @@ To create a dynamic secret by using the Vault CLI, use the `role` command to sco
 ### Create a role
 {: #vault-cli-create-role}
 
-Use the following commands to register a role for a [secret engine that supports dynamic secrets](/docs/secrets-manager?topic=secrets-manager-secret-engines#configure-engines). After you create a role, you can [generate credentials](/docs/secrets-manager?topic=secrets-manager-vault-cli#vault-cli-create-iam-creds-for-role) for it. The configuration that you define for role, such as its name, lease duration, and access permissions, is inherited by the generated credentials. 
+Use the following commands to register a role for a [secrets engine that supports dynamic secrets](/docs/secrets-manager?topic=secrets-manager-secret-engines#configure-engines). After you create a role, you can [generate credentials](/docs/secrets-manager?topic=secrets-manager-vault-cli#vault-cli-create-iam-creds-for-role) for it. The configuration that you define for role, such as its name, lease duration, and access permissions, is inherited by the generated credentials.
 
 
 Create a role in the `default` secret group.
 ```
-vault write [-format=FORMAT] ibmcloud/SECRET_ENGINE/roles/ROLE_NAME access_groups=ACCESS_GROUP_ID,ACCESS_GROUP_ID ttl=LEASE_DURATION [description="DESCRIPTION"] [labels=LABEL,LABEL]
+vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/roles/ROLE_NAME access_groups=ACCESS_GROUP_ID,ACCESS_GROUP_ID ttl=LEASE_DURATION [description="DESCRIPTION"] [labels=LABEL,LABEL]
 ```
 
 Create a role in a specified secret group.
 ```
-vault write [-format=FORMAT] ibmcloud/SECRET_ENGINE/roles/groups/SECRET_GROUP_ID/ROLE_NAME access_groups=ACCESS_GROUP_ID,ACCESS_GROUP_ID ttl=LEASE_DURATION [description="DESCRIPTION"] [labels=LABEL,LABEL]
+vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/roles/groups/SECRET_GROUP_ID/ROLE_NAME access_groups=ACCESS_GROUP_ID,ACCESS_GROUP_ID ttl=LEASE_DURATION [description="DESCRIPTION"] [labels=LABEL,LABEL]
 ```
 
 #### Prerequisites
@@ -1012,12 +1012,12 @@ vault write [-format=FORMAT] ibmcloud/SECRET_ENGINE/roles/groups/SECRET_GROUP_ID
 
 You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manager-iam) to create secrets.
 
-#### Command options 
+#### Command options
 {: #vault-cli-create-role-options}
 
 <dl>
-    <dt><code>SECRET_ENGINE</code></dt>
-    <dd>The secret engine that you want to use to create dynamic secrets. Currently, <code>iam_credentials</code> is supported.</dd>
+    <dt><code>SECRET_TYPE</code></dt>
+    <dd>The type of secret that you want to create. Currently, <code>iam_credentials</code> is supported.</dd>
     <dt><code>SECRET_GROUP_ID</code></dt>
     <dd>The ID of the secret group that you want to assign to the role and its credentials.</dd>
     <dt><code>ROLE_NAME</code></dt>
@@ -1026,14 +1026,14 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
     <dd>The ID of the access group that determines the scope of access to assign to the role and its credentials.</dd>
     <dt><code>LEASE_DURATION</code></dt>
     <dd>The time-to-live (TTL) that determines how long a role's generated credentials can exist. Use a duration string such as `300s` or `1h30m`. Valid time units are `s`, `m`, and `h`.</dd>
-    <dt><code>DESCRIPTION</code></dt> 
+    <dt><code>DESCRIPTION</code></dt>
     <dd>(Optional) An extended description to assign to the role and its credentials.</dd>
     <dt><code>LABELS</code></dt>
     <dd>(Optional) Labels that you can use to group and search for similar secrets in your instance.</dd>
     <dt>-format</dt>
     <dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
 </dl>
-   
+
 #### Examples
 {: #vault-cli-create-role-examples}
 
@@ -1111,7 +1111,7 @@ The generated API keys are renewable and have a time-to-live (TTL) as defined by
 
 You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manager-iam) to create secrets.
 
-#### Command options 
+#### Command options
 {: #vault-cli-create-iam-creds-for-role-options}
 
 <dl>
@@ -1122,7 +1122,7 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
     <dt>-format</dt>
     <dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
 </dl>
-   
+
 #### Examples
 {: #vault-cli-create-iam-creds-for-role-examples}
 
@@ -1187,12 +1187,12 @@ Use the following commands to list the roles or secrets in your {{site.data.keyw
 
 List roles by type.
 ```
-vault read [-format=FORMAT] ibmcloud/SECRET_ENGINE/roles
+vault read [-format=FORMAT] ibmcloud/SECRET_TYPE/roles
 ```
 
 List roles by secret group ID.
 ```
-vault read [-format=FORMAT] ibmcloud/SECRET_ENGINE/roles/groups/SECRET_GROUP_ID 
+vault read [-format=FORMAT] ibmcloud/SECRET_TYPE/roles/groups/SECRET_GROUP_ID
 ```
 
 #### Prerequisites
@@ -1200,18 +1200,18 @@ vault read [-format=FORMAT] ibmcloud/SECRET_ENGINE/roles/groups/SECRET_GROUP_ID
 
 You need the [**Reader** service role](/docs/secrets-manager?topic=secrets-manager-iam) to list secrets.
 
-#### Command options 
+#### Command options
 {: #vault-cli-list-roles-options}
 
 <dl>
-<dt><code>SECRET_ENGINE</code></dt>
-<dd>The secret engine that identifies the type of secrets that you want to list. Currently, <code>iam_credentials</code> is supported.</dd>
+<dt><code>SECRET_TYPE</code></dt>
+<dd>The type of secret that you want to list. Currently, <code>iam_credentials</code> is supported.</dd>
 <dt><code>SECRET_GROUP_ID</code></dt>
 <dd>The ID of the secret group.</dd>
 <dt>-format</dt>
 <dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
 </dl>
-   
+
 #### Examples
 {: #vault-cli-list-roles-examples}
 
@@ -1289,17 +1289,17 @@ If the role belongs to a secret group, the `roles.data.secret_group_id` value is
 ### Read the metadata of a role
 {: #vault-cli-read-role-metadata}
 
-Use the following commands to view details about a registered role or secret, such as its name and history. 
+Use the following commands to view details about a registered role or secret, such as its name and history.
 
 View the details of a role in the `default` secret group.
 
 ```
-vault read [-format=FORMAT] ibmcloud/SECRET_ENGINE/roles/ROLE_ID/metadata
+vault read [-format=FORMAT] ibmcloud/SECRET_TYPE/roles/ROLE_ID/metadata
 ```
 
 View the details of a role that's assigned to a secret group.
 ```
-vault read [-format=FORMAT] ibmcloud/SECRET_ENGINE/roles/groups/GROUP_ID/ROLE/metadata
+vault read [-format=FORMAT] ibmcloud/SECRET_TYPE/roles/groups/GROUP_ID/ROLE/metadata
 ```
 
 #### Prerequisites
@@ -1307,12 +1307,12 @@ vault read [-format=FORMAT] ibmcloud/SECRET_ENGINE/roles/groups/GROUP_ID/ROLE/me
 
 You need the [**Reader** service role](/docs/secrets-manager?topic=secrets-manager-iam) to view the metadata of a secret.
 
-#### Command options 
+#### Command options
 {: #vault-cli-read-role-metadata-options}
 
 <dl>
-    <dt><code>SECRET_ENGINE</code></dt>
-    <dd>The secret engine that identifies the type of secret that you want to view. Currently, <code>iam_credentials</code> is supported.</dd>
+    <dt><code>SECRET_TYPE</code></dt>
+    <dd>The type of secret that you want to view. Currently, <code>iam_credentials</code> is supported.</dd>
     <dt><code>SECRET_GROUP_ID</code></dt>
     <dd>The ID of the secret group that is assigned to the role and its credentials</dd>
     <dt><code>ROLE_ID</code></dt>
@@ -1320,7 +1320,7 @@ You need the [**Reader** service role](/docs/secrets-manager?topic=secrets-manag
     <dt>-format</dt>
     <dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
 </dl>
-   
+
 #### Examples
 {: #vault-cli-read-role-metadata-examples}
 
@@ -1370,17 +1370,17 @@ The command returns the following output:
 ### Update the metadata of a role
 {: #vault-cli-update-role-metadata}
 
-Use the following commands to view details about a registered role or secret, such as its name and history. 
+Use the following commands to view details about a registered role or secret, such as its name and history.
 
 Update the details of a role in the `default` secret group.
 
 ```
-vault write [-format=FORMAT] ibmcloud/SECRET_ENGINE/roles/ROLE_ID/metadata [name="ROLE_NAME"] [access_groups=ACCESS_GROUP_ID,ACCESS_GROUP_ID] [ttl=LEASE_DURATION] [description="DESCRIPTION"] [labels=LABEL,LABEL]
+vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/roles/ROLE_ID/metadata [name="ROLE_NAME"] [access_groups=ACCESS_GROUP_ID,ACCESS_GROUP_ID] [ttl=LEASE_DURATION] [description="DESCRIPTION"] [labels=LABEL,LABEL]
 ```
 
 Update the details of a role that's assigned to a secret group.
 ```
-vault write [-format=FORMAT] ibmcloud/SECRET_ENGINE/roles/groups/SECRET_GROUP_ID/ROLE_ID/metadata [name="ROLE_NAME"] [access_groups=ACCESS_GROUP_ID,ACCESS_GROUP_ID] [ttl=LEASE_DURATION] [description="DESCRIPTION"] [labels=LABEL,LABEL]
+vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/roles/groups/SECRET_GROUP_ID/ROLE_ID/metadata [name="ROLE_NAME"] [access_groups=ACCESS_GROUP_ID,ACCESS_GROUP_ID] [ttl=LEASE_DURATION] [description="DESCRIPTION"] [labels=LABEL,LABEL]
 ```
 
 #### Prerequisites
@@ -1388,12 +1388,12 @@ vault write [-format=FORMAT] ibmcloud/SECRET_ENGINE/roles/groups/SECRET_GROUP_ID
 
 You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manager-iam) to update the metadata of a secret.
 
-#### Command options 
+#### Command options
 {: #vault-cli-update-role-metadata-options}
 
 <dl>
-    <dt><code>SECRET_ENGINE</code></dt>
-    <dd>The secret engine that identifies the type of secret that you want to update. Currently, <code>iam_credentials</code> is supported.</dd>
+    <dt><code>SECRET_TYPE</code></dt>
+    <dd>The type of secret that you want to update. Currently, <code>iam_credentials</code> is supported.</dd>
     <dt><code>SECRET_GROUP_ID</code></dt>
     <dd>The ID of the secret group that is assigned to the role and its credentials.</dd>
     <dt><code>ROLE_ID</code></dt>
@@ -1404,14 +1404,14 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
     <dd>(Optional) The time-to-live (TTL) that determines how long a role's generated credentials can exist. Use a duration string such as `300s` or `1h30m`. Valid time units are `s`, `m`, and `h`.</dd>
     <dt><code>ROLE_NAME</code></dt>
     <dd>(Optional) The new name that you want to assign for this secret.</dd>
-    <dt><code>DESCRIPTION</code></dt> 
+    <dt><code>DESCRIPTION</code></dt>
     <dd>(Optional) An extended description to assign to the role and its credentials.</dd>
     <dt><code>LABELS</code></dt>
     <dd>(Optional) Labels that you can use to group and search for similar secrets in your instance.</dd>
     <dt>-format</dt>
     <dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
 </dl>
-   
+
 #### Examples
 {: #vault-cli-update-role-metadata-examples}
 
@@ -1460,17 +1460,17 @@ The command returns the following output:
 ### Delete a role
 {: #vault-cli-delete-role}
 
-Use the following commands to delete a role from a secret engine.
+Use the following commands to delete a role.
 
 Delete a role in the `default` secret group.
 
 ```
-vault delete ibmcloud/SECRET_ENGINE/roles/ROLE_ID
+vault delete ibmcloud/SECRET_TYPE/roles/ROLE_ID
 ```
 
 Delete a role that's assigned to a secret group.
 ```
-vault delete ibmcloud/SECRET_ENGINE/roles/groups/SECRET_GROUP_ID/ROLE_ID
+vault delete ibmcloud/SECRET_TYPE/roles/groups/SECRET_GROUP_ID/ROLE_ID
 ```
 
 #### Prerequisites
@@ -1478,18 +1478,18 @@ vault delete ibmcloud/SECRET_ENGINE/roles/groups/SECRET_GROUP_ID/ROLE_ID
 
 You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manager-iam) to update the metadata of a secret.
 
-#### Command options 
+#### Command options
 {: #vault-cli-delete-role-options}
 
 <dl>
-    <dt><code>SECRET_ENGINE</code></dt>
-    <dd>The secret engine that identifies the type of secret that you want to delete. Currently, <code>iam_credentials</code> is supported.</dd>
+    <dt><code>SECRET_TYPE</code></dt>
+    <dd>The type of secret that you want to delete. Currently, <code>iam_credentials</code> is supported.</dd>
     <dt><code>SECRET_GROUP_ID</code></dt>
     <dd>The ID of the secret group that is assigned to the role and its credentials.</dd>
     <dt><code>ROLE_ID</code></dt>
     <dd>The ID that assigned to this secret.</dd>
 </dl>
-   
+
 #### Examples
 {: #vault-cli-delete-role-examples}
 

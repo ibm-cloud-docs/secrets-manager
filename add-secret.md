@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-18"
+lastupdated: "2021-02-19"
 
 keywords: create secrets, add secrets, store secrets, single tenant secret storage, manage secrets
 
@@ -281,7 +281,7 @@ A successful response returns the ID value for the secret, along with other meta
 ## Creating IAM credentials
 {: #store-iam-credentials}
 
-You can use the {{site.data.keyword.secrets-manager_short}} to create dynamic IAM credentials for accessing an {{site.data.keyword.cloud_notm}} resource that requires IAM authentication. When you create your credentials, {{site.data.keyword.secrets-manager_short}} creates a service ID and an API key. Your credentials are dynamically generated only when you or your application needs to access a protected {{site.data.keyword.cloud_notm}} resource. After the credentials reach the end of their lease, {{site.data.keyword.secrets-manager_short}} revokes them automatically on your behalf.
+You can use {{site.data.keyword.secrets-manager_short}} to create dynamic IAM credentials for accessing an {{site.data.keyword.cloud_notm}} resource that requires IAM authentication. When you create your credentials, {{site.data.keyword.secrets-manager_short}} creates a service ID and an API key. Your credentials are dynamically generated only when you or your application needs to access a protected {{site.data.keyword.cloud_notm}} resource. After the credentials reach the end of their lease, {{site.data.keyword.secrets-manager_short}} revokes them automatically on your behalf.
 
 Before you create IAM credentials in {{site.data.keyword.secrets-manager_short}}, you need to configure an IAM secrets engine to enable a connection between your {{site.data.keyword.secrets-manager_short}} instance and IAM. For more information, check out [Enabling the IAM secrets engine](/docs/secrets-manager?topic=secrets-manager-secret-engines#configure-iam-engine).
 {: note}
