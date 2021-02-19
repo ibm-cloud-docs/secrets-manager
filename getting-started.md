@@ -59,7 +59,7 @@ subcollection: secrets-manager
 {: toc-services="secrets-manager"}
 {: toc-completion-time="10m"}
 
-This tutorial focuses on storing and managing a username and password in {{site.data.keyword.secrets-manager_full}} by using the {{site.data.keyword.secrets-manager_short}} UI. With {{site.data.keyword.secrets-manager_short}}, you can create, lease, and centrally manage secrets that are used in {{site.data.keyword.cloud_notm}} services or your custom-built applications. Secrets are stored in a dedicated {{site.data.keyword.secrets-manager_short}} instance, built on open source HashiCorp Vault.
+This tutorial focuses on storing and managing a username and password in {{site.data.keyword.secrets-manager_full}}. With {{site.data.keyword.secrets-manager_short}}, you can create, lease, and centrally manage secrets that are used in {{site.data.keyword.cloud_notm}} services or your custom-built applications. Secrets are stored in a dedicated {{site.data.keyword.secrets-manager_short}} instance, built on open source HashiCorp Vault.
 {:shortdesc}
 
 Looking for a different secret type? You can also create Identity and Access Management (IAM) credentials to access an {{site.data.keyword.cloud_notm}} resource, or you can add custom secrets that can hold structured or unstructured data.
@@ -75,9 +75,7 @@ Before you begin, be sure to [create a {{site.data.keyword.secrets-manager_short
 {: #gs-secret-type}
 {: step}
 
-A secret is a piece of sensitive information, such as an API key, a username and password, or any type of credential that you use to access a protected or confidential system.
-
-You can get started with {{site.data.keyword.secrets-manager_short}} by choosing the type of secret that is required by the resource that you want to access. For this tutorial, complete the following steps to select a secret that contains a username and password.
+You can get started with {{site.data.keyword.secrets-manager_short}} by choosing the type of [secret](#x2789492){: term} that is required by the resource that you want to access. For this tutorial, complete the following steps to select a secret that contains a username and password.
 
 1. In the {{site.data.keyword.cloud_notm}} console, go to **Menu** ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
