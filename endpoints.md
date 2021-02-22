@@ -71,10 +71,7 @@ You can create {{site.data.keyword.secrets-manager_short}} resources in one of t
 ## Service endpoints
 {: #service-endpoints}
 
-
-
 If you are managing your {{site.data.keyword.secrets-manager_short}} resources programmatically, see the following table to determine the API endpoints to use when you connect to the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager){: external}.
-
 
 | Region        | Endpoint URL             |
 | ------------- | ---------------------------- |
@@ -100,8 +97,6 @@ If you are managing your {{site.data.keyword.secrets-manager_short}} resources p
 
 Ready to try the APIs? To interact with a Swagger UI from your browser, remove `/api` from your service endpoint URL and replace it with `/swagger-ui`. For example, `https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/swagger-ui`.
 {: tip}
-
-
 
 
 
