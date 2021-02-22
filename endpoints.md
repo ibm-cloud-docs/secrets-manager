@@ -84,7 +84,7 @@ If you are managing your {{site.data.keyword.secrets-manager_short}} resources p
 {: caption="Table 1. Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using standard {{site.data.keyword.cloud_notm}} APIs" caption-side="top"}
 {: #table-1}
 {: tab-title="Service API"}
-{: class="comparison-tab-table"}
+{: class="simple-tab-table"}
 {: row-headers}
 
 | Region        | Endpoint URL             |
@@ -95,7 +95,7 @@ If you are managing your {{site.data.keyword.secrets-manager_short}} resources p
 {: caption="Table 2. Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
 {: #table-2}
 {: tab-title="Vault API"}
-{: class="comparison-tab-table"}
+{: class="simple-tab-table"}
 {: row-headers}
 
 Ready to try the APIs? To interact with a Swagger UI from your browser, remove `/api` from your service endpoint URL and replace it with `/swagger-ui`. For example, `https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/swagger-ui`.
