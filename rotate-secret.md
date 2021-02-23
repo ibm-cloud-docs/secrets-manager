@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-18"
+lastupdated: "2021-02-23"
 
 keywords: rotate secrets, manually rotate, new secret, automatically rotate, automatic rotation, set rotation policy
 
@@ -100,7 +100,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 {: api}
 
 
-You can delete secrets by calling the {{site.data.keyword.secrets-manager_short}} API.
+You can rotate secrets by calling the {{site.data.keyword.secrets-manager_short}} API.
 
 The following example request creates a new version of your secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
