@@ -1,8 +1,8 @@
 ---
- 
+
 copyright:
   years: 2021
-lastupdated: "2021-02-05"
+lastupdated: "2021-02-23"
 
 subcollection: secrets-manager
 
@@ -62,7 +62,7 @@ keywords: Secrets Manager CLI, Secrets Manager command line , Secrets Manager te
 
 
 You can use the {{site.data.keyword.secrets-manager_full}} command-line interface (CLI) to manage secrets in your {{site.data.keyword.secrets-manager_short}} instance.
-{: shortdesc} 
+{: shortdesc}
 
 
 
@@ -86,8 +86,8 @@ You can use the {{site.data.keyword.secrets-manager_full}} command-line interfac
     export IBM_CLOUD_SECRETS_MANAGER_API_URL=https://{instance_ID}.{region}.secrets-manager.appdomain.cloud
     ```
     {: pre}
-  
-    Replace `{instance_ID}` and `{region}` with the values that apply to your {{site.data.keyword.secrets-manager_short}} service instance. To find the endpoint URL that is specific to your instance, you can copy it from the **Endpoints** page in the {{site.data.keyword.secrets-manager_short}} UI. For more information, see [Retrieving your service endpoint URLs](/docs/secrets-manager?topic=secrets-manager-endpoints#retrieve-service-endpoints)
+
+    Replace `{instance_ID}` and `{region}` with the values that apply to your {{site.data.keyword.secrets-manager_short}} service instance. To find the endpoint URL that is specific to your instance, you can copy it from the **Endpoints** page in the {{site.data.keyword.secrets-manager_short}} UI. For more information, see [Viewing your endpoint URLs](/docs/secrets-manager?topic=secrets-manager-endpoints#retrieve-service-endpoints)
 
     If you copy your service endpoint URL from the {{site.data.keyword.secrets-manager_short}} UI, be sure to trim `/api` from the URL before you export it as variable to use with the CLI plug-in.
     {: important}
@@ -105,14 +105,14 @@ You can use the {{site.data.keyword.secrets-manager_full}} command-line interfac
 Updates the configuration for the given secret type.
 
 ```sh
-ibmcloud secrets-manager config-update --secret-type SECRET-TYPE --engine-config-one-of ENGINE-CONFIG-ONE-OF 
+ibmcloud secrets-manager config-update --secret-type SECRET-TYPE --engine-config-one-of ENGINE-CONFIG-ONE-OF
 ```
 
 
 #### Command options
 {: #secrets-manager-config-update-cli-options}
 
-<dl> 
+<dl>
 <dt>--secret-type (string)</dt>
 <dd>The secret type. Required.</dd>
 <dd>Allowable values are: iam_credentials</dd>
@@ -126,14 +126,14 @@ ibmcloud secrets-manager config-update --secret-type SECRET-TYPE --engine-config
 Retrieves the configuration that is associated with the given secret type.
 
 ```sh
-ibmcloud secrets-manager config --secret-type SECRET-TYPE 
+ibmcloud secrets-manager config --secret-type SECRET-TYPE
 ```
 
 
 #### Command options
 {: #secrets-manager-config-cli-options}
 
-<dl> 
+<dl>
 <dt>--secret-type (string)</dt>
 <dd>The secret type. Required.</dd>
 <dd>Allowable values are: iam_credentials</dd>
@@ -148,14 +148,14 @@ ibmcloud secrets-manager config --secret-type SECRET-TYPE
 Creates or updates one or more policies, such as an [automatic rotation policy](/docs/secrets-manager?topic=secrets-manager-rotate-secrets#auto-rotate-secret),  for the specified secret.
 
 ```sh
-ibmcloud secrets-manager policy-update --secret-type SECRET-TYPE --id ID --metadata METADATA --resources RESOURCES [--policy POLICY] 
+ibmcloud secrets-manager policy-update --secret-type SECRET-TYPE --id ID --metadata METADATA --resources RESOURCES [--policy POLICY]
 ```
 
 
 #### Command options
 {: #secrets-manager-policy-update-cli-options}
 
-<dl> 
+<dl>
 <dt>--secret-type (string)</dt>
 <dd>The secret type. Required.</dd>
 <dd>Allowable values are: username_password</dd>
@@ -177,14 +177,14 @@ ibmcloud secrets-manager policy-update --secret-type SECRET-TYPE --id ID --metad
 Retrieves a list of policies that are associated with a specified secret.
 
 ```sh
-ibmcloud secrets-manager policy --secret-type SECRET-TYPE --id ID [--policy POLICY] 
+ibmcloud secrets-manager policy --secret-type SECRET-TYPE --id ID [--policy POLICY]
 ```
 
 
 #### Command options
 {: #secrets-manager-policy-cli-options}
 
-<dl> 
+<dl>
 <dt>--secret-type (string)</dt>
 <dd>The secret type. Required.</dd>
 <dd>Allowable values are: username_password</dd>
@@ -207,14 +207,14 @@ Creates a secret group that you can use to organize secrets and control who on y
 A successful request returns the ID value of the secret group, along with other metadata. To learn more about  secret groups, check out the [docs](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 
 ```sh
-ibmcloud secrets-manager secret-group-create --metadata METADATA --resources RESOURCES 
+ibmcloud secrets-manager secret-group-create --metadata METADATA --resources RESOURCES
 ```
 
 
 #### Command options
 {: #secrets-manager-secret-group-create-cli-options}
 
-<dl> 
+<dl>
 <dt>--metadata</dt>
 <dd>The metadata that describes the resource array. Required.</dd>
 <dt>--resources (array)</dt>
@@ -227,7 +227,7 @@ ibmcloud secrets-manager secret-group-create --metadata METADATA --resources RES
 Retrieves the list of secret groups that are available in your {{site.data.keyword.secrets-manager_short}} instance.
 
 ```sh
-ibmcloud secrets-manager secret-groups 
+ibmcloud secrets-manager secret-groups
 ```
 
 
@@ -237,14 +237,14 @@ ibmcloud secrets-manager secret-groups
 Retrieves the metadata of an existing secret group by specifying the ID of the group.
 
 ```sh
-ibmcloud secrets-manager secret-group --id ID 
+ibmcloud secrets-manager secret-group --id ID
 ```
 
 
 #### Command options
 {: #secrets-manager-secret-group-cli-options}
 
-<dl> 
+<dl>
 <dt>--id (string)</dt>
 <dd>The v4 UUID that uniquely identifies the secret group. Required.</dd>
 <dd>The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`</dd>
@@ -256,14 +256,14 @@ ibmcloud secrets-manager secret-group --id ID
 Updates the metadata of an existing secret group, such as its name or description.
 
 ```sh
-ibmcloud secrets-manager secret-group-metadata-update --id ID --metadata METADATA --resources RESOURCES 
+ibmcloud secrets-manager secret-group-metadata-update --id ID --metadata METADATA --resources RESOURCES
 ```
 
 
 #### Command options
 {: #secrets-manager-secret-group-metadata-update-cli-options}
 
-<dl> 
+<dl>
 <dt>--id (string)</dt>
 <dd>The v4 UUID that uniquely identifies the secret group. Required.</dd>
 <dd>The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`</dd>
@@ -290,7 +290,7 @@ ibmcloud secrets-manager secret-group-delete --id ID [--force]
 
 <dl>
 <dt>-f, --force</dt>
-<dd>Force the operation without a confirmation.</dd> 
+<dd>Force the operation without a confirmation.</dd>
 <dt>--id (string)</dt>
 <dd>The v4 UUID that uniquely identifies the secret group. Required.</dd>
 <dd>The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`</dd>
@@ -309,14 +309,14 @@ A successful request stores the secret in your dedicated instance based on the s
 To learn more about the types of secrets that you can create with {{site.data.keyword.secrets-manager_short}}, check out the [docs](/docs/secrets-manager?topic=secrets-manager-secret-basics).
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-type SECRET-TYPE --metadata METADATA --resources RESOURCES 
+ibmcloud secrets-manager secret-create --secret-type SECRET-TYPE --metadata METADATA --resources RESOURCES
 ```
 
 
 #### Command options
 {: #secrets-manager-secret-create-cli-options}
 
-<dl> 
+<dl>
 <dt>--secret-type (string)</dt>
 <dd>The secret type. Required.</dd>
 <dd>Allowable values are: arbitrary, username_password, iam_credentials</dd>
@@ -332,14 +332,14 @@ ibmcloud secrets-manager secret-create --secret-type SECRET-TYPE --metadata META
 Retrieves a list of secrets based on the type that you specify.
 
 ```sh
-ibmcloud secrets-manager secrets --secret-type SECRET-TYPE [--limit LIMIT] [--offset OFFSET] 
+ibmcloud secrets-manager secrets --secret-type SECRET-TYPE [--limit LIMIT] [--offset OFFSET]
 ```
 
 
 #### Command options
 {: #secrets-manager-secrets-cli-options}
 
-<dl> 
+<dl>
 <dt>--secret-type (string)</dt>
 <dd>The secret type. Required.</dd>
 <dd>Allowable values are: arbitrary, username_password, iam_credentials</dd>
@@ -361,14 +361,14 @@ ibmcloud secrets-manager secrets --secret-type SECRET-TYPE [--limit LIMIT] [--of
 Retrieves a list of all secrets in your {{site.data.keyword.secrets-manager_short}} instance.
 
 ```sh
-ibmcloud secrets-manager all-secrets [--limit LIMIT] [--offset OFFSET] 
+ibmcloud secrets-manager all-secrets [--limit LIMIT] [--offset OFFSET]
 ```
 
 
 #### Command options
 {: #secrets-manager-all-secrets-cli-options}
 
-<dl> 
+<dl>
 <dt>--limit (integer)</dt>
 <dd>The number of secrets to retrieve. By default, list operations return the first 200 items. To retrieve a different set of items, use `limit` with `offset` to page through your available resources.</dd>
 <dd>**Usage:** If you have 20 secrets in your instance, and you want to retrieve only the first 5 secrets, use
@@ -389,14 +389,14 @@ Retrieves a secret and its details by specifying the ID of the secret.
 A successful request returns the secret data that is associated with your secret, along with other metadata. To  view only the details of a specified secret without retrieving its value, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command)  method.
 
 ```sh
-ibmcloud secrets-manager secret --secret-type SECRET-TYPE --id ID 
+ibmcloud secrets-manager secret --secret-type SECRET-TYPE --id ID
 ```
 
 
 #### Command options
 {: #secrets-manager-secret-cli-options}
 
-<dl> 
+<dl>
 <dt>--secret-type (string)</dt>
 <dd>The secret type. Required.</dd>
 <dd>Allowable values are: arbitrary, username_password, iam_credentials</dd>
@@ -414,14 +414,14 @@ Invokes an action on a specified secret. This method supports the following acti
 - `delete_credentials`: Delete the API key that is associated with an `iam_credentials` secret.
 
 ```sh
-ibmcloud secrets-manager secret-update --secret-type SECRET-TYPE --id ID --action ACTION --secret-action-one-of SECRET-ACTION-ONE-OF 
+ibmcloud secrets-manager secret-update --secret-type SECRET-TYPE --id ID --action ACTION --secret-action-one-of SECRET-ACTION-ONE-OF
 ```
 
 
 #### Command options
 {: #secrets-manager-secret-update-cli-options}
 
-<dl> 
+<dl>
 <dt>--secret-type (string)</dt>
 <dd>The secret type. Required.</dd>
 <dd>Allowable values are: arbitrary, username_password, iam_credentials</dd>
@@ -448,9 +448,9 @@ ibmcloud secrets-manager secret-delete --secret-type SECRET-TYPE --id ID [--forc
 #### Command options
 {: #secrets-manager-secret-delete-cli-options}
 
-<dl> 
+<dl>
 <dt>-f, --force</dt>
-<dd>Force the operation without a confirmation.</dd> 
+<dd>Force the operation without a confirmation.</dd>
 <dt>--secret-type (string)</dt>
 <dd>The secret type. Required.</dd>
 <dd>Allowable values are: arbitrary, username_password, iam_credentials</dd>
@@ -467,14 +467,14 @@ Retrieves the details of a secret by specifying the ID.
 A successful request returns only metadata about the secret, such as its name and creation date. To retrieve the  value of a secret, use the [Get a secret](#secrets-manager-cli-secret-command) method.
 
 ```sh
-ibmcloud secrets-manager secret-metadata --secret-type SECRET-TYPE --id ID 
+ibmcloud secrets-manager secret-metadata --secret-type SECRET-TYPE --id ID
 ```
 
 
 #### Command options
 {: #secrets-manager-secret-metadata-cli-options}
 
-<dl> 
+<dl>
 <dt>--secret-type (string)</dt>
 <dd>The secret type. Required.</dd>
 <dd>Allowable values are: arbitrary, username_password, iam_credentials</dd>
@@ -491,14 +491,14 @@ Updates the metadata of a secret, such as its name or description.
 To update the actual contents of a secret, rotate the secret by using the [Invoke an action on a secret](#secrets-manager-cli-secret-update-command) method.
 
 ```sh
-ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id ID --metadata METADATA --resources RESOURCES 
+ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id ID --metadata METADATA --resources RESOURCES
 ```
 
 
 #### Command options
 {: #secrets-manager-secret-metadata-update-cli-options}
 
-<dl> 
+<dl>
 <dt>--secret-type (string)</dt>
 <dd>The secret type. Required.</dd>
 <dd>Allowable values are: arbitrary, username_password, iam_credentials</dd>

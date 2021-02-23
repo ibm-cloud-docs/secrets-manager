@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-22"
+lastupdated: "2021-02-23"
 
 keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, lite plan
 
@@ -81,7 +81,8 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} from the {{
     You can enhance the security of your secrets at rest by integrating with a key management service. For more information about customer-managed encryption, check out [Protecting your sensitive data in {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption).
 9. Click **Create** to create an instance of {{site.data.keyword.secrets-manager_short}} in the account, region, and resource group that you selected.
 
-  Provisioning your dedicated {{site.data.keyword.secrets-manager_short}} instance can take between 5 - 8 minutes to complete.
+    Provisioning a {{site.data.keyword.secrets-manager_short}} instance can take 5 - 8 minutes to complete.
+    {: note}
 
 ## Creating a {{site.data.keyword.secrets-manager_short}} instance from the CLI
 {: #create-instance-cli}
@@ -123,3 +124,6 @@ You can also create an instance of {{site.data.keyword.secrets-manager_short}} b
     ibmcloud resource service-instances
     ```
     {: pre}
+
+    Provisioning a {{site.data.keyword.secrets-manager_short}} instance can take 5 - 8 minutes to complete.
+    {: note}
