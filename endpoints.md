@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-18"
+lastupdated: "2021-02-23"
 
 keywords: Secrets Manager availability, regions, Secrets Manager endpoints, Vault endpoint
 
@@ -73,8 +73,6 @@ You can create {{site.data.keyword.secrets-manager_short}} resources in one of t
 
 If you are managing your {{site.data.keyword.secrets-manager_short}} resources programmatically, see the following table to determine the API endpoints to use when you connect to the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager){: external}.
 
-
-
 | Region        | Endpoint URL             |
 | ------------- | ---------------------------- |
 | Dallas        | `https://{instance_ID}.us-south.secrets-manager.appdomain.cloud/api` |
@@ -83,7 +81,7 @@ If you are managing your {{site.data.keyword.secrets-manager_short}} resources p
 {: caption="Table 1. Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using standard {{site.data.keyword.cloud_notm}} APIs" caption-side="top"}
 {: #table-1}
 {: tab-title="Service API"}
-{: class="comparison-tab-table"}
+{: class="simple-tab-table"}
 {: row-headers}
 
 | Region        | Endpoint URL             |
@@ -94,7 +92,7 @@ If you are managing your {{site.data.keyword.secrets-manager_short}} resources p
 {: caption="Table 2. Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
 {: #table-2}
 {: tab-title="Vault API"}
-{: class="comparison-tab-table"}
+{: class="simple-tab-table"}
 {: row-headers}
 
 Ready to try the APIs? To interact with a Swagger UI from your browser, remove `/api` from your service endpoint URL and replace it with `/swagger-ui`. For example, `https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/swagger-ui`.
@@ -102,10 +100,10 @@ Ready to try the APIs? To interact with a Swagger UI from your browser, remove `
 
 
 
-### Retrieving your service endpoint URLs
-{: #retrieve-service-endpoints}
+### Viewing your endpoint URLs
+{: #view-endpoint-urls}
 
-You can find your service endpoint URLs in the **Endpoints** section of the {{site.data.keyword.secrets-manager_short}} UI. If you need to retrieve your service endpoint URLs programmatically, you can also call the following API to retrieve the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+You can find your service endpoint URLs in the **Endpoints** page of the {{site.data.keyword.secrets-manager_short}} UI. If you need to retrieve your service endpoint URLs programmatically, you can also call the following API to retrieve the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 
 ```sh
 curl -X GET "https://{region}.secrets-manager.cloud.ibm.com/api/v1/instances/{url_encoded_instance_CRN}/endpoints" \
