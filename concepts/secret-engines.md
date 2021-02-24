@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-05"
+lastupdated: "2021-02-24"
 
-keywords: secret engines, IAM secrets manager connection, Identity and access management, vault engine, dynamic secrets
+keywords: secrets engines, IAM secrets, Identity and access management, vault engine, dynamic secrets
 
 subcollection: secrets-manager
 
@@ -57,9 +57,9 @@ subcollection: secrets-manager
 {: #secret-engines}
 
 After you create your {{site.data.keyword.secrets-manager_full}} service instance and assign access, you can enable secret engines so that you can create secrets of various types.
-{: shortdesc} 
+{: shortdesc}
 
-Secret engines are components in {{site.data.keyword.secrets-manager_short}} that are used to process operations for secrets of different types. These engines serve as backends for those secrets. Depending on its type, a secret engine is either enabled or disabled by default for your service instance. 
+Secret engines are components in {{site.data.keyword.secrets-manager_short}} that are used to process operations for secrets of different types. These engines serve as backends for those secrets. Depending on its type, a secret engine is either enabled or disabled by default for your service instance.
 
 The following table lists the secret engines that are enabled for your instance by default.
 
@@ -103,10 +103,10 @@ To allow your {{site.data.keyword.cloud_notm}} API key to create and manage othe
    5. For the **IAM Identity Service**, add Operator platform access
    6. Review your selections, and click **Assign**.
 3. Create an API key for the service ID.
-   
-   1. Go to the **API keys** tab, and click **Create**. 
+
+   1. Go to the **API keys** tab, and click **Create**.
    2. Add a name and description to easily identify the API key.
-   3. Click **Create**. 
+   3. Click **Create**.
    4. Click **Copy**.
 4. Use the API key to configure the IAM secret engine.
 
