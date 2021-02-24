@@ -121,7 +121,7 @@ Replace the variables in the example request according to the following table.
 | `{IAM_token}` | Your {{site.data.keyword.cloud_notm}} IAM access token. |
 {: caption="Table 3. Required parameters for retrieving service endpoints with the API" caption-side="top"}
 
-A successful request returns the endpoint URLs that are associated with the region and service instance CRN that you specify. If your instance is configured only for access over a private endpoint, the API returns only the `private_endpoints` object as part of the response. The following JSON snippet shows an example response.
+A successful request returns the endpoint URLs that are associated with the region and service instance CRN that you specify. The following JSON snippet shows an example response.
 
 ```json
 {
@@ -139,5 +139,6 @@ A successful request returns the endpoint URLs that are associated with the regi
 
 To try this API, you can interact with the following Swagger UI from your browser: `https://{region}.secrets-manager.cloud.ibm.com/swagger-ui/`.
 {: tip}
+
 
 
