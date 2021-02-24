@@ -31,6 +31,7 @@ Secrets Manager
     Working with secrets
         concepts/secret-types.md
         add-secret.md
+
         access-secret.md
         rotate-secret.md
         delete-secret.md
