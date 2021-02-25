@@ -64,7 +64,7 @@ After you store secrets in your {{site.data.keyword.secrets-manager_full}} servi
 
 Before you begin, be sure that you have the required level of access. To view a list of your available secrets, you need the [**Reader** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam). To retrieve the value of a secret, you need the [**SecretsReader** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam).
 
-## Searching for secrets in the UI
+## Searching for secrets in your instance
 {: #search-secrets-ui}
 {: ui}
 
@@ -105,8 +105,8 @@ If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https:/
 {: go}
 
 ```bash
-curl -X GET "https://$INSTANCE_ID.$REGION.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}" \
-  -H "Authorization: Bearer $IAM_TOKEN" \
+curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}" \
+  -H "Authorization: Bearer {IAM_token}" \
   -H "Accept: application/json"
 ```
 {: codeblock}
