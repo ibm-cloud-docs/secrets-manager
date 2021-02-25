@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-18"
+lastupdated: "2021-02-25"
 
 keywords: access stored secrets, retrieve secrets, get secret value, get secrets, view secrets, search secrets, get secret value
 
@@ -64,8 +64,9 @@ After you store secrets in your {{site.data.keyword.secrets-manager_full}} servi
 
 Before you begin, be sure that you have the required level of access. To view a list of your available secrets, you need the [**Reader** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam). To retrieve the value of a secret, you need the [**SecretsReader** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam).
 
-## Searching for secrets in your instance
+## Searching for secrets in the UI
 {: #search-secrets-ui}
+{: ui}
 
 For a high-level view of your secrets, you can use the {{site.data.keyword.secrets-manager_short}} UI to view the general characteristics of your secrets and quickly audit their configuration.
 
@@ -75,8 +76,10 @@ For a high-level view of your secrets, you can use the {{site.data.keyword.secre
 
     You can also use the {{site.data.keyword.secrets-manager_short}} APIs to search for secrets programmatically by type. To find out more, check out the [API docs](/apidocs/secrets-manager){: external}.
 
-## Retrieving the value of a secret
-{: #view-metadata-api}
+
+
+## Retrieving the value of a secret with the API
+{: #get-secret-value-api}
 
 After you store a secret in your instance, you might need to retrieve its value so that you can connect to an external app or get access to a protected service. You can retrieve the value of a secret by using the {{site.data.keyword.secrets-manager_short}} API.
 
