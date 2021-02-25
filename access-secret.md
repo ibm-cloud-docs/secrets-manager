@@ -80,6 +80,7 @@ For a high-level view of your secrets, you can use the {{site.data.keyword.secre
 
 ## Retrieving the value of a secret with the API
 {: #get-secret-value-api}
+{: api}
 
 After you store a secret in your instance, you might need to retrieve its value so that you can connect to an external app or get access to a protected service. You can retrieve the value of a secret by using the {{site.data.keyword.secrets-manager_short}} API.
 
