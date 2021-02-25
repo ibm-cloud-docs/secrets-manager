@@ -133,7 +133,7 @@ curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/a
 -H 'Accept: application/json' \
 -H 'Content-Type: application/json' \
 -d '{
-  "token": "{IAM_token}"
+  "token": "$IAM_TOKEN"
 }'
 ```
 {: codeblock}

@@ -78,7 +78,7 @@ For a high-level view of your secrets, you can use the {{site.data.keyword.secre
 
 
 
-## Retrieving the value of a secret with the API
+## Retrieving secrets with the API
 {: #get-secret-value-api}
 {: api}
 
@@ -105,8 +105,8 @@ If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https:/
 {: go}
 
 ```bash
-curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}"
-  -H "Authorization: Bearer {IAM_token}"
+curl -X GET "https://$INSTANCE_ID.$REGION.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}" \
+  -H "Authorization: Bearer $IAM_TOKEN" \
   -H "Accept: application/json"
 ```
 {: codeblock}
