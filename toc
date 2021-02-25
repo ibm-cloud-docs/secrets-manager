@@ -64,17 +64,6 @@ Secrets Manager
             vault-cli-configure.md
             vault-cli.md
 
-    {: topicgroup}
-    SDKs
-        [Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}
-        [Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}
-        [Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}
-        [Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}
-
-    {: topicgroup}
-    Vault plug-ins
-        [IBM Cloud Auth method](https://github.com/ibm-cloud-security/vault-plugin-auth-ibmcloud){: external}
-        [IBM Cloud Secrets backend](https://github.com/ibm-cloud-security/vault-plugin-secrets-ibmcloud){: external}
     endpoints.md
     ha-dr.md
     {: .navgroup-end}

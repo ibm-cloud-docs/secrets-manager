@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-05"
+lastupdated: "2021-02-25"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -64,7 +64,7 @@ To use the standard REST API for {{site.data.keyword.secrets-manager_short}}, ch
 ## Overview
 {: #vault-api-overview}
 
-{{site.data.keyword.secrets-manager_short}} uses a custom version of open source HashiCorp Vault. This custom version adds the {{site.data.keyword.cloud_notm}} IAM Auth method and a set of secret engines to support operations in {{site.data.keyword.secrets-manager_short}} for various secret types.
+{{site.data.keyword.secrets-manager_short}} uses a custom version of open source HashiCorp Vault. This custom version adds the {{site.data.keyword.cloud_notm}} IAM Auth method and a set of secrets engines to support operations in {{site.data.keyword.secrets-manager_short}} for various secret types.
 
 All operations follow the REST API standards that are available for the Vault HTTP APIs. For more information about how to authenticate and use the Vault HTTP APIs, check out the [Vault documentation](https://www.vaultproject.io/api-docs/index){: external}.
 
@@ -74,7 +74,7 @@ Plug-ins and other components that are offered by the open source Vault communit
 ### Endpoint URLs
 {: #vault-api-base-url}
 
-To access {{site.data.keyword.secrets-manager_short}} by using the Vault APIs, use the dedicated endpoint URL that is unique to your {{site.data.keyword.secrets-manager_short}} service instance. 
+To access {{site.data.keyword.secrets-manager_short}} by using the Vault APIs, use the dedicated endpoint URL that is unique to your {{site.data.keyword.secrets-manager_short}} service instance.
 
 The following table lists the endpoint URLs by region that can be used to interact with the Vault APIs.
 
@@ -181,7 +181,7 @@ curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/a
 ### Configure a login token
 {: #vault-configure-login-token}
 
-Configures the duration or time-to-live (TTL) and lifespan (MaxTTL) of a Vault login token. 
+Configures the duration or time-to-live (TTL) and lifespan (MaxTTL) of a Vault login token.
 
 Use a duration string such as `300s` or `2h45m`. Valid time units are `s`, `m`, and `h`. The {{site.data.keyword.cloud_notm}} auth plug-in sets the default login token duration (TTL) to 1 hour, and the default lifespan (MaxTTL) to 24 hours.
 
@@ -191,7 +191,7 @@ Use a duration string such as `300s` or `2h45m`. Valid time units are `s`, `m`, 
 <dl>
     <dt><code>token_max_ttl</code></dt>
     <dd>The maximum lifetime of the login token. Default is `24h`. This value can't exceed the Vault <code>MaxLeaseTTL</code> value.</dd>
-    <dt><code>token_ttl</code></dt> 
+    <dt><code>token_ttl</code></dt>
     <dd>The initial time-to-live (TTL) of the login token to generate. Default is `1h`.</dd>
 </dl>
 
@@ -266,7 +266,7 @@ Creates a secret group.
 <dl>
     <dt><code>name</code></dt>
     <dd>The human-readable alias that you want to assign to the secret group.</dd>
-    <dt><code>description</code></dt> 
+    <dt><code>description</code></dt>
     <dd>(Optional) An extended description of the secret group.</dd>
 </dl>
 
@@ -373,7 +373,7 @@ Updates the details of an existing secret group.
     <dd>The ID of the secret group.</dd>
     <dt><code>name</code></dt>
     <dd>The human-readable alias that you want to assign to the secret group.</dd>
-    <dt><code>description</code></dt> 
+    <dt><code>description</code></dt>
     <dd>(Optional) An extended description of the secret group.</dd>
 </dl>
 
@@ -466,7 +466,7 @@ curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/a
 ### Delete a secret group
 {: #vault-delete-secret-group}
 
-Deletes a secret group. 
+Deletes a secret group.
 
 #### Parameters
 {: #vault-delete-secret-group-params}
@@ -1126,7 +1126,7 @@ List arbitrary secrets in an existing secret group:
 ```sh
 curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/groups/c481f146-aa9f-5b9b-55b7-f9fd326027cd" \
   -H 'Accept: application/json' \
-  -H 'X-Vault-Token: {Vault-Token}' 
+  -H 'X-Vault-Token: {Vault-Token}'
 ```
 {: codeblock}
 
@@ -1202,7 +1202,7 @@ Delete an arbitrary secret in the `default` secret group.
 ```sh
 curl -X DELETE "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/{id}" \
   -H 'Accept: application/json' \
-  -H 'X-Vault-Token: {Vault-Token}' 
+  -H 'X-Vault-Token: {Vault-Token}'
 ```
 {: codeblock}
 
@@ -1211,7 +1211,7 @@ Delete an arbitrary secret in an existing secret group.
 ```sh
 curl -X DELETE "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/groups/{group_id}/{secret_id}" \
   -H 'Accept: application/json' \
-  -H 'X-Vault-Token: {Vault-Token}' 
+  -H 'X-Vault-Token: {Vault-Token}'
 ```
 {: codeblock}
 

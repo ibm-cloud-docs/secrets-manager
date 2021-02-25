@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-05"
+lastupdated: "2021-02-25"
 
 keywords: Vault CLI, configure the Vault CLI, use Secrets Manager with Vault CLI, CLI commands, log in to Vault
 
@@ -56,8 +56,8 @@ subcollection: secrets-manager
 # Configuring the Vault CLI
 {: #configure-vault-cli}
 
-If you're already using the HashiCorp Vault command-line interface (CLI), you can use its CLI format and guidelines to interact with {{site.data.keyword.secrets-manager_full}}. 
-{:shortdesc} 
+If you're already using the HashiCorp Vault command-line interface (CLI), you can use its CLI format and guidelines to interact with {{site.data.keyword.secrets-manager_full}}.
+{:shortdesc}
 
 All operations follow the guidelines that are available for the Vault CLI. To learn more about using the Vault CLI, check out the [Vault documentation](https://www.vaultproject.io/docs/commands){: external}.
 
@@ -66,20 +66,20 @@ All operations follow the guidelines that are available for the Vault CLI. To le
 
 - [Download and install the Vault CLI](https://www.vaultproject.io/docs/install){: external}.
 - [Create an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-manapikey) or generate an {{site.data.keyword.cloud_notm}} IAM access token.
-   
+
     By providing your account credentials, Vault can understand who you are and whether you have the correct level of access to run specific Vault commands against your {{site.data.keyword.secrets-manager_short}} instance.
-- Optional: [Download and install jq](https://stedolan.github.io/jq/){: external}. 
-   
+- Optional: [Download and install jq](https://stedolan.github.io/jq/){: external}.
+
    `jq` helps you slice up JSON data. You use `jq` in this tutorial to grab and use an access token that's returned when you call the IAM Identity Service API.
 
 ## Setting up your environment
 {: #configure-vault-cli-env}
 
 First, set up your environment to access a {{site.data.keyword.secrets-manager_short}} service instance by using Vault.
-   
-1. In a text editor, create a shell script that sets the credentials that are needed to authenticate to Vault. 
-  
-    The following sample script uses `jq` to extract your {{site.data.keyword.cloud_notm}} access token from the JSON output that's returned by the IAM Identity Service API. 
+
+1. In a text editor, create a shell script that sets the credentials that are needed to authenticate to Vault.
+
+    The following sample script uses `jq` to extract your {{site.data.keyword.cloud_notm}} access token from the JSON output that's returned by the IAM Identity Service API.
 
     ```sh
     #!/bin/sh
@@ -96,7 +96,7 @@ First, set up your environment to access a {{site.data.keyword.secrets-manager_s
     ```
     {: codeblock}
 
-    Replace the variables according to the following table. 
+    Replace the variables according to the following table.
 
     <table>
         <tr>
@@ -114,14 +114,14 @@ First, set up your environment to access a {{site.data.keyword.secrets-manager_s
     </table>
 
 2. Mark the file as executable by running the `chmod` command in your command line.
-    
+
     ```sh
     chmod +x <filename>.sh
     ```
     {: pre}
 
 3. Run the script to set your environment variables.
-   
+
     ```sh
     ./<filename>.sh
     ```
@@ -138,7 +138,7 @@ First, set up your environment to access a {{site.data.keyword.secrets-manager_s
     {:screen}
 
 ## Logging in to Vault
-{: #configure-vault-cli-login} 
+{: #configure-vault-cli-login}
 
 After you configure your environment, log in to Vault to start interacting with your {{site.data.keyword.secrets-manager_short}} instance.
 
@@ -169,7 +169,7 @@ After you configure your environment, log in to Vault to start interacting with 
     ```
     {: screen}
 
-2. Log in to Vault by using the `token` value that was returned in the previous step. 
+2. Log in to Vault by using the `token` value that was returned in the previous step.
 
     ```sh
     vault login <token>
@@ -179,7 +179,7 @@ After you configure your environment, log in to Vault to start interacting with 
     The following screen shows the example output.
 
     ```
-    Success! You are now authenticated. The token information displayed is 
+    Success! You are now authenticated. The token information displayed is
     already stored in the token helper. You do NOT need to run "vault login"
     again. Future Vault requests will automatically use this token.
 
