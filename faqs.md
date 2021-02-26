@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-05"
+lastupdated: "2021-02-26"
 
-keywords: faqs, Frequently Asked Questions, question, Secrets Manager, dynamic what is a secret, what is an arbitrary secret, what is an IAM credential, arbitrary secret, IAM credential, what happens when secret expires 
+keywords: faqs, Frequently Asked Questions, question, Secrets Manager, dynamic what is a secret, what is an arbitrary secret, what is an IAM credential, arbitrary secret, IAM credential, what happens when secret expires
 
 subcollection: secrets-manager
 
@@ -69,9 +69,11 @@ FAQs for {{site.data.keyword.secrets-manager_full}} might include questions abou
 {: faq}
 {: support}
 
-A secret is a piece of sensitive information. For example, a secret might be a username and password combination or an API key that you use while you develop your applications. To keep your applications secure, it is important to regulate which secrets can access what and who has access to them. 
+A secret is a piece of sensitive information. For example, a secret might be a username and password combination or an API key that you use while you develop your applications. To keep your applications secure, it is important to regulate which secrets can access what and who has access to them.
 
 In addition to the static secrets described, there are other types of secrets that you might work with in the {{site.data.keyword.secrets-manager_short}} service. To learn more about secret types, check out [Types of secrets](/docs/secrets-manager?topic=secrets-manager-secret-basics#secret-types).
+
+
 
 ## What is a secrets engine?
 {: #faq-secret-engine}
@@ -80,6 +82,8 @@ In addition to the static secrets described, there are other types of secrets th
 A secrets engine is a component that enables a connection between a {{site.data.keyword.secrets-manager_short}} instance and another service, such as IAM. The connection grants authorization between the services and allows the {{site.data.keyword.secrets-manager_short}} instance to create time-based secrets for the target service on demand.
 
 For more information about secrets engines, see [Configuring secret types](/docs/secrets-manager?topic=secrets-manager-secret-engines).
+
+
 
 ## What is a secret group?
 {: #faq-secret-group}
@@ -100,7 +104,7 @@ An IAM credential is a type of dynamic secret that you can use to access an {{si
 {: faq}
 {: support}
 
-When a secret is rotated, a new version of its value becomes available for use. You can choose to manually add a value or automatically generate one at regular intervals by enabling automatic rotation.  
+When a secret is rotated, a new version of its value becomes available for use. You can choose to manually add a value or automatically generate one at regular intervals by enabling automatic rotation. 
 
 For more information about secret rotation, see [Rotating secrets](/docs/secrets-manager?topic=secrets-manager-rotate-secrets).
 
@@ -134,7 +138,7 @@ For more information, see [Managing secrets in {{site.data.keyword.cloud_notm}}]
 {: #faq-differences-vault}
 {: faq}
 
-With {{site.data.keyword.secrets-manager_short}}, you can centrally manage secrets for your services or apps in a dedicated, single tenant instance. To control who on your team has access to specific secrets, you can create secret groups that map to [Identity and Access Management (IAM)](/docs/secrets-manager?topic=secrets-manager-iam) access policies in your {{site.data.keyword.cloud_notm}} account. And, you can use [{{site.data.keyword.at_full_notm}}](/docs/secrets-manager?topic=secrets-manager-at-events) to track how users and applications interact with your {{site.data.keyword.secrets-manager_short}} instance. 
+With {{site.data.keyword.secrets-manager_short}}, you can centrally manage secrets for your services or apps in a dedicated, single tenant instance. To control who on your team has access to specific secrets, you can create secret groups that map to [Identity and Access Management (IAM)](/docs/secrets-manager?topic=secrets-manager-iam) access policies in your {{site.data.keyword.cloud_notm}} account. And, you can use [{{site.data.keyword.at_full_notm}}](/docs/secrets-manager?topic=secrets-manager-at-events) to track how users and applications interact with your {{site.data.keyword.secrets-manager_short}} instance.
 
 ## Are community plug-ins for Vault supported by {{site.data.keyword.secrets-manager_short}}?
 {: #faq-vault-community-plugins}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-18"
+lastupdated: "2021-02-26"
 
 keywords: secret groups, assign secret access, iam roles, secrets policies, organize secrets
 
@@ -103,7 +103,7 @@ You can create secret groups by using the {{site.data.keyword.secrets-manager_sh
 
 ```bash
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secret_groups" \
-  -H "Authorization: Bearer {IAM_token}" \
+  -H "Authorization: Bearer $IAM_TOKEN" \
   -H "Accept: application/json" \
   -H "Content-Type: application/json" \
   -d '{
@@ -268,8 +268,8 @@ If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https:/
 {: go}
 
 ```bash
-curl -X DELETE "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/secret_groups/{id}" \
-  -H "Authorization: Bearer {IAM_token}"
+curl -X DELETE "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secret_groups/{id}" \
+  -H "Authorization: Bearer $IAM_TOKEN" \
   -H "Accept: application/json"
 ```
 {: codeblock}

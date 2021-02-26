@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-23"
+lastupdated: "2021-02-26"
 
 keywords: Secrets Manager availability, regions, Secrets Manager endpoints, Vault endpoint
 
@@ -123,6 +123,8 @@ Replace the variables in the example request according to the following table.
 
 A successful request returns the endpoint URLs that are associated with the region and service instance CRN that you specify. The following JSON snippet shows an example response.
 
+
+
 ```json
 {
   "public_endpoints": {
@@ -135,4 +137,8 @@ A successful request returns the endpoint URLs that are associated with the regi
 
 To try this API, you can interact with the following Swagger UI from your browser: `https://{region}.secrets-manager.cloud.ibm.com/swagger-ui/`.
 {: tip}
+
+
+
+
 
