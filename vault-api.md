@@ -85,7 +85,7 @@ The following table lists the endpoint URLs by region that can be used to intera
 | Sydney | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud` |
 {: caption="Table 1. Vault endpoint URLs" caption-side="top"}
 
-You can find your unique endpoint URL in the **Endpoints** page of the {{site.data.keyword.secrets-manager_short}} UI, or by retrieving it by HTTP request. For more information, see [Viewing yoru endpoint URLs](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls).
+You can find your unique endpoint URL in the **Endpoints** page of the {{site.data.keyword.secrets-manager_short}} UI, or by retrieving it by HTTP request. For more information, see [Viewing your endpoint URLs](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls).
 {: tip}
 
 ### Common headers

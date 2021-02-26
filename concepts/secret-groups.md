@@ -102,7 +102,7 @@ You can create secret groups by using the console. You can also create a secret 
 You can create secret groups by using the {{site.data.keyword.secrets-manager_short}} API.
 
 ```bash
-curl -X POST "https://{instance_ID}.$REGION.secrets-manager.appdomain.cloud/api/v1/secret_groups" \
+curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secret_groups" \
   -H "Authorization: Bearer $IAM_TOKEN" \
   -H "Accept: application/json" \
   -H "Content-Type: application/json" \
