@@ -147,9 +147,9 @@ As an enterprise developer, you might encounter various secret types. Currently,
 
 Review the following table to understand the types of secrets that you can create and manage with {{site.data.keyword.secrets-manager_short}}.
 
-| Name | Keyword | Description |
+| Type | Keyword | Description |
 | --- | --- | -- |
-| [Arbitrary](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets) | `arbitrary` | Arbitrary pieces of sensitive data, including any type of structured or unstructured data, that you can use to access an application or resource. |
+| [Arbitrary secrets](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets) | `arbitrary` | Arbitrary pieces of sensitive data, including any type of structured or unstructured data, that you can use to access an application or resource. |
 | [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) | `iam_credentials` | A dynamic service ID and API key that you can use to access an {{site.data.keyword.cloud_notm}} service that requires IAM authentication. |
 | [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | `username_password` | Username and password values that you can use to log in or access an application or resource. |
 {: caption="Table 1. Mapping between secret types and API and CLI parameter names" caption-side="top"}
