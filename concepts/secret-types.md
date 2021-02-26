@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-25"
+lastupdated: "2021-02-26"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -145,8 +145,6 @@ Arbitrary secrets can hold random data that you can use for authentication and a
 
 As an enterprise developer, you might encounter various secret types. Currently, {{site.data.keyword.secrets-manager_short}} helps you to secure user credentials, IAM credentials, and arbitrary secrets.
 
-Secret types in {{site.data.keyword.secrets-manager_short}} are classified by keyword, such as `arbitrary` or `iam_credentials`. When you work with the {{site.data.keyword.secrets-manager_short}} API or CLI, you use these keywords to invoke actions on secrets according to their type. For example, if you want to add an arbitrary secret to your instance, you make a `POST /api/v1/secrets/arbitrary` request to the API.
-
 Review the following table to understand the types of secrets that you can create and manage with {{site.data.keyword.secrets-manager_short}}.
 
 | Name | Keyword | Description |
@@ -156,4 +154,5 @@ Review the following table to understand the types of secrets that you can creat
 | [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | `username_password` | Username and password values that you can use to log in or access an application or resource. |
 {: caption="Table 1. Mapping between secret types and API and CLI parameter names" caption-side="top"}
 
-
+Secret types in {{site.data.keyword.secrets-manager_short}} are classified by keyword, such as `arbitrary` or `iam_credentials`. When you work with the {{site.data.keyword.secrets-manager_short}} API or CLI, you use these keywords to invoke actions on secrets according to their type. For example, if you want to add an arbitrary secret to your instance, you make a `POST /api/v1/secrets/arbitrary` request to the API.
+{: note}

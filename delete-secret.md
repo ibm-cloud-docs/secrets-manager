@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-25"
+lastupdated: "2021-02-26"
 
 keywords: delete secret, remove secret, destroy secret
 
@@ -106,7 +106,7 @@ If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https:/
 {: go}
 
 ```bash
-curl -X DELETE "https://$INSTANCE_ID.$REGION.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}" \
+curl -X DELETE "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}" \
   -H "Authorization: Bearer $IAM_TOKEN"
 ```
 {: codeblock}

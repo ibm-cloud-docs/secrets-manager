@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-25"
+lastupdated: "2021-02-26"
 
 keywords: rotate secrets, manually rotate, new secret, automatically rotate, automatic rotation, set rotation policy
 
@@ -122,7 +122,7 @@ If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https:/
 {: go}
 
 ```bash
-curl -X POST "https://$INSTANCE_ID.$REGION.secrets-manager.appdomain.cloud/api/v1/secrets/arbitrary/{id}?action=rotate" \
+curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/arbitrary/{id}?action=rotate" \
   -H "Authorization: Bearer $IAM_TOKEN"
   -H "Accept: application/json"
   -H "Content-Type: application/json"
@@ -261,7 +261,7 @@ If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https:/
 {: go}
 
 ```bash
-curl -X POST "https://$INSTANCE_ID.$REGION.secrets-manager.appdomain.cloud/api/v1/secrets/username_password/{id}/policies?policy=rotation" \
+curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password/{id}/policies?policy=rotation" \
   -H "Authorization: Bearer $IAM_TOKEN"
   -H "Accept: application/json"
   -H "Content-Type: application/json"

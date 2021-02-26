@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-25"
+lastupdated: "2021-02-26"
 
 keywords: access stored secrets, retrieve secrets, get secret value, get secrets, view secrets, search secrets, get secret value
 
@@ -105,7 +105,7 @@ If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https:/
 {: go}
 
 ```bash
-curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}" \
+curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}" \
   -H "Authorization: Bearer {IAM_token}" \
   -H "Accept: application/json"
 ```
