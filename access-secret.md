@@ -64,7 +64,7 @@ After you store secrets in your {{site.data.keyword.secrets-manager_full}} servi
 
 Before you begin, be sure that you have the required level of access. To view a list of your available secrets, you need the [**Reader** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam). To retrieve the value of a secret, you need the [**SecretsReader** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam).
 
-## Searching for secrets in your instance
+## Searching for secrets
 {: #search-secrets-ui}
 {: ui}
 
@@ -76,6 +76,26 @@ For a high-level view of your secrets, you can use the {{site.data.keyword.secre
 
     You can also use the {{site.data.keyword.secrets-manager_short}} APIs to search for secrets programmatically by type. To find out more, check out the [API docs](/apidocs/secrets-manager){: external}.
 
+## Retrieving secrets in the UI
+{: #get-secret-value-ui}
+{: ui}
+
+This action can be done only through the CLI, API, or SDKs. To see the steps, switch to the **API** or **CLI** instructions.
+
+## Retrieving secrets from the CLI
+{: #get-secret-value-cli}
+{: cli}
+
+After you store a secret in your instance, you might need to retrieve its value so that you can connect to an external app or get access to a protected service. You can retrieve the value of a secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in.
+
+To get the value of a secret, run the [**`ibmcloud secrets-manager secret`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-command) command. You can specify the type of secret by using the `--secret-type SECRET-TYPE` option. For example, the following command retrieves a user credentials (`username_password`) secret.
+
+```sh
+ibmcloud secrets-manager secret --secret-type username_password --id "432b91f1-ff6d-4b47-9f06-82debc236d90"
+```
+{: pre}
+
+The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-command).
 
 
 ## Retrieving secrets with the API
