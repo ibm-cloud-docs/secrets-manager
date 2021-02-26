@@ -123,9 +123,9 @@ If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https:/
 
 ```bash
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/arbitrary/{id}?action=rotate" \
-  -H "Authorization: Bearer $IAM_TOKEN"
-  -H "Accept: application/json"
-  -H "Content-Type: application/json"
+  -H "Authorization: Bearer $IAM_TOKEN" \
+  -H "Accept: application/json" \
+  -H "Content-Type: application/json" \
   -d '{
     "payload": "new-secret-data"
   }'
