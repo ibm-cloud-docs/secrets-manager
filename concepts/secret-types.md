@@ -107,8 +107,6 @@ Thank you. If you have questions, please drop us a line below. If you want to se
 
 
 
-
-
 ## Types of secrets
 {: #secret-types}
 
@@ -140,19 +138,5 @@ Arbitrary secrets can hold random data that you can use for authentication and a
 
 
 
-## Secret types in {{site.data.keyword.secrets-manager_short}}
-{: #secret-types}
 
-As an enterprise developer, you might encounter various secret types. Currently, {{site.data.keyword.secrets-manager_short}} helps you to secure user credentials, IAM credentials, and arbitrary secrets.
 
-Review the following table to understand the types of secrets that you can create and manage with {{site.data.keyword.secrets-manager_short}}.
-
-| Type | Keyword | Description |
-| --- | --- | -- |
-| [Arbitrary secrets](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets) | `arbitrary` | Arbitrary pieces of sensitive data, including any type of structured or unstructured data, that you can use to access an application or resource. |
-| [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) | `iam_credentials` | A dynamic service ID and API key that you can use to access an {{site.data.keyword.cloud_notm}} service that requires IAM authentication. |
-| [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | `username_password` | Username and password values that you can use to log in or access an application or resource. |
-{: caption="Table 1. Mapping between secret types and API and CLI parameter names" caption-side="top"}
-
-Secret types in {{site.data.keyword.secrets-manager_short}} are classified by keyword, such as `arbitrary` or `iam_credentials`. When you work with the {{site.data.keyword.secrets-manager_short}} API or CLI, you use these keywords to invoke actions on secrets according to their type. For example, if you want to add an arbitrary secret to your instance, you make a `POST /api/v1/secrets/arbitrary` request to the API.
-{: note}

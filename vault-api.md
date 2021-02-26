@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-25"
+lastupdated: "2021-02-26"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -85,7 +85,7 @@ The following table lists the endpoint URLs by region that can be used to intera
 | Sydney | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud` |
 {: caption="Table 1. Vault endpoint URLs" caption-side="top"}
 
-You can find your unique endpoint URL in the **Endpoints** section of the {{site.data.keyword.secrets-manager_short}} UI, or by retrieving it by HTTP request. For more information, see [Retrieving your service endpoint URLs](/docs/secrets-manager?topic=secrets-manager-endpoints#retrieve-service-endpoints).
+You can find your unique endpoint URL in the **Endpoints** page of the {{site.data.keyword.secrets-manager_short}} UI, or by retrieving it by HTTP request. For more information, see [Viewing yoru endpoint URLs](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls).
 {: tip}
 
 ### Common headers
@@ -133,7 +133,7 @@ curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/a
 -H 'Accept: application/json' \
 -H 'Content-Type: application/json' \
 -d '{
-  "token": "$IAM_TOKEN"
+  "token": "{IAM_token}"
 }'
 ```
 {: codeblock}

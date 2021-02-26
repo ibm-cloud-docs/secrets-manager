@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-25"
+lastupdated: "2021-02-26"
 
 keywords: Vault CLI, configure the Vault CLI, use Secrets Manager with Vault CLI, CLI commands, log in to Vault
 
@@ -109,7 +109,7 @@ First, set up your environment to access a {{site.data.keyword.secrets-manager_s
         </tr>
         <tr>
             <td><code>VAULT_ADDR</code></td>
-            <td><p>The Vault API endpoint that's unique to your {{site.data.keyword.secrets-manager_short}} instance.</p><p>You can find your unique endpoint URL in the **Endpoints** section of the {{site.data.keyword.secrets-manager_short}} UI, or by [retrieving it by HTTP request](/docs/secrets-manager?topic=secrets-manager-endpoints#retrieve-service-endpoints).</p></td>
+            <td><p>The Vault API endpoint that's unique to your {{site.data.keyword.secrets-manager_short}} instance.</p><p>You can find your unique endpoint URL in the **Endpoints** page of the {{site.data.keyword.secrets-manager_short}} UI, or by [retrieving it by HTTP request](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls).</p></td>
         </tr>
     </table>
 
