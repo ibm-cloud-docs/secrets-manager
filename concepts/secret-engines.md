@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-24"
+lastupdated: "2021-02-26"
 
 keywords: secrets engines, IAM secrets, Identity and access management, vault engine, dynamic secrets
 
@@ -117,4 +117,4 @@ To allow your {{site.data.keyword.cloud_notm}} API key to create and manage othe
 
 Now you can [create an IAM credential](/docs/secrets-manager?topic=secrets-manager-store-secrets#iam-credentials-ui) to work with dynamic service IDs and API keys. When the IAM credential reaches the end of its lease, the IAM secret engine deletes it automatically.
 
-</staging>
+
