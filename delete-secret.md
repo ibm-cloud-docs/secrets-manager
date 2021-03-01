@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-26"
+lastupdated: "2021-03-01"
 
 keywords: delete secret, remove secret, destroy secret
 
@@ -86,7 +86,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually delet
 
 You can delete secrets by calling the {{site.data.keyword.secrets-manager_short}} API.
 
-The following example request deletes a secret and its contents. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+The following example request deletes a secret and its contents. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. The options for `{secret_type}` are: `arbitrary`, `iam_credentials`, and `username_password`.
 {: curl}
 
 
@@ -163,4 +163,6 @@ if err != nil {
 ```
 {: codeblock}
 {: go}
+
+After you delete a secret, the secret transitions to the _Destroyed_ state. Secrets in this state are no longer recoverable. Metadata that is associated with the secret, such as the secret's deletion date, is kept in the {{site.data.keyword.secrets-manager_short}} database.
 
