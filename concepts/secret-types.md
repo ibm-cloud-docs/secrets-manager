@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-26"
+lastupdated: "2021-03-01"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -54,7 +54,7 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 
 # What is a secret?
-{: #secret-basics}
+{: #what-is-secret}
 
 A secret is a piece of sensitive information. For example, an API key, password, or any type of credential that you might use to access a confidential system.
 {: shortdesc}
@@ -66,6 +66,8 @@ By using secrets, you're able to authenticate to protected resources as you buil
 To learn more about the general characteristics of a secret, check out the following video.
 
 ![What is Secrets Management?](https://www.youtube.com/embed/iETENR5MEB8){: video output="iframe" data-script="#secrets-mgmt-video-transcript" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+
+
 
 ## Video transcript
 {: #secrets-mgmt-video-transcript}
@@ -105,8 +107,6 @@ Again, secrets manager services help to ensure the secure storage of secrets so 
 
 Thank you. If you have questions, please drop us a line below. If you want to see more videos like this in the future, please like and subscribe, and don't forget you can grow your skills and earn a badge with IBM Cloud Labs which, are free browser-based interactive Kubernetes labs.
 
-
-
 ## Types of secrets
 {: #secret-types}
 
@@ -135,8 +135,6 @@ IAM credentials are dynamic secrets that are used to access an {{site.data.keywo
 {: #arbitrary-text}
 
 Arbitrary secrets can hold random data that you can use for authentication and authorization to any protected system, whether the system is inside or outside of {{site.data.keyword.cloud_notm}}. By using the {{site.data.keyword.secrets-manager_short}} UI, you can select a file from your computer to use as an arbitrary secret, or you can enter a custom value. In {{site.data.keyword.secrets-manager_short}}, arbitrary secrets are static secrets that you can create and store in your instance ahead of time.
-
-
 
 
 
