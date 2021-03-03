@@ -70,7 +70,7 @@ Before you begin, be sure that you have the required level of access. To view a 
 {: #get-secret-value-ui}
 {: ui}
 
-This action can be done only through the CLI, API, or SDKs. To see the steps, switch to the **API** or **CLI** instructions.
+This action can be done only through the CLI, API, or SDKs. To see the steps, switch to the **CLI** or **API** instructions.
 
 ## Retrieving a secret from the CLI
 {: #get-secret-value-cli}
