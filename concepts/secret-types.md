@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-01"
+lastupdated: "2021-03-03"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -58,6 +58,8 @@ subcollection: secrets-manager
 
 A secret is a piece of sensitive information. For example, an API key, password, or any type of credential that you might use to access a confidential system.
 {: shortdesc}
+
+
 
 By using secrets, you're able to authenticate to protected resources as you build your applications. For example, when you try to access an external service API, you're asked to provide a unique credential. After you supply your credential, the external service can understand who you are and whether you're authorized to interact with it.
 
