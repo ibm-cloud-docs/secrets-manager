@@ -71,19 +71,7 @@ FAQs for {{site.data.keyword.secrets-manager_full}} might include questions abou
 
 A secret is a piece of sensitive information. For example, a secret might be a username and password combination or an API key that you use while you develop your applications. To keep your applications secure, it is important to regulate which secrets can access what and who has access to them.
 
-In addition to the static secrets described, there are other types of secrets that you might work with in the {{site.data.keyword.secrets-manager_short}} service. To learn more about secret types, check out [Types of secrets](/docs/secrets-manager?topic=secrets-manager-secret-what-is-secret#secret-types).
-
-
-
-## What is a secrets engine?
-{: #faq-secret-engine}
-{: faq}
-
-A secrets engine is a component that enables a connection between a {{site.data.keyword.secrets-manager_short}} instance and another service, such as IAM. The connection grants authorization between the services and allows the {{site.data.keyword.secrets-manager_short}} instance to create time-based secrets for the target service on demand.
-
-For more information about secrets engines, see [Configuring secret types](/docs/secrets-manager?topic=secrets-manager-secret-engines).
-
-
+In addition to the static secrets described, there are other types of secrets that you might work with in the {{site.data.keyword.secrets-manager_short}} service. To learn more about secret types, check out [Types of secrets](/docs/secrets-manager?topic=secrets-manager-what-is-secret#secret-types).
 
 ## What is a secret group?
 {: #faq-secret-group}
@@ -162,4 +150,4 @@ If you're looking to manage {{site.data.keyword.cloud_notm}} secrets through the
 {: #faq-vault-secrets-manager}
 {: faq}
 
-Yes. To use {{site.data.keyword.secrets-manager_short}}, you don't need to install Vault or the {{site.data.keyword.cloud_notm}} plug-ins for Vault. You can try {{site.data.keyword.secrets-manager_short}} for free, without needing an extensive background on how to use Vault. To get started, [choose the type of secret](/docs/secrets-manager?topic=secrets-manager-secret-what-is-secret) that you want to create. Then, you can integrate with the standard [Secrets Manager APIs](/apidocs/secrets-manager){:external} so that you can access the secret programmatically.
+Yes. To use {{site.data.keyword.secrets-manager_short}}, you don't need to install Vault or the {{site.data.keyword.cloud_notm}} plug-ins for Vault. You can try {{site.data.keyword.secrets-manager_short}} for free, without needing an extensive background on how to use Vault. To get started, [choose the type of secret](/docs/secrets-manager?topic=secrets-manager-what-is-secret) that you want to create. Then, you can integrate with the standard [Secrets Manager APIs](/apidocs/secrets-manager){:external} so that you can access the secret programmatically.

@@ -306,7 +306,7 @@ Creates a secret that you can use to access or authenticate to a protected resou
 
 A successful request stores the secret in your dedicated instance based on the secret type and data that you  specify. The response returns the ID value of the secret, along with other metadata.
 
-To learn more about the types of secrets that you can create with {{site.data.keyword.secrets-manager_short}}, check out the [docs](/docs/secrets-manager?topic=secrets-manager-secret-what-is-secret).
+To learn more about the types of secrets that you can create with {{site.data.keyword.secrets-manager_short}}, check out the [docs](/docs/secrets-manager?topic=secrets-manager-what-is-secret).
 
 ```sh
 ibmcloud secrets-manager secret-create --secret-type SECRET-TYPE --metadata METADATA --resources RESOURCES

@@ -291,7 +291,7 @@ Finally, configure your {{site.data.keyword.secrets-manager_short}} instance to 
     ```
     {: pre}
 
-    Success! Now you can [create an IAM credential](/docs/secrets-manager?topic=secrets-manager-store-secrets#iam-credentials-ui) that you can use to dynamically generate service IDs and API keys. Continue to the next step.
+    Success! Now you can [create an IAM credential](/docs/secrets-manager?topic=secrets-manager-iam-credentials#iam-credentials-ui) that you can use to dynamically generate service IDs and API keys. Continue to the next step.
 
 
 ## Create an IAM credential
@@ -523,7 +523,7 @@ If you no longer need the resources that you created in this tutorial, you can c
 
 Great job! In this tutorial, you learned how to set up {{site.data.keyword.secrets-manager_short}} to access a Cloud Object Storage bucket with a dynamic secret. Check out more resources to help you get started with {{site.data.keyword.secrets-manager_short}}.
 
-- Learn more about [secret types](/docs/secrets-manager?topic=secrets-manager-secret-what-is-secret).
+- Learn more about [secret types](/docs/secrets-manager?topic=secrets-manager-what-is-secret).
 - Design an access strategy with [secret groups](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 - Learn more about the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager){:external}.
 
