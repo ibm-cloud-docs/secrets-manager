@@ -7,7 +7,7 @@ Secrets Manager
     {: .navgroup id="learn"}
     getting-started.md
     [Video: What is secrets management?](https://www.youtube.com/watch?v=iETENR5MEB8){: external}
-    concepts/secrets-mgmt.md
+    secrets-mgmt.md
 
     {: .topicgroup}
     Best practices
@@ -35,7 +35,7 @@ Secrets Manager
         rotate-secret.md
         delete-secret.md
 
-    concepts/secret-groups.md
+    secret-groups.md
 
     {: .topicgroup}
     Logging and monitoring
@@ -50,30 +50,28 @@ Secrets Manager
 
     {: .navgroup id="reference"}
     {: topicgroup}
-    API reference
+    API & SDK reference
         [Secrets Manager API](https://cloud.ibm.com/apidocs/secrets-manager){: external}
-        vault-api.md
+        changelog-api.md
 
     {: topicgroup}
     CLI reference
         /secrets-manager-cli-plugin/secrets-manager-cli-plugin-secrets-manager-cli
+        changelog-cli.md
+
+    {: topicgroup}
+    Vault reference
+        vault-api.md
 
         {: topicgroup}
         Vault CLI
             vault-cli-configure.md
             vault-cli.md
 
-    {: topicgroup}
-    SDKs
-        [Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}
-        [Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}
-        [Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}
-        [Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}
-
-    {: topicgroup}
-    Vault plug-ins
-        [IBM Cloud Auth method](https://github.com/ibm-cloud-security/vault-plugin-auth-ibmcloud){: external}
-        [IBM Cloud Secrets backend](https://github.com/ibm-cloud-security/vault-plugin-secrets-ibmcloud){: external}
+        {: topicgroup}
+        Vault plug-ins
+            [IBM Cloud Auth method](https://github.com/ibm-cloud-security/vault-plugin-auth-ibmcloud){: external}
+            [IBM Cloud Secrets backend](https://github.com/ibm-cloud-security/vault-plugin-secrets-ibmcloud){: external}
 
     endpoints.md
     ha-dr.md
@@ -81,7 +79,7 @@ Secrets Manager
 
     {: .navgroup id="help"}
     faqs.md
-    known-issues.md
+    limits.md
 
     {: .topicgroup}
     Troubleshooting

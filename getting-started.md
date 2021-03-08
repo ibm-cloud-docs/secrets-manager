@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-19"
+lastupdated: "2021-03-08"
 
 keywords: secrets management, manage secrets, manage credentials, store username and password, add secrets, add credentials, get started with Secrets Manager
 
@@ -64,7 +64,7 @@ This tutorial focuses on storing and managing a username and password in {{site.
 
 Looking for a different secret type? You can also create Identity and Access Management (IAM) credentials to access an {{site.data.keyword.cloud_notm}} resource, or you can add custom secrets that can hold structured or unstructured data.
 
-[![This image is a visual link to the instructions for creating IAM credentials](images/gs-iam-credentials.svg)](/docs/secrets-manager?topic=secrets-manager-store-secrets#store-iam-credentials)     [![This image is a visual link to the instructions on adding custom secrets.](images/gs-custom.svg)](/docs/secrets-manager?topic=secrets-manager-store-secrets#store-arbitrary-secrets)
+[![This image is a visual link to the instructions for creating IAM credentials](images/gs-iam-credentials.svg)](/docs/secrets-manager?topic=secrets-manager-iam-credentials)     [![This image is a visual link to the instructions on adding custom secrets.](images/gs-custom.svg)](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets)
 
 ## Before you begin
 {: #gs-prereqs}

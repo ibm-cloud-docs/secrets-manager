@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-05"
+lastupdated: "2021-03-08"
 content-type: tutorial
 services: cloud-object-storage
 account-plan: lite
@@ -59,7 +59,7 @@ subcollection: secrets-manager
 
 # Accessing a storage bucket by using a dynamic secret
 {: #tutorial-access-storage-bucket}
-{: toc-content-type="tutorial"} 
+{: toc-content-type="tutorial"}
 {: toc-services="cloud-object-storage,secrets-manager"}
 {: toc-completion-time="1h"}
 
@@ -72,7 +72,7 @@ With {{site.data.keyword.secrets-manager_short}}, you can create a [dynamic secr
 
 ![The diagram shows the basic flow between the Secrets Manager and Cloud Object Storage services.](../images/iam-credential-flow.svg){: caption="Figure 1. IAM credential flow" caption-side="bottom"}
 
-1. As an admin user, you want to create a dynamic secret that your team can use to access a Cloud Object Storage bucket in your account. You send a request to create IAM credentials in {{site.data.keyword.secrets-manager_short}}. 
+1. As an admin user, you want to create a dynamic secret that your team can use to access a Cloud Object Storage bucket in your account. You send a request to create IAM credentials in {{site.data.keyword.secrets-manager_short}}.
 2. {{site.data.keyword.secrets-manager_short}} creates the secret and validates it against your defined IAM access policies.
 3. Later, a developer wants to access the contents of your storage bucket. The developer sends a request to retrieve the value of your IAM credential.
 4. {{site.data.keyword.secrets-manager_short}} validates the request and generates a single-use API key that the developer can use to authenticate to Cloud Object Storage. After the API key reaches the end of its lease, the API key is revoked automatically.
@@ -80,12 +80,12 @@ With {{site.data.keyword.secrets-manager_short}}, you can create a [dynamic secr
 ## Before you begin
 {: #access-cos-prereqs}
 
-Before you get started, be sure that you have [**Administrator** platform access](/docs/account?topic=account-assign-access-resources#assign_new_access) so that you can provision services, create access groups, and customize access policies for others. You also need the following prerequisites:
+Before you get started, be sure that you have [**Administrator** platform access](/docs/account?topic=account-assign-access-resources#assign-new-access) so that you can provision services, create access groups, and customize access policies for others. You also need the following prerequisites:
 
 - [Download and install the IBM Cloud CLI](https://cloud.ibm.com/docs/cli).
 - [Install the {{site.data.keyword.secrets-manager_short}} CLI plug-in](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli).
-- [Download and install jq](https://stedolan.github.io/jq/){: external}. 
-   
+- [Download and install jq](https://stedolan.github.io/jq/){: external}.
+
    `jq` helps you slice up JSON data. You use `jq` in this tutorial to grab and use stored environment variables.
 
 ## Set up your environment
@@ -107,7 +107,7 @@ Start by creating test instances of {{site.data.keyword.secrets-manager_short}} 
 1. In a terminal window, log in to {{site.data.keyword.cloud_notm}} through the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-install-ibmcloud-cli).
 
     ```sh
-    ibmcloud login 
+    ibmcloud login
     ```
     {: pre}
 
@@ -183,14 +183,14 @@ Next, define the access hierarchy that you need to be able to run operations aga
     ```sh
     ibmcloud iam service-policy-create $SERVICE_ID --roles Operator --service-name "IAM Identity Service"
     ```
-    {: pre}  
+    {: pre}
 
     Assign the service ID permissions to view and update access groups in your account.
 
     ```sh
     ibmcloud iam access-group-policy-create $SERVICE_ID --roles Editor --service-name "IAM Access Groups"
     ```
-    {: pre}  
+    {: pre}
 
     Add the service ID to your access group.
 
@@ -209,7 +209,7 @@ Next, define the access hierarchy that you need to be able to run operations aga
     You use this API key later to enable the {{site.data.keyword.secrets-manager_short}} IAM secrets engine.
 
 
-  
+
 ### Prepare your Cloud Object Storage instance
 {: #access-cos-provision-cos}
 
@@ -222,7 +222,7 @@ Next, create a bucket in your Cloud Object Storage instance and set up access.
    3. In the Cloud Object Storage UI, click **Create bucket**.
    4. Create a bucket in the `us-south` region.
    5. Copy the ID of the bucket.
-   
+
 2. Assign read and write access to your new Cloud Object Storage bucket.
 
    1. Go to **Manage > Access (IAM) > Access groups**.
@@ -236,9 +236,9 @@ Next, create a bucket in your Cloud Object Storage instance and set up access.
    9.  Assign the **Content Reader**, **Object Reader**, and **Object Writer** service access roles.
    10. Click **Add**.
    11. Review your selections and click **Assign**.
-   
+
 3. Upload an object to the storage bucket.
-   
+
    You can drag and drop any file or folder from your local system. For example, you can create and upload a file called `sample.txt` with the following sample text.
 
    ```
@@ -252,13 +252,13 @@ Next, create a bucket in your Cloud Object Storage instance and set up access.
 Finally, configure your {{site.data.keyword.secrets-manager_short}} instance to start working with dynamic secrets.
 
 1. In a terminal window, verify that you can access the {{site.data.keyword.secrets-manager_short}} CLI plug-in.
-   
+
    ```sh
    ibmcloud secrets-manager --help
    ```
    {: pre}
 
-   Don't have the plug-in installed? To install the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run `ibmcloud plugin install secrets-manager`. 
+   Don't have the plug-in installed? To install the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run `ibmcloud plugin install secrets-manager`.
    {: tip}
 
 2. Export an environment variable with your unique {{site.data.keyword.secrets-manager_short}} API endpoint URL.
@@ -298,7 +298,7 @@ Finally, configure your {{site.data.keyword.secrets-manager_short}} instance to 
 {: #access-cos-create-iam-credential}
 {: step}
 
-IAM credentials are dynamic secrets that you can use to access an IBM Cloud resource on-demand, such as a Cloud Object Storage bucket. A set of IAM credentials consists of a service ID and an API key that is generated each time that the protected resource is read or accessed. You can define a time-to-live (TTL) or a lease duration for your IAM credential at its creation so that you shorten the amount of time that the secret exists. 
+IAM credentials are dynamic secrets that you can use to access an IBM Cloud resource on-demand, such as a Cloud Object Storage bucket. A set of IAM credentials consists of a service ID and an API key that is generated each time that the protected resource is read or accessed. You can define a time-to-live (TTL) or a lease duration for your IAM credential at its creation so that you shorten the amount of time that the secret exists.
 
 To create an IAM credential from the {{site.data.keyword.cloud_notm}} CLI, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command.
 
@@ -309,7 +309,7 @@ export SECRET_ID=`ibmcloud secrets-manager secret-create --secret-type iam_crede
 ```
 {: pre}
 
-You can also create an IAM credential by using the {{site.data.keyword.secrets-manager_short}} UI. For more information, see [Creating IAM credentials](/docs/secrets-manager?topic=secrets-manager-store-secrets#store-iam-credentials).
+You can also create an IAM credential by using the {{site.data.keyword.secrets-manager_short}} UI. For more information, see [Creating IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials).
 {: note}
 
 ## Generate an API key
@@ -321,7 +321,7 @@ After you create the IAM credential, a user with lesser privileges can retrieve 
 To retrieve an IAM credential from the {{site.data.keyword.cloud_notm}} CLI, you can run the [**`ibmcloud secrets-manager secret`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-command) command.
 
 1. Retrieve the contents of your IAM credential secret.
-   
+
     ```sh
     ibmcloud secrets-manager secret --secret-type iam_credentials --id $SECRET_ID --output json
     ```
@@ -363,7 +363,7 @@ To retrieve an IAM credential from the {{site.data.keyword.cloud_notm}} CLI, you
     ```
     {: screen}
 
-    The response body shows the single-use `api_key` and `service_id` values that are generated for your secret. The `ttl` value indicates how long your credentials are valid (in seconds). 
+    The response body shows the single-use `api_key` and `service_id` values that are generated for your secret. The `ttl` value indicates how long your credentials are valid (in seconds).
 
 2. Export an environment variable with the newly generated API key.
 
@@ -407,7 +407,7 @@ curl -X GET \
   "https://s3.us-south.cloud-object-storage.appdomain.cloud" \
   -H "Authorization: Bearer "'"$IAM_TOKEN"'"" \
   -H "ibm-service-instance-id: "'"$COS_INSTANCE_ID"'"" \
-  -H "Accept: application/json" 
+  -H "Accept: application/json"
 ```
 {:codeblock}
 
@@ -436,7 +436,7 @@ curl -X GET \
   "https://s3.us-south.cloud-object-storage.appdomain.cloud/test-secrets-tutorial" \
   -H "Authorization: Bearer "'"$IAM_TOKEN"'"" \
   -H "ibm-service-instance-id: "'"$COS_INSTANCE_ID"'"" \
-  -H "Accept: application/json" 
+  -H "Accept: application/json"
 ```
 {:codeblock}
 
@@ -473,7 +473,7 @@ curl -X GET \
   "https://s3.us-south.cloud-object-storage.appdomain.cloud/test-secrets-tutorial/sample.txt" \
   -H "Authorization: Bearer "'"$IAM_TOKEN"'"" \
   -H "ibm-service-instance-id: "'"$COS_INSTANCE_ID"'"" \
-  -H "Accept: application/json" 
+  -H "Accept: application/json"
 ```
 {:codeblock}
 
@@ -491,7 +491,7 @@ A quick brown fox jumps over the lazy dog.
 If you no longer need the resources that you created in this tutorial, you can complete the following steps to remove them from your account.
 
 1. Delete your test Cloud Object Storage instance.
-   
+
     ```sh
     ibmcloud resource service-instance-delete test-cos-instance-tutorial
     ```
@@ -523,7 +523,7 @@ If you no longer need the resources that you created in this tutorial, you can c
 
 Great job! In this tutorial, you learned how to set up {{site.data.keyword.secrets-manager_short}} to access a Cloud Object Storage bucket with a dynamic secret. Check out more resources to help you get started with {{site.data.keyword.secrets-manager_short}}.
 
-- Learn more about [secret types](/docs/secrets-manager?topic=secrets-manager-secret-basics).
+- Learn more about [secret types](/docs/secrets-manager?topic=secrets-manager-secret-what-is-secret).
 - Design an access strategy with [secret groups](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 - Learn more about the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager){:external}.
 
