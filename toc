@@ -25,12 +25,17 @@ Secrets Manager
     Setting up the service
         provision.md
         assign-access.md
-        concepts/secret-engines.md
 
     {: .topicgroup}
     Working with secrets
-        concepts/secret-types.md
-        add-secret.md
+        what-is-secret.md
+
+        {: .topicgroup}
+        Creating secrets
+            arbitrary.md
+            iam-credentials.md
+            user-credentials.md
+
         access-secret.md
         rotate-secret.md
         delete-secret.md
