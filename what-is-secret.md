@@ -101,7 +101,7 @@ Let's look at our service to service example. What we have to start with is a le
 
 Again, secrets manager services help to ensure the secure storage of secrets so that you don't have to worry about data breaches from last credentials or from other types of secrets. And, ultimately, it makes it a little more efficient for the management of your secrets while you're going through your DevOps operations.
 
-Thank you. If you have questions, please drop us a line below. If you want to see more videos like this in the future, please like and subscribe, and don't forget you can grow your skills and earn a badge with IBM Cloud Labs which, are free browser-based interactive Kubernetes labs.
+Thank you. If you have questions, please drop us a line. If you want to see more videos like this in the future, please like and subscribe, and don't forget you can grow your skills and earn a badge with IBM Cloud Labs which, are free browser-based interactive Kubernetes labs.
 
 
 
