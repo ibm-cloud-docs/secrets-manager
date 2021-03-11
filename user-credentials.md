@@ -4,7 +4,7 @@ copyright:
   years: 2020, 2021
 lastupdated: "2021-03-11"
 
-keywords: create secrets, add secrets, store secrets, single tenant secret storage, manage secrets
+keywords: username, password, user credentials, store password
 
 subcollection: secrets-manager
 
