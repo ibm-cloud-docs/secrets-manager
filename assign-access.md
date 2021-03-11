@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-05"
+lastupdated: "2021-03-08"
 
 keywords: assign access for Secrets Manager, secret group access, assign access for all secrets, grant access, add users
 
@@ -67,20 +67,20 @@ To learn more about suggested guidelines for assigning access to secrets, check 
 ## Before you begin
 {: #before-access}
 
-Before you get started, be sure that you have [**Administrator** platform access](/docs/account?topic=account-assign-access-resources#assign_new_access) so that you can further assign roles and customize access policies for others.
+Before you get started, be sure that you have [**Administrator** platform access](/docs/account?topic=account-assign-access-resources#assign-new-access) so that you can further assign roles and customize access policies for others.
 
 ## Assigning access to a {{site.data.keyword.secrets-manager_short}} instance
 {: #assign-access-instance}
 
 To assign access to a {{site.data.keyword.secrets-manager_short}} instance and its contained secrets, you can use the **Access (IAM)** section of the console.
 
-1. [Create an access group](/docs/account?topic=account-groups#create_ag) for the users and service IDs that you want to give access to and add those users to the group. 
-   
+1. [Create an access group](/docs/account?topic=account-groups#create_ag) for the users and service IDs that you want to give access to and add those users to the group.
+
    For example, you might have a group of security admins that might need the same level of access.
 2. After you create a group and add users, go to **Manage > Access (IAM) > Access Groups**.
 3. Select a table row, and click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) to open a list of options for that access group.
 4. Click **Assign access**.
-5. Select **IAM services**. 
+5. Select **IAM services**.
 6. From the list of services, select **{{site.data.keyword.secrets-manager_short}}**.
 7. From the list of options, select a region and a {{site.data.keyword.secrets-manager_short}} service instance.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-26"
+lastupdated: "2021-03-01"
 
 keywords: delete secret, remove secret, destroy secret
 
@@ -79,6 +79,21 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually delet
 
     After you delete a secret, the secret transitions to the _Destroyed_ state. Secrets in this state are no longer recoverable. Metadata that is associated with the secret, such as the secret's deletion date, is kept in the {{site.data.keyword.secrets-manager_short}} database.
 
+## Deleting secrets from the CLI
+{: #delete-secret-cli}
+{: cli}
+
+To delete a secret, run the [**`ibmcloud secrets-manager secret-delete`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-delete-command) command. You can specify the type of secret by using the `--secret-type SECRET-TYPE` option. The options for `SECRET_TYPE` are: `arbitrary`, `iam_credentials`, and `username_password`.
+
+```sh
+ibmcloud secrets-manager secret --secret-type SECRET_TYPE --id ID
+```
+{: pre}
+
+After you delete a secret, the secret transitions to the _Destroyed_ state. Secrets in this state are no longer recoverable. Metadata that is associated with the secret, such as the secret's deletion date, is kept in the {{site.data.keyword.secrets-manager_short}} database.
+
+For more information about the command options, see [**`ibmcloud secrets-manager secret`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-command).
+
 ## Deleting secrets with the API
 {: #delete-secret-api}
 {: api}
@@ -86,7 +101,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually delet
 
 You can delete secrets by calling the {{site.data.keyword.secrets-manager_short}} API.
 
-The following example request deletes a secret and its contents. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+The following example request deletes a secret and its contents. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. The options for `{secret_type}` are: `arbitrary`, `iam_credentials`, and `username_password`.
 {: curl}
 
 
@@ -163,4 +178,6 @@ if err != nil {
 ```
 {: codeblock}
 {: go}
+
+After you delete a secret, the secret transitions to the _Destroyed_ state. Secrets in this state are no longer recoverable. Metadata that is associated with the secret, such as the secret's deletion date, is kept in the {{site.data.keyword.secrets-manager_short}} database.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-26"
+lastupdated: "2021-03-03"
 
 keywords: access stored secrets, retrieve secrets, get secret value, get secrets, view secrets, search secrets, get secret value
 
@@ -70,7 +70,7 @@ Before you begin, be sure that you have the required level of access. To view a 
 {: #get-secret-value-ui}
 {: ui}
 
-This action can be done only through the CLI, API, or SDKs. To see the steps, switch to the **API** or **CLI** instructions.
+This action can be done only through the CLI, API, or SDKs. To see the steps, switch to the **CLI** or **API** instructions.
 
 ## Retrieving a secret from the CLI
 {: #get-secret-value-cli}
@@ -78,10 +78,10 @@ This action can be done only through the CLI, API, or SDKs. To see the steps, sw
 
 After you store a secret in your instance, you might need to retrieve its value so that you can connect to an external app or get access to a protected service. You can retrieve the value of a secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in.
 
-To get the value of a secret, run the [**`ibmcloud secrets-manager secret`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-command) command. You can specify the type of secret by using the `--secret-type SECRET-TYPE` option. For example, the following command retrieves a user credentials (`username_password`) secret.
+To get the value of a secret, run the [**`ibmcloud secrets-manager secret`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-command) command. You can specify the type of secret by using the `--secret-type SECRET-TYPE` option. For example, The options for `SECRET_TYPE` are: `arbitrary`, `iam_credentials`, and `username_password`.
 
 ```sh
-ibmcloud secrets-manager secret --secret-type username_password --id "432b91f1-ff6d-4b47-9f06-82debc236d90"
+ibmcloud secrets-manager secret --secret-type SECRET_TYPE --id ID
 ```
 {: pre}
 
@@ -116,7 +116,7 @@ If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https:/
 
 ```bash
 curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}" \
-  -H "Authorization: Bearer {IAM_token}" \
+  -H "Authorization: Bearer $IAM_TOKEN" \
   -H "Accept: application/json"
 ```
 {: codeblock}

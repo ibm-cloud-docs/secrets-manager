@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-26"
+lastupdated: "2021-03-08"
 
 keywords: secret groups, assign secret access, iam roles, secrets policies, organize secrets
 
@@ -61,7 +61,7 @@ When you work with {{site.data.keyword.secrets-manager_full}}, you can create gr
 
 Similar to the way that [resource groups](#x2161955){: term} help to ensure correct policy enforcement at the platform level, you can create secret groups at the instance level to organize secrets.
 
-![The image shows two examples of a secret group and how they're mapped to access groups. One where the reader role is assigned and one where the manager role is assigned. The content is explained fully in the surrounding text.](../images/secret-group.svg){: caption="Figure 1. Assigning access to secret groups" caption-side="bottom"}
+![The image shows two examples of a secret group and how they're mapped to access groups. One where the reader role is assigned and one where the manager role is assigned. The content is explained fully in the surrounding text.](/images/secret-group.svg){: caption="Figure 1. Assigning access to secret groups" caption-side="bottom"}
 
 As shown in the previous image, users with *Reader* access to a secret group can see that the group exists and understand which secrets are assigned to it. Users with *Writer* access can view and edit the secret group and secrets themselves. By design, the default secret group inherits all of the same permissions that are set for the instance.
 
@@ -87,7 +87,7 @@ You can create secret groups by using the {{site.data.keyword.secrets-manager_sh
 
 You can create secret groups by using the console. You can also create a secret group during the process of adding or creating a secret.
 
-1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> Resource List**.
+1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the navigation, click **Secret groups > Create**.
 4. Add a name and description to easily identify your group.
@@ -235,10 +235,10 @@ To delete a secret group, it must be empty. If you need to remove a secret group
 
 You can delete secret groups by using the console.
 
-1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> Resource List**.
+1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the navigation, click **Secret groups**.
-4. In the row for the secret group that you want to delete, click the **Actions** icon ![Actions icon](../../icons/actions-icon-vertical.svg).
+4. In the row for the secret group that you want to delete, click the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg).
 5. Click **Delete group**.
 6. Click **Delete**.
 

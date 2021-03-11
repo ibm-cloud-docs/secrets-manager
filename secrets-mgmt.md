@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-05"
+lastupdated: "2021-03-08"
 
 keywords: secrets management in IBM Cloud, differences between {{site.data.keyword.secrets-manager_short}} and Key Protect, when to use {{site.data.keyword.secrets-manager_short}}, {{site.data.keyword.secrets-manager_short}} use cases, single tenant, multi-tenant
 
@@ -58,11 +58,11 @@ subcollection: secrets-manager
 
 A secret is any piece of confidential information, such as an encryption key, a certificate, or a digital credential.
 
-With {{site.data.keyword.cloud_notm}}, you can choose from various secrets management and data protection offerings that help you to protect your sensitive data and centralize your secrets. If you need to integrate general-purpose secrets to authenticate your apps, you can use {{site.data.keyword.secrets-manager_short}} to create [dynamic secrets](#x9968958){:term} and manage their lifecycle. But for other application secrets, such as encryption keys, your business might require a higher level of control that relies on highly secure, customer-controlled cryptographic hardware.  
+With {{site.data.keyword.cloud_notm}}, you can choose from various secrets management and data protection offerings that help you to protect your sensitive data and centralize your secrets. If you need to integrate general-purpose secrets to authenticate your apps, you can use {{site.data.keyword.secrets-manager_short}} to create [dynamic secrets](#x9968958){:term} and manage their lifecycle. But for other application secrets, such as encryption keys, your business might require a higher level of control that relies on highly secure, customer-controlled cryptographic hardware.
 
 For example, consider the following scenarios and how they map to secrets management offerings and data protection offerings in {{site.data.keyword.cloud_notm}}.
 
-![The image describes three use cases for secrets management and how they map to available services in {{site.data.keyword.cloud_notm}}. The content is explained fully in the surrounding text.](../images/secrets-mgmt-options.svg){: caption="Figure 1. Secrets management use cases" caption-side="bottom"}
+![The image describes three use cases for secrets management and how they map to available services in {{site.data.keyword.cloud_notm}}. The content is explained fully in the surrounding text.](/images/secrets-mgmt-options.svg){: caption="Figure 1. Secrets management use cases" caption-side="bottom"}
 
 
 ## Which data protection service is right for me?
@@ -82,17 +82,17 @@ The following table lists the different offerings that you can use with {{site.d
 ## What are key features for each data protection service?
 {: #key-features}
 
-As you plan your data protection strategy, some differences between services to consider include the level of data isolation that your workload requires. 
+As you plan your data protection strategy, some differences between services to consider include the level of data isolation that your workload requires.
 
 For a higher level of security and control, your business might benefit from the data isolation that a single-tenant offering provides, such as {{site.data.keyword.secrets-manager_short}} or {{site.data.keyword.hscrypto}}. You might also decide that the lower costs and scalability benefits of a multi-tenant service, such as {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.cloudcerts_short}}, are better suited to your needs. The following table lists key features for each service.
 
-| Service | Secret types | Multi-tenant[^multi-tenant] | Single-tenant[^single-tenant] | HSM backed[^hsm] | 
+| Service | Secret types | Multi-tenant[^multi-tenant] | Single-tenant[^single-tenant] | HSM backed[^hsm] |
 | --- | --- | --- | --- |  --- |
-| **{{site.data.keyword.secrets-manager_short}}** | User credentials<br>IAM credentials<br>Arbitrary secrets | | ![Check mark icon](../../icons/checkmark-icon.svg)| | 
-| **{{site.data.keyword.cloudcerts_short}}** | SSL/TLS certificates | ![Check mark icon](../../icons/checkmark-icon.svg) | | |
-| **{{site.data.keyword.keymanagementserviceshort}}** | Symmetric encryption keys | ![Check mark icon](../../icons/checkmark-icon.svg)| | ![Check mark icon](../../icons/checkmark-icon.svg) | | 
-| **{{site.data.keyword.hscrypto}}** | Symmetric encryption keys | |![Check mark icon](../../icons/checkmark-icon.svg) | ![Check mark icon](../../icons/checkmark-icon.svg) |
-{: class="comparison-table"}	
+| **{{site.data.keyword.secrets-manager_short}}** | User credentials<br>IAM credentials<br>Arbitrary secrets | | ![Check mark icon](../icons/checkmark-icon.svg)| |
+| **{{site.data.keyword.cloudcerts_short}}** | SSL/TLS certificates | ![Check mark icon](../icons/checkmark-icon.svg) | | |
+| **{{site.data.keyword.keymanagementserviceshort}}** | Symmetric encryption keys | ![Check mark icon](../icons/checkmark-icon.svg)| | ![Check mark icon](../icons/checkmark-icon.svg) | |
+| **{{site.data.keyword.hscrypto}}** | Symmetric encryption keys | |![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
+{: class="comparison-table"}
 {: caption="Table 2. Key features for {{site.data.keyword.cloud_notm}} data protection services" caption-side="top"}
 {: summary="The table compares features across {{site.data.keyword.secrets-manager_short}}, {{site.data.keyword.cloudcerts_short}}, {{site.data.keyword.keymanagementserviceshort}}, and {{site.data.keyword.hscrypto}}. The first column lists the names of the services. The second column lists the types of secrets that are supported by each service. The third column uses check marks to indicate whether a service is multi-tenant. The fourth column uses check marks to indicate whether a service is single-tenant. The last column uses check marks to indicate whether a service is backed by a hardware security module (HSM)."}
 

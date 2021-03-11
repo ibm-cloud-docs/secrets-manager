@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-05"
+lastupdated: "2021-03-11"
 
 keywords: known issues for Secrets Manager, known limitations for Secrets Manager
 
@@ -54,12 +54,12 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 
 # Known issues and limits
-{: #known-issues}
+{: #known-issues-and-limits}
 
 {{site.data.keyword.secrets-manager_full}} includes the following known issues and limits that might impact your experience.
 {: shortdesc}
 
-## Known issues 
+## Known issues
 {: #issues-and-limitations}
 
 Review the following known issues that you might encounter as you use {{site.data.keyword.secrets-manager_short}}.
@@ -69,7 +69,7 @@ Review the following known issues that you might encounter as you use {{site.dat
 | Multiple secrets of the same type can't be created with the same name. | It is not possible to create more than one secret of the same type with the same name. This limitation applies at the instance level. To organize similar secrets of the same type across multiple secret groups in your instance, try adding a prefix or suffix to the names of those secrets. |
 | Secrets can't be transferred between secret groups. | If you accidentally assign a secret to the wrong secret group, or if you don't want a secret to belong to the default secret group, you must delete the secret and create a new one. |
 | API keys that are associated with an IAM secret aren't valid immediately after they are generated. | If you have automation in place that calls the {{site.data.keyword.secrets-manager_short}} API to get the API key for an IAM secret, add a wait delay of 2 seconds to allow the new API key to be recognized by IAM. |
-| Secrets with a time-to-live (TTL) don't expire right away. | After a secret with a TTL reaches the end of its lease duration, expect a tolerance of 1 - 2 minutes before the secret's associated service ID is deleted by IAM. | 
+| Secrets with a time-to-live (TTL) don't immediately expire. | After a secret with a TTL reaches the end of its lease duration, expect a tolerance of 1 - 2 minutes before the secret's associated service ID is deleted by IAM. |
 | Community plug-ins for Vault are not supported. | It is not possible to integrate a community plug-in for Vault with {{site.data.keyword.secrets-manager_short}}, unless it is written against a secrets engine that {{site.data.keyword.secrets-manager_short}} supports. To manage {{site.data.keyword.cloud_notm}} secrets by using the full Vault native experience, use the [stand-alone {{site.data.keyword.cloud_notm}} plug-ins for Vault](/docs/secrets-manager?topic=secrets-manager-faqs#faq-vault-community-plugins). |
 {: caption="Table 1. Known issues and limitations that apply to the {{site.data.keyword.secrets-manager_short}} service" caption-side="top"}
 

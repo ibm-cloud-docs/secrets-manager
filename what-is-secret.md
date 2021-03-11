@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-26"
+lastupdated: "2021-03-11"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -54,14 +54,12 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 
 # What is a secret?
-{: #secret-basics}
+{: #what-is-secret}
 
 A secret is a piece of sensitive information. For example, an API key, password, or any type of credential that you might use to access a confidential system.
 {: shortdesc}
 
 By using secrets, you're able to authenticate to protected resources as you build your applications. For example, when you try to access an external service API, you're asked to provide a unique credential. After you supply your credential, the external service can understand who you are and whether you're authorized to interact with it.
-
-
 
 To learn more about the general characteristics of a secret, check out the following video.
 
@@ -103,40 +101,55 @@ Let's look at our service to service example. What we have to start with is a le
 
 Again, secrets manager services help to ensure the secure storage of secrets so that you don't have to worry about data breaches from last credentials or from other types of secrets. And, ultimately, it makes it a little more efficient for the management of your secrets while you're going through your DevOps operations.
 
-Thank you. If you have questions, please drop us a line below. If you want to see more videos like this in the future, please like and subscribe, and don't forget you can grow your skills and earn a badge with IBM Cloud Labs which, are free browser-based interactive Kubernetes labs.
+Thank you. If you have questions, please drop us a line. If you want to see more videos like this in the future, please like and subscribe, and don't forget you can grow your skills and earn a badge with IBM Cloud Labs which, are free browser-based interactive Kubernetes labs.
 
 
 
-## Types of secrets
+## Working with secrets of different types
 {: #secret-types}
 
-As an enterprise developer, you might encounter various secret types. Currently, {{site.data.keyword.secrets-manager_short}} helps you to secure user credentials, IAM credentials, and arbitrary secrets.
+Secrets that you create in {{site.data.keyword.secrets-manager_short}} can be static or dynamic in nature. A static secret has its expiration date and time enforced at secret creation or rotation time. Whereas, a [dynamic secret](#x9968958){:term} has its expiration date and time enforced when its secret data is read or accessed.
 
-Generally, you can further classify these secrets based on how they are created and stored. Some secrets are created ahead of time, while others are generated only when they are accessed.
+{{site.data.keyword.secrets-manager_short}} further classifies static and dynamic secrets by their general purpose or function. For example, each secret type is identified programmatically by a keyword, such as `username_password`. If you're looking to manage your secret by using the {{site.data.keyword.secrets-manager_short}} API or CLI, you can use these keywords to invoke actions on secrets according to their type.
 
-<dl>
-  <dt>Static secrets</dt>
-    <dd>Static secrets are secrets that you create and store before you need to supply them. For example, you might decide to create and store a set of user credentials for an external service that you don't need to access right away. You delete static secrets manually when you no longer need them.</dd>
-  <dt>Dynamic secrets</dt>
-    <dd>Unlike static secrets, dynamic secrets are generated only when they are accessed. Dynamic secrets are configured with a time-to-live (TTL) that determines how long they can exist. When you use a dynamic secret, a unique credential is generated on your behalf. After the credential reaches the end of its TTL, access to the protected resource is revoked and the secret is deleted automatically.</dd>
-</dl>
+Review the following table to understand the types of static and dynamic secrets that you can create and manage with the service.
 
-### User credentials
-{: #user-credentials}
-
-User credentials consist of a username and password that you can use to log in to or access an external service or application. In {{site.data.keyword.secrets-manager_short}}, user credentials are static secrets that you can create and store in your instance ahead of time. You can enable automatic rotation for user credentials so that you can create new versions of them automatically based on the rotation frequency that you specify.
-
-### IAM credentials
-{: #iam-credentials}
-
-IAM credentials are dynamic secrets that are used to access an {{site.data.keyword.cloud_notm}} resource on-demand. A set of IAM credentials consists of a service ID and an API key that is generated each time that you access a protected resource. By defining a time-to-live (TTL) or a lease duration for your IAM credential at its creation, you mitigate against secret compromise and shorten the amount of time that that secret can exist. Because an IAM credential is revoked automatically when its lease expires, you don't need to manage its rotation manually.
-
-### Arbitrary secrets
-{: #arbitrary-text}
-
-Arbitrary secrets can hold random data that you can use for authentication and authorization to any protected system, whether the system is inside or outside of {{site.data.keyword.cloud_notm}}. By using the {{site.data.keyword.secrets-manager_short}} UI, you can select a file from your computer to use as an arbitrary secret, or you can enter a custom value. In {{site.data.keyword.secrets-manager_short}}, arbitrary secrets are static secrets that you can create and store in your instance ahead of time.
+| Name | Keyword | Type | Description |
+| --- | --- | -- | -- |
+| [Arbitrary secret](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets) | `arbitrary` | Static | Arbitrary pieces of sensitive data, including any type of structured or unstructured data, that you can use to access an application or resource. |
+| [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) | `iam_credentials` | Dynamic | A dynamically-generated service ID and API key that can be used to access an {{site.data.keyword.cloud_notm}} service that requires IAM authentication. |
+| [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | `username_password` | Static | Username and password values that you can use to log in or access an application or resource. |
+{: caption="Table 1. Secret types in {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
 
 
+## What's in a secret?
+{: #secret-components}
+
+Secrets that you store with the service consist of metadata attributes and a secret value. While the metadata attributes help you to identify a secret, the secret value is the data that protected services need to authenticate and authorize you or your application.
+
+Check out the following image to see how a secret is structured.
+
+![This image shows the components of a secret. The information in the image is detailed in the surrounding content.](/images/example-secret.svg){: caption="Figure 1. JSON representation of {{site.data.keyword.secrets-manager_short}} secret" caption-side="bottom"}
+
+1. The `name`, `id`, and `description`, and other common fields hold identifiying information about a secret. These fields store the general attributes of your secret that you can use to understand its purpose and history.
+
+2. The `secret_data` object contains the actual value of your secret.
+
+   When you use the {{site.data.keyword.secrets-manager_short}} API to retrieve the value of a secret, you see different fields in the `secret_data` object depending on the type of secret that you are inspecting. For example, the following truncated example shows how secret data is represented for an arbitrary secret.
+
+   ```json
+   {
+     "secret_type": "arbitrary",
+     "secret_data": {
+       "payload": "The quick brown fox jumped over the lazy dog."
+     }
+   }
+   ```
+   {: screen}
 
 
 
+## How do I get started?
+{: #what-is-secret-get-started}
+
+To get started with secrets, you can go to the **Secrets** page of the {{site.data.keyword.secrets-manager_short}} UI, or check out the [API reference](/apidocs/secrets-manager) to learn more about creating secrets programmatically.

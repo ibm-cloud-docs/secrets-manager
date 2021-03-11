@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-19"
+lastupdated: "2021-03-08"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -994,7 +994,7 @@ To create a dynamic secret by using the Vault CLI, use the `role` command to sco
 ### Create a role
 {: #vault-cli-create-role}
 
-Use the following commands to register a role for a [secrets engine that supports dynamic secrets](/docs/secrets-manager?topic=secrets-manager-secret-engines#configure-engines). After you create a role, you can [generate credentials](/docs/secrets-manager?topic=secrets-manager-vault-cli#vault-cli-create-iam-creds-for-role) for it. The configuration that you define for role, such as its name, lease duration, and access permissions, is inherited by the generated credentials.
+Use the following commands to register a role for a [secrets engine that supports dynamic secrets](/docs/secrets-manager?topic=secrets-manager-what-is-secret#secret-types). After you create a role, you can [generate credentials](/docs/secrets-manager?topic=secrets-manager-vault-cli#vault-cli-create-iam-creds-for-role) for it. The configuration that you define for role, such as its name, lease duration, and access permissions, is inherited by the generated credentials.
 
 
 Create a role in the `default` secret group.
