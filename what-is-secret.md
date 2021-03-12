@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-03-12"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -108,16 +108,16 @@ Thank you. If you have questions, please drop us a line. If you want to see more
 ## Working with secrets of different types
 {: #secret-types}
 
-Secrets that you create in {{site.data.keyword.secrets-manager_short}} can be static or dynamic in nature. A static secret has its expiration date and time enforced at secret creation or rotation time. Whereas, a [dynamic secret](#x9968958){:term} has its expiration date and time enforced when its secret data is read or accessed.
+Secrets that you create in {{site.data.keyword.secrets-manager_short}} can be static or dynamic in nature. A static secret has its expiration date and time enforced at secret creation or rotation time. In contrast, a [dynamic secret](#x9968958){:term} has its expiration date and time enforced when its secret data is read or accessed.
 
-{{site.data.keyword.secrets-manager_short}} further classifies static and dynamic secrets by their general purpose or function. For example, each secret type is identified programmatically by a keyword, such as `username_password`. If you're looking to manage your secret by using the {{site.data.keyword.secrets-manager_short}} API or CLI, you can use these keywords to invoke actions on secrets according to their type.
+{{site.data.keyword.secrets-manager_short}} further classifies static and dynamic secrets by their general purpose or function. For example, each secret type is identified programmatically by a keyword, such as `username_password`. If you're looking to manage your secret by using the {{site.data.keyword.secrets-manager_short}} API or CLI, you can use these keywords to run operations on secrets according to their type.
 
 Review the following table to understand the types of static and dynamic secrets that you can create and manage with the service.
 
 | Name | Keyword | Type | Description |
 | --- | --- | -- | -- |
 | [Arbitrary secret](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets) | `arbitrary` | Static | Arbitrary pieces of sensitive data, including any type of structured or unstructured data, that you can use to access an application or resource. |
-| [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) | `iam_credentials` | Dynamic | A dynamically-generated service ID and API key that can be used to access an {{site.data.keyword.cloud_notm}} service that requires IAM authentication. |
+| [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) | `iam_credentials` | Dynamic | A dynamically generated service ID and API key that can be used to access an {{site.data.keyword.cloud_notm}} service that requires IAM authentication. |
 | [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | `username_password` | Static | Username and password values that you can use to log in or access an application or resource. |
 {: caption="Table 1. Secret types in {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
 
@@ -131,11 +131,11 @@ Check out the following image to see how a secret is structured.
 
 ![This image shows the components of a secret. The information in the image is detailed in the surrounding content.](/images/example-secret.svg){: caption="Figure 1. JSON representation of {{site.data.keyword.secrets-manager_short}} secret" caption-side="bottom"}
 
-1. The `name`, `id`, and `description`, and other common fields hold identifiying information about a secret. These fields store the general attributes of your secret that you can use to understand its purpose and history.
+1. The `name`, `id`, and `description`, and other common fields hold identifying information about a secret. These fields store the general attributes of your secret that you can use to understand its purpose and history.
 
 2. The `secret_data` object contains the actual value of your secret.
 
-   When you use the {{site.data.keyword.secrets-manager_short}} API to retrieve the value of a secret, you see different fields in the `secret_data` object depending on the type of secret that you are inspecting. For example, the following truncated example shows how secret data is represented for an arbitrary secret.
+   When you use the {{site.data.keyword.secrets-manager_short}} API to retrieve the value of a secret, the fields that you see in the `secret_data` object differ depending on the type of secret that you are inspecting. For example, the following truncated example shows how secret data is represented for an arbitrary secret.
 
    ```json
    {
