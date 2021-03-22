@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-26"
+lastupdated: "2021-03-22"
 
 keywords: Secrets Manager availability, regions, Secrets Manager endpoints, Vault endpoint
 
@@ -66,38 +66,105 @@ You can create {{site.data.keyword.secrets-manager_short}} resources in one of t
 
 - Dallas (`us-south`)
 - Frankfurt (`eu-de`)
+- London (`eu-gb`)
 - Sydney (`au-syd`)
+- Tokyo (`jp-tok`)
+- Washington DC (`us-east`)
 
 ## Service endpoints
 {: #service-endpoints}
 
-If you are managing your {{site.data.keyword.secrets-manager_short}} resources programmatically, see the following table to determine the API endpoints to use when you connect to the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager){: external}.
+You can use the {{site.data.keyword.secrets-manager_short}} APIs to manage your secrets programmatically. {{site.data.keyword.secrets-manager_short}} offers two connectivity options for interacting with its service APIs.
+
+<dl>
+  <dt>
+    Public endpoints
+  </dt>
+  <dd>
+    By default, you can connect to resources in your account over the {{site.data.keyword.cloud_notm}} public network. Your data is encrypted in transit by using the Transport Security Layer (TLS) 1.2 protocol.
+  </dd>
+
+  <dt>
+    Private endpoints
+  </dt>
+  <dd>
+    <p>
+      To further secure your connection, you can also enable [virtual routing and forwarding (VRF) and service endpoints](/docs/account?topic=account-vrf-service-endpoint) for your infrastructure account. When you enable VRF for your account, you can [connect to {{site.data.keyword.secrets-manager_short}} by using a private IP](/docs/secrets-manager?topic=secrets-manager-service-connection) that is accessible only through the {{site.data.keyword.cloud_notm}} private network.
+    </p>
+  </dd>
+</dl>
+
+### Public endpoints
+{: #public-endpoints}
+
+If you are managing your {{site.data.keyword.secrets-manager_short}} resources over a public network, see the following table to determine the API endpoints to use when you connect to the {{site.data.keyword.secrets-manager_short}} API.
 
 | Region        | Endpoint URL             |
 | ------------- | ---------------------------- |
 | Dallas        | `https://{instance_ID}.us-south.secrets-manager.appdomain.cloud/api` |
+| Washington DC | `https://{instance_ID}.us-east.secrets-manager.appdomain.cloud/api`  |
+| London        | `https://{instance_ID}.eu-gb.secrets-manager.appdomain.cloud/api`    |
 | Frankfurt     | `https://{instance_ID}.eu-de.secrets-manager.appdomain.cloud/api`    |
 | Sydney        | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud/api`   |
+| Tokyo         | `https://{instance_ID}.jp-tok.secrets-manager.appdomain.cloud/api`   |
 {: caption="Table 1. Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using standard {{site.data.keyword.cloud_notm}} APIs" caption-side="top"}
-{: #table-1}
+{: #public-endpoints-secrets-manager}
 {: tab-title="Service API"}
+{: tab-group="public-endpoints"}
 {: class="simple-tab-table"}
-{: row-headers}
 
 | Region        | Endpoint URL             |
 | ------------- | ---------------------------- |
 | Dallas        | `https://{instance_ID}.us-south.secrets-manager.appdomain.cloud` |
+| Washington DC | `https://{instance_ID}.us-east.secrets-manager.appdomain.cloud`  |
+| London        | `https://{instance_ID}.eu-gb.secrets-manager.appdomain.cloud`    |
 | Frankfurt     | `https://{instance_ID}.eu-de.secrets-manager.appdomain.cloud`    |
 | Sydney        | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud`   |
-{: caption="Table 2. Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
-{: #table-2}
+| Tokyo         | `https://{instance_ID}.jp-tok.secrets-manager.appdomain.cloud`   |
+{: caption="Table 1. Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
+{: #public-endpoints-vault}
 {: tab-title="Vault API"}
+{: tab-group="public-endpoints"}
 {: class="simple-tab-table"}
-{: row-headers}
 
 Ready to try the APIs? To interact with a Swagger UI from your browser, remove `/api` from your service endpoint URL and replace it with `/swagger-ui`. For example, `https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/swagger-ui`.
 {: tip}
 
+### Private endpoints
+{: #private-endpoints}
+
+If you need to manage your {{site.data.keyword.secrets-manager_short}} resources over a private network, see the following table to determine the API endpoints to use when you connect to the {{site.data.keyword.secrets-manager_short}} API.
+
+To learn how to configure your {{site.data.keyword.secrets-manager_short}} instance to use private endpoints, see [Securing your connection to {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-service-connection).
+{: note}
+
+| Region        | Endpoint URL             |
+| ------------- | ---------------------------- |
+| Dallas        | `https://{instance_ID}.private.us-south.secrets-manager.appdomain.cloud/api` |
+| Washington DC | `https://{instance_ID}.private.us-east.secrets-manager.appdomain.cloud/api`  |
+| London        | `https://{instance_ID}.private.eu-gb.secrets-manager.appdomain.cloud/api`    |
+| Frankfurt     | `https://{instance_ID}.private.eu-de.secrets-manager.appdomain.cloud/api`    |
+| Sydney        | `https://{instance_ID}.private.au-syd.secrets-manager.appdomain.cloud/api`   |
+| Tokyo         | `https://{instance_ID}.private.jp-tok.secrets-manager.appdomain.cloud/api`   |
+{: caption="Table 2. Private endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using standard {{site.data.keyword.cloud_notm}} APIs" caption-side="top"}
+{: #private-endpoints-secrets-manager}
+{: tab-title="Service API"}
+{: tab-group="private-endpoints"}
+{: class="simple-tab-table"}
+
+| Region        | Endpoint URL             |
+| ------------- | ---------------------------- |
+| Dallas        | `https://{instance_ID}.private.us-south.secrets-manager.appdomain.cloud` |
+| Washington DC | `https://{instance_ID}.private.us-east.secrets-manager.appdomain.cloud`  |
+| London        | `https://{instance_ID}.private.eu-gb.secrets-manager.appdomain.cloud`    |
+| Frankfurt     | `https://{instance_ID}.private.eu-de.secrets-manager.appdomain.cloud`    |
+| Sydney        | `https://{instance_ID}.private.au-syd.secrets-manager.appdomain.cloud`   |
+| Tokyo         | `https://{instance_ID}.private.jp-tok.secrets-manager.appdomain.cloud`   |
+{: caption="Table 2. Private endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
+{: #private-endpoints-vault}
+{: tab-title="Vault API"}
+{: tab-group="private-endpoints"}
+{: class="simple-tab-table"}
 
 
 ### Viewing your endpoint URLs
@@ -123,13 +190,15 @@ Replace the variables in the example request according to the following table.
 
 A successful request returns the endpoint URLs that are associated with the region and service instance CRN that you specify. The following JSON snippet shows an example response.
 
-
-
 ```json
 {
   "public_endpoints": {
     "service_api": "https://927fb8ae-1ddd-4483-a21f-7d3c0fc845f5.us-south.secrets-manager.appdomain.cloud/api",
     "vault_api": "https://927fb8ae-1ddd-4483-a21f-7d3c0fc845f5.us-south.secrets-manager.appdomain.cloud"
+  },
+  "private_endpoints": {
+    "service_api": "https://927fb8ae-1ddd-4483-a21f-7d3c0fc845f5.private.us-south.secrets-manager.appdomain.cloud/api",
+    "vault_api": "https://927fb8ae-1ddd-4483-a21f-7d3c0fc845f5.private.us-south.secrets-manager.appdomain.cloud"
   }
 }
 ```
@@ -138,7 +207,7 @@ A successful request returns the endpoint URLs that are associated with the regi
 To try this API, you can interact with the following Swagger UI from your browser: `https://{region}.secrets-manager.cloud.ibm.com/swagger-ui/`.
 {: tip}
 
-
-
+If your instance is configured with the **Private only** option, this API returns only the `private_endpoints` object in the response.
+{: note}
 
 
