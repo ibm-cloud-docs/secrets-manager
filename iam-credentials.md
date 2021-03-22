@@ -82,6 +82,7 @@ To configure your instance to start creating IAM credentials, complete the follo
 3. In the **Settings** page, go to the **IAM secrets engine** section.
 4. Click **New**.
 5. In the **Configure IAM secrets engine** side pane, choose an option for setting up your instance.
+
     To create an API key, choose the **Create an API key** option. {{site.data.keyword.secrets-manager_short}} assigns the new service ID and API key the IAM access that's required to manage and create other IAM credentials dynamically within your instance. You can also enter an existing {{site.data.keyword.cloud_notm}} API by choosing the **Use an existing API key** option.
 
     If you're entering an existing {{site.data.keyword.cloud_notm}} API key, be sure that it has the required level of access. To allow your {{site.data.keyword.cloud_notm}} API key to create and manage other API keys dynamically within {{site.data.keyword.secrets-manager_short}}, its associated service ID must have _Editor_ platform access for the Access Groups Service, and _Operator_ platform access for the IAM Identity Service.
