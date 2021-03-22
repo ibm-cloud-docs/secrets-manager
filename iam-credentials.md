@@ -82,11 +82,10 @@ To configure your instance to start creating IAM credentials, complete the follo
 3. In the **Settings** page, go to the **IAM secrets engine** section.
 4. Click **New**.
 5. In the **Configure IAM secrets engine** side pane, choose an option for setting up your instance.
-   1. To create an API key, choose the **Create an API key** option. {{site.data.keyword.secrets-manager_short}} assigns the new service ID and API key the IAM access that's required to manage and create other IAM credentials dynamically within your instance.
-   2. To use an existing key, choose the **Use an existing API key** option.
+    To create an API key, choose the **Create an API key** option. {{site.data.keyword.secrets-manager_short}} assigns the new service ID and API key the IAM access that's required to manage and create other IAM credentials dynamically within your instance. You can also enter an existing {{site.data.keyword.cloud_notm}} API by choosing the **Use an existing API key** option.
 
-      Be sure that your {{site.data.keyword.cloud_notm}} API key has the required level of access. To allow your {{site.data.keyword.cloud_notm}} API key to create and manage other API keys dynamically within {{site.data.keyword.secrets-manager_short}}, its associated service ID must have _Editor_ platform access for the Access Groups Service, and _Operator_ platform access for the IAM Identity Service.
-      {: note}
+    If you're entering an existing {{site.data.keyword.cloud_notm}} API key, be sure that it has the required level of access. To allow your {{site.data.keyword.cloud_notm}} API key to create and manage other API keys dynamically within {{site.data.keyword.secrets-manager_short}}, its associated service ID must have _Editor_ platform access for the Access Groups Service, and _Operator_ platform access for the IAM Identity Service.
+    {: note}
 6. Click **Configure**.
 
 
@@ -284,7 +283,7 @@ By default, IAM credentials are generated and deleted each time that your secret
     By setting a lease duration for your IAM credential, you determine how long its associated API key remains valid. After the IAM credential reaches the end of its lease, it is revoked automatically.
 10. (Optional) Determine whether IAM credentials can be reused for your secret.
 
-    By default, IAM credentials are recreated each time that a secret is read. By setting **Reuse IAM credentials until lease expires** to **On**, you can reuse the same service ID and API key values for a secret until it reaches the end of its lease.
+    By default, IAM credentials are generated and deleted each time that a secret is read or accessed. By setting **Reuse IAM credentials** to **On**, your secret retains its current service ID and API key values, so that you can reuse the same credentials on each read while the secret remains valid. After the secret reaches the end of its lease, the credentials are revoked automatically.
 11. Click **Add**.
 
 ## Creating IAM credentials from the CLI
