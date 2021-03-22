@@ -73,18 +73,20 @@ If you're setting up IAM credentials for the first time, be sure that you have t
 {: #configure-iam-secrets-engine-ui}
 {: ui}
 
-Before you can create dynamic IAM credentials, you must configure the IAM [secrets engine](#x9968967){: term} for your service instance. Start by entering an [{{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-serviceidapikeys) that is associated with a service ID in your {{site.data.keyword.cloud_notm}} account.
+Before you can create dynamic IAM credentials, you must configure the IAM [secrets engine](#x9968967){: term} for your service instance. You can configure your instance by creating or entering an [{{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-serviceidapikeys) that is associated with a service ID in your {{site.data.keyword.cloud_notm}} account.
+
+To configure your instance to start creating IAM credentials, complete the following steps.
 
 1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Settings** page, go to the **IAM secrets engine** section.
 4. Click **New**.
-5. Select an option for configuring the IAM secrets engine.
-   1. To create an API key, choose the **Create an API key** option. {{site.data.keyword.secrets-manager_short}} assigns the new service ID and API key the IAM access that's required to manage and create other IAM credentials dynamically within {{site.data.keyword.secrets-manager_short}}.
+5. In the **Configure IAM secrets engine** side pane, choose an option for setting up your instance.
+   1. To create an API key, choose the **Create an API key** option. {{site.data.keyword.secrets-manager_short}} assigns the new service ID and API key the IAM access that's required to manage and create other IAM credentials dynamically within your instance.
    2. To use an existing key, choose the **Use an existing API key** option.
 
       Be sure that your {{site.data.keyword.cloud_notm}} API key has the required level of access. To allow your {{site.data.keyword.cloud_notm}} API key to create and manage other API keys dynamically within {{site.data.keyword.secrets-manager_short}}, its associated service ID must have _Editor_ platform access for the Access Groups Service, and _Operator_ platform access for the IAM Identity Service.
-      {: tip}
+      {: note}
 6. Click **Configure**.
 
 
