@@ -50,6 +50,7 @@ Secrets Manager
     Enhancing security
         iam.md
         architecture-workload-isolation.md
+        service-connection.md
         data-security.md
     {: .navgroup-end}
 

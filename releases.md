@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-08"
+lastupdated: "2021-03-22"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -59,6 +59,42 @@ subcollection: secrets-manager
 Use these release notes to learn about the latest changes to {{site.data.keyword.secrets-manager_full}} that are grouped by date.
 {:shortdesc}
 
+
+## 22 March 2021
+{: #2021-03-22}
+
+This release includes the following updates.
+
+### Manage secrets over a private network connection
+{: #2021-03-22-private-endpoints}
+
+You can now create a private instance of {{site.data.keyword.secrets-manager_short}} so that you can manage application secrets over a private network connection.
+
+For more information, see [Securing your connection to {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-secure-connection).
+
+### Configure the IAM secrets engine from the {{site.data.keyword.secrets-manager_short}} UI
+{: #2021-03-22-secrets-engine}
+
+Want to get started with IAM credential secrets? You can now easily configure your {{site.data.keyword.secrets-manager_short}} instance for the IAM secrets engine by creating the required credentials from your service UI.
+
+For more information, see [Configuring the IAM secrets engine in the UI](/docs/secrets-manager?topic=secrets-manager-iam-credentials#configure-iam-secrets-engine-ui).
+
+### Reuse API keys for IAM credential secrets
+{: #2021-03-22-reuse-api-key}
+
+By default, IAM credential secrets are generated and deleted each time that the secret is read or accessed. By using the `reuse_api_key` parameter in the API, or the **Reuse IAM credentials** option in the UI, you can control whether the associated service ID API key can be reused until the secret expires.
+
+For more information, see [Creating IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials#iam-credentials-ui).
+
+
+
+
+### London, Tokyo, and Washington DC availability
+{: #2021-03-22-regions}
+
+{{site.data.keyword.secrets-manager_short}} is now available in the London (`eu-gb`), Tokyo (`jp-tok`), and Washington DC (`us-east`) regions.
+
+For more information, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
 
 
 ## 15 February 2021

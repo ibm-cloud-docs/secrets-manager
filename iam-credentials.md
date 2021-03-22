@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-03-22"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -73,32 +73,26 @@ If you're setting up IAM credentials for the first time, be sure that you have t
 {: #configure-iam-secrets-engine-ui}
 {: ui}
 
-Before you can create dynamic IAM credentials, you must configure the IAM [secrets engine](#x9968967){: term} for your service instance. Start by entering an [{{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-serviceidapikeys) that is associated with a service ID in your {{site.data.keyword.cloud_notm}} account.
+Before you can create dynamic IAM credentials, you must configure the IAM [secrets engine](#x9968967){: term} for your service instance. You can configure your instance by creating or entering an [{{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-serviceidapikeys) that is associated with a service ID in your {{site.data.keyword.cloud_notm}} account.
 
-To allow your {{site.data.keyword.cloud_notm}} API key to create and manage other API keys dynamically, its associated service ID must have _Editor_ platform access for the Access Groups Service, and _Operator_ platform access for the IAM Identity Service.
-{: note}
+To configure your instance to start creating IAM credentials, complete the following steps.
 
-1. [Create a service ID](/docs/account?topic=account-serviceidapikeys).
-2. Manage access for the service ID.
+1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
+3. In the **Settings** page, go to the **IAM secrets engine** section.
+4. Click **New**.
+5. In the **Configure IAM secrets engine** side pane, choose an option for setting up your instance.
 
-   1. From the **Actions** menu ![Actions icon](../../icons/actions-icon-vertical.svg), click **Manage service ID**.
-   2. Click **Assign access**.
-   3. Select the **Account management** tile.
-   4. For the **IAM Access Groups Service**, add Editor platform access.
-   5. For the **IAM Identity Service**, add Operator platform access
-   6. Review your selections, and click **Assign**.
-3. Create an API key for the service ID.
+    To create an API key, choose the **Create an API key** option. {{site.data.keyword.secrets-manager_short}} assigns the new service ID and API key the IAM access that's required to manage and create other IAM credentials dynamically within your instance. You can also enter an existing {{site.data.keyword.cloud_notm}} API by choosing the **Use an existing API key** option.
 
-   1. Go to the **API keys** tab, and click **Create**.
-   2. Add a name and description to easily identify the API key.
-   3. Click **Create**.
-   4. Click **Copy**.
-4. Use the API key to configure the IAM secrets engine for your instance.
+    If you're entering an existing {{site.data.keyword.cloud_notm}} API key, be sure that it has the required level of access. To allow your {{site.data.keyword.cloud_notm}} API key to create and manage other API keys dynamically within {{site.data.keyword.secrets-manager_short}}, its associated service ID must have _Editor_ platform access for the Access Groups Service, and _Operator_ platform access for the IAM Identity Service.
+    {: note}
+6. Click **Configure**.
 
-   1. In a new browser tab, go to your instance of {{site.data.keyword.secrets-manager_short}}.
-   2. Go to the **Settings** page.
-   3. In the IAM secret engine section, enter the {{site.data.keyword.cloud_notm}} API key that you created in a previous step.
-   4. Click **Save** to complete the configuration and enable the engine.
+   Now, your {{site.data.keyword.secrets-manager_short}} instance is enabled for IAM credential secrets.
+
+
+
 
 ## Configuring the IAM secrets engine from the CLI
 {: #configure-iam-secrets-engine-cli}
@@ -272,9 +266,6 @@ A successful response returns the ID value of the secret, along with other metad
 
 To create IAM credentials by using the {{site.data.keyword.secrets-manager_short}} UI, complete the following steps.
 
-By default, IAM credentials are recreated each time that your secret is read or accessed. If you want to reuse the service ID and API key values for an IAM credentials secret, you can use the API to include a `reuse_api_key` boolean parameter at secret creation. To see an example, switch to the **API** instructions.
-{: tip}
-
 1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
@@ -286,11 +277,14 @@ By default, IAM credentials are recreated each time that your secret is read or 
 7. Click **Select access group** to determine the scope of access for your IAM credential.
 
     By selecting an access group from your {{site.data.keyword.cloud_notm}} account, you determine the scope of access to assign to the service ID that is dynamically generated and associated with your new IAM credential. This step ensures that your IAM credentials are scoped with the wanted level of permissions in your {{site.data.keyword.cloud_notm}} account. You can assign up to 10 access groups.
-8. Optional: Add labels to help you to search for similar secrets in your instance.
+8. (Optional) Add labels to help you to search for similar secrets in your instance.
 9. Set a lease duration or time-to-live (TTL) for the secret.
 
     By setting a lease duration for your IAM credential, you determine how long its associated API key remains valid. After the IAM credential reaches the end of its lease, it is revoked automatically.
-10. Click **Add**.
+10. (Optional) Determine whether IAM credentials can be reused for your secret.
+
+    By default, IAM credentials are generated and deleted each time that a secret is read or accessed. By setting **Reuse IAM credentials** to **On**, your secret retains its current service ID and API key values, so that you can reuse the same credentials on each read while the secret remains valid. After the secret reaches the end of its lease, the credentials are revoked automatically.
+11. Click **Add**.
 
 ## Creating IAM credentials from the CLI
 {: #iam-credentials-cli}
