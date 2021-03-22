@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-26"
+lastupdated: "2021-03-22"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -78,11 +78,14 @@ To access {{site.data.keyword.secrets-manager_short}} by using the Vault APIs, u
 
 The following table lists the endpoint URLs by region that can be used to interact with the Vault APIs.
 
-| Region | Endpoint URL |
-| ---- | ---- |
-| Dallas | `https://{instance_ID}.us-south.secrets-manager.appdomain.cloud` |
-| Frankfurt | `https://{instance_ID}.eu-de.secrets-manager.appdomain.cloud` |
-| Sydney | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud` |
+| Region        | Endpoint URL                                                             |
+| ------------- | ------------------------------------------------------------------------ |
+| Dallas        | `https://{instance_ID}.private.us-south.secrets-manager.appdomain.cloud` |
+| Washington DC | `https://{instance_ID}.private.us-east.secrets-manager.appdomain.cloud`  |
+| London        | `https://{instance_ID}.private.eu-gb.secrets-manager.appdomain.cloud`    |
+| Frankfurt     | `https://{instance_ID}.private.eu-de.secrets-manager.appdomain.cloud`    |
+| Sydney        | `https://{instance_ID}.private.au-syd.secrets-manager.appdomain.cloud`   |
+| Tokyo         | `https://{instance_ID}.private.jp-tok.secrets-manager.appdomain.cloud`   |
 {: caption="Table 1. Vault endpoint URLs" caption-side="top"}
 
 You can find your unique endpoint URL in the **Endpoints** page of the {{site.data.keyword.secrets-manager_short}} UI, or by retrieving it by HTTP request. For more information, see [Viewing your endpoint URLs](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls).
@@ -93,10 +96,10 @@ You can find your unique endpoint URL in the **Endpoints** page of the {{site.da
 
 This section describes the headers that are common to all requests.
 
-| Header        | Description           | Required  |
-| ------------- |-------------| -----|
-| `X-Vault-Token`      | A valid Vault token with sufficient permissions to perform the operation. | Yes |
-| `Content-Type`        | `application/json` | Yes |
+| Header          | Description                                                               | Required |
+| --------------- | ------------------------------------------------------------------------- | -------- |
+| `X-Vault-Token` | A valid Vault token with sufficient permissions to perform the operation. | Yes      |
+| `Content-Type`  | `application/json`                                                        | Yes      |
 {: caption="Table 2. Common headers" caption-side="top"}
 
 ### Timestamps
