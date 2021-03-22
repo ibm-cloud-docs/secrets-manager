@@ -266,9 +266,6 @@ A successful response returns the ID value of the secret, along with other metad
 
 To create IAM credentials by using the {{site.data.keyword.secrets-manager_short}} UI, complete the following steps.
 
-By default, IAM credentials are generated and deleted each time that your secret is read or accessed. If you want to reuse the service ID and API key values for an IAM credentials secret, you can toggle the **Reuse IAM credentials** option to **On**.
-{: tip}
-
 1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
