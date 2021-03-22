@@ -88,6 +88,8 @@ To configure your instance to start creating IAM credentials, complete the follo
     {: note}
 6. Click **Configure**.
 
+   Now, your {{site.data.keyword.secrets-manager_short}} instance is enabled for IAM credential secrets.
+
 
 
 
