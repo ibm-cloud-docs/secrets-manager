@@ -79,6 +79,12 @@ Want to get started with IAM credential secrets? You can now easily configure yo
 
 For more information, see [Configuring the IAM secrets engine in the UI](/docs/secrets-manager?topic=secrets-manager-iam-credentials#configure-iam-secrets-engine-ui).
 
+### Reuse API keys for IAM credential secrets
+{: #2021-03-22-reuse-api-key}
+
+By default, IAM credential secrets are generated and deleted each time that the secret is read or accessed. By using the `reuse_api_key` parameter in the API, or the **Reuse IAM credentials** option in the UI, you can control whether the associated service ID API key can be reused until the secret expires.
+
+For more information, see [Creating IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials#create-iam-secrets-ui).
 
 ### Analyze {{site.data.keyword.secrets-manager_short}} logs with {{site.data.keyword.la_full_notm}}
 {: #2021-03-22-log-analysis}
