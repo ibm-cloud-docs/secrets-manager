@@ -82,13 +82,13 @@ You can use the {{site.data.keyword.secrets-manager_full}} command-line interfac
     {: tip}
 * Export an environment variable with your {{site.data.keyword.secrets-manager_short}} service endpoint URL.
 
-    If you're using the plug-in version `0.0.8` or above, export the following variable.
+    If you're using plug-in version `0.0.8` or above, export the following variable.
     ```
     export SECRETS_MANAGER_URL=https://{instance_ID}.{region}.secrets-manager.appdomain.cloud
     ```
     {: pre}
 
-    If you're using the plug-in version `0.0.7` or above, export the following variable.
+    If you're using plug-in version `0.0.6` or below, export the following variable.
     ```
     export IBM_CLOUD_SECRETS_MANAGER_API_URL=https://{instance_ID}.{region}.secrets-manager.appdomain.cloud
     ```
@@ -157,7 +157,7 @@ ibmcloud secrets-manager config --secret-type SECRET-TYPE
 Creates or updates one or more policies, such as an [automatic rotation policy](http://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-rotate-secrets#auto-rotate-secret), for the specified secret.
 
 ```sh
-ibmcloud secrets-manager policy-update --secret-type SECRET-TYPE --id ID --metadata METADATA --resources RESOURCES [--policy POLICY]
+ibmcloud secrets-manager policy-update --secret-type SECRET-TYPE --id ID --resources RESOURCES [--policy POLICY]
 ```
 
 
@@ -171,8 +171,6 @@ ibmcloud secrets-manager policy-update --secret-type SECRET-TYPE --id ID --metad
 <dt>--id (string)</dt>
 <dd>The v4 UUID that uniquely identifies the secret. Required.</dd>
 <dd>The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`</dd>
-<dt>--metadata ([CollectionMetadata](#cli-collection-metadata-example-schema))</dt>
-<dd>The metadata that describes the resource array. Required.</dd>
 <dt>--resources ([SecretPolicyRotation[]](#cli-secret-policy-rotation-example-schema))</dt>
 <dd>A collection of resources. Required.</dd>
 <dt>--policy (string)</dt>
@@ -216,7 +214,7 @@ Creates a secret group that you can use to organize secrets and control who on y
 A successful request returns the ID value of the secret group, along with other metadata. To learn more about secret groups, check out the [docs](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 
 ```sh
-ibmcloud secrets-manager secret-group-create --metadata METADATA --resources RESOURCES
+ibmcloud secrets-manager secret-group-create --resources RESOURCES
 ```
 
 
@@ -224,8 +222,7 @@ ibmcloud secrets-manager secret-group-create --metadata METADATA --resources RES
 {: #secrets-manager-secret-group-create-cli-options}
 
 <dl>
-<dt>--metadata ([CollectionMetadata](#cli-collection-metadata-example-schema))</dt>
-<dd>The metadata that describes the resource array. Required.</dd>
+
 <dt>--resources ([SecretGroupResource[]](#cli-secret-group-resource-example-schema))</dt>
 <dd>A collection of resources. Required.</dd>
 </dl>
@@ -265,7 +262,7 @@ ibmcloud secrets-manager secret-group --id ID
 Updates the metadata of an existing secret group, such as its name or description.
 
 ```sh
-ibmcloud secrets-manager secret-group-metadata-update --id ID --metadata METADATA --resources RESOURCES
+ibmcloud secrets-manager secret-group-metadata-update --id ID --resources RESOURCES
 ```
 
 
@@ -276,8 +273,6 @@ ibmcloud secrets-manager secret-group-metadata-update --id ID --metadata METADAT
 <dt>--id (string)</dt>
 <dd>The v4 UUID that uniquely identifies the secret group. Required.</dd>
 <dd>The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`</dd>
-<dt>--metadata ([CollectionMetadata](#cli-collection-metadata-example-schema))</dt>
-<dd>The metadata that describes the resource array. Required.</dd>
 <dt>--resources ([SecretGroupMetadataUpdatable[]](#cli-secret-group-metadata-updatable-example-schema))</dt>
 <dd>A collection of resources. Required.</dd>
 </dl>
@@ -318,7 +313,7 @@ A successful request stores the secret in your dedicated instance based on the s
 To learn more about the types of secrets that you can create with Secrets Manager, check out the [docs](/docs/secrets-manager?topic=secrets-manager-what-is-secret).
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-type SECRET-TYPE --metadata METADATA --resources RESOURCES
+ibmcloud secrets-manager secret-create --secret-type SECRET-TYPE --resources RESOURCES
 ```
 
 
@@ -329,8 +324,6 @@ ibmcloud secrets-manager secret-create --secret-type SECRET-TYPE --metadata META
 <dt>--secret-type (string)</dt>
 <dd>The secret type. Required.</dd>
 <dd>Allowable values are: arbitrary, username_password, iam_credentials</dd>
-<dt>--metadata ([CollectionMetadata](#cli-collection-metadata-example-schema))</dt>
-<dd>The metadata that describes the resource array. Required.</dd>
 <dt>--resources ([SecretResource[]](#cli-secret-resource-example-schema))</dt>
 <dd>A collection of resources. Required.</dd>
 </dl>
@@ -498,7 +491,7 @@ Updates the metadata of a secret, such as its name or description.
 To update the actual contents of a secret, rotate the secret by using the [Invoke an action on a secret](#update-secret) method.
 
 ```sh
-ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id ID --metadata METADATA --resources RESOURCES
+ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id ID --resources RESOURCES
 ```
 
 
@@ -512,8 +505,6 @@ ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id I
 <dt>--id (string)</dt>
 <dd>The v4 UUID that uniquely identifies the secret. Required.</dd>
 <dd>The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`</dd>
-<dt>--metadata ([CollectionMetadata](#cli-collection-metadata-example-schema))</dt>
-<dd>The metadata that describes the resource array. Required.</dd>
 <dt>--resources ([SecretMetadata[]](#cli-secret-metadata-example-schema))</dt>
 <dd>A collection of resources. Required.</dd>
 </dl>
@@ -522,20 +513,6 @@ ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id I
 {: #secrets-manager-schema-examples}
 
 The following schema examples represent the data that you need to specify for a command option. These examples model the data structure and include placeholder values for the expected value type. When you run a command, replace these values with the values that apply to your environment as appropriate.
-
-### CollectionMetadata
-{: #cli-collection-metadata-example-schema}
-
-The following example shows the format of the CollectionMetadata object.
-
-```json
-
-{
-  "collection_type" : "application/vnd.ibm.secrets-manager.secret+json",
-  "collection_total" : 1
-}
-```
-{: codeblock}
 
 ### EngineConfigOneOf
 {: #cli-engine-config-one-of-example-schema}
