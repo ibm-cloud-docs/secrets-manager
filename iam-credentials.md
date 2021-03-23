@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-22"
+lastupdated: "2021-03-23"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -293,7 +293,7 @@ To create IAM credentials by using the {{site.data.keyword.secrets-manager_short
 To create a dynamic service ID and API key by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. You can specify the type of secret by using the `--secret-type iam_credentials` option. For example, the following command creates an IAM secret with a lease duration of 12 hours.
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-type username_password --metadata '{"collection_type": "application/vnd.ibm.secrets-manager.secret+json", "collection_total": 1}' --resources '[{"name":"example-IAM-credentials","description":"Extended description for my secret.","access_groups":["e7e1a364-c5b9-4027-b4fe-083454499a20"],"secret_group_id":"432b91f1-ff6d-4b47-9f06-82debc236d90","ttl":"12h","labels":["dev","us-south"]}]'
+ibmcloud secrets-manager secret-create --secret-type username_password --resources '[{"name":"example-IAM-credentials","description":"Extended description for my secret.","access_groups":["e7e1a364-c5b9-4027-b4fe-083454499a20"],"secret_group_id":"432b91f1-ff6d-4b47-9f06-82debc236d90","ttl":"12h","labels":["dev","us-south"]}]'
 ```
 {: pre}
 

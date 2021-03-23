@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-03-23"
 
 keywords: arbitrary secrets, arbitrary text, custom secrets
 
@@ -95,7 +95,7 @@ To add an arbitrary secret by using the {{site.data.keyword.secrets-manager_shor
 To create an arbitrary secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. You can specify the type of secret by using the `--secret-type arbitrary` option. For example, the following command creates an arbitrary secret and stores `secret-data` as its value.
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-type arbitrary --metadata '{"collection_type": "application/vnd.ibm.secrets-manager.secret+json", "collection_total": 1}' --resources '[{"name": "example-arbitrary-secret","description": "Extended description for my secret.","payload": "secret-data"}]'
+ibmcloud secrets-manager secret-create --secret-type arbitrary --resources '[{"name": "example-arbitrary-secret","description": "Extended description for my secret.","payload": "secret-data"}]'
 ```
 {: pre}
 

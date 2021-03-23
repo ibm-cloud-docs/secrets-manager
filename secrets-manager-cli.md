@@ -154,7 +154,7 @@ ibmcloud secrets-manager config --secret-type SECRET-TYPE
 ### ibmcloud secrets-manager policy-update
 {: #secrets-manager-cli-policy-update-command}
 
-Creates or updates one or more policies, such as an [automatic rotation policy](http://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-rotate-secrets#auto-rotate-secret), for the specified secret.
+Creates or updates one or more policies, such as an [automatic rotation policy](/docs/secrets-manager?topic=secrets-manager-rotate-secrets#auto-rotate-secret), for the specified secret.
 
 ```sh
 ibmcloud secrets-manager policy-update --secret-type SECRET-TYPE --id ID --resources RESOURCES [--policy POLICY]
@@ -282,7 +282,7 @@ ibmcloud secrets-manager secret-group-metadata-update --id ID --resources RESOUR
 
 Deletes a secret group by specifying the ID of the secret group.
 
-**Note:** To delete a secret group, it must be empty. If you need to remove a secret group that contains secrets, you must first [delete the secrets](#delete-secret) that are associated with the group.
+**Note:** To delete a secret group, it must be empty. If you need to remove a secret group that contains secrets, you must first [delete the secrets](#secrets-manager-cli-secret-delete-command) that are associated with the group.
 
 ```sh
 ibmcloud secrets-manager secret-group-delete --id ID [--force]
@@ -375,7 +375,7 @@ ibmcloud secrets-manager all-secrets [--limit LIMIT] [--offset OFFSET] [--search
 <dd>The minimum value is `0`.</dd>
 <dt>--search (string)</dt>
 <dd>Filter secrets that contain the specified string. The fields that are searched include: id, name, description, labels, secret_type.</dd>
-<dd>The maximum length is `128 ` characters.</dd>
+<dd>The maximum length is `128` characters.</dd>
 <dt>--sort-by (string)</dt>
 <dd>Sort a list of secrets by the specified field.</dd>
 <dd>Allowable values are: id, creation_date, expiration_date, secret_type, name</dd>
@@ -386,7 +386,7 @@ ibmcloud secrets-manager all-secrets [--limit LIMIT] [--offset OFFSET] [--search
 
 Retrieves a secret and its details by specifying the ID of the secret.
 
-A successful request returns the secret data that is associated with your secret, along with other metadata. To view only the details of a specified secret without retrieving its value, use the [Get secret metadata](#get-secret-metadata) method.
+A successful request returns the secret data that is associated with your secret, along with other metadata. To view only the details of a specified secret without retrieving its value, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method.
 
 ```sh
 ibmcloud secrets-manager secret --secret-type SECRET-TYPE --id ID
@@ -464,7 +464,7 @@ ibmcloud secrets-manager secret-delete --secret-type SECRET-TYPE --id ID [--forc
 
 Retrieves the details of a secret by specifying the ID.
 
-A successful request returns only metadata about the secret, such as its name and creation date. To retrieve the value of a secret, use the [Get a secret](#get-secret) method.
+A successful request returns only metadata about the secret, such as its name and creation date. To retrieve the value of a secret, use the [Get a secret](#secrets-manager-cli-secret-command) method.
 
 ```sh
 ibmcloud secrets-manager secret-metadata --secret-type SECRET-TYPE --id ID
@@ -488,7 +488,7 @@ ibmcloud secrets-manager secret-metadata --secret-type SECRET-TYPE --id ID
 
 Updates the metadata of a secret, such as its name or description.
 
-To update the actual contents of a secret, rotate the secret by using the [Invoke an action on a secret](#update-secret) method.
+To update the actual contents of a secret, rotate the secret by using the [Invoke an action on a secret](#secrets-manager-cli-secret-update-command) method.
 
 ```sh
 ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id ID --resources RESOURCES
@@ -532,10 +532,22 @@ The following example shows the format of the EngineConfigOneOf object.
 
 The following example shows the format of the SecretActionOneOf object.
 
+For `arbitrary` secrets:
+
 ```json
 
 {
   "payload" : "exampleString"
+}
+```
+{: codeblock}
+
+For `username_password` secrets:
+
+```json
+
+{
+  "password" : "exampleString"
 }
 ```
 {: codeblock}
@@ -615,7 +627,7 @@ The following example shows the format of the SecretResource[] object.
   "description" : "exampleString",
   "secret_group_id" : "exampleString",
   "labels" : [ "exampleString" ],
-  "expiration_date" : "2019-01-01T12:00:00.000Z",
+  "expiration_date" : "2030-01-01T12:00:00.000Z",
   "payload" : "exampleString"
 } ]
 ```
