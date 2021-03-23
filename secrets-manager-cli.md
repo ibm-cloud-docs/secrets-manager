@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-03-08"
+lastupdated: "2021-03-23"
 
 subcollection: secrets-manager
 
@@ -82,6 +82,13 @@ You can use the {{site.data.keyword.secrets-manager_full}} command-line interfac
     {: tip}
 * Export an environment variable with your {{site.data.keyword.secrets-manager_short}} service endpoint URL.
 
+    If you're using the plug-in version `0.0.8` or above, export the following variable.
+    ```
+    export SECRETS_MANAGER_URL=https://{instance_ID}.{region}.secrets-manager.appdomain.cloud
+    ```
+    {: pre}
+
+    If you're using the plug-in version `0.0.7` or above, export the following variable.
     ```
     export IBM_CLOUD_SECRETS_MANAGER_API_URL=https://{instance_ID}.{region}.secrets-manager.appdomain.cloud
     ```
@@ -91,6 +98,8 @@ You can use the {{site.data.keyword.secrets-manager_full}} command-line interfac
 
     If you copy your service endpoint URL from the {{site.data.keyword.secrets-manager_short}} UI, be sure to trim `/api` from the URL before you export it as variable to use with the CLI plug-in.
     {: important}
+
+
 
 
 
@@ -116,8 +125,8 @@ ibmcloud secrets-manager config-update --secret-type SECRET-TYPE --engine-config
 <dt>--secret-type (string)</dt>
 <dd>The secret type. Required.</dd>
 <dd>Allowable values are: iam_credentials</dd>
-<dt>--engine-config-one-of</dt>
-<dd> Required.</dd>
+<dt>--engine-config-one-of ([EngineConfigOneOf](#cli-engine-config-one-of-example-schema))</dt>
+<dd>The base request for setting secret engine configuration. Required.</dd>
 </dl>
 
 ### ibmcloud secrets-manager config
@@ -145,7 +154,7 @@ ibmcloud secrets-manager config --secret-type SECRET-TYPE
 ### ibmcloud secrets-manager policy-update
 {: #secrets-manager-cli-policy-update-command}
 
-Creates or updates one or more policies, such as an [automatic rotation policy](/docs/secrets-manager?topic=secrets-manager-rotate-secrets#auto-rotate-secret),  for the specified secret.
+Creates or updates one or more policies, such as an [automatic rotation policy](http://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-rotate-secrets#auto-rotate-secret), for the specified secret.
 
 ```sh
 ibmcloud secrets-manager policy-update --secret-type SECRET-TYPE --id ID --metadata METADATA --resources RESOURCES [--policy POLICY]
@@ -162,9 +171,9 @@ ibmcloud secrets-manager policy-update --secret-type SECRET-TYPE --id ID --metad
 <dt>--id (string)</dt>
 <dd>The v4 UUID that uniquely identifies the secret. Required.</dd>
 <dd>The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`</dd>
-<dt>--metadata</dt>
+<dt>--metadata ([CollectionMetadata](#cli-collection-metadata-example-schema))</dt>
 <dd>The metadata that describes the resource array. Required.</dd>
-<dt>--resources (array)</dt>
+<dt>--resources ([SecretPolicyRotation[]](#cli-secret-policy-rotation-example-schema))</dt>
 <dd>A collection of resources. Required.</dd>
 <dt>--policy (string)</dt>
 <dd>The type of policy that is associated with the specified secret.</dd>
@@ -204,7 +213,7 @@ ibmcloud secrets-manager policy --secret-type SECRET-TYPE --id ID [--policy POLI
 
 Creates a secret group that you can use to organize secrets and control who on your team has access to them.
 
-A successful request returns the ID value of the secret group, along with other metadata. To learn more about  secret groups, check out the [docs](/docs/secrets-manager?topic=secrets-manager-secret-groups).
+A successful request returns the ID value of the secret group, along with other metadata. To learn more about secret groups, check out the [docs](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 
 ```sh
 ibmcloud secrets-manager secret-group-create --metadata METADATA --resources RESOURCES
@@ -215,16 +224,16 @@ ibmcloud secrets-manager secret-group-create --metadata METADATA --resources RES
 {: #secrets-manager-secret-group-create-cli-options}
 
 <dl>
-<dt>--metadata</dt>
+<dt>--metadata ([CollectionMetadata](#cli-collection-metadata-example-schema))</dt>
 <dd>The metadata that describes the resource array. Required.</dd>
-<dt>--resources (array)</dt>
+<dt>--resources ([SecretGroupResource[]](#cli-secret-group-resource-example-schema))</dt>
 <dd>A collection of resources. Required.</dd>
 </dl>
 
 ### ibmcloud secrets-manager secret-groups
 {: #secrets-manager-cli-secret-groups-command}
 
-Retrieves the list of secret groups that are available in your {{site.data.keyword.secrets-manager_short}} instance.
+Retrieves the list of secret groups that are available in your Secrets Manager instance.
 
 ```sh
 ibmcloud secrets-manager secret-groups
@@ -267,9 +276,9 @@ ibmcloud secrets-manager secret-group-metadata-update --id ID --metadata METADAT
 <dt>--id (string)</dt>
 <dd>The v4 UUID that uniquely identifies the secret group. Required.</dd>
 <dd>The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`</dd>
-<dt>--metadata</dt>
+<dt>--metadata ([CollectionMetadata](#cli-collection-metadata-example-schema))</dt>
 <dd>The metadata that describes the resource array. Required.</dd>
-<dt>--resources (array)</dt>
+<dt>--resources ([SecretGroupMetadataUpdatable[]](#cli-secret-group-metadata-updatable-example-schema))</dt>
 <dd>A collection of resources. Required.</dd>
 </dl>
 
@@ -278,7 +287,7 @@ ibmcloud secrets-manager secret-group-metadata-update --id ID --metadata METADAT
 
 Deletes a secret group by specifying the ID of the secret group.
 
-**Note:** To delete a secret group, it must be empty. If you need to remove a secret group that contains secrets, you must first [delete the secrets](#secrets-manager-cli-secret-delete-command) that are associated with the group.
+**Note:** To delete a secret group, it must be empty. If you need to remove a secret group that contains secrets, you must first [delete the secrets](#delete-secret) that are associated with the group.
 
 ```sh
 ibmcloud secrets-manager secret-group-delete --id ID [--force]
@@ -304,9 +313,9 @@ ibmcloud secrets-manager secret-group-delete --id ID [--force]
 
 Creates a secret that you can use to access or authenticate to a protected resource.
 
-A successful request stores the secret in your dedicated instance based on the secret type and data that you  specify. The response returns the ID value of the secret, along with other metadata.
+A successful request stores the secret in your dedicated instance based on the secret type and data that you specify. The response returns the ID value of the secret, along with other metadata.
 
-To learn more about the types of secrets that you can create with {{site.data.keyword.secrets-manager_short}}, check out the [docs](/docs/secrets-manager?topic=secrets-manager-what-is-secret).
+To learn more about the types of secrets that you can create with Secrets Manager, check out the [docs](/docs/secrets-manager?topic=secrets-manager-what-is-secret).
 
 ```sh
 ibmcloud secrets-manager secret-create --secret-type SECRET-TYPE --metadata METADATA --resources RESOURCES
@@ -320,9 +329,9 @@ ibmcloud secrets-manager secret-create --secret-type SECRET-TYPE --metadata META
 <dt>--secret-type (string)</dt>
 <dd>The secret type. Required.</dd>
 <dd>Allowable values are: arbitrary, username_password, iam_credentials</dd>
-<dt>--metadata</dt>
+<dt>--metadata ([CollectionMetadata](#cli-collection-metadata-example-schema))</dt>
 <dd>The metadata that describes the resource array. Required.</dd>
-<dt>--resources (array)</dt>
+<dt>--resources ([SecretResource[]](#cli-secret-resource-example-schema))</dt>
 <dd>A collection of resources. Required.</dd>
 </dl>
 
@@ -343,25 +352,21 @@ ibmcloud secrets-manager secrets --secret-type SECRET-TYPE [--limit LIMIT] [--of
 <dt>--secret-type (string)</dt>
 <dd>The secret type. Required.</dd>
 <dd>Allowable values are: arbitrary, username_password, iam_credentials</dd>
-<dt>--limit (integer)</dt>
-<dd>The number of secrets to retrieve. By default, list operations return the first 200 items. To retrieve a different set of items, use `limit` with `offset` to page through your available resources.</dd>
-<dd>**Usage:** If you have 20 secrets in your instance, and you want to retrieve only the first 5 secrets, use
-`../secrets/{secret-type}?limit=5`.</dd>
+<dt>--limit (int64)</dt>
+<dd>The number of secrets to retrieve. By default, list operations return the first 200 items. To retrieve a different set of items, use `limit` with `offset` to page through your available resources.
 <dd>The maximum value is `5000`. The minimum value is `1`.</dd>
-<dt>--offset (integer)</dt>
+<dt>--offset (int64)</dt>
 <dd>The number of secrets to skip. By specifying `offset`, you retrieve a subset of items that starts with the `offset` value. Use `offset` with `limit` to page through your available resources.</dd>
-<dd>**Usage:** If you have 100 secrets in your instance, and you want to retrieve secrets 26 through 50, use
-`../secrets/{secret-type}?offset=25&limit=25`.</dd>
 <dd>The minimum value is `0`.</dd>
 </dl>
 
 ### ibmcloud secrets-manager all-secrets
 {: #secrets-manager-cli-all-secrets-command}
 
-Retrieves a list of all secrets in your {{site.data.keyword.secrets-manager_short}} instance.
+Retrieves a list of all secrets in your Secrets Manager instance.
 
 ```sh
-ibmcloud secrets-manager all-secrets [--limit LIMIT] [--offset OFFSET]
+ibmcloud secrets-manager all-secrets [--limit LIMIT] [--offset OFFSET] [--search SEARCH] [--sort-by SORT-BY]
 ```
 
 
@@ -369,16 +374,18 @@ ibmcloud secrets-manager all-secrets [--limit LIMIT] [--offset OFFSET]
 {: #secrets-manager-all-secrets-cli-options}
 
 <dl>
-<dt>--limit (integer)</dt>
+<dt>--limit (int64)</dt>
 <dd>The number of secrets to retrieve. By default, list operations return the first 200 items. To retrieve a different set of items, use `limit` with `offset` to page through your available resources.</dd>
-<dd>**Usage:** If you have 20 secrets in your instance, and you want to retrieve only the first 5 secrets, use
-`../secrets/{secret-type}?limit=5`.</dd>
 <dd>The maximum value is `5000`. The minimum value is `1`.</dd>
-<dt>--offset (integer)</dt>
+<dt>--offset (int64)</dt>
 <dd>The number of secrets to skip. By specifying `offset`, you retrieve a subset of items that starts with the `offset` value. Use `offset` with `limit` to page through your available resources.</dd>
-<dd>**Usage:** If you have 100 secrets in your instance, and you want to retrieve secrets 26 through 50, use
-`../secrets/{secret-type}?offset=25&limit=25`.</dd>
 <dd>The minimum value is `0`.</dd>
+<dt>--search (string)</dt>
+<dd>Filter secrets that contain the specified string. The fields that are searched include: id, name, description, labels, secret_type.</dd>
+<dd>The maximum length is `128 ` characters.</dd>
+<dt>--sort-by (string)</dt>
+<dd>Sort a list of secrets by the specified field.</dd>
+<dd>Allowable values are: id, creation_date, expiration_date, secret_type, name</dd>
 </dl>
 
 ### ibmcloud secrets-manager secret
@@ -386,7 +393,7 @@ ibmcloud secrets-manager all-secrets [--limit LIMIT] [--offset OFFSET]
 
 Retrieves a secret and its details by specifying the ID of the secret.
 
-A successful request returns the secret data that is associated with your secret, along with other metadata. To  view only the details of a specified secret without retrieving its value, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command)  method.
+A successful request returns the secret data that is associated with your secret, along with other metadata. To view only the details of a specified secret without retrieving its value, use the [Get secret metadata](#get-secret-metadata) method.
 
 ```sh
 ibmcloud secrets-manager secret --secret-type SECRET-TYPE --id ID
@@ -431,7 +438,7 @@ ibmcloud secrets-manager secret-update --secret-type SECRET-TYPE --id ID --actio
 <dt>--action (string)</dt>
 <dd>The action to perform on the specified secret. Required.</dd>
 <dd>Allowable values are: rotate, delete_credentials</dd>
-<dt>--secret-action-one-of</dt>
+<dt>--secret-action-one-of ([SecretActionOneOf](#cli-secret-action-one-of-example-schema))</dt>
 <dd>The base request for invoking an action on a secret. Required.</dd>
 </dl>
 
@@ -464,7 +471,7 @@ ibmcloud secrets-manager secret-delete --secret-type SECRET-TYPE --id ID [--forc
 
 Retrieves the details of a secret by specifying the ID.
 
-A successful request returns only metadata about the secret, such as its name and creation date. To retrieve the  value of a secret, use the [Get a secret](#secrets-manager-cli-secret-command) method.
+A successful request returns only metadata about the secret, such as its name and creation date. To retrieve the value of a secret, use the [Get a secret](#get-secret) method.
 
 ```sh
 ibmcloud secrets-manager secret-metadata --secret-type SECRET-TYPE --id ID
@@ -488,7 +495,7 @@ ibmcloud secrets-manager secret-metadata --secret-type SECRET-TYPE --id ID
 
 Updates the metadata of a secret, such as its name or description.
 
-To update the actual contents of a secret, rotate the secret by using the [Invoke an action on a secret](#secrets-manager-cli-secret-update-command) method.
+To update the actual contents of a secret, rotate the secret by using the [Invoke an action on a secret](#update-secret) method.
 
 ```sh
 ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id ID --metadata METADATA --resources RESOURCES
@@ -505,8 +512,135 @@ ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id I
 <dt>--id (string)</dt>
 <dd>The v4 UUID that uniquely identifies the secret. Required.</dd>
 <dd>The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`</dd>
-<dt>--metadata</dt>
+<dt>--metadata ([CollectionMetadata](#cli-collection-metadata-example-schema))</dt>
 <dd>The metadata that describes the resource array. Required.</dd>
-<dt>--resources (array)</dt>
+<dt>--resources ([SecretMetadata[]](#cli-secret-metadata-example-schema))</dt>
 <dd>A collection of resources. Required.</dd>
 </dl>
+
+## Schema examples
+{: #secrets-manager-schema-examples}
+
+The following schema examples represent the data that you need to specify for a command option. These examples model the data structure and include placeholder values for the expected value type. When you run a command, replace these values with the values that apply to your environment as appropriate.
+
+### CollectionMetadata
+{: #cli-collection-metadata-example-schema}
+
+The following example shows the format of the CollectionMetadata object.
+
+```json
+
+{
+  "collection_type" : "application/vnd.ibm.secrets-manager.secret+json",
+  "collection_total" : 1
+}
+```
+{: codeblock}
+
+### EngineConfigOneOf
+{: #cli-engine-config-one-of-example-schema}
+
+The following example shows the format of the EngineConfigOneOf object.
+
+```json
+
+{
+  "api_key" : "API_KEY"
+}
+```
+{: codeblock}
+
+### SecretActionOneOf
+{: #cli-secret-action-one-of-example-schema}
+
+The following example shows the format of the SecretActionOneOf object.
+
+```json
+
+{
+  "payload" : "exampleString"
+}
+```
+{: codeblock}
+
+### SecretGroupMetadataUpdatable[]
+{: #cli-secret-group-metadata-updatable-example-schema}
+
+The following example shows the format of the SecretGroupMetadataUpdatable[] object.
+
+```json
+
+[ {
+  "name" : "updated-secret-group-name",
+  "description" : "Updated description for this group."
+} ]
+```
+{: codeblock}
+
+### SecretGroupResource[]
+{: #cli-secret-group-resource-example-schema}
+
+The following example shows the format of the SecretGroupResource[] object.
+
+```json
+
+[ {
+  "name" : "my-secret-group",
+  "description" : "Extended description for this group."
+} ]
+```
+{: codeblock}
+
+### SecretMetadata[]
+{: #cli-secret-metadata-example-schema}
+
+The following example shows the format of the SecretMetadata[] object.
+
+```json
+
+[ {
+  "labels" : [ "dev", "us-south" ],
+  "name" : "example-secret",
+  "description" : "Extended description for this secret.",
+  "expiration_date" : "2019-01-01T12:00:00.000Z",
+  "ttl" : "24h"
+} ]
+```
+{: codeblock}
+
+### SecretPolicyRotation[]
+{: #cli-secret-policy-rotation-example-schema}
+
+The following example shows the format of the SecretPolicyRotation[] object.
+
+```json
+
+[ {
+  "type" : "application/vnd.ibm.secrets-manager.secret.policy+json",
+  "rotation" : {
+    "interval" : 1,
+    "unit" : "day"
+  }
+} ]
+```
+{: codeblock}
+
+### SecretResource[]
+{: #cli-secret-resource-example-schema}
+
+The following example shows the format of the SecretResource[] object.
+
+```json
+
+[ {
+  "type" : "exampleString",
+  "name" : "exampleString",
+  "description" : "exampleString",
+  "secret_group_id" : "exampleString",
+  "labels" : [ "exampleString" ],
+  "expiration_date" : "2019-01-01T12:00:00.000Z",
+  "payload" : "exampleString"
+} ]
+```
+{: codeblock}
+
