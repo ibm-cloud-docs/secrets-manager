@@ -520,7 +520,6 @@ The following schema examples represent the data that you need to specify for a 
 The following example shows the format of the EngineConfigOneOf object.
 
 ```json
-
 {
   "api_key" : "API_KEY"
 }
@@ -535,7 +534,6 @@ The following example shows the format of the SecretActionOneOf object.
 For `arbitrary` secrets:
 
 ```json
-
 {
   "payload" : "exampleString"
 }
@@ -545,7 +543,6 @@ For `arbitrary` secrets:
 For `username_password` secrets:
 
 ```json
-
 {
   "password" : "exampleString"
 }
@@ -558,7 +555,6 @@ For `username_password` secrets:
 The following example shows the format of the SecretGroupMetadataUpdatable[] object.
 
 ```json
-
 [ {
   "name" : "updated-secret-group-name",
   "description" : "Updated description for this group."
@@ -572,7 +568,6 @@ The following example shows the format of the SecretGroupMetadataUpdatable[] obj
 The following example shows the format of the SecretGroupResource[] object.
 
 ```json
-
 [ {
   "name" : "my-secret-group",
   "description" : "Extended description for this group."
@@ -586,7 +581,6 @@ The following example shows the format of the SecretGroupResource[] object.
 The following example shows the format of the SecretMetadata[] object.
 
 ```json
-
 [ {
   "labels" : [ "dev", "us-south" ],
   "name" : "example-secret",
@@ -603,7 +597,6 @@ The following example shows the format of the SecretMetadata[] object.
 The following example shows the format of the SecretPolicyRotation[] object.
 
 ```json
-
 [ {
   "type" : "application/vnd.ibm.secrets-manager.secret.policy+json",
   "rotation" : {
@@ -620,7 +613,6 @@ The following example shows the format of the SecretPolicyRotation[] object.
 The following example shows the format of the SecretResource[] object.
 
 ```json
-
 [ {
   "type" : "exampleString",
   "name" : "exampleString",
