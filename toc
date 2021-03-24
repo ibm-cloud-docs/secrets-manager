@@ -45,6 +45,7 @@ Secrets Manager
     {: .topicgroup}
     Logging and monitoring
         at-events.md
+        logging.md
 
     {: .topicgroup}
     Enhancing security
