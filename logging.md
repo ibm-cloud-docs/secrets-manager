@@ -53,7 +53,7 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 
 # Viewing logs for {{site.data.keyword.secrets-manager_short}}
-{: #platform-logs}
+{: #service-logs}
 
 Use the {{site.data.keyword.la_full}} service to view {{site.data.keyword.secrets-manager_full}} logs for your instance.
 {:shortdesc}
