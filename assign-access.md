@@ -109,7 +109,7 @@ You can further narrow the scope of access to secrets in your instance by creati
 6. Select an access group to give its contained users and service IDs access to your secret group.
 7. Choose a combination of [access roles](/docs/secrets-manager?topic=secrets-manager-iam) to assign.
 
-   If you want grant the users or service IDs in your access group the ability to view your {{site.data.keyword.secrets-manager_short}} service instance from the Resource list in the {{site.data.keyword.cloud_notm}} console, be sure to assign the **Viewer** platform role to your secret group. The additional service roles that you assign to the secret group, such as **Reader** or **Writer** service roles, further narrows the actions that can be completed on secrets that are contained in that group.
+    If you want grant the users or service IDs in your access group the ability to view your {{site.data.keyword.secrets-manager_short}} service instance from the Resource list in the {{site.data.keyword.cloud_notm}} console, be sure to assign the **Viewer** platform role to your secret group. The additional service roles that you assign to the secret group, such as **Reader** or **Writer** service roles, further narrow the actions that can be completed on secrets that are contained in that group.
 8. Click **Review**.
 9.  Review your selections and click **Assign**.
 
@@ -136,6 +136,6 @@ You can also use the **Access (IAM)** section of the console to manage access fo
    7. In the **Resource** field, enter the ID that was assigned to your secret group by the {{site.data.keyword.secrets-manager_short}} service.
    8. Choose a combination of [access roles](/docs/secrets-manager?topic=secrets-manager-iam) to assign.
 
-      If you want grant the users or service IDs in your access group the ability to view your {{site.data.keyword.secrets-manager_short}} service instance from the Resource list in the {{site.data.keyword.cloud_notm}} console, be sure to assign the **Viewer** platform role to your secret group. The additional service roles that you assign to the secret group, such as **Reader** or **Writer** service roles, further narrows the actions that can be completed on secrets that are contained in that group.
+      If you want grant the users or service IDs in your access group the ability to view your {{site.data.keyword.secrets-manager_short}} service instance from the Resource list in the {{site.data.keyword.cloud_notm}} console, be sure to assign the **Viewer** platform role to your secret group. The additional service roles that you assign to the secret group, such as **Reader** or **Writer** service roles, further narrow the actions that can be completed on secrets that are contained in that group.
    9.  Click **Add**.
    10. Review your selections and click **Assign**.
