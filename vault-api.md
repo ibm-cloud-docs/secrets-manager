@@ -89,7 +89,7 @@ The following table lists the endpoint URLs by region that can be used to intera
 {: caption="Table 1. Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
 {: #public-endpoints-vault}
 {: tab-title="Public endpoints"}
-{: tab-group="public-endpoints"}
+{: tab-group="vault-endpoint-urls"}
 {: class="simple-tab-table"}
 
 | Region        | Endpoint URL                                                             |
@@ -103,7 +103,7 @@ The following table lists the endpoint URLs by region that can be used to intera
 {: caption="Table 1. Private endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
 {: #private-endpoints-vault}
 {: tab-title="Private endpoints"}
-{: tab-group="private-endpoints"}
+{: tab-group="vault-endpoint-urls"}
 {: class="simple-tab-table"}
 
 You can find your unique endpoint URL in the **Endpoints** page of the {{site.data.keyword.secrets-manager_short}} UI, or by retrieving it by HTTP request. For more information, see [Viewing your endpoint URLs](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls).
