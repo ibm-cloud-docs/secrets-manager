@@ -116,7 +116,7 @@ You can further narrow the scope of access to secrets in your instance by creati
 ### Assigning access by using the IAM UI
 {: #assign-access-secret-group-using-iam}
 
-You can also use the **Access (IAM)** section of the {{site.data.keyword.cloud_notm}} console to manage access for your secret groups. To assign access by using the IAM UI, you need to supply the ID of the secret group that you want to manage.
+You can also use the **Access (IAM)** section of the {{site.data.keyword.cloud_notm}} console to manage access for your secret groups. To assign access, be sure that you have the ID of the secret group that you want to manage.
 
 You can copy the ID of a secret group from the **Secret groups** table in your {{site.data.keyword.secrets-manager_short}} service instance.
 {: tip}
