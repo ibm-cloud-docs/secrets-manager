@@ -96,8 +96,8 @@ To assign access to a {{site.data.keyword.secrets-manager_short}} instance and i
 
 You can further narrow the scope of access to secrets in your instance by creating and managing [secret groups](#x9968962){: term}.
 
-### Assigning access to a secret group in the UI
-{: #assign-access-secret-group-using-secrets-manager}
+### Assigning access to a secret group in the service UI
+{: #assign-access-secret-group-ui}
 
 [After you create a secret group for your instance](/docs/secrets-manager?topic=secrets-manager-secret-groups#create-secret-groups), you can use the **Secret groups** section of the {{site.data.keyword.secrets-manager_short}} UI to manage its access.
 
@@ -114,7 +114,7 @@ You can further narrow the scope of access to secrets in your instance by creati
 9.  Review your selections and click **Assign**.
 
 ### Assigning access to a secret group in the console
-{: #assign-access-secret-group-using-iam}
+{: #assign-access-secret-group-console}
 
 You can also use the **Access (IAM)** section of the {{site.data.keyword.cloud_notm}} console to manage access for your secret groups. To assign access, be sure that you have the ID of the secret group that you want to manage.
 
