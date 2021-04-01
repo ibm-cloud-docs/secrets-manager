@@ -123,7 +123,7 @@ You can copy the ID of a secret group from the **Secret groups** table in your {
 
 ![The figure shows a simplified IAM dashboard with numbered steps for assigning access to a Secrets Manager secret group. The steps are described in the following text.](images/assign-access-secret-group.svg){: caption="Figure 1. Assigning access to a secret group" caption-side="bottom"}
 
-1. Go to **Manage > Access (IAM) > Access Groups**.
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM) > Access Groups**.
 2. In the row for the access group that you want to manage, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Assign access**.
 3. Select **IAM services**.
 4. From the list of services, select **{{site.data.keyword.secrets-manager_short}}**.
