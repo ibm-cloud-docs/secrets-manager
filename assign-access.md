@@ -116,29 +116,23 @@ You can further narrow the scope of access to secrets in your instance by creati
 ### Assigning access by using the IAM UI
 {: #assign-access-secret-group-using-iam}
 
-You can also use the **Access (IAM)** section of the console to manage access for your secret groups.
+You can also use the **Access (IAM)** section of the {{site.data.keyword.cloud_notm}} console to manage access for your secret groups. To assign access by using the IAM UI, you need to supply the ID of the secret group that you want to manage.
 
-1. Retrieve the ID of the secret group that you want to manage.
+You can copy the ID of a secret group from the **Secret groups** table in your {{site.data.keyword.secrets-manager_short}} service instance.
+{: tip}
 
-   1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List** to view a list of your resources.
-   2. Select your instance of {{site.data.keyword.secrets-manager_short}}.
-   3. In the navigation, click **Secret groups**.
-   4. Copy the ID of the secret group that you want to manage.
+![The figure shows a simplified IAM dashboard with numbered steps for assigning access to a Secrets Manager secret group. The steps are described in the following text.](images/assign-access-secret-group.svg){: caption="Figure 1. Assigning access to a secret group" caption-side="bottom"}
 
-2. Manage access for your secret group by updating its access policy.
+1. Go to **Manage > Access (IAM) > Access Groups**.
+2. In the row for the access group that you want to manage, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Assign access**.
+3. Select **IAM services**.
+4. From the list of services, select **{{site.data.keyword.secrets-manager_short}}**.
+5. Select **Resources based on selected attributes**.
+6. In the **Instance ID** field, select your {{site.data.keyword.secrets-manager_short}} instance.
+7. In the **Resource Type** field, enter `secret-group`.
+8. In the **Resource** field, enter the ID that was assigned to your secret group by the {{site.data.keyword.secrets-manager_short}} service.
+9.  Choose a combination of [access roles](/docs/secrets-manager?topic=secrets-manager-iam) to assign.
 
-    ![The figure shows a simplified IAM dashboard with numbered steps for assigning access to a Secrets Manager secret group. The steps are described in the following text.](images/assign-access-secret-group.svg){: caption="Figure 1. Assigning access to a secret group" caption-side="bottom"}
-
-   1. Go to **Manage > Access (IAM) > Access Groups**.
-   2. In the row for the access group that you want to manage, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Assign access**.
-   3. Select **IAM services**.
-   4. From the list of services, select **{{site.data.keyword.secrets-manager_short}}**.
-   5. Select **Resources based on selected attributes**.
-   6. In the **Instance ID** field, select your {{site.data.keyword.secrets-manager_short}} instance.
-   7. In the **Resource Type** field, enter `secret-group`.
-   8. In the **Resource** field, enter the ID that was assigned to your secret group by the {{site.data.keyword.secrets-manager_short}} service.
-   9.  Choose a combination of [access roles](/docs/secrets-manager?topic=secrets-manager-iam) to assign.
-
-        If you want to grant the users or service IDs in your access group the ability to view your {{site.data.keyword.secrets-manager_short}} service instance from the Resource list in the {{site.data.keyword.cloud_notm}} console, be sure to assign the [**Viewer** platform role](/docs/secrets-manager?topic=secrets-manager-iam#iam-roles-actions).
-   10. Click **Add**.
-   11. Review your selections and click **Assign**.
+    If you want to grant the users or service IDs in your access group the ability to view your {{site.data.keyword.secrets-manager_short}} service instance from the Resource list in the {{site.data.keyword.cloud_notm}} console, be sure to assign the [**Viewer** platform role](/docs/secrets-manager?topic=secrets-manager-iam#iam-roles-actions).
+10. Click **Add**.
+11. Review your selections and click **Assign**.
