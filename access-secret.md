@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-03"
+lastupdated: "2021-04-06"
 
 keywords: access stored secrets, retrieve secrets, get secret value, get secrets, view secrets, search secrets, get secret value
 
@@ -182,6 +182,4 @@ fmt.Println(string(b))
 {: go}
 
 A successful response returns the value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Get a secret](/apidocs/secrets-manager#get-secret){: external}.
-
-
 
