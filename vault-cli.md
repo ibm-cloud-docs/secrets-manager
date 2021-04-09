@@ -481,7 +481,7 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
 </dl>
 
 #### Examples
-{: ##vault-cli-create-static-secret-examples}
+{: #vault-cli-create-static-secret-examples}
 
 Create a user credential with an expiration date and two labels.
 
@@ -500,12 +500,9 @@ vault write -format=json ibmcloud/arbitrary/secrets name="my-test-arbitrary-secr
 Create an arbitrary secret that stores binary data.
 
 ```
-base64 -w0 <filename> | vault write -format=json ibmcloud/arbitrary/secrets name=""my-test-arbitrary-secret" payload=- labels="encode:base64"
+base64 -w0 <filename> | vault write -format=json ibmcloud/arbitrary/secrets name="my-test-arbitrary-secret" payload=- labels="encode:base64"
 ```
 {: pre}
-
-To read an arbitrary secret that contains base64 encoded data, be sure to base64 decode the `payload` value to access the data in its original form.
-{: note}
 
 #### Output
 {: #vault-cli-create-static-secret-output}
