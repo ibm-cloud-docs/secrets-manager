@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-08"
+lastupdated: "2021-04-09"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -471,7 +471,7 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
     <dt><code>PASSWORD</code></dt>
     <dd>The password that you want to assign to the secret. Required for `username_password` secrets. </dd>
     <dt><code>DATA</code></dt>
-    <dd>The data that you want to store for this secret. Required for `arbitrary` secrets.</dd>
+    <dd><p>The data that you want to store for this secret. Required for `arbitrary` secrets.</p><p class="note">Only text-based payloads are supported for arbitrary secrets. If you need to store a binary file, be sure to base64 encode it before saving it to {{site.data.keyword.secrets-manager_short}}. For more information, see [Examples](#vault-cli-create-static-secret-examples).</p></dd>
     <dt><code>EXPIRATION</code></dt>
     <dd>(Optional) The expiration date that you want to assign to the secret. The date format follows [RFC 3339](https://tools.ietf.org/html/rfc3339).</dd>
     <dt><code>LABELS</code></dt>
@@ -496,6 +496,16 @@ Create an arbitrary secret with an expiration date and two labels.
 vault write -format=json ibmcloud/arbitrary/secrets name="my-test-arbitrary-secret" expiration_date="2020-12-31T23:59:59Z" payload="this is my secret data" labels=label-1,label-2
 ```
 {: pre}
+
+Create an arbitrary secret that stores binary data.
+
+```
+base64 -w0 <filename> | vault write -format=json ibmcloud/arbitrary/secrets name=""my-test-arbitrary-secret" payload=- labels="encode:base64"
+```
+{: pre}
+
+To read an arbitrary secret that contains base64 encoded data, be sure to base64 decode the `payload` value to access the data in its original form.
+{: note}
 
 #### Output
 {: #vault-cli-create-static-secret-output}
