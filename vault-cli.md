@@ -497,10 +497,10 @@ vault write -format=json ibmcloud/arbitrary/secrets name="my-test-arbitrary-secr
 ```
 {: pre}
 
-Create an arbitrary secret that stores binary data.
+Create an arbitrary secret with binary payload.
 
 ```
-base64 -w0 <filename> | vault write -format=json ibmcloud/arbitrary/secrets name="my-test-arbitrary-secret" payload=- labels="encode:base64"
+base64 -w0 <filename> | vault write ibmcloud/arbitrary/secrets name="my-test-arbitrary-secret" payload=- labels="encode:base64"
 ```
 {: pre}
 
