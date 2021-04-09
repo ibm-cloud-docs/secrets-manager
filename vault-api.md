@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-22"
+lastupdated: "2021-04-01"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -78,6 +78,20 @@ To access {{site.data.keyword.secrets-manager_short}} by using the Vault APIs, u
 
 The following table lists the endpoint URLs by region that can be used to interact with the Vault APIs.
 
+| Region        | Endpoint URL             |
+| ------------- | ---------------------------- |
+| Dallas        | `https://{instance_ID}.us-south.secrets-manager.appdomain.cloud` |
+| Washington DC | `https://{instance_ID}.us-east.secrets-manager.appdomain.cloud`  |
+| London        | `https://{instance_ID}.eu-gb.secrets-manager.appdomain.cloud`    |
+| Frankfurt     | `https://{instance_ID}.eu-de.secrets-manager.appdomain.cloud`    |
+| Sydney        | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud`   |
+| Tokyo         | `https://{instance_ID}.jp-tok.secrets-manager.appdomain.cloud`   |
+{: caption="Table 1. Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
+{: #public-endpoints-vault}
+{: tab-title="Public endpoints"}
+{: tab-group="vault-endpoint-urls"}
+{: class="simple-tab-table"}
+
 | Region        | Endpoint URL                                                             |
 | ------------- | ------------------------------------------------------------------------ |
 | Dallas        | `https://{instance_ID}.private.us-south.secrets-manager.appdomain.cloud` |
@@ -86,7 +100,11 @@ The following table lists the endpoint URLs by region that can be used to intera
 | Frankfurt     | `https://{instance_ID}.private.eu-de.secrets-manager.appdomain.cloud`    |
 | Sydney        | `https://{instance_ID}.private.au-syd.secrets-manager.appdomain.cloud`   |
 | Tokyo         | `https://{instance_ID}.private.jp-tok.secrets-manager.appdomain.cloud`   |
-{: caption="Table 1. Vault endpoint URLs" caption-side="top"}
+{: caption="Table 1. Private endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
+{: #private-endpoints-vault}
+{: tab-title="Private endpoints"}
+{: tab-group="vault-endpoint-urls"}
+{: class="simple-tab-table"}
 
 You can find your unique endpoint URL in the **Endpoints** page of the {{site.data.keyword.secrets-manager_short}} UI, or by retrieving it by HTTP request. For more information, see [Viewing your endpoint URLs](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls).
 {: tip}

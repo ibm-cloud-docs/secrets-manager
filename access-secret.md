@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-03"
+lastupdated: "2021-04-06"
 
 keywords: access stored secrets, retrieve secrets, get secret value, get secrets, view secrets, search secrets, get secret value
 
@@ -70,7 +70,7 @@ Before you begin, be sure that you have the required level of access. To view a 
 {: #get-secret-value-ui}
 {: ui}
 
-This action can be done only through the CLI, API, or SDKs. To see the steps, switch to the **CLI** or **API** instructions.
+You can retrieve the contents of a secret only through the CLI, API, or SDKs. To see the steps, switch to the **CLI** or **API** instructions.
 
 ## Retrieving a secret from the CLI
 {: #get-secret-value-cli}
@@ -182,6 +182,4 @@ fmt.Println(string(b))
 {: go}
 
 A successful response returns the value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Get a secret](/apidocs/secrets-manager#get-secret){: external}.
-
-
 

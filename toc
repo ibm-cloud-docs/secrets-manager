@@ -14,6 +14,7 @@ Secrets Manager
         best-practices/secret-organize.md
 
     integrations.md
+    releases.md
     {: .navgroup-end}
 
     {: .navgroup id="tutorial"}
@@ -79,7 +80,6 @@ Secrets Manager
         Vault plug-ins
             [IBM Cloud Auth method](https://github.com/ibm-cloud-security/vault-plugin-auth-ibmcloud){: external}
             [IBM Cloud Secrets backend](https://github.com/ibm-cloud-security/vault-plugin-secrets-ibmcloud){: external}
-
     endpoints.md
     ha-dr.md
     {: .navgroup-end}
@@ -93,6 +93,4 @@ Secrets Manager
         troubleshooting/troubleshoot-access.md
         troubleshooting/troubleshoot-creation.md
         troubleshooting/troubleshoot-delete-group.md
-
-    releases.md
     {: .navgroup-end}
