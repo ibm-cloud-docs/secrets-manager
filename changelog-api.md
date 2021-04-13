@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-22"
+lastupdated: "2021-04-13"
 
 keywords: change log for [{sm-short}] APIs, updates to [{sm-short}] APIs
 
@@ -62,6 +62,13 @@ In this change log, you can learn about the latest changes, improvements, and up
 To learn more about the {{site.data.keyword.secrets-manager_short}} API, check out the [API reference](/apidocs/secrets-manager).
 
 
+
+## 13 April 2021
+{: #2021-04-13-api}
+
+This release includes the following updates:
+
+- Added `group={secret_group_ID}` query parameter that can be used to filter a list of secrets by secret group.
 
 
 ## 7 March 2021
