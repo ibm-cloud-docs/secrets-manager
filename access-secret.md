@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-13"
+lastupdated: "2021-04-20"
 
 keywords: access stored secrets, retrieve secrets, get secret value, get secrets, view secrets, search secrets, get secret value
 
@@ -186,3 +186,36 @@ fmt.Println(string(b))
 
 A successful response returns the value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Get a secret](/apidocs/secrets-manager#get-secret){: external}.
 
+
+### Retrieving arbitrary secrets that contain binary data
+{: #get-arbitrary-secret-file-api}
+{: api}
+
+If you created an arbitrary secret by using a binary file, such as an image, the service uses base64 encoding to store the data as a base64 encoded string. To access the secret in its original form, you need to complete a few extra steps to base64 decode your retrieved secret.
+
+First, retrieve the secret by calling the {{site.data.keyword.secrets-manager_short}} API. The following example uses cURL and  `jq` to collect the `payload` value of a secret.
+
+```bash
+export ARBITRARY_SECRET=`curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/arbitrary/{id}" \
+  -H "Authorization: Bearer $IAM_TOKEN" \
+  -H "Accept: application/json" | jq --raw-output '.resources[].secret_data.payload | sub(".*,"; "")'`
+```
+{: pre}
+
+If you inspect the contents of `$ARBITRARY_SECRET`, you see base64 encoded data. The following snippet shows an example output.
+
+```bash
+echo $ARBITRARY_SECRET
+eUdB68klDSrzSKgWcQS5...(truncated)
+```
+{:pre}
+{: screen}
+
+To view the secret in its original form (binary file), you can use base64 decoding. The following example uses the `base64` macOS utility to base64 decode the `$ARBITRARY_SECRET` contents.
+
+```bash
+echo $ARBITRARY_SECRET | base64 --decode > my-secret.png
+```
+{: pre}
+
+The data is converted back to a binary file that you can open from your local computer.
