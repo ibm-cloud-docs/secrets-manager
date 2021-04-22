@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-11"
+lastupdated: "2021-04-22"
 
 keywords: known issues for Secrets Manager, known limitations for Secrets Manager
 
@@ -90,18 +90,6 @@ The following limits apply to {{site.data.keyword.secrets-manager_short}} servic
 | Total secrets | - |
 {: caption="Table 2. {{site.data.keyword.secrets-manager_short}} service limits" caption-side="top"}
 
-### API rate limits
-{: #api-rate-limits}
-
-The following rate limits apply to {{site.data.keyword.secrets-manager_short}} APIs.
-
-| APIs | Limit |
-| --- | --- |
-| APIs for reading data | 50 requests per 1 second per client host IP |
-| APIs for deleting data | 50 requests per 1 second per client host IP |
-| APIs for writing data | 20 requests per 1 second per client host IP |
-{: caption="Table 3. {{site.data.keyword.secrets-manager_short}} service API limits" caption-side="top"}
-
 ### Resource limits
 {: #secret-limits}
 
@@ -131,7 +119,6 @@ The following limits apply to arbitrary secrets.
 | Description | 2 - 240 characters |
 | Secret value | 1 MB |
 | Labels | 2 - 30 characters</br></br>30 labels per secret |
-| Versions | 50 versions per secret |
 {: caption="Table 5. Arbitrary secret limits" caption-side="top"}
 
 #### Limits for IAM credentials
@@ -160,7 +147,6 @@ The following limits apply to user credentials.
 | Username | 2 - 64 characters |
 | Password | 64 characters |
 | Labels | 2 - 30 characters</br></br>30 labels per secret |
-| Versions | 50 versions per secret |
 {: caption="Table 7. User credential limits" caption-side="top"}
 
 
