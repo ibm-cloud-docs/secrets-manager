@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-08"
+lastupdated: "2021-04-23"
 content-type: tutorial
 services: cloud-object-storage
 account-plan: lite
@@ -57,7 +57,7 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 
-# Accessing a storage bucket by using a dynamic secret
+# Access a storage bucket by using a dynamic secret
 {: #tutorial-access-storage-bucket}
 {: toc-content-type="tutorial"}
 {: toc-services="cloud-object-storage,secrets-manager"}
