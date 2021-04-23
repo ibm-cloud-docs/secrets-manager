@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-23"
+lastupdated: "2021-04-23"
 
 keywords: change log for {{site.data.keyword.secrets-manager_short}} CLI, updates to {{site.data.keyword.secrets-manager_short}} CLI
 
@@ -61,6 +61,15 @@ In this change log, you can learn about the latest changes, improvements, and up
 
 To learn more about the {{site.data.keyword.secrets-manager_short}} CLI, check out the [CLI reference](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli).
 
+
+
+## 23 April 2021
+{: #2021-04-23-cli}
+
+The following changes are activated when you use the version `0.0.10` or later.
+
+- Removed **--secret-action-one-of** flag from the [secret-update](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-update-command) command and replaced it the with **--body** flag.
+- Added **--groups** flag to the [all-secrets](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-all-secrets-command) command.
 
 
 ## 23 March 2021
