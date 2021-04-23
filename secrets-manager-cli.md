@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-03-23"
+lastupdated: "2021-04-23"
 
 subcollection: secrets-manager
 
@@ -56,6 +56,7 @@ keywords: Secrets Manager CLI, Secrets Manager command line , Secrets Manager te
 
 
 
+
 # {{site.data.keyword.secrets-manager_short}} CLI
 {: #secrets-manager-cli}
 
@@ -63,6 +64,8 @@ keywords: Secrets Manager CLI, Secrets Manager command line , Secrets Manager te
 
 You can use the {{site.data.keyword.secrets-manager_full}} command-line interface (CLI) to manage secrets in your {{site.data.keyword.secrets-manager_short}} instance.
 {: shortdesc}
+
+Current version: **`0.0.10`**
 
 
 
@@ -359,7 +362,7 @@ ibmcloud secrets-manager secrets --secret-type SECRET-TYPE [--limit LIMIT] [--of
 Retrieves a list of all secrets in your Secrets Manager instance.
 
 ```sh
-ibmcloud secrets-manager all-secrets [--limit LIMIT] [--offset OFFSET] [--search SEARCH] [--sort-by SORT-BY]
+ibmcloud secrets-manager all-secrets [--limit LIMIT] [--offset OFFSET] [--search SEARCH] [--sort-by SORT-BY] [--groups GROUPS]
 ```
 
 
@@ -379,6 +382,8 @@ ibmcloud secrets-manager all-secrets [--limit LIMIT] [--offset OFFSET] [--search
 <dt>--sort-by (string)</dt>
 <dd>Sort a list of secrets by the specified field.</dd>
 <dd>Allowable values are: id, creation_date, expiration_date, secret_type, name</dd>
+<dt>--groups ([]string)</dt>
+<dd>Filter secrets by groups using a comma-separated list of secret group IDs. If you need to filter secrets that are in the default secret group, use the `default` keyword.</dd>
 </dl>
 
 ### ibmcloud secrets-manager secret
@@ -414,7 +419,7 @@ Invokes an action on a specified secret. This method supports the following acti
 - `delete_credentials`: Delete the API key that is associated with an `iam_credentials` secret.
 
 ```sh
-ibmcloud secrets-manager secret-update --secret-type SECRET-TYPE --id ID --action ACTION --secret-action-one-of SECRET-ACTION-ONE-OF
+ibmcloud secrets-manager secret-update --secret-type SECRET-TYPE --id ID --action ACTION --body BODY
 ```
 
 
@@ -431,8 +436,8 @@ ibmcloud secrets-manager secret-update --secret-type SECRET-TYPE --id ID --actio
 <dt>--action (string)</dt>
 <dd>The action to perform on the specified secret. Required.</dd>
 <dd>Allowable values are: rotate, delete_credentials</dd>
-<dt>--secret-action-one-of ([SecretActionOneOf](#cli-secret-action-one-of-example-schema))</dt>
-<dd>The base request for invoking an action on a secret. Required.</dd>
+<dt>--body ([SecretActionOneOf](#cli-secret-action-one-of-example-schema))</dt>
+<dd>The base request body for invoking an action on a secret. Required.</dd>
 </dl>
 
 ### ibmcloud secrets-manager secret-delete
