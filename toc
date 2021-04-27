@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="secrets-manager" audience="service" category="security" href="/docs/secrets-manager?topic=secrets-manager-getting-started" product-page="https://www.ibm.com/cloud/secrets-manager" console-page="/catalog/secrets-manager" path="secrets-manager"}
+{: .toc subcollection="secrets-manager" audience="service" category="security" href="/docs/secrets-manager?topic=secrets-manager" product-page="https://www.ibm.com/cloud/secrets-manager" console-page="/catalog/secrets-manager" path="secrets-manager"}
 Secrets Manager
 
     {: .navgroup id="learn"}
