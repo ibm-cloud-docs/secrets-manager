@@ -1,7 +1,7 @@
 {
-  "title": "{{site.data.keyword.secrets-manager_short}} docs",
+  "title": "Secrets Manager docs",
   "lastupdated": "2021-04-28",
-  "introduction": "Explore recommended content and resources to help you get started with {{site.data.keyword.secrets-manager_full}}.",
+  "introduction": "Explore recommended content and resources to help you get started with IBM Cloud Secrets Manager.",
   "section_devtools": {
     "api": "/apidocs/secrets-manager",
     "cli": "/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli",
@@ -14,7 +14,7 @@
       "href": "/docs/secrets-manager?topic=secrets-manager-what-is-secret"
     },
     {
-      "title": "Getting started with {{site.data.keyword.secrets-manager_short}}",
+      "title": "Getting started with Secrets Manager",
       "description": "Try out the service by storing your first secret.",
       "href": "/docs/secrets-manager?topic=secrets-manager-getting-started"
     },
@@ -27,11 +27,11 @@
   "section_videos": [
     {
       "title": "What is secrets management?",
-      "href": "https://www.youtube.com/watch?v=iETENR5MEB8",
+      "href": "/docs/secrets-manager?topic=secrets-manager-what-is-secret",
       "thumbnail": "/images/what-is-secrets-mgmt-video.png"
     },
     {
-      "title": "Securely managing your cloud secrets with {{site.data.keyword.secrets-manager_short}}",
+      "title": "Securely managing your cloud secrets with Secrets Manager",
       "href": "https://www.youtube.com/watch?v=rOp7aGyavnk",
       "thumbnail": "/images/secure-manage-secrets-video.png"
     }
@@ -47,18 +47,18 @@
     "tiles": [
       {
         "date": "22 March 2021",
-        "title": "{{site.data.keyword.secrets-manager_short}} now available in London, Tokyo, and Washington DC",
+        "title": "Secrets Manager now available in London, Tokyo, and Washington DC",
         "description": "This release also includes UI improvements, integration with IBM Log Analysis, and more."
       },
       {
         "date": "15 February 2021",
-        "title": "Now available: {{site.data.keyword.secrets-manager_short}} Java SDK",
-        "description": "You can now use the {{site.data.keyword.secrets-manager_short}} Java SDK to interact with your {{site.data.keyword.secrets-manager_short}} instance."
+        "title": "Now available: Secrets Manager Java SDK",
+        "description": "You can now use the Secrets Manager Java SDK to interact with your Secrets Manager instance."
       },
       {
         "date": "27 January 2021",
-        "title": "Now available: {{site.data.keyword.secrets-manager_short}} Python SDK",
-        "description": "You can now use the {{site.data.keyword.secrets-manager_short}} Python SDK to interact with your {{site.data.keyword.secrets-manager_short}} instance."
+        "title": "Now available: Secrets Manager Python SDK",
+        "description": "You can now use the Secrets Manager Python SDK to interact with your Secrets Manager instance."
       }
     ]
   }
