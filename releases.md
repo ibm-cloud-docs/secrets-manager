@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-28"
+lastupdated: "2021-04-29"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -76,10 +76,6 @@ For more information, see [Securing your connection to {{site.data.keyword.secre
 {: #2021-03-22-secrets-engine}
 
 Want to get started with IAM credential secrets? You can now easily configure your {{site.data.keyword.secrets-manager_short}} instance for the IAM secrets engine by creating the required credentials without leaving the service dashboard.
-
-From the **Settings** page in the service UI, click **New** to complete the configuration.
-
-![The image shows a screenshot of the UI that demonstrates the new component.](images/release-notes-iam-engine.png)
 
 For more information, see [Configuring the IAM secrets engine in the UI](/docs/secrets-manager?topic=secrets-manager-iam-credentials#configure-iam-secrets-engine-ui).
 
