@@ -91,7 +91,7 @@ Secrets Manager
 
     {: .topicgroup}
     Troubleshooting
-        troubleshooting/troubleshoot-access.md
         troubleshooting/troubleshoot-creation.md
+        troubleshooting/troubleshoot-access.md
         troubleshooting/troubleshoot-delete-group.md
     {: .navgroup-end}
