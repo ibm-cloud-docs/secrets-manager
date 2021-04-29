@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-23"
+lastupdated: "2021-04-29"
 
 keywords: arbitrary secrets, arbitrary text, custom secrets
 
@@ -145,7 +145,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
           "name": "example-arbitrary-secret",
           "description": "Extended description for my secret.",
           "secret_group_id": "432b91f1-ff6d-4b47-9f06-82debc236d90",
-          "payload: "secret-data",
+          "payload": "secret-data",
           "expiration_date": "2030-12-31T00:00:00Z",
           "labels": [
             "dev",
