@@ -219,3 +219,4 @@ echo $ARBITRARY_SECRET | base64 --decode > my-secret.png
 {: pre}
 
 The data is converted back to a binary file that you can open from your local computer.
+
