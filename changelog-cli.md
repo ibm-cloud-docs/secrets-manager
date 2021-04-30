@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-23"
+lastupdated: "2021-04-30"
 
 keywords: change log for {{site.data.keyword.secrets-manager_short}} CLI, updates to {{site.data.keyword.secrets-manager_short}} CLI
 
@@ -53,10 +53,10 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 
-# CLI change log
+# {{site.data.keyword.secrets-manager_short}} CLI change log
 {: #cli-change-log}
 
-In this change log, you can learn about the latest changes, improvements, and updates for the {{site.data.keyword.secrets-manager_short}} CLI plug-in. The change log lists changes that have been made, ordered by the date they were released. Changes to existing CLI versions are designed to be compatible with existing client applications.
+In this change log, you can learn about the latest changes, improvements, and updates for the {{site.data.keyword.secrets-manager_full}} CLI plug-in. The change log lists changes that have been made, ordered by the date they were released. Changes to existing CLI versions are designed to be compatible with existing client applications.
 {: shortdesc}
 
 To learn more about the {{site.data.keyword.secrets-manager_short}} CLI, check out the [CLI reference](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli).
