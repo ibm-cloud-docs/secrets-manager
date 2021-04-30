@@ -27,12 +27,12 @@
     {
       "title": "What is secrets management?",
       "href": "/docs/secrets-manager?topic=secrets-manager-what-is-secret",
-      "thumbnail": "/images/what-is-secrets-mgmt-video.png"
+      "thumbnail": "/images/what-is-secrets-mgmt-video-thumbnail.png"
     },
     {
       "title": "Securely managing your cloud secrets with Secrets Manager",
       "href": "https://www.youtube.com/watch?v=rOp7aGyavnk",
-      "thumbnail": "/images/secure-manage-secrets-video.png"
+      "thumbnail": "/images/secure-manage-secrets-video-thumbnail.png"
     }
   ],
   "section_updates": {
