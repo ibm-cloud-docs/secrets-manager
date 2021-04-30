@@ -64,7 +64,7 @@ You're viewing the **{{site.data.keyword.secrets-manager_short}} CLI** change lo
 {: note}
 {: cli}
 
-In this change log, you can learn about the latest changes, improvements, and updates for the [{{site.data.keyword.secrets-manager_full}} CLI plug-in](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli). The change log lists changes that have been made, ordered by the date they were released. Changes to existing CLI versions are designed to be compatible with existing client applications.
+In this change log, you can learn about the latest changes, improvements, and updates for the [{{site.data.keyword.secrets-manager_full}} CLI plug-in](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli) (`ibmcloud secrets-manager`). The change log lists changes that have been made, ordered by the date they were released. Changes to existing CLI versions are designed to be compatible with existing client applications.
 {: shortdesc}
 {: cli}
 
@@ -87,7 +87,7 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 {: #v0.0.10-cli}
 {: cli}
 
-`ibmcloud secrets-manager` version 0.0.10 was released on 23 April 2021. This release includes the following updates:
+Version 0.0.10 was released on 23 April 2021. This release includes the following updates:
 
 - Changed the **--secret-action-one-of** flag in the [secret-update](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-update-command) command to **--body**.
 - Added **--groups** flag to the [all-secrets](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-all-secrets-command) command.
@@ -105,7 +105,7 @@ This release includes the following updates:
 {: #v0.0.8-cli}
 {: cli}
 
-`ibmcloud secrets-manager` version 0.0.8 was released on 23 March 2021. This release includes the following updates:
+Version 0.0.8 was released on 23 March 2021. This release includes the following updates:
 
 - Removed **--metadata** flags from the [secret-create](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command), [secret-metadata-update](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-metadata-update-command), [secret-group-create](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-group-create-command), and [secret-group-metadata-update](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-group-metadata-update-command) commands.
 - Added **--search** and **--sort-by** flags to the [all-secrets](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-all-secrets-command) command.
@@ -144,7 +144,7 @@ This release includes the following updates:
 {: #v0.0.6-cli}
 {: cli}
 
-`ibmcloud secrets-manager` version 0.0.6 was released on 14 December 2020. This release includes the following updates:
+Version 0.0.6 was released on 14 December 2020. This release includes the following updates:
 
 - Plug-in now available for download.
 
