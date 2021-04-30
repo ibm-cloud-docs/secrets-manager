@@ -59,10 +59,10 @@ subcollection: secrets-manager
 Use these release notes to learn about the latest changes to {{site.data.keyword.secrets-manager_full}} that are grouped by date.
 {:shortdesc}
 
-For the latest changes to the {{site.data.keyword.secrets-manager_short}} API and CLI, check out the following resources:
+For the latest changes to the APIs and CLI, check out the following resources:
 
-- [API changelog](/docs/secrets-manager?topic=secrets-manager-api-change-log)
-- [CLI changelog](/docs/secrets-manager?topic=secrets-manager-cli-change-log)
+- [{{site.data.keyword.secrets-manager_short}} API changelog](/docs/secrets-manager?topic=secrets-manager-api-change-log)
+- [{{site.data.keyword.secrets-manager_short}} CLI changelog](/docs/secrets-manager?topic=secrets-manager-cli-change-log)
 
 ## 22 March 2021
 {: #2021-03-22}
