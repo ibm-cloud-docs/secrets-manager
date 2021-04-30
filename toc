@@ -62,12 +62,10 @@ Secrets Manager
     {: topicgroup}
     API & SDK reference
         [Secrets Manager API](https://cloud.ibm.com/apidocs/secrets-manager){: external}
-        changelog-api.md
 
     {: topicgroup}
     CLI reference
         /secrets-manager-cli-plugin/secrets-manager-cli-plugin-secrets-manager-cli
-        changelog-cli.md
 
     {: topicgroup}
     Vault reference
