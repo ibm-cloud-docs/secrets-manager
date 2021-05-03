@@ -1,7 +1,7 @@
 {
   "title": "Secrets Manager docs",
-  "lastupdated": "2021-04-30",
-  "introduction": "Explore recommended content and resources to help you get started with IBM Cloud&reg; Secrets Manager.",
+  "lastupdated": "2021-05-03",
+  "introduction": "Explore recommended content and resources to help you get started with IBM Cloud Secrets Manager.",
   "section_devtools": {
     "api": "/apidocs/secrets-manager",
     "cli": "/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli"

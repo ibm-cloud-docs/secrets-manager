@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-30"
+lastupdated: "2021-05-03"
 
 keywords: change log for {{site.data.keyword.secrets-manager_short}} CLI, change log for {{site.data.keyword.secrets-manager_short}} API, updates to {{site.data.keyword.secrets-manager_short}} CLI, updates to {{site.data.keyword.secrets-manager_short}} API
 
@@ -84,7 +84,7 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 
 
 ## Version 0.0.10
-{: #v0.0.10-cli}
+{: #0.0.10}
 {: cli}
 
 Version 0.0.10 was released on 23 April 2021. This release includes the following updates:
@@ -93,7 +93,7 @@ Version 0.0.10 was released on 23 April 2021. This release includes the followin
 - Added **--groups** flag to the [all-secrets](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-all-secrets-command) command.
 
 ## 13 April 2021
-{: #2021-04-13-api}
+{: #2021-04-13}
 {: api}
 
 This release includes the following updates:
@@ -102,7 +102,7 @@ This release includes the following updates:
 
 
 ## Version 0.0.8
-{: #v0.0.8-cli}
+{: #0.0.8}
 {: cli}
 
 Version 0.0.8 was released on 23 March 2021. This release includes the following updates:
@@ -113,7 +113,7 @@ Version 0.0.8 was released on 23 March 2021. This release includes the following
 
 
 ## 7 March 2021
-{: #2021-03-07-api}
+{: #2021-03-07}
 {: api}
 
 This release includes the following updates:
@@ -122,7 +122,7 @@ This release includes the following updates:
 
 
 ## 10 February 2021
-{: #2021-02-10-api}
+{: #2021-02-10}
 {: api}
 
 This release includes the following updates:
@@ -131,7 +131,7 @@ This release includes the following updates:
 - Added the `sort_by={field_name}` query parameter that can be used to filter a list of secrets by a specified metadata field.
 
 ## 25 January 2021
-{: #2021-01-25-api}
+{: #2021-01-25}
 {: api}
 
 This release includes the following updates:
@@ -141,7 +141,7 @@ This release includes the following updates:
 
 
 ## Version 0.0.6
-{: #v0.0.6-cli}
+{: #v0.0.6}
 {: cli}
 
 Version 0.0.6 was released on 14 December 2020. This release includes the following updates:
