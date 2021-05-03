@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-08"
+lastupdated: "2021-05-03"
 
 keywords: secrets management in IBM Cloud, differences between {{site.data.keyword.secrets-manager_short}} and Key Protect, when to use {{site.data.keyword.secrets-manager_short}}, {{site.data.keyword.secrets-manager_short}} use cases, single tenant, multi-tenant
 
@@ -53,7 +53,7 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 
-# Managing secrets in {{site.data.keyword.cloud_notm}}
+# Managing {{site.data.keyword.cloud_notm}} secrets
 {: #manage-secrets-ibm-cloud}
 
 A secret is any piece of confidential information, such as an encryption key, a certificate, or a digital credential.
