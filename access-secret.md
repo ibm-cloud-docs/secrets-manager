@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-20"
+lastupdated: "2021-04-30"
 
-keywords: access stored secrets, retrieve secrets, get secret value, get secrets, view secrets, search secrets, get secret value
+keywords: access secret, retrieve secret, read secret, get secret value, get secrets, view secrets, search secrets, read secrets, get secret value
 
 subcollection: secrets-manager
 
@@ -219,3 +219,4 @@ echo $ARBITRARY_SECRET | base64 --decode > my-secret.png
 {: pre}
 
 The data is converted back to a binary file that you can open from your local computer.
+

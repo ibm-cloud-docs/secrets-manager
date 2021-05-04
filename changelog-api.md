@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-13"
+lastupdated: "2021-05-04"
 
-keywords: change log for [{sm-short}] APIs, updates to [{sm-short}] APIs
+keywords: change log for [{sm-short}] APIs, API changelog, updates to [{sm-short}] APIs
 
 subcollection: secrets-manager
 
@@ -53,13 +53,13 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 
-# API change log
+# Change log for the {{site.data.keyword.secrets-manager_short}} API
 {: #api-change-log}
 
-In this change log, you can learn about the latest changes, improvements, and updates for the {{site.data.keyword.secrets-manager_short}} API. The change log lists changes that have been made, ordered by the date they were released. Changes to existing API versions are designed to be compatible with existing client applications.
+In this change log, you can learn about the latest changes, improvements, and updates for the [{{site.data.keyword.secrets-manager_full}} API](/apidocs/secrets-manager). The change log lists changes that have been made, ordered by the date they were released. Changes to existing API versions are designed to be compatible with existing client applications.
 {: shortdesc}
 
-To learn more about the {{site.data.keyword.secrets-manager_short}} API, check out the [API reference](/apidocs/secrets-manager).
+To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
 
 
 
@@ -93,3 +93,4 @@ This release includes the following updates:
 
 - Changed the maximum length for secret names to 128 characters.
 - Changed the maximum length for secret group names to 62 characters.
+
