@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-03"
+lastupdated: "2021-05-04"
 
-keywords: change log for {{site.data.keyword.secrets-manager_short}} CLI, change log for {{site.data.keyword.secrets-manager_short}} API, updates to {{site.data.keyword.secrets-manager_short}} CLI, updates to {{site.data.keyword.secrets-manager_short}} API
+keywords: change log for {{site.data.keyword.secrets-manager_short}} CLI, CLI changelog, updates to {{site.data.keyword.secrets-manager_short}} CLI
 
 subcollection: secrets-manager
 
@@ -53,31 +53,11 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 
-
-
-# Change logs for {{site.data.keyword.secrets-manager_short}}
-{: #change-log}
-
-
-
-You're viewing the **{{site.data.keyword.secrets-manager_short}} CLI** change log. To view the API change log, switch to the **API** tab.
-{: note}
-{: cli}
+# Change log for the {{site.data.keyword.secrets-manager_short}} CLI
+{: #cli-change-log}
 
 In this change log, you can learn about the latest changes, improvements, and updates for the [{{site.data.keyword.secrets-manager_full}} CLI plug-in](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli) (`ibmcloud secrets-manager`). The change log lists changes that have been made, ordered by the date they were released. Changes to existing CLI versions are designed to be compatible with existing client applications.
 {: shortdesc}
-{: cli}
-
-
-
-
-You're viewing the **{{site.data.keyword.secrets-manager_short}} API** change log. To view the CLI change log, switch to the **CLI** tab.
-{: note}
-{: api}
-
-In this change log, you can learn about the latest changes, improvements, and updates for the [{{site.data.keyword.secrets-manager_full}} API](/apidocs/secrets-manager). The change log lists changes that have been made, ordered by the date they were released. Changes to existing API versions are designed to be compatible with existing client applications.
-{: shortdesc}
-{: api}
 
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
 
@@ -85,25 +65,15 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 
 ## Version 0.0.10
 {: #0.0.10}
-{: cli}
 
 Version 0.0.10 was released on 23 April 2021. This release includes the following updates:
 
 - Changed the **--secret-action-one-of** flag in the [secret-update](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-update-command) command to **--body**.
 - Added **--groups** flag to the [all-secrets](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-all-secrets-command) command.
 
-## 13 April 2021
-{: #2021-04-13}
-{: api}
-
-This release includes the following updates:
-
-- Added `group={secret_group_ID}` query parameter that can be used to filter a list of secrets by secret group.
-
 
 ## Version 0.0.8
 {: #0.0.8}
-{: cli}
 
 Version 0.0.8 was released on 23 March 2021. This release includes the following updates:
 
@@ -111,38 +81,8 @@ Version 0.0.8 was released on 23 March 2021. This release includes the following
 - Added **--search** and **--sort-by** flags to the [all-secrets](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-all-secrets-command) command.
 - Changed the environment variable for targeting a {{site.data.keyword.secrets-manager_short}} instance to `SECRETS_MANAGER_URL`.
 
-
-## 7 March 2021
-{: #2021-03-07}
-{: api}
-
-This release includes the following updates:
-
-- Added the `reuse_api_key` boolean parameter for IAM credential secrets.
-
-
-## 10 February 2021
-{: #2021-02-10}
-{: api}
-
-This release includes the following updates:
-
-- Added the `search={string}` query parameter that can be used to filter a list of secrets that contain a specified string.
-- Added the `sort_by={field_name}` query parameter that can be used to filter a list of secrets by a specified metadata field.
-
-## 25 January 2021
-{: #2021-01-25}
-{: api}
-
-This release includes the following updates:
-
-- Changed the maximum length for secret names to 128 characters.
-- Changed the maximum length for secret group names to 62 characters.
-
-
 ## Version 0.0.6
-{: #v0.0.6}
-{: cli}
+{: #0.0.6}
 
 Version 0.0.6 was released on 14 December 2020. This release includes the following updates:
 
