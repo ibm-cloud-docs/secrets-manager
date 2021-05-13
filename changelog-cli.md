@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-04"
+lastupdated: "2021-05-13"
 
 keywords: change log for {{site.data.keyword.secrets-manager_short}} CLI, CLI changelog, updates to {{site.data.keyword.secrets-manager_short}} CLI
 
@@ -53,7 +53,7 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 
-# Change log for the {{site.data.keyword.secrets-manager_short}} CLI
+# {{site.data.keyword.secrets-manager_short}} CLI change log
 {: #cli-change-log}
 
 In this change log, you can learn about the latest changes, improvements, and updates for the [{{site.data.keyword.secrets-manager_full}} CLI plug-in](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli) (`ibmcloud secrets-manager`). The change log lists changes that have been made, ordered by the date they were released. Changes to existing CLI versions are designed to be compatible with existing client applications.
