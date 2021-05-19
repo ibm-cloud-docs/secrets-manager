@@ -66,7 +66,7 @@ For the latest changes to the APIs and CLI, check out [Change logs for {{site.da
 
 This release includes the following updates.
 
-### Notice: Upcoming updates to {{site.data.keyword.secrets-manager_short}} supported cipher suites
+### Notice: Upcoming updates to supported cipher suites
 {: 2021-05-19-ciphers}
 
 On 2021 May 29, Secrets Manager will deliver changes to the cipher suites that it supports for TLS connections to the service. This update is being implemented to enhance the security of IBM Cloud users and protect user data.
@@ -93,14 +93,7 @@ Reach out to [IBM Cloud support](https://cloud.ibm.com/unifiedsupport/cases/form
 
 You can now configure {{site.data.keyword.secrets-manager_short}} to securely manage secrets that are part of your {{site.data.keyword.contdelivery_short}} toolchain.
 
-For more information, check out the [announcement blog](https://www.ibm.com/cloud/blog/manage-secrets-in-continuous-delivery-with-ibm-cloud-secrets-manager){: external}. For step-by-step guidance, check out the [{{site.data.keyword.contdelivery_short}} documentation](/docs/ContinuousDelivery?topic=ContinuousDelivery-secretsmanager).
-
-### Manage secrets over a private network connection
-{: #2021-03-22-private-endpoints}
-
-You can now create a private instance of {{site.data.keyword.secrets-manager_short}} so that you can manage application secrets over a private network connection.
-
-For more information, see [Securing your connection to {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-service-connection).
+For more information, check out the [announcement blog](https://www.ibm.com/cloud/blog/manage-secrets-in-continuous-delivery-with-ibm-cloud-secrets-manager){: external}.
 
 ## 22 March 2021
 {: #2021-03-22}
