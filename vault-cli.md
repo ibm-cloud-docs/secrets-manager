@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-09"
+lastupdated: "2021-05-19"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -473,7 +473,7 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
     <dt><code>DATA</code></dt>
     <dd><p>The data that you want to store for this secret. Required for `arbitrary` secrets.</p><p class="note">Only text-based payloads are supported for arbitrary secrets. If you need to store a binary file, be sure to base64 encode it before saving it to {{site.data.keyword.secrets-manager_short}}. For more information, see [Examples](#vault-cli-create-static-secret-examples).</p></dd>
     <dt><code>EXPIRATION</code></dt>
-    <dd>(Optional) The expiration date that you want to assign to the secret. The date format follows [RFC 3339](https://tools.ietf.org/html/rfc3339).</dd>
+    <dd>(Optional) The expiration date that you want to assign to the secret. The date format follows [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).</dd>
     <dt><code>LABELS</code></dt>
     <dd>(Optional) Labels that you can use to group and search for similar secrets in your instance.</dd>
     <dt>-format</dt>
@@ -789,7 +789,7 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
     <dt><code>DESCRIPTION</code></dt>
     <dd>(Optional) An extended description to assign to the secret.</dd>
     <dt><code>EXPIRATION</code></dt>
-    <dd>(Optional) The expiration date that you want to assign to the secret. The date format follows [RFC 3339](https://tools.ietf.org/html/rfc3339).</dd>
+    <dd>(Optional) The expiration date that you want to assign to the secret. The date format follows [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).</dd>
     <dt><code>LABELS</code></dt>
     <dd>(Optional) Labels that you can use to group and search for similar secrets in your instance.</dd>
     <dt>-format</dt>

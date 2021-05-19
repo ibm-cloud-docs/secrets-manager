@@ -1,0 +1,3 @@
+https://wcp-ace-docs-jenkins.swg-devops.com/job/Docs-build/job/Docs-build-secrets-manager	,
+https://test.cloud.ibm.com/docs/writing/markdown?topic=writing-create-content-md#validmarkdown,
+https://test.cloud.ibm.com/docs/writing/markdown?topic=writing-create-content-md#validmarkdown
