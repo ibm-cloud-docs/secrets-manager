@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-30"
+lastupdated: "2021-05-19"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -61,6 +61,34 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs and CLI, check out [Change logs for {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-change-log).
 
+## 19 May 2021
+{: #2021-05-19}
+
+This release includes the following updates.
+
+### Notice: Upcoming updates to supported cipher suites
+{: 2021-05-19-ciphers}
+
+On 2021 May 29, Secrets Manager will deliver changes to the cipher suites that it supports for TLS connections to the service. This update is being implemented to enhance the security of IBM Cloud users and protect user data.
+
+- **What's changing?** Beginning 2021 May 29, Secrets Manager API endpoints will allow only the following cipher suites:
+
+    - `ECDHE-ECDSA-AES128-GCM-SHA256`
+    - `ECDHE-ECDSA-CHACHA20-POLY1305`
+    - `ECDHE-ECDSA-AES256-GCM-SHA384`
+    - `ECDHE-RSA-AES128-GCM-SHA256`
+    - `ECDHE-RSA-CHACHA20-POLY1305`
+    - `ECDHE-RSA-AES256-GCM-SHA384`
+
+- **How will this impact my environment?** This change will impact clients that are configured to use ciphers that are not included on this list. To avoid connectivity issues with Secrets Manager, make sure that your client is configured to use only the allowed list of ciphers in TLS connections to the service. Reach out to [IBM Cloud support](https://cloud.ibm.com/unifiedsupport/cases/form) with any questions.
+
+### Manage secrets in your {{site.data.keyword.contdelivery_short}} toolchain
+{: 2021-05-19-toolchains-integration}
+
+You can now configure {{site.data.keyword.secrets-manager_short}} to securely manage secrets that are part of your {{site.data.keyword.contdelivery_short}} toolchain.
+
+For more information, check out the [announcement blog](https://www.ibm.com/cloud/blog/manage-secrets-in-continuous-delivery-with-ibm-cloud-secrets-manager){: external}.
+
 ## 22 March 2021
 {: #2021-03-22}
 
@@ -76,7 +104,7 @@ For more information, see [Securing your connection to {{site.data.keyword.secre
 ### Configure the IAM secrets engine from the {{site.data.keyword.secrets-manager_short}} UI
 {: #2021-03-22-secrets-engine}
 
-Want to get started with IAM credential secrets? You can now easily configure your {{site.data.keyword.secrets-manager_short}} instance for the IAM secrets engine by creating the required credentials without leaving the service dashboard.
+Want to get started with IAM credential secrets? You can now configure your {{site.data.keyword.secrets-manager_short}} instance for the IAM secrets engine by creating the required credentials without leaving the service dashboard.
 
 For more information, see [Configuring the IAM secrets engine in the UI](/docs/secrets-manager?topic=secrets-manager-iam-credentials#configure-iam-secrets-engine-ui).
 
