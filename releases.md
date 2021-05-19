@@ -71,9 +71,7 @@ This release includes the following updates.
 
 On 2021 May 29, Secrets Manager will deliver changes to the cipher suites that it supports for TLS connections to the service. This update is being implemented to enhance the security of IBM Cloud users and protect user data.
 
-**What's changing**
-
-Beginning 2021 May 29, Secrets Manager API endpoints will allow only the following cipher suites:
+**What's changing.** Beginning 2021 May 29, Secrets Manager API endpoints will allow only the following cipher suites:
 
 - `ECDHE-ECDSA-AES128-GCM-SHA256`
 - `ECDHE-ECDSA-CHACHA20-POLY1305`
@@ -82,9 +80,7 @@ Beginning 2021 May 29, Secrets Manager API endpoints will allow only the followi
 - `ECDHE-RSA-CHACHA20-POLY1305`
 - `ECDHE-RSA-AES256-GCM-SHA384`
 
-**Customer impact**
-
-This change will impact clients that are configured to use ciphers that are not included on this list. To avoid connectivity issues with Secrets Manager, make sure that your client is configured to use only the allowed list of ciphers in TLS connections to the service.
+**Customer impact.** This change will impact clients that are configured to use ciphers that are not included on this list. To avoid connectivity issues with Secrets Manager, make sure that your client is configured to use only the allowed list of ciphers in TLS connections to the service.
 
 Reach out to [IBM Cloud support](https://cloud.ibm.com/unifiedsupport/cases/form) with any questions.
 
@@ -110,7 +106,11 @@ For more information, see [Securing your connection to {{site.data.keyword.secre
 ### Configure the IAM secrets engine from the {{site.data.keyword.secrets-manager_short}} UI
 {: #2021-03-22-secrets-engine}
 
-Want to get started with IAM credential secrets? You can now easily configure your {{site.data.keyword.secrets-manager_short}} instance for the IAM secrets engine by creating the required credentials without leaving the service dashboard.
+Want to get started with IAM credential secrets? You can now configure your {{site.data.keyword.secrets-manager_short}} instance for the IAM secrets engine by creating the required credentials without leaving the service dashboard.
+
+From the **Settings** page in the service UI, click **New** to start the configuration.
+
+![The image shows a screenshot of the UI that demonstrates the IAM secrets engine component.](images/release-notes-iam-engine.png){: caption="Figure 1. Configuring the IAM secrets engine" caption-side="bottom"}
 
 For more information, see [Configuring the IAM secrets engine in the UI](/docs/secrets-manager?topic=secrets-manager-iam-credentials#configure-iam-secrets-engine-ui).
 
