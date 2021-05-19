@@ -41,7 +41,7 @@
       {
         "date": "19 May 2021",
         "title": "Notice: Upcoming changes to supported cipher suites",
-        "description": "On 2021 May 29, Secrets Manager will deliver changes to the cipher suites that it supports for TLS connections to the service. Check the full release notes for more details."
+        "description": "On 2021 May 29, Secrets Manager will deliver changes to the cipher suites that it supports for TLS connections to the service. Check the full release notes for details."
       },
       {
         "date": "22 March 2021",
