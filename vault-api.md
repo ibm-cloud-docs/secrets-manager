@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-01"
+lastupdated: "2021-05-19"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -123,7 +123,7 @@ This section describes the headers that are common to all requests.
 ### Timestamps
 {: #vault-api-timestamps}
 
-The timestamps in all requests and responses, such as creation and expiration dates, are formatted according to [RFC 3339](https://tools.ietf.org/html/rfc3339). For example: `1985-04-12T23:20:50.52Z`
+The timestamps in all requests and responses, such as creation and expiration dates, are formatted according to [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339){: external}. For example: `1985-04-12T23:20:50.52Z`
 
 ### Field names
 {: #vault-field-names}

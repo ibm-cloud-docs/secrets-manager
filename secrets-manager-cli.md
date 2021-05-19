@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-23"
+lastupdated: "2021-05-19"
 
 subcollection: secrets-manager
 
@@ -519,10 +519,10 @@ ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id I
 
 The following schema examples represent the data that you need to specify for a command option. These examples model the data structure and include placeholder values for the expected value type. When you run a command, replace these values with the values that apply to your environment as appropriate.
 
-### EngineConfigOneOf
+### `EngineConfigOneOf`
 {: #cli-engine-config-one-of-example-schema}
 
-The following example shows the format of the EngineConfigOneOf object.
+The following example shows the format of the `EngineConfigOneOf` object.
 
 ```json
 {
@@ -531,10 +531,10 @@ The following example shows the format of the EngineConfigOneOf object.
 ```
 {: codeblock}
 
-### SecretActionOneOf
+### `SecretActionOneOf`
 {: #cli-secret-action-one-of-example-schema}
 
-The following example shows the format of the SecretActionOneOf object.
+The following example shows the format of the `SecretActionOneOf` object.
 
 For `arbitrary` secrets:
 
@@ -554,10 +554,10 @@ For `username_password` secrets:
 ```
 {: codeblock}
 
-### SecretGroupMetadataUpdatable[]
+### `SecretGroupMetadataUpdatable[]`
 {: #cli-secret-group-metadata-updatable-example-schema}
 
-The following example shows the format of the SecretGroupMetadataUpdatable[] object.
+The following example shows the format of the `SecretGroupMetadataUpdatable[]` object.
 
 ```json
 [ {
@@ -567,10 +567,10 @@ The following example shows the format of the SecretGroupMetadataUpdatable[] obj
 ```
 {: codeblock}
 
-### SecretGroupResource[]
+### `SecretGroupResource[]`
 {: #cli-secret-group-resource-example-schema}
 
-The following example shows the format of the SecretGroupResource[] object.
+The following example shows the format of the `SecretGroupResource[]` object.
 
 ```json
 [ {
@@ -580,10 +580,10 @@ The following example shows the format of the SecretGroupResource[] object.
 ```
 {: codeblock}
 
-### SecretMetadata[]
+### `SecretMetadata[]`
 {: #cli-secret-metadata-example-schema}
 
-The following example shows the format of the SecretMetadata[] object.
+The following example shows the format of the `SecretMetadata[]` object.
 
 ```json
 [ {
@@ -596,10 +596,10 @@ The following example shows the format of the SecretMetadata[] object.
 ```
 {: codeblock}
 
-### SecretPolicyRotation[]
+### `SecretPolicyRotation[]`
 {: #cli-secret-policy-rotation-example-schema}
 
-The following example shows the format of the SecretPolicyRotation[] object.
+The following example shows the format of the `SecretPolicyRotation[]` object.
 
 ```json
 [ {
@@ -612,10 +612,10 @@ The following example shows the format of the SecretPolicyRotation[] object.
 ```
 {: codeblock}
 
-### SecretResource[]
+### `SecretResource[]`
 {: #cli-secret-resource-example-schema}
 
-The following example shows the format of the SecretResource[] object.
+The following example shows the format of the `SecretResource[]` object.
 
 ```json
 [ {
