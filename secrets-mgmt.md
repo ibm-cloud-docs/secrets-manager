@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-04"
+lastupdated: "2021-05-19"
 
 keywords: secrets management in IBM Cloud, differences between {{site.data.keyword.secrets-manager_short}} and Key Protect, when to use {{site.data.keyword.secrets-manager_short}}, {{site.data.keyword.secrets-manager_short}} use cases, single tenant, multi-tenant
 
@@ -64,7 +64,7 @@ For example, consider the following scenarios and how they map to secrets manage
 ![The image describes three use cases for secrets management and how they map to available services in {{site.data.keyword.cloud_notm}}. The content is explained fully in the surrounding text.](/images/secrets-mgmt-options.svg){: caption="Figure 1. Secrets management use cases" caption-side="bottom"}
 
 
-## Which data protection service is right for me?
+## Which data protection service is best for me?
 {: #which-data-protection-service}
 
 The following table lists the different offerings that you can use with {{site.data.keyword.cloud_notm}} to protect your application secrets.
@@ -83,7 +83,7 @@ The following table lists the different offerings that you can use with {{site.d
 
 As you plan your data protection strategy, some differences between services to consider include the level of data isolation that your workload requires.
 
-For a higher level of security and control, your business might benefit from the data isolation that a single-tenant offering provides, such as {{site.data.keyword.secrets-manager_short}} or {{site.data.keyword.hscrypto}}. You might also decide that the lower costs and scalability benefits of a multi-tenant service, such as {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.cloudcerts_short}}, are better suited to your needs. The following table lists key features for each service.
+For a higher level of security and control, your business might benefit from the data isolation that a single-tenant offering provides, such as {{site.data.keyword.secrets-manager_short}} or {{site.data.keyword.hscrypto}}. You might also decide that the reduced cost and scalability benefits of a multi-tenant service, such as {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.cloudcerts_short}}, are better suited to your needs. The following table lists key features for each service.
 
 | Service | Secret types | Multi-tenant[^multi-tenant] | Single-tenant[^single-tenant] | HSM backed[^hsm] |
 | --- | --- | --- | --- |  --- |
