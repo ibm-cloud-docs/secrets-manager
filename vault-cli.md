@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-19"
+lastupdated: "2021-05-20"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -446,7 +446,7 @@ vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets name=NAME [description
 
 Create a secret in a specified secret group.
 ```
-vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets/group/SECRET_GROUP_ID name=NAME [description="DESCRIPTION"] [username=USERNAME] [password=USERNAME] [payload=DATA] [expiration_date=EXPIRATION] [labels=LABEL,LABEL]
+vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets/groups/SECRET_GROUP_ID name=NAME [description="DESCRIPTION"] [username=USERNAME] [password=USERNAME] [payload=DATA] [expiration_date=EXPIRATION] [labels=LABEL,LABEL]
 ```
 
 #### Prerequisites
