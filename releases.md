@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-19"
+lastupdated: "2021-05-20"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -59,7 +59,7 @@ subcollection: secrets-manager
 Use these release notes to learn about the latest changes to {{site.data.keyword.secrets-manager_full}} that are grouped by date.
 {:shortdesc}
 
-For the latest changes to the APIs and CLI, check out [Change logs for {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-change-log).
+For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
 ## 19 May 2021
 {: #2021-05-19}
