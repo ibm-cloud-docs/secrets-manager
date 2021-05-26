@@ -80,7 +80,7 @@ On 2021 May 29, Secrets Manager will deliver changes to the cipher suites that i
     - `ECDHE-RSA-CHACHA20-POLY1305`
     - `ECDHE-RSA-AES256-GCM-SHA384`
 
-- **How will this impact my environment?** This change will impact clients that are configured to use ciphers that are not included on this list. To avoid connectivity issues with Secrets Manager, make sure that your client is configured to use only the allowed list of ciphers in TLS connections to the service. Reach out to [IBM Cloud support](https://cloud.ibm.com/unifiedsupport/cases/form) with any questions.
+- **How will this change impact my environment?** This change will impact clients that are configured to use ciphers that are not included on this list. To avoid connectivity issues with Secrets Manager, make sure that your client is configured to use only the allowed list of ciphers in TLS connections to the service. Reach out to [IBM Cloud support](https://cloud.ibm.com/unifiedsupport/cases/form) with any questions.
 
 ### Manage secrets in your {{site.data.keyword.contdelivery_short}} toolchain
 {: 2021-05-19-toolchains-integration}
