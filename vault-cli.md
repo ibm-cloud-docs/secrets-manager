@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-20"
+lastupdated: "2021-06-03"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -64,7 +64,7 @@ You can use the HashiCorp Vault command-line interface (CLI) to interact with {{
 Before you get started, [configure the Vault CLI](/docs/secrets-manager?topic=secrets-manager-configure-vault-cli) so that you're able to access your {{site.data.keyword.secrets-manager_short}} instance by using Vault commands. To learn more about using the Vault CLI, check out the [Vault documentation](https://www.vaultproject.io/docs/commands){: external}.
 {: note}
 
-## Logging in to Vault
+## Log in
 {: #vault-cli-login}
 
 ### Configure a login token
@@ -163,7 +163,7 @@ The command returns the following output:
 ```
 {: screen}
 
-## Managing secret groups
+## Secret groups
 {: #vault-cli-secret-groups}
 
 ### Create a secret group
@@ -431,7 +431,7 @@ Success! Data deleted (if it existed) at: auth/ibmcloud/manage/groups/9c6d20ad-7
 ```
 {: screen}
 
-## Managing static secrets
+## Static secrets
 {: #vault-cli-static-secrets}
 
 ### Create a secret
@@ -449,6 +449,9 @@ Create a secret in a specified secret group.
 vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets/groups/SECRET_GROUP_ID name=NAME [description="DESCRIPTION"] [username=USERNAME] [password=USERNAME] [payload=DATA] [expiration_date=EXPIRATION] [labels=LABEL,LABEL]
 ```
 
+
+
+
 #### Prerequisites
 {: #vault-cli-create-static-secret-prereqs}
 
@@ -459,7 +462,7 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
 
 <dl>
     <dt><code>SECRET_TYPE</code></dt>
-    <dd>The type of secret that you want to create. Allowable values include: <code>username_password</code> and <code>arbitrary</code>.</dd>
+    <dd>The type of secret that you want to create or import. Allowable values include: <code>arbitrary</code>, <code>username_password</code></dd>
     <dt><code>SECRET_GROUP_ID</code></dt>
     <dd>The ID of the secret group that you want to assign to this secret.</dd>
     <dt><code>NAME</code></dt>
@@ -473,7 +476,7 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
     <dt><code>DATA</code></dt>
     <dd><p>The data that you want to store for this secret. Required for `arbitrary` secrets.</p><p class="note">Only text-based payloads are supported for arbitrary secrets. If you need to store a binary file, be sure to base64 encode it before saving it to {{site.data.keyword.secrets-manager_short}}. For more information, see [Examples](#vault-cli-create-static-secret-examples).</p></dd>
     <dt><code>EXPIRATION</code></dt>
-    <dd>(Optional) The expiration date that you want to assign to the secret. The date format follows [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).</dd>
+    <dd>(Optional) The expiration date that you want to assign to the secret. This option is supported for the <code>arbitrary</code> and <code>username_password</code> secret types. The date format follows [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).</dd>
     <dt><code>LABELS</code></dt>
     <dd>(Optional) Labels that you can use to group and search for similar secrets in your instance.</dd>
     <dt>-format</dt>
@@ -503,6 +506,8 @@ Create an arbitrary secret with binary payload.
 base64 -w0 <filename> | vault write ibmcloud/arbitrary/secrets name="my-test-arbitrary-secret" payload=- labels="encode:base64"
 ```
 {: pre}
+
+
 
 #### Output
 {: #vault-cli-create-static-secret-output}
@@ -585,6 +590,8 @@ The command to create an `arbitrary` secret returns the following output:
 ```
 {: screen}
 
+
+
 ### List secrets
 {: #vault-cli-list-static-secrets}
 
@@ -610,7 +617,7 @@ You need the [**Reader** service role](/docs/secrets-manager?topic=secrets-manag
 
 <dl>
 <dt><code>SECRET_TYPE</code></dt>
-<dd>The type of secret that you want to list. Allowable values include: <code>username_password</code> and <code>arbitrary</code>.</dd>
+<dd>The type of secret that you want to list. Allowable values include: <code>arbitrary</code>, <code>username_password</code></dd>
 <dt>-format</dt>
 <dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
 </dl>
@@ -706,7 +713,7 @@ You need the [**SecretsReader** or **Writer** service role](/docs/secrets-manage
 
 <dl>
 <dt><code>SECRET_TYPE</code></dt>
-<dd>The type of secret that you want to retrieve. Allowable values include: <code>username_password</code> and <code>arbitrary</code>.</dd>
+<dd>The type of secret that you want to retrieve. Allowable values include: <code>arbitrary</code>, <code>username_password</code></dd>
 <dt><code>SECRET_GROUP_ID</code></dt>
 <dd>The ID of the secret group that is assigned to the secret.</dd>
 <dt><code>SECRET_ID</code></dt>
@@ -781,7 +788,7 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
 
 <dl>
     <dt><code>SECRET_TYPE</code></dt>
-    <dd>The type of secret that you want to update. Allowable values include: <code>username_password</code> and <code>arbitrary</code></dd>
+    <dd>The type of secret that you want to update. Allowable values include: <code>arbitrary</code>, <code>username_password</code></dd>
     <dt><code>SECRET_ID</code></dt>
     <dd>The ID of the secret that you want to update.</dd>
     <dt><code>NAME</code></dt>
@@ -838,9 +845,13 @@ The command returns the following output:
 
 Use this command to rotate a secret.
 
+
+
 ```
-vault write [-format=FORMAT] [-force] ibmcloud/SECRET_TYPE/secrets/SECRET_ID/rotate [payload="SECRET_DATA"][username=USERNAME] [password=PASSWORD]
+vault write [-format=FORMAT] [-force] ibmcloud/SECRET_TYPE/secrets/SECRET_ID/rotate [payload="SECRET_DATA"] [password=PASSWORD]
 ```
+
+
 
 #### Prerequisites
 {: #vault-cli-rotate-static-secret-prereqs}
@@ -852,13 +863,15 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
 
 <dl>
     <dt><code>SECRET_TYPE</code></dt>
-    <dd>The type of secret that you want to rotate. Allowable values include: <code>username_password</code> and <code>arbitrary</code></dd>
+    <dd>The type of secret that you want to rotate. Allowable values include: <code>arbitrary</code>, <code>username_password</code></dd>
     <dt><code>SECRET_ID</code></dt>
     <dd>The ID of the secret that you want to update.</dd>
     <dt><code>SECRET_DATA</code></dt>
     <dd>The data that you want to store for this secret. Required for manually rotating an `arbitrary` secret.</dd>
     <dt><code>PASSWORD</code></dt>
     <dd>The new password to assign. Required for manually rotating a `username_password` secret.</dd>
+    <dt><code>EXPIRATION</code></dt>
+    <dd>(Optional) The expiration date that you want to assign to the secret. This option is supported for the <code>arbitrary</code> and <code>username_password</code> secret types. The date format follows [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).</dd>
     <dt>-format</dt>
     <dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
     <dt>-force</dt>
@@ -967,7 +980,7 @@ You need the [**Manager** service role](/docs/secrets-manager?topic=secrets-mana
 
 <dl>
     <dt><code>SECRET_TYPE</code></dt>
-    <dd>The type of secret that you want to delete. Allowable values include: <code>username_password</code> and <code>arbitrary</code></dd>
+    <dd>The type of secret that you want to delete. Allowable values include: <code>arbitrary</code>, <code>username_password</code></dd>
     <dt><code>SECRET_ID</code></dt>
     <dd>The ID of the secret that you want to delete.</dd>
 </dl>
@@ -991,7 +1004,7 @@ Success! Data deleted (if it existed) at: ibmcloud/arbitrary/secrets/d26702aa-77
 ```
 {: screen}
 
-## Managing dynamic secrets
+## Dynamic secrets
 {: #vault-cli-dynamic-secrets}
 
 Dynamic secrets are single-use credentials that are generated only when they are read or accessed.

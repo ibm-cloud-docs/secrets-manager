@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-19"
+lastupdated: "2021-06-03"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -529,7 +529,7 @@ curl -X DELETE "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v
 ### Create a secret
 {: #vault-create-secret}
 
-Creates a secret by using the {{site.data.keyword.secrets-manager_short}} secrets engines.
+Creates or imports a secret by using the {{site.data.keyword.secrets-manager_short}} secrets engines. For more information about secret types that you can manage in the service, see [Working with secrets of different types](/docs/secrets-manager?topic=secrets-manager-what-is-secret).
 
 #### Example requests
 {: #vault-create-secret-request}
@@ -957,6 +957,15 @@ Get user credentials in the `default` secret group.
 
 ```sh
 curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/username_password/secrets/{id}" \
+  -H 'Accept: application/json' \
+  -H 'X-Vault-Token: {Vault-Token}'
+```
+{: codeblock}
+
+Get user credentials in an existing secret group.
+
+```sh
+curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/username_password/secrets/{id}/groups/{id}" \
   -H 'Accept: application/json' \
   -H 'X-Vault-Token: {Vault-Token}'
 ```
