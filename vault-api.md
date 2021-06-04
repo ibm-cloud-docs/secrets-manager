@@ -142,7 +142,7 @@ Logs in to Vault by using an {{site.data.keyword.cloud_notm}} IAM token and obta
 {: #vault-login-params}
 
 <dl>
-    <dt><code>IAM_token</code></dt>
+    <dt>token</dt>
     <dd>Your {{site.data.keyword.cloud_notm}} IAM access token.</dd>
 </dl>
 
@@ -210,9 +210,9 @@ Use a duration string such as `300s` or `2h45m`. Valid time units are `s`, `m`, 
 {: #vault-configure-login-token-params}
 
 <dl>
-    <dt><code>token_max_ttl</code></dt>
+    <dt>token_max_ttl</dt>
     <dd>The maximum lifetime of the login token. Default is `24h`. This value can't exceed the Vault <code>MaxLeaseTTL</code> value.</dd>
-    <dt><code>token_ttl</code></dt>
+    <dt>token_ttl</dt>
     <dd>The initial time-to-live (TTL) of the login token to generate. Default is `1h`.</dd>
 </dl>
 
@@ -285,9 +285,9 @@ Creates a secret group.
 {: #vault-create-secret-group-params}
 
 <dl>
-    <dt><code>name</code></dt>
+    <dt>name</dt>
     <dd>The human-readable alias that you want to assign to the secret group.</dd>
-    <dt><code>description</code></dt>
+    <dt>description</dt>
     <dd>(Optional) An extended description of the secret group.</dd>
 </dl>
 
@@ -390,11 +390,9 @@ Updates the details of an existing secret group.
 {: #vault-update-secret-group-params}
 
 <dl>
-    <dt><code>id</code></dt>
-    <dd>The ID of the secret group.</dd>
-    <dt><code>name</code></dt>
+    <dt>name</dt>
     <dd>The human-readable alias that you want to assign to the secret group.</dd>
-    <dt><code>description</code></dt>
+    <dt>description</dt>
     <dd>(Optional) An extended description of the secret group.</dd>
 </dl>
 
@@ -442,14 +440,6 @@ curl -X PUT "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/a
 
 Retrieves a secret group and its details.
 
-#### Parameters
-{: #vault-get-secret-group-params}
-
-<dl>
-    <dt><code>id</code></dt>
-    <dd>The ID of the secret group.</dd>
-</dl>
-
 #### Example request
 {: #vault-get-secret-group-request}
 
@@ -489,13 +479,6 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/a
 
 Deletes a secret group.
 
-#### Parameters
-{: #vault-delete-secret-group-params}
-
-<dl>
-    <dt><code>id</code></dt>
-    <dd>The ID of the secret group.</dd>
-</dl>
 
 #### Example request
 {: #vault-delete-secret-group-request}
@@ -536,17 +519,17 @@ Creates or imports a secret by using the {{site.data.keyword.secrets-manager_sho
 {: #vault-create-secret-params}
 
 <dl>
-    <dt><code>name</code></dt>
+    <dt>name</dt>
     <dd>The human-readable alias that you want to assign to the secret.</dd>
-    <dt><code>description</code></dt>
+    <dt>description</dt>
     <dd>(Optional) An extended description for the secret.</dd>
-    <dt><code>payload</code></dt>
+    <dt>payload</dt>
     <dd>The secret data to assign to an <code>arbitrary</code> secret.</dd>
-    <dt><code>username</code></dt>
+    <dt>username</dt>
     <dd>The username to assign to a <code>username_password</code> secret.</dd>
-    <dt><code>password</code></dt>
+    <dt>password</dt>
     <dd>The password to assign to a <code>username_password</code> secret.</dd>
-    <dt><code>expiration_date</code></dt>
+    <dt>expiration_date</dt>
     <dd>(Optional) The expiration date that you want to assign to the secret. This option is supported for the <code>arbitrary</code> and <code>username_password</code> secret types. The date format follows [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).</dd>
 </dl>
 
@@ -1376,9 +1359,9 @@ Create a new version of a secret. The secret retains its identifying information
 {: #vault-rotate-secret-params}
 
 <dl>
-    <dt><code>payload</code></dt>
+    <dt>payload</dt>
     <dd>The new secret data to assign to an <code>arbitrary</code> secret.</dd>
-    <dt><code>password</code></dt>
+    <dt>password</dt>
     <dd>The new password to assign to a <code>username_password</code> secret.</dd>
 </dl>
 
