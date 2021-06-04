@@ -426,7 +426,7 @@ Success! Data deleted (if it existed) at: auth/ibmcloud/manage/groups/9c6d20ad-7
 ### Create a secret
 {: #vault-cli-create-static-secret}
 
-Use the following commands to add a static secret, such as a user credential or an arbitrary secret, to your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for `**SECRET_TYPE**` include: `arbitrary`, `username_password`
+Use the following commands to add a static secret, such as a user credential or an arbitrary secret, to your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`
 
 Create a secret in the `default` secret group.
 ```
@@ -452,14 +452,14 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
 <dl>
     <dt>name</dt>
     <dd>The human-readable alias that you want to assign to the secret.</dd>
-    <dt>description</dt>
-    <dd>(Optional) An extended description to assign to the secret.</dd>
+    <dt>payload</dt>
+    <dd>The data that you want to store for an `arbitrary` secret. Only text-based payloads are supported. If you need to store a binary file, be sure to base64 encode it before saving it to {{site.data.keyword.secrets-manager_short}}. For more information, see [Examples](#vault-cli-create-static-secret-examples).</dd>
     <dt>username</dt>
     <dd>The username that you want to assign to a `username_password` secret.</dd>
     <dt>password</dt>
     <dd>The password that you want assign to a `username_password` secret.</dd>
-    <dt>payload</dt>
-    <dd>The data that you want to store for an `arbitrary` secret. Only text-based payloads are supported. If you need to store a binary file, be sure to base64 encode it before saving it to {{site.data.keyword.secrets-manager_short}}. For more information, see [Examples](#vault-cli-create-static-secret-examples).</dd>
+    <dt>description</dt>
+    <dd>(Optional) An extended description to assign to the secret.</dd>
     <dt>expiration_date</dt>
     <dd>(Optional) The expiration date that you want to assign to the secret. Supported for the `arbitrary` and `username_password` secret types. The date format follows [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).</dd>
     <dt>labels</dt>
@@ -580,7 +580,7 @@ The command to create an `arbitrary` secret returns the following output:
 ### List secrets
 {: #vault-cli-list-static-secrets}
 
-Use the following commands to list the static secrets in your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for `**SECRET_TYPE**` include: `arbitrary`, `username_password`
+Use the following commands to list the static secrets in your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`
 
 List secrets by type.
 ```
@@ -674,7 +674,7 @@ If the secrets belong to a secret group, the `data.secrets.secret_group_id` valu
 ### Get a secret
 {: #vault-cli-get-static-secret}
 
-Use the following commands to retrieve a secret and its details. Allowable values for `**SECRET_TYPE**` include: `arbitrary`, `username_password`
+Use the following commands to retrieve a secret and its details. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`
 
 Get a secret that is in the `default` secret group.
 ```
@@ -749,7 +749,7 @@ The command returns the following output:
 ### Update a secret
 {: #vault-cli-update-static-secret}
 
-Use this command to update the metadata of a secret, such as its name or description. Allowable values for `**SECRET_TYPE**` include: `arbitrary`, `username_password`
+Use this command to update the metadata of a secret, such as its name or description. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`
 
 ```
 vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets/SECRET_ID/metadata name=NAME [description="DESCRIPTION"][expiration_date=EXPIRATION] [labels=LABEL,LABEL]
@@ -816,7 +816,7 @@ The command returns the following output:
 ### Rotate a secret
 {: #vault-cli-rotate-static-secret}
 
-Use this command to rotate a secret. Allowable values for `**SECRET_TYPE**` include: `arbitrary`, `username_password`
+Use this command to rotate a secret. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`
 
 
 
@@ -835,10 +835,10 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
 {: #vault-cli-rotate-static-secret-options}
 
 <dl>
-    <dt>password</dt>
-    <dd>The new password to assign to a `username_password` secret.</dd>
     <dt>payload</dt>
     <dd>The new data to store for an `arbitrary` secret. Only text-based payloads are supported. If you need to store a binary file, be sure to base64 encode it before saving it to {{site.data.keyword.secrets-manager_short}}. For more information, see [Examples](#vault-cli-create-static-secret-examples).</dd>
+    <dt>password</dt>
+    <dd>The new password to assign to a `username_password` secret.</dd>
     <dt>-format</dt>
     <dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
     <dt>-force</dt>
@@ -931,7 +931,7 @@ The command to manually rotate a `username_password` secret with a service-gener
 ### Delete a secret
 {: #vault-cli-delete-static-secret}
 
-Use this command to delete a secret. Allowable values for `**SECRET_TYPE**` include: `arbitrary`, `username_password`
+Use this command to delete a secret. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`
 
 ```
 vault delete ibmcloud/SECRET_TYPE/secrets/SECRET_ID
