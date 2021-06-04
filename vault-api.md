@@ -1241,7 +1241,7 @@ A request to list all arbitrary secrets returns the following response:
 ### Get secret metadata
 {: #vault-get-secret-metadata}
 
-Retrieve the metadata of a secret, such as it's name, description. To retrieve the actual value of a secret, use [Get a secret](##vault-get-secret).
+Retrieve the metadata of a secret, such as it's name, description. To retrieve the actual value of a secret, use [Get a secret](#vault-get-secret).
 
 #### Example requests
 {: #vault-get-secret-metadata-request}
@@ -1265,7 +1265,7 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 {: codeblock}
 
 #### Example responses
-{: #vault-update-secret-metadata-response}
+{: #vault-get-secret-metadata-response}
 
 A request to retrieve the metadata of an `arbitrary` secret in the `default` secret group returns the following response:
 
@@ -1302,7 +1302,7 @@ A request to retrieve the metadata of an `arbitrary` secret in the `default` sec
 ### Update secret metadata
 {: #vault-update-secret-metadata}
 
-Update the metadata of a secret, such as it's name, description, or expiration date. To rotate the actual value of a secret, use [Rotate a secret](##vault-rotate-secret).
+Update the metadata of a secret, such as it's name, description, or expiration date. To rotate the actual value of a secret, use [Rotate a secret](#vault-rotate-secret).
 
 #### Parameters
 {: #vault-update-secret-params}
@@ -1467,3 +1467,58 @@ curl -X DELETE "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v
 ```
 {: screen}
 
+## Policies
+{: #vault-api-secret-policies}
+
+### Set secret policies
+{: #vault-set-secret-policies}
+
+Creates or updates an automatic rotation policy for a secret. Supported secret types include: `arbitrary`, `username_password`
+
+#### Parameters
+{: #vault-set-secret-policies-params}
+
+#### Example request
+{: #vault-set-secret-policies-request}
+
+Set a rotation policy on an `arbitrary` secret in the `default` secret group.
+
+```sh
+
+```
+{: codeblock}
+
+Set a rotation policy on a `username_password` secret in an existing secret group.
+
+```sh
+
+```
+{: codeblock}
+
+#### Example response
+{: #vault-set-secret-policies-response}
+
+### List secret policies
+{: #vault-list-secret-policies}
+
+Retrieves a list of policies that are associated with a secret.
+
+#### Example request
+{: #vault-list-secret-policies-request}
+
+List the policies for an `arbitrary` secret in the `default` secret group.
+
+```sh
+
+```
+{: codeblock}
+
+List the policies for a `username_password` secret in an existing secret group.
+
+```sh
+
+```
+{: codeblock}
+
+#### Example response
+{: #vault-set-secret-policies-response}
