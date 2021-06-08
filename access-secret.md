@@ -73,7 +73,7 @@ Before you begin, be sure that you have the required level of access. To view a 
 Most secret types can be only be retrieved by using the CLI, API, or SDKs. To see the steps for retrieving `arbitrary`, `iam_credentials`,  and `username_password`, switch to the **CLI** or **API**  instructions.
 
 
-### Downloading a certificate with the UI
+### Downloading your certificate with the UI
 {: #download-certificate-ui}
 {: ui}
 
@@ -83,6 +83,9 @@ To download your certificate by using the {{site.data.keyword.secrets-manager_sh
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, open the overflow menu for the certificate that you want to download.
 4. Click **Download**. The certificate file is downloaded to your local system.
+
+After your secret has been rotated, you can click **Download previous** to obtain the previous version of your certificate. 
+{: tip}
 
 
 ## Retrieving a secret from the CLI
@@ -230,3 +233,64 @@ echo $ARBITRARY_SECRET | base64 --decode > my-secret.png
 
 The data is converted back to a binary file that you can open from your local computer.
 
+<import_cert>
+
+### Retreiving a previous certificate
+{: #get-previous-secret}
+
+After you rotate a certificate, you programatically access the previous version by using the {{site.data.keyword.secrets-manager_short}} API.
+
+
+The following example request retrieves a secret and its contents. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+{: curl}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `getSecret` method to retrieve a secret and its contents. The following code shows an example call.
+{: java}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `getSecret(params)` method to retrieve a secret and its contents. The following code shows an example call.
+{: javascript}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `get_secret(params)` method to retrieve a secret and its contents. The following code shows an example call.
+{: python}
+
+
+If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `GetSecret` method to retrieve a secret and its contents. The following code shows an example call.
+{: go}
+
+```bash
+curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/import_cert/{id}/versions/{version_id}" \
+  -H "Authorization: Bearer $IAM_TOKEN" \
+  -H "Accept: application/json"
+```
+{: codeblock}
+{: curl}
+
+```java
+ServiceCall<GetSpecificSecretVersion> 
+getSecretVersion(GetSecretVersionOptions getSecretVersionOptions)
+```
+{: codeblock}
+{: java}
+
+```javascript
+getSecretVersion(params)
+```
+{: codeblock}
+{: javascript}
+
+```python
+TBU
+```
+{: codeblock}
+{: python}
+
+```go
+TBU
+```
+{: codeblock}
+{: go}
+
+</import_cert>
