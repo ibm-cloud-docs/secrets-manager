@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-22"
+lastupdated: "2021-06-09"
 
 keywords: known issues for Secrets Manager, known limitations for Secrets Manager
 
@@ -134,6 +134,8 @@ The following limits apply to IAM credentials.
 | Labels | 2 - 30 characters</br></br>30 labels per secret |
 | Maximum lease duration | 90 days |
 {: caption="Table 6. IAM credential limits" caption-side="top"}
+
+
 
 #### Limits for user credentials
 {: #user-credential-limits}
