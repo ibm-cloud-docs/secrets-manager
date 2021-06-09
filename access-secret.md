@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-08"
+lastupdated: "2021-06-09"
 
 keywords: access secret, retrieve secret, read secret, get secret value, get secrets, view secrets, search secrets, read secrets, get secret value
 
@@ -73,7 +73,7 @@ Before you begin, be sure that you have the required level of access. To view a 
 Most secret types can be only be retrieved by using the CLI, API, or SDKs. To see the steps for retrieving `arbitrary`, `iam_credentials`,  and `username_password`, switch to the **CLI** or **API**  instructions.
 
 
-### Downloading your certificate with the UI
+### Downloading your certificate in the UI
 {: #download-certificate-ui}
 {: ui}
 
