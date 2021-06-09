@@ -70,10 +70,13 @@ Before you begin, be sure that you have the required level of access. To view a 
 {: #get-secret-value-ui}
 {: ui}
 
-Most secret types can be only be retrieved by using the CLI, API, or SDKs. To see the steps for retrieving `arbitrary`, `iam_credentials`,  and `username_password`, switch to the **CLI** or **API**  instructions.
+Most secret types in {{site.data.keyword.secrets-manager_short}} can't be retrieved directly from the {{site.data.keyword.secrets-manager_short}} service dashboard. This security mechanism is in place by default to help to prevent unintended incidents or malicious security threats on your sensitive data. Secret types that you can access in the UI include: [SSL/TLS certificates](#download-certificate-ui)
+
+You can retrieve all secret types programmatically by using the CLI, API, or SDKs. To see the steps for accessing `arbitrary`, `iam_credentials`,  and `username_password` secrets, switch to the **CLI** or **API**  instructions.
+{: tip}
 
 
-### Downloading your certificate in the UI
+### Downloading certificates in the UI
 {: #download-certificate-ui}
 {: ui}
 

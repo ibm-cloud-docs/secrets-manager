@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-08"
+lastupdated: "2021-06-09"
 
 keywords: rotate secrets, manually rotate, new secret, automatically rotate, automatic rotation, set rotation policy
 
@@ -84,7 +84,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 
 1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
-3. Use the **Secrets** table to browse the secrets in your instance.
+3. Use the **Secrets** table to view the secrets in your instance.
 4. In the row for the secret that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
 
    If you initially provided a value for your secret, you can select a new file or enter a new value, depending on the type of secret that you are rotating.
@@ -230,7 +230,7 @@ If you need more control over the rotation frequency of a secret, you can use th
 
 1. If you're [adding a secret](/docs/secrets-manager?topic=secrets-manager-user-credentials#user-credentials-ui), enable the rotation option by selecting a 30, 60, or 90-day rotation interval.
 2. If you're editing an existing secret, set its rotation policy by updating its details.
-   1. In the **Secrets** table, browse a list of your existing secrets.
+   1. In the **Secrets** table, view a list of your existing secrets.
    2. In the row for the secret that you want to edit, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Edit details**.
    3. Use the **Automatic rotation** option to add or remove a rotation policy for the secret.
 
