@@ -80,7 +80,7 @@ Before you get started, be sure that you have the required level of access. To r
 ## Rotating your secrets manually
 {: #manual-rotate-secret}
 
-You can manually rotate user credentials and arbitrary secrets by using the console or APIs.
+You can manually rotate user credentials and arbitrary secrets or reimport SSL/TLS certificates by using the console or APIs.
 
 ### Rotating secrets manually in the UI
 {: #manual-rotate-secret-ui}
