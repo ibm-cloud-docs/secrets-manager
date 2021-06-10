@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-09"
+lastupdated: "2021-06-10"
 
 keywords: rotate secrets, manually rotate, new secret, automatically rotate, automatic rotation, set rotation policy
 
@@ -63,7 +63,13 @@ When you rotate a secret in {{site.data.keyword.secrets-manager_short}}, you cre
 
 
 
-Rotation is available only for static secrets, such as user credentials and arbitrary secrets. IAM credentials are created dynamically on your behalf so that you don't have to manually rotate them.
+Rotation is supported in {{site.data.keyword.secrets-manager_short}} for the following secret types:
+
+- Arbitrary secrets (`arbitrary`)
+- SSL/TLS certificates (`imported_cert`)
+- User credentials (`username_password`)
+
+IAM credentials (`iam_credentials)` are recreated dynamically on your behalf so that you don't have to manually rotate them.
 {: note}
 
 ## Before you begin
