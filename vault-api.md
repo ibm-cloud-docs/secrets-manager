@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-04"
+lastupdated: "2021-06-14"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -1504,4 +1504,4 @@ List the policies for a `username_password` secret in an existing secret group.
 {: codeblock}
 
 #### Example response
-{: #vault-set-secret-policies-response}
+{: #vault-list-secret-policies-response}

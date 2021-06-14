@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-10"
+lastupdated: "2021-06-14"
 
 keywords: isolation for {{site.data.keyword.secrets-manager_short}}, service endpoints for {{site.data.keyword.secrets-manager_short}}, private network for {{site.data.keyword.secrets-manager_short}}, network isolation in {{site.data.keyword.secrets-manager_short}}, non-public routes for {{site.data.keyword.secrets-manager_short}}, private connection for {{site.data.keyword.secrets-manager_short}}
 
@@ -56,10 +56,13 @@ subcollection: secrets-manager
 # Securing your connection to {{site.data.keyword.secrets-manager_short}}
 {: #service-connection}
 
-To ensure that you have enhanced control and security over your data when you use {{site.data.keyword.secrets-manager_short}}, you have the option of using private routes to {{site.data.keyword.cloud}} service endpoints. Private routes are not accessible or reachable over the internet. By using the {{site.data.keyword.cloud_notm}} private service endpoints feature, you can protect your data from threats from the public network and logically extend your private network.
+To ensure that you have enhanced control and security over your data when you use {{site.data.keyword.secrets-manager_short}}, you have the option of using private routes to {{site.data.keyword.cloud}} service endpoints. Private routes are not accessible or reachable over the internet. By using the {{site.data.keyword.cloud_notm}} private or virtual service endpoints features, you can protect your data from threats from the public network and logically extend your private network.
 {: shortdesc}
 
-## Before you begin
+## Setting up private endpoints for {{site.data.keyword.secrets-manager_short}}
+{: #endpoint-setup}
+
+### Before you begin
 {: #prereq-service-endpoint}
 
 You must first enable virtual routing and forwarding in your account, and then you can enable the use of {{site.data.keyword.cloud_notm}} private service endpoints. For more information about setting up your account to support the private connectivity option, see [Enabling VRF and service endpoints](/docs/account?topic=account-vrf-service-endpoint).
@@ -69,10 +72,7 @@ Keep in mind the following considerations:
 - You can select a service endpoint option for a {{site.data.keyword.secrets-manager_short}} instance only at its creation.
 - The {{site.data.keyword.secrets-manager_short}} service UI is not accessible for **Private only** instances.
 
-## Setting up private endpoints for {{site.data.keyword.secrets-manager_short}}
-{: #endpoint-setup}
-
-### Setting up private endpoints for {{site.data.keyword.secrets-manager_short}} in the UI
+### Setting up private endpoints in the UI
 {: #endpoint-setup-ui}
 {: ui}
 
@@ -94,7 +94,7 @@ After your account is enabled for VRF and service endpoints, you can provision a
     Provisioning a {{site.data.keyword.secrets-manager_short}} instance can take 5 - 8 minutes to complete.
     {: note}
 
-### Setting up private endpoints for {{site.data.keyword.secrets-manager_short}} from the CLI
+### Setting up private endpoints from the CLI
 {: #endpoint-setup-cli}
 {: cli}
 

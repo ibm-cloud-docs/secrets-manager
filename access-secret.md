@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-10"
+lastupdated: "2021-06-14"
 
 keywords: access secret, retrieve secret, read secret, get secret value, get secrets, view secrets, search secrets, read secrets, get secret value
 
@@ -238,10 +238,10 @@ The data is converted back to a binary file that you can open from your local co
 
 <import_cert>
 
-### Retreiving a previous certificate
+### Downloading the previous version of a certificate
 {: #get-previous-secret}
 
-After you rotate a certificate, you programatically access the previous version by using the {{site.data.keyword.secrets-manager_short}} API.
+After you rotate a certificate, you can programmatically access its previous version by using the {{site.data.keyword.secrets-manager_short}} API.
 
 
 The following example request retrieves a secret and its contents. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
@@ -264,7 +264,7 @@ If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https:/
 {: go}
 
 ```bash
-curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/import_cert/{id}/versions/{version_id}" \
+curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/import_cert/{id}/versions/previous" \
   -H "Authorization: Bearer $IAM_TOKEN" \
   -H "Accept: application/json"
 ```
@@ -272,26 +272,25 @@ curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/
 {: curl}
 
 ```java
-ServiceCall<GetSpecificSecretVersion> 
-getSecretVersion(GetSecretVersionOptions getSecretVersionOptions)
+Not currently supported.
 ```
 {: codeblock}
 {: java}
 
 ```javascript
-getSecretVersion(params)
+Not currently supported.
 ```
 {: codeblock}
 {: javascript}
 
 ```python
-TBU
+Not currently supported.
 ```
 {: codeblock}
 {: python}
 
 ```go
-TBU
+Not currently supported.
 ```
 {: codeblock}
 {: go}
