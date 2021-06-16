@@ -103,7 +103,7 @@ The following limits apply to secret groups.
 | Attribute | Limit |
 | --- | --- |
 | Name | 2 - 64 characters |
-| Description | 1024 characters |
+| Description | 2 - 1024 characters |
 | Labels | 2 - 30 characters</br></br>30 labels per secret group |
 | Total secrets | - |
 {: caption="Table 4. Secret group limits" caption-side="top"}
@@ -115,8 +115,8 @@ The following limits apply to arbitrary secrets.
 
 | Attribute | Limit |
 | --- | --- |
-| Name | 2 - 128 characters</br></br>The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
-| Description | 2 - 240 characters |
+| Name | 2 - 256 characters</br></br>The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
+| Description | 2 - 1024 characters |
 | Secret value | 1 MB |
 | Labels | 2 - 30 characters</br></br>30 labels per secret |
 {: caption="Table 5. Arbitrary secret limits" caption-side="top"}
@@ -128,8 +128,8 @@ The following limits apply to IAM credentials.
 
 | Attribute | Limit |
 | --- | --- |
-| Name | 2 - 128 characters</br></br>The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
-| Description | 2 - 240 characters |
+| Name | 2 - 256 characters</br></br>The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
+| Description | 2 - 1024 characters |
 | Access groups | 1 - 10 groups |
 | Labels | 2 - 30 characters</br></br>30 labels per secret |
 | Maximum lease duration | 90 days |
@@ -144,8 +144,8 @@ The following limits apply to user credentials.
 
 | Attribute | Limit |
 | --- | --- |
-| Name | 2 - 128 characters</br></br>The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
-| Description | 2 - 240 characters |
+| Name | 2 - 256 characters</br></br>The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
+| Description | 2 - 1024 characters |
 | Username | 2 - 64 characters |
 | Password | 64 characters |
 | Labels | 2 - 30 characters</br></br>30 labels per secret |
