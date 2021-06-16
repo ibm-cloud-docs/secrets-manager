@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-09"
+lastupdated: "2021-06-16"
 
 keywords: known issues for Secrets Manager, known limitations for Secrets Manager
 
@@ -149,7 +149,7 @@ The following limits apply to user credentials.
 | Username | 2 - 64 characters |
 | Password | 64 characters |
 | Labels | 2 - 30 characters</br></br>30 labels per secret |
-{: caption="Table 7. User credential limits" caption-side="top"}
+{: caption="Table 8. User credential limits" caption-side="top"}
 
 
 
