@@ -60,7 +60,7 @@ To ensure that you have enhanced control and security over your data when you us
 {: shortdesc}
 
 
-### Before you begin
+## Before you begin
 {: #prereq-service-endpoint}
 
 You must first enable virtual routing and forwarding in your account, and then you can enable the use of {{site.data.keyword.cloud_notm}} private service endpoints. For more information about setting up your account to support the private connectivity option, see [Enabling VRF and service endpoints](/docs/account?topic=account-vrf-service-endpoint).
@@ -70,7 +70,7 @@ Keep in mind the following considerations:
 - You can select a service endpoint option for a {{site.data.keyword.secrets-manager_short}} instance only at its creation.
 - The {{site.data.keyword.secrets-manager_short}} service UI is not accessible for **Private only** instances.
 
-### Setting up private endpoints in the UI
+## Setting up private endpoints in the UI
 {: #endpoint-setup-ui}
 {: ui}
 
@@ -92,7 +92,7 @@ After your account is enabled for VRF and service endpoints, you can provision a
     Provisioning a {{site.data.keyword.secrets-manager_short}} instance can take 5 - 8 minutes to complete.
     {: note}
 
-### Setting up private endpoints from the CLI
+## Setting up private endpoints from the CLI
 {: #endpoint-setup-cli}
 {: cli}
 
