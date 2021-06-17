@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-23"
+lastupdated: "2021-06-17"
 content-type: tutorial
-services: cloud-object-storage
+services: secrets-manager,cloud-object-storage
 account-plan: lite
 completion-time: 1h
 
