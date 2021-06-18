@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-19"
+lastupdated: "2021-06-18"
 
 keywords: secrets management in IBM Cloud, differences between {{site.data.keyword.secrets-manager_short}} and Key Protect, when to use {{site.data.keyword.secrets-manager_short}}, {{site.data.keyword.secrets-manager_short}} use cases, single tenant, multi-tenant
 
@@ -72,7 +72,7 @@ The following table lists the different offerings that you can use with {{site.d
 | Scenario | What to use |
 | --- | --- |
 | As a DevOps team contributor, you need to create, lease, and manage API keys, credentials, database configurations, and other secrets for your services and applications. | With **[{{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager)**, you can manage secrets of various types in a dedicated instance. |
-| You need to generate, renew, and manage TLS/SSL certificates for your deployments. | You can use **[{{site.data.keyword.cloudcerts_short}}](/docs/certificate-manager)** to manage the lifecycle of your certificates in a multi-tenant service. |
+| You need to generate, renew, and manage TLS/SSL certificates for your deployments. | You can use **[{{site.data.keyword.cloudcerts_short}}](/docs/certificate-manager)** to manage the lifecycle of your certificates in a multi-tenant service. For even more data isolation, you can also manage your TLS/SSL certificates and private keys in dedicated instance of {{site.data.keyword.secrets-manager_short}}. |
 | You need to create and manage encryption keys that are backed by FIPS 140-2 Level 3 validated hardware. | You can use **[{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect)** to generate and import encryption keys by using a multi-tenant service with shared hardware. |
 | You are an admin in an industry, such as finance or legal, that must adhere to governance over how data is protected and isolated. You need to create and manage encryption keys by using a dedicated, FIPS 140-2 Level 4 hardware security module that you control and manage. | With **[{{site.data.keyword.hscrypto}}](/docs/hs-crypto)**, you can manage encryption keys in a single-tenant service with dedicated hardware. |
 | You need a way to offload TLS handshake encryption to a dedicated, FIPS 140-2 Level 4 hardware security module that you control and manage. | You can also use **[{{site.data.keyword.hscrypto}}](/docs/hs-crypto)** to control your TLS/SSL keys in a dedicated HSM. |
@@ -87,7 +87,7 @@ For a higher level of security and control, your business might benefit from the
 
 | Service | Secret types | Multi-tenant[^multi-tenant] | Single-tenant[^single-tenant] | HSM backed[^hsm] |
 | --- | --- | --- | --- |  --- |
-| **{{site.data.keyword.secrets-manager_short}}** | User credentials<br>IAM credentials<br>Arbitrary secrets | | ![Check mark icon](../icons/checkmark-icon.svg)| |
+| **{{site.data.keyword.secrets-manager_short}}** | Arbitrary secrets<br>IAM credentials<br>SSL/TLS certificates<br>SSL/TLS certificates | | ![Check mark icon](../icons/checkmark-icon.svg)| |
 | **{{site.data.keyword.cloudcerts_short}}** | SSL/TLS certificates | ![Check mark icon](../icons/checkmark-icon.svg) | | |
 | **{{site.data.keyword.keymanagementserviceshort}}** | Symmetric encryption keys | ![Check mark icon](../icons/checkmark-icon.svg)| | ![Check mark icon](../icons/checkmark-icon.svg) | |
 | **{{site.data.keyword.hscrypto}}** | Symmetric encryption keys | |![Check mark icon](../icons/checkmark-icon.svg) | ![Check mark icon](../icons/checkmark-icon.svg) |
@@ -110,8 +110,5 @@ Each service supports either a Lite plan or a free trial that you can use to try
 - [{{site.data.keyword.keymanagementserviceshort}}](/catalog/services/key-protect){:external}
 - [{{site.data.keyword.hscrypto}}](/catalog/services/hs-crypto){:external}
 - [{{site.data.keyword.secrets-manager_short}}](/catalog/services/secrets-manager){:external}
-
-
-
 
 
