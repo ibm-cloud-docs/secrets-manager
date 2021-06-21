@@ -80,15 +80,15 @@ You can retrieve all secret types programmatically by using the CLI, API, or SDK
 {: #download-certificate-ui}
 {: ui}
 
-To download your certificate by using the {{site.data.keyword.secrets-manager_short}} UI, complete the following steps.
+To download a certificate by using the {{site.data.keyword.secrets-manager_short}} UI, complete the following steps.
 
 1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, open the overflow menu for the certificate that you want to download.
 4. Click **Download**. The certificate file is downloaded to your local system.
 
-After your secret has been rotated, you can click **Download previous** to obtain the previous version of your certificate. 
-{: tip}
+    After your secret has been rotated, you can click **Download previous** to obtain the previous version of your certificate. 
+    {: tip}
 
 
 ## Retrieving a secret from the CLI
