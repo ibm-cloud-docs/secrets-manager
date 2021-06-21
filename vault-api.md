@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-14"
+lastupdated: "2021-06-21"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -495,14 +495,14 @@ curl -X DELETE "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v
 
 ```json
 {
-  "request_id": "37065859-3238-f671-941f-d43ac340ad99",
-  "lease_id": "",
-  "renewable": false,
-  "lease_duration": 0,
-  "data": null,
-  "wrap_info": null,
-  "warnings": null,
-  "auth": null
+    "request_id": "37065859-3238-f671-941f-d43ac340ad99",
+    "lease_id": "",
+    "renewable": false,
+    "lease_duration": 0,
+    "data": null,
+    "wrap_info": null,
+    "warnings": null,
+    "auth": null
 }
 ```
 {: screen}
@@ -1290,6 +1290,16 @@ Update the metadata of a secret, such as it's name, description, or expiration d
 #### Parameters
 {: #vault-update-secret-params}
 
+<dl>
+    <dt>name</dt>
+    <dd>The updated name to assign to the secret.</dd>
+    <dt>description</dt>
+    <dd>The updated description to assign to the secret.</dd>
+    <dt>expiration_date</dt>
+    <dd>The updated expiration date to assign to the secret.</dd>
+</dl>
+
+
 #### Example requests
 {: #vault-update-secret-metadata-request}
 
@@ -1456,30 +1466,93 @@ curl -X DELETE "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v
 ### Set secret policies
 {: #vault-set-secret-policies}
 
-Creates or updates an automatic rotation policy for a secret. Supported secret types include: `arbitrary`, `username_password`
+Creates or updates an [automatic rotation policy](/docs/secrets-manager?topic=secrets-manager-rotate-secrets#auto-rotate-secret) for a secret. Supported secret types include: `username_password`
 
 #### Parameters
 {: #vault-set-secret-policies-params}
 
+<dl>
+    <dt>interval</dt>
+    <dd>The length of the secret rotation time interval.</dd>
+    <dt>unit</dt>
+    <dd>The units for the secret rotation time interval. Allowable values include: day, month</dd>
+</dl>
+
 #### Example request
 {: #vault-set-secret-policies-request}
 
-Set a rotation policy on an `arbitrary` secret in the `default` secret group.
+Set a rotation policy on an `username_password` secret in the `default` secret group.
 
 ```sh
-
+curl -X PUT "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/{secret_id}/policies" \
+  -H 'X-Vault-Token: {Vault-Token}' \
+  -H 'Content-Type: application/json' \
+  --data-raw '{
+      "policies": [
+          {
+              "rotation": {
+                  "interval": 10,
+                  "unit": "day"
+              },
+              "type": "application/vnd.ibm.secrets-manager.secret.policy+json"
+          }
+      ]
+  }'
 ```
 {: codeblock}
 
 Set a rotation policy on a `username_password` secret in an existing secret group.
 
 ```sh
-
+curl -X PUT "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/username_password/secrets/groups/{group_id}/{secret_id}/policies" \
+  -H 'X-Vault-Token: {Vault-Token}' \
+  -H 'Content-Type: application/json' \
+  -d '{
+      "policies": [
+          {
+              "rotation": {
+                  "interval": 10,
+                  "unit": "day"
+              },
+              "type": "application/vnd.ibm.secrets-manager.secret.policy+json"
+          }
+      ]
+  }'
 ```
 {: codeblock}
 
 #### Example response
 {: #vault-set-secret-policies-response}
+
+```json
+{
+    "request_id": "89698bdc-d787-4a74-eb2f-53e055ddc7f3",
+    "lease_id": "",
+    "renewable": false,
+    "lease_duration": 0,
+    "data": {
+        "policies": [
+            {
+                "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
+                "creation_date": "2021-06-21T14:30:17Z",
+                "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0:policy:ea1907c8-8c8e-6b83-3c20-05f2015b80d8",
+                "id": "ea1907c8-8c8e-6b83-3c20-05f2015b80d8",
+                "last_update_date": "2021-06-21T14:33:41Z",
+                "rotation": {
+                    "interval": 10,
+                    "unit": "day"
+                },
+                "type": "application/vnd.ibm.secrets-manager.secret.policy+json",
+                "updated_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0"
+            }
+        ]
+    },
+    "wrap_info": null,
+    "warnings": null,
+    "auth": null
+}
+```
+{:screen}
 
 ### List secret policies
 {: #vault-list-secret-policies}
@@ -1489,19 +1562,51 @@ Retrieves a list of policies that are associated with a secret.
 #### Example request
 {: #vault-list-secret-policies-request}
 
-List the policies for an `arbitrary` secret in the `default` secret group.
+List the policies for an `username_password` secret in the `default` secret group.
 
 ```sh
-
+curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/username_password/secrets/{secret_id}/policies" \
+  -H 'X-Vault-Token: {Vault-Token}' 
 ```
 {: codeblock}
 
 List the policies for a `username_password` secret in an existing secret group.
 
 ```sh
-
+curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/username_password/secrets/groups/{group_id}/{secret_id}/policies" \
+  -H 'X-Vault-Token: {Vault-Token}' 
 ```
 {: codeblock}
 
 #### Example response
 {: #vault-list-secret-policies-response}
+
+```json
+{
+    "request_id": "89698bdc-d787-4a74-eb2f-53e055ddc7f3",
+    "lease_id": "",
+    "renewable": false,
+    "lease_duration": 0,
+    "data": {
+        "policies": [
+            {
+                "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
+                "creation_date": "2021-06-21T14:30:17Z",
+                "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0:policy:ea1907c8-8c8e-6b83-3c20-05f2015b80d8",
+                "id": "ea1907c8-8c8e-6b83-3c20-05f2015b80d8",
+                "last_update_date": "2021-06-21T14:33:41Z",
+                "rotation": {
+                    "interval": 10,
+                    "unit": "day"
+                },
+                "type": "application/vnd.ibm.secrets-manager.secret.policy+json",
+                "updated_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0"
+            }
+        ]
+    },
+    "wrap_info": null,
+    "warnings": null,
+    "auth": null
+}
+```
+{:screen}
