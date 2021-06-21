@@ -97,7 +97,7 @@ To download a certificate by using the {{site.data.keyword.secrets-manager_short
 
 After you store a secret in your instance, you might need to retrieve its value so that you can connect to an external app or get access to a protected service. You can retrieve the value of a secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in.
 
-To get the value of a secret, run the [**`ibmcloud secrets-manager secret`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-command) command. You can specify the type of secret by using the `--secret-type SECRET-TYPE` option. For example, The options for `SECRET_TYPE` are: `arbitrary`, `iam_credentials`, `imported_cert`, and `username_password`.
+To get the value of a secret, run the [**`ibmcloud secrets-manager secret`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-command) command. You can specify the type of secret by using the `--secret-type SECRET-TYPE` option. For example, The options for `SECRET_TYPE` are: `arbitrary`, `iam_credentials`, , and `username_password`.
 
 ```sh
 ibmcloud secrets-manager secret --secret-type SECRET_TYPE --id ID
