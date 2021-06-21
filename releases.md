@@ -64,23 +64,23 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 
 
 ## 20 June 2021
-{: #2021-05-20}
+{: #2021-06-20}
 
 This release includes the following updates.
 
 ### Import and manage your existing SSL/TLS certificates
-{: 2021-06-13-certificates}
+{: 2021-06-20-certificates}
 
 Looking for the ability to centralize TLS certificates into a single secrets management service? You can now use {{site.data.keyword.secrets-manager_short}} to import TLS certificates that are issued by external certificate authorities (CA). 
 
 For more information, check out [Importing SSL/TLS certificates](/docs/secrets-manager?topic=secrets-manager-certificates). 
 
 ### Connect to {{site.data.keyword.secrets-manager_short}} from your VPC network
-{: 2021-06-13-certificates}
+{: 2021-06-20-vpe}
 
 You can now connect to a {{site.data.keyword.secrets-manager_short}} service instance by using Virtual Private Endpoints (VPE) for VPC. 
 
-To learn how to connect your existing {{site.data.keyword.secrets-manager_short}} instance, see [Securing your connection to {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-service-connection). For more information about setting up a virtual private endpoint gateway, check out [About virtual private endpoint gateways](/docs/vpc?topic=vpc-about-vpe).
+To learn how to connect your existing {{site.data.keyword.secrets-manager_short}} instance, see [Securing your connection to {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-virtual-private-endpoint). For more information about setting up a virtual private endpoint gateway, check out [About virtual private endpoint gateways](/docs/vpc?topic=vpc-about-vpe).
 
 
 
