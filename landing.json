@@ -41,7 +41,7 @@
       {
         "date": "20 June 2021",
         "title": "Now available: Import your existing SSL/TLS certificates",
-        "description": "You can now use Secrets Manager to import and manage certificates for your apps and service. This release also includes added support for connections to Secrets Manager from your Virtual Private Cloud (VPC) network. Check the full release notes for details."
+        "description": "You can now use Secrets Manager to import and manage certificates for your apps and service. This release also adds support for connecting to Secrets Manager from a Virtual Private Cloud (VPC) network. Check the full release notes for details."
       },
       {
         "date": "19 May 2021",
