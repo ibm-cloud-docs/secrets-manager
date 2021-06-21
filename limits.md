@@ -137,6 +137,24 @@ The following limits apply to IAM credentials.
 
 
 
+#### Limits for SSL/TLS certificates
+{: #certificates-limits}
+
+The following limits apply to SSL/TLS certificates.
+
+| Attribute | Limit |
+| --- | --- |
+| Name | 2 - 128 characters</br></br>The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
+| Description | 2 - 240 characters|
+| Certificate | 100 KB<br></br>Supported file type is `.pem`. The certificate must be a valid, X.509-based certificate. |
+| Private key | 100 KB<br></br>Supported file type is `.pem`. If provided, the private key must match the certificate that you are importing. Only unencrypted private keys are supported. |
+| Intermediate certificate | 100 KB<br></br>Supported file type is `.pem`. If provided, the intermediate certificate must be a valid, X.509-based certificate. |
+| Labels | 2 - 30 characters</br></br>30 labels per secret |
+| Versions | 2 versions per certificate (current and previous) |
+{: caption="Table 7. SSL/TLS certificate limits" caption-side="top"}
+
+
+
 #### Limits for user credentials
 {: #user-credential-limits}
 
