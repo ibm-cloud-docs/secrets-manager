@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-18"
+lastupdated: "2021-06-21"
 
 keywords: secrets management in IBM Cloud, differences between {{site.data.keyword.secrets-manager_short}} and Key Protect, when to use {{site.data.keyword.secrets-manager_short}}, {{site.data.keyword.secrets-manager_short}} use cases, single tenant, multi-tenant
 
@@ -53,7 +53,10 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 
-# Comparison between {{site.data.keyword.secrets-manager_short}} and related {{site.data.keyword.cloud_notm}} services
+
+
+
+# Managing {{site.data.keyword.cloud_notm}} secrets
 {: #manage-secrets-ibm-cloud}
 
 With {{site.data.keyword.cloud_notm}}, you can choose from various secrets management and data protection offerings that help you to protect your sensitive data and centralize your secrets. If you need to integrate general-purpose secrets to authenticate your apps, you can use {{site.data.keyword.secrets-manager_short}} to create [dynamic secrets](#x9968958){:term} and manage their lifecycle. But for other application secrets, such as encryption keys, your business might require a higher level of control that relies on highly secure, customer-controlled cryptographic hardware.
