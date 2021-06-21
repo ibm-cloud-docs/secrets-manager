@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-04"
+lastupdated: "2021-06-21"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -933,8 +933,16 @@ The command to manually rotate a `username_password` secret with a service-gener
 
 Use this command to delete a secret. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`
 
+Delete a secret in the `default` secret group.
+
 ```
 vault delete ibmcloud/SECRET_TYPE/secrets/SECRET_ID
+```
+
+Delete a secret in an existing secret group.
+
+```
+vault delete ibmcloud/SECRET_TYPE/secrets/groups/SECRET_GROUP_ID/SECRET_ID
 ```
 
 #### Prerequisites
