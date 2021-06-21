@@ -1,6 +1,6 @@
 {
   "title": "Secrets Manager docs",
-  "lastupdated": "2021-05-19",
+  "lastupdated": "2021-06-21",
   "introduction": "Explore recommended content and resources to help you get started with IBM Cloud Secrets Manager.",
   "section_devtools": {
     "api": "/apidocs/secrets-manager",
@@ -39,6 +39,11 @@
     "view_more": "/docs/secrets-manager?topic=secrets-manager-release-notes",
     "tiles": [
       {
+        "date": "20 June 2021",
+        "title": "Now available: Import your existing SSL/TLS certificates",
+        "description": "You can now use Secrets Manager to import and manage certificates for your apps and service. This release also adds support for connecting to Secrets Manager from a Virtual Private Cloud (VPC) network. Check the full release notes for details."
+      },
+      {
         "date": "19 May 2021",
         "title": "Notice: Upcoming changes to supported cipher suites",
         "description": "On 2021 May 29, Secrets Manager will deliver changes to the cipher suites that it supports for TLS connections to the service. Check the full release notes for details."
@@ -47,11 +52,6 @@
         "date": "22 March 2021",
         "title": "Secrets Manager now available in London, Tokyo, and Washington DC",
         "description": "This release also includes UI improvements, integration with IBM Log Analysis, and more."
-      },
-      {
-        "date": "15 February 2021",
-        "title": "Now available: Secrets Manager Java SDK",
-        "description": "You can now use the Secrets Manager Java SDK to interact with your Secrets Manager instance."
       }
     ]
   }

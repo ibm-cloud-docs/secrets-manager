@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-22"
+lastupdated: "2021-06-21"
 
 keywords: isolation for {{site.data.keyword.secrets-manager_short}}, service endpoints for {{site.data.keyword.secrets-manager_short}}, private network for {{site.data.keyword.secrets-manager_short}}, network isolation in {{site.data.keyword.secrets-manager_short}}, non-public routes for {{site.data.keyword.secrets-manager_short}}, private connection for {{site.data.keyword.secrets-manager_short}}
 
@@ -53,11 +53,12 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 
-# Securing your connection to {{site.data.keyword.secrets-manager_short}}
+# Connecting to {{site.data.keyword.secrets-manager_short}} by using a private service endpoint
 {: #service-connection}
 
 To ensure that you have enhanced control and security over your data when you use {{site.data.keyword.secrets-manager_short}}, you have the option of using private routes to {{site.data.keyword.cloud}} service endpoints. Private routes are not accessible or reachable over the internet. By using the {{site.data.keyword.cloud_notm}} private service endpoints feature, you can protect your data from threats from the public network and logically extend your private network.
 {: shortdesc}
+
 
 ## Before you begin
 {: #prereq-service-endpoint}
@@ -173,6 +174,7 @@ After your account is enabled for VRF and service endpoints, you can provision a
 
     Provisioning a {{site.data.keyword.secrets-manager_short}} instance can take 5 - 8 minutes to complete.
     {: note}
+
 
 ## Viewing your endpoint URLs
 {: #endpoint-view}

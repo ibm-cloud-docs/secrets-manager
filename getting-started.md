@@ -2,9 +2,13 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-08"
+lastupdated: "2021-06-17"
 
 keywords: secrets management, manage secrets, manage credentials, store username and password, add secrets, add credentials, get started with Secrets Manager
+content-type: tutorial
+services: secrets-manager
+account-plan: lite
+completion-time: 10m
 
 subcollection: secrets-manager
 

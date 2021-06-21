@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-20"
+lastupdated: "2021-06-21"
 
 keywords: access secret, retrieve secret, read secret, get secret value, get secrets, view secrets, search secrets, read secrets, get secret value
 
@@ -70,7 +70,26 @@ Before you begin, be sure that you have the required level of access. To view a 
 {: #get-secret-value-ui}
 {: ui}
 
-You can retrieve the contents of a secret only through the CLI, API, or SDKs. To see the steps, switch to the **CLI** or **API** instructions.
+Most secret types in {{site.data.keyword.secrets-manager_short}} can't be retrieved directly from the {{site.data.keyword.secrets-manager_short}} service dashboard. This security mechanism is in place by default to help to prevent inadvertent exposure of your sensitive data. Secret types that you can access in the UI include: [SSL/TLS certificates](#download-certificate-ui)
+
+You can retrieve all secret types programmatically by using the CLI, API, or SDKs. To see the steps for accessing `arbitrary`, `iam_credentials`,  and `username_password` secrets, switch to the **CLI** or **API**  instructions.
+{: note}
+
+
+### Downloading certificates in the UI
+{: #download-certificate-ui}
+{: ui}
+
+To download a certificate by using the {{site.data.keyword.secrets-manager_short}} UI, complete the following steps.
+
+1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
+3. In the **Secrets** table, open the overflow menu for the certificate that you want to download.
+4. Click **Download**. The certificate file is downloaded to your local system.
+
+    After your secret has been rotated, you can click **Download previous** to obtain the previous version of your certificate. 
+    {: tip}
+
 
 ## Retrieving a secret from the CLI
 {: #get-secret-value-cli}
@@ -78,7 +97,7 @@ You can retrieve the contents of a secret only through the CLI, API, or SDKs. To
 
 After you store a secret in your instance, you might need to retrieve its value so that you can connect to an external app or get access to a protected service. You can retrieve the value of a secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in.
 
-To get the value of a secret, run the [**`ibmcloud secrets-manager secret`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-command) command. You can specify the type of secret by using the `--secret-type SECRET-TYPE` option. For example, The options for `SECRET_TYPE` are: `arbitrary`, `iam_credentials`, and `username_password`.
+To get the value of a secret, run the [**`ibmcloud secrets-manager secret`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-command) command. You can specify the type of secret by using the `--secret-type SECRET-TYPE` option. For example, The options for `SECRET_TYPE` are: `arbitrary`, `iam_credentials`, , and `username_password`.
 
 ```sh
 ibmcloud secrets-manager secret --secret-type SECRET_TYPE --id ID
@@ -95,7 +114,7 @@ The command outputs the value of the secret, along with other metadata. For more
 After you store a secret in your instance, you might need to retrieve its value so that you can connect to an external app or get access to a protected service. You can retrieve the value of a secret by using the {{site.data.keyword.secrets-manager_short}} API.
 
 
-The following example request retrieves a secret and its contents. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. The options for `{secret_type}` are: `arbitrary`, `iam_credentials`, and `username_password`.
+The following example request retrieves a secret and its contents. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. The options for `{secret_type}` are: `arbitrary`, `iam_credentials`, `imported_cert`, and `username_password`.
 {: curl}
 
 
@@ -216,4 +235,21 @@ echo $ARBITRARY_SECRET | base64 --decode > my-secret.png
 {: pre}
 
 The data is converted back to a binary file that you can open from your local computer.
+
+
+### Downloading the previous version of a certificate
+{: #get-previous-secret}
+
+After you rotate a certificate, you can programmatically access its previous version by using the {{site.data.keyword.secrets-manager_short}} API.
+
+
+
+```bash
+curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/import_cert/{id}/versions/previous" \
+  -H "Authorization: Bearer $IAM_TOKEN" \
+  -H "Accept: application/json"
+```
+{: codeblock}
+{: curl}
+
 

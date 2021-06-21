@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-26"
+lastupdated: "2021-06-09"
 
 keywords: Vault CLI, configure the Vault CLI, use Secrets Manager with Vault CLI, CLI commands, log in to Vault
 
@@ -53,7 +53,7 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 
-# Configuring the Vault CLI
+# Setting up the Vault CLI
 {: #configure-vault-cli}
 
 If you're already using the HashiCorp Vault command-line interface (CLI), you can use its CLI format and guidelines to interact with {{site.data.keyword.secrets-manager_full}}.

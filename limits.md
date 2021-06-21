@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-22"
+lastupdated: "2021-06-21"
 
 keywords: known issues for Secrets Manager, known limitations for Secrets Manager
 
@@ -103,7 +103,7 @@ The following limits apply to secret groups.
 | Attribute | Limit |
 | --- | --- |
 | Name | 2 - 64 characters |
-| Description | 1024 characters |
+| Description | 2 - 1024 characters |
 | Labels | 2 - 30 characters</br></br>30 labels per secret group |
 | Total secrets | - |
 {: caption="Table 4. Secret group limits" caption-side="top"}
@@ -135,6 +135,26 @@ The following limits apply to IAM credentials.
 | Maximum lease duration | 90 days |
 {: caption="Table 6. IAM credential limits" caption-side="top"}
 
+
+
+#### Limits for SSL/TLS certificates
+{: #certificates-limits}
+
+The following limits apply to SSL/TLS certificates.
+
+| Attribute | Limit |
+| --- | --- |
+| Name | 2 - 128 characters</br></br>The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
+| Description | 2 - 240 characters|
+| Certificate | 100 KB<br></br>Supported file type is `.pem`. The certificate must be a valid, X.509-based certificate. |
+| Private key | 100 KB<br></br>Supported file type is `.pem`. If provided, the private key must match the certificate that you are importing. Only unencrypted private keys are supported. |
+| Intermediate certificate | 100 KB<br></br>Supported file type is `.pem`. If provided, the intermediate certificate must be a valid, X.509-based certificate. |
+| Labels | 2 - 30 characters</br></br>30 labels per secret |
+| Versions | 2 versions per certificate (current and previous) |
+{: caption="Table 7. SSL/TLS certificate limits" caption-side="top"}
+
+
+
 #### Limits for user credentials
 {: #user-credential-limits}
 
@@ -147,7 +167,7 @@ The following limits apply to user credentials.
 | Username | 2 - 64 characters |
 | Password | 64 characters |
 | Labels | 2 - 30 characters</br></br>30 labels per secret |
-{: caption="Table 7. User credential limits" caption-side="top"}
+{: caption="Table 8. User credential limits" caption-side="top"}
 
 
 

@@ -7,8 +7,12 @@ Secrets Manager
 
     {: .navgroup id="learn"}
     getting-started.md
-    [Video: What is secrets management?](https://www.youtube.com/watch?v=iETENR5MEB8){: external}
+    [Video: Introduction to Secrets Manager](https://www.youtube.com/watch?v=rOp7aGyavnk){: external}
     secrets-mgmt.md
+
+    {: .topicgroup}
+    Migration guides
+        migrate-certificates.md
 
     {: .topicgroup}
     Best practices
@@ -36,6 +40,7 @@ Secrets Manager
         Creating secrets
             arbitrary.md
             iam-credentials.md
+            certificates.md
             user-credentials.md
 
         access-secret.md
@@ -53,7 +58,12 @@ Secrets Manager
     Enhancing security
         iam.md
         architecture-workload-isolation.md
-        service-connection.md
+
+        {: .topicgroup}
+        Securing your connection to Secrets Manager
+            service-connection.md
+            virtual-private-endpoint.md
+            
         data-security.md
         manage-scc.md
     {: .navgroup-end}
@@ -94,5 +104,6 @@ Secrets Manager
     Troubleshooting
         troubleshooting/troubleshoot-creation.md
         troubleshooting/troubleshoot-access.md
+        troubleshooting/troubleshoot-pem.md
         troubleshooting/troubleshoot-delete-group.md
     {: .navgroup-end}
