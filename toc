@@ -7,7 +7,6 @@ Secrets Manager
 
     {: .navgroup id="learn"}
     getting-started.md
-    [Video: Introduction to Secrets Manager](https://www.youtube.com/watch?v=rOp7aGyavnk){: external}
     secrets-mgmt.md
 
     {: .topicgroup}
