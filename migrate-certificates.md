@@ -62,7 +62,7 @@ With {{site.data.keyword.secrets-manager_full}}, you can centralize your applica
 ## Comparison between {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudcerts_short}}
 {: #migrate-differences}
 
-Both {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudcerts_short}} are production-ready solutions that are tailored for enterprise workloads. The following table compares and contrasts some common characteristics between the services.
+Both {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudcerts_short}} provide a secure repository for storing and managing certificates. The following table compares and contrasts some common characteristics between the services.
 
 
 | Characteristics | {{site.data.keyword.secrets-manager_short}} | {{site.data.keyword.cloudcerts_short}} |
