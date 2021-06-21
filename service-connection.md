@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-17"
+lastupdated: "2021-06-21"
 
 keywords: isolation for {{site.data.keyword.secrets-manager_short}}, service endpoints for {{site.data.keyword.secrets-manager_short}}, private network for {{site.data.keyword.secrets-manager_short}}, network isolation in {{site.data.keyword.secrets-manager_short}}, non-public routes for {{site.data.keyword.secrets-manager_short}}, private connection for {{site.data.keyword.secrets-manager_short}}
 
@@ -56,7 +56,7 @@ subcollection: secrets-manager
 # Connecting to {{site.data.keyword.secrets-manager_short}} by using a private service endpoint
 {: #service-connection}
 
-To ensure that you have enhanced control and security over your data when you use {{site.data.keyword.secrets-manager_short}}, you have the option of using private routes to {{site.data.keyword.cloud}} service endpoints. Private routes are not accessible or reachable over the internet. By using the {{site.data.keyword.cloud_notm}} private or virtual service endpoints features, you can protect your data from threats from the public network and logically extend your private network.
+To ensure that you have enhanced control and security over your data when you use {{site.data.keyword.secrets-manager_short}}, you have the option of using private routes to {{site.data.keyword.cloud}} service endpoints. Private routes are not accessible or reachable over the internet. By using the {{site.data.keyword.cloud_notm}} private service endpoints feature, you can protect your data from threats from the public network and logically extend your private network.
 {: shortdesc}
 
 
@@ -70,7 +70,7 @@ Keep in mind the following considerations:
 - You can select a service endpoint option for a {{site.data.keyword.secrets-manager_short}} instance only at its creation.
 - The {{site.data.keyword.secrets-manager_short}} service UI is not accessible for **Private only** instances.
 
-## Setting up private endpoints in the UI
+## Setting up private endpoints for {{site.data.keyword.secrets-manager_short}} in the UI
 {: #endpoint-setup-ui}
 {: ui}
 
@@ -92,7 +92,7 @@ After your account is enabled for VRF and service endpoints, you can provision a
     Provisioning a {{site.data.keyword.secrets-manager_short}} instance can take 5 - 8 minutes to complete.
     {: note}
 
-## Setting up private endpoints from the CLI
+## Setting up private endpoints for {{site.data.keyword.secrets-manager_short}} from the CLI
 {: #endpoint-setup-cli}
 {: cli}
 

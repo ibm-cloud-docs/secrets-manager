@@ -66,7 +66,7 @@ Before you target a virtual private endpoint for {{site.data.keyword.secrets-man
 
 For more information about setting up VPC, check out [Getting started with Virtual Private Cloud (VPC)](/docs/vpc?topic=vpc-getting-started). 
 
-## Setting up virtual service endpoints with the API
+## Setting up a virtual service endpoint for {{site.data.keyword.secrets-manager_short}} with the API
 {: #vpe-setup}
 {: api}
 
