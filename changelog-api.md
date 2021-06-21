@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-04"
+lastupdated: "2021-06-21"
 
 keywords: change log for [{sm-short}] APIs, API changelog, updates to [{sm-short}] APIs
 
@@ -62,6 +62,16 @@ In this change log, you can learn about the latest changes, improvements, and up
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
 
 
+
+
+
+## 20 June 2021
+{: #2021-06-20-api}
+
+This release includes the following updates:
+
+- Added `imported_cert` secret type that can be used to store X.509 certificates in the service. For more information, see [Importing certificates](/docs/secrets-manager?topic=secrets-manager-certificates).
+- Added the [Get a version of a secret](/apidocs/secrets-manager#get-secret-version) method that can be used to retrieve the previous version of a secret. 
 
 
 

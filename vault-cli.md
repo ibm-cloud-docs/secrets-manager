@@ -426,19 +426,18 @@ Success! Data deleted (if it existed) at: auth/ibmcloud/manage/groups/9c6d20ad-7
 ### Create a secret
 {: #vault-cli-create-static-secret}
 
-Use the following commands to add a static secret, such as a user credential or an arbitrary secret, to your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`
+Use the following commands to add a static secret, such as a user credential or an arbitrary secret, to your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`, `imported_cert`
+
 
 Create a secret in the `default` secret group.
 ```
-vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets name=NAME [description="DESCRIPTION"] [username=USERNAME] [password=USERNAME] [payload=DATA] [expiration_date=EXPIRATION] [labels=LABEL,LABEL]
+vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets name=NAME [description="DESCRIPTION"] [username=USERNAME] [password=USERNAME] [payload=DATA] [expiration_date=EXPIRATION] [certificate=CERTIFICATE_DATA] [private_key=PRIVATE_KEY_DATA] [intermediate=INTERMEDIATE_CERTIFICATE_DATA] [labels=LABEL,LABEL]
 ```
 
 Create a secret in a specified secret group.
 ```
-vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets/groups/SECRET_GROUP_ID name=NAME [description="DESCRIPTION"] [username=USERNAME] [password=USERNAME] [payload=DATA] [expiration_date=EXPIRATION] [labels=LABEL,LABEL]
+vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets/groups/SECRET_GROUP_ID name=NAME [description="DESCRIPTION"] [username=USERNAME] [password=USERNAME] [payload=DATA] [expiration_date=EXPIRATION] [certificate=CERTIFICATE_DATA] [private_key=PRIVATE_KEY_DATA] [intermediate=INTERMEDIATE_CERTIFICATE_DATA] [labels=LABEL,LABEL]
 ```
-
-
 
 
 #### Prerequisites
@@ -458,6 +457,12 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
     <dd>The username that you want to assign to a `username_password` secret.</dd>
     <dt>password</dt>
     <dd>The password that you want assign to a `username_password` secret.</dd>
+    <dt>certificate</dt>
+    <dd>The certificate data that you want to store for an `imported_cert` secret. Supported file type is `.pem`.</dd>
+    <dt>private_key</dt>
+    <dd>(Optional) The private key data to store for an `imported_cert` secret. Supported file type is `.pem`.</dd>
+    <dt>intermediate</dt>
+    <dd>(Optional) Intermediate certificate data to store for an `imported_cert` secret. Supported file type is `.pem`.</dd>
     <dt>description</dt>
     <dd>(Optional) An extended description to assign to the secret.</dd>
     <dt>expiration_date</dt>
@@ -489,6 +494,15 @@ Create an arbitrary secret with binary payload.
 
 ```
 base64 -w0 <filename> | vault write ibmcloud/arbitrary/secrets name="my-test-arbitrary-secret" payload=- labels="encode:base64"
+```
+{: pre}
+
+
+
+Import a TLS certificate with a matching private key.
+
+```
+vault write -format=json ibmcloud/imported_cert/secrets name="my-test-imported-certificate" certificate=@cert.pem private_key=@key.pem
 ```
 {: pre}
 
@@ -577,10 +591,62 @@ The command to create an `arbitrary` secret returns the following output:
 
 
 
+The command to import an `imported_cert` secret returns the following output:
+
+```json
+{
+  "request_id": "7b41ad30-8098-9f57-62cf-bd757d43238f",
+  "lease_id": "",
+  "lease_duration": 0,
+  "renewable": false,
+  "data": {
+    "algorithm": "RSA",
+    "common_name": "example.com",
+    "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
+    "creation_date": "2021-06-03T22:41:56Z",
+    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/791f5fb10986423e97aa8512f18b7e65:e415e570-f073-423a-abdc-55de9b58f54e:secret:2ca56a3b-a6e8-d2e2-5377-b6559babfac0",
+    "expiration_date": "2021-06-04T15:25:44Z",
+    "id": "2ca56a3b-a6e8-d2e2-5377-b6559babfac0",
+    "intermediate_included": false,
+    "issuer": "US Texas Austin Example Corp. Example Org example.com",
+    "key_algorithm": "SHA256-RSA",
+    "labels": [],
+    "last_update_date": "2021-06-03T22:41:56Z",
+    "name": "my-test-imported-certificate",
+    "private_key_included": false,
+    "secret_type": "imported_cert",
+    "serial_number": "fc:22:29:7e:57:25:8a:05",
+    "state": 1,
+    "state_description": "Active",
+    "validity": {
+      "not_after": "2021-06-04T15:25:44Z",
+      "not_before": "2021-06-03T15:25:44Z"
+    },
+    "versions": [
+      {
+        "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
+        "creation_date": "2021-06-03T22:41:56.354781389Z",
+        "expiration_date": "2021-06-04T15:25:44Z",
+        "id": "2fae17bf-106a-1c31-55d9-e642ee3803ae",
+        "serial_number": "fc:22:29:7e:57:25:8a:05",
+        "validity": {
+          "not_after": "2021-06-04T15:25:44Z",
+          "not_before": "2021-06-03T15:25:44Z"
+        }
+      }
+    ]
+  },
+  "warnings": null
+}
+```
+{: screen}
+
+
+
 ### List secrets
 {: #vault-cli-list-static-secrets}
 
-Use the following commands to list the static secrets in your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`
+Use the following commands to list the static secrets in your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`, `imported_cert`
 
 List secrets by type.
 ```
@@ -674,7 +740,7 @@ If the secrets belong to a secret group, the `data.secrets.secret_group_id` valu
 ### Get a secret
 {: #vault-cli-get-static-secret}
 
-Use the following commands to retrieve a secret and its details. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`
+Use the following commands to retrieve a secret and its details. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`, `imported_cert`
 
 Get a secret that is in the `default` secret group.
 ```
@@ -749,7 +815,7 @@ The command returns the following output:
 ### Update a secret
 {: #vault-cli-update-static-secret}
 
-Use this command to update the metadata of a secret, such as its name or description. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`
+Use this command to update the metadata of a secret, such as its name or description. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`, `imported_cert`
 
 ```
 vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets/SECRET_ID/metadata name=NAME [description="DESCRIPTION"][expiration_date=EXPIRATION] [labels=LABEL,LABEL]
@@ -816,14 +882,11 @@ The command returns the following output:
 ### Rotate a secret
 {: #vault-cli-rotate-static-secret}
 
-Use this command to rotate a secret. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`
-
-
+Use this command to rotate a secret. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`, `imported_cert`
 
 ```
-vault write [-format=FORMAT] [-force] ibmcloud/SECRET_TYPE/secrets/SECRET_ID/rotate [payload="SECRET_DATA"] [password=PASSWORD]
+vault write [-format=FORMAT] [-force] ibmcloud/SECRET_TYPE/secrets/SECRET_ID/rotate [payload="SECRET_DATA"] [password=PASSWORD] [certificate=CERTIFICATE_DATA] [private_key=PRIVATE_KEY_DATA] [intermediate=INTERMEDIATE_CERTIFICATE_DATA]
 ```
-
 
 
 #### Prerequisites
@@ -839,6 +902,12 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
     <dd>The new data to store for an `arbitrary` secret. Only text-based payloads are supported. If you need to store a binary file, be sure to base64 encode it before saving it to {{site.data.keyword.secrets-manager_short}}. For more information, see [Examples](#vault-cli-create-static-secret-examples).</dd>
     <dt>password</dt>
     <dd>The new password to assign to a `username_password` secret.</dd>
+    <dt>certificate</dt>
+    <dd>The new certificate data to store for an `imported_cert` secret. Supported file type is `.pem`.</dd>
+    <dt>private_key</dt>
+    <dd>(Optional) The new private key data to store for an `imported_cert` secret. Supported file type is `.pem`.</dd>
+    <dt>intermediate</dt>
+    <dd>(Optional) The new intermediate certificate data to store for an `imported_cert` secret. Supported file type is `.pem`.</dd>
     <dt>-format</dt>
     <dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
     <dt>-force</dt>
@@ -931,7 +1000,7 @@ The command to manually rotate a `username_password` secret with a service-gener
 ### Delete a secret
 {: #vault-cli-delete-static-secret}
 
-Use this command to delete a secret. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`
+Use this command to delete a secret. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`, `imported_cert`
 
 Delete a secret in the `default` secret group.
 
