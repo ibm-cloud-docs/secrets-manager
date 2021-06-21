@@ -1610,3 +1610,4 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 }
 ```
 {:screen}
+
