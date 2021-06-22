@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-21"
+lastupdated: "2021-06-22"
 
 keywords: known issues for Secrets Manager, known limitations for Secrets Manager
 
@@ -147,7 +147,7 @@ The following limits apply to SSL/TLS certificates.
 | Name | 2 - 128 characters</br></br>The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
 | Description | 2 - 240 characters|
 | Certificate | 100 KB<br></br>Supported file type is `.pem`. The certificate must be a valid, X.509-based certificate. |
-| Private key | 100 KB<br></br>Supported file type is `.pem`. If provided, the private key must match the certificate that you are importing. Only unencrypted private keys are supported. |
+| Private key | 100 KB<br></br>Private key file is limited to PEM-formatted content. If provided, the private key must match the certificate that you are importing. Only unencrypted private keys are supported. |
 | Intermediate certificate | 100 KB<br></br>Supported file type is `.pem`. If provided, the intermediate certificate must be a valid, X.509-based certificate. |
 | Labels | 2 - 30 characters</br></br>30 labels per secret |
 | Versions | 2 versions per certificate (current and previous) |
