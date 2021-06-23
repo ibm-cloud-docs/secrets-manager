@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-21"
+lastupdated: "2021-06-22"
 
 keywords: troubleshoot secrets manager, import certificates doesn't work, can't import certificate, convert crt to pem, convert cer to pem, convert der to pem, convert certificate file to pem
 
@@ -121,6 +121,7 @@ To resolve the issue, ensure that your certificate file is in the supported form
     awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' cert.pem
     ```
     {: pre}
+
 
 
 
