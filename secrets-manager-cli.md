@@ -178,7 +178,7 @@ Get the configuration of the IAM credentials secret engine
 Creates or updates one or more policies, such as an [automatic rotation policy](http://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-rotate-secrets#auto-rotate-secret), for the specified secret.
 
 ```sh
-ibmcloud secrets-manager policy-update --secret-type SECRET-TYPE --id ID --metadata METADATA --resources RESOURCES [--policy POLICY] 
+ibmcloud secrets-manager policy-update --secret-type SECRET-TYPE --id ID --resources RESOURCES [--policy POLICY] 
 ```
 
 
@@ -192,8 +192,6 @@ ibmcloud secrets-manager policy-update --secret-type SECRET-TYPE --id ID --metad
 <dt>--id (string)</dt>
 <dd>The v4 UUID that uniquely identifies the secret. Required.</dd>
 <dd>The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`</dd>
-<dt>--metadata ([CollectionMetadata](#cli-collection-metadata-example-schema))</dt>
-<dd>The metadata that describes the resource array. Required.</dd>
 <dt>--resources ([SecretPolicyRotation[]](#cli-secret-policy-rotation-example-schema))</dt>
 <dd>A collection of resources. Required.</dd>
 <dt>--policy (string)</dt>
@@ -287,7 +285,7 @@ Creates a secret group that you can use to organize secrets and control who on y
 A successful request returns the ID value of the secret group, along with other metadata. To learn more about secret groups, check out the [docs](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 
 ```sh
-ibmcloud secrets-manager secret-group-create --metadata METADATA --resources RESOURCES 
+ibmcloud secrets-manager secret-group-create --resources RESOURCES 
 ```
 
 
@@ -295,8 +293,6 @@ ibmcloud secrets-manager secret-group-create --metadata METADATA --resources RES
 {: #secrets-manager-secret-group-create-cli-options}
 
 <dl>
-<dt>--metadata ([CollectionMetadata](#cli-collection-metadata-example-schema))</dt>
-<dd>The metadata that describes the resource array. Required.</dd>
 <dt>--resources ([SecretGroupResource[]](#cli-secret-group-resource-example-schema))</dt>
 <dd>A collection of resources. Required.</dd>
 </dl>
@@ -336,7 +332,7 @@ ibmcloud secrets-manager secret-group --id ID
 Updates the metadata of an existing secret group, such as its name or description.
 
 ```sh
-ibmcloud secrets-manager secret-group-metadata-update --id ID --metadata METADATA --resources RESOURCES 
+ibmcloud secrets-manager secret-group-metadata-update --id ID --resources RESOURCES 
 ```
 
 
@@ -347,8 +343,6 @@ ibmcloud secrets-manager secret-group-metadata-update --id ID --metadata METADAT
 <dt>--id (string)</dt>
 <dd>The v4 UUID that uniquely identifies the secret group. Required.</dd>
 <dd>The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`</dd>
-<dt>--metadata ([CollectionMetadata](#cli-collection-metadata-example-schema))</dt>
-<dd>The metadata that describes the resource array. Required.</dd>
 <dt>--resources ([SecretGroupMetadataUpdatable[]](#cli-secret-group-metadata-updatable-example-schema))</dt>
 <dd>A collection of resources. Required.</dd>
 </dl>
@@ -389,7 +383,7 @@ Use this method to either generate or import an existing secret, such as an arbi
 To learn more about the types of secrets that you can create with Secrets Manager, check out the [docs](/docs/secrets-manager?topic=secrets-manager-what-is-secret).
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-type SECRET-TYPE --metadata METADATA --resources RESOURCES 
+ibmcloud secrets-manager secret-create --secret-type SECRET-TYPE --resources RESOURCES 
 ```
 
 
@@ -400,8 +394,6 @@ ibmcloud secrets-manager secret-create --secret-type SECRET-TYPE --metadata META
 <dt>--secret-type (string)</dt>
 <dd>The secret type. Required.</dd>
 <dd>Allowable values are: arbitrary, username_password, iam_credentials, imported_cert</dd>
-<dt>--metadata ([CollectionMetadata](#cli-collection-metadata-example-schema))</dt>
-<dd>The metadata that describes the resource array. Required.</dd>
 <dt>--resources ([SecretResource[]](#cli-secret-resource-example-schema))</dt>
 <dd>A collection of resources. Required.</dd>
 </dl>
@@ -458,7 +450,7 @@ ibmcloud secrets-manager all-secrets [--limit LIMIT] [--offset OFFSET] [--search
 <dd>Sort a list of secrets by the specified field.</dd>
 <dd>Allowable values are: id, creation_date, expiration_date, secret_type, name</dd>
 <dt>--groups ([]string)</dt>
-<dd>Filter secrets by groups. You can apply multiple filters by using a comma-separated list of secret group IDs. If you need to filter secrets that are in the default secret group, use the `default` keyword.</dd>
+<dd>Filter secrets by groups. If you need to filter secrets that are in the default secret group, use the `default` keyword.</dd>
 </dl>
 
 ### ibmcloud secrets-manager secret
@@ -466,7 +458,7 @@ ibmcloud secrets-manager all-secrets [--limit LIMIT] [--offset OFFSET] [--search
 
 Retrieves a secret and its details by specifying the ID of the secret.
 
-A successful request returns the secret data that is associated with your secret, along with other metadata. To view only the details of a specified secret without retrieving its value, use the [Get secret metadata](#secrets-manager-cli-get-secret-metadata-command) method.
+A successful request returns the secret data that is associated with your secret, along with other metadata. To view only the details of a specified secret without retrieving its value, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method.
 
 ```sh
 ibmcloud secrets-manager secret --secret-type SECRET-TYPE --id ID 
@@ -598,7 +590,7 @@ ibmcloud secrets-manager secret-version --secret-type SECRET-TYPE --id ID --vers
 <dd>The v4 UUID that uniquely identifies the secret. Required.</dd>
 <dd>The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`</dd>
 <dt>--version-id (string)</dt>
-<dd>The v4 UUID that uniquely identifies the secret version. You can also use `previous` to retrieve the previous version. To find the version ID of a secret, use the [Get secret metadata](#get-secret-metadata) method and check the response details. Required.</dd>
+<dd>The v4 UUID that uniquely identifies the secret version. You can also use `previous` to retrieve the previous version. To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details. Required.</dd>
 <dd>The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`</dd>
 </dl>
 
@@ -651,7 +643,7 @@ ibmcloud secrets-manager secret-version-metadata --secret-type SECRET-TYPE --id 
 <dd>The v4 UUID that uniquely identifies the secret. Required.</dd>
 <dd>The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`</dd>
 <dt>--version-id (string)</dt>
-<dd>The v4 UUID that uniquely identifies the secret version. You can also use `previous` to retrieve the previous version. To find the version ID of a secret, use the [Get secret metadata](#get-secret-metadata) method and check the response details. Required.</dd>
+<dd>The v4 UUID that uniquely identifies the secret version. You can also use `previous` to retrieve the previous version. To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details. Required.</dd>
 <dd>The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`</dd>
 </dl>
 
@@ -681,7 +673,7 @@ Get certificate version
 
 Retrieves the details of a secret by specifying the ID.
 
-A successful request returns only metadata about the secret, such as its name and creation date. To retrieve the value of a secret, use the [Get a secret](#secrets-manager-cli-get-secret-command) or [Get a version of a secret](#secrets-manager-cli-get-secret-version-command) methods.
+A successful request returns only metadata about the secret, such as its name and creation date. To retrieve the value of a secret, use the [Get a secret](#secrets-manager-cli-secret-command) or [Get a version of a secret](#secrets-manager-cli-secret-version-command) methods.
 
 ```sh
 ibmcloud secrets-manager secret-metadata --secret-type SECRET-TYPE --id ID 
@@ -708,7 +700,7 @@ Updates the metadata of a secret, such as its name or description.
 To update the actual contents of a secret, rotate the secret by using the [Invoke an action on a secret](#secrets-manager-cli-update-secret-command) method.
 
 ```sh
-ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id ID --metadata METADATA --resources RESOURCES 
+ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id ID --resources RESOURCES 
 ```
 
 
@@ -722,8 +714,6 @@ ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id I
 <dt>--id (string)</dt>
 <dd>The v4 UUID that uniquely identifies the secret. Required.</dd>
 <dd>The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`</dd>
-<dt>--metadata ([CollectionMetadata](#cli-collection-metadata-example-schema))</dt>
-<dd>The metadata that describes the resource array. Required.</dd>
 <dt>--resources ([SecretMetadata[]](#cli-secret-metadata-example-schema))</dt>
 <dd>A collection of resources. Required.</dd>
 </dl>
@@ -733,19 +723,6 @@ ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id I
 
 The following schema examples represent the data that you need to specify for a command option. These examples model the data structure and include placeholder values for the expected value type. When you run a command, replace these values with the values that apply to your environment as appropriate.
 
-### CollectionMetadata
-{: #cli-collection-metadata-example-schema}
-
-The following example shows the format of the CollectionMetadata object.
-
-```json
-
-{
-  "collection_type" : "application/vnd.ibm.secrets-manager.secret+json",
-  "collection_total" : 1
-}
-```
-{: codeblock}
 
 ### EngineConfig
 {: #cli-engine-config-example-schema}
