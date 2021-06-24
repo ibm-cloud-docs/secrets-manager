@@ -70,6 +70,7 @@ Version 0.0.11 was released on 23 June 2021. This release includes the following
 
 - Added support for the `imported_cert` secret type.
 - Added the [secret-version](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-version-command) and [secret-version-metadata](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-version-metadata-command) commands. Currently, these commands support `imported_cert` secrets only.
+- Changed the **--engine-config-one-of** flag in the [config-update](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-config-update-command) command to **--engine-config**.
 
 
 ## Version 0.0.10
