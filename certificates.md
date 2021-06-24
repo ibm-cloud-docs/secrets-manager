@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-21"
+lastupdated: "2021-06-24"
 
 keywords: import certificates
 
@@ -108,6 +108,24 @@ To add a certificate by using the {{site.data.keyword.secrets-manager_short}} UI
 
 
 
+### Importing certificates from the CLI
+{: #import-certificates-cli}
+{: cli}
+
+To import a certificate by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. You can specify the type of secret by using the `--secret-type imported_cert` option. For example, the following command imports a certificate along with its private key and intermediate certificate.
+
+You can import certificate files that are in the `.pem` format. Be sure to [convert your PEM files to single-line format](/docs/secrets-manager?topic=secrets-manager-troubleshoot-pem) so that they can be parsed correctly by the {{site.data.keyword.secrets-manager_short}} CLI.
+{: note}
+
+```sh
+ibmcloud secrets-manager secret-create --secret-type imported_cert --resources '[{"name": "example-imported-certificate","description": "Extended description for my secret.","certificate": "-----BEGIN CERTIFICATE-----\nMIICWzCCAcQCC...(redacted)","private_key": "-----BEGIN PRIVATE KEY-----\nMIICdgIBADANB...(redacted)","intermediate": "-----BEGIN CERTIFICATE-----\nMIICUzHHraOa...(redacted)"}]'
+```
+{: pre}
+
+The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
+
+
+
 ### Importing certificates with the API
 {: #import-certificates-api}
 {: api}
@@ -120,7 +138,7 @@ The following example shows a query that you can use to import an existing certi
 
 
 
-You can import certificate and private key files that are in the `.pem` format. Be sure to [convert your PEM files to single-line format](/docs/secrets-manager?topic=secrets-manager-troubleshoot-pem) so that they can be parsed correctly by the {{site.data.keyword.secrets-manager_short}} API.
+You can import certificate files that are in the `.pem` format. Be sure to [convert your PEM files to single-line format](/docs/secrets-manager?topic=secrets-manager-troubleshoot-pem) so that they can be parsed correctly by the {{site.data.keyword.secrets-manager_short}} API.
 {: note}
 
 ```sh

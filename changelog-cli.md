@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-13"
+lastupdated: "2021-06-24"
 
 keywords: change log for {{site.data.keyword.secrets-manager_short}} CLI, CLI changelog, updates to {{site.data.keyword.secrets-manager_short}} CLI
 
@@ -61,6 +61,15 @@ In this change log, you can learn about the latest changes, improvements, and up
 
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
 
+
+
+## Version 0.0.11
+{: #0.0.11}
+
+Version 0.0.11 was released on 23 June 2021. This release includes the following updates:
+
+- Added support for the `imported_cert` secret type.
+- Added the [secret-version](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-version-command) and [secret-version-metadata](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-version-metadata-command) commands. Currently, these commands support `imported_cert` secrets only.
 
 
 ## Version 0.0.10
