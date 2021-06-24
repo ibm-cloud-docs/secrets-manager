@@ -697,7 +697,7 @@ ibmcloud secrets-manager secret-metadata --secret-type SECRET-TYPE --id ID
 
 Updates the metadata of a secret, such as its name or description.
 
-To update the actual contents of a secret, rotate the secret by using the [Invoke an action on a secret](#secrets-manager-cli-update-secret-command) method.
+To update the actual contents of a secret, rotate the secret by using the [Invoke an action on a secret](#secrets-manager-cli-secret-update-command) method.
 
 ```sh
 ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id ID --resources RESOURCES 
