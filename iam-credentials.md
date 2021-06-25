@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-23"
+lastupdated: "2021-06-25"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -156,7 +156,7 @@ To allow your {{site.data.keyword.cloud_notm}} API key to create and manage othe
     To configure a secrets engine from the {{site.data.keyword.cloud_notm}} CLI, run the [**`ibmcloud secrets-manager config-update`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-config-update-command) command.
 
     ```sh
-    ibmcloud secrets-manager config-update --secret-type iam_credentials --engine-config-one-of '{"api_key": "'"$API_KEY"'"}'
+    ibmcloud secrets-manager config-update --secret-type iam_credentials --engine-config '{"api_key": "'"$API_KEY"'"}'
     ```
     {: pre}
 
