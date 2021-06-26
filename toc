@@ -60,8 +60,8 @@ Secrets Manager
 
         {: .topicgroup}
         Securing your connection to Secrets Manager
-            service-connection.md
-            virtual-private-endpoint.md
+            cse.md
+            vpe.md
             
         data-security.md
         manage-scc.md
