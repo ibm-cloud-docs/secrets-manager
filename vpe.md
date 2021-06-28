@@ -77,7 +77,7 @@ You can update your existing {{site.data.keyword.secrets-manager_short}} instanc
 1. Define the `VPE_ENDPOINTS` variable that corresponds with the region where your {{site.data.keyword.secrets-manager_short}} is located.
 
     Dallas:
-    ```
+    ```sh
     VPE_ENDPOINTS="[{\"ip_address\": \"166.9.48.236\", \"zone\": \"dal10\"},{\"ip_address\": \"166.9.51.178\", \"zone\": \"dal12\"},{\"ip_address\": \"166.9.58.178\", \"zone\": \"dal13\"}]"
     ```
     {: codeblock}
