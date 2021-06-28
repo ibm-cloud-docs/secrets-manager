@@ -7,7 +7,7 @@ Secrets Manager
 
     {: .navgroup id="learn"}
     getting-started.md
-    secrets-mgmt.md
+    use-cases/service-comparison.md
 
     {: .topicgroup}
     Migration guides
