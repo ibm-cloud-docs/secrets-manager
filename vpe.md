@@ -76,37 +76,41 @@ You can update your existing {{site.data.keyword.secrets-manager_short}} instanc
 
 1. Define the `VPE_ENDPOINTS` variable that corresponds with the region where your {{site.data.keyword.secrets-manager_short}} is located.
 
-    - Dallas:
-      ```
-      VPE_ENDPOINTS="[{\"ip_address\": \"166.9.48.236\", \"zone\": \"dal10\"},{\"ip_address\": \"166.9.51.178\", \"zone\": \"dal12\"},{\"ip_address\": \"166.9.58.178\", \"zone\": \"dal13\"}]"
-      ```
-      {: codeblock}
+    Dallas:
+    ```
+    VPE_ENDPOINTS="[{\"ip_address\": \"166.9.48.236\", \"zone\": \"dal10\"},{\"ip_address\": \"166.9.51.178\", \"zone\": \"dal12\"},{\"ip_address\": \"166.9.58.178\", \"zone\": \"dal13\"}]"
+    ```
+    {: codeblock}
 
-    - Washington DC:
-      ```
-      VPE_ENDPOINTS="[{\"ip_address\": \"166.9.22.61\", \"zone\": \"wdc06\"},{\"ip_address\": \"166.9.20.170\", \"zone\": \"wdc04\"},{\"ip_address\": \"166.9.24.62\", \"zone\": \"wdc07\"}]"
-      ```
-      {: codeblock}
-    - London:
-      ```
-      VPE_ENDPOINTS="[{\"ip_address\": \"166.9.36.128\", \"zone\": \"lon04\"},{\"ip_address\": \"166.9.34.111\", \"zone\": \"lon05\"},{\"ip_address\": \"166.9.38.116\", \"zone\": \"lon06\"}]"
-      ```
-      {: codeblock}
-    - Frankfurt:
-      ```
-      VPE_ENDPOINTS="[{\"ip_address\": \"166.9.30.75\", \"zone\": \"fra04\"},{\"ip_address\": \"166.9.32.95\", \"zone\": \"fra05\"},{\"ip_address\": \"166.9.28.77\", \"zone\": \"fra02\"}]"
-      ```
-      {: codeblock}
-    - Tokyo:
-      ```
-      VPE_ENDPOINTS="[{\"ip_address\": \"166.9.44.54\", \"zone\": \"tok05\"},{\"ip_address\": \"166.9.40.53\", \"zone\": \"tok02\"},{\"ip_address\": \"166.9.42.68\", \"zone\": \"tok04\"}]"
-      ```
-      {: codeblock}
-    - Sydney:
-      ```    
-      VPE_ENDPOINTS="[{\"ip_address\": \"166.9.52.52\", \"zone\": \"syd01\"},{\"ip_address\": \"166.9.54.60\", \"zone\": \"syd04\"},{\"ip_address\": \"166.9.56.57\", \"zone\": \"syd05\"}]"
-      ```
-      {: codeblock}
+    Washington DC:
+    ```sh
+    VPE_ENDPOINTS="[{\"ip_address\": \"166.9.22.61\", \"zone\": \"wdc06\"},{\"ip_address\": \"166.9.20.170\", \"zone\": \"wdc04\"},{\"ip_address\": \"166.9.24.62\", \"zone\": \"wdc07\"}]"
+    ```
+    {: codeblock}
+
+    London:
+    ```sh
+    VPE_ENDPOINTS="[{\"ip_address\": \"166.9.36.128\", \"zone\": \"lon04\"},{\"ip_address\": \"166.9.34.111\", \"zone\": \"lon05\"},{\"ip_address\": \"166.9.38.116\", \"zone\": \"lon06\"}]"
+    ```
+    {: codeblock}
+
+    Frankfurt:
+    ```sh
+    VPE_ENDPOINTS="[{\"ip_address\": \"166.9.30.75\", \"zone\": \"fra04\"},{\"ip_address\": \"166.9.32.95\", \"zone\": \"fra05\"},{\"ip_address\": \"166.9.28.77\", \"zone\": \"fra02\"}]"
+    ```
+    {: codeblock}
+
+    Tokyo:
+    ```sh
+    VPE_ENDPOINTS="[{\"ip_address\": \"166.9.44.54\", \"zone\": \"tok05\"},{\"ip_address\": \"166.9.40.53\", \"zone\": \"tok02\"},{\"ip_address\": \"166.9.42.68\", \"zone\": \"tok04\"}]"
+    ```
+    {: codeblock}
+    
+    Sydney:
+    ```sh
+    VPE_ENDPOINTS="[{\"ip_address\": \"166.9.52.52\", \"zone\": \"syd01\"},{\"ip_address\": \"166.9.54.60\", \"zone\": \"syd04\"},{\"ip_address\": \"166.9.56.57\", \"zone\": \"syd05\"}]"
+    ```
+    {: codeblock}
 
 2. Define the `INSTANCE_ID` variable with your {{site.data.keyword.secrets-manager_short}} instance ID.
 
