@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-06-24"
+lastupdated: "2021-06-28"
 
 subcollection: secrets-manager
 
@@ -352,7 +352,7 @@ ibmcloud secrets-manager secret-group-metadata-update --id ID --resources RESOUR
 
 Deletes a secret group by specifying the ID of the secret group.
 
-**Note:** To delete a secret group, it must be empty. If you need to remove a secret group that contains secrets, you must first [delete the secrets](#secrets-manager-cli-delete-secret-command) that are associated with the group.
+**Note:** To delete a secret group, it must be empty. If you need to remove a secret group that contains secrets, you must first [delete the secrets](#secrets-manager-cli-secret-delete-command) that are associated with the group.
 
 ```sh
 ibmcloud secrets-manager secret-group-delete --id ID [--force]
