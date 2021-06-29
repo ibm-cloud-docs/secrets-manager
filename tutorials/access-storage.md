@@ -304,7 +304,7 @@ To create an IAM credential from the {{site.data.keyword.cloud_notm}} CLI, run t
 
 
 ```sh
-export SECRET_ID=`ibmcloud secrets-manager secret-create --secret-type iam_credentials  --resources '[{"name":"test-iam-credentials","description":"Extended description for my secret.","access_groups":["'"$ACCESS_GROUP_ID"'"],"secret_group_id":"'"$SECRET_GROUP_ID"'","ttl":"2h","labels":["storage","us-south"]}]' --output json | jq -r ".resources[].id"`
+export SECRET_ID=`ibmcloud secrets-manager secret-create --secret-type iam_credentials --resources '[{"name":"test-iam-credentials","description":"Extended description for my secret.","access_groups":["'"$ACCESS_GROUP_ID"'"],"secret_group_id":"'"$SECRET_GROUP_ID"'","ttl":"2h","labels":["storage","us-south"]}]' --output json | jq -r ".resources[].id"`
 ```
 {: pre}
 
