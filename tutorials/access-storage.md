@@ -233,8 +233,8 @@ Next, create a bucket in your Cloud Object Storage instance and set up access.
    6. From the list of services, select **Cloud Object Storage**.
    7. In the service instance field, select _test-cos-instance-tutorial_.
    8.  Assign the **Reader**, **Content Reader**, **Object Reader**, and **Object Writer** service access roles.
-   10. Click **Add**.
-   11. Review your selections and click **Assign**.
+   9. Click **Add**.
+   10. Review your selections and click **Assign**.
 
 3. Upload an object to the storage bucket.
 
