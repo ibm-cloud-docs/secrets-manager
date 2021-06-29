@@ -7,7 +7,7 @@ Secrets Manager
 
     {: .navgroup id="learn"}
     getting-started.md
-    secrets-mgmt.md
+    use-cases/service-comparison.md
 
     {: .topicgroup}
     Migration guides
@@ -60,8 +60,8 @@ Secrets Manager
 
         {: .topicgroup}
         Securing your connection to Secrets Manager
-            service-connection.md
-            virtual-private-endpoint.md
+            cse.md
+            vpe.md
             
         data-security.md
         manage-scc.md

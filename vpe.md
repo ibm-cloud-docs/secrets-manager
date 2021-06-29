@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-21"
+lastupdated: "2021-06-28"
 
 keywords: connect to {{site.data.keyword.secrets-manager_short}} on a VPC, virtual service endpoints, virtual private cloud, connect via VPC, connect through VPC, connect via VPE, connect through VPE
 
@@ -53,11 +53,13 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 
-# Connecting to {{site.data.keyword.secrets-manager_short}} by using a virtual service endpoint
+# Connecting to {{site.data.keyword.secrets-manager_short}} with virtual private endpoints
 {: #virtual-private-endpoint}
 
-If you need to manage secrets in your {{site.data.keyword.vpc_full}} (VPC), you can establish a connection to {{site.data.keyword.secrets-manager_full}} by using Virtual Private Endpoints (VPE). Similar to private service endpoints, VPE for VPC provides private connectivity to IBM services, but within the VPC network of your choosing. For more information about VPE, check out [About virtual private gateways](/docs/vpc?topic=vpc-about-vpe).
+If you need to manage secrets in your {{site.data.keyword.vpc_full}} (VPC), you can establish a connection to {{site.data.keyword.secrets-manager_full}} by using Virtual Private Endpoints (VPE). Similar to private service endpoints, VPE for VPC provides private connectivity to IBM services, but within the your VPC network.
 {: shortdesc}
+
+For more information about VPE, check out [About virtual private gateways](/docs/vpc?topic=vpc-about-vpe).
 
 ## Before you begin
 {: #vpe-prereqs}
@@ -74,37 +76,41 @@ You can update your existing {{site.data.keyword.secrets-manager_short}} instanc
 
 1. Define the `VPE_ENDPOINTS` variable that corresponds with the region where your {{site.data.keyword.secrets-manager_short}} is located.
 
-    - Dallas:
-      ```
-      VPE_ENDPOINTS="[{\"ip_address\": \"166.9.48.236\", \"zone\": \"dal10\"},{\"ip_address\": \"166.9.51.178\", \"zone\": \"dal12\"},{\"ip_address\": \"166.9.58.178\", \"zone\": \"dal13\"}]"
-      ```
-      {: codeblock}
+    Dallas:
+    ```sh
+    VPE_ENDPOINTS="[{\"ip_address\": \"166.9.48.236\", \"zone\": \"dal10\"},{\"ip_address\": \"166.9.51.178\", \"zone\": \"dal12\"},{\"ip_address\": \"166.9.58.178\", \"zone\": \"dal13\"}]"
+    ```
+    {: codeblock}
 
-    - Washington DC:
-      ```
-      VPE_ENDPOINTS="[{\"ip_address\": \"166.9.22.61\", \"zone\": \"wdc06\"},{\"ip_address\": \"166.9.20.170\", \"zone\": \"wdc04\"},{\"ip_address\": \"166.9.24.62\", \"zone\": \"wdc07\"}]"
-      ```
-      {: codeblock}
-    - London:
-      ```
-      VPE_ENDPOINTS="[{\"ip_address\": \"166.9.36.128\", \"zone\": \"lon04\"},{\"ip_address\": \"166.9.34.111\", \"zone\": \"lon05\"},{\"ip_address\": \"166.9.38.116\", \"zone\": \"lon06\"}]"
-      ```
-      {: codeblock}
-    - Frankfurt:
-      ```
-      VPE_ENDPOINTS="[{\"ip_address\": \"166.9.30.75\", \"zone\": \"fra04\"},{\"ip_address\": \"166.9.32.95\", \"zone\": \"fra05\"},{\"ip_address\": \"166.9.28.77\", \"zone\": \"fra02\"}]"
-      ```
-      {: codeblock}
-    - Tokyo:
-      ```
-      VPE_ENDPOINTS="[{\"ip_address\": \"166.9.44.54\", \"zone\": \"tok05\"},{\"ip_address\": \"166.9.40.53\", \"zone\": \"tok02\"},{\"ip_address\": \"166.9.42.68\", \"zone\": \"tok04\"}]"
-      ```
-      {: codeblock}
-    - Sydney:
-      ```    
-      VPE_ENDPOINTS="[{\"ip_address\": \"166.9.52.52\", \"zone\": \"syd01\"},{\"ip_address\": \"166.9.54.60\", \"zone\": \"syd04\"},{\"ip_address\": \"166.9.56.57\", \"zone\": \"syd05\"}]"
-      ```
-      {: codeblock}
+    Washington DC:
+    ```sh
+    VPE_ENDPOINTS="[{\"ip_address\": \"166.9.22.61\", \"zone\": \"wdc06\"},{\"ip_address\": \"166.9.20.170\", \"zone\": \"wdc04\"},{\"ip_address\": \"166.9.24.62\", \"zone\": \"wdc07\"}]"
+    ```
+    {: codeblock}
+
+    London:
+    ```sh
+    VPE_ENDPOINTS="[{\"ip_address\": \"166.9.36.128\", \"zone\": \"lon04\"},{\"ip_address\": \"166.9.34.111\", \"zone\": \"lon05\"},{\"ip_address\": \"166.9.38.116\", \"zone\": \"lon06\"}]"
+    ```
+    {: codeblock}
+
+    Frankfurt:
+    ```sh
+    VPE_ENDPOINTS="[{\"ip_address\": \"166.9.30.75\", \"zone\": \"fra04\"},{\"ip_address\": \"166.9.32.95\", \"zone\": \"fra05\"},{\"ip_address\": \"166.9.28.77\", \"zone\": \"fra02\"}]"
+    ```
+    {: codeblock}
+
+    Tokyo:
+    ```sh
+    VPE_ENDPOINTS="[{\"ip_address\": \"166.9.44.54\", \"zone\": \"tok05\"},{\"ip_address\": \"166.9.40.53\", \"zone\": \"tok02\"},{\"ip_address\": \"166.9.42.68\", \"zone\": \"tok04\"}]"
+    ```
+    {: codeblock}
+    
+    Sydney:
+    ```sh
+    VPE_ENDPOINTS="[{\"ip_address\": \"166.9.52.52\", \"zone\": \"syd01\"},{\"ip_address\": \"166.9.54.60\", \"zone\": \"syd04\"},{\"ip_address\": \"166.9.56.57\", \"zone\": \"syd05\"}]"
+    ```
+    {: codeblock}
 
 2. Define the `INSTANCE_ID` variable with your {{site.data.keyword.secrets-manager_short}} instance ID.
 

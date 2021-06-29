@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-17"
+lastupdated: "2021-06-29"
 content-type: tutorial
 services: secrets-manager,cloud-object-storage
 account-plan: lite
@@ -232,10 +232,9 @@ Next, create a bucket in your Cloud Object Storage instance and set up access.
    5. Select **IAM services**.
    6. From the list of services, select **Cloud Object Storage**.
    7. In the service instance field, select _test-cos-instance-tutorial_.
-   8. In the **Resource** field, enter the ID that was assigned to your Cloud Object Storage instance.
-   9.  Assign the **Content Reader**, **Object Reader**, and **Object Writer** service access roles.
-   10. Click **Add**.
-   11. Review your selections and click **Assign**.
+   8.  Assign the **Reader**, **Content Reader**, **Object Reader**, and **Object Writer** service access roles.
+   9. Click **Add**.
+   10. Review your selections and click **Assign**.
 
 3. Upload an object to the storage bucket.
 
@@ -264,7 +263,7 @@ Finally, configure your {{site.data.keyword.secrets-manager_short}} instance to 
 2. Export an environment variable with your unique {{site.data.keyword.secrets-manager_short}} API endpoint URL.
 
     ```sh
-    export IBM_CLOUD_SECRETS_MANAGER_API_URL="https://$SM_INSTANCE_ID.us-south.secrets-manager.appdomain.cloud"
+    export SECRETS_MANAGER_URL="https://$SM_INSTANCE_ID.us-south.secrets-manager.appdomain.cloud"
     ```
     {: pre}
 
@@ -273,7 +272,7 @@ Finally, configure your {{site.data.keyword.secrets-manager_short}} instance to 
     [Secret groups](/docs/secrets-manager?topic=secrets-manager-secret-groups) are a way to organize and control who on your team has access to specific secrets in your instance. To create a secret group from the {{site.data.keyword.cloud_notm}} CLI, run the [**`ibmcloud secrets-manager secret-group-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-group-create-command) command.
 
     ```sh
-    export SECRET_GROUP_ID=`ibmcloud secrets-manager secret-group-create --metadata '{"collection_type":"application/vnd.ibm.secrets-manager.secret.group+json","collection_total":1}' --resources '[{"name":"cloud-object-storage-writers","description":"Read and write to Cloud Object storage buckets."}]' --output json | jq -r ".resources[].id"`; echo $SECRET_GROUP_ID
+    export SECRET_GROUP_ID=`ibmcloud secrets-manager secret-group-create --resources '[{"name":"cloud-object-storage-writers","description":"Read and write to Cloud Object storage buckets."}]' --output json | jq -r ".resources[].id"`; echo $SECRET_GROUP_ID
     ```
     {: pre}
 
@@ -287,7 +286,7 @@ Finally, configure your {{site.data.keyword.secrets-manager_short}} instance to 
     To configure the IAM secrets engine from the {{site.data.keyword.cloud_notm}} CLI, run the [**`ibmcloud secrets-manager config-update`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-config-update-command) command.
 
     ```sh
-    ibmcloud secrets-manager config-update --secret-type iam_credentials --engine-config-one-of '{"api_key": "'"$API_KEY"'"}'
+    ibmcloud secrets-manager config-update --secret-type iam_credentials --engine-config '{"api_key": "'"$API_KEY"'"}'
     ```
     {: pre}
 
@@ -305,7 +304,7 @@ To create an IAM credential from the {{site.data.keyword.cloud_notm}} CLI, run t
 
 
 ```sh
-export SECRET_ID=`ibmcloud secrets-manager secret-create --secret-type iam_credentials --metadata '{"collection_type": "application/vnd.ibm.secrets-manager.secret+json", "collection_total": 1}' --resources '[{"name":"test-iam-credentials","description":"Extended description for my secret.","access_groups":["'"$ACCESS_GROUP_ID"'"],"secret_group_id":"'"$SECRET_GROUP_ID"'","ttl":"2h","labels":["storage","us-south"]}]' --output json | jq -r ".resources[].id"`
+export SECRET_ID=`ibmcloud secrets-manager secret-create --secret-type iam_credentials  --resources '[{"name":"test-iam-credentials","description":"Extended description for my secret.","access_groups":["'"$ACCESS_GROUP_ID"'"],"secret_group_id":"'"$SECRET_GROUP_ID"'","ttl":"2h","labels":["storage","us-south"]}]' --output json | jq -r ".resources[].id"`
 ```
 {: pre}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-21"
+lastupdated: "2021-06-28"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -536,7 +536,7 @@ Creates or imports a secret by using the {{site.data.keyword.secrets-manager_sho
     <dt>private_key</dt>
     <dd>The matching private key to assign to an <code>imported_cert</code> secret.</dd>
     <dt>intermediate</dt>
-    <dd>The intermediate certificate data to assign to an <code>import_cert<code> secret.</dd>
+    <dd>The intermediate certificate data to assign to an <code>import_cert</code> secret.</dd>
 </dl>
 
 #### Example requests
