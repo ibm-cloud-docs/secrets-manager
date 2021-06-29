@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-25"
+lastupdated: "2021-06-29"
 content-type: tutorial
 services: secrets-manager,cloud-object-storage
 account-plan: lite
@@ -232,8 +232,7 @@ Next, create a bucket in your Cloud Object Storage instance and set up access.
    5. Select **IAM services**.
    6. From the list of services, select **Cloud Object Storage**.
    7. In the service instance field, select _test-cos-instance-tutorial_.
-   8. In the **Resource** field, enter the ID that was assigned to your Cloud Object Storage instance.
-   9.  Assign the **Content Reader**, **Object Reader**, and **Object Writer** service access roles.
+   8.  Assign the **Reader**, **Content Reader**, **Object Reader**, and **Object Writer** service access roles.
    10. Click **Add**.
    11. Review your selections and click **Assign**.
 
