@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-28"
+lastupdated: "2021-07-01"
 
 keywords: connect to {{site.data.keyword.secrets-manager_short}} on a VPC, virtual service endpoints, virtual private cloud, connect via VPC, connect through VPC, connect via VPE, connect through VPE
 
@@ -56,7 +56,7 @@ subcollection: secrets-manager
 # Connecting to {{site.data.keyword.secrets-manager_short}} with virtual private endpoints
 {: #virtual-private-endpoint}
 
-If you need to manage secrets in your {{site.data.keyword.vpc_full}} (VPC), you can establish a connection to {{site.data.keyword.secrets-manager_full}} by using Virtual Private Endpoints (VPE). Similar to private service endpoints, VPE for VPC provides private connectivity to IBM services, but within the your VPC network.
+If you need to manage secrets in your {{site.data.keyword.vpc_full}} (VPC), you can establish a connection to {{site.data.keyword.secrets-manager_full}} by using Virtual Private Endpoints (VPE). Similar to private service endpoints, VPE for VPC provides private connectivity to IBM services, but within a VPC network.
 {: shortdesc}
 
 For more information about VPE, check out [About virtual private gateways](/docs/vpc?topic=vpc-about-vpe).
