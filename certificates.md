@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-24"
+lastupdated: "2021-07-02"
 
 keywords: import certificates
 
@@ -102,7 +102,7 @@ To add a certificate by using the {{site.data.keyword.secrets-manager_short}} UI
 
     If you choose to store a private key, ensure that it matches to your certificate. The private key must be unencrypted before you can import it to the service.
 
-9. Optional Select an intermediate certificate file or enter its value.
+9. Optional: Select an iåntermediate certificate file or enter its value.
 10. Optional: Add labels to help you to search for similar secrets in your instance.
 11. Click **Import**.
 
