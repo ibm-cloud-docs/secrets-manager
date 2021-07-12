@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-22"
+lastupdated: "2021-07-12"
 
 keywords: known issues for Secrets Manager, known limitations for Secrets Manager
 
@@ -115,8 +115,8 @@ The following limits apply to arbitrary secrets.
 
 | Attribute | Limit |
 | --- | --- |
-| Name | 2 - 128 characters</br></br>The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
-| Description | 2 - 240 characters |
+| Name | 2 - 256 characters</br></br>The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
+| Description | 2 - 1024 characters |
 | Secret value | 1 MB |
 | Labels | 2 - 30 characters</br></br>30 labels per secret |
 {: caption="Table 5. Arbitrary secret limits" caption-side="top"}
@@ -128,8 +128,8 @@ The following limits apply to IAM credentials.
 
 | Attribute | Limit |
 | --- | --- |
-| Name | 2 - 128 characters</br></br>The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
-| Description | 2 - 240 characters |
+| Name | 2 - 256 characters</br></br>The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
+| Description | 2 - 1024 characters |
 | Access groups | 1 - 10 groups |
 | Labels | 2 - 30 characters</br></br>30 labels per secret |
 | Maximum lease duration | 90 days |
@@ -144,8 +144,8 @@ The following limits apply to SSL/TLS certificates.
 
 | Attribute | Limit |
 | --- | --- |
-| Name | 2 - 128 characters</br></br>The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
-| Description | 2 - 240 characters|
+| Name | 2 - 256 characters</br></br>The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
+| Description | 2 - 1024 characters|
 | Certificate | 100 KB<br></br>Supported file type is `.pem`. The certificate must be a valid, X.509-based certificate. |
 | Private key | 100 KB<br></br>Private key file is limited to PEM-formatted content. If provided, the private key must match the certificate that you are importing. Only unencrypted private keys are supported. |
 | Intermediate certificate | 100 KB<br></br>Supported file type is `.pem`. If provided, the intermediate certificate must be a valid, X.509-based certificate. |
@@ -162,8 +162,8 @@ The following limits apply to user credentials.
 
 | Attribute | Limit |
 | --- | --- |
-| Name | 2 - 128 characters</br></br>The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
-| Description | 2 - 240 characters |
+| Name | 2 - 256 characters</br></br>The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
+| Description | 2 - 1024 characters |
 | Username | 2 - 64 characters |
 | Password | 64 characters |
 | Labels | 2 - 30 characters</br></br>30 labels per secret |
