@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-23"
+lastupdated: "2021-07-12"
 
 keywords: change log for [{sm-short}] APIs, API changelog, updates to [{sm-short}] APIs
 
@@ -63,6 +63,14 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 
 
 
+
+## 11 July 2021
+{: #2021-07-11-api}
+
+This release includes the following updates:
+
+- Changed the maximum length for secret names to 240 characters.
+- Changed the maximum length for secret descriptions to 1024 characters.
 
 
 ## 20 June 2021
