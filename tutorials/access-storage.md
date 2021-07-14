@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-29"
+lastupdated: "2021-07-14"
 content-type: tutorial
 services: secrets-manager,cloud-object-storage
 account-plan: lite
@@ -86,7 +86,7 @@ Before you get started, be sure that you have [**Administrator** platform access
 - [Install the {{site.data.keyword.secrets-manager_short}} CLI plug-in](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli).
 - [Download and install jq](https://stedolan.github.io/jq/){: external}.
 
-   `jq` helps you slice up JSON data. You use `jq` in this tutorial to grab and use stored environment variables.
+   `jq` helps you slice and filter JSON data. You use `jq` in this tutorial to grab and use stored environment variables.
 
 ## Set up your environment
 {: #access-cos-configure-env}
@@ -104,7 +104,7 @@ You can have only one {{site.data.keyword.secrets-manager_short}} service instan
 
 Start by creating test instances of {{site.data.keyword.secrets-manager_short}} and Cloud Object Storage in your {{site.data.keyword.cloud_notm}} account.
 
-1. In a terminal window, log in to {{site.data.keyword.cloud_notm}} through the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-install-ibmcloud-cli).
+1. On the command line, log in to {{site.data.keyword.cloud_notm}} through the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-install-ibmcloud-cli).
 
     ```sh
     ibmcloud login
@@ -162,7 +162,7 @@ Next, define the access hierarchy that you need to be able to run operations aga
 
 1. Create a test access group in your {{site.data.keyword.cloud_notm}} account.
 
-    By creating an access group, you're able to assign access to the set of users and service IDs that require access to your {{site.data.keyword.secrets-manager_short}} and Cloud Object Storage instances. In a terminal window, run the following command to create a new access group called `test-cos-admin-group`.
+    By creating an access group, you're able to assign access to the set of users and service IDs that require access to your {{site.data.keyword.secrets-manager_short}} and Cloud Object Storage instances. From the command line, run the following command to create a new access group called `test-cos-admin-group`.
 
     ```sh
     export ACCESS_GROUP_ID=`ibmcloud iam access-group-create test-storage-admin-group -d "An access group for testing Secrets Manager and Cloud Object Storage." --output json | jq -r ".id"`; echo $ACCESS_GROUP_ID
@@ -250,7 +250,7 @@ Next, create a bucket in your Cloud Object Storage instance and set up access.
 
 Finally, configure your {{site.data.keyword.secrets-manager_short}} instance to start working with dynamic secrets.
 
-1. In a terminal window, verify that you can access the {{site.data.keyword.secrets-manager_short}} CLI plug-in.
+1. From the command line, verify that you can access the {{site.data.keyword.secrets-manager_short}} CLI plug-in.
 
    ```sh
    ibmcloud secrets-manager --help
@@ -380,7 +380,7 @@ To retrieve an IAM credential from the {{site.data.keyword.cloud_notm}} CLI, you
 
 By using the API key that you retrieved in the previous step, you can generate an IAM access token that is valid only for duration that you initially defined for the IAM credential.
 
-You can exchange the API key for an IAM access token by calling [IAM Identity Services API](/apidocs/iam-identity-token-api){: external}. To generate an IAM token, run the following cURL command in your terminal window.
+You can exchange the API key for an IAM access token by calling [IAM Identity Services API](/apidocs/iam-identity-token-api){: external}. To generate an IAM token, run the following cURL command from your command line.
 
 ```sh
 export IAM_TOKEN=`curl -X POST \
@@ -399,7 +399,7 @@ Success! You now have a valid IAM token that you can use to access your Cloud Ob
 
 As a user with lesser privileges, you can now read and write to your Cloud Object Storage bucket by using the access token that you generated in the previous step. After the lease duration of your IAM credentials expires, its associated API key is revoked automatically.
 
-In a terminal window, run the following cURL request to list the buckets in your Cloud Object Storage instance.
+On the command line, run the following cURL request to list the buckets in your Cloud Object Storage instance.
 
 ```sh
 curl -X GET \
