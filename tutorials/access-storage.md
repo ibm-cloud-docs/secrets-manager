@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-07-13"
+lastupdated: "2021-07-14"
 content-type: tutorial
 services: secrets-manager,cloud-object-storage
 account-plan: lite
@@ -86,7 +86,7 @@ Before you get started, be sure that you have [**Administrator** platform access
 - [Install the {{site.data.keyword.secrets-manager_short}} CLI plug-in](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli).
 - [Download and install jq](https://stedolan.github.io/jq/){: external}.
 
-   `jq` helps you slice up JSON data. You use `jq` in this tutorial to grab and use stored environment variables.
+   `jq` helps you slice and filter JSON data. You use `jq` in this tutorial to grab and use stored environment variables.
 
 ## Set up your environment
 {: #access-cos-configure-env}
