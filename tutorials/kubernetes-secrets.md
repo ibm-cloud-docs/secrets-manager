@@ -3,7 +3,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-15"
+lastupdated: "2021-07-16"
 
 keywords: tutorial, Secrets Manager
 
@@ -59,7 +59,7 @@ completion-time: 45m
 {:unity: .ph data-hd-programlang='unity'}
 
 
-# Integrate secrets from {{site.data.keyword.secrets-manager_short}} to your Kubernetes cluster
+# Secure Kubernetes application secrets with {{site.data.keyword.secrets-manager_short}}
 {: #tutorial-kubernetes-secrets}
 {: toc-content-type="tutorial"}
 {: toc-services="secrets-manager,containers,Registry"}
