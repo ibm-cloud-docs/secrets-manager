@@ -28,6 +28,7 @@ Secrets Manager
 
     {: .navgroup id="tutorial"}
     tutorials/access-storage.md
+    tutorials/kubernetes-secrets.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
