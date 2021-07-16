@@ -59,7 +59,7 @@ completion-time: 45m
 {:unity: .ph data-hd-programlang='unity'}
 
 
-# Secure Kubernetes application secrets with {{site.data.keyword.secrets-manager_short}}
+# Secure secrets for apps that run in a Kubernetes cluster
 {: #tutorial-kubernetes-secrets}
 {: toc-content-type="tutorial"}
 {: toc-services="secrets-manager,containers,Registry"}
