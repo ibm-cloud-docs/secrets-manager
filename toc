@@ -7,7 +7,12 @@ Secrets Manager
 
     {: .navgroup id="learn"}
     getting-started.md
-    use-cases/service-comparison.md
+    [Video: Why Secrets Manager?](https://www.youtube.com/watch?v=rOp7aGyavnk)
+
+    {: .topicgroup}
+    Use cases
+        use-cases/kubernetes-secrets.md
+        use-cases/service-comparison.md
 
     {: .topicgroup}
     Migration guides
