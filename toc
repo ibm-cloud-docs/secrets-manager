@@ -110,5 +110,6 @@ Secrets Manager
         troubleshooting/troubleshoot-creation.md
         troubleshooting/troubleshoot-access.md
         troubleshooting/troubleshoot-pem.md
+        troubleshooting/troubleshoot-iam-engine.md
         troubleshooting/troubleshoot-delete-group.md
     {: .navgroup-end}
