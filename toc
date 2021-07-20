@@ -108,6 +108,7 @@ Secrets Manager
     {: .topicgroup}
     Troubleshooting
         troubleshooting/troubleshoot-creation.md
+        troubleshooting/troubleshoot-iam-engine.md
         troubleshooting/troubleshoot-access.md
         troubleshooting/troubleshoot-pem.md
         troubleshooting/troubleshoot-delete-group.md
