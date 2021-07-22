@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-28"
+lastupdated: "2021-07-22"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -78,8 +78,8 @@ To access {{site.data.keyword.secrets-manager_short}} by using the Vault APIs, u
 
 The following table lists the endpoint URLs by region that can be used to interact with the Vault APIs.
 
-| Region        | Endpoint URL             |
-| ------------- | ---------------------------- |
+| Region        | Endpoint URL                                                     |
+| ------------- | ---------------------------------------------------------------- |
 | Dallas        | `https://{instance_id}.us-south.secrets-manager.appdomain.cloud` |
 | Washington DC | `https://{instance_id}.us-east.secrets-manager.appdomain.cloud`  |
 | London        | `https://{instance_id}.eu-gb.secrets-manager.appdomain.cloud`    |
@@ -114,10 +114,10 @@ You can find your unique endpoint URL in the **Endpoints** page of the {{site.da
 
 This section describes the headers that are common to all requests.
 
-| Header          | Description                                                               | Required |
-| --------------- | ------------------------------------------------------------------------- | -------- |
-| `X-Vault-Token` | A valid Vault token with sufficient permissions to perform the operation. | Yes      |
-| `Content-Type`  | `application/json`                                                        | Yes      |
+| Header          | Description                                                                         |
+| --------------- | ----------------------------------------------------------------------------------- |
+| `X-Vault-Token` | **Required.** A valid Vault token with sufficient permissions to perform the operation. |
+| `Content-Type`  | **Required.** `application/json`                                                        |
 {: caption="Table 2. Common headers" caption-side="top"}
 
 ### Timestamps
@@ -141,10 +141,11 @@ Logs in to Vault by using an {{site.data.keyword.cloud_notm}} IAM token and obta
 #### Parameters
 {: #vault-login-params}
 
-<dl>
-    <dt>token</dt>
-    <dd>Your {{site.data.keyword.cloud_notm}} IAM access token.</dd>
-</dl>
+| Name    | Description                                    |
+| ------- | ---------------------------------------------- |
+| `token` | **Required.** Your {{site.data.keyword.cloud_notm}} IAM access token. |
+{: caption="Table 3. Login request parameters" caption-side="top"}
+
 
 #### Example request
 {: #vault-login-request}
@@ -209,12 +210,12 @@ Use a duration string such as `300s` or `2h45m`. Valid time units are `s`, `m`, 
 #### Parameters
 {: #vault-configure-login-token-params}
 
-<dl>
-    <dt>token_max_ttl</dt>
-    <dd>The maximum lifetime of the login token. Default is `24h`. This value can't exceed the Vault <code>MaxLeaseTTL</code> value.</dd>
-    <dt>token_ttl</dt>
-    <dd>The initial time-to-live (TTL) of the login token to generate. Default is `1h`.</dd>
-</dl>
+| Name            | Description                                                                                                       |
+| --------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `token_max_ttl` | The maximum lifetime of the login token. Default is `24h`. This value can't exceed the Vault `MaxLeaseTTL` value. |
+| `token_ttl`     | The initial time-to-live (TTL) of the login token to generate. Default is `1h`.                                   |
+{: caption="Table 3. Configure login token request parameters" caption-side="top"}
+
 
 #### Example request
 {: #vault-configure-login-token-request}
@@ -284,12 +285,12 @@ Creates a secret group.
 #### Parameters
 {: #vault-create-secret-group-params}
 
-<dl>
-    <dt>name</dt>
-    <dd>The human-readable alias that you want to assign to the secret group.</dd>
-    <dt>description</dt>
-    <dd>(Optional) An extended description of the secret group.</dd>
-</dl>
+| Name          | Description                                                                         |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `name`        | **Required.** The human-readable alias that you want to assign to the secret group. |
+| `description` | An extended description of the secret group.                                        |
+{: caption="Table 4. Create secret group request parameters" caption-side="top"}
+
 
 #### Example request
 {: #vault-create-secret-group-request}
@@ -389,12 +390,12 @@ Updates the details of an existing secret group.
 #### Parameters
 {: #vault-update-secret-group-params}
 
-<dl>
-    <dt>name</dt>
-    <dd>The human-readable alias that you want to assign to the secret group.</dd>
-    <dt>description</dt>
-    <dd>(Optional) An extended description of the secret group.</dd>
-</dl>
+| Name          | Description                                                                         |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `name`        | **Required.** The human-readable alias that you want to assign to the secret group. |
+| `description` | An extended description of the secret group.                                        |
+{: caption="Table 5. Update secret group request parameters" caption-side="top"}
+
 
 #### Example request
 {: #vault-update-secret-group-request}
@@ -518,26 +519,20 @@ Creates or imports a secret by using the {{site.data.keyword.secrets-manager_sho
 #### Parameters
 {: #vault-create-secret-params}
 
-<dl>
-    <dt>name</dt>
-    <dd>The human-readable alias that you want to assign to the secret.</dd>
-    <dt>description</dt>
-    <dd>(Optional) An extended description for the secret.</dd>
-    <dt>payload</dt>
-    <dd>The secret data to assign to an <code>arbitrary</code> secret.</dd>
-    <dt>username</dt>
-    <dd>The username to assign to a <code>username_password</code> secret.</dd>
-    <dt>password</dt>
-    <dd>The password to assign to a <code>username_password</code> secret.</dd>
-    <dt>expiration_date</dt>
-    <dd>(Optional) The expiration date that you want to assign to the secret. This option is supported for the <code>arbitrary</code> and <code>username_password</code> secret types. The date format follows [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).</dd>
-    <dt>certificate</dt>
-    <dd>The certificate data to assign to an <code>imported_cert</code> secret.</dd>
-    <dt>private_key</dt>
-    <dd>The matching private key to assign to an <code>imported_cert</code> secret.</dd>
-    <dt>intermediate</dt>
-    <dd>The intermediate certificate data to assign to an <code>import_cert</code> secret.</dd>
-</dl>
+| Name          | Description                                                                         |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `name`        | **Required.** The human-readable alias that you want to assign to the secret. |
+| `description` | An extended description of the secret.                                      |
+| `payload`     | The secret data to assign to an `arbitrary` secret. |
+| `username`    | The username to assign to a `username_password` secret.|
+| `password`    | The password to assign to a `username_password` secret. |
+| `expiration_date` | The expiration date that you want to assign to the secret. This option is supported for the `arbitrary` and `username_password` secret types. The date format follows [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).|
+| `certificate` | The certificate data to assign to an `imported_cert` secret. |
+| `private_key` | The matching private key to assign to an `imported_cert` secret. |
+| `intermediate` | The intermediate certificate data to assign to an `import_cert` secret.|
+{: caption="Table 6. Create secret request parameters" caption-side="top"}
+
+
 
 #### Example requests
 {: #vault-create-secret-request}
@@ -1532,14 +1527,12 @@ Update the metadata of a secret, such as it's name, description, or expiration d
 #### Parameters
 {: #vault-update-secret-params}
 
-<dl>
-    <dt>name</dt>
-    <dd>The updated name to assign to the secret.</dd>
-    <dt>description</dt>
-    <dd>The updated description to assign to the secret.</dd>
-    <dt>expiration_date</dt>
-    <dd>The updated expiration date to assign to the secret.</dd>
-</dl>
+| Name          | Description                                                                         |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `name`        | The updated name to assign to the secret.                                           |
+| `description` | The updated description to assign to the secret.                                    |
+| `expiration_date` | The updated expiration date to assign to the secret. This option is supported for the `arbitrary` and `username_password` secret types. The date format follows [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).|
+{: caption="Table 7. Update secret metadata request parameters" caption-side="top"}
 
 
 #### Example requests
@@ -1610,18 +1603,16 @@ Create a new version of a secret. The secret retains its identifying information
 #### Parameters
 {: #vault-rotate-secret-params}
 
-<dl>
-    <dt>payload</dt>
-    <dd>The new secret data to assign to an <code>arbitrary</code> secret.</dd>
-    <dt>password</dt>
-    <dd>The new password to assign to a <code>username_password</code> secret.</dd>
-    <dt>certificate</dt>
-    <dd>The new certificate to assign to an <code>imported_cert</code> secret.</dd>
-    <dt>private_key</dt>
-    <dd>(Optional) The new matching private key to assign to an <code>imported_cert</code> secret.</dd>
-    <dt>intermediate</dt>
-    <dd>(Optional) The new intermediate certificate to assign to an <code>import_cert<code> secret.</dd>
-</dl>
+| Name          | Description                                                                         |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `payload`     | The new secret data to assign to an `arbitrary` secret. |
+| `username`    | The new password to assign to a `username_password` secret.|
+| `password`    | The password to assign to a `username_password` secret. |
+| `certificate` | The new certificate to assign to an `imported_cert` secret. |
+| `private_key` | The new private key to assign to an `imported_cert` secret. |
+| `intermediate` | The new intermediate certificate data to assign to an `import_cert` secret.|
+{: caption="Table 8. Rotate secret request parameters" caption-side="top"}
+
 
 #### Example requests
 {: #vault-rotate-secret-request}
@@ -1733,12 +1724,13 @@ Creates or updates an [automatic rotation policy](/docs/secrets-manager?topic=se
 #### Parameters
 {: #vault-set-secret-policies-params}
 
-<dl>
-    <dt>interval</dt>
-    <dd>The length of the secret rotation time interval.</dd>
-    <dt>unit</dt>
-    <dd>The units for the secret rotation time interval. Allowable values include: day, month</dd>
-</dl>
+
+| Name          | Description                                                                         |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `interval`     | The length of the secret rotation time interval. |
+| `unit`    | The units for the secret rotation time interval. Allowable values include: day, month|
+{: caption="Table 9. Set secret policy request parameters" caption-side="top"}
+
 
 #### Example request
 {: #vault-set-secret-policies-request}
