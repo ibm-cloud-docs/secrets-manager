@@ -1880,19 +1880,92 @@ Configures a secrets engine that serves as the backend for a specific type of se
 | Name          | Description                                                                         |
 | ------------- | ----------------------------------------------------------------------------------- |
 | `api_key`     | An {{site.data.keyword.cloud_notm}} API key that has the capability to create and manage service IDs. Required if configuring the `iam_credentials` secrets engine. <br><br>The API key must be assigned the Editor platform role on the Access Groups Service and the Operator platform role on the IAM Identity Service. |
-{: caption="Table 10. Configure secrets engine request parameters" caption-side="top"}
+{: caption="Table 10. IAM secrets engine request parameters" caption-side="top"}
+{: #iam-secrets-engine-request-params}
+{: tab-title="IAM credentials"}
+{: tab-group="vault-configure-secret-type-params"}
+{: class="simple-tab-table"}
 
+| Name          | Description                                                                         |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `name`        | A human-readable name to assign to your certificate authority configuration.        |
+| `type`        | The environment type, for example the Let's Encrypt staging or production environment, that corresponds with the URL that you want to target to order certificates. Allowable values include: `letsencrypt-stage`, `letsencrypt` | 
+| `private_key` | The private key that is associated with your ACME account. |
+{: caption="Table 11. Public certificates engine request parameters" caption-side="top"}
+{: #public-cert-secrets-engine-request-params}
+{: tab-title="Public certificates"}
+{: tab-group="vault-configure-secret-type-params"}
+{: class="simple-tab-table"}
 
 #### Example request
 {: #vault-configure-secret-type-request}
 
-Configure the `iam_credentials` secret engine.
+Configure the `iam_credentials` secrets engine.
 
-```
-curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/iam_credentials/config/root" \
-  -H 'api_key: <API_KEY>'
+```sh
+curl -X PUT "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/iam_credentials/config/root" \
+  -H 'X-Vault-Token: {Vault-Token}' \
+  -H 'Content-Type: application/json' \
+  -d '{ 
+      "api_key": "<API_KEY>" 
+    }'
 ```
 {: codeblock}
+
+Configure the `public_cert` secrets engine.
+
+```sh
+curl -X PUT "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/public_cert/config/certificate_authorities" \
+  -H 'X-Vault-Token: {Vault-Token}' \
+  -H 'Content-Type: application/json' \
+  -d '{ 
+        "name": "test-certificate-authority",
+        "type": "letsencrypt-stage",
+        "private_key": "-----BEGIN PRIVATE KEY-----\nMIICdgIBADANB...(redacted)"
+    }'
+```
+{: codeblock}
+
+#### Example response
+{: #vault-configure-secret-type-response}
+
+A request to configure the `iam_credentials` secrets engine returns the following response:
+
+```json
+{
+    "request_id": "f7ac2068-6b07-7602-76af-093e354a444a",
+    "lease_id": "",
+    "renewable": false,
+    "lease_duration": 0,
+    "data": null,
+    "wrap_info": null,
+    "warnings": null,
+    "auth": null
+}
+```
+{: screen}
+
+A request to configure the `public_cert` secrets engine returns the following response:
+
+```json
+{
+    "request_id": "af1a900d-3cec-7f6d-8878-fa43d1587d90",
+    "lease_id": "",
+    "renewable": false,
+    "lease_duration": 0,
+    "data": {
+        "config": {
+            "PRIVATE_KEY": "-----BEGIN PRIVATE KEY-----\nMIICdgIBADANB...(redacted)"
+        },
+        "name": "test-certificate-authority",
+        "type": "letsencrypt-stage"
+    },
+    "wrap_info": null,
+    "warnings": null,
+    "auth": null
+}
+```
+{: screen}
 
 ### Get the configuration for a secret type
 {: #vault-get-secrets-engines-config}
@@ -1904,7 +1977,7 @@ Retrieves the configuration for a secrets engine.
 
 Get the configuration of `iam_credentials` secrets engine.
 
-```
+```sh
 curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/iam_credentials/config/root" \
   -H 'X-Vault-Token: {Vault-Token}'
 ```
@@ -1930,3 +2003,4 @@ A request to get the configuration of the `iam_credentials` secrets engine retur
 }
 ```
 {: screen}
+
