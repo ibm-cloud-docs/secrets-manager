@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-21"
+lastupdated: "2021-08-02"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -123,12 +123,6 @@ You can now create a private instance of {{site.data.keyword.secrets-manager_sho
 
 For more information, see [Securing your connection to {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-service-connection).
 
-### Configure the IAM secrets engine from the {{site.data.keyword.secrets-manager_short}} UI
-{: #2021-03-22-secrets-engine}
-
-Want to get started with IAM credential secrets? You can now configure your {{site.data.keyword.secrets-manager_short}} instance for the IAM secrets engine by creating the required credentials without leaving the service dashboard.
-
-For more information, see [Configuring the IAM secrets engine in the UI](/docs/secrets-manager?topic=secrets-manager-iam-credentials#configure-iam-secrets-engine-ui).
 
 ### Reuse API keys for IAM credential secrets
 {: #2021-03-22-reuse-api-key}
