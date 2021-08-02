@@ -1899,7 +1899,7 @@ Configures a secrets engine that serves as the backend for a specific type of se
 
 | Request parameters         | Description                                                                         |
 | ------------- | ----------------------------------------------------------------------------------- |
-| `api_key`     | An {{site.data.keyword.cloud_notm}} API key that has the capability to create and manage service IDs. Required if configuring the `iam_credentials` secrets engine. <br><br>The API key must be assigned the Editor platform role on the Access Groups Service and the Operator platform role on the IAM Identity Service. |
+| `api_key`     | An {{site.data.keyword.cloud_notm}} API key that has the capability to create and manage service IDs. The API key must be assigned the Editor platform role on the Access Groups Service and the Operator platform role on the IAM Identity Service. |
 {: caption="Table 10. IAM secrets engine request parameters" caption-side="top"}
 {: #iam-secrets-engine-request-params}
 {: tab-title="IAM credentials"}
