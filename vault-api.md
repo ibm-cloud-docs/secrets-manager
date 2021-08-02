@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-07-22"
+lastupdated: "2021-08-02"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -1865,3 +1865,68 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 ```
 {:screen}
 
+## Config
+{: #vault-api-secrets-engines-config}
+
+### Configure secrets of a specific type
+{: #vault-configure-secret-type}
+
+Configures a secrets engine that serves as the backend for a specific type of secret. You can update the configuration for the following secret types: `iam_credentials`<public-cert>, `public_cert`<public-cert>
+
+
+#### Parameters
+{: #vault-configure-secret-type-params}
+
+| Name          | Description                                                                         |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `api_key`     | An {{site.data.keyword.cloud_notm}} API key that has the capability to create and manage service IDs. Required if configuring the `iam_credentials` secrets engine. <br><br>The API key must be assigned the Editor platform role on the Access Groups Service and the Operator platform role on the IAM Identity Service. |
+{: caption="Table 10. Configure secrets engine request parameters" caption-side="top"}
+
+
+#### Example request
+{: #vault-configure-secret-type-request}
+
+Configure the `iam_credentials` secret engine.
+
+```
+curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/iam_credentials/config/root" \
+  -H 'api_key: <API_KEY>'
+```
+{: codeblock}
+
+### Get the configuration for a secret type
+{: #vault-get-secrets-engines-config}
+
+Retrieves the configuration for a secrets engine.
+
+#### Example request
+{: #vault-get-secrets-engines-config-request}
+
+Get the configuration of `iam_credentials` secrets engine.
+
+```
+curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/iam_credentials/config/root" \
+  -H 'X-Vault-Token: {Vault-Token}'
+```
+{: codeblock}
+
+#### Example response
+{: #vault-get-secrets-engines-config-response}
+
+A request to get the configuration of the `iam_credentials` secrets engine returns the following response:
+
+```json
+{
+    "request_id": "12f0a38d-93a5-6a9a-1997-79928f15c5ea",
+    "lease_id": "",
+    "renewable": false,
+    "lease_duration": 0,
+    "data": {
+        "api_key_hash": "caf9eabec3c6dcc7f91cb6ea295eb97c8e34e70b0cf5942d6351d8746d9cc2da"
+    },
+    "wrap_info": null,
+    "warnings": null,
+    "auth": null
+}
+```
+{: screen}
