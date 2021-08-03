@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-02"
+lastupdated: "2021-08-03"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -512,7 +512,6 @@ Creates or imports a secret by using the {{site.data.keyword.secrets-manager_sho
 - Imported certificates (`import_cert`)
 - Public certificates (`public_cert`)
 
-The required request parameters depend on the type of secret that you want to add to the service.
 
 | Request parameters            | Description                                                                         |
 | ------------- | ----------------------------------------------------------------------------------- |
@@ -520,7 +519,7 @@ The required request parameters depend on the type of secret that you want to ad
 | `description` | An extended description of the secret.                                      |
 | `payload`     | **Required.** The secret data to assign to the secret. |
 | `expiration_date` | The expiration date that you want to assign to the secret. The date format follows [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).|
-| `labels[]` | |
+| `labels[]` | Labels that you can use to filter for secrets in your instance. Up to 30 labels can be added. |
 {: caption="Table 6. Create secret request parameters - Arbitrary secrets" caption-side="top"}
 {: #vault-create-secret-params-arbitrary}
 {: tab-title="Arbitrary secrets"}
@@ -531,9 +530,9 @@ The required request parameters depend on the type of secret that you want to ad
 | ------------- | ----------------------------------------------------------------------------------- |
 | `name`        | **Required.** The human-readable alias that you want to assign to the secret. |
 | `description` | An extended description of the secret.                                      |
-| `access_groups[]`    | **Required.** |
-| `ttl`    |  |
-| `labels[]` | |
+| `access_groups[]`    | **Required.** The access groups that define the capabilities of the service ID and API key that are generated for an `iam_credentials` secret. |
+| `ttl`    |  **Required.** The time-to-live (TTL) or lease duration to assign to generated credentials. The value can be either an integer that specifies the number of seconds, or the string representation of a duration, such as `120m` or `24h`. |
+| `labels[]` | Labels that you can use to filter for secrets in your instance. Up to 30 labels can be added. |
 {: caption="Table 6. Create secret request parameters - IAM credentials" caption-side="top"}
 {: #vault-create-secret-params-iam-creds}
 {: tab-title="IAM credentials"}
@@ -547,7 +546,7 @@ The required request parameters depend on the type of secret that you want to ad
 | `username`    | **Required.** The username to assign to the secret.|
 | `password`    | The password to assign to the secret. |
 | `expiration_date` | The expiration date that you want to assign to the secret. The date format follows [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).|
-| `labels[]` | |
+| `labels[]` | Labels that you can use to filter for secrets in your instance. Up to 30 labels can be added. |
 {: caption="Table 6. Create secret request parameters - User credentials" caption-side="top"}
 {: #vault-create-secret-params-user-creds}
 {: tab-title="User credentials"}
@@ -561,7 +560,7 @@ The required request parameters depend on the type of secret that you want to ad
 | `certificate` | **Required.** The certificate data to assign to an `imported_cert` secret. |
 | `private_key` | The matching private key to assign to an `imported_cert` secret. |
 | `intermediate` | The intermediate certificate data to assign to an `import_cert` secret.|
-| `labels[]` | |
+| `labels[]` | Labels that you can use to filter for secrets in your instance. Up to 30 labels can be added. |
 {: caption="Table 6. Create secret request parameters - Imported certificates" caption-side="top"}
 {: #vault-create-secret-params-imported-certs}
 {: tab-title="Imported certificates"}
