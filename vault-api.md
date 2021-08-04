@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-03"
+lastupdated: "2021-08-04"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -1940,7 +1940,9 @@ curl -X PUT "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
   -d '{ 
         "name": "test-certificate-authority",
         "type": "letsencrypt-stage",
-        "private_key": "-----BEGIN PRIVATE KEY-----\nMIICdgIBADANB...(redacted)"
+        "config": {
+          "PRIVATE_KEY": "-----BEGIN PRIVATE KEY-----\nMIICdgIBADANB...(redacted)"
+        }
     }'
 ```
 {: codeblock}
