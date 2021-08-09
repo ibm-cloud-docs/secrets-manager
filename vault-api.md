@@ -510,7 +510,6 @@ Creates or imports a secret by using the {{site.data.keyword.secrets-manager_sho
 - IAM credentials (`iam_credentials`)
 - User credentials (`user_credentials`)
 - Imported certificates (`import_cert`)
-- Public certificates (`public_cert`)
 
 
 | Request parameters            | Description                                                                         |
@@ -1900,10 +1899,6 @@ Configures a secrets engine that serves as the backend for a specific type of se
 | ------------- | ----------------------------------------------------------------------------------- |
 | `api_key`     | An {{site.data.keyword.cloud_notm}} API key that has the capability to create and manage service IDs. The API key must be assigned the Editor platform role on the Access Groups Service and the Operator platform role on the IAM Identity Service. |
 {: caption="Table 10. IAM secrets engine request parameters" caption-side="top"}
-{: #iam-secrets-engine-request-params}
-{: tab-title="IAM credentials"}
-{: tab-group="vault-configure-secret-type-params"}
-{: class="simple-tab-table"}
 
 #### Example request
 {: #vault-configure-secret-type-request}
