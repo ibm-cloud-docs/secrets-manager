@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-28"
+lastupdated: "2021-08-09"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -78,8 +78,8 @@ To access {{site.data.keyword.secrets-manager_short}} by using the Vault APIs, u
 
 The following table lists the endpoint URLs by region that can be used to interact with the Vault APIs.
 
-| Region        | Endpoint URL             |
-| ------------- | ---------------------------- |
+| Region        | Endpoint URL                                                     |
+| ------------- | ---------------------------------------------------------------- |
 | Dallas        | `https://{instance_id}.us-south.secrets-manager.appdomain.cloud` |
 | Washington DC | `https://{instance_id}.us-east.secrets-manager.appdomain.cloud`  |
 | London        | `https://{instance_id}.eu-gb.secrets-manager.appdomain.cloud`    |
@@ -114,10 +114,10 @@ You can find your unique endpoint URL in the **Endpoints** page of the {{site.da
 
 This section describes the headers that are common to all requests.
 
-| Header          | Description                                                               | Required |
-| --------------- | ------------------------------------------------------------------------- | -------- |
-| `X-Vault-Token` | A valid Vault token with sufficient permissions to perform the operation. | Yes      |
-| `Content-Type`  | `application/json`                                                        | Yes      |
+| Header          | Description                                                                         |
+| --------------- | ----------------------------------------------------------------------------------- |
+| `X-Vault-Token` | **Required.** A valid Vault token with sufficient permissions to perform the operation. |
+| `Content-Type`  | **Required.** `application/json`                                                        |
 {: caption="Table 2. Common headers" caption-side="top"}
 
 ### Timestamps
@@ -138,13 +138,11 @@ This API follows the Vault HTTP API guidelines. All field names are formatted in
 
 Logs in to Vault by using an {{site.data.keyword.cloud_notm}} IAM token and obtains a Vault token with mapped policies.
 
-#### Parameters
-{: #vault-login-params}
+| Request parameters      | Description                                    |
+| ------- | ---------------------------------------------- |
+| `token` | **Required.** Your {{site.data.keyword.cloud_notm}} IAM access token. |
+{: caption="Table 3. Login request parameters" caption-side="top"}
 
-<dl>
-    <dt>token</dt>
-    <dd>Your {{site.data.keyword.cloud_notm}} IAM access token.</dd>
-</dl>
 
 #### Example request
 {: #vault-login-request}
@@ -206,15 +204,13 @@ Configures the duration or time-to-live (TTL) and lifespan (MaxTTL) of a Vault l
 
 Use a duration string such as `300s` or `2h45m`. Valid time units are `s`, `m`, and `h`. The {{site.data.keyword.cloud_notm}} auth plug-in sets the default login token duration (TTL) to 1 hour, and the default lifespan (MaxTTL) to 24 hours.
 
-#### Parameters
-{: #vault-configure-login-token-params}
 
-<dl>
-    <dt>token_max_ttl</dt>
-    <dd>The maximum lifetime of the login token. Default is `24h`. This value can't exceed the Vault <code>MaxLeaseTTL</code> value.</dd>
-    <dt>token_ttl</dt>
-    <dd>The initial time-to-live (TTL) of the login token to generate. Default is `1h`.</dd>
-</dl>
+| Request parameters             | Description                                                                                                       |
+| --------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `token_max_ttl` | The maximum lifetime of the login token. Default is `24h`. This value can't exceed the Vault `MaxLeaseTTL` value. |
+| `token_ttl`     | The initial time-to-live (TTL) of the login token to generate. Default is `1h`.                                   |
+{: caption="Table 3. Configure login token request parameters" caption-side="top"}
+
 
 #### Example request
 {: #vault-configure-login-token-request}
@@ -281,15 +277,13 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/a
 
 Creates a secret group.
 
-#### Parameters
-{: #vault-create-secret-group-params}
 
-<dl>
-    <dt>name</dt>
-    <dd>The human-readable alias that you want to assign to the secret group.</dd>
-    <dt>description</dt>
-    <dd>(Optional) An extended description of the secret group.</dd>
-</dl>
+| Request parameters          | Description                                                                         |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `name`        | **Required.** The human-readable alias that you want to assign to the secret group. |
+| `description` | An extended description of the secret group.                                        |
+{: caption="Table 4. Create secret group request parameters" caption-side="top"}
+
 
 #### Example request
 {: #vault-create-secret-group-request}
@@ -386,15 +380,12 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/a
 
 Updates the details of an existing secret group.
 
-#### Parameters
-{: #vault-update-secret-group-params}
+| Request parameters            | Description                                                                         |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `name`        | **Required.** The human-readable alias that you want to assign to the secret group. |
+| `description` | An extended description of the secret group.                                        |
+{: caption="Table 5. Update secret group request parameters" caption-side="top"}
 
-<dl>
-    <dt>name</dt>
-    <dd>The human-readable alias that you want to assign to the secret group.</dd>
-    <dt>description</dt>
-    <dd>(Optional) An extended description of the secret group.</dd>
-</dl>
 
 #### Example request
 {: #vault-update-secret-group-request}
@@ -513,31 +504,67 @@ curl -X DELETE "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v
 ### Create a secret
 {: #vault-create-secret}
 
-Creates or imports a secret by using the {{site.data.keyword.secrets-manager_short}} secrets engines. For more information about secret types that you can manage in the service, see [Working with secrets of different types](/docs/secrets-manager?topic=secrets-manager-what-is-secret).
+Creates or imports a secret by using the {{site.data.keyword.secrets-manager_short}} secrets engines. You can add one of the following [secret types](/docs/secrets-manager?topic=secrets-manager-what-is-secret):
 
-#### Parameters
-{: #vault-create-secret-params}
+- Arbitrary secrets (`arbitrary`)
+- IAM credentials (`iam_credentials`)
+- User credentials (`user_credentials`)
+- Imported certificates (`import_cert`)
 
-<dl>
-    <dt>name</dt>
-    <dd>The human-readable alias that you want to assign to the secret.</dd>
-    <dt>description</dt>
-    <dd>(Optional) An extended description for the secret.</dd>
-    <dt>payload</dt>
-    <dd>The secret data to assign to an <code>arbitrary</code> secret.</dd>
-    <dt>username</dt>
-    <dd>The username to assign to a <code>username_password</code> secret.</dd>
-    <dt>password</dt>
-    <dd>The password to assign to a <code>username_password</code> secret.</dd>
-    <dt>expiration_date</dt>
-    <dd>(Optional) The expiration date that you want to assign to the secret. This option is supported for the <code>arbitrary</code> and <code>username_password</code> secret types. The date format follows [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).</dd>
-    <dt>certificate</dt>
-    <dd>The certificate data to assign to an <code>imported_cert</code> secret.</dd>
-    <dt>private_key</dt>
-    <dd>The matching private key to assign to an <code>imported_cert</code> secret.</dd>
-    <dt>intermediate</dt>
-    <dd>The intermediate certificate data to assign to an <code>import_cert</code> secret.</dd>
-</dl>
+
+| Request parameters            | Description                                                                         |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `name`        | **Required.** The human-readable alias that you want to assign to the secret. |
+| `description` | An extended description of the secret.                                      |
+| `payload`     | **Required.** The secret data to assign to the secret. |
+| `expiration_date` | The expiration date that you want to assign to the secret. The date format follows [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).|
+| `labels[]` | Labels that you can use to filter for secrets in your instance. Up to 30 labels can be added. |
+{: caption="Table 6. Create secret request parameters - Arbitrary secrets" caption-side="top"}
+{: #vault-create-secret-params-arbitrary}
+{: tab-title="Arbitrary secrets"}
+{: tab-group="vault-create-secret-params"}
+{: class="simple-tab-table"}
+
+| Request parameters            | Description                                                                         |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `name`        | **Required.** The human-readable alias that you want to assign to the secret. |
+| `description` | An extended description of the secret.                                      |
+| `access_groups[]`    | **Required.** The access groups that define the capabilities of the service ID and API key that are generated for an `iam_credentials` secret. |
+| `ttl`    |  **Required.** The time-to-live (TTL) or lease duration to assign to generated credentials. The value can be either an integer that specifies the number of seconds, or the string representation of a duration, such as `120m` or `24h`. |
+| `labels[]` | Labels that you can use to filter for secrets in your instance. Up to 30 labels can be added. |
+{: caption="Table 6. Create secret request parameters - IAM credentials" caption-side="top"}
+{: #vault-create-secret-params-iam-creds}
+{: tab-title="IAM credentials"}
+{: tab-group="vault-create-secret-params"}
+{: class="simple-tab-table"}
+
+| Request parameters           | Description                                                                         |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `name`        | **Required.** The human-readable alias that you want to assign to the secret. |
+| `description` | An extended description of the secret.                                      |
+| `username`    | **Required.** The username to assign to the secret.|
+| `password`    | The password to assign to the secret. |
+| `expiration_date` | The expiration date that you want to assign to the secret. The date format follows [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).|
+| `labels[]` | Labels that you can use to filter for secrets in your instance. Up to 30 labels can be added. |
+{: caption="Table 6. Create secret request parameters - User credentials" caption-side="top"}
+{: #vault-create-secret-params-user-creds}
+{: tab-title="User credentials"}
+{: tab-group="vault-create-secret-params"}
+{: class="simple-tab-table"}
+
+| Request parameters           | Description                                                                         |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `name`        | **Required.** The human-readable alias that you want to assign to the secret. |
+| `description` | An extended description of the secret.                                      |
+| `certificate` | **Required.** The certificate data to assign to an `imported_cert` secret. |
+| `private_key` | The matching private key to assign to an `imported_cert` secret. |
+| `intermediate` | The intermediate certificate data to assign to an `import_cert` secret.|
+| `labels[]` | Labels that you can use to filter for secrets in your instance. Up to 30 labels can be added. |
+{: caption="Table 6. Create secret request parameters - Imported certificates" caption-side="top"}
+{: #vault-create-secret-params-imported-certs}
+{: tab-title="Imported certificates"}
+{: tab-group="vault-create-secret-params"}
+{: class="simple-tab-table"}
 
 #### Example requests
 {: #vault-create-secret-request}
@@ -1529,17 +1556,12 @@ A request to retrieve the metadata of an `arbitrary` secret in the `default` sec
 
 Update the metadata of a secret, such as it's name, description, or expiration date. To rotate the actual value of a secret, use [Rotate a secret](#vault-rotate-secret).
 
-#### Parameters
-{: #vault-update-secret-params}
-
-<dl>
-    <dt>name</dt>
-    <dd>The updated name to assign to the secret.</dd>
-    <dt>description</dt>
-    <dd>The updated description to assign to the secret.</dd>
-    <dt>expiration_date</dt>
-    <dd>The updated expiration date to assign to the secret.</dd>
-</dl>
+| Request parameters            | Description                                                                         |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `name`        | The updated name to assign to the secret.                                           |
+| `description` | The updated description to assign to the secret.                                    |
+| `expiration_date` | The updated expiration date to assign to the secret. This option is supported for the `arbitrary` and `username_password` secret types. The date format follows [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).|
+{: caption="Table 7. Update secret metadata request parameters" caption-side="top"}
 
 
 #### Example requests
@@ -1607,21 +1629,16 @@ curl -X PUT "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 
 Create a new version of a secret. The secret retains its identifying information, such as its name and ID. To set an automatic rotation policy for a secret, see [Set secret policies](#vault-set-secret-policies).
 
-#### Parameters
-{: #vault-rotate-secret-params}
+| Request parameters            | Description                                                                         |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `payload`     | The new secret data to assign to an `arbitrary` secret. |
+| `username`    | The new password to assign to a `username_password` secret.|
+| `password`    | The password to assign to a `username_password` secret. |
+| `certificate` | The new certificate to assign to an `imported_cert` secret. |
+| `private_key` | The new private key to assign to an `imported_cert` secret. |
+| `intermediate` | The new intermediate certificate data to assign to an `import_cert` secret.|
+{: caption="Table 8. Rotate secret request parameters" caption-side="top"}
 
-<dl>
-    <dt>payload</dt>
-    <dd>The new secret data to assign to an <code>arbitrary</code> secret.</dd>
-    <dt>password</dt>
-    <dd>The new password to assign to a <code>username_password</code> secret.</dd>
-    <dt>certificate</dt>
-    <dd>The new certificate to assign to an <code>imported_cert</code> secret.</dd>
-    <dt>private_key</dt>
-    <dd>(Optional) The new matching private key to assign to an <code>imported_cert</code> secret.</dd>
-    <dt>intermediate</dt>
-    <dd>(Optional) The new intermediate certificate to assign to an <code>import_cert<code> secret.</dd>
-</dl>
 
 #### Example requests
 {: #vault-rotate-secret-request}
@@ -1730,15 +1747,12 @@ curl -X DELETE "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v
 
 Creates or updates an [automatic rotation policy](/docs/secrets-manager?topic=secrets-manager-rotate-secrets#auto-rotate-secret) for a secret. Supported secret types include: `username_password`
 
-#### Parameters
-{: #vault-set-secret-policies-params}
+| Request parameters            | Description                                                                         |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `interval`     | The length of the secret rotation time interval. |
+| `unit`    | The units for the secret rotation time interval. Allowable values include: day, month|
+{: caption="Table 9. Set secret policy request parameters" caption-side="top"}
 
-<dl>
-    <dt>interval</dt>
-    <dd>The length of the secret rotation time interval.</dd>
-    <dt>unit</dt>
-    <dd>The units for the secret rotation time interval. Allowable values include: day, month</dd>
-</dl>
 
 #### Example request
 {: #vault-set-secret-policies-request}
@@ -1873,3 +1887,86 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 ```
 {:screen}
 
+## Config
+{: #vault-api-secrets-engines-config}
+
+### Configure secrets of a specific type
+{: #vault-configure-secret-type}
+
+Configures a secrets engine that serves as the backend for a specific type of secret. You can set the configuration for the following secret types: `iam_credentials`
+
+| Request parameters         | Description                                                                         |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `api_key`     | An {{site.data.keyword.cloud_notm}} API key that has the capability to create and manage service IDs. The API key must be assigned the Editor platform role on the Access Groups Service and the Operator platform role on the IAM Identity Service. |
+{: caption="Table 10. IAM secrets engine request parameters" caption-side="top"}
+
+#### Example request
+{: #vault-configure-secret-type-request}
+
+Configure the `iam_credentials` secrets engine.
+
+```sh
+curl -X PUT "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/iam_credentials/config/root" \
+  -H 'X-Vault-Token: {Vault-Token}' \
+  -H 'Content-Type: application/json' \
+  -d '{ 
+      "api_key": "<API_KEY>" 
+    }'
+```
+{: codeblock}
+
+#### Example response
+{: #vault-configure-secret-type-response}
+
+A request to configure the `iam_credentials` secrets engine returns the following response:
+
+```json
+{
+    "request_id": "f7ac2068-6b07-7602-76af-093e354a444a",
+    "lease_id": "",
+    "renewable": false,
+    "lease_duration": 0,
+    "data": null,
+    "wrap_info": null,
+    "warnings": null,
+    "auth": null
+}
+```
+{: screen}
+
+### Get the configuration for a secret type
+{: #vault-get-secrets-engines-config}
+
+Retrieves the configuration for a secrets engine.
+
+#### Example request
+{: #vault-get-secrets-engines-config-request}
+
+Get the configuration of `iam_credentials` secrets engine.
+
+```sh
+curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/iam_credentials/config/root" \
+  -H 'X-Vault-Token: {Vault-Token}'
+```
+{: codeblock}
+
+#### Example response
+{: #vault-get-secrets-engines-config-response}
+
+A request to get the configuration of the `iam_credentials` secrets engine returns the following response:
+
+```json
+{
+    "request_id": "12f0a38d-93a5-6a9a-1997-79928f15c5ea",
+    "lease_id": "",
+    "renewable": false,
+    "lease_duration": 0,
+    "data": {
+        "api_key_hash": "caf9eabec3c6dcc7f91cb6ea295eb97c8e34e70b0cf5942d6351d8746d9cc2da"
+    },
+    "wrap_info": null,
+    "warnings": null,
+    "auth": null
+}
+```
+{: screen}
