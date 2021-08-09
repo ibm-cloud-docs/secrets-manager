@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-04"
+lastupdated: "2021-08-09"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -1905,17 +1905,6 @@ Configures a secrets engine that serves as the backend for a specific type of se
 {: tab-group="vault-configure-secret-type-params"}
 {: class="simple-tab-table"}
 
-| Request parameters           | Description                                                                         |
-| ------------- | ----------------------------------------------------------------------------------- |
-| `name`        | A human-readable name to assign to your certificate authority configuration.        |
-| `type`        | The environment type, for example the Let's Encrypt staging or production environment, that corresponds with the URL that you want to target to order certificates. Allowable values include: `letsencrypt-stage`, `letsencrypt` | 
-| `private_key` | The private key that is associated with your ACME account. |
-{: caption="Table 11. Public certificates engine request parameters" caption-side="top"}
-{: #public-cert-secrets-engine-request-params}
-{: tab-title="Public certificates"}
-{: tab-group="vault-configure-secret-type-params"}
-{: class="simple-tab-table"}
-
 #### Example request
 {: #vault-configure-secret-type-request}
 
@@ -1927,22 +1916,6 @@ curl -X PUT "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
   -H 'Content-Type: application/json' \
   -d '{ 
       "api_key": "<API_KEY>" 
-    }'
-```
-{: codeblock}
-
-Configure the `public_cert` secrets engine.
-
-```sh
-curl -X PUT "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/public_cert/config/certificate_authorities" \
-  -H 'X-Vault-Token: {Vault-Token}' \
-  -H 'Content-Type: application/json' \
-  -d '{ 
-        "name": "test-certificate-authority",
-        "type": "letsencrypt-stage",
-        "config": {
-          "PRIVATE_KEY": "-----BEGIN PRIVATE KEY-----\nMIICdgIBADANB...(redacted)"
-        }
     }'
 ```
 {: codeblock}
@@ -1959,28 +1932,6 @@ A request to configure the `iam_credentials` secrets engine returns the followin
     "renewable": false,
     "lease_duration": 0,
     "data": null,
-    "wrap_info": null,
-    "warnings": null,
-    "auth": null
-}
-```
-{: screen}
-
-A request to configure the `public_cert` secrets engine returns the following response:
-
-```json
-{
-    "request_id": "af1a900d-3cec-7f6d-8878-fa43d1587d90",
-    "lease_id": "",
-    "renewable": false,
-    "lease_duration": 0,
-    "data": {
-        "config": {
-            "PRIVATE_KEY": "-----BEGIN PRIVATE KEY-----\nMIICdgIBADANB...(redacted)"
-        },
-        "name": "test-certificate-authority",
-        "type": "letsencrypt-stage"
-    },
     "wrap_info": null,
     "warnings": null,
     "auth": null
