@@ -69,7 +69,7 @@ The following table lists the services that can be authorized to work with {{sit
 | Service | Description |
 | ------------------ | ----------- |
 | [Catalog management](/docs/account?topic=account-create-private-catalog) | Centrally manage access to products in the {{site.data.keyword.cloud_notm}} catalog by creating and customizing private catalogs.    |
-| [{{site.data.keyword.contdelivery_short}} ](/docs/ContinuousDelivery?topic=ContinuousDelivery-secretsmanager) | Configure {{site.data.keyword.secrets-manager_short}} to securely manage secrets that are part of your {{site.data.keyword.contdelivery_short}} toolchain.  |
+| [Toolchain](/docs/ContinuousDelivery?topic=ContinuousDelivery-secretsmanager) | Configure {{site.data.keyword.secrets-manager_short}} to securely manage secrets that are part of your {{site.data.keyword.contdelivery_short}} toolchain.  |
 {: caption="Table 1. Available integrations" caption-side="top"}
 
 ## Creating an authorization between {{site.data.keyword.secrets-manager_short}} and another {{site.data.keyword.cloud_notm}} service
