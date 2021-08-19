@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-07-15"
+lastupdated: "2021-08-19"
 
 keywords: secrets management in IBM Cloud, differences between {{site.data.keyword.secrets-manager_short}} and Key Protect, when to use {{site.data.keyword.secrets-manager_short}}, {{site.data.keyword.secrets-manager_short}} use cases, single tenant, multi-tenant
 
@@ -108,9 +108,11 @@ For a higher level of security and control, your business might benefit from the
 
 Each service supports either a Lite plan or a free trial that you can use to try its service capabilities for free. Get started by creating an instance of a service from the {{site.data.keyword.cloud_notm}} catalog.
 
-- [{{site.data.keyword.cloudcerts_short}}](/catalog/services/certificate-manager){:external}
-- [{{site.data.keyword.keymanagementserviceshort}}](/catalog/services/key-protect){:external}
-- [{{site.data.keyword.hscrypto}}](/catalog/services/hs-crypto){:external}
-- [{{site.data.keyword.secrets-manager_short}}](/catalog/services/secrets-manager){:external}
+- [{{site.data.keyword.cloudcerts_short}}](/catalog/services/certificate-manager){: external}
+- [{{site.data.keyword.keymanagementserviceshort}}](/catalog/services/key-protect){: external}
+- [{{site.data.keyword.hscrypto}}](/catalog/services/hs-crypto){: external}
+- [{{site.data.keyword.secrets-manager_short}}](/catalog/services/secrets-manager){: external}
+
+
 
 

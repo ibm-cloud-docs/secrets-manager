@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-20"
+lastupdated: "2021-08-19"
 
 keywords: Secrets Manager integrations, enable integration, service to service, grant access between services
 
@@ -81,10 +81,12 @@ To authorize another service to use a secret that's stored your {{site.data.keyw
 2. Click **Create**.
 3. Select a source and target service for the authorization.
 
-   1. From the **Source service** list, select the service that you want to integrate with {{site.data.keyword.secrets-manager_short}}.
-   2. From the **Target service** list, select {{site.data.keyword.secrets-manager_short}}.
+    1. From the **Source service** list, select the service that you want to integrate with {{site.data.keyword.secrets-manager_short}}.
+    2. From the **Target service** list, select {{site.data.keyword.secrets-manager_short}}.
 4. Select the **SecretsReader** role.
 
     With SecretsReader permissions, the source service can browse and retrieve the secrets that are available in your {{site.data.keyword.secrets-manager_short}} instance. The source service can't create secrets on your behalf.
 5. Click **Authorize**.
+
+
 

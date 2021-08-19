@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-21"
+lastupdated: "2021-08-19"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -136,17 +136,17 @@ Check out the following image to see how a secret is structured.
 
 2. The `secret_data` object contains the actual value of your secret.
 
-   When you use the {{site.data.keyword.secrets-manager_short}} API to retrieve the value of a secret, the fields that you see in the `secret_data` object differ depending on the type of secret that you are inspecting. For example, the following truncated example shows how secret data is represented for an arbitrary secret.
+    When you use the {{site.data.keyword.secrets-manager_short}} API to retrieve the value of a secret, the fields that you see in the `secret_data` object differ depending on the type of secret that you are inspecting. For example, the following truncated example shows how secret data is represented for an arbitrary secret.
 
-   ```json
-   {
-     "secret_type": "arbitrary",
-     "secret_data": {
-       "payload": "The quick brown fox jumped over the lazy dog."
-     }
-   }
-   ```
-   {: screen}
+    ```json
+    {
+        "secret_type": "arbitrary",
+        "secret_data": {
+        "payload": "The quick brown fox jumped over the lazy dog."
+        }
+    }
+    ```
+    {: screen}
 
 
 
@@ -154,3 +154,5 @@ Check out the following image to see how a secret is structured.
 {: #what-is-secret-get-started}
 
 To get started with secrets, you can go to the **Secrets** page of the {{site.data.keyword.secrets-manager_short}} UI, or check out the [API reference](/apidocs/secrets-manager) to learn more about creating secrets programmatically.
+
+

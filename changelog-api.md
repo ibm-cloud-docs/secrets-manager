@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-07-12"
+lastupdated: "2021-08-19"
 
 keywords: change log for [{sm-short}] APIs, API changelog, updates to [{sm-short}] APIs
 
@@ -113,4 +113,6 @@ This release includes the following updates:
 
 - Changed the maximum length for secret names to 128 characters.
 - Changed the maximum length for secret group names to 62 characters.
+
+
 

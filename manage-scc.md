@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-23"
+lastupdated: "2021-08-19"
 
 keywords: security and compliance for {{site.data.keyword.secrets-manager_short}}, security for {{site.data.keyword.secrets-manager_short}}, compliance for {{site.data.keyword.secrets-manager_short}},
 
@@ -95,5 +95,7 @@ The following goals are available in {{site.data.keyword.compliance_short}} for 
 * *Check whether {{site.data.keyword.secrets-manager_short}} has at least # users with the IAM manager role*
 * *Check whether {{site.data.keyword.secrets-manager_short}} has at least # service IDs with the IAM manager role*
 * *Check whether {{site.data.keyword.secrets-manager_short}} access is managed only by IAM access groups*
+
+
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-21"
+lastupdated: "2021-08-19"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -57,7 +57,7 @@ subcollection: secrets-manager
 {: #vault-cli}
 
 You can use the HashiCorp Vault command-line interface (CLI) to interact with {{site.data.keyword.secrets-manager_full}}.
-{:shortdesc}
+{: shortdesc}
 
 {{site.data.keyword.secrets-manager_short}} uses a custom version of open source HashiCorp Vault. This custom version adds the IBM Cloud IAM `auth` method and a set of secret engines to support operations in {{site.data.keyword.secrets-manager_short}} for various secret types.
 
@@ -85,10 +85,10 @@ You need the [**Manager** service role](/docs/secrets-manager?topic=secrets-mana
 {: #vault-cli-write-token-config-options}
 
 <dl>
-  <dt>token_ttl</dt>
-  <dd>The initial time-to-live (TTL) of the login token to generate. Default is `1h`.</dd>
-  <dt>token_max_ttl</dt>
-  <dd>The maximum lifespan of the login token. Default is `24h`. This value can't exceed the Vault `MaxLeaseTTL` value.</dd>
+    <dt>token_ttl</dt>
+    <dd>The initial time-to-live (TTL) of the login token to generate. Default is `1h`.</dd>
+    <dt>token_max_ttl</dt>
+    <dd>The maximum lifespan of the login token. Default is `24h`. This value can't exceed the Vault `MaxLeaseTTL` value.</dd>
 </dl>
 
 #### Examples
@@ -148,17 +148,17 @@ vault read -format=json auth/ibmcloud/manage/login
 The command returns the following output:
 ```json
 {
-  "request_id": "4dec6b8a-a277-0755-617c-97e40bcc7c3e",
-  "lease_id": "",
-  "lease_duration": 0,
-  "renewable": false,
-  "data": {
-    "login": {
-      "token_max_ttl": "2h0m0s",
-      "token_ttl": "30m0s"
+    "request_id": "4dec6b8a-a277-0755-617c-97e40bcc7c3e",
+    "lease_id": "",
+    "lease_duration": 0,
+    "renewable": false,
+    "data": {
+        "login": {
+        "token_max_ttl": "2h0m0s",
+        "token_ttl": "30m0s"
     }
-  },
-  "warnings": null
+    },
+    "warnings": null
 }
 ```
 {: screen}
@@ -236,8 +236,8 @@ You need the [**Reader** service role](/docs/secrets-manager?topic=secrets-manag
 {: #vault-cli-list-secret-groups-options}
 
 <dl>
-  <dt>-format</dt>
-  <dd>Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
+    <dt>-format</dt>
+    <dd>Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
 </dl>
 
 #### Examples
@@ -256,23 +256,23 @@ vault read -format=json auth/ibmcloud/manage/groups
 The command returns the following output:
 ```json
 {
-  "request_id": "62051bde-9703-101c-a328-90a377a8bb77",
-  "lease_id": "",
-  "lease_duration": 0,
-  "renewable": false,
-  "data": {
-    "groups": [
-      {
+    "request_id": "62051bde-9703-101c-a328-90a377a8bb77",
+    "lease_id": "",
+    "lease_duration": 0,
+    "renewable": false,
+    "data": {
+        "groups": [
+        {
         "created_at": "2020-10-05T17:43:49Z",
         "description": "A group of secrets.",
         "id": "9c6d20ad-779e-27c5-3842-2a20b19abfcf",
         "name": "my-secret-group",
         "type": "application/vnd.ibm.secrets-manager.secret.group+json",
         "updated_at": ""
-      }
+        }
     ]
-  },
-  "warnings": null
+    },
+    "warnings": null
 }
 ```
 {: screen}
@@ -295,8 +295,8 @@ You need the [**Reader** service role](/docs/secrets-manager?topic=secrets-manag
 {: #vault-cli-get-secret-group-options}
 
 <dl>
-  <dt>-format</dt>
-  <dd>Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
+    <dt>-format</dt>
+    <dd>Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
 </dl>
 
 #### Examples
@@ -315,19 +315,19 @@ vault read -format=json auth/ibmcloud/manage/groups/9c6d20ad-779e-27c5-3842-2a20
 The command returns the following output:
 ```json
 {
-  "request_id": "ab6b22d9-8e42-d23f-31d8-a4865b5a40e7",
-  "lease_id": "",
-  "lease_duration": 0,
-  "renewable": false,
-  "data": {
-    "created_at": "2020-10-05T17:43:49Z",
+    "request_id": "ab6b22d9-8e42-d23f-31d8-a4865b5a40e7",
+    "lease_id": "",
+    "lease_duration": 0,
+    "renewable": false,
+    "data": {
+        "created_at": "2020-10-05T17:43:49Z",
     "description": "A group of secrets.",
     "id": "9c6d20ad-779e-27c5-3842-2a20b19abfcf",
     "name": "my-secret-group",
     "type": "application/vnd.ibm.secrets-manager.secret.group+json",
     "updated_at": ""
-  },
-  "warnings": null
+    },
+    "warnings": null
 }
 ```
 {: screen}
@@ -514,39 +514,39 @@ vault write -format=json ibmcloud/imported_cert/secrets name="my-test-imported-c
 The command to create a `username_password` secret returns the following output:
 ```json
 {
-  "request_id": "c8edf459-cc26-d3f9-19e4-a24d899573f4",
-  "lease_id": "",
-  "lease_duration": 0,
-  "renewable": false,
-  "data": {
-    "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
+    "request_id": "c8edf459-cc26-d3f9-19e4-a24d899573f4",
+    "lease_id": "",
+    "lease_duration": 0,
+    "renewable": false,
+    "data": {
+        "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
     "creation_date": "2020-10-05T21:52:29Z",
     "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/791f5fb10986423e97aa8512f18b7e65:e415e570-f073-423a-abdc-55de9b58f54e:secret:a6067f1c-98cf-9379-6188-a94a58222f5d",
     "expiration_date": "2020-12-31T23:59:59Z",
     "id": "a6067f1c-98cf-9379-6188-a94a58222f5d",
     "labels": [
-      "label-1",
-      "label-2"
+        "label-1",
+        "label-2"
     ],
     "last_update_date": "2020-10-05T21:52:29Z",
     "name": "my-test-user-credential",
     "secret_data": {
-      "password": "window-steel-dogs-coffee",
-      "username": "user123"
+        "password": "window-steel-dogs-coffee",
+        "username": "user123"
     },
     "secret_type": "USERNAME_PASSWORD",
     "state": 1,
     "state_description": "Active",
     "versions": [
-      {
+        {
         "auto_rotated": false,
         "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
         "creation_date": "2020-10-05T21:52:29Z",
         "id": "f53b8061-359e-3236-5bcc-fb120e170c87"
-      }
+        }
     ]
-  },
-  "warnings": null
+    },
+    "warnings": null
 }
 ```
 {: screen}
@@ -554,37 +554,37 @@ The command to create a `username_password` secret returns the following output:
 The command to create an `arbitrary` secret returns the following output:
 ```json
 {
-  "request_id": "56f8532d-cd2b-372c-7b14-5a5875d1c6e6",
-  "lease_id": "",
-  "lease_duration": 0,
-  "renewable": false,
-  "data": {
-    "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
+    "request_id": "56f8532d-cd2b-372c-7b14-5a5875d1c6e6",
+    "lease_id": "",
+    "lease_duration": 0,
+    "renewable": false,
+    "data": {
+        "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
     "creation_date": "2020-10-05T21:47:27Z",
     "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/791f5fb10986423e97aa8512f18b7e65:e415e570-f073-423a-abdc-55de9b58f54e:secret:2ca56a3b-a6e8-d2e2-5377-b6559babfac0",
     "expiration_date": "2020-12-31T23:59:59Z",
     "id": "2ca56a3b-a6e8-d2e2-5377-b6559babfac0",
     "labels": [
-      "label-1",
-      "label-2"
+        "label-1",
+        "label-2"
     ],
     "last_update_date": "2020-10-05T21:47:27Z",
     "name": "my-test-arbitrary-secret",
     "secret_data": {
-      "payload": "this is my secret data"
+        "payload": "this is my secret data"
     },
     "secret_type": "ARBITRARY",
     "state": 1,
     "state_description": "Active",
     "versions": [
-      {
+        {
         "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
         "creation_date": "2020-10-05T21:47:27Z",
         "id": "88473a6c-4877-5079-f999-c9a39e3407ea"
-      }
+        }
     ]
-  },
-  "warnings": null
+    },
+    "warnings": null
 }
 ```
 {: screen}
@@ -595,12 +595,12 @@ The command to import an `imported_cert` secret returns the following output:
 
 ```json
 {
-  "request_id": "7b41ad30-8098-9f57-62cf-bd757d43238f",
-  "lease_id": "",
-  "lease_duration": 0,
-  "renewable": false,
-  "data": {
-    "algorithm": "RSA",
+    "request_id": "7b41ad30-8098-9f57-62cf-bd757d43238f",
+    "lease_id": "",
+    "lease_duration": 0,
+    "renewable": false,
+    "data": {
+        "algorithm": "RSA",
     "common_name": "example.com",
     "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
     "creation_date": "2021-06-03T22:41:56Z",
@@ -619,11 +619,11 @@ The command to import an `imported_cert` secret returns the following output:
     "state": 1,
     "state_description": "Active",
     "validity": {
-      "not_after": "2021-06-04T15:25:44Z",
-      "not_before": "2021-06-03T15:25:44Z"
+        "not_after": "2021-06-04T15:25:44Z",
+        "not_before": "2021-06-03T15:25:44Z"
     },
     "versions": [
-      {
+        {
         "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
         "creation_date": "2021-06-03T22:41:56.354781389Z",
         "expiration_date": "2021-06-04T15:25:44Z",
@@ -633,10 +633,10 @@ The command to import an `imported_cert` secret returns the following output:
           "not_after": "2021-06-04T15:25:44Z",
           "not_before": "2021-06-03T15:25:44Z"
         }
-      }
+        }
     ]
-  },
-  "warnings": null
+    },
+    "warnings": null
 }
 ```
 {: screen}
@@ -667,8 +667,8 @@ You need the [**Reader** service role](/docs/secrets-manager?topic=secrets-manag
 {: #vault-cli-list-static-secrets-options}
 
 <dl>
-  <dt>-format</dt>
-  <dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
+    <dt>-format</dt>
+    <dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
 </dl>
 
 #### Examples
@@ -694,13 +694,13 @@ vault read -format=json ibmcloud/arbitrary/secrets/groups/9ab2250f-a369-4e07-ade
 The command returns the following output:
 ```json
 {
-  "request_id": "65689e3a-7cc6-990e-4f0e-8480edd244ed",
-  "lease_id": "",
-  "lease_duration": 0,
-  "renewable": false,
-  "data": {
-    "secrets": [
-      {
+    "request_id": "65689e3a-7cc6-990e-4f0e-8480edd244ed",
+    "lease_id": "",
+    "lease_duration": 0,
+    "renewable": false,
+    "data": {
+        "secrets": [
+        {
         "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
         "creation_date": "2020-10-06T05:31:05Z",
         "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/791f5fb10986423e97aa8512f18b7e65:e415e570-f073-423a-abdc-55de9b58f54e:secret:1cf95413-4c10-a5fa-e824-b5106375b129",
@@ -713,8 +713,8 @@ The command returns the following output:
         "secret_type": "ARBITRARY",
         "state": 1,
         "state_description": "Active"
-      },
-      {
+        },
+        {
         "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
         "creation_date": "2020-10-06T03:54:26Z",
         "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/791f5fb10986423e97aa8512f18b7e65:e415e570-f073-423a-abdc-55de9b58f54e:secret:285d83ce-4a26-c5c3-8e58-48d3140a2415",
@@ -726,11 +726,11 @@ The command returns the following output:
         "secret_type": "ARBITRARY",
         "state": 1,
         "state_description": "Active"
-      }
+        }
     ],
     "secrets_total": 2
-  },
-  "warnings": null
+    },
+    "warnings": null
 }
 ```
 {: screen}
@@ -781,12 +781,12 @@ vault read -format=json ibmcloud/arbitrary/secrets/71539dff-9e84-804a-debb-ab3eb
 The command returns the following output:
 ```json
 {
-  "request_id": "025df8ac-b926-6153-3f5b-cd2364b5f85e",
-  "lease_id": "",
-  "lease_duration": 0,
-  "renewable": false,
-  "data": {
-    "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
+    "request_id": "025df8ac-b926-6153-3f5b-cd2364b5f85e",
+    "lease_id": "",
+    "lease_duration": 0,
+    "renewable": false,
+    "data": {
+        "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
     "creation_date": "2020-10-20T16:55:41Z",
     "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/791f5fb10986423e97aa8512f18b7e65:e415e570-f073-423a-abdc-55de9b58f54e:secret:71539dff-9e84-804a-debb-ab3eb3d8afce",
     "id": "71539dff-9e84-804a-debb-ab3eb3d8afce",
@@ -794,20 +794,20 @@ The command returns the following output:
     "last_update_date": "2020-10-20T16:55:41Z",
     "name": "my-test-arbitrary-secret",
     "secret_data": {
-      "payload": "This is the data for my secret."
+        "payload": "This is the data for my secret."
     },
     "secret_type": "ARBITRARY",
     "state": 1,
     "state_description": "Active",
     "versions": [
-      {
+        {
         "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
         "creation_date": "2020-10-20T16:55:41Z",
         "id": "cc2c795e-0072-8074-9824-b6efd5050232"
-      }
+        }
     ]
-  },
-  "warnings": null
+    },
+    "warnings": null
 }
 ```
 {: screen}
@@ -858,12 +858,12 @@ vault write -format=json ibmcloud/arbitrary/secrets/fe874c2b-e8fd-bbb6-9f19-e91b
 The command returns the following output:
 ```json
 {
-  "request_id": "f361132f-a0e3-eab0-52b8-4d992074b411",
-  "lease_id": "",
-  "lease_duration": 0,
-  "renewable": false,
-  "data": {
-    "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
+    "request_id": "f361132f-a0e3-eab0-52b8-4d992074b411",
+    "lease_id": "",
+    "lease_duration": 0,
+    "renewable": false,
+    "data": {
+        "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
     "creation_date": "2020-10-22T14:26:44Z",
     "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/791f5fb10986423e97aa8512f18b7e65:e415e570-f073-423a-abdc-55de9b58f54e:secret:fe874c2b-e8fd-bbb6-9f19-e91bbe744735",
     "id": "fe874c2b-e8fd-bbb6-9f19-e91bbe744735",
@@ -873,8 +873,8 @@ The command returns the following output:
     "secret_type": "ARBITRARY",
     "state": 1,
     "state_description": "Active"
-  },
-  "warnings": null
+    },
+    "warnings": null
 }
 ```
 {: screen}
@@ -929,14 +929,14 @@ Manually rotate the password that is stored for a `username_password` secret.
 ```
 vault write -format=json ibmcloud/username_password/secrets/cb32abc1-2a4b-e0fd-f403-233e5249e130/rotate password="my-updated-password"
 ```
-{:pre}
+{: pre}
 
 Replace the password that is stored for a `username_password` secret with a randomly generated 32-character password.
 
 ```
 vault write -format=json -force ibmcloud/username_password/secrets/cb32abc1-2a4b-e0fd-f403-233e5249e130/rotate
 ```
-{:pre}
+{: pre}
 
 #### Output
 {: #vault-cli-rotate-static-secret-output}
@@ -944,12 +944,12 @@ vault write -format=json -force ibmcloud/username_password/secrets/cb32abc1-2a4b
 The command to manually rotate a `username_password` secret with a user-provided password returns the following output:
 ```json
 {
-  "request_id": "9cb258e5-fbc9-7a37-f8c9-c5ab1dd7b823",
-  "lease_id": "",
-  "lease_duration": 0,
-  "renewable": false,
-  "data": {
-    "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
+    "request_id": "9cb258e5-fbc9-7a37-f8c9-c5ab1dd7b823",
+    "lease_id": "",
+    "lease_duration": 0,
+    "renewable": false,
+    "data": {
+        "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
     "creation_date": "2020-10-22T15:09:19Z",
     "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/791f5fb10986423e97aa8512f18b7e65:e415e570-f073-423a-abdc-55de9b58f54e:secret:cb32abc1-2a4b-e0fd-f403-233e5249e130",
     "id": "cb32abc1-2a4b-e0fd-f403-233e5249e130",
@@ -957,14 +957,14 @@ The command to manually rotate a `username_password` secret with a user-provided
     "last_update_date": "2020-10-22T15:10:34Z",
     "name": "new-username-password",
     "secret_data": {
-      "password": "my-updated-password",
-      "username": "my-username"
+        "password": "my-updated-password",
+        "username": "my-username"
     },
     "secret_type": "USERNAME_PASSWORD",
     "state": 1,
     "state_description": "Active"
-  },
-  "warnings": null
+    },
+    "warnings": null
 }
 ```
 {: screen}
@@ -972,12 +972,12 @@ The command to manually rotate a `username_password` secret with a user-provided
 The command to manually rotate a `username_password` secret with a service-generated password returns the following output:
 ```json
 {
-  "request_id": "67992946-3fd7-8cbe-9464-f5bc0cc8254e",
-  "lease_id": "",
-  "lease_duration": 0,
-  "renewable": false,
-  "data": {
-    "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
+    "request_id": "67992946-3fd7-8cbe-9464-f5bc0cc8254e",
+    "lease_id": "",
+    "lease_duration": 0,
+    "renewable": false,
+    "data": {
+        "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
     "creation_date": "2020-10-22T15:09:19Z",
     "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/791f5fb10986423e97aa8512f18b7e65:e415e570-f073-423a-abdc-55de9b58f54e:secret:cb32abc1-2a4b-e0fd-f403-233e5249e130",
     "id": "cb32abc1-2a4b-e0fd-f403-233e5249e130",
@@ -985,14 +985,14 @@ The command to manually rotate a `username_password` secret with a service-gener
     "last_update_date": "2020-10-22T16:25:55Z",
     "name": "new-username-password",
     "secret_data": {
-      "password": "TYRodi/HX7s095UpQ38)L1z(t4\u003ccG6!2",
-      "username": "my-username"
+        "password": "TYRodi/HX7s095UpQ38)L1z(t4\u003ccG6!2",
+        "username": "my-username"
     },
     "secret_type": "USERNAME_PASSWORD",
     "state": 1,
     "state_description": "Active"
-  },
-  "warnings": null
+    },
+    "warnings": null
 }
 ```
 {: screen}
@@ -1119,13 +1119,13 @@ vault write -format=json ibmcloud/iam_credentials/roles/groups/9ab2250f-a369-4e0
 The command returns the following output:
 ```json
 {
-  "request_id": "d4150a28-1184-8864-dcd3-15b0d18da7c1",
-  "lease_id": "",
-  "lease_duration": 0,
-  "renewable": false,
-  "data": {
-    "access_groups": [
-      "AccessGroupId-985dc0a3-857b-48bd-b6d6-33819da7ba42"
+    "request_id": "d4150a28-1184-8864-dcd3-15b0d18da7c1",
+    "lease_id": "",
+    "lease_duration": 0,
+    "renewable": false,
+    "data": {
+        "access_groups": [
+        "AccessGroupId-985dc0a3-857b-48bd-b6d6-33819da7ba42"
     ],
     "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
     "creation_date": "2020-10-09T17:13:47Z",
@@ -1133,8 +1133,8 @@ The command returns the following output:
     "description": "My test IAM credential that is assigned to a secret group.",
     "id": "091ca93f-5c99-4078-9d7e-4801143030fd",
     "labels": [
-      "test",
-      "us-south"
+        "test",
+        "us-south"
     ],
     "last_update_date": "2020-10-09T17:13:47Z",
     "name": "test-iam-credential-in-group",
@@ -1143,8 +1143,8 @@ The command returns the following output:
     "state": 1,
     "state_description": "Active",
     "ttl": 3600
-  },
-  "warnings": null
+    },
+    "warnings": null
 }
 ```
 {: screen}
@@ -1208,13 +1208,13 @@ vault read -format=json ibmcloud/iam_credentials/creds/groups/9ab2250f-a369-4e07
 The command returns the following output:
 ```json
 {
-  "request_id": "48d14d52-ce92-6efc-aeaa-b49cc11eabd6",
-  "lease_id": "",
-  "lease_duration": 0,
-  "renewable": false,
-  "data": {
-    "access_groups": [
-      "AccessGroupId-985dc0a3-857b-48bd-b6d6-33819da7ba42"
+    "request_id": "48d14d52-ce92-6efc-aeaa-b49cc11eabd6",
+    "lease_id": "",
+    "lease_duration": 0,
+    "renewable": false,
+    "data": {
+        "access_groups": [
+        "AccessGroupId-985dc0a3-857b-48bd-b6d6-33819da7ba42"
     ],
     "api_key": "Cg7l3kJveurEry_P7_fLPIBR....(truncated)",
     "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
@@ -1223,8 +1223,8 @@ The command returns the following output:
     "description": "My test IAM credential that is assigned to a secret group.",
     "id": "091ca93f-5c99-4078-9d7e-4801143030fd",
     "labels": [
-      "test",
-      "us-south"
+        "test",
+        "us-south"
     ],
     "last_update_date": "2020-10-09T17:53:23Z",
     "name": "test-iam-credential-in-group",
@@ -1234,8 +1234,8 @@ The command returns the following output:
     "state": 1,
     "state_description": "Active",
     "ttl": 3600
-  },
-  "warnings": null
+    },
+    "warnings": null
 }
 ```
 {: screen}
@@ -1266,12 +1266,12 @@ You need the [**Reader** service role](/docs/secrets-manager?topic=secrets-manag
 {: #vault-cli-list-roles-options}
 
 <dl>
-  <dt>SECRET_TYPE</dt>
-  <dd>The type of secret that you want to list. Currently, `iam_credentials` is supported.</dd>
-  <dt>SECRET_GROUP_ID</dt>
-  <dd>The ID of the secret group.</dd>
-  <dt>-format</dt>
-  <dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
+    <dt>SECRET_TYPE</dt>
+    <dd>The type of secret that you want to list. Currently, `iam_credentials` is supported.</dd>
+    <dt>SECRET_GROUP_ID</dt>
+    <dd>The ID of the secret group.</dd>
+    <dt>-format</dt>
+    <dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
 </dl>
 
 #### Examples
@@ -1297,13 +1297,13 @@ vault read -format=json ibmcloud/iam_credentials/roles/groups/9ab2250f-a369-4e07
 The command returns the following output:
 ```json
 {
-  "request_id": "d567207f-b5e6-fc35-086e-fbc465bf3678",
-  "lease_id": "",
-  "lease_duration": 0,
-  "renewable": false,
-  "data": {
-    "roles": [
-      {
+    "request_id": "d567207f-b5e6-fc35-086e-fbc465bf3678",
+    "lease_id": "",
+    "lease_duration": 0,
+    "renewable": false,
+    "data": {
+        "roles": [
+        {
         "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
         "creation_date": "2020-10-09T17:13:47Z",
         "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/791f5fb10986423e97aa8512f18b7e65:e415e570-f073-423a-abdc-55de9b58f54e::",
@@ -1320,8 +1320,8 @@ The command returns the following output:
         "state": 1,
         "state_description": "Active",
         "ttl": 3600
-      },
-      {
+        },
+        {
         "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
         "creation_date": "2020-10-09T17:05:21Z",
         "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/791f5fb10986423e97aa8512f18b7e65:e415e570-f073-423a-abdc-55de9b58f54e:secret:a810998d-2912-4865-b4da-8dcc7465d784",
@@ -1337,11 +1337,11 @@ The command returns the following output:
         "state": 1,
         "state_description": "Active",
         "ttl": 3600
-      }
+        }
     ],
     "roles_total": 2
-  },
-  "warnings": null
+    },
+    "warnings": null
 }
 ```
 {: screen}
@@ -1399,13 +1399,13 @@ vault read -format=json ibmcloud/iam_credentials/roles/groups/9ab2250f-a369-4e07
 The command returns the following output:
 ```json
 {
-  "request_id": "cb4672e2-51d9-3a83-f8a2-717afe16e24a",
-  "lease_id": "",
-  "lease_duration": 0,
-  "renewable": false,
-  "data": {
-    "access_groups": [
-      "AccessGroupId-985dc0a3-857b-48bd-b6d6-33819da7ba42"
+    "request_id": "cb4672e2-51d9-3a83-f8a2-717afe16e24a",
+    "lease_id": "",
+    "lease_duration": 0,
+    "renewable": false,
+    "data": {
+        "access_groups": [
+        "AccessGroupId-985dc0a3-857b-48bd-b6d6-33819da7ba42"
     ],
     "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
     "creation_date": "2020-10-09T17:13:47Z",
@@ -1413,8 +1413,8 @@ The command returns the following output:
     "description": "My test IAM credential that is assigned to a secret group.",
     "id": "091ca93f-5c99-4078-9d7e-4801143030fd",
     "labels": [
-      "test",
-      "us-south"
+        "test",
+        "us-south"
     ],
     "last_update_date": "2020-10-09T17:13:47Z",
     "name": "test-iam-credential-in-group",
@@ -1423,8 +1423,8 @@ The command returns the following output:
     "state": 1,
     "state_description": "Active",
     "ttl": 3600
-  },
-  "warnings": null
+    },
+    "warnings": null
 }
 ```
 {: screen}
@@ -1490,13 +1490,13 @@ vault write -format=json ibmcloud/iam_credentials/roles/091ca93f-5c99-4078-9d7e-
 The command returns the following output:
 ```json
 {
-  "request_id": "cb4672e2-51d9-3a83-f8a2-717afe16e24a",
-  "lease_id": "",
-  "lease_duration": 0,
-  "renewable": false,
-  "data": {
-    "access_groups": [
-      "AccessGroupId-985dc0a3-857b-48bd-b6d6-33819da7ba42"
+    "request_id": "cb4672e2-51d9-3a83-f8a2-717afe16e24a",
+    "lease_id": "",
+    "lease_duration": 0,
+    "renewable": false,
+    "data": {
+        "access_groups": [
+        "AccessGroupId-985dc0a3-857b-48bd-b6d6-33819da7ba42"
     ],
     "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
     "creation_date": "2020-10-09T17:13:47Z",
@@ -1504,8 +1504,8 @@ The command returns the following output:
     "description": "My test IAM credential.",
     "id": "091ca93f-5c99-4078-9d7e-4801143030fd",
     "labels": [
-      "test",
-      "us-south"
+        "test",
+        "us-south"
     ],
     "last_update_date": "2020-10-09T17:13:47Z",
     "name": "new-credential-name",
@@ -1513,8 +1513,8 @@ The command returns the following output:
     "state": 1,
     "state_description": "Active",
     "ttl": 3600
-  },
-  "warnings": null
+    },
+    "warnings": null
 }
 ```
 {: screen}
@@ -1570,4 +1570,6 @@ The command returns the following output:
 Success! Data deleted (if it existed) at: ibmcloud/iam_credentials/roles/091ca93f-5c99-4078-9d7e-4801143030fd
 ```
 {: screen}
+
+
 

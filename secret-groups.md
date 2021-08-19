@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-08"
+lastupdated: "2021-08-19"
 
 keywords: secret groups, assign secret access, iam roles, secrets policies, organize secrets
 
@@ -103,21 +103,21 @@ You can create secret groups by using the {{site.data.keyword.secrets-manager_sh
 
 ```bash
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secret_groups" \
-  -H "Authorization: Bearer $IAM_TOKEN" \
-  -H "Accept: application/json" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "metadata": {
-      "collection_type": "application/vnd.ibm.secrets-manager.secret.group+json",
-      "collection_total": 1
-      },
-      "resources": [
+    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{
+        "metadata": {
+        "collection_type": "application/vnd.ibm.secrets-manager.secret.group+json",
+        "collection_total": 1
+        },
+        "resources": [
         {
           "type": "application/vnd.ibm.secrets-manager.secret.group+json",
           "name": "example-secret-group",
           "description": "Extended description for my secret group."
         }
-      ]
+        ]
     }'
 ```
 {: codeblock}
@@ -125,17 +125,17 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 
 ```java
 CollectionMetadata collectionMetadataModel = new CollectionMetadata.Builder()
-  .collectionType("application/vnd.ibm.secrets-manager.secret.group+json")
-  .collectionTotal(Long.valueOf("1"))
-  .build();
+    .collectionType("application/vnd.ibm.secrets-manager.secret.group+json")
+    .collectionTotal(Long.valueOf("1"))
+    .build();
 SecretGroupResource secretGroupResourceModel = new SecretGroupResource.Builder()
-  .name("example-secret-group")
-  .description("Extended description for this group.")
-  .build();
+    .name("example-secret-group")
+    .description("Extended description for this group.")
+    .build();
 CreateSecretGroupOptions createSecretGroupOptions = new CreateSecretGroupOptions.Builder()
-  .metadata(collectionMetadataModel)
-  .resources(new java.util.ArrayList<SecretGroupResource>(java.util.Arrays.asList(secretGroupResourceModel)))
-  .build();
+    .metadata(collectionMetadataModel)
+    .resources(new java.util.ArrayList<SecretGroupResource>(java.util.Arrays.asList(secretGroupResourceModel)))
+    .build();
 
 Response<SecretGroupDef> response = sm.createSecretGroup(createSecretGroupOptions).execute();
 SecretGroupDef secretGroupDef = response.getResult();
@@ -147,25 +147,25 @@ System.out.println(secretGroupDef);
 
 ```javascript
 const params = {
-  'metadata': {
-    'collection_type': 'application/vnd.ibm.secrets-manager.secret.group+json',
+    'metadata': {
+        'collection_type': 'application/vnd.ibm.secrets-manager.secret.group+json',
     'collection_total': 1,
-  },
-  'resources': [
-    {
-      'name': 'example-secret-group',
-      'description': 'Extended description for my secret group.'
     },
-  ],
+    'resources': [
+        {
+        'name': 'example-secret-group',
+        'description': 'Extended description for my secret group.'
+    },
+    ],
 };
 
 secretsManagerApi.createSecretGroup(params)
-  .then(res => {
-    console.log('Create secret group:\n', JSON.stringify(result.resources, null, 2));
+    .then(res => {
+        console.log('Create secret group:\n', JSON.stringify(result.resources, null, 2));
     })
-  .catch(err => {
-    console.warn(err)
-  });
+    .catch(err => {
+        console.warn(err)
+    });
 ```
 {: codeblock}
 {: javascript}
@@ -269,16 +269,16 @@ If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https:/
 
 ```bash
 curl -X DELETE "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secret_groups/{id}" \
-  -H "Authorization: Bearer $IAM_TOKEN" \
-  -H "Accept: application/json"
+    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "Accept: application/json"
 ```
 {: codeblock}
 {: curl}
 
 ```java
 DeleteSecretGroupOptions deleteSecretGroupOptions = new DeleteSecretGroupOptions.Builder()
-  .id(secretGroupIdLink)
-  .build();
+    .id(secretGroupIdLink)
+    .build();
 
 service.deleteSecretGroup(deleteSecretGroupOptions).execute();
 ```
@@ -287,16 +287,16 @@ service.deleteSecretGroup(deleteSecretGroupOptions).execute();
 
 ```javascript
 const params = {
-  id: secretGroupId,
+    id: secretGroupId,
 };
 
 secretsManagerApi.deleteSecretGroup(params)
-  .then(res => {
-    console.log('Secret group deleted');
+    .then(res => {
+        console.log('Secret group deleted');
     })
-  .catch(err => {
-    console.warn(err)
-  });
+    .catch(err => {
+        console.warn(err)
+    });
 ```
 {: codeblock}
 {: javascript}
@@ -323,5 +323,7 @@ if err != nil {
 ```
 {: codeblock}
 {: go}
+
+
 
 

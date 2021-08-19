@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-01"
+lastupdated: "2021-08-19"
 
 keywords: delete secret, remove secret, destroy secret
 
@@ -122,16 +122,16 @@ If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https:/
 
 ```bash
 curl -X DELETE "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}" \
-  -H "Authorization: Bearer $IAM_TOKEN"
+    -H "Authorization: Bearer $IAM_TOKEN"
 ```
 {: codeblock}
 {: curl}
 
 ```java
 DeleteSecretOptions deleteSecretOptions = new DeleteSecretOptions.Builder()
-  .secretType("<secret_type>")
-  .id(secretIdLink)
-  .build();
+    .secretType("<secret_type>")
+    .id(secretIdLink)
+    .build();
 
 service.deleteSecret(deleteSecretOptions).execute();
 ```
@@ -140,17 +140,17 @@ service.deleteSecret(deleteSecretOptions).execute();
 
 ```javascript
 const params = {
-  secretType: '<secret_type>',
-  id: secretId,
+    secretType: '<secret_type>',
+    id: secretId,
 };
 
 secretsManagerApi.deleteSecret(params)
-  .then(res => {
-    console.log('Secret deleted.');
+    .then(res => {
+        console.log('Secret deleted.');
     })
-  .catch(err => {
-    console.warn(err)
-  });
+    .catch(err => {
+        console.warn(err)
+    });
 ```
 {: codeblock}
 {: javascript}
@@ -180,4 +180,6 @@ if err != nil {
 {: go}
 
 After you delete a secret, the secret transitions to the _Destroyed_ state. Secrets in this state are no longer recoverable. Metadata that is associated with the secret, such as the secret's deletion date, is kept in the {{site.data.keyword.secrets-manager_short}} database.
+
+
 

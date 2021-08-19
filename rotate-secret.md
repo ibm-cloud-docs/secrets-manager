@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-10"
+lastupdated: "2021-08-19"
 
 keywords: rotate secrets, manually rotate, new secret, automatically rotate, automatic rotation, set rotation policy
 
@@ -91,13 +91,14 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 3. Use the **Secrets** table to view the secrets in your instance.
 4. In the row for the secret that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
 
-   If you initially provided a value for your secret, you can select a new file or enter a new value, depending on the type of secret that you are rotating.
+    If you initially provided a value for your secret, you can select a new file or enter a new value, depending on the type of secret that you are rotating.
 
-   For user credentials, you can choose to have the service generate a new password on your behalf. {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
-   {: note}
+    For user credentials, you can choose to have the service generate a new password on your behalf. {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
+    {: note}
+
 5. Click **Rotate**.
 
-  The previous version of your secret is now replaced by its latest value. If you need to audit your version history, you can use the {{site.data.keyword.secrets-manager_short}} API to retrieve the secret. To learn more, check out the [API docs](/apidocs/secrets-manager#get-secret){: external}.
+    The previous version of your secret is now replaced by its latest value. If you need to audit your version history, you can use the {{site.data.keyword.secrets-manager_short}} API to retrieve the secret. To learn more, check out the [API docs](/apidocs/secrets-manager#get-secret){: external}.
 
 ### Rotating secrets manually with the API
 {: #manual-rotate-secret-api}
@@ -127,26 +128,26 @@ If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https:/
 
 ```bash
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/arbitrary/{id}?action=rotate" \
-  -H "Authorization: Bearer $IAM_TOKEN" \
-  -H "Accept: application/json" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "payload": "new-secret-data"
-  }'
+    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{
+        "payload": "new-secret-data"
+    }'
 ```
 {: codeblock}
 {: curl}
 
 ```java
 SecretActionOneOfRotateArbitrarySecretBody secretActionOneOfModel = new SecretActionOneOfRotateArbitrarySecretBody.Builder()
-  .payload("new-secret-data")
-  .build();
+    .payload("new-secret-data")
+    .build();
 UpdateSecretOptions updateSecretOptions = new UpdateSecretOptions.Builder()
-  .secretType("arbitrary")
-  .id(secretIdLink)
-  .action("rotate")
-  .secretActionOneOf(secretActionOneOfModel)
-  .build();
+    .secretType("arbitrary")
+    .id(secretIdLink)
+    .action("rotate")
+    .secretActionOneOf(secretActionOneOfModel)
+    .build();
 
 Response<GetSecret> response = sm.updateSecret(updateSecretOptions).execute();
 GetSecret getSecret = response.getResult();
@@ -158,19 +159,19 @@ System.out.println(getSecret);
 
 ```javascript
 const params = {
-  secretType: 'arbitrary',
-  id: secretId,
-  action: 'rotate',
-  payload: 'new-secret-data',
+    secretType: 'arbitrary',
+    id: secretId,
+    action: 'rotate',
+    payload: 'new-secret-data',
 };
 
 secretsManagerApi.updateSecret(params)
-  .then(res => {
-    console.log('Rotate secret:\n', JSON.stringify(result.resources, null, 2));
+    .then(res => {
+        console.log('Rotate secret:\n', JSON.stringify(result.resources, null, 2));
     })
-  .catch(err => {
-    console.warn(err)
-  });
+    .catch(err => {
+        console.warn(err)
+    });
 ```
 {: codeblock}
 {: javascript}
@@ -234,9 +235,9 @@ If you need more control over the rotation frequency of a secret, you can use th
 
 1. If you're [adding a secret](/docs/secrets-manager?topic=secrets-manager-user-credentials#user-credentials-ui), enable the rotation option by selecting a 30, 60, or 90-day rotation interval.
 2. If you're editing an existing secret, set its rotation policy by updating its details.
-   1. In the **Secrets** table, view a list of your existing secrets.
-   2. In the row for the secret that you want to edit, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Edit details**.
-   3. Use the **Automatic rotation** option to add or remove a rotation policy for the secret.
+    1. In the **Secrets** table, view a list of your existing secrets.
+    2. In the row for the secret that you want to edit, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Edit details**.
+    3. Use the **Automatic rotation** option to add or remove a rotation policy for the secret.
 
 ### Setting a rotation policy with the API
 {: #auto-rotate-secret-api}
@@ -266,23 +267,23 @@ If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https:/
 
 ```bash
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password/{id}/policies?policy=rotation" \
-  -H "Authorization: Bearer $IAM_TOKEN"
-  -H "Accept: application/json"
-  -H "Content-Type: application/json"
-  -d '{
-  "metadata": {
-    "collection_type": "application/vnd.ibm.secrets-manager.secret.policy+json",
+    -H "Authorization: Bearer $IAM_TOKEN"
+    -H "Accept: application/json"
+    -H "Content-Type: application/json"
+    -d '{
+    "metadata": {
+        "collection_type": "application/vnd.ibm.secrets-manager.secret.policy+json",
     "collection_total": 1
-  },
-  "resources": [
-    {
-      "type": "application/vnd.ibm.secrets-manager.secret.policy+json",
-      "rotation": {
+    },
+    "resources": [
+        {
+        "type": "application/vnd.ibm.secrets-manager.secret.policy+json",
+        "rotation": {
         "interval": 1,
         "unit": "month"
-      }
+        }
     }
-  ]
+    ]
 }'
 ```
 {: codeblock}
@@ -290,23 +291,23 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 
 ```java
 CollectionMetadata collectionMetadataModel = new CollectionMetadata.Builder()
-  .collectionType("application/vnd.ibm.secrets-manager.secret.policy+json")
-  .collectionTotal(Long.valueOf("1"))
-  .build();
+    .collectionType("application/vnd.ibm.secrets-manager.secret.policy+json")
+    .collectionTotal(Long.valueOf("1"))
+    .build();
 SecretPolicyRotationRotation secretPolicyRotationRotationModel = new SecretPolicyRotationRotation.Builder()
-  .interval(Long.valueOf("1"))
-  .unit("month")
-  .build();
+    .interval(Long.valueOf("1"))
+    .unit("month")
+    .build();
 SecretPolicyRotation secretPolicyRotationModel = new SecretPolicyRotation.Builder()
-  .type("application/vnd.ibm.secrets-manager.secret.policy+json")
-  .rotation(secretPolicyRotationRotationModel)
-  .build();
+    .type("application/vnd.ibm.secrets-manager.secret.policy+json")
+    .rotation(secretPolicyRotationRotationModel)
+    .build();
 PutPolicyOptions putPolicyOptions = new PutPolicyOptions.Builder()
-  .secretType("username_password")
-  .id(secretIdLink)
-  .metadata(collectionMetadataModel)
-  .resources(new java.util.ArrayList<SecretPolicyRotation>(java.util.Arrays.asList(secretPolicyRotationModel)))
-  .build();
+    .secretType("username_password")
+    .id(secretIdLink)
+    .metadata(collectionMetadataModel)
+    .resources(new java.util.ArrayList<SecretPolicyRotation>(java.util.Arrays.asList(secretPolicyRotationModel)))
+    .build();
 
 Response<GetSecretPoliciesOneOf> response = sm.putPolicy(putPolicyOptions).execute();
 GetSecretPoliciesOneOf getSecretPoliciesOneOf = response.getResult();
@@ -318,30 +319,30 @@ System.out.println(getSecretPoliciesOneOf);
 
 ```javascript
 const params = {
-  secretType: 'username_password',
-  id: secretId,
-  'metadata': {
-    'collection_type': 'application/vnd.ibm.secrets-manager.secret.policy+json',
+    secretType: 'username_password',
+    id: secretId,
+    'metadata': {
+        'collection_type': 'application/vnd.ibm.secrets-manager.secret.policy+json',
     'collection_total': 1,
-  },
-  'resources': [
-    {
-      'type': 'application/vnd.ibm.secrets-manager.secret.policy+json',
-      'rotation': {
+    },
+    'resources': [
+        {
+        'type': 'application/vnd.ibm.secrets-manager.secret.policy+json',
+        'rotation': {
         'interval': 1,
         'unit': 'month',
-      },
+        },
     },
-  ],
+    ],
 };
 
 secretsManagerApi.putPolicy(params)
-  .then(res => {
-    console.log('Set rotation policy:\n', JSON.stringify(result.resources, null, 2));
+    .then(res => {
+        console.log('Set rotation policy:\n', JSON.stringify(result.resources, null, 2));
     })
-  .catch(err => {
-    console.warn(err)
-  });
+    .catch(err => {
+        console.warn(err)
+    });
 ```
 {: codeblock}
 {: javascript}
@@ -406,4 +407,6 @@ fmt.Println(string(b))
 {: go}
 
 A successful response returns the ID value for the policy, along with other metadata. For more information about the required and optional request parameters, see [Set secret policies](/apidocs/secrets-manager#put-policy){: external}.
+
+
 

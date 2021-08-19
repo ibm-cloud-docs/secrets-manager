@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-07-16"
+lastupdated: "2021-08-19"
 
 keywords: import certificates
 
@@ -147,15 +147,15 @@ You can import certificate files that are in the `.pem` format. Be sure to [conv
 
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/imported_cert" \
-  -H "Authorization: Bearer $IAM_TOKEN" \
-  -H "Accept: application/json" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "metadata": {
-      "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
-      "collection_total": 1
-      },
-      "resources": [
+    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{
+        "metadata": {
+        "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
+        "collection_total": 1
+        },
+        "resources": [
         {
           "name": "example-certificate",
           "description": "Extended description for my secret.",
@@ -168,7 +168,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
             "us-south"
           ]
         }
-      ]
+        ]
     }'
 ```
 {: codeblock}
@@ -177,5 +177,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 
 
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
+
+
 
 

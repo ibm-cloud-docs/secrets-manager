@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-07-02"
+lastupdated: "2021-08-19"
 
 keywords: faqs, Frequently Asked Questions, question, Secrets Manager, dynamic what is a secret, what is an arbitrary secret, what is an IAM credential, arbitrary secret, IAM credential, what happens when secret expires
 
@@ -143,17 +143,18 @@ Currently, {{site.data.keyword.secrets-manager_short}} offers foundational capab
 
 If you're looking to manage {{site.data.keyword.cloud_notm}} secrets through the full Vault native experience, you can use the stand-alone {{site.data.keyword.cloud_notm}} plug-ins for Vault. These open source plug-ins can be used independently from each other so that you can manage {{site.data.keyword.cloud_notm}} secrets through your on-premises Vault server.
 
-- To set up authentication between Vault and your {{site.data.keyword.cloud_notm}} account, you can use the [{{site.data.keyword.cloud_notm}} Auth Method plug-in for Vault](https://github.com/ibm-cloud-security/vault-plugin-auth-ibmcloud){:external}.
+- To set up authentication between Vault and your {{site.data.keyword.cloud_notm}} account, you can use the [{{site.data.keyword.cloud_notm}} Auth Method plug-in for Vault](https://github.com/ibm-cloud-security/vault-plugin-auth-ibmcloud){: external}.
 - To dynamically create API keys for {{site.data.keyword.cloud_notm}} service IDs, you can use the [{{site.data.keyword.cloud_notm}} Secrets Backend plug-in for Vault](https://github.com/ibm-cloud-security/vault-plugin-secrets-ibmcloud){: external}.
 
 ## I'm not familiar with Vault. Can I still use {{site.data.keyword.secrets-manager_short}}?
 {: #faq-vault-secrets-manager}
 {: faq}
 
-Yes. To use {{site.data.keyword.secrets-manager_short}}, you don't need to install Vault or the {{site.data.keyword.cloud_notm}} plug-ins for Vault. You can try {{site.data.keyword.secrets-manager_short}} for free, without needing an extensive background on how to use Vault. To get started, [choose the type of secret](/docs/secrets-manager?topic=secrets-manager-what-is-secret) that you want to create. Then, you can integrate with the standard [Secrets Manager APIs](/apidocs/secrets-manager){:external} so that you can access the secret programmatically.
+Yes. To use {{site.data.keyword.secrets-manager_short}}, you don't need to install Vault or the {{site.data.keyword.cloud_notm}} plug-ins for Vault. You can try {{site.data.keyword.secrets-manager_short}} for free, without needing an extensive background on how to use Vault. To get started, [choose the type of secret](/docs/secrets-manager?topic=secrets-manager-what-is-secret) that you want to create. Then, you can integrate with the standard [Secrets Manager APIs](/apidocs/secrets-manager){: external} so that you can access the secret programmatically.
 
 ## Where can I find information about compliance certifications for {{site.data.keyword.secrets-manager_short}}?
 {: #faq-compliance-certifications}
 {: faq}
 
 To view a complete list of certifications for {{site.data.keyword.secrets-manager_short}}, see section 5.4 of the [{{site.data.keyword.secrets-manager_short}} software product compatibility report](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=FDDE7600BDD511EA92B4FC8223E18670){: external}.
+

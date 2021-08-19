@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-21"
+lastupdated: "2021-08-19"
 
 keywords: access secret, retrieve secret, read secret, get secret value, get secrets, view secrets, search secrets, read secrets, get secret value
 
@@ -135,17 +135,17 @@ If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https:/
 
 ```bash
 curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}" \
-  -H "Authorization: Bearer $IAM_TOKEN" \
-  -H "Accept: application/json"
+    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "Accept: application/json"
 ```
 {: codeblock}
 {: curl}
 
 ```java
 GetSecretOptions getSecretOptions = new GetSecretOptions.Builder()
-  .secretType("<secret_type>")
-  .id(secretIdLink)
-  .build();
+    .secretType("<secret_type>")
+    .id(secretIdLink)
+    .build();
 
 Response<GetSecret> response = sm.getSecret(getSecretOptions).execute();
 GetSecret getSecret = response.getResult();
@@ -157,17 +157,17 @@ System.out.println(getSecret);
 
 ```javascript
 const params = {
-  secretType: '<secret_type>',
-  id: secretId,
+    secretType: '<secret_type>',
+    id: secretId,
 };
 
 secretsManagerApi.getSecret(params)
-  .then(res => {
-    console.log('Get secret:\n', JSON.stringify(result.resources, null, 2));
+    .then(res => {
+        console.log('Get secret:\n', JSON.stringify(result.resources, null, 2));
     })
-  .catch(err => {
-    console.warn(err)
-  });
+    .catch(err => {
+        console.warn(err)
+    });
 ```
 {: codeblock}
 {: javascript}
@@ -213,8 +213,8 @@ First, retrieve the secret by calling the {{site.data.keyword.secrets-manager_sh
 
 ```bash
 export ARBITRARY_SECRET=`curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/arbitrary/{id}" \
-  -H "Authorization: Bearer $IAM_TOKEN" \
-  -H "Accept: application/json" | jq --raw-output '.resources[].secret_data.payload | sub(".*,"; "")'`
+    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "Accept: application/json" | jq --raw-output '.resources[].secret_data.payload | sub(".*,"; "")'`
 ```
 {: pre}
 
@@ -224,7 +224,7 @@ If you inspect the contents of `$ARBITRARY_SECRET`, you see base64 encoded data.
 echo $ARBITRARY_SECRET
 eUdB68klDSrzSKgWcQS5...(truncated)
 ```
-{:pre}
+{: pre}
 {: screen}
 
 To view the secret in its original form (binary file), you can use base64 decoding. The following example uses the `base64` macOS utility to base64 decode the `$ARBITRARY_SECRET` contents.
@@ -246,10 +246,12 @@ After you rotate a certificate, you can programmatically access its previous ver
 
 ```bash
 curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/import_cert/{id}/versions/previous" \
-  -H "Authorization: Bearer $IAM_TOKEN" \
-  -H "Accept: application/json"
+    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "Accept: application/json"
 ```
 {: codeblock}
 {: curl}
+
+
 
 

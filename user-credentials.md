@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-23"
+lastupdated: "2021-08-19"
 
 keywords: username, password, user credentials, store password
 
@@ -85,9 +85,9 @@ To store a username and password by using the {{site.data.keyword.secrets-manage
     Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 7. Enter the username and password that you want to associate with the secret.
 8. Optional: Add labels to help you to search for similar secrets in your instance.
-9.  Optional: Enable expiration and rotation options to control the lifespan of the secret.
-     1. To set an expiration date for the secret, switch the expiration toggle to **Yes**.
-     2. To rotate your secret at a 30, 60, or 90-day interval, switch the rotate toggle to **Yes**.
+9. Optional: Enable expiration and rotation options to control the lifespan of the secret.
+        1. To set an expiration date for the secret, switch the expiration toggle to **Yes**.
+        2. To rotate your secret at a 30, 60, or 90-day interval, switch the rotate toggle to **Yes**.
 
 10. Click **Add**.
 
@@ -132,15 +132,15 @@ If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https:/
 
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password" \
-  -H "Authorization: Bearer $IAM_TOKEN" \
-  -H "Accept: application/json" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "metadata": {
-      "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
-      "collection_total": 1
-      },
-      "resources": [
+    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{
+        "metadata": {
+        "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
+        "collection_total": 1
+        },
+        "resources": [
         {
           "name": "example-username-password-secret",
           "description": "Extended description for my secret.",
@@ -153,7 +153,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
             "us-south"
           ]
         }
-      ]
+        ]
     }'
 ```
 {: codeblock}
@@ -161,23 +161,23 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 
 ```java
 CollectionMetadata collectionMetadataModel = new CollectionMetadata.Builder()
-  .collectionType("application/vnd.ibm.secrets-manager.secret+json")
-  .collectionTotal(Long.valueOf("1"))
-  .build();
+    .collectionType("application/vnd.ibm.secrets-manager.secret+json")
+    .collectionTotal(Long.valueOf("1"))
+    .build();
 SecretResourceUsernamePasswordSecretResource secretResourceModel = new SecretResourceUsernamePasswordSecretResource.Builder()
-  .name("example-username-password-secret")
-  .description("Extended description for this secret.")
-  .secretGroupId("432b91f1-ff6d-4b47-9f06-82debc236d90")
-  .labels(new java.util.ArrayList<String>(java.util.Arrays.asList("dev","us-south")))
-  .expirationDate(TestUtilities.createMockDateTime("2030-01-01T00:00:00Z"))
-  .username("user123")
-  .password("cloudy-rainy-coffee-book")
-  .build();
+    .name("example-username-password-secret")
+    .description("Extended description for this secret.")
+    .secretGroupId("432b91f1-ff6d-4b47-9f06-82debc236d90")
+    .labels(new java.util.ArrayList<String>(java.util.Arrays.asList("dev","us-south")))
+    .expirationDate(TestUtilities.createMockDateTime("2030-01-01T00:00:00Z"))
+    .username("user123")
+    .password("cloudy-rainy-coffee-book")
+    .build();
 CreateSecretOptions createSecretOptions = new CreateSecretOptions.Builder()
-  .secretType("username_password")
-  .metadata(collectionMetadataModel)
-  .resources(new java.util.ArrayList<SecretResource>(java.util.Arrays.asList(secretResourceModel)))
-  .build();
+    .secretType("username_password")
+    .metadata(collectionMetadataModel)
+    .resources(new java.util.ArrayList<SecretResource>(java.util.Arrays.asList(secretResourceModel)))
+    .build();
 
 Response<CreateSecret> response = sm.createSecret(createSecretOptions).execute();
 CreateSecret createSecret = response.getResult();
@@ -189,31 +189,31 @@ System.out.println(createSecret);
 
 ```javascript
 const params = {
-  secretType: 'username_password',
-  'metadata': {
-    'collection_type': 'application/vnd.ibm.secrets-manager.secret+json',
+    secretType: 'username_password',
+    'metadata': {
+        'collection_type': 'application/vnd.ibm.secrets-manager.secret+json',
     'collection_total': 1,
-  },
-  'resources': [
-    {
-      'name': 'example-username-password-secret',
-      'description': 'Extended description for my secret.',
-      'secret_group_id': '432b91f1-ff6d-4b47-9f06-82debc236d90',
-      'username': 'user123',
-      'password': 'cloudy-rainy-coffee-book',
-      'labels': ['dev', 'us-south'],
-      'expiration_date': '2030-12-31T00:00:00Z',
     },
-  ],
+    'resources': [
+        {
+        'name': 'example-username-password-secret',
+        'description': 'Extended description for my secret.',
+        'secret_group_id': '432b91f1-ff6d-4b47-9f06-82debc236d90',
+        'username': 'user123',
+        'password': 'cloudy-rainy-coffee-book',
+        'labels': ['dev', 'us-south'],
+        'expiration_date': '2030-12-31T00:00:00Z',
+    },
+    ],
 };
 
 secretsManagerApi.createRules(params)
-  .then(res => {
-    console.log('Create secret:\n', JSON.stringify(result.resources, null, 2));
+    .then(res => {
+        console.log('Create secret:\n', JSON.stringify(result.resources, null, 2));
     })
-  .catch(err => {
-    console.warn(err)
-  });
+    .catch(err => {
+        console.warn(err)
+    });
 ```
 {: codeblock}
 {: javascript}
@@ -277,3 +277,5 @@ fmt.Println(string(b))
 {: go}
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
+
+

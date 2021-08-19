@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-17"
+lastupdated: "2021-08-19"
 
 keywords: secrets management, manage secrets, manage credentials, store username and password, add secrets, add credentials, get started with Secrets Manager
 content-type: tutorial
@@ -64,7 +64,7 @@ subcollection: secrets-manager
 {: toc-completion-time="10m"}
 
 This tutorial focuses on storing and managing a username and password in {{site.data.keyword.secrets-manager_full}}. With {{site.data.keyword.secrets-manager_short}}, you can create, lease, and centrally manage secrets that are used in {{site.data.keyword.cloud_notm}} services or your custom-built applications. Secrets are stored in a dedicated {{site.data.keyword.secrets-manager_short}} instance, built on open source HashiCorp Vault.
-{:shortdesc}
+{: shortdesc}
 
 Looking for a different secret type? You can also create Identity and Access Management (IAM) credentials to access an {{site.data.keyword.cloud_notm}} resource, or you can add custom secrets that can hold structured or unstructured data.
 
@@ -86,7 +86,7 @@ You can get started with {{site.data.keyword.secrets-manager_short}} by choosing
 3. In the **Secrets** table, click **Add**.
 4. Select the **User credentials** tile.
 
-  You're all set to enter the details of your new secret. To describe and store your secret, continue to the next step.
+    You're all set to enter the details of your new secret. To describe and store your secret, continue to the next step.
 
 ## Store the secret securely
 {: #gs-add-secret}
@@ -99,13 +99,13 @@ Complete the following steps to enter the details of a secret and store it secur
 1. In the **Add user credentials** page, add a name and description to easily identify your secret.
 2. Add the secret to a group to control who on your team has access to it.
 
-   You can click **Create** to provide a name and a description for a new group. Later, you can assign an access policy to the group so that you control who on your team has access to its contained secret.
+    You can click **Create** to provide a name and a description for a new group. Later, you can assign an access policy to the group so that you control who on your team has access to its contained secret.
 3. Optional: Add labels to help you to search for similar secrets in your instance.
 4. Supply the username and password values that you want to associate with the secret.
 5. Optional: Set an expiration date for the secret.
 6. Click **Add**.
 
-  You did it! The username and password are now stored in your dedicated, single-tenant instance of {{site.data.keyword.secrets-manager_short}}.
+    You did it! The username and password are now stored in your dedicated, single-tenant instance of {{site.data.keyword.secrets-manager_short}}.
 
 ## Manage its lifecycle
 {: #gs-manage-lifecycle}
@@ -114,9 +114,9 @@ Complete the following steps to enter the details of a secret and store it secur
 After you add a secret to your instance, you can establish a regular cadence for managing its lifecycle. For example, you might need to adhere to an internal requirement or regulatory control in your business for rotating secrets every 30 days.
 
 1. In the **Secrets** table, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) to open a list of options for your secret.
-   1. To view and edit details about the secret, click **Edit details**.
-   2. To rotate the secret, click **Rotate**.
-   3. If you no longer need the secret, click **Delete**.
+    1. To view and edit details about the secret, click **Edit details**.
+    2. To rotate the secret, click **Rotate**.
+    3. If you no longer need the secret, click **Delete**.
 
 ## Next steps
 {: #gs-next-steps}
@@ -124,4 +124,6 @@ After you add a secret to your instance, you can establish a regular cadence for
 Now you can add more secrets and design a secrets management strategy to control who has access to them.
 
 - To find out more about organizing secrets, check out [Best practices for organizing secrets and assigning access](/docs/secrets-manager?topic=secrets-manager-best-practices-organize-secrets).
+
+
 

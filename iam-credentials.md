@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-09"
+lastupdated: "2021-08-19"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -87,9 +87,10 @@ To configure your instance to start creating IAM credentials, complete the follo
 
     The service ID that is associated with your API key must have _Editor_ platform access on the IAM Access Groups Service and _Operator_ platform access on the IAM Identity Service.
     {: note}
+
 6. Click **Configure**.
 
-   Now, your {{site.data.keyword.secrets-manager_short}} instance is enabled for IAM credential secrets.
+    Now, your {{site.data.keyword.secrets-manager_short}} instance is enabled for IAM credential secrets.
 
 
 
@@ -196,24 +197,24 @@ If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https:/
 
 ```sh
 curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/config/iam_credentials" \
-  -H "Authorization: Bearer $IAM_TOKEN"
-  -H "Accept: application/json"
-  -H "Content-Type: application/json"
-  -d '{
-    "api_key": "$IBM_CLOUD_API_KEY"
-  }'
+    -H "Authorization: Bearer $IAM_TOKEN"
+    -H "Accept: application/json"
+    -H "Content-Type: application/json"
+    -d '{
+        "api_key": "$IBM_CLOUD_API_KEY"
+    }'
 ```
 {: codeblock}
 {: curl}
 
 ```java
 EngineConfigOneOfIAMSecretEngineRootConfig engineConfigOneOfModel = new EngineConfigOneOfIAMSecretEngineRootConfig.Builder()
-  .apiKey("API_KEY")
-  .build();
+    .apiKey("API_KEY")
+    .build();
 PutConfigOptions putConfigOptions = new PutConfigOptions.Builder()
-  .secretType("iam_credentials")
-  .engineConfigOneOf(engineConfigOneOfModel)
-  .build();
+    .secretType("iam_credentials")
+    .engineConfigOneOf(engineConfigOneOfModel)
+    .build();
 
 service.putConfig(putConfigOptions).execute();
 ```
@@ -327,15 +328,15 @@ If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https:/
 
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/iam_credentials" \
-  -H "Authorization: Bearer $IAM_TOKEN" \
-  -H "Accept: application/json" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "metadata": {
-      "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
-      "collection_total": 1
-      },
-      "resources": [
+    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{
+        "metadata": {
+        "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
+        "collection_total": 1
+        },
+        "resources": [
         {
           "name": "example-IAM-credentials",
           "description": "Extended description for my secret.",
@@ -350,7 +351,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
             "us-south"
           ]
         }
-      ]
+        ]
     }'
 ```
 {: codeblock}
@@ -358,22 +359,22 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 
 ```java
 CollectionMetadata collectionMetadataModel = new CollectionMetadata.Builder()
-  .collectionType("application/vnd.ibm.secrets-manager.secret+json")
-  .collectionTotal(Long.valueOf("1"))
-  .build();
+    .collectionType("application/vnd.ibm.secrets-manager.secret+json")
+    .collectionTotal(Long.valueOf("1"))
+    .build();
 SecretResourceIAMSecretResource secretResourceModel = new SecretResourceIAMSecretResource.Builder()
-  .name("example-IAM-credentials")
-  .description("Extended description for this secret.")
-  .accessGroups(new java.util.ArrayList<String>(java.util.Arrays.asList("AccessGroupId-e7e1a364-c5b9-4027-b4fe-083454499a20")))
-  .secretGroupId("432b91f1-ff6d-4b47-9f06-82debc236d90")
-  .labels(new java.util.ArrayList<String>(java.util.Arrays.asList("dev","us-south")))
-  .ttl("12h")
-  .build();
+    .name("example-IAM-credentials")
+    .description("Extended description for this secret.")
+    .accessGroups(new java.util.ArrayList<String>(java.util.Arrays.asList("AccessGroupId-e7e1a364-c5b9-4027-b4fe-083454499a20")))
+    .secretGroupId("432b91f1-ff6d-4b47-9f06-82debc236d90")
+    .labels(new java.util.ArrayList<String>(java.util.Arrays.asList("dev","us-south")))
+    .ttl("12h")
+    .build();
 CreateSecretOptions createSecretOptions = new CreateSecretOptions.Builder()
-  .secretType("iam_credentials")
-  .metadata(collectionMetadataModel)
-  .resources(new java.util.ArrayList<SecretResource>(java.util.Arrays.asList(secretResourceModel)))
-  .build();
+    .secretType("iam_credentials")
+    .metadata(collectionMetadataModel)
+    .resources(new java.util.ArrayList<SecretResource>(java.util.Arrays.asList(secretResourceModel)))
+    .build();
 
 Response<CreateSecret> response = sm.createSecret(createSecretOptions).execute();
 CreateSecret createSecret = response.getResult();
@@ -385,35 +386,35 @@ System.out.println(createSecret);
 
 ```javascript
 const params = {
-  secretType: 'iam_credentials',
-  'metadata': {
-    'collection_type': 'application/vnd.ibm.secrets-manager.secret+json',
+    secretType: 'iam_credentials',
+    'metadata': {
+        'collection_type': 'application/vnd.ibm.secrets-manager.secret+json',
     'collection_total': 1,
-  },
-  'resources': [
-    {
-      'name': 'example-IAM-credentials',
-      'description': 'Extended description for my secret.',
-      'access_groups': [
+    },
+    'resources': [
+        {
+        'name': 'example-IAM-credentials',
+        'description': 'Extended description for my secret.',
+        'access_groups': [
         'AccessGroupId-e7e1a364-c5b9-4027-b4fe-083454499a20'
-      ],
-      'secret_group_id: '432b91f1-ff6d-4b47-9f06-82debc236d90',
-      'ttl': '12h',
-      'labels': [
+        ],
+        'secret_group_id: '432b91f1-ff6d-4b47-9f06-82debc236d90',
+        'ttl': '12h',
+        'labels': [
         'dev',
         'us-south'
-      ]
+        ]
     },
-  ],
+    ],
 };
 
 secretsManagerApi.createRules(params)
-  .then(res => {
-    console.log('Create secret:\n', JSON.stringify(result.resources, null, 2));
+    .then(res => {
+        console.log('Create secret:\n', JSON.stringify(result.resources, null, 2));
     })
-  .catch(err => {
-    console.warn(err)
-  });
+    .catch(err => {
+        console.warn(err)
+    });
 ```
 {: codeblock}
 {: javascript}
@@ -428,13 +429,13 @@ secret_resource = {
     'name': 'example-IAM-credentials',
     'description': 'Extended description for this secret.',
     'access_groups': [
-      'AccessGroupId-e7e1a364-c5b9-4027-b4fe-083454499a20'
+        'AccessGroupId-e7e1a364-c5b9-4027-b4fe-083454499a20'
     ],
     'secret_group_id: '432b91f1-ff6d-4b47-9f06-82debc236d90',
     'ttl': '12h',
     'labels': [
-      'dev',
-      'us-south'
+        'dev',
+        'us-south'
     ]
 }
 
@@ -483,3 +484,5 @@ When you set the `reuse_api_key` parameter true, the credentials that are genera
 {: tip}
 
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
+
+

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-21"
+lastupdated: "2021-08-19"
 
 keywords: 
 
@@ -115,7 +115,7 @@ If you're ready to start your transition to {{site.data.keyword.secrets-manager_
 
     ```sh
     curl -X GET "https://resource-controller.cloud.ibm.com/v2/resource_instances?resource_plan_id=14edb41b-ebd6-46b1-a39a-92df79906ca7" \
-      -H 'Authorization: Bearer {IAM_token}'
+        -H 'Authorization: Bearer {IAM_token}'
     ```
     {: codeblock}
 
@@ -133,7 +133,7 @@ If you're ready to start your transition to {{site.data.keyword.secrets-manager_
 3. Determine an access hierarchy for your certificates within {{site.data.keyword.secrets-manager_short}}. 
 
     Create secret groups in {{site.data.keyword.secrets-manager_short}} ahead of time so that you can organize your incoming certificates by mapped IAM policies. 
-    
+
     Be sure to create secret groups first because you can't change assignments to certificates after you migrate them. If you accidentally assign an incoming certificate to the wrong secret group, or if you don't want a certificate to belong to the default secret group, you must delete certificate and add it again.
     {: important}
 
@@ -200,5 +200,7 @@ If you're ready to start your transition to {{site.data.keyword.secrets-manager_
         </tr>
         <caption style="caption-side:bottom">Table 3. Fields that contain certificate data</caption>
     </table>
+
+
 
 

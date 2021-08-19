@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-07-01"
+lastupdated: "2021-08-19"
 
 keywords: connect to {{site.data.keyword.secrets-manager_short}} on a VPC, virtual service endpoints, virtual private cloud, connect via VPC, connect through VPC, connect via VPE, connect through VPE
 
@@ -105,7 +105,7 @@ You can update your existing {{site.data.keyword.secrets-manager_short}} instanc
     VPE_ENDPOINTS="[{\"ip_address\": \"166.9.44.54\", \"zone\": \"tok05\"},{\"ip_address\": \"166.9.40.53\", \"zone\": \"tok02\"},{\"ip_address\": \"166.9.42.68\", \"zone\": \"tok04\"}]"
     ```
     {: codeblock}
-    
+
     Sydney:
     ```sh
     VPE_ENDPOINTS="[{\"ip_address\": \"166.9.52.52\", \"zone\": \"syd01\"},{\"ip_address\": \"166.9.54.60\", \"zone\": \"syd04\"},{\"ip_address\": \"166.9.56.57\", \"zone\": \"syd05\"}]"
@@ -152,7 +152,7 @@ You can update your existing {{site.data.keyword.secrets-manager_short}} instanc
 
     ```json
     {
-      "extensions": {
+        "extensions": {
         "virtual_private_endpoints": {
           "dns_domain": "private.eu-de.secrets-manager.appdomain.cloud",
           "dns_hosts": [
@@ -180,10 +180,12 @@ You can update your existing {{site.data.keyword.secrets-manager_short}} instanc
             }
           ]
         }
-      }
+        }
     }
     ```
     {: screen}
+
+
 
 
 
