@@ -95,7 +95,7 @@ Before you get started, be sure that you have the required level of access. To c
 {: #import-certificates-ui}
 {: ui}
 
-You can use {{site.data.keyword.secrets-manager_short}} to store certificate files that are signed and issued by external certificate authorities.
+You can use {{site.data.keyword.secrets-manager_short}} to store certificate files that are signed and issued by external certificate authorities. After you import your certificate files, you can deploy the certificate to your apps and services, download the certificate, or [rotate it manually](/docs/secrets-manager?topic=secrets-manager-rotate-secrets#manual-rotate-secret) when it's time to renew. 
 
 To add a certificate by using the {{site.data.keyword.secrets-manager_short}} UI, complete the following steps.
 

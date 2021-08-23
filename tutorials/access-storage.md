@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-19"
+lastupdated: "2021-08-23"
 content-type: tutorial
 services: secrets-manager,cloud-object-storage
 account-plan: lite
@@ -84,8 +84,8 @@ Before you get started, be sure that you have [**Administrator** platform access
 
 - [Download and install the IBM Cloud CLI](https://cloud.ibm.com/docs/cli).
 - [Install the {{site.data.keyword.secrets-manager_short}} CLI plug-in](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli).
-- [Download and install jq](https://stedolan.github.io/jq/){: external}.
-
+- [Download and install jq](https://stedolan.github.io/jq/){: external}.\
+\
     `jq` helps you slice and filter JSON data. You use `jq` in this tutorial to grab and use stored environment variables.
 
 ## Set up your environment

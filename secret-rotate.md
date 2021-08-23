@@ -62,7 +62,7 @@ You can rotate your secrets manually by using {{site.data.keyword.secrets-manage
 When you rotate a secret in {{site.data.keyword.secrets-manager_short}}, you create a new version of its value. By rotating your secret at regular intervals, you limit its lifespan and protect against inadvertent exposure of your sensitive data. Rotation is supported in {{site.data.keyword.secrets-manager_short}} for the following secret types:
 
 - Arbitrary secrets (`arbitrary`)
-- SSL/TLS certificates (`imported_cert`)
+- TLS certificates (`imported_cert`)
 - User credentials (`username_password`)
 
 IAM credentials (`iam_credentials)` are recreated dynamically on your behalf so that you don't have to manually rotate them.
@@ -78,7 +78,7 @@ Before you get started, be sure that you have the required level of access. To r
 ## Rotating your secrets manually
 {: #manual-rotate-secret}
 
-You can manually rotate user credentials and arbitrary secrets or reimport SSL/TLS certificates by using the console or APIs.
+You can manually rotate user credentials and arbitrary secrets or reimport TLS certificates by using the console or APIs.
 
 ### Rotating secrets manually in the UI
 {: #manual-rotate-secret-ui}
