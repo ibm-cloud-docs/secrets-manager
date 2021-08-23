@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-19"
+lastupdated: "2021-08-23"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-19"
+lastupdated: "2021-08-23"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -70,6 +70,8 @@ If you're setting up IAM credentials for the first time, be sure that you're ass
 
 - [**Editor** platform role](/docs/account?topic=account-account-services#access-groups-account-management) on the IAM Access Groups Service.
 - [**Operator** platform role](/docs/account?topic=account-account-services#identity-service-account-management) on the IAM Identity Service.
+
+
 
 ## Configuring the IAM secrets engine in the UI
 {: #configure-iam-secrets-engine-ui}
@@ -260,6 +262,8 @@ if err != nil {
 {: go}
 
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
+
+
 
 ## Creating IAM credentials in the UI
 {: #iam-credentials-ui}

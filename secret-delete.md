@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-19"
+lastupdated: "2021-08-23"
 
 keywords: delete secret, remove secret, destroy secret
 
