@@ -58,10 +58,9 @@ subcollection: secrets-manager
 {: #getting-help}
 
 
-If you have problems or questions when using {{site.data.keyword.secrets-manager_full}}, you can go directly to the {{site.data.keyword.cloud_notm}} Support page](https://{DomainName}/unifiedsupport/supportcenter) to review featured FAQs, view cloud status, or post questions on Stack Overflow. You can also open a support case.
+If you have problems or questions when using {{site.data.keyword.secrets-manager_full}}, you can go directly to the [{{site.data.keyword.cloud_notm}} Support page](https://{DomainName}/unifiedsupport/supportcenter) to review featured FAQs, view cloud status, or post questions on Stack Overflow. You can also open a support case.
 {: shortdesc}
 
 * You can check the status of the {{site.data.keyword.cloud_notm}}  platform and resources by going to the [Status page](https://cloud.ibm.com/status){: external}.
-
 * You can review [Stack Overflow](https://stackoverflow.com/search?q=ibm-cloud){: external} to see whether other users ran into the same problem. When using the forum to ask a question, tag your question with "ibm-cloud" and "ibm-secrets-manager" so that it is seen by the {{site.data.keyword.cloud_notm}} development teams.
 * If you still can't resolve the problem, you can open a support case. For information about opening a support case, or about case severities and response times, see [Working with support cases](/docs/get-support?topic=get-support-open-case) or [Escalating support cases](/docs/get-support?topic=get-support-escalation).
