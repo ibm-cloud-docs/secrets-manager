@@ -74,7 +74,7 @@ Before you get started, be sure that you have the required level of access. To c
 
 
 | Prerequisites |
-| ------------- |
+| :------------ |
 | <p>Before you import a certificate, be sure that you:</p><ul><li>Create an X.509 compliant certificate with a matching private key (optional).</li><li>Convert your files into Privacy-enhanced electronic mail (PEM) format.</li><li>Keep the private key unencrypted to ensure that it can be imported into {{site.data.keyword.secrets-manager_short}}</li></ul> |
 {: caption="Table 1. Prerequisites - Importing certificates" caption-side="top"}
 {: #import-certificates-prereqs}
@@ -83,22 +83,19 @@ Before you get started, be sure that you have the required level of access. To c
 {: class="simple-tab-table"}
 
 | Prerequisites |
-| ------------- |
-| <p>Before you order a certificate, be sure that you:</p><ul><li>Review the list of certificate authorities that {{site.data.keyword.secrets-manager_short}} supports.<li>Create an Automatic Certificate Management Environment (ACME) account for the certificate authority that you want to use.<p>The ACME protocol makes it possible to automatically obtain browser trusted certificates without human intervention. Before you can request certificates through {{site.data.keyword.secrets-manager_short}}, you must have an ACME account registered with the certificate authority that you want to use so that {{site.data.keyword.secrets-manager_short}} can obtain the required details. If you don't have an existing ACME client or account, you can create one by using [the ACME account utility](https://github.ibm.com/VME/acme-account){: external}.</p></li><li>Retrieve the private key that's associated with your ACME account.</li><li>Enable the public certificates engine for your instance.</p>
+| :------------ |
+| <p>Before you order a certificate, be sure that you:</p><ul><li>Review the list of certificate authorities that {{site.data.keyword.secrets-manager_short}} supports.<li>Create an Automatic Certificate Management Environment (ACME) account for the certificate authority that you want to use.<p class="info">The ACME protocol makes it possible to automatically obtain browser trusted certificates without human intervention. Before you can request certificates through {{site.data.keyword.secrets-manager_short}}, you must have an ACME account registered with the certificate authority that you want to use so that {{site.data.keyword.secrets-manager_short}} can obtain the required details. If you don't have an existing ACME client or account, you can create one by using [the ACME account utility](https://github.ibm.com/VME/acme-account){: external}.</p></li><li>Retrieve the private key that's associated with your ACME account.</li><li>Enable the public certificates engine for your instance. |
 {: caption="Table 1. Prerequisites - Ordering certificates" caption-side="top"}
 {: #order-certificates-prereqs}
 {: tab-title="Ordering certificates"}
 {: tab-group="cert-prereqs"}
 {: class="simple-tab-table"}
 
-## Importing your existing certificates
-{: #import-certificates}
-
-You can use {{site.data.keyword.secrets-manager_short}} to store certificate files that are signed and issued by external certificate authorities.
-
-### Importing certificates in the UI
+## Importing your existing certificates in the UI
 {: #import-certificates-ui}
 {: ui}
+
+You can use {{site.data.keyword.secrets-manager_short}} to store certificate files that are signed and issued by external certificate authorities.
 
 To add a certificate by using the {{site.data.keyword.secrets-manager_short}} UI, complete the following steps.
 
@@ -124,7 +121,7 @@ To add a certificate by using the {{site.data.keyword.secrets-manager_short}} UI
 
 
 
-### Importing certificates from the CLI
+## Importing your existing certificates from the CLI
 {: #import-certificates-cli}
 {: cli}
 
@@ -142,7 +139,7 @@ The command outputs the ID value of the secret, along with other metadata. For m
 
 
 
-### Importing certificates with the API
+## Importing your existing certificates with the API
 {: #import-certificates-api}
 {: api}
 
