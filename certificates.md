@@ -91,7 +91,7 @@ Before you get started, be sure that you have the required level of access. To c
 {: tab-group="cert-prereqs"}
 {: class="simple-tab-table"}
 
-## Importing your existing certificates in the UI
+## Importing certificates in the UI
 {: #import-certificates-ui}
 {: ui}
 
@@ -121,7 +121,7 @@ To add a certificate by using the {{site.data.keyword.secrets-manager_short}} UI
 
 
 
-## Importing your existing certificates from the CLI
+## Importing certificates from the CLI
 {: #import-certificates-cli}
 {: cli}
 
@@ -139,7 +139,7 @@ The command outputs the ID value of the secret, along with other metadata. For m
 
 
 
-## Importing your existing certificates with the API
+## Importing certificates with the API
 {: #import-certificates-api}
 {: api}
 
