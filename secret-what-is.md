@@ -117,11 +117,12 @@ Review the following table to understand the types of static and dynamic secrets
 | Name | Keyword | Type | Description |
 | --- | --- | -- | -- |
 | [Arbitrary secret](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets) | `arbitrary` | Static | Arbitrary pieces of sensitive data, including any type of structured or unstructured data, that you can use to access an application or resource. |
-| [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) | `iam_credentials` | Dynamic | A dynamically generated service ID and API key that can be used to access an {{site.data.keyword.cloud_notm}} service that requires IAM authentication. |
-| [SSL/TLS certificates](/docs/secrets-manager?topic=secrets-manager-certificates) | `imported_cert` | Static | A type of digital certificate that can be used to establish communication privacy between a server and a client. |
+| [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) | `iam_credentials`_*_ | Dynamic | A dynamically generated service ID and API key that can be used to access an {{site.data.keyword.cloud_notm}} service that requires IAM authentication. |
+| [TLS certificates](/docs/secrets-manager?topic=secrets-manager-certificates) | `imported_cert` | Static | A type of digital certificate that can be used to establish communication privacy between a server and a client. |
 | [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | `username_password` | Static | Username and password values that you can use to log in or access an application or resource. |
 {: caption="Table 1. Secret types in {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
 
+_* Requires extra configuration before they can be created in the service._
 
 ## What's in a secret?
 {: #secret-components}
