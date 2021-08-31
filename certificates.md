@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-23"
+lastupdated: "2021-08-31"
 
 keywords: import certificates
 
@@ -54,7 +54,7 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 
 
-# SSL/TLS certificates
+# TLS certificates
 {: #certificates}
 
 
