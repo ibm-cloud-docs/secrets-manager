@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-07-09"
+lastupdated: "2021-08-19"
 
 keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, lite plan
 
@@ -100,8 +100,8 @@ You can also create an instance of {{site.data.keyword.secrets-manager_short}} b
     ```
     {: pre}
 
-     If the login fails, run the `ibmcloud login --sso` command to try again. The `--sso` parameter is required when you log in with a federated ID. If this option is used, go to the link listed in the CLI output to generate a one-time passcode.
-     {: note}
+    If the login fails, run the `ibmcloud login --sso` command to try again. The `--sso` parameter is required when you log in with a federated ID. If this option is used, go to the link listed in the CLI output to generate a one-time passcode.
+    {: note}
 
 2. Select the account, region, and resource group where you want to create a {{site.data.keyword.secrets-manager_short}} service instance.
 
@@ -130,3 +130,4 @@ You can also create an instance of {{site.data.keyword.secrets-manager_short}} b
 
     Provisioning a {{site.data.keyword.secrets-manager_short}} instance can take 5 - 8 minutes to complete.
     {: note}
+

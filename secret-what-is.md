@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-21"
+lastupdated: "2021-09-01"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -118,9 +118,10 @@ Review the following table to understand the types of static and dynamic secrets
 | --- | --- | -- | -- |
 | [Arbitrary secret](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets) | `arbitrary` | Static | Arbitrary pieces of sensitive data, including any type of structured or unstructured data, that you can use to access an application or resource. |
 | [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) | `iam_credentials` | Dynamic | A dynamically generated service ID and API key that can be used to access an {{site.data.keyword.cloud_notm}} service that requires IAM authentication. |
-| [SSL/TLS certificates](/docs/secrets-manager?topic=secrets-manager-certificates) | `imported_cert` | Static | A type of digital certificate that can be used to establish communication privacy between a server and a client. |
+| [TLS certificates](/docs/secrets-manager?topic=secrets-manager-certificates) | `imported_cert` | Static | A type of digital certificate that can be used to establish communication privacy between a server and a client. |
 | [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | `username_password` | Static | Username and password values that you can use to log in or access an application or resource. |
 {: caption="Table 1. Secret types in {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
+
 
 
 ## What's in a secret?
@@ -136,17 +137,17 @@ Check out the following image to see how a secret is structured.
 
 2. The `secret_data` object contains the actual value of your secret.
 
-   When you use the {{site.data.keyword.secrets-manager_short}} API to retrieve the value of a secret, the fields that you see in the `secret_data` object differ depending on the type of secret that you are inspecting. For example, the following truncated example shows how secret data is represented for an arbitrary secret.
+    When you use the {{site.data.keyword.secrets-manager_short}} API to retrieve the value of a secret, the fields that you see in the `secret_data` object differ depending on the type of secret that you are inspecting. For example, the following truncated example shows how secret data is represented for an arbitrary secret.
 
-   ```json
-   {
-     "secret_type": "arbitrary",
-     "secret_data": {
-       "payload": "The quick brown fox jumped over the lazy dog."
-     }
-   }
-   ```
-   {: screen}
+    ```json
+    {
+        "secret_type": "arbitrary",
+        "secret_data": {
+        "payload": "The quick brown fox jumped over the lazy dog."
+        }
+    }
+    ```
+    {: screen}
 
 
 
@@ -154,3 +155,5 @@ Check out the following image to see how a secret is structured.
 {: #what-is-secret-get-started}
 
 To get started with secrets, you can go to the **Secrets** page of the {{site.data.keyword.secrets-manager_short}} UI, or check out the [API reference](/apidocs/secrets-manager) to learn more about creating secrets programmatically.
+
+

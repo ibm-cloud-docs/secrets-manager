@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-05"
+lastupdated: "2021-08-19"
 
 keywords: public isolation for Secrets Manager, compute isolation for Secrets Manager, Secrets Manager architecture, workload isolation in Secrets Manager
 
@@ -74,5 +74,7 @@ The following image shows the main {{site.data.keyword.secrets-manager_short}} c
 {: #workload-isolation}
 
 {{site.data.keyword.secrets-manager_short}} is a single-tenant, dedicated service instance that is currently offered only as a Lite plan. Each workload is isolated within its own namespace within the data plane of the service clusters.
+
+
 
 

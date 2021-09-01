@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-24"
+lastupdated: "2021-08-19"
 
 keywords: Data security for Secrets Manager, byok, kyok, data storage, data encryption in Secrets Manager, customer managed keys
 
@@ -171,19 +171,21 @@ If you haven't permanently deleted your instance, you can restore it during the 
 
 1. View which service instances are available for restoration.
 
-  ```
-  ibmcloud resource reclamations
-  ```
-  {: pre}
+    ```
+    ibmcloud resource reclamations
+    ```
+    {: pre}
 
-  From the list of available instances, copy the reclamation ID of the {{site.data.keyword.secrets-manager_short}} instance that you want to restore.
+    From the list of available instances, copy the reclamation ID of the {{site.data.keyword.secrets-manager_short}} instance that you want to restore.
 
 2. Restore the reclamation.
 
-  ```
-  ibmcloud resource reclamation-restore <reclamation_ID>
-  ```
-  {: pre}
+    ```
+    ibmcloud resource reclamation-restore <reclamation_ID>
+    ```
+    {: pre}
 
-  Replace `<reclamation_ID>` with the value that you retrieved in the previous step.
+    Replace `<reclamation_ID>` with the value that you retrieved in the previous step.
+
+
 

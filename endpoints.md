@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-22"
+lastupdated: "2021-08-19"
 
 keywords: Secrets Manager availability, regions, Secrets Manager endpoints, Vault endpoint
 
@@ -77,21 +77,21 @@ You can create {{site.data.keyword.secrets-manager_short}} resources in one of t
 You can use the {{site.data.keyword.secrets-manager_short}} APIs to manage your secrets programmatically. {{site.data.keyword.secrets-manager_short}} offers two connectivity options for interacting with its service APIs.
 
 <dl>
-  <dt>
-    Public endpoints
-  </dt>
-  <dd>
-    By default, you can connect to resources in your account over the {{site.data.keyword.cloud_notm}} public network. Your data is encrypted in transit by using the Transport Security Layer (TLS) 1.2 protocol.
-  </dd>
+    <dt>
+        Public endpoints
+    </dt>
+    <dd>
+        By default, you can connect to resources in your account over the {{site.data.keyword.cloud_notm}} public network. Your data is encrypted in transit by using the Transport Security Layer (TLS) 1.2 protocol.
+    </dd>
 
-  <dt>
-    Private endpoints
-  </dt>
-  <dd>
-    <p>
-      To further secure your connection, you can also enable [virtual routing and forwarding (VRF) and service endpoints](/docs/account?topic=account-vrf-service-endpoint) for your infrastructure account. When you enable VRF for your account, you can [connect to {{site.data.keyword.secrets-manager_short}} by using a private IP](/docs/secrets-manager?topic=secrets-manager-service-connection) that is accessible only through the {{site.data.keyword.cloud_notm}} private network.
+    <dt>
+        Private endpoints
+    </dt>
+    <dd>
+        <p>
+        To further secure your connection, you can also enable [virtual routing and forwarding (VRF) and service endpoints](/docs/account?topic=account-vrf-service-endpoint) for your infrastructure account. When you enable VRF for your account, you can [connect to {{site.data.keyword.secrets-manager_short}} by using a private IP](/docs/secrets-manager?topic=secrets-manager-service-connection) that is accessible only through the {{site.data.keyword.cloud_notm}} private network.
     </p>
-  </dd>
+    </dd>
 </dl>
 
 ### Public endpoints
@@ -174,8 +174,8 @@ You can find your service endpoint URLs in the **Endpoints** page of the {{site.
 
 ```sh
 curl -X GET "https://{region}.secrets-manager.cloud.ibm.com/api/v1/instances/{url_encoded_instance_CRN}/endpoints" \
-  -H "Accept: application/json" \
-  -H "Authorization: Bearer {IAM_token}"
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {IAM_token}"
 ```
 {: pre}
 
@@ -192,14 +192,14 @@ A successful request returns the endpoint URLs that are associated with the regi
 
 ```json
 {
-  "public_endpoints": {
-    "service_api": "https://927fb8ae-1ddd-4483-a21f-7d3c0fc845f5.us-south.secrets-manager.appdomain.cloud/api",
+    "public_endpoints": {
+        "service_api": "https://927fb8ae-1ddd-4483-a21f-7d3c0fc845f5.us-south.secrets-manager.appdomain.cloud/api",
     "vault_api": "https://927fb8ae-1ddd-4483-a21f-7d3c0fc845f5.us-south.secrets-manager.appdomain.cloud"
-  },
-  "private_endpoints": {
-    "service_api": "https://927fb8ae-1ddd-4483-a21f-7d3c0fc845f5.private.us-south.secrets-manager.appdomain.cloud/api",
+    },
+    "private_endpoints": {
+        "service_api": "https://927fb8ae-1ddd-4483-a21f-7d3c0fc845f5.private.us-south.secrets-manager.appdomain.cloud/api",
     "vault_api": "https://927fb8ae-1ddd-4483-a21f-7d3c0fc845f5.private.us-south.secrets-manager.appdomain.cloud"
-  }
+    }
 }
 ```
 {: screen}
@@ -209,5 +209,7 @@ To try this API, you can interact with the following Swagger UI from your browse
 
 If your instance is configured with the **Private only** option, this API returns only the `private_endpoints` object in the response.
 {: note}
+
+
 
 

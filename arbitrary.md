@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-29"
+lastupdated: "2021-08-19"
 
 keywords: arbitrary secrets, arbitrary text, custom secrets
 
@@ -86,9 +86,10 @@ To add an arbitrary secret by using the {{site.data.keyword.secrets-manager_shor
 
     {{site.data.keyword.secrets-manager_short}} supports text-based payloads only for arbitrary secrets. If you select a file to assign to an arbitrary secret, the service uses base64 encoding to store the data in your instance. To access this secret later, you need to base64 decode it. Consider assigning a label on your secret with encoded data, such as `encode:base64`, so that you can keep track of secrets that require base64 decoding.
     {: note}
+
 8. Optional: Add labels to help you to search for similar secrets in your instance.
 9. Optional: Enable expiration and rotation options to control the lifespan of the secret.
-     1. To set an expiration date for the secret, switch the expiration toggle to **Yes**.
+    1. To set an expiration date for the secret, switch the expiration toggle to **Yes**.
 10. Click **Add**.
 
 ## Creating arbitrary secrets from the CLI
@@ -132,15 +133,15 @@ If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https:/
 
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/arbitrary" \
-  -H "Authorization: Bearer $IAM_TOKEN" \
-  -H "Accept: application/json" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "metadata": {
-      "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
-      "collection_total": 1
-      },
-      "resources": [
+    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{
+        "metadata": {
+        "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
+        "collection_total": 1
+        },
+        "resources": [
         {
           "name": "example-arbitrary-secret",
           "description": "Extended description for my secret.",
@@ -152,7 +153,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
             "us-south"
           ]
         }
-      ]
+        ]
     }'
 ```
 {: codeblock}
@@ -160,22 +161,22 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 
 ```java
 CollectionMetadata collectionMetadataModel = new CollectionMetadata.Builder()
-  .collectionType("application/vnd.ibm.secrets-manager.secret+json")
-  .collectionTotal(Long.valueOf("1"))
-  .build();
+    .collectionType("application/vnd.ibm.secrets-manager.secret+json")
+    .collectionTotal(Long.valueOf("1"))
+    .build();
 SecretResourceArbitrarySecretResource secretResourceModel = new SecretResourceArbitrarySecretResource.Builder()
-  .name("example-arbitrary-secret")
-  .description("Extended description for this secret.")
-  .secretGroupId("432b91f1-ff6d-4b47-9f06-82debc236d90")
-  .labels(new java.util.ArrayList<String>(java.util.Arrays.asList("testString")))
-  .expirationDate(TestUtilities.createMockDateTime("2030-01-01T00:00:00Z"))
-  .payload("secret-data")
-  .build();
+    .name("example-arbitrary-secret")
+    .description("Extended description for this secret.")
+    .secretGroupId("432b91f1-ff6d-4b47-9f06-82debc236d90")
+    .labels(new java.util.ArrayList<String>(java.util.Arrays.asList("testString")))
+    .expirationDate(TestUtilities.createMockDateTime("2030-01-01T00:00:00Z"))
+    .payload("secret-data")
+    .build();
 CreateSecretOptions createSecretOptions = new CreateSecretOptions.Builder()
-  .secretType("arbitrary")
-  .metadata(collectionMetadataModel)
-  .resources(new java.util.ArrayList<SecretResource>(java.util.Arrays.asList(secretResourceModel)))
-  .build();
+    .secretType("arbitrary")
+    .metadata(collectionMetadataModel)
+    .resources(new java.util.ArrayList<SecretResource>(java.util.Arrays.asList(secretResourceModel)))
+    .build();
 
 Response<CreateSecret> response = sm.createSecret(createSecretOptions).execute();
 CreateSecret createSecret = response.getResult();
@@ -187,30 +188,30 @@ System.out.println(createSecret);
 
 ```javascript
 const params = {
-  secretType: 'arbitrary',
-  'metadata': {
-    'collection_type': 'application/vnd.ibm.secrets-manager.secret+json',
+    secretType: 'arbitrary',
+    'metadata': {
+        'collection_type': 'application/vnd.ibm.secrets-manager.secret+json',
     'collection_total': 1,
-  },
-  'resources': [
-    {
-      'name': 'example-arbitrary-secret',
-      'description': 'Extended description for my secret.',
-      'secret_group_id': '432b91f1-ff6d-4b47-9f06-82debc236d90',
-      'payload': 'secret-data',
-      'expiration_date': '2030-12-31T00:00:00Z',
-      'labels': ['dev', 'us-south'],
     },
-  ],
+    'resources': [
+        {
+        'name': 'example-arbitrary-secret',
+        'description': 'Extended description for my secret.',
+        'secret_group_id': '432b91f1-ff6d-4b47-9f06-82debc236d90',
+        'payload': 'secret-data',
+        'expiration_date': '2030-12-31T00:00:00Z',
+        'labels': ['dev', 'us-south'],
+    },
+    ],
 };
 
 secretsManagerApi.createRules(params)
-  .then(res => {
-    console.log('Create secret:\n', JSON.stringify(result.resources, null, 2));
+    .then(res => {
+        console.log('Create secret:\n', JSON.stringify(result.resources, null, 2));
     })
-  .catch(err => {
-    console.warn(err)
-  });
+    .catch(err => {
+        console.warn(err)
+    });
 ```
 {: codeblock}
 {: javascript}
@@ -273,3 +274,5 @@ secretIdLink = *result.;
 {: go}
 
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
+
+

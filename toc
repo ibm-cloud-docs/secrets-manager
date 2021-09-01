@@ -1,4 +1,3 @@
-
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
@@ -16,7 +15,7 @@ Secrets Manager
 
     {: .topicgroup}
     Migration guides
-        migrate-certificates.md
+        certificates-migrate.md
 
     {: .topicgroup}
     Best practices
@@ -39,7 +38,7 @@ Secrets Manager
 
     {: .topicgroup}
     Working with secrets
-        what-is-secret.md
+        secret-what-is.md
 
         {: .topicgroup}
         Creating secrets
@@ -48,9 +47,9 @@ Secrets Manager
             certificates.md
             user-credentials.md
 
-        access-secret.md
-        rotate-secret.md
-        delete-secret.md
+        secret-access.md
+        secret-rotate.md
+        secret-delete.md
 
     secret-groups.md
 
@@ -107,6 +106,7 @@ Secrets Manager
 
     {: .topicgroup}
     Troubleshooting
+        troubleshooting/support.md
         troubleshooting/troubleshoot-creation.md
         troubleshooting/troubleshoot-iam-engine.md
         troubleshooting/troubleshoot-access.md

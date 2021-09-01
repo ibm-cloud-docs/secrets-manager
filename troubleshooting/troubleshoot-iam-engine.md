@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-09"
+lastupdated: "2021-08-19"
 
 keywords: unable to configure IAM secrets engine, can't create API key, access required for IAM secrets engine
 
@@ -62,7 +62,7 @@ content-type: troubleshoot
 {: support}
 
 You try to configure the IAM secrets engine in an {{site.data.keyword.secrets-manager_full}} instance, but you're unable to do so.
-{:shortdesc}
+{: shortdesc}
 
 In the {{site.data.keyword.secrets-manager_short}} UI, you go to the **Secrets engines** page to configure the IAM secrets engine for a {{site.data.keyword.secrets-manager_short}} instance. You receive the following error message when you try to create an API key:
 {: tsSymptoms}
@@ -86,6 +86,8 @@ To resolve the issue, verify with the account owner that you're assigned the fol
 - _Manager_ service access on the {{site.data.keyword.secrets-manager_short}} instance.
 
 If the problem persists, contact {{site.data.keyword.cloud_notm}} support.
+
+
 
 
 

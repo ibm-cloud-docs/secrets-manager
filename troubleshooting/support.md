@@ -2,13 +2,11 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-19"
+lastupdated: "2021-09-01"
 
-keywords: troubleshoot secrets manager, troubleshooting for secret group, delete secret group, can't delete secret group, unable to delete secret group, troubleshooting Secrets Manager
+keywords: get help, getting help, getting support
 
 subcollection: secrets-manager
-
-content-type: troubleshoot
 
 ---
 
@@ -56,29 +54,13 @@ content-type: troubleshoot
 {:unity: .ph data-hd-programlang='unity'}
 
 
-# Why can't I delete my secret group?
-{: #troubleshoot-secret-group}
-{: troubleshoot}
+# Getting help and support
+{: #getting-help}
 
-You try to use {{site.data.keyword.secrets-manager_full}} to delete a secret group, but you're unable to complete the action.
+
+If you have problems or questions when using {{site.data.keyword.secrets-manager_full}}, you can go directly to the [{{site.data.keyword.cloud_notm}} Support page](https://{DomainName}/unifiedsupport/supportcenter) to review featured FAQs, view cloud status, or post questions on Stack Overflow. You can also open a support case.
 {: shortdesc}
 
-
-You have a secret group that you no longer need. When you try to delete it in the {{site.data.keyword.secrets-manager_short}} UI, you get the following error:
-{: tsSymptoms}
-
-```
-Delete group failed
-An error occurred and the secret group couldn't be deleted.
-```
-{: screen}
-
-Secret groups are a way to organize and assign access policies to your secrets. By deleting a secret group, you render all of the secrets in that group useless. For that reason, you cannot delete a secret group that contains secrets.
-{: tsCauses}
-
-To delete a secret group, delete all of the secrets that are associated with it and then delete the group itself.
-{: tsResolve}
-
-To learn more about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
-
-
+* You can check the status of the {{site.data.keyword.cloud_notm}}  platform and resources by going to the [Status page](https://cloud.ibm.com/status){: external}.
+* You can review [Stack Overflow](https://stackoverflow.com/questions/tagged/ibm-cloud+ibm-secrets-manager){: external} to see whether other users ran into the same problem. When using the forum to ask a question, tag your question with "ibm-cloud" and "ibm-secrets-manager" so that it is seen by the {{site.data.keyword.cloud_notm}} development teams.
+* If you still can't resolve the problem, you can open a support case. For information about opening a support case, or about case severities and response times, see [Working with support cases](/docs/get-support?topic=get-support-open-case) or [Escalating support cases](/docs/get-support?topic=get-support-escalation).

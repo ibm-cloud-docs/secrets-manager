@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-05"
+lastupdated: "2021-08-19"
 
 keywords: troubleshoot secrets manager, troubleshooting for secrets manager provisioning, provisioning stuck, provisioning stuck, troubleshooting Secrets Manager, unable to create instance, can't create instance
 
@@ -62,15 +62,17 @@ content-type: troubleshoot
 {: support}
 
 You try to create an instance of {{site.data.keyword.secrets-manager_full}}, but the provisioning doesn't complete.
-{:shortdesc}
+{: shortdesc}
 
 
 When you try to create an instance of the service in the {{site.data.keyword.cloud_notm}} console, you see the **Provisioning...** status in your resource list, but the status never transitions to an **Active** state.
 {: tsSymptoms}
-   
+
 Because an instance of the service is created that is dedicated only to you, provisioning might take a few minutes to complete. Or, there might be an error in the provisioning process.
 {: tsCauses}
 
 To resolve the issue, try waiting 5 - 8 minutes and refreshing your web browser. If the problem persists, contact {{site.data.keyword.cloud_notm}} support.
 {: tsResolve}
+
+
 

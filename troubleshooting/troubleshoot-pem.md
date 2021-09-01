@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-22"
+lastupdated: "2021-08-19"
 
 keywords: troubleshoot secrets manager, import certificates doesn't work, can't import certificate, convert crt to pem, convert cer to pem, convert der to pem, convert certificate file to pem
 
@@ -61,7 +61,7 @@ content-type: troubleshoot
 {: troubleshoot}
 
 You try to use {{site.data.keyword.secrets-manager_full}} to import an SSL/TLS certificate, but you're unable to complete the action.
-{:shortdesc}
+{: shortdesc}
 
 
 You have an unexpired TLS certificate that you want to store in {{site.data.keyword.secrets-manager_short}}. When you try to import the file by using the {{site.data.keyword.secrets-manager_short}} UI, you get the following error:
@@ -79,7 +79,7 @@ You also try to import the file by using the {{site.data.keyword.secrets-manager
 Unable to parse the certificate
 ```
 {: screen}
-   
+
 {{site.data.keyword.secrets-manager_short}} supports X.509 certificate files in the `.pem` format only. However, you might be working with a certificate that is in a different file format. For example, X.509 certificates can have a variety of file extension types, including:
 {: tsCauses}
 
@@ -121,6 +121,8 @@ To resolve the issue, ensure that your certificate file is in the supported form
     awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' cert.pem
     ```
     {: pre}
+
+
 
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-07"
+lastupdated: "2021-08-19"
 
 subcollection: secrets-manager
 
@@ -67,13 +67,14 @@ Current version: **`0.0.11`**
 * Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started).
 * Install the {{site.data.keyword.secrets-manager_short}} CLI by running the following command:
 
-   ```sh
-   ibmcloud plugin install secrets-manager
-   ```
-   {: pre}
+    ```sh
+    ibmcloud plugin install secrets-manager
+    ```
+    {: pre}
 
     You're notified on the command line when updates to the {{site.data.keyword.cloud_notm}} CLI and plug-ins are available. Be sure to keep your CLI up to date so that you can use the latest commands. You can view the current version of all installed plug-ins by running `ibmcloud plugin list`.
     {: tip}
+
 * Export an environment variable with your {{site.data.keyword.secrets-manager_short}} service endpoint URL.
 
     If you're using plug-in version `0.0.8` or later, export the following variable.
@@ -115,7 +116,7 @@ ibmcloud secrets-manager config-update --secret-type SECRET-TYPE --engine-config
 <dt>--secret-type (string)</dt>
 <dd>The secret type. Required.</dd>
 <dd>Allowable values are: iam_credentials</dd>
-<dt>--engine-config ([EngineConfig](#cli-engine-config-example-schema))</dt>
+<dt>--engine-config (<a href="#cli-engine-config-example-schema">EngineConfig</a>)</dt>
 <dd>Properties to update for a secrets engine. Required.</dd>
 </dl>
 
@@ -145,13 +146,13 @@ Get the configuration of the IAM credentials secret engine
 
 ```json
 {
-  "metadata" : {
-    "collection_type" : "application/vnd.ibm.secrets-manager.secret+json",
+    "metadata" : {
+        "collection_type" : "application/vnd.ibm.secrets-manager.secret+json",
     "collection_total" : 1
-  },
-  "resources" : [ {
-    "api_key_hash" : "a737c3a98ebfc16a0d5ddc6b277548491440780003e06f5924dc906bc8d78e91"
-  } ]
+    },
+    "resources" : [ {
+        "api_key_hash" : "a737c3a98ebfc16a0d5ddc6b277548491440780003e06f5924dc906bc8d78e91"
+    } ]
 }
 ```
 {: screen}
@@ -179,7 +180,7 @@ ibmcloud secrets-manager policy-update --secret-type SECRET-TYPE --id ID --resou
 <dt>--id (string)</dt>
 <dd>The v4 UUID that uniquely identifies the secret. Required.</dd>
 <dd>The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`</dd>
-<dt>--resources ([SecretPolicyRotation[]](#cli-secret-policy-rotation-example-schema))</dt>
+<dt>--resources (<a href="#cli-secret-policy-rotation-example-schema">SecretPolicyRotation[]</a>)</dt>
 <dd>A collection of resources. Required.</dd>
 <dt>--policy (string)</dt>
 <dd>The type of policy that is associated with the specified secret.</dd>
@@ -191,22 +192,22 @@ ibmcloud secrets-manager policy-update --secret-type SECRET-TYPE --id ID --resou
 
 ```json
 {
-  "metadata" : {
-    "collection_type" : "application/vnd.ibm.secrets-manager.secret.policy+json",
+    "metadata" : {
+        "collection_type" : "application/vnd.ibm.secrets-manager.secret.policy+json",
     "collection_total" : 1
-  },
-  "resources" : [ {
-    "created_by" : "iam-ServiceId-e4a2f0a4-3c76-4bef-b1f2-fbeae11c0f21",
+    },
+    "resources" : [ {
+        "created_by" : "iam-ServiceId-e4a2f0a4-3c76-4bef-b1f2-fbeae11c0f21",
     "creation_date" : "2020-10-15T21:33:11Z",
     "crn" : "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:f1bc94a6-64aa-4c55-b00f-f6cd70e4b2ce:secret:24ec2c34-38ee-4038-9f1d-9a629423158d",
     "id" : "24ec2c34-38ee-4038-9f1d-9a629423158d",
     "last_update_date" : "2020-10-05T21:33:11Z",
     "rotation" : {
-      "interval" : 1,
-      "unit" : "month"
+        "interval" : 1,
+        "unit" : "month"
     },
     "updated_by" : "iam-ServiceId-e4a2f0a4-3c76-4bef-b1f2-fbeae11c0f21"
-  } ]
+    } ]
 }
 ```
 {: screen}
@@ -241,22 +242,22 @@ ibmcloud secrets-manager policy --secret-type SECRET-TYPE --id ID [--policy POLI
 
 ```json
 {
-  "metadata" : {
-    "collection_type" : "application/vnd.ibm.secrets-manager.secret.policy+json",
+    "metadata" : {
+        "collection_type" : "application/vnd.ibm.secrets-manager.secret.policy+json",
     "collection_total" : 1
-  },
-  "resources" : [ {
-    "created_by" : "iam-ServiceId-e4a2f0a4-3c76-4bef-b1f2-fbeae11c0f21",
+    },
+    "resources" : [ {
+        "created_by" : "iam-ServiceId-e4a2f0a4-3c76-4bef-b1f2-fbeae11c0f21",
     "creation_date" : "2020-10-15T21:33:11Z",
     "crn" : "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:f1bc94a6-64aa-4c55-b00f-f6cd70e4b2ce:secret:24ec2c34-38ee-4038-9f1d-9a629423158d",
     "id" : "24ec2c34-38ee-4038-9f1d-9a629423158d",
     "last_update_date" : "2020-10-05T21:33:11Z",
     "rotation" : {
-      "interval" : 1,
-      "unit" : "month"
+        "interval" : 1,
+        "unit" : "month"
     },
     "updated_by" : "iam-ServiceId-e4a2f0a4-3c76-4bef-b1f2-fbeae11c0f21"
-  } ]
+    } ]
 }
 ```
 {: screen}
@@ -280,7 +281,7 @@ ibmcloud secrets-manager secret-group-create --resources RESOURCES
 {: #secrets-manager-secret-group-create-cli-options}
 
 <dl>
-<dt>--resources ([SecretGroupResource[]](#cli-secret-group-resource-example-schema))</dt>
+<dt>--resources (<a href="#cli-secret-group-resource-example-schema">SecretGroupResource[]</a>)</dt>
 <dd>A collection of resources. Required.</dd>
 </dl>
 
@@ -330,7 +331,7 @@ ibmcloud secrets-manager secret-group-metadata-update --id ID --resources RESOUR
 <dt>--id (string)</dt>
 <dd>The v4 UUID that uniquely identifies the secret group. Required.</dd>
 <dd>The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`</dd>
-<dt>--resources ([SecretGroupMetadataUpdatable[]](#cli-secret-group-metadata-updatable-example-schema))</dt>
+<dt>--resources (<a href="#cli-secret-group-metadata-updatable-example-schema">SecretGroupMetadataUpdatable[]</a>)</dt>
 <dd>A collection of resources. Required.</dd>
 </dl>
 
@@ -381,7 +382,7 @@ ibmcloud secrets-manager secret-create --secret-type SECRET-TYPE --resources RES
 <dt>--secret-type (string)</dt>
 <dd>The secret type. Required.</dd>
 <dd>Allowable values are: arbitrary, username_password, iam_credentials, imported_cert</dd>
-<dt>--resources ([SecretResource[]](#cli-secret-resource-example-schema))</dt>
+<dt>--resources (<a href="#cli-secret-resource-example-schema">SecretResource[]</a>)</dt>
 <dd>A collection of resources. Required.</dd>
 </dl>
 
@@ -490,7 +491,7 @@ ibmcloud secrets-manager secret-update --secret-type SECRET-TYPE --id ID --actio
 <dt>--action (string)</dt>
 <dd>The action to perform on the specified secret. Required.</dd>
 <dd>Allowable values are: rotate, delete_credentials</dd>
-<dt>--body ([SecretAction](#cli-secret-action-example-schema))</dt>
+<dt>--body (<a href="#cli-secret-action-example-schema">SecretAction</a>)</dt>
 <dd>The properties to update for the secret. Required.</dd>
 </dl>
 
@@ -501,12 +502,12 @@ Example response for rotating a `username_password` secret.
 
 ```json
 {
-  "metadata" : {
-    "collection_type" : "application/vnd.ibm.secrets-manager.secret+json",
+    "metadata" : {
+        "collection_type" : "application/vnd.ibm.secrets-manager.secret+json",
     "collection_total" : 1
-  },
-  "resources" : [ {
-    "created_by" : "iam-ServiceId-e4a2f0a4-3c76-4bef-b1f2-fbeae11c0f21",
+    },
+    "resources" : [ {
+        "created_by" : "iam-ServiceId-e4a2f0a4-3c76-4bef-b1f2-fbeae11c0f21",
     "creation_date" : "2020-10-05T21:33:11Z",
     "crn" : "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:f1bc94a6-64aa-4c55-b00f-f6cd70e4b2ce:secret:24ec2c34-38ee-4038-9f1d-9a629423158d",
     "description" : "Extended description for this secret.",
@@ -517,15 +518,15 @@ Example response for rotating a `username_password` secret.
     "name" : "example-username-password-secret",
     "next_rotation_at" : "2020-12-24T03:36:27Z",
     "secret_data" : {
-      "username" : "user123",
-      "password" : "rainy-cloudy-coffee-book"
+        "username" : "user123",
+        "password" : "rainy-cloudy-coffee-book"
     },
     "secret_group_id" : "bc656587-8fda-4d05-9ad8-b1de1ec7e712",
     "secret_type" : "username_password",
     "state" : 1,
     "state_description" : "Active",
     "versions_total" : 1
-  } ]
+    } ]
 }
 ```
 {: screen}
@@ -588,21 +589,21 @@ Get certificate version
 
 ```json
 {
-  "id" : "24ec2c34-38ee-4038-9f1d-9a629423158d",
-  "crn" : "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:f1bc94a6-64aa-4c55-b00f-f6cd70e4b2ce:secret:24ec2c34-38ee-4038-9f1d-9a629423158d",
-  "version_id" : "7bf3814d-58f8-4df8-9cbd-f6860e4ca973",
-  "payload_available" : true,
-  "serial_number" : "d9:be:fe:35:ba:09:42:b5",
-  "expiration_date" : "2021-01-01T00:00:00Z",
-  "validity" : {
-    "not_before" : "2020-10-05T21:33:11Z",
+    "id" : "24ec2c34-38ee-4038-9f1d-9a629423158d",
+    "crn" : "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:f1bc94a6-64aa-4c55-b00f-f6cd70e4b2ce:secret:24ec2c34-38ee-4038-9f1d-9a629423158d",
+    "version_id" : "7bf3814d-58f8-4df8-9cbd-f6860e4ca973",
+    "payload_available" : true,
+    "serial_number" : "d9:be:fe:35:ba:09:42:b5",
+    "expiration_date" : "2021-01-01T00:00:00Z",
+    "validity" : {
+        "not_before" : "2020-10-05T21:33:11Z",
     "not_after" : "2021-01-01T00:00:00Z"
-  },
-  "secret_data" : {
-    "certificate" : "certificate_content",
+    },
+    "secret_data" : {
+        "certificate" : "certificate_content",
     "private_key" : "certificate_private_key",
     "intermediate" : "intermediate_certificate_content"
-  }
+    }
 }
 ```
 {: screen}
@@ -641,16 +642,16 @@ Get certificate version
 
 ```json
 {
-  "id" : "24ec2c34-38ee-4038-9f1d-9a629423158d",
-  "crn" : "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:f1bc94a6-64aa-4c55-b00f-f6cd70e4b2ce:secret:24ec2c34-38ee-4038-9f1d-9a629423158d",
-  "version_id" : "7bf3814d-58f8-4df8-9cbd-f6860e4ca973",
-  "payload_available" : true,
-  "serial_number" : "d9:be:fe:35:ba:09:42:b5",
-  "expiration_date" : "2021-01-01T00:00:00Z",
-  "validity" : {
-    "not_before" : "2020-10-05T21:33:11Z",
+    "id" : "24ec2c34-38ee-4038-9f1d-9a629423158d",
+    "crn" : "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:f1bc94a6-64aa-4c55-b00f-f6cd70e4b2ce:secret:24ec2c34-38ee-4038-9f1d-9a629423158d",
+    "version_id" : "7bf3814d-58f8-4df8-9cbd-f6860e4ca973",
+    "payload_available" : true,
+    "serial_number" : "d9:be:fe:35:ba:09:42:b5",
+    "expiration_date" : "2021-01-01T00:00:00Z",
+    "validity" : {
+        "not_before" : "2020-10-05T21:33:11Z",
     "not_after" : "2021-01-01T00:00:00Z"
-  }
+    }
 }
 ```
 {: screen}
@@ -701,7 +702,7 @@ ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id I
 <dt>--id (string)</dt>
 <dd>The v4 UUID that uniquely identifies the secret. Required.</dd>
 <dd>The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`</dd>
-<dt>--resources ([SecretMetadata[]](#cli-secret-metadata-example-schema))</dt>
+<dt>--resources (<a href="#cli-secret-metadata-example-schema">SecretMetadata[]</a>)</dt>
 <dd>A collection of resources. Required.</dd>
 </dl>
 
@@ -718,7 +719,7 @@ The following example shows the format of the `EngineConfig` object.
 
 ```json
 {
-  "api_key" : "API_KEY"
+    "api_key" : "API_KEY"
 }
 ```
 {: codeblock}
@@ -730,7 +731,7 @@ The following example shows the format of the `SecretAction` object.
 
 ```json
 {
-  "payload" : "exampleString"
+    "payload" : "exampleString"
 }
 ```
 {: codeblock}
@@ -742,8 +743,8 @@ The following example shows the format of the `SecretGroupMetadataUpdatable[]` o
 
 ```json
 [ {
-  "name" : "updated-secret-group-name",
-  "description" : "Updated description for this group."
+    "name" : "updated-secret-group-name",
+    "description" : "Updated description for this group."
 } ]
 ```
 {: codeblock}
@@ -755,8 +756,8 @@ The following example shows the format of the `SecretGroupResource[]` object.
 
 ```json
 [ {
-  "name" : "my-secret-group",
-  "description" : "Extended description for this group."
+    "name" : "my-secret-group",
+    "description" : "Extended description for this group."
 } ]
 ```
 {: codeblock}
@@ -768,10 +769,10 @@ The following example shows the format of the `SecretMetadata[]` object.
 
 ```json
 [ {
-  "labels" : [ "dev", "us-south" ],
-  "name" : "example-secret",
-  "description" : "Extended description for this secret.",
-  "expiration_date" : "2030-04-01T09:30:00.000Z"
+    "labels" : [ "dev", "us-south" ],
+    "name" : "example-secret",
+    "description" : "Extended description for this secret.",
+    "expiration_date" : "2030-04-01T09:30:00.000Z"
 } ]
 ```
 {: codeblock}
@@ -783,11 +784,11 @@ The following example shows the format of the `SecretPolicyRotation[]` object.
 
 ```json
 [ {
-  "type" : "application/vnd.ibm.secrets-manager.secret.policy+json",
-  "rotation" : {
-    "interval" : 1,
+    "type" : "application/vnd.ibm.secrets-manager.secret.policy+json",
+    "rotation" : {
+        "interval" : 1,
     "unit" : "day"
-  }
+    }
 } ]
 ```
 {: codeblock}
@@ -799,13 +800,15 @@ The following example shows the format of the `SecretResource[]` object.
 
 ```json
 [ {
-  "name" : "exampleString",
-  "description" : "exampleString",
-  "secret_group_id" : "exampleString",
-  "labels" : [ "exampleString" ],
-  "expiration_date" : "2030-04-01T09:30:00.000Z",
-  "payload" : "exampleString"
+    "name" : "exampleString",
+    "description" : "exampleString",
+    "secret_group_id" : "exampleString",
+    "labels" : [ "exampleString" ],
+    "expiration_date" : "2030-04-01T09:30:00.000Z",
+    "payload" : "exampleString"
 } ]
 ```
 {: codeblock}
+
+
 

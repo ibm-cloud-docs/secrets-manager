@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-20"
+lastupdated: "2021-09-01"
 
 keywords: Secrets Manager integrations, enable integration, service to service, grant access between services
 
@@ -68,8 +68,8 @@ The following table lists the services that can be authorized to work with {{sit
 
 | Service | Description |
 | ------------------ | ----------- |
-| [Catalog management](/docs/account?topic=account-create-private-catalog) | Centrally manage access to products in the {{site.data.keyword.cloud_notm}} catalog by creating and customizing private catalogs.    |
-| [{{site.data.keyword.contdelivery_short}} ](/docs/ContinuousDelivery?topic=ContinuousDelivery-secretsmanager) | Configure {{site.data.keyword.secrets-manager_short}} to securely manage secrets that are part of your {{site.data.keyword.contdelivery_short}} toolchain.  |
+| [Catalog management](/docs/account?topic=account-create-private-catalog) | Use arbitrary secrets that you store in {{site.data.keyword.secrets-manager_short}} to centrally manage the credentials for software in your private catalogs.    |
+| [Toolchain](/docs/ContinuousDelivery?topic=ContinuousDelivery-secretsmanager) | Integrate arbitrary secrets that you store in {{site.data.keyword.secrets-manager_short}} with your {{site.data.keyword.contdelivery_short}} toolchain.  |
 {: caption="Table 1. Available integrations" caption-side="top"}
 
 ## Creating an authorization between {{site.data.keyword.secrets-manager_short}} and another {{site.data.keyword.cloud_notm}} service
@@ -81,10 +81,12 @@ To authorize another service to use a secret that's stored your {{site.data.keyw
 2. Click **Create**.
 3. Select a source and target service for the authorization.
 
-   1. From the **Source service** list, select the service that you want to integrate with {{site.data.keyword.secrets-manager_short}}.
-   2. From the **Target service** list, select {{site.data.keyword.secrets-manager_short}}.
+    1. From the **Source service** list, select the service that you want to integrate with {{site.data.keyword.secrets-manager_short}}.
+    2. From the **Target service** list, select {{site.data.keyword.secrets-manager_short}}.
 4. Select the **SecretsReader** role.
 
     With SecretsReader permissions, the source service can browse and retrieve the secrets that are available in your {{site.data.keyword.secrets-manager_short}} instance. The source service can't create secrets on your behalf.
 5. Click **Authorize**.
+
+
 

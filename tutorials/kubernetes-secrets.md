@@ -3,7 +3,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-16"
+lastupdated: "2021-08-23"
 
 keywords: tutorial, Secrets Manager
 
@@ -93,9 +93,9 @@ Before you get started, be sure that you have [**Administrator** platform access
 - [Download and install the IBM Cloud CLI](https://cloud.ibm.com/docs/cli).
 - [Install the {{site.data.keyword.secrets-manager_short}} CLI plug-in](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli).
 - [Install the Kubernetes CLI (`kubectl`)](https://kubernetes.io/docs/tasks/tools/){: external}.
-- [Download and install jq](https://stedolan.github.io/jq/){: external}.
-
-   `jq` helps you slice and filter JSON data. You use `jq` in this tutorial to grab and use stored environment variables.
+- [Download and install jq](https://stedolan.github.io/jq/){: external}.\
+\
+    `jq` helps you slice and filter JSON data. You use `jq` in this tutorial to grab and use stored environment variables.
 
 
 
@@ -212,7 +212,7 @@ You can create one free Kubernetes cluster and {{site.data.keyword.secrets-manag
         {: screen}
 
     1. Next, verify that your {{site.data.keyword.secrets-manager_short}} instance provisioned successfully.
-    
+
         ```sh
         ibmcloud resource service-instance my-secrets-manager
         ```
@@ -266,13 +266,13 @@ Finally, configure your {{site.data.keyword.secrets-manager_short}} instance to 
 
 1. From the command line, verify that you can access the {{site.data.keyword.secrets-manager_short}} CLI plug-in.
 
-   ```sh
-   ibmcloud secrets-manager --help
-   ```
-   {: pre}
+    ```sh
+    ibmcloud secrets-manager --help
+    ```
+    {: pre}
 
-   Don't have the plug-in installed? To install the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run `ibmcloud plugin install secrets-manager`.
-   {: tip}
+    Don't have the plug-in installed? To install the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run `ibmcloud plugin install secrets-manager`.
+    {: tip}
 
 2. Export an environment variable with your unique {{site.data.keyword.secrets-manager_short}} API endpoint URL.
 
@@ -427,8 +427,8 @@ After you install External Kubernetes Secrets in your cluster, you can define {{
 
     ```json
     {
-      "password": "cloudy-rainy-coffee-book",
-      "username": "user123"
+        "password": "cloudy-rainy-coffee-book",
+        "username": "user123"
     }
     ```
     {: screen}
@@ -481,5 +481,7 @@ Great job! In this tutorial, you learned how to set up {{site.data.keyword.secre
 
 - Design an access strategy with [secret groups](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 - Learn more about the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager).
+
+
 
 

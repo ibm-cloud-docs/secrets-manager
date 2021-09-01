@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-07-14"
+lastupdated: "2021-08-23"
 content-type: tutorial
 services: secrets-manager,cloud-object-storage
 account-plan: lite
@@ -84,9 +84,9 @@ Before you get started, be sure that you have [**Administrator** platform access
 
 - [Download and install the IBM Cloud CLI](https://cloud.ibm.com/docs/cli).
 - [Install the {{site.data.keyword.secrets-manager_short}} CLI plug-in](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli).
-- [Download and install jq](https://stedolan.github.io/jq/){: external}.
-
-   `jq` helps you slice and filter JSON data. You use `jq` in this tutorial to grab and use stored environment variables.
+- [Download and install jq](https://stedolan.github.io/jq/){: external}.\
+\
+    `jq` helps you slice and filter JSON data. You use `jq` in this tutorial to grab and use stored environment variables.
 
 ## Set up your environment
 {: #access-cos-configure-env}
@@ -111,8 +111,8 @@ Start by creating test instances of {{site.data.keyword.secrets-manager_short}} 
     ```
     {: pre}
 
-     If the login fails, run the `ibmcloud login --sso` command to try again. The `--sso` parameter is required when you log in with a federated ID. If this option is used, go to the link listed in the CLI output to generate a one-time passcode.
-     {: note}
+    If the login fails, run the `ibmcloud login --sso` command to try again. The `--sso` parameter is required when you log in with a federated ID. If this option is used, go to the link listed in the CLI output to generate a one-time passcode.
+    {: note}
 
 2. Select the account, region, and resource group where you want to create a {{site.data.keyword.secrets-manager_short}} service instance.
 
@@ -217,33 +217,33 @@ Next, create a bucket in your Cloud Object Storage instance and set up access.
 
 1. Create a test bucket in your instance.
 
-   1. In the IBM Cloud console, go to your **Resource List**.
-   2. From your list of storage services, select _test-cos-instance-tutorial_.
-   3. In the Cloud Object Storage UI, click **Create bucket**.
-   4. Create a bucket in the `us-south` region.
-   5. Copy the ID of the bucket.
+    1. In the IBM Cloud console, go to your **Resource List**.
+    2. From your list of storage services, select _test-cos-instance-tutorial_.
+    3. In the Cloud Object Storage UI, click **Create bucket**.
+    4. Create a bucket in the `us-south` region.
+    5. Copy the ID of the bucket.
 
 2. Assign read and write access to your new Cloud Object Storage bucket.
 
-   1. Go to **Manage > Access (IAM) > Access groups**.
-   2. From your list of groups, select _test-storage-admin-group_.
-   3. Click the _Access policies_ tab.
-   4. Click **Assign access**.
-   5. Select **IAM services**.
-   6. From the list of services, select **Cloud Object Storage**.
-   7. In the service instance field, select _test-cos-instance-tutorial_.
-   8.  Assign the **Reader**, **Content Reader**, **Object Reader**, and **Object Writer** service access roles.
-   9. Click **Add**.
-   10. Review your selections and click **Assign**.
+    1. Go to **Manage > Access (IAM) > Access groups**.
+    2. From your list of groups, select _test-storage-admin-group_.
+    3. Click the _Access policies_ tab.
+    4. Click **Assign access**.
+    5. Select **IAM services**.
+    6. From the list of services, select **Cloud Object Storage**.
+    7. In the service instance field, select _test-cos-instance-tutorial_.
+    8. Assign the **Reader**, **Content Reader**, **Object Reader**, and **Object Writer** service access roles.
+    9. Click **Add**.
+    10. Review your selections and click **Assign**.
 
 3. Upload an object to the storage bucket.
 
-   You can drag and drop any file or folder from your local system. For example, you can create and upload a file called `sample.txt` with the following sample text.
+    You can drag and drop any file or folder from your local system. For example, you can create and upload a file called `sample.txt` with the following sample text.
 
-   ```
-   A quick brown fox jumped over the lazy dog.
-   ```
-   {: screen}
+    ```
+    A quick brown fox jumped over the lazy dog.
+    ```
+    {: screen}
 
 ### Prepare your {{site.data.keyword.secrets-manager_short}} instance
 {: #access-cos-provision-sm}
@@ -252,13 +252,13 @@ Finally, configure your {{site.data.keyword.secrets-manager_short}} instance to 
 
 1. From the command line, verify that you can access the {{site.data.keyword.secrets-manager_short}} CLI plug-in.
 
-   ```sh
-   ibmcloud secrets-manager --help
-   ```
-   {: pre}
+    ```sh
+    ibmcloud secrets-manager --help
+    ```
+    {: pre}
 
-   Don't have the plug-in installed? To install the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run `ibmcloud plugin install secrets-manager`.
-   {: tip}
+    Don't have the plug-in installed? To install the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run `ibmcloud plugin install secrets-manager`.
+    {: tip}
 
 2. Export an environment variable with your unique {{site.data.keyword.secrets-manager_short}} API endpoint URL.
 
@@ -330,11 +330,11 @@ To retrieve an IAM credential from the {{site.data.keyword.cloud_notm}} CLI, you
 
     ```json
     {
-      "metadata": {
+        "metadata": {
         "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
         "collection_total": 1
-      },
-      "resources": [
+        },
+        "resources": [
         {
           "access_groups": [
             "AccessGroupId-e7e1a364-c5b9-4027-b4fe-083454499a20"
@@ -357,7 +357,7 @@ To retrieve an IAM credential from the {{site.data.keyword.cloud_notm}} CLI, you
           "state_description": "Active",
           "ttl": 900
         }
-      ]
+        ]
     }
     ```
     {: screen}
@@ -371,7 +371,7 @@ To retrieve an IAM credential from the {{site.data.keyword.cloud_notm}} CLI, you
     ```sh
     export API_key="<api_key>"
     ```
-    {:pre}
+    {: pre}
 
 
 ## Use the API key to generate an access token
@@ -384,10 +384,10 @@ You can exchange the API key for an IAM access token by calling [IAM Identity Se
 
 ```sh
 export IAM_TOKEN=`curl -X POST \
-  "https://iam.cloud.ibm.com/identity/token" \
-  -H "Content-Type: application/x-www-form-urlencoded" \
-  -H "Accept: application/json" \
-  -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=$API_KEY" | jq -r ".access_token"`; echo $IAM_TOKEN
+    "https://iam.cloud.ibm.com/identity/token" \
+    -H "Content-Type: application/x-www-form-urlencoded" \
+    -H "Accept: application/json" \
+    -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=$API_KEY" | jq -r ".access_token"`; echo $IAM_TOKEN
 ```
 {: codeblock}
 
@@ -403,12 +403,12 @@ On the command line, run the following cURL request to list the buckets in your 
 
 ```sh
 curl -X GET \
-  "https://s3.us-south.cloud-object-storage.appdomain.cloud" \
-  -H "Authorization: Bearer "'"$IAM_TOKEN"'"" \
-  -H "ibm-service-instance-id: "'"$COS_INSTANCE_ID"'"" \
-  -H "Accept: application/json"
+    "https://s3.us-south.cloud-object-storage.appdomain.cloud" \
+    -H "Authorization: Bearer "'"$IAM_TOKEN"'"" \
+    -H "ibm-service-instance-id: "'"$COS_INSTANCE_ID"'"" \
+    -H "Accept: application/json"
 ```
-{:codeblock}
+{: codeblock}
 
 The following XML snippet shows an example response.
 
@@ -432,12 +432,12 @@ To see the contents of your `test-secrets-tutorial` bucket, you can run the foll
 
 ```sh
 curl -X GET \
-  "https://s3.us-south.cloud-object-storage.appdomain.cloud/test-secrets-tutorial" \
-  -H "Authorization: Bearer "'"$IAM_TOKEN"'"" \
-  -H "ibm-service-instance-id: "'"$COS_INSTANCE_ID"'"" \
-  -H "Accept: application/json"
+    "https://s3.us-south.cloud-object-storage.appdomain.cloud/test-secrets-tutorial" \
+    -H "Authorization: Bearer "'"$IAM_TOKEN"'"" \
+    -H "ibm-service-instance-id: "'"$COS_INSTANCE_ID"'"" \
+    -H "Accept: application/json"
 ```
-{:codeblock}
+{: codeblock}
 
 The following XML snippet shows an example response.
 
@@ -469,12 +469,12 @@ And finally, to read the object in the bucket, you can run the following command
 
 ```sh
 curl -X GET \
-  "https://s3.us-south.cloud-object-storage.appdomain.cloud/test-secrets-tutorial/sample.txt" \
-  -H "Authorization: Bearer "'"$IAM_TOKEN"'"" \
-  -H "ibm-service-instance-id: "'"$COS_INSTANCE_ID"'"" \
-  -H "Accept: application/json"
+    "https://s3.us-south.cloud-object-storage.appdomain.cloud/test-secrets-tutorial/sample.txt" \
+    -H "Authorization: Bearer "'"$IAM_TOKEN"'"" \
+    -H "ibm-service-instance-id: "'"$COS_INSTANCE_ID"'"" \
+    -H "Accept: application/json"
 ```
-{:codeblock}
+{: codeblock}
 
 Replace `sample.txt` with the name of the file that you uploaded to your bucket. The following screen shows an example response.
 
@@ -524,5 +524,7 @@ Great job! In this tutorial, you learned how to set up {{site.data.keyword.secre
 
 - Learn more about [secret types](/docs/secrets-manager?topic=secrets-manager-what-is-secret).
 - Design an access strategy with [secret groups](/docs/secrets-manager?topic=secrets-manager-secret-groups).
-- Learn more about the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager){:external}.
+- Learn more about the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager){: external}.
+
+
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-24"
+lastupdated: "2021-08-19"
 
 keywords: change log for {{site.data.keyword.secrets-manager_short}} CLI, CLI changelog, updates to {{site.data.keyword.secrets-manager_short}} CLI
 
@@ -97,4 +97,6 @@ Version 0.0.8 was released on 23 March 2021. This release includes the following
 Version 0.0.6 was released on 14 December 2020. This release includes the following updates:
 
 - Plug-in now available for download.
+
+
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-26"
+lastupdated: "2021-08-19"
 
 keywords: isolation for {{site.data.keyword.secrets-manager_short}}, service endpoints for {{site.data.keyword.secrets-manager_short}}, private network for {{site.data.keyword.secrets-manager_short}}, network isolation in {{site.data.keyword.secrets-manager_short}}, non-public routes for {{site.data.keyword.secrets-manager_short}}, private connection for {{site.data.keyword.secrets-manager_short}}
 
@@ -87,7 +87,7 @@ After your account is enabled for VRF and service endpoints, you can provision a
 7. From the list of endpoint options, select **Public and private** or **Private only**.
 
     By default, {{site.data.keyword.secrets-manager_short}} instances accept API requests from both public and private endpoints. To limit access to your instance to take place only through a private network, select the **Private only** option. Keep in mind that the {{site.data.keyword.secrets-manager_short}} service UI is not accessible for **Private only** instances.
-8.  Click **Create**.
+8. Click **Create**.
 
     Provisioning a {{site.data.keyword.secrets-manager_short}} instance can take 5 - 8 minutes to complete.
     {: note}
@@ -142,6 +142,7 @@ After your account is enabled for VRF and service endpoints, you can provision a
     For more information about enabling VRF and service endpoints in your account, see
     [Enabling VRF and service endpoints](/docs/account?topic=account-vrf-service-endpoint).
     {: tip}
+
 4. Create a private {{site.data.keyword.secrets-manager_short}} service instance by running the following command.
 
     ```sh
@@ -150,19 +151,19 @@ After your account is enabled for VRF and service endpoints, you can provision a
     {: pre}
 
     <table>
-      <tr>
+        <tr>
         <th>Variable</th>
         <th>Description</th>
-      </tr>
-      <tr>
+        </tr>
+        <tr>
         <td><code>region</code></td>
         <td>The region abbreviation, such as <code>us-south</code> that represents the geographic area where you want your {{site.data.keyword.secrets-manager_short}} to be handled and processed. For a complete list of supported regions, see
-    [Regions and endpoints](/docs/key-protect?topic=secrets-manager-endpoints).</td>
-      </tr>
-      <tr>
+    <a href="/docs/key-protect?topic=secrets-manager-endpoints">Regions and endpoints</a>.</td>
+        </tr>
+        <tr>
         <td><code>connectivity-option</code></td>
         <td>The network connectivity option that you want to allow for your instance.<br><br>To allow access to the instance over both public and private service endpoints, use <code>public-and-private</code>. To limit API requests to the instance to take place only through a private network, use <code>private-only</code>. Keep in mind that the {{site.data.keyword.secrets-manager_short}} service UI is not accessible for <code>private-only</code> instances.</td>
-      </tr>
+        </tr>
     </table>
 
 5. (Optional) Verify that that the service instance was created successfully.
@@ -180,6 +181,8 @@ After your account is enabled for VRF and service endpoints, you can provision a
 {: #endpoint-view}
 
 The service endpoint URLs are different for private and public network connections. You can find your service endpoint URLs in the **Endpoints** page of the {{site.data.keyword.secrets-manager_short}} UI. For more information about retrieving your service endpoint URLs programmatically, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls).
+
+
 
 
 

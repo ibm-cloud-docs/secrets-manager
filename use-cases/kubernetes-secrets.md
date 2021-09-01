@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-15"
+lastupdated: "2021-08-19"
 
 keywords:
 
@@ -83,4 +83,6 @@ This scenario features a third-party tool that can impact the compliance readine
 Ready to start building a proof of concept? For more information about this pattern, check out the tutorial to help you get started.
 
 [![This image is a visual link to the tutorial for securing Kubernetes secrets](../images/go-to-tutorial.svg)](/docs/secrets-manager?topic=secrets-manager-tutorial-kubernetes-secrets)
+
+
 
