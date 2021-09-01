@@ -103,17 +103,15 @@ Before you begin, consider the following items and service limitations that migh
 ### Migration guidelines
 {: #migrate-guidelines}
 
-If you're ready to start your transition to {{site.data.keyword.secrets-manager_short}}, you can take advantage of automation tools to begin your migration.
-
-To start migrating your certificates:
+If you're ready to start your transition to {{site.data.keyword.secrets-manager_short}}, you can take advantage of automation tools to begin your migration. Start by setting up your {{site.data.keyword.secrets-manager_short}} service instance.
 
 1. [Create a {{site.data.keyword.secrets-manager_short}} service instance](/docs/secrets-manager?topic=secrets-manager-create-instance).
 2. Determine an access hierarchy for your certificates within {{site.data.keyword.secrets-manager_short}}. 
 
-    Create secret groups in {{site.data.keyword.secrets-manager_short}} ahead of time so that you can organize your incoming certificates by mapped IAM policies. 
+    Create [secret groups](/docs/secrets-manager?topic=secrets-manager-secret-groups) in {{site.data.keyword.secrets-manager_short}} ahead of time so that you can organize your incoming certificates by mapped IAM policies. 
 
     Be sure to create secret groups first because you can't change assignments to certificates after you migrate them. If you accidentally assign an incoming certificate to the wrong secret group, or if you don't want a certificate to belong to the default secret group, you must delete certificate and add it again.
-    {: important}
+    {: tip}
 3. Migrate your certificates by using the [{{site.data.keyword.cloudcerts_short}} to {{site.data.keyword.secrets-manager_short}} migration scripts](https://github.com/ibm-cloud-security/certificate-manager-to-secrets-manager){: external}.
 
 
