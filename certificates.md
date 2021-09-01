@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-31"
+lastupdated: "2021-09-01"
 
 keywords: import certificates
 
@@ -60,7 +60,7 @@ subcollection: secrets-manager
 
 
 
-You can use {{site.data.keyword.secrets-manager_full}} to store  SSL/TLS certificates that you can use for your apps or services.
+You can use {{site.data.keyword.secrets-manager_full}} to store  SSL or TLS certificates that you can use for your apps or services.
 {: shortdesc}
 
 An SSL or TLS certificate is a type of digital certificate that is used to establish communication privacy between a server and a client. Certificates are issued by [certificate authorities (CA)](#x2016383){: term} and contain information that is used to create trusted and secure connections between endpoints. After you add a certificate to your {{site.data.keyword.secrets-manager_short}} instance, you can use it to secure network communications for your cloud or on-premises deployments. Your certificate is stored securely in your dedicated {{site.data.keyword.secrets-manager_short}} service instance, where you can centrally manage its lifecycle.
@@ -84,7 +84,7 @@ Before you get started, be sure that you have the required level of access. To c
 
 | Prerequisites |
 | :------------ |
-| <p>Before you order a certificate, be sure that you:</p><ul><li>Review the list of certificate authorities that {{site.data.keyword.secrets-manager_short}} supports.<li>Create an Automatic Certificate Management Environment (ACME) account for the certificate authority that you want to use.<p class="info">The ACME protocol makes it possible to automatically obtain browser trusted certificates without human intervention. Before you can request certificates through {{site.data.keyword.secrets-manager_short}}, you must have an ACME account registered with the certificate authority that you want to use so that {{site.data.keyword.secrets-manager_short}} can obtain the required details. If you don't have an existing ACME client or account, you can create one by using [the ACME account utility](https://github.ibm.com/VME/acme-account){: external}.</p></li><li>Retrieve the private key that's associated with your ACME account.</li><li>Enable the public certificates engine for your instance. |
+| <p>Before you order a certificate, be sure that you:</p><ul><li>Prepare your instance for certificate ordering.<li>Review your certificate authority and DNS provider configurations.</li><li> |
 {: caption="Table 1. Prerequisites - Ordering certificates" caption-side="top"}
 {: #order-certificates-prereqs}
 {: tab-title="Ordering certificates"}
@@ -102,7 +102,7 @@ To add a certificate by using the {{site.data.keyword.secrets-manager_short}} UI
 1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
-4. From the list of secret types, click the **SSL/TLS Certificates** tile.
+4. From the list of secret types, click the **TLS Certificates** tile.
 5. Add a name and description to easily identify your certificate.
 6. Select the [secret group](#x9968962){:term} that you want to assign to the secret.
 
