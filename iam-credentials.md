@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-24"
+lastupdated: "2021-09-01"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -67,7 +67,6 @@ To learn more about the types of secrets that you can manage in {{site.data.keyw
 {: #before-iam-credentials}
 
 
-{: note}
 
 
 

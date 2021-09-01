@@ -73,27 +73,28 @@ To learn more about the types of secrets that you can manage in {{site.data.keyw
 Before you get started, be sure that you have the required level of access. To create or add secrets, you need the [**Writer** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam).
 
 
-| Prerequisites |
-| :------------ |
-| <p>Before you import a certificate, be sure that you:</p><ul><li>Create an X.509 compliant certificate with a matching private key (optional).</li><li>Convert your files into Privacy-enhanced electronic mail (PEM) format.</li><li>Keep the private key unencrypted to ensure that it can be imported into {{site.data.keyword.secrets-manager_short}}</li></ul> |
-{: caption="Table 1. Prerequisites - Importing certificates" caption-side="top"}
-{: #import-certificates-prereqs}
-{: tab-title="Importing certificates"}
-{: tab-group="cert-prereqs"}
-{: class="simple-tab-table"}
 
-| Prerequisites |
-| :------------ |
-| <p>Before you order a certificate, be sure that you:</p><ul><li>Prepare your instance for certificate ordering.<li>Review the certificate authority and DNS provider configurations that are available for your instance.</li></ul> |
-{: caption="Table 1. Prerequisites - Ordering certificates" caption-side="top"}
-{: #order-certificates-prereqs}
-{: tab-title="Ordering certificates"}
-{: tab-group="cert-prereqs"}
-{: class="simple-tab-table"}
 
-## Importing certificates in the UI
+
+## Importing your existing certificates
+{: #import-certificates}
+
+You can use {{site.data.keyword.secrets-manager_short}} to store certificate files that are signed and issued by external certificate authorities.
+
+Before you import a certificate, be sure that you:
+
+
+- Create an X.509 compliant certificate with a matching private key (optional).
+- Convert your files into Privacy-enhanced electronic mail (PEM) format.
+- Keep the private key unencrypted to ensure that it can be imported into {{site.data.keyword.secrets-manager_short}}.
+
+### Importing certificates in the UI
 {: #import-certificates-ui}
 {: ui}
+
+
+
+
 
 You can use {{site.data.keyword.secrets-manager_short}} to store certificate files that are signed and issued by external certificate authorities. After you import your certificate files, you can deploy the certificate to your apps and services, download the certificate, or [rotate it manually](/docs/secrets-manager?topic=secrets-manager-rotate-secrets#manual-rotate-secret) when it's time to renew. 
 
@@ -121,9 +122,14 @@ To add a certificate by using the {{site.data.keyword.secrets-manager_short}} UI
 
 
 
-## Importing certificates from the CLI
+
+### Importing certificates from the CLI
 {: #import-certificates-cli}
 {: cli}
+
+
+
+
 
 To import a certificate by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. You can specify the type of secret by using the `--secret-type imported_cert` option. For example, the following command imports a certificate along with its private key and intermediate certificate.
 
@@ -139,9 +145,14 @@ The command outputs the ID value of the secret, along with other metadata. For m
 
 
 
-## Importing certificates with the API
+### Importing certificates with the API
 {: #import-certificates-api}
 {: api}
+
+
+
+
+
 
 
 You can import certificates programmatically by calling the {{site.data.keyword.secrets-manager_short}} API.
