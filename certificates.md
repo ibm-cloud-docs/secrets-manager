@@ -84,10 +84,7 @@ Before you get started, be sure that you have the required level of access. To c
 
 | Prerequisites |
 | :------------ |
-| <p>Before you order a certificate, be sure that you:</p><ul><li>Prepare your instance for certificate ordering.<li>Review the certificate authority and DNS provider configurations that are available for your instance.</li></ul><p>Keep in mind the following limitations:</p><ul><li>You can order a certificate only for domains that can resolve the Authoritative Name Server. On Linux or macOS, you can verify by using the `host -t ns <your_domain>` command. On Windows, use `nslookup <your_domain>`.</li><li>You can order a SAN certificate with a wildcard domain and additional domains not including direct subdomains. For example, you can order a certificate for the domains _*.domain.org_ and _*.www.domain.org_, but not for the domains _*.domain.org_ and _www.domain.org_.</li></ul> |
-| Limitations |
-| :------------ |
-|
+| <p>Before you order a certificate, be sure that you:</p><ul><li>Prepare your instance for certificate ordering.<li>Review the certificate authority and DNS provider configurations that are available for your instance.</li></ul> |
 {: caption="Table 1. Prerequisites - Ordering certificates" caption-side="top"}
 {: #order-certificates-prereqs}
 {: tab-title="Ordering certificates"}
