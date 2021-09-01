@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-23"
+lastupdated: "2021-09-01"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -122,7 +122,7 @@ Review the following table to understand the types of static and dynamic secrets
 | [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | `username_password` | Static | Username and password values that you can use to log in or access an application or resource. |
 {: caption="Table 1. Secret types in {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
 
-_* Requires extra configuration before they can be created in the service._
+_* Requires an [engine configuration](/docs/secrets-manager?topic=secrets-manager-secrets-engines) before secrets can be created in the service._
 
 ## What's in a secret?
 {: #secret-components}
