@@ -105,7 +105,7 @@ Before you begin, consider the following items and service limitations that migh
 
 If you're ready to start your transition to {{site.data.keyword.secrets-manager_short}}, you can take advantage of automation tools to begin your migration.
 
-To start migrating your secrets:
+To start migrating your certificates:
 
 1. [Create a {{site.data.keyword.secrets-manager_short}} service instance](/docs/secrets-manager?topic=secrets-manager-create-instance).
 2. Determine an access hierarchy for your certificates within {{site.data.keyword.secrets-manager_short}}. 
