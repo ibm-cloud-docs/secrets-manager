@@ -96,8 +96,6 @@ Before you import a certificate, be sure that you:
 
 
 
-You can use {{site.data.keyword.secrets-manager_short}} to store certificate files that are signed and issued by external certificate authorities. After you import your certificate files, you can deploy the certificate to your apps and services, download the certificate, or [rotate it manually](/docs/secrets-manager?topic=secrets-manager-rotate-secrets#manual-rotate-secret) when it's time to renew. 
-
 To add a certificate by using the {{site.data.keyword.secrets-manager_short}} UI, complete the following steps.
 
 1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
