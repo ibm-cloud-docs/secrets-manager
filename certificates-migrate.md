@@ -105,7 +105,7 @@ Before you begin, consider the following items and service limitations that migh
 
 If you're ready to start your transition to {{site.data.keyword.secrets-manager_short}}, you can use a combination of {{site.data.keyword.cloud_notm}} platform and service APIs to create an inventory of your existing {{site.data.keyword.cloudcerts_short}} resources, retrieve your certificate data, and copy the data over into a test {{site.data.keyword.secrets-manager_short}} service instance. 
 
-Looking for migration scripts to automate this process? Check out the [`certificate-manager-to-secrets-manager` GitHub repository](https://github.com/ibm-cloud-security/certificate-manager-to-secrets-manager){: external}.
+Looking for migration scripts to automate this process? Check out the [{{site.data.keyword.cloudcerts_short}} to {{site.data.keyword.secrets-manager_short}} migration scripts in GitHub](https://github.com/ibm-cloud-security/certificate-manager-to-secrets-manager){: external}.
 {: tip}
 
 1. [Create a {{site.data.keyword.secrets-manager_short}} service instance](/docs/secrets-manager?topic=secrets-manager-create-instance).
