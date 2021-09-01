@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-19"
+lastupdated: "2021-09-01"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -62,17 +62,18 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
 
+
 ## 20 June 2021
 {: #2021-06-20}
 
 This release includes the following updates.
 
-### Import and manage your existing SSL/TLS certificates
+### Import and manage your existing TLS certificates
 {: 2021-06-20-certificates}
 
 Looking for the ability to centralize TLS certificates into a single secrets management service? You can now use {{site.data.keyword.secrets-manager_short}} to import TLS certificates that are issued by external certificate authorities (CA). 
 
-For more information, check out [Importing SSL/TLS certificates](/docs/secrets-manager?topic=secrets-manager-certificates). 
+For more information, check out [Importing TLS certificates](/docs/secrets-manager?topic=secrets-manager-certificates). 
 
 ### Connect to {{site.data.keyword.secrets-manager_short}} from your VPC network
 {: 2021-06-20-vpe}
