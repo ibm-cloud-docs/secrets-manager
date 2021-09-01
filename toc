@@ -1,4 +1,3 @@
-
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
@@ -107,7 +106,7 @@ Secrets Manager
 
     {: .topicgroup}
     Troubleshooting
-        troubleshooting/getting-help.md
+        troubleshooting/support.md
         troubleshooting/troubleshoot-creation.md
         troubleshooting/troubleshoot-iam-engine.md
         troubleshooting/troubleshoot-access.md
