@@ -66,7 +66,7 @@ Start by creating an authorization between your {{site.data.keyword.secrets-mana
 
 The following table lists the services that can be authorized to work with {{site.data.keyword.secrets-manager_short}}.
 
-| Service | Supported secret type | Description |
+| Service | Supports | Description |
 | ------------------ | ----------- | ----------- |
 | [Catalog management](/docs/account?topic=account-create-private-catalog) | Arbitrary secrets | Integrate arbitrary secrets that you store in {{site.data.keyword.secrets-manager_short}} to centrally manage the credentials for software in your private catalogs.    |
 | [Toolchain](/docs/ContinuousDelivery?topic=ContinuousDelivery-secretsmanager) | Arbitrary secrets | Integrate arbitrary secrets that you store in {{site.data.keyword.secrets-manager_short}} to centrally manage the credentials for your {{site.data.keyword.contdelivery_short}} toolchain.  |
