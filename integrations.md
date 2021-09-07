@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-09-07"
 
 keywords: Secrets Manager integrations, enable integration, service to service, grant access between services
 
@@ -68,8 +68,8 @@ The following table lists the services that can be authorized to work with {{sit
 
 | Service | Supports | Description |
 | ------------------ | ----------- | ----------- |
-| [Catalog management](/docs/account?topic=account-create-private-catalog) | Arbitrary secrets | Integrate arbitrary secrets that you store in {{site.data.keyword.secrets-manager_short}} to centrally manage the credentials for software in your private catalogs.    |
-| [Toolchain](/docs/ContinuousDelivery?topic=ContinuousDelivery-secretsmanager) | Arbitrary secrets | Integrate arbitrary secrets that you store in {{site.data.keyword.secrets-manager_short}} to centrally manage the credentials for your {{site.data.keyword.contdelivery_short}} toolchain.  |
+| [Catalog management](/docs/account?topic=account-create-private-catalog) | Arbitrary secrets | Centrally manage the credentials for software in your private catalogs. For more information about this integration, check out [Onboarding software to your account](/docs/account?topic=account-create-private-catalog).  |
+| [Toolchain](/docs/ContinuousDelivery?topic=ContinuousDelivery-secretsmanager) | Arbitrary secrets | Centrally manage the credentials for your {{site.data.keyword.contdelivery_short}} toolchain. For more information about this integration, check out [Configuring {{site.data.keyword.secrets-manager_short}}](docs/ContinuousDelivery?topic=ContinuousDelivery-secretsmanager).  |
 {: caption="Table 1. Available integrations" caption-side="top"}
 
 ## Creating an authorization between {{site.data.keyword.secrets-manager_short}} and another {{site.data.keyword.cloud_notm}} service
