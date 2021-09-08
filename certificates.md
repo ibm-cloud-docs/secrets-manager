@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-01"
+lastupdated: "2021-09-08"
 
 keywords: import certificates
 
@@ -101,7 +101,7 @@ To add a certificate by using the {{site.data.keyword.secrets-manager_short}} UI
 1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
-4. From the list of secret types, click the **TLS Certificates** tile.
+4. From the list of secret types, click the **TLS certificates** tile.
 5. Add a name and description to easily identify your certificate.
 6. Select the [secret group](#x9968962){:term} that you want to assign to the secret.
 
