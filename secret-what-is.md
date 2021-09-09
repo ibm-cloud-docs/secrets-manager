@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-01"
+lastupdated: "2021-09-09"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -63,7 +63,8 @@ By using secrets, you're able to authenticate to protected resources as you buil
 
 To learn more about the general characteristics of a secret, check out the following video.
 
-![What is Secrets Management?](https://www.youtube.com/embed/iETENR5MEB8){: video output="iframe" data-script="#secrets-mgmt-video-transcript" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![What is Secrets Management?](https://www.youtube.com/embed/iETENR5MEB8){: video output="iframe" data-script="#secrets-mgmt-video-transcript" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}{: class="center"}
+{: style="text-align: center;"}
 
 ## Video transcript
 {: #secrets-mgmt-video-transcript}
@@ -148,6 +149,8 @@ Check out the following image to see how a secret is structured.
     }
     ```
     {: screen}
+
+
 
 
 
