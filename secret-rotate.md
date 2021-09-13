@@ -552,7 +552,7 @@ When you order public TLS certificates by using {{site.data.keyword.secrets-mana
 {: #auto-rotate-certificate-ui}
 {: ui}
 
-You can enable automatic rotation for your public certificate at its creation, or by editing the details of an existing certificate. {{site.data.keyword.secrets-manager_short}} sends a request to renew the certificate 31 days before it expires. If the domain validation completes succesfully, your certificate is renewed automatically.
+You can enable automatic rotation for your public certificate at its creation, or by editing the details of an existing certificate. {{site.data.keyword.secrets-manager_short}} sends a request to renew the certificate 31 days before it expires. If the domain validation completes successfully, your certificate is renewed automatically.
 
 1. If you're [ordering a certificate](/docs/secrets-manager?topic=secrets-manager-user-credentials#user-credentials-ui), enable the rotation options.
    1. To rotate the certificate automatically 31 days before it expires, switch the rotation toggle to **On**.
