@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-23"
+lastupdated: "2021-09-13"
 
 keywords: rotate secrets, manually rotate, new secret, automatically rotate, automatic rotation, set rotation policy
 
@@ -217,14 +217,12 @@ A successful response returns the ID value for the secret, along with other meta
 ## Rotating your secrets automatically
 {: #auto-rotate-secret}
 
-You can enable automatic rotation for specific secret types so that you can replace their values automatically at an interval that you specify.
+You can enable automatic rotation for specific secret types so that you can replace their values automatically at regular intervals.
 
-After you set a rotation policy for a secret, the clock starts immediately based on the initial creation date of the secret. For example, if you set a monthly rotation policy for a secret that you created on `2020/10/01`, {{site.data.keyword.secrets-manager_short}} automatically rotates the secret on `2020/11/01`.
-
-Currently, you can enable automatic rotation only for the user credentials (`username_password`) secret type.
+Currently, you can enable automatic rotation only for the user credentials (`username_password`) and public certificates (`public_cert`) secret types.
 {: note}
 
-### Setting a rotation policy in the UI
+### Enabling automatic rotation for user credentials in the UI
 {: #auto-rotate-secret-ui}
 {: ui}
 
@@ -234,12 +232,12 @@ If you need more control over the rotation frequency of a secret, you can use th
 {: tip}
 
 1. If you're [adding a secret](/docs/secrets-manager?topic=secrets-manager-user-credentials#user-credentials-ui), enable the rotation option by selecting a 30, 60, or 90-day rotation interval.
-2. If you're editing an existing secret, set its rotation policy by updating its details.
+2. If you're editing an existing secret, enable automatic rotation by updating its details.
     1. In the **Secrets** table, view a list of your existing secrets.
     2. In the row for the secret that you want to edit, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Edit details**.
-    3. Use the **Automatic rotation** option to add or remove a rotation policy for the secret.
+    3. Use the **Automatic rotation** option to enable or disable automatic rotation for the secret.
 
-### Setting a rotation policy with the API
+### Enabling automatic rotation for user credentials with the API
 {: #auto-rotate-secret-api}
 {: api}
 
@@ -409,4 +407,24 @@ fmt.Println(string(b))
 A successful response returns the ID value for the policy, along with other metadata. For more information about the required and optional request parameters, see [Set secret policies](/apidocs/secrets-manager#put-policy){: external}.
 
 
+### Enabling automatic rotation for certificates in the UI
+{: #auto-rotate-certificate-ui}
+{: ui}
 
+When you order a public certificate (`public_cert`), you can choose to enable automatic rotation. {{site.data.keyword.secrets-manager_short}} sends a request to renew the certificate 31 days before it expires. If the domain validation completes succesfully, your certificate is renewed automatically.
+
+You can enable automatic rotation for your public certificate at its creation, or by editing the details of an existing certificate. 
+
+1. If you're [ordering a certificate](/docs/secrets-manager?topic=secrets-manager-user-credentials#user-credentials-ui), enable the rotation options.
+   1. To rotate the certificate automatically 31 days before it expires, switch the rotation toggle to **On**.
+   2. To replace the certificate's private key with a new key on each rotation, switch the rekey toggle to **On**.
+
+      Your certificate is automatically rotated 31 days before its expiration date.
+      {: note}
+2. If you're editing an existing certificate, enable automatic rotation by updating its details.
+   1. In the **Secrets** table, view a list of your existing Public certificates.
+   2. In the row for the certificate that you want to edit, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Edit details**.
+   3. Use the **Automatic rotation** option to add or remove a rotation policy for the secret.
+
+      If you enable automatic rotation on a certificate that expires in less than 31 days, you must also manually rotate it. Only then can rotation take place in the following cycles automatically.
+      {: important}
