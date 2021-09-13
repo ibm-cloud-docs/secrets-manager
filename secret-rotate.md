@@ -56,16 +56,21 @@ subcollection: secrets-manager
 # Rotating secrets
 {: #rotate-secrets}
 
-You can rotate your secrets manually by using {{site.data.keyword.secrets-manager_full}}.
+You can rotate your secrets manually or automatically by using {{site.data.keyword.secrets-manager_full}}.
 {: shortdesc}
 
-When you rotate a secret in {{site.data.keyword.secrets-manager_short}}, you create a new version of its value. By rotating your secret at regular intervals, you limit its lifespan and protect against inadvertent exposure of your sensitive data. Rotation is supported in {{site.data.keyword.secrets-manager_short}} for the following secret types:
+When you rotate a secret in {{site.data.keyword.secrets-manager_short}}, you create a new version of its value. By rotating your secret at regular intervals, you limit its lifespan and protect against inadvertent exposure of your sensitive data. 
 
-- Arbitrary secrets (`arbitrary`)
-- TLS certificates (`imported_cert`)
-- User credentials (`username_password`)
+Rotation is supported in {{site.data.keyword.secrets-manager_short}} for the following secret types:
 
-IAM credentials (`iam_credentials)` are recreated dynamically on your behalf so that you don't have to manually rotate them.
+| Secret type | Keyword | Manual rotation | Automatic rotation |
+| ----------- | ------- | --------------- | ------------------ | 
+| Arbitrary secrets | `arbitrary` | ![Checkmark icon](../icons/checkmark-icon.svg) | |
+| Imported certificates | `imported_cert` | ![Checkmark icon](../icons/checkmark-icon.svg) | |
+| Public certificates | `public_cert` |![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| User credentials | `username_password` | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+
+IAM credentials (`iam_credentials)` are recreated dynamically on your behalf so that you don't have to rotate them.
 {: note}
 
 
@@ -233,8 +238,8 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 
     The previous version of your secret is now replaced by its latest value. If you need to audit your version history, you can use the {{site.data.keyword.secrets-manager_short}} API to retrieve the secret. To learn more, check out the [API docs](/apidocs/secrets-manager#get-secret){: external}.
 
-### Manually rotating arbitrary secrets with the API
-{: #manual-rotate-arbitrary-secret-api}
+### Manually rotating user credentials with the API
+{: #manual-rotate-user-credentials-api}
 {: api}
 
 
@@ -244,19 +249,19 @@ The following example request creates a new version of your secret. When you cal
 {: curl}
 
 
-If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `updateSecret` method to rotate a secret. The following code shows an example call to rotate an arbitrary secret.
+If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `updateSecret` method to rotate a secret. The following code shows an example call to rotate user credentials.
 {: java}
 
 
-If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `updateSecret(params)` method to rotate a secret. The following code shows an example call to rotate an arbitrary secret.
+If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `updateSecret(params)` method to rotate a secret. The following code shows an example call to rotate user credentials.
 {: javascript}
 
 
-If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `update_secret(params)` method to rotate a secret. The following code shows an example call to rotate an arbitrary secret.
+If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `update_secret(params)` method to rotate a secret. The following code shows an example call to rotate user credentials.
 {: python}
 
 
-If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `UpdateSecret` method to rotate a secret. The following code shows an example call to rotate an arbitrary secret.
+If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `UpdateSecret` method to rotate a secret. The following code shows an example call to rotate user credentials.
 {: go}
 
 ```bash
@@ -347,16 +352,8 @@ fmt.Println(string(b))
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see [Invoke an action on a secret](/apidocs/secrets-manager#update-secret){: external}.
 
-## Rotating your secrets automatically
-{: #auto-rotate-secret}
-
-You can enable automatic rotation for specific secret types so that you can replace their values automatically at regular intervals.
-
-Currently, you can enable automatic rotation only for the user credentials (`username_password`) and public certificates (`public_cert`) secret types.
-{: note}
-
 ### Enabling automatic rotation for user credentials in the UI
-{: #auto-rotate-secret-ui}
+{: #auto-rotate-user-credentials-ui}
 {: ui}
 
 You can enable automatic rotation for your secret at its creation, or by editing the details of an existing secret. Choose between a 30, 60, or 90-day rotation interval.
