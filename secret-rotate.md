@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-13"
+lastupdated: "2021-09-14"
 
 keywords: rotate secrets, manually rotate, new secret, automatically rotate, automatic rotation, set rotation policy
 
@@ -540,17 +540,21 @@ A successful response returns the ID value for the policy, along with other meta
 ## Rotating certificates
 {: #rotate-certificates}
 
-When you order public TLS certificates by using {{site.data.keyword.secrets-manager_short}}, you can choose to enable automatic rotation. During the renewal process, {{site.data.keyword.secrets-manager_short}} uses DNS validation to verify that you own the domains that are listed as part of your certificate.
+When you order public TLS certificates by using {{site.data.keyword.secrets-manager_short}}, you can choose to enable automatic rotation. During the renewal process, the status of your certificate changes to **Rotation pending**. {{site.data.keyword.secrets-manager_short}} uses DNS validation to verify that you own the domains that are listed as part of your certificate.
 
 - You can enable automatic rotation for public certificates (`public_cert`) when you order them, or by editing the details of an existing certificate.
 - Certificates that you enable for automatic rotation are rotated 31 days before they expire.
 - After a certificate is rotated, the previous version is retained in case you need it.
 
+To find out more about the rotation status of a public certificate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Edit details** in the row of the certificate that you want to inspect.
+{: tip}
+
 ### Enabling automatic rotation for certificates in the UI
 {: #auto-rotate-certificate-ui}
 {: ui}
 
-You can use the {{site.data.keyword.secrets-manager_short}} UI to enable automatic rotation for your public certificates. After a certificate is enabled for automation rotation, {{site.data.keyword.secrets-manager_short}} sends a request to renew the certificate 31 days before it expires. If the domain validation completes successfully, your certificate is renewed automatically.
+You can use the {{site.data.keyword.secrets-manager_short}} UI to enable automatic rotation for certificates that you order from Let's Encrypt.
+
 
 1. If you're [ordering a certificate](/docs/secrets-manager?topic=secrets-manager-user-credentials#user-credentials-ui), enable the rotation options.
    1. To rotate the certificate automatically 31 days before it expires, switch the rotation toggle to **On**.
@@ -565,12 +569,6 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to enable automat
 
       If you enable automatic rotation on a certificate that expires in less than 31 days, you must also manually rotate it. Only then can rotation take place in the following cycles automatically.
       {: important}
-
-{{site.data.keyword.secrets-manager_short}} sends a request to renew the certificate 31 days before its expiration date. The status of your certificate changes to **Rotation pending**. If the domain validation completes successfully, your certificate is renewed and the status returns to **Active**. If the domain validation doesn't complete successfully, the status changes to **Rotation failed**. 
-
-To find out more about the status of a public certificate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Edit details** in the row of the certificate that you want to inspect. Check the **Status** section to understand why automatic rotation for a certificate couldn't be processed. 
-{: tip}
-
 
 ### Manually rotating certificates in the UI
 {: #auto-rotate-certificate-ui}
