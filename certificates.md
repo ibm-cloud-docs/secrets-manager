@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-08"
+lastupdated: "2021-09-15"
 
 keywords: import certificates
 
@@ -75,26 +75,15 @@ Before you get started, be sure that you have the required level of access. To c
 
 
 
-
 ## Importing your existing certificates
 {: #import-certificates}
 
-You can use {{site.data.keyword.secrets-manager_short}} to store certificate files that are signed and issued by external certificate authorities.
+You can use {{site.data.keyword.secrets-manager_short}} to store certificate files that are signed and issued by external certificate authorities. After you import your certificate files, you can deploy the certificate to your apps and services, download the certificate, or [rotate it manually](/docs/secrets-manager?topic=secrets-manager-rotate-secrets#manual-rotate-secret) when it's time to renew. 
 
-Before you import a certificate, be sure that you:
-
-
-- Create an X.509 compliant certificate with a matching private key (optional).
-- Convert your files into Privacy-enhanced electronic mail (PEM) format.
-- Keep the private key unencrypted to ensure that it can be imported into {{site.data.keyword.secrets-manager_short}}.
 
 ### Importing certificates in the UI
 {: #import-certificates-ui}
 {: ui}
-
-
-
-
 
 To add a certificate by using the {{site.data.keyword.secrets-manager_short}} UI, complete the following steps.
 
@@ -120,13 +109,9 @@ To add a certificate by using the {{site.data.keyword.secrets-manager_short}} UI
 
 
 
-
 ### Importing certificates from the CLI
 {: #import-certificates-cli}
 {: cli}
-
-
-
 
 
 To import a certificate by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. You can specify the type of secret by using the `--secret-type imported_cert` option. For example, the following command imports a certificate along with its private key and intermediate certificate.
@@ -148,12 +133,8 @@ The command outputs the ID value of the secret, along with other metadata. For m
 {: api}
 
 
-
-
-
-
-
 You can import certificates programmatically by calling the {{site.data.keyword.secrets-manager_short}} API.
+
 
 The following example shows a query that you can use to import an existing certificate. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
