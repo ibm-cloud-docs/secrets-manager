@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-09"
+lastupdated: "2021-09-15"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -149,8 +149,6 @@ Check out the following image to see how a secret is structured.
     }
     ```
     {: screen}
-
-
 
 
 
