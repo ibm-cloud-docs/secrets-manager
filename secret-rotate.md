@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-14"
+lastupdated: "2021-09-15"
 
 keywords: rotate secrets, manually rotate, new secret, automatically rotate, automatic rotation, set rotation policy
 
@@ -571,7 +571,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to enable automat
       {: important}
 
 ### Manually rotating certificates in the UI
-{: #auto-rotate-certificate-ui}
+{: #manual-rotate-certificate-ui}
 {: ui}
 
 You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotate your certificates.
