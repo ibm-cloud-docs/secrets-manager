@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-15"
+lastupdated: "2021-09-16"
 
 keywords: rotate secrets, manually rotate, new secret, automatically rotate, automatic rotation, set rotation policy
 
@@ -86,7 +86,7 @@ Before you get started, be sure that you have the required level of access. To r
 
 You can manually rotate arbitrary secrets by using the UI or API.
 
-### Manually rotating arbitrary secrets in the UI
+### Rotating arbitrary secrets manually in the UI
 {: #manual-rotate-arbitrary-secret-ui}
 {: ui}
 
@@ -101,7 +101,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 
     The previous version of your secret is now replaced by its latest value. If you need to audit your version history, you can use the {{site.data.keyword.secrets-manager_short}} API to retrieve the secret. To learn more, check out the [API docs](/apidocs/secrets-manager#get-secret){: external}.
 
-### Manually rotating arbitrary secrets with the API
+### Rotating arbitrary secrets manually with the API
 {: #manual-rotate-arbitrary-secret-api}
 {: api}
 
@@ -220,7 +220,7 @@ A successful response returns the ID value for the secret, along with other meta
 
 You can manually rotate user credentials by using the UI or API.
 
-### Manually rotating user credentials in the UI
+### Rotating user credentials manually in the UI
 {: #manual-rotate-user-credentials-ui}
 {: ui}
 
@@ -239,7 +239,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 
     The previous version of your secret is now replaced by its latest value. If you need to audit your version history, you can use the {{site.data.keyword.secrets-manager_short}} API to retrieve the secret. To learn more, check out the [API docs](/apidocs/secrets-manager#get-secret){: external}.
 
-### Manually rotating user credentials with the API
+### Rotating user credentials manually with the API
 {: #manual-rotate-user-credentials-api}
 {: api}
 
@@ -570,7 +570,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to enable automat
       If you enable automatic rotation on a certificate that expires in less than 31 days, you must also manually rotate it. Only then can rotation take place in the following cycles automatically.
       {: important}
 
-### Manually rotating certificates in the UI
+### Rotating certificates manually in the UI
 {: #manual-rotate-certificate-ui}
 {: ui}
 

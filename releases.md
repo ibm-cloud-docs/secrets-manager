@@ -78,7 +78,7 @@ In this release, the following certificate authorities (CA) and DNS providers ar
 - {{site.data.keyword.cloud_notm}} Internet Services (CIS)
 - {{site.data.keyword.cloud_notm}} classic infrastructure (SoftLayer)
 
-To enable your instance, you can [configure the public certificates engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates). For more information, check out [Ordering domain-validated certificates from third-parties](/docs/secrets-manager?topic=secrets-manager-order-certificates).
+For more information, check out [Ordering domain-validated certificates from third-parties](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates).
 
 Don't see the CA or DNS provider that you're looking for? Let us know by contacting our team through {{site.data.keyword.cloud_notm}} support.
 {: note}
