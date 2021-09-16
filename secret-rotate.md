@@ -59,17 +59,11 @@ subcollection: secrets-manager
 You can rotate your secrets manually or automatically by using {{site.data.keyword.secrets-manager_full}}.
 {: shortdesc}
 
-When you rotate a secret in {{site.data.keyword.secrets-manager_short}}, you create a new version of its value. By rotating your secret at regular intervals, you limit its lifespan and protect against inadvertent exposure of your sensitive data. 
+When you rotate a secret in {{site.data.keyword.secrets-manager_short}}, you create a new version of its value. By rotating your secret at regular intervals, you limit its lifespan and protect against inadvertent exposure of your sensitive data. Rotation is supported in Secrets Manager for the following secret types:
 
-Rotation is supported in {{site.data.keyword.secrets-manager_short}} for the following secret types:
-
-| Type | Programmatic name | Manual rotation | Automatic rotation |
-| ----------- | ------- | --------------- | ------------------ | 
-| Arbitrary secret | `arbitrary` | ![Checkmark icon](../icons/checkmark-icon.svg) | |
-| Imported certificate | `imported_cert` | ![Checkmark icon](../icons/checkmark-icon.svg) | |
-| Public (ordered) certificate | `public_cert` |![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
-| User credentials | `username_password` | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
-{: caption="Table 1. Rotation options by secret type" caption-side="top"}
+- Arbitrary secrets (`arbitrary`)
+- TLS certificates (`imported_cert`, `public_cert`)
+- User credentials (`username_password`)
 
 IAM credentials (`iam_credentials)` are recreated dynamically on your behalf so that you don't have to rotate them.
 {: note}
@@ -537,24 +531,54 @@ fmt.Println(string(b))
 
 A successful response returns the ID value for the policy, along with other metadata. For more information about the required and optional request parameters, see [Set secret policies](/apidocs/secrets-manager#put-policy){: external}.
 
-## Rotating certificates
+## Rotating TLS certificates
 {: #rotate-certificates}
 
-When you order public TLS certificates by using {{site.data.keyword.secrets-manager_short}}, you can choose to enable automatic rotation. During the renewal process, the status of your certificate changes to **Rotation pending**. {{site.data.keyword.secrets-manager_short}} uses DNS validation to verify that you own the domains that are listed as part of your certificate.
+You can manually rotate your TLS certificates, or you can enable automatic rotation for certificates that you order from a third-party. After a certificate is rotated, the previous version is retained in case you need to roll back.
 
-- You can enable automatic rotation for public certificates (`public_cert`) when you order them, or by editing the details of an existing certificate.
-- Certificates that you enable for automatic rotation are rotated 31 days before they expire.
-- After a certificate is rotated, the previous version is retained in case you need it.
+The way in which {{site.data.keyword.secrets-manager_short}} evaluates requests to rotate a certificate differs based on the secret type.
 
-To find out more about the rotation status of a public certificate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Edit details** in the row of the certificate that you want to inspect.
-{: tip}
+- Imported certificates (`imported_cert`) are replaced immediately by the data that is provided on rotation.
+- Public certificates (`public_cert`) move to the **Active, Rotation pending** status to indicate that the request is being processed. {{site.data.keyword.secrets-manager_short}} uses DNS validation to verify that you own the domains that are listed as part of the certificate. This process can take a few minutes to complete.
+
+    If the validation completes successfully, your new certificate is issued and its status changes back to **Active**.
+  
+    If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**. From the Secrets table, you can check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.
+    {: ui}
+
+    If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**. From the Secrets table, you can check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.
+    {: cli}
+
+    If the validation doesn't complete successfully, the status of your certificate changes to **Active, Rotation failed**. You can use the [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
+    {: api}
+
+### Rotating certificates manually in the UI
+{: #manual-rotate-certificate-ui}
+{: ui}
+
+You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotate your certificates. 
+
+1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
+3. Use the **Secrets** table to view the secrets in your instance.
+4. In the row for the certificate that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
+5. Select or enter the new certificate data that you want to associate with your certificate.
+
+    Keep in mind that manually rotating a certificate replaces the content of the certificate with the new data that you provide only. Private keys and intermediate certificates from previous versions are not retained. 
+
+    If the certificate that you are rotating was previously added with an intermediate certificate and a private key, include an intermediate certificate and private key on rotation to avoid service disruptions.
+    {: important}
+
+6. Click **Rotate**.
 
 ### Enabling automatic rotation for certificates in the UI
 {: #auto-rotate-certificate-ui}
 {: ui}
 
-You can use the {{site.data.keyword.secrets-manager_short}} UI to enable automatic rotation for certificates that you order from Let's Encrypt.
+You can enable automatic rotation for public certificates (`public_cert`) when you order them, or by editing the details of an existing certificate.
 
+Automatic rotation isn't supported for certificates that are imported to the service. If you need to reimport a certificate, you can [rotate it manually](#manual-rotate-certificate-ui).
+{: note}
 
 1. If you're [ordering a certificate](/docs/secrets-manager?topic=secrets-manager-user-credentials#user-credentials-ui), enable the rotation options.
    1. To rotate the certificate automatically 31 days before it expires, switch the rotation toggle to **On**.
@@ -570,17 +594,3 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to enable automat
       If you enable automatic rotation on a certificate that expires in less than 31 days, you must also manually rotate it. Only then can rotation take place in the following cycles automatically.
       {: important}
 
-### Rotating certificates manually in the UI
-{: #manual-rotate-certificate-ui}
-{: ui}
-
-You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotate your certificates.
-
-1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
-2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
-3. Use the **Secrets** table to view the secrets in your instance.
-4. In the row for the certificate that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
-5. Select or enter the new certificate data that you want to associate with your certificate.
-6. Click **Rotate**.
-
-    The previous version of your certificate is now replaced by its latest value. If you need to audit your version history, you can use the {{site.data.keyword.secrets-manager_short}} API to obtain the previous version. To learn more, check out the [API docs](/apidocs/secrets-manager#get-secret){: external}.
