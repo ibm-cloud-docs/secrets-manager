@@ -543,8 +543,6 @@ The way in which {{site.data.keyword.secrets-manager_short}} evaluates requests 
   - If the validation completes successfully, your new certificate is issued and its status changes back to **Active**.
   -  If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**. From the Secrets table, you can check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.
   {: ui}
-  - If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**. From the Secrets table, you can check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.
-  {: cli}
   - If the validation doesn't complete successfully, the status of your certificate changes to **Active, Rotation failed**. You can use the [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
   {: api}
 
