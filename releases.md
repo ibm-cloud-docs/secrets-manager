@@ -70,17 +70,17 @@ This release includes the following updates.
 ### Order domain-validated TLS certificates from Let's Encrypt
 {: #2021-09-20-certificates}
 
-In addition to [importing your existing certificates](/docs/secrets-manager?topic=secrets-manager-certificates), you can now order domain-validated certificates by using {{site.data.keyword.secrets-manager_short}}! 
+In addition to [importing your existing certificates](/docs/secrets-manager?topic=secrets-manager-certificates), you can now use {{site.data.keyword.secrets-manager_short}} to order domain-validated certificates. 
 
-To enable your instance, you can [configure the public certificates engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates). In this release, {{site.data.keyword.secrets-manager_short}} offers support for the following certificate authorities (CA) and DNS providers:
+In this release, the following certificate authorities (CA) and DNS providers are supported:
 
 - Let's Encrypt
 - {{site.data.keyword.cloud_notm}} Internet Services (CIS)
 - {{site.data.keyword.cloud_notm}} classic infrastructure (SoftLayer)
 
-For more information, check out [Ordering domain-validated certificates from third-parties](/docs/secrets-manager?topic=secrets-manager-order-certificates).
+To enable your instance, you can [configure the public certificates engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates). For more information, check out [Ordering domain-validated certificates from third-parties](/docs/secrets-manager?topic=secrets-manager-order-certificates).
 
-Don't see a use case or provider that you're looking for? Let us know by contacting our team through {{site.data.keyword.cloud_notm}} support.
+Don't see the CA or DNS provider that you're looking for? Let us know by contacting our team through {{site.data.keyword.cloud_notm}} support.
 {: note}
 
 ## 30 August 2021
