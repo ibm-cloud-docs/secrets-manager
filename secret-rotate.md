@@ -538,8 +538,8 @@ You can manually rotate your TLS certificates, or you can enable automatic rotat
 
 The way in which {{site.data.keyword.secrets-manager_short}} evaluates requests to rotate a certificate differs based on the secret type.
 
-- Imported certificates (`imported_cert`) are replaced immediately by the data that is provided on rotation.
-- Public certificates (`public_cert`) move to the **Active, Rotation pending** status to indicate that the request to renew the certificate is being processed. {{site.data.keyword.secrets-manager_short}} uses DNS validation to verify that you own the domains that are listed as part of the certificate. This process can take a few minutes to complete.
+- [Imported certificates](/docs/secrets-manager?topic=secrets-manager-certificates#import-certificates) are replaced immediately by the data that is provided on rotation.
+- [Public certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates) move to the **Active, Rotation pending** status to indicate that the request to renew the certificate is being processed. {{site.data.keyword.secrets-manager_short}} uses DNS validation to verify that you own the domains that are listed as part of the certificate. This process can take a few minutes to complete.
   - If the validation completes successfully, your new certificate is issued and its status changes back to **Active**.
   -  If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**. From the Secrets table, you can check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.
   {: ui}
