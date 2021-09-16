@@ -591,8 +591,11 @@ If you enable automatic rotation on a certificate that expires in less than 31 d
 {: #auto-rotate-certificates-api}
 {: api}
 
-
 You can enable automatic rotation for certificates when you order them, or by editing the details of an existing certificate.
+
+
+The following example request orders a certificate with automatic rotation enabled. When you call the API, set the `auto_rotate` property to `true`. Optionally, you can set `rotate_keys` to `true` to request a new private key for the certificate on each rotation.
+{: curl}
 
 
 
