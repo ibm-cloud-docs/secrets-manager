@@ -59,7 +59,7 @@ subcollection: secrets-manager
 You can rotate your secrets manually or automatically by using {{site.data.keyword.secrets-manager_full}}.
 {: shortdesc}
 
-When you rotate a secret in {{site.data.keyword.secrets-manager_short}}, you create a new version of its value. By rotating your secret at regular intervals, you limit its lifespan and protect against inadvertent exposure of your sensitive data. Rotation is supported in Secrets Manager for the following secret types:
+When you rotate a secret in {{site.data.keyword.secrets-manager_short}}, you create a new version of its value. By rotating your secret at regular intervals, you limit its lifespan and protect against inadvertent exposure of your sensitive data. Rotation is supported for the following secret types:
 
 - Arbitrary secrets (`arbitrary`)
 - TLS certificates (`imported_cert`, `public_cert`)
@@ -363,7 +363,7 @@ If you need more control over the rotation frequency of a secret, you can use th
     3. Use the **Automatic rotation** option to enable or disable automatic rotation for the secret.
 
 ### Enabling automatic rotation for user credentials with the API
-{: #auto-rotate-secret-api}
+{: #auto-rotate-user-credentials-api}
 {: api}
 
 
@@ -539,18 +539,14 @@ You can manually rotate your TLS certificates, or you can enable automatic rotat
 The way in which {{site.data.keyword.secrets-manager_short}} evaluates requests to rotate a certificate differs based on the secret type.
 
 - Imported certificates (`imported_cert`) are replaced immediately by the data that is provided on rotation.
-- Public certificates (`public_cert`) move to the **Active, Rotation pending** status to indicate that the request is being processed. {{site.data.keyword.secrets-manager_short}} uses DNS validation to verify that you own the domains that are listed as part of the certificate. This process can take a few minutes to complete.
-
-    If the validation completes successfully, your new certificate is issued and its status changes back to **Active**.
-  
-    If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**. From the Secrets table, you can check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.
-    {: ui}
-
-    If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**. From the Secrets table, you can check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.
-    {: cli}
-
-    If the validation doesn't complete successfully, the status of your certificate changes to **Active, Rotation failed**. You can use the [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
-    {: api}
+- Public certificates (`public_cert`) move to the **Active, Rotation pending** status to indicate that the request to renew the certificate is being processed. {{site.data.keyword.secrets-manager_short}} uses DNS validation to verify that you own the domains that are listed as part of the certificate. This process can take a few minutes to complete.
+  - If the validation completes successfully, your new certificate is issued and its status changes back to **Active**.
+  -  If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**. From the Secrets table, you can check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.
+  {: ui}
+  - If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**. From the Secrets table, you can check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.
+  {: cli}
+  - If the validation doesn't complete successfully, the status of your certificate changes to **Active, Rotation failed**. You can use the [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
+  {: api}
 
 ### Rotating certificates manually in the UI
 {: #manual-rotate-certificate-ui}
@@ -571,6 +567,8 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 
 6. Click **Rotate**.
 
+   After your certificate is rotated, be sure to deploy the latest version to the apps or services that use the certificate. You can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager#get-secret) API.
+
 ### Enabling automatic rotation for certificates in the UI
 {: #auto-rotate-certificate-ui}
 {: ui}
@@ -581,11 +579,9 @@ Automatic rotation isn't supported for certificates that are imported to the ser
 {: note}
 
 1. If you're [ordering a certificate](/docs/secrets-manager?topic=secrets-manager-user-credentials#user-credentials-ui), enable the rotation options.
-   1. To rotate the certificate automatically 31 days before it expires, switch the rotation toggle to **On**.
-   2. To replace the certificate's private key with a new key on each rotation, switch the rekey toggle to **On**.
-
-      Your certificate is automatically rotated 31 days before its expiration date.
-      {: note}
+   
+   1. To rotate the certificate automatically, switch the rotation toggle to **On**. Your certificate is automatically rotated 31 days before its expiration date.
+   2. To request a new private key for the certificate on each rotation, switch the rekey toggle to **On**.
 2. If you're editing an existing public certificate, enable automatic rotation by updating its details.
    1. In the **Secrets** table, view a list of your existing Public certificates.
    2. In the row for the certificate that you want to edit, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Edit details**.
@@ -594,3 +590,56 @@ Automatic rotation isn't supported for certificates that are imported to the ser
       If you enable automatic rotation on a certificate that expires in less than 31 days, you must also manually rotate it. Only then can rotation take place in the following cycles automatically.
       {: important}
 
+### Enabling automatic rotation for certificates with the API
+{: #auto-rotate-certificates-api}
+{: api}
+
+
+You can enable automatic rotation for public certificates (`public_cert`) when you order them, or by editing the details of an existing certificate.
+
+
+
+If you enable automatic rotation on a certificate that expires in less than 31 days, you must also manually rotate it. Only then can rotation take place in the following cycles automatically.
+{: important}
+
+```bash
+curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/public_cert" \
+    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "metadata": {
+        "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
+        "collection_total": 1
+      },
+      "resources": [
+        {
+          "name": "example-certificate-with-auto-rotation",
+          "description": "Extended description for my secret.",
+          "secret_group_id": "432b91f1-ff6d-4b47-9f06-82debc236d90",
+          "ca": "my-ca-configuration-name",
+          "dns": "my-dns-configuration-name",
+          "labels": [
+            "dev",
+            "us-south"
+          ],
+          "common_name": "certificate-common-name.com",
+          "alt_names": [
+            "www.certificate-common-name.com"
+          ],
+          "bundle_certs": false,
+          "key_algorithm": "RSA2048",
+          "rotation": {
+            "auto_rotate": true,
+            "rotate_keys": true
+          }
+        }
+      ]
+    }'
+```
+{: codeblock}
+{: curl}
+
+
+
+A successful response returns the ID value for the certificate, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
