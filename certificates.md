@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-15"
+lastupdated: "2021-09-16"
 
 keywords: import certificates
 
@@ -151,8 +151,8 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
     -H "Content-Type: application/json" \
     -d '{
         "metadata": {
-        "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
-        "collection_total": 1
+          "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
+          "collection_total": 1
         },
         "resources": [
         {
