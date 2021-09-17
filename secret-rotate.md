@@ -558,7 +558,7 @@ If the certificate that you are rotating was previously added with an intermedia
     Keep in mind that manually rotating a certificate replaces the content of the certificate with the new data that you provide only. Private keys and intermediate certificates from previous versions are not retained. 
 6. Click **Rotate**.
 
-   After your certificate is rotated, be sure to deploy the latest version to the apps or services that use the certificate. You can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager#get-secret) API.
+   After your certificate is rotated, be sure to deploy the latest version to the apps or services that use it. You can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager#get-secret) API.
 
 ### Enabling automatic rotation for certificates in the UI
 {: #auto-rotate-certificate-ui}
@@ -593,9 +593,6 @@ The following example request orders a certificate with automatic rotation enabl
 {: curl}
 
 
-
-Automatic rotation isn't supported for certificates that are imported to the service. If you need to reimport a certificate, you can [rotate it manually](#manual-rotate-certificate-ui).
-{: note}
 
 If you enable automatic rotation on a certificate that expires in less than 31 days, you must also manually rotate it. Only then can rotation take place in the following cycles automatically.
 {: important}
