@@ -78,8 +78,6 @@ Before you get started, be sure that you have the required level of access. To r
 ## Rotating arbitrary secrets
 {: #rotate-arbitrary-secret}
 
-You can manually rotate arbitrary secrets by using the UI or API.
-
 ### Rotating arbitrary secrets manually in the UI
 {: #manual-rotate-arbitrary-secret-ui}
 {: ui}
@@ -211,8 +209,6 @@ A successful response returns the ID value for the secret, along with other meta
 
 ## Rotating user credentials
 {: #rotate-user-credentials}
-
-You can manually rotate user credentials by using the UI or API.
 
 ### Rotating user credentials manually in the UI
 {: #manual-rotate-user-credentials-ui}
