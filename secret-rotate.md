@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-16"
+lastupdated: "2021-09-17"
 
 keywords: rotate secrets, manually rotate, new secret, automatically rotate, automatic rotation, set rotation policy
 
@@ -541,10 +541,10 @@ The way in which {{site.data.keyword.secrets-manager_short}} evaluates requests 
 - [Imported certificates](/docs/secrets-manager?topic=secrets-manager-certificates#import-certificates) are replaced immediately by the data that is provided on rotation.
 - [Public certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates) move to the **Active, Rotation pending** status to indicate that the request to renew the certificate is being processed. {{site.data.keyword.secrets-manager_short}} uses DNS validation to verify that you own the domains that are listed as part of the certificate. This process can take a few minutes to complete.
     
-    If the validation completes successfully, a new certificate is issued and its status changes back to **Active**. If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**. From the Secrets table, you can check the issuance details of the certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.{: ui}
+    If the validation completes successfully, a new certificate is issued and its status changes back to **Active**. If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**. 
     
-    If the validation completes successfully, a new certificate is issued and its status changes back to **Active**. If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**. If the validation doesn't complete successfully, the status of your certificate changes to **Active, Rotation failed**. You can use the [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.{: api}
-
+    
+    
 ### Rotating certificates manually in the UI
 {: #manual-rotate-certificate-ui}
 {: ui}
