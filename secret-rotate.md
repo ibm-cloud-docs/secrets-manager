@@ -534,7 +534,7 @@ A successful response returns the ID value for the policy, along with other meta
 ## Rotating TLS certificates
 {: #rotate-certificates}
 
-You can manually rotate your TLS certificates, or you can enable automatic rotation for certificates that you order from a third-party. After a certificate is rotated, the previous version is retained in case you need to roll back. Certificates that are enabled with automatic rotation 
+You can manually rotate your TLS certificates, or you can enable automatic rotation for certificates that you order from a third-party certificate authority. After a certificate is rotated, the previous version is retained in case you need it.
 
 The way in which {{site.data.keyword.secrets-manager_short}} evaluates requests to rotate a certificate differs based on the secret type.
 
