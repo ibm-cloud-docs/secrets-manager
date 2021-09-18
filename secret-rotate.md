@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-17"
+lastupdated: "2021-09-18"
 
 keywords: rotate secrets, manually rotate, new secret, automatically rotate, automatic rotation, set rotation policy
 
@@ -535,16 +535,15 @@ You can manually rotate your TLS certificates, or you can enable automatic rotat
 The way in which {{site.data.keyword.secrets-manager_short}} evaluates requests to rotate a certificate differs based on the secret type.
 
 - [Imported certificates](/docs/secrets-manager?topic=secrets-manager-certificates#import-certificates) are replaced immediately by the data that is provided on rotation.
-- [Public certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates) move to the **Active, Rotation pending** status to indicate that the request to renew the certificate is being processed. {{site.data.keyword.secrets-manager_short}} uses DNS validation to verify that you own the domains that are listed as part of the certificate. This process can take a few minutes to complete.\
-\
-    If the validation completes successfully, a new certificate is issued and its status changes back to **Active**. If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**. 
-    
+- [Public certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates) move to the **Active, Rotation pending** status to indicate that the request to renew the certificate is being processed. {{site.data.keyword.secrets-manager_short}} uses DNS validation to verify that you own the domains that are listed as part of the certificate. This process can take a few minutes to complete. If the validation completes successfully, a new certificate is issued and its status changes back to **Active**. If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**. 
+  
+
 
 ### Rotating certificates manually in the UI
 {: #manual-rotate-certificate-ui}
 {: ui}
 
-You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotate your certificates. 
+When it's time to renew your certificates, you can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotate them.
 
 If the certificate that you are rotating was previously added with an intermediate certificate and a private key, include an intermediate certificate and private key on rotation to avoid service disruptions.
 {: important}
@@ -564,13 +563,10 @@ If the certificate that you are rotating was previously added with an intermedia
 {: #auto-rotate-certificate-ui}
 {: ui}
 
-You can enable automatic rotation for certificates when you order them, or by editing the details of an existing certificate.
+If you prefer to schedule your certificates to be automatically renewed, you can enable automatic rotation for certificates when you order them, or by editing the details of an existing certificate.
 
-Automatic rotation isn't supported for certificates that are imported to the service. If you need to reimport a certificate, you can [rotate it manually](#manual-rotate-certificate-ui).
+Certificates that expires in less than 31 days must also be rotated manually before rotation becomes automatic in the following cycles.
 {: note}
-
-If you enable automatic rotation on a certificate that expires in less than 31 days, you must also manually rotate it. Only then can rotation take place in the following cycles automatically.
-{: important}
 
 1. If you're [ordering a certificate](/docs/secrets-manager?topic=secrets-manager-user-credentials#user-credentials-ui), enable the rotation options.
    
@@ -586,7 +582,7 @@ If you enable automatic rotation on a certificate that expires in less than 31 d
 {: #auto-rotate-certificates-api}
 {: api}
 
-You can enable automatic rotation for certificates when you order them, or by editing the details of an existing certificate.
+If you prefer to schedule your certificates to be automatically renewed, you can enable automatic rotation for certificates when you order them, or by editing the details of an existing certificate.
 
 
 The following example request orders a certificate with automatic rotation enabled. When you call the API, set the `auto_rotate` property to `true`. Optionally, you can set `rotate_keys` to `true` to request a new private key for the certificate on each rotation.
@@ -594,8 +590,8 @@ The following example request orders a certificate with automatic rotation enabl
 
 
 
-If you enable automatic rotation on a certificate that expires in less than 31 days, you must also manually rotate it. Only then can rotation take place in the following cycles automatically.
-{: important}
+Certificates that expires in less than 31 days must also be rotated manually before rotation becomes automatic in the following cycles.
+{: note}
 
 ```bash
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/public_cert" \
