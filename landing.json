@@ -41,7 +41,7 @@
       {
         "date": "20 September 2021",
         "title": "Now available: Order domain-validated TLS certificates from Let's Encrypt",
-        "description": "You can now use Secrets Manager to order Let's Encrypt certificates that you can deploy to your apps and services! In this release, you can connect IBM Cloud Internet Services (CIS) and classic infrastructure (SoftLayer) as DNS providers. Check the full release notes for details."
+        "description": "You can now use Secrets Manager to order Let's Encrypt certificates that you can deploy to your apps and services. Check the full release notes for details."
       },
       {
         "date": "30 August 2021",

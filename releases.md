@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-16"
+lastupdated: "2021-09-19"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -70,7 +70,7 @@ This release includes the following updates.
 ### Order domain-validated TLS certificates from Let's Encrypt
 {: #2021-09-20-certificates}
 
-In addition to [importing your existing certificates](/docs/secrets-manager?topic=secrets-manager-certificates), you can now use {{site.data.keyword.secrets-manager_short}} to order domain-validated certificates. 
+In addition to [importing your existing certificates](/docs/secrets-manager?topic=secrets-manager-certificates), you can now use {{site.data.keyword.secrets-manager_short}} to order domain-validated certificates! 
 
 In this release, the following certificate authorities (CA) and DNS providers are supported:
 
@@ -80,8 +80,6 @@ In this release, the following certificate authorities (CA) and DNS providers ar
 
 For more information, check out [Ordering domain-validated certificates from third-parties](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates).
 
-Don't see the CA or DNS provider that you're looking for? Let us know by contacting our team through {{site.data.keyword.cloud_notm}} support.
-{: note}
 
 ## 30 August 2021
 {: #2021-08-30}
