@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-18"
+lastupdated: "2021-09-19"
 
 keywords: rotate secrets, manually rotate, new secret, automatically rotate, automatic rotation, set rotation policy
 
@@ -563,7 +563,7 @@ If the certificate that you are rotating was previously added with an intermedia
 {: #auto-rotate-certificate-ui}
 {: ui}
 
-If you prefer to schedule your certificates to be automatically renewed, you can enable automatic rotation for certificates when you order them, or by editing the details of an existing certificate.
+If you prefer to schedule your certificates to be automatically renewed, you can enable automatic rotation for certificates when you order them, or by editing the details of an existing certificate. In the certificate's next rotation cycle, {{site.data.keyword.secrets-manager_short}} reorders the certificate 31 days before it expires. 
 
 Certificates that expires in less than 31 days must also be rotated manually before rotation becomes automatic in the following cycles.
 {: note}
@@ -582,7 +582,7 @@ Certificates that expires in less than 31 days must also be rotated manually bef
 {: #auto-rotate-certificates-api}
 {: api}
 
-If you prefer to schedule your certificates to be automatically renewed, you can enable automatic rotation for certificates when you order them, or by editing the details of an existing certificate.
+If you prefer to schedule your certificates to be automatically renewed, you can enable automatic rotation for certificates when you order them, or by editing the details of an existing certificate. In the certificate's next rotation cycle, {{site.data.keyword.secrets-manager_short}} reorders the certificate 31 days before it expires.
 
 
 The following example request orders a certificate with automatic rotation enabled. When you call the API, set the `auto_rotate` property to `true`. Optionally, you can set `rotate_keys` to `true` to request a new private key for the certificate on each rotation.
