@@ -68,7 +68,7 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 
 This release includes the following updates:
 
-- Added `public_cert` secret type that can be used to order domain-validated TLS certificates with service. For more information, see [Ordering certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates).
+- Added `public_cert` secret type that can be used to order domain-validated TLS certificates with the service. For more information, see [Ordering certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates).
 - Added the [Add a configuration](/apidocs/secrets-manager#create-config-element), [List configurations](/apidocs/secrets-manager#get-config-elements), [Update a configuration](/apidocs/secrets-manager#update-config-element), [Get a configuration](/apidocs/secrets-manager#get-config-element), and [Remove a configuration](/apidocs/secrets-manager#delete-config-element) methods that can be used to add engine configurations to the service. Currently, these APIs support `public_cert` secrets only.
 - Updated the [Get a version of a secret](/apidocs/secrets-manager#get-secret-version) method that can be used to retrieve the previous version of a secret. This API now supports `public_cert` secrets in addition to `imported_cert`.
 
