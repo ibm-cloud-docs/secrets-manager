@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-19"
+lastupdated: "2021-09-20"
 
 keywords: rotate secrets, manually rotate, new secret, automatically rotate, automatic rotation, set rotation policy
 
@@ -545,7 +545,7 @@ The way in which {{site.data.keyword.secrets-manager_short}} evaluates requests 
 
 When it's time to renew your certificates, you can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotate them.
 
-If the certificate that you are rotating was previously added with an intermediate certificate and a private key, include an intermediate certificate and private key on rotation to avoid service disruptions.
+If the certificate that you are rotating was previously imported with an intermediate certificate and a private key, include an intermediate certificate and private key on rotation to avoid service disruptions.
 {: important}
 
 1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
@@ -565,7 +565,7 @@ If the certificate that you are rotating was previously added with an intermedia
 
 If you prefer to schedule your certificates to be automatically renewed, you can enable automatic rotation for certificates when you order them, or by editing the details of an existing certificate. In the certificate's next rotation cycle, {{site.data.keyword.secrets-manager_short}} reorders the certificate 31 days before it expires. 
 
-Certificates that expires in less than 31 days must also be rotated manually before rotation becomes automatic in the following cycles.
+Certificates that expire in less than 31 days must also be rotated manually before rotation becomes automatic in the following cycles.
 {: note}
 
 1. If you're [ordering a certificate](/docs/secrets-manager?topic=secrets-manager-user-credentials#user-credentials-ui), enable the rotation options.
