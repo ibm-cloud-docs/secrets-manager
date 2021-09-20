@@ -94,8 +94,7 @@ Current version: **`0.1.12`**
     If you copy your service endpoint URL from the {{site.data.keyword.secrets-manager_short}} UI, be sure to trim `/api` from the URL before you export it as variable to use with the CLI plug-in.
     {: important}
 
-    Need to override the URL? You can also specify the endpoint at the command-level by using the `--service-url INSTANCE` flag. For example, `ibmcloud sm secrets --service-url INSTANCE`.
-    {: tip}
+    
 
 
 

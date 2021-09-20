@@ -163,9 +163,6 @@ A successful response adds the configuration to your service instance. For more 
 The following example shows a query that you can use to add a classic infrastructure DNS configuration to your {{site.data.keyword.secrets-manager_short}} instance. When you call the API, replace the `classic_infrastructure_username` and `classic_infastructure_password` (API key) values.
 {: curl}
 
-If you need to access a CIS instance that is located in another account, provide a `cis_apikey` value that contains an API key with **Manager** service access on the Internet Services (`internet-svs`) service. For more information, see [Granting service access to CIS](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#authorize-cis-another-account).
-{: note} 
-
 
 
 ```sh
