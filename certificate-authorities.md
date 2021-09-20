@@ -62,10 +62,12 @@ With {{site.data.keyword.secrets-manager_full}}, you can connect to a certificat
 A certificate authority (CA) is the entity that signs and issues your TLS certificates. By adding a CA configuration, you can specify the authority that you want to use when you [order certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates) through {{site.data.keyword.secrets-manager_short}}.
 
 You can define up to 10 certificate authority configurations per instance. To view a list of configurations that are available for your instance, go to the **Secrets engines > Public certificates** page in the {{site.data.keyword.secrets-manager_short}} UI.
-{: note}{: ui}
+{: note}
+{: ui}
 
 You can define up to 10 certificate authority configurations per instance. To obtain a list of configurations that are available for your instance, you can use the [List configurations](/apidocs/secrets-manager#get-secret-config-element) API.
-{: note}{: api}
+{: note}
+{: api}
 
 ## Before you begin
 {: #before-add-certificate-authority}
