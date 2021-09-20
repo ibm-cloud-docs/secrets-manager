@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-08"
+lastupdated: "2021-09-20"
 
 keywords: 
 
@@ -74,7 +74,7 @@ Both {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudce
 | Ability to manage resources through private service endpoints | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Ability to manage resources in an {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) | ![Checkmark icon](../icons/checkmark-icon.svg) | |
 | Ability to import TLS certificates | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
-| Ability to order public TLS certificates from Let's Encrypt | | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| Ability to order public TLS certificates from Let's Encrypt | ![Checkmark icon](../icons/checkmark-icon.svg)| ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Ability to manage secrets of various types | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
 | Notifications |  | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Go, Python, Node.js, and Java SDKs | ![Checkmark icon](../icons/checkmark-icon.svg) |  |

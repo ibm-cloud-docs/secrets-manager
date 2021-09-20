@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-19"
+lastupdated: "2021-09-20"
 
 keywords: import certificates
 
@@ -60,7 +60,7 @@ subcollection: secrets-manager
 
 
 
-You can use {{site.data.keyword.secrets-manager_full}} to store  SSL or TLS certificates that you can use for your apps or services.
+You can use {{site.data.keyword.secrets-manager_full}} to store and request SSL or TLS certificates that you can use for your apps or services.
 {: shortdesc}
 
 An SSL or TLS certificate is a type of digital certificate that is used to establish communication privacy between a server and a client. Certificates are issued by [certificate authorities (CA)](#x2016383){: term} and contain information that is used to create trusted and secure connections between endpoints. After you add a certificate to your {{site.data.keyword.secrets-manager_short}} instance, you can use it to secure network communications for your cloud or on-premises deployments. Your certificate is stored securely in your dedicated {{site.data.keyword.secrets-manager_short}} service instance, where you can centrally manage its lifecycle.
@@ -72,6 +72,24 @@ To learn more about the types of secrets that you can manage in {{site.data.keyw
 
 Before you get started, be sure that you have the required level of access. To create or add secrets, you need the [**Writer** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam).
 
+
+| Prerequisites |
+| :------------ |
+| <p>Before you import a certificate, be sure that you:</p><ul><li>Create an X.509 compliant certificate with a matching private key (optional).</li><li>Convert your files into Privacy-enhanced electronic mail (PEM) format.</li><li>Keep the private key unencrypted to ensure that it can be imported into {{site.data.keyword.secrets-manager_short}}</li></ul> |
+{: caption="Table 1. Prerequisites - Importing certificates" caption-side="top"}
+{: #import-certificates-prereqs}
+{: tab-title="Importing certificates"}
+{: tab-group="cert-prereqs"}
+{: class="simple-tab-table"}
+
+| Prerequisites |
+| :------------ |
+| <p>Before you order a certificate, be sure that you:</p><ul><li>[Prepare your instance for certificate ordering](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates).<li>Review the certificate authority and DNS provider configurations that are available. To view the configurations that are defined for your instance, go to the **Secrets engines > Public certificates** page in the {{site.data.keyword.secrets-manager_short}} UI.</li></ul> |
+{: caption="Table 1. Prerequisites - Ordering certificates" caption-side="top"}
+{: #order-certificates-prereqs}
+{: tab-title="Ordering certificates"}
+{: tab-group="cert-prereqs"}
+{: class="simple-tab-table"}
 
 
 
@@ -177,6 +195,139 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
 
+
+## Ordering certificates from third-parties
+{: #order-certificates}
+
+After you [configure the public certificates engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates) for your instance, you can use {{site.data.keyword.secrets-manager_short}} to request public TLS certificates from your trusted third-party certificate authorities. Before a certificate can be issued to you, {{site.data.keyword.secrets-manager_short}} uses domain validation to verify the ownership of your domains. When you order a certificate:
+
+- {{site.data.keyword.secrets-manager_short}} sends your request to the selected certificate authority. The status of the certificate changes to **Pre-activation** to indicate that your request is being processed.
+- If the validation completes successfully, your certificate is issued and its status changes to **Active**.
+  
+    If the validation doesn't complete successfully, the status of your certificate changes to **Deactivated**. From your Secrets table, you can check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.
+    {: ui}
+
+    If the validation doesn't complete successfully, the status of your certificate changes to **Deactivated**. From your Secrets table, you can check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.
+    {: cli}
+
+    If the validation doesn't complete successfully, the status of your certificate changes to **Deactivated**. You can use the [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
+    {: api}
+- After the certificate is issued, you can deploy it to your integrated apps, download it, or modify its rotation options. 
+
+
+### Ordering certificates in the UI
+{: #order-certificates-ui}
+{: ui}
+
+You can order a certificate by using the {{site.data.keyword.secrets-manager_short}} UI.
+
+When you order a certificate, domain validation takes place to verify the ownership of your selected domains. This process can take a few minutes to complete.
+{: note}
+
+1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
+3. In the **Secrets** table, click **Add**.
+4. From the list of secret types, click the **TLS certificates** tile.
+5. Click the **Order certificate** tile.
+6. Add a name and description to easily identify your certificate.
+7. Select the [secret group](#x9968962){:term} that you want to assign to the secret.
+
+   Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
+8. Select a certificate authority configuration.
+
+   The configuration that you select determines the certificate authority to use for signing and issuing the certificate. To view the configurations that are defined for your instance, you can go to **Secrets engines > Public certificates**.
+9. Select the key algorithm to be used to generate the public key for your certificate.
+
+   The key algorithm that you select determines the encryption algorithm (`RSA` or `ECDSA`) and key size that to use to generate keys and sign certificates. For longer living certificates it is recommended to use longer key lengths to provide more encryption protection. Options include `RSA2048`, `RSA4096`, `ECDSA256`, and `ECDSA384`.
+10. Optional: Add labels to help you to search for similar secrets in your instance.
+11. Optional: Enable advanced options for the certificate.
+    1. To bundle your issued certificate with intermediate certificates, switch the bundle toggle to **On**. After your certificates are bundled, they can no longer be unbundled.
+    2. To enable automatic rotation for the certificate, switch the rotation toggle to **On**. Your certificate is rotated 31 days before it expires.
+    3. To request a new private key with the certificate on each rotation, switch the rekey toggle to **On**.
+12. Select a DNS provider configuration.
+
+    The configuration that you select determines the DNS provider to validate the ownership of your domains. To view the configurations that are defined for your instance, you can go to **Secrets engines > Public certificates**.  
+13. Add the domains to include in your request.
+
+    You can include up to 100 domains, subdomains, or wildcards. The Common Name, or fully qualified domain name of the certificate, can't exceed 64 characters in length. A wildcard can be selected as the Common Name.
+
+    1. Click **Select domains**.
+    2. From your list of domains, select the Common Name of the certificate.
+14. Click **Order**.
+
+    After you submit your certificate details, {{site.data.keyword.secrets-manager_short}} sends your request to the selected certificate authority. After a certificate is issued, you can deploy it to your integrated apps, download it, or rotate it manually. Your private key for TLS is generated directly in {{site.data.keyword.secrets-manager_short}} and stored securely.
+    
+    Need to check your order status? From your Secrets table, you can check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.
+    {: tip} 
+
+
+### Ordering certificates from the CLI
+{: #order-certificates-cli}
+{: cli}
+
+Currently, ordering certificates is available by using the UI or API only. To see the steps, switch to the [UI](#order-certificates-ui) or [API](#order-certificates-api) instructions.
+
+
+
+### Ordering certificates with the API
+{: #order-certificates-api}
+{: api}
+
+
+You can order certificates programmatically by calling the {{site.data.keyword.secrets-manager_short}} API.
+
+The following example shows a query that you can use to order a certificate. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+{: curl}
+
+
+
+When you order a certificate, domain validation takes place to verify the ownership of your selected domains. This process can take a few minutes to complete.
+{: note}
+
+```sh
+curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/public_cert" \
+    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "metadata": {
+        "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
+        "collection_total": 1
+      },
+      "resources": [
+        {
+          "name": "example-certificate",
+          "description": "Extended description for my secret.",
+          "secret_group_id": "432b91f1-ff6d-4b47-9f06-82debc236d90",
+          "ca": "my-ca-configuration-name",
+          "dns": "my-dns-configuration-name",
+          "labels": [
+            "dev",
+            "us-south"
+          ],
+          "common_name": "example.com",
+          "alt_names": [
+            "www.example.com"
+          ],
+          "bundle_certs": false,
+          "key_algorithm": "RSA2048",
+          "rotation": {
+            "auto_rotate": false,
+            "rotate_keys": false
+          }
+        }
+      ]
+    }'
+```
+{: codeblock}
+{: curl}
+
+
+
+When you submit your certificate details, {{site.data.keyword.secrets-manager_short}} sends your request to the selected certificate authority. After a certificate is issued, you can deploy it to your integrated apps, download it, or rotate it manually. Your private key for TLS is generated directly in {{site.data.keyword.secrets-manager_short}} and stored securely. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
+
+Need to check your order status? Use the [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
+{: tip} 
 
 
 
