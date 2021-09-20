@@ -59,7 +59,7 @@ keywords: Secrets Manager CLI, Secrets Manager command line , Secrets Manager te
 You can use the {{site.data.keyword.secrets-manager_full}} command-line interface (CLI) to manage secrets in your {{site.data.keyword.secrets-manager_short}} instance.
 {: shortdesc}
 
-Current version: **`0.0.13`**
+Current version: **`0.1.12`**
 
 ## Prerequisites
 {: #secrets-manager-cli-prereq}
@@ -93,6 +93,9 @@ Current version: **`0.0.13`**
 
     If you copy your service endpoint URL from the {{site.data.keyword.secrets-manager_short}} UI, be sure to trim `/api` from the URL before you export it as variable to use with the CLI plug-in.
     {: important}
+
+    Need to override the URL? You can also specify the endpoint at the command-level by using the `--instance-id INSTANCE` flag. For example, `ibmcloud sm secrets --instance-id INSTANCE`
+    {: tip}
 
 
 
