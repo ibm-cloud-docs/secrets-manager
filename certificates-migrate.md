@@ -117,5 +117,3 @@ If you're ready to start your transition to {{site.data.keyword.secrets-manager_
 
 
 
-
-
