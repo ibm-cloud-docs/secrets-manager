@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-09-19"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -62,13 +62,32 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
 
+## 20 September 2021
+{: #2021-09-20}
+
+This release includes the following updates.
+
+### Order domain-validated TLS certificates from Let's Encrypt
+{: #2021-09-20-certificates}
+
+In addition to [importing your existing certificates](/docs/secrets-manager?topic=secrets-manager-certificates), you can now use {{site.data.keyword.secrets-manager_short}} to order domain-validated certificates! 
+
+In this release, the following certificate authorities (CA) and DNS providers are supported:
+
+- Let's Encrypt
+- {{site.data.keyword.cloud_notm}} Internet Services (CIS)
+- {{site.data.keyword.cloud_notm}} classic infrastructure (SoftLayer)
+
+For more information, check out [Ordering domain-validated certificates from third-parties](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates).
+
+
 ## 30 August 2021
 {: #2021-08-30}
 
 This release includes the following updates.
 
 ### Now available: {{site.data.keyword.cloudcerts_short}} to {{site.data.keyword.secrets-manager_short}} migration scripts
-{: 2021-08-30-certificates}
+{: #2021-08-30-certificates}
 
 You can now take advantage of automation scripts that can help you to move certificates from {{site.data.keyword.cloudcerts_short}} to {{site.data.keyword.secrets-manager_short}}.
 

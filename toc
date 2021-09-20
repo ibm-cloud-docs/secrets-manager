@@ -54,6 +54,17 @@ Secrets Manager
     secret-groups.md
 
     {: .topicgroup}
+    Configuring secrets engines
+        engine-what-is.md
+        engine-iam.md
+
+        {: .topicgroup}
+        Configuring the public certificates engine
+            engine-public-certs.md
+            certificate-authorities.md
+            dns-providers.md 
+
+    {: .topicgroup}
     Logging and monitoring
         at-events.md
         logging.md
