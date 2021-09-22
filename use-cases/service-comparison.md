@@ -89,7 +89,7 @@ For a higher level of security and control, your business might benefit from the
 
 | Service | Secret types | Multi-tenant[^multi-tenant] | Single-tenant[^single-tenant] | HSM backed[^hsm] |
 | --- | --- | --- | --- |  --- |
-| **{{site.data.keyword.secrets-manager_short}}** | Arbitrary secrets  /n IAM credentials  /n SSL/TLS certificates  /n User credentials | | ![Checkmark icon](../../icons/checkmark-icon.svg)| |
+| **{{site.data.keyword.secrets-manager_short}}** | Arbitrary secrets  \n IAM credentials  \n SSL/TLS certificates  \n User credentials | | ![Checkmark icon](../../icons/checkmark-icon.svg)| |
 | **{{site.data.keyword.cloudcerts_short}}** | SSL/TLS certificates | ![Checkmark icon](../../icons/checkmark-icon.svg) | | |
 | **{{site.data.keyword.keymanagementserviceshort}}** | Symmetric encryption keys | ![Checkmark icon](../../icons/checkmark-icon.svg)| | ![Checkmark icon](../../icons/checkmark-icon.svg) | |
 | **{{site.data.keyword.hscrypto}}** | Symmetric encryption keys | |![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |

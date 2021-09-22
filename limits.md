@@ -114,7 +114,7 @@ The following limits apply to secret groups.
 | --- | --- |
 | Name | 2 - 64 characters |
 | Description | 2 - 1024 characters |
-| Labels | 2 - 30 characters  /n  /n 30 labels per secret group |
+| Labels | 2 - 30 characters  \n  \n 30 labels per secret group |
 | Total secrets | – |
 {: caption="Table 4. Secret group limits" caption-side="top"}
 
@@ -125,10 +125,10 @@ The following limits apply to arbitrary secrets.
 
 | Attribute | Limit |
 | --- | --- |
-| Name | 2 - 256 characters  /n  /n The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
+| Name | 2 - 256 characters  \n  \n The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
 | Description | 2 - 1024 characters |
 | Secret value | 1 MB |
-| Labels | 2 - 30 characters  /n  /n 30 labels per secret |
+| Labels | 2 - 30 characters  \n  \n 30 labels per secret |
 {: caption="Table 5. Arbitrary secret limits" caption-side="top"}
 
 #### Limits for IAM credentials
@@ -138,10 +138,10 @@ The following limits apply to IAM credentials.
 
 | Attribute | Limit |
 | --- | --- |
-| Name | 2 - 256 characters  /n  /n The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
+| Name | 2 - 256 characters  \n  \n The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
 | Description | 2 - 1024 characters |
 | Access groups | 1 - 10 groups |
-| Labels | 2 - 30 characters  /n  /n 30 labels per secret |
+| Labels | 2 - 30 characters  \n  \n 30 labels per secret |
 | Maximum lease duration | 90 days |
 {: caption="Table 6. IAM credential limits" caption-side="top"}
 
@@ -154,12 +154,12 @@ The following limits apply to TLS certificates.
 
 | Attribute | Limit |
 | --- | --- |
-| Name | 2 - 256 characters  /n  /n The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
+| Name | 2 - 256 characters  \n  \n The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
 | Description | 2 - 1024 characters|
-| Certificate | 100 KB  /n  /n Supported file type is `.pem`. The certificate must be a valid, X.509-based certificate. |
-| Private key | 100 KB  /n  /n Private key file is limited to PEM-formatted content. If provided, the private key must match the certificate that you are importing. Only unencrypted private keys are supported. |
-| Intermediate certificate | 100 KB  /n  /n Supported file type is `.pem`. If provided, the intermediate certificate must be a valid, X.509-based certificate. |
-| Labels | 2 - 30 characters  /n  /n 30 labels per secret |
+| Certificate | 100 KB  \n  \n Supported file type is `.pem`. The certificate must be a valid, X.509-based certificate. |
+| Private key | 100 KB  \n  \n Private key file is limited to PEM-formatted content. If provided, the private key must match the certificate that you are importing. Only unencrypted private keys are supported. |
+| Intermediate certificate | 100 KB  \n  \n Supported file type is `.pem`. If provided, the intermediate certificate must be a valid, X.509-based certificate. |
+| Labels | 2 - 30 characters  \n  \n 30 labels per secret |
 | Versions | 2 versions per certificate (current and previous) |
 {: caption="Table 7. TLS certificate limits" caption-side="top"}
 
@@ -172,11 +172,11 @@ The following limits apply to user credentials.
 
 | Attribute | Limit |
 | --- | --- |
-| Name | 2 - 256 characters  /n  /n The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
+| Name | 2 - 256 characters  \n  \n The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
 | Description | 2 - 1024 characters |
 | Username | 2 - 64 characters |
 | Password | 64 characters |
-| Labels | 2 - 30 characters  /n  /n 30 labels per secret |
+| Labels | 2 - 30 characters  \n  \n 30 labels per secret |
 {: caption="Table 8. User credential limits" caption-side="top"}
 
 

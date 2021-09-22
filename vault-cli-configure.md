@@ -101,7 +101,7 @@ First, set up your environment to access a {{site.data.keyword.secrets-manager_s
     | Variable | Description |
     | -------- | ----------- |
     | `IBM_CLOUD_API_KEY` | An {{site.data.keyword.cloud_notm}} API key that has at least [**Viewer** platform access](/docs/secrets-manager?topic=secrets-manager-iam) and [**Reader** service access](/docs/secrets-manager?topic=secrets-manager-iam) to your {{site.data.keyword.secrets-manager_short}} instance.|
-    | `VAULT_ADDR` | The Vault API endpoint that's unique to your {{site.data.keyword.secrets-manager_short}} instance.  /n  /n  You can find your unique endpoint URL in the **Endpoints** page of the {{site.data.keyword.secrets-manager_short}} UI, or by [retrieving it by HTTP request](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls). |
+    | `VAULT_ADDR` | The Vault API endpoint that's unique to your {{site.data.keyword.secrets-manager_short}} instance.  \n  \n You can find your unique endpoint URL in the **Endpoints** page of the {{site.data.keyword.secrets-manager_short}} UI, or by [retrieving it by HTTP request](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls). |
 
 
 2. Mark the file as executable by running the `chmod` command in your command line.
