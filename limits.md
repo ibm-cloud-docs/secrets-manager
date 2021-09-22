@@ -87,7 +87,7 @@ The following limits apply to {{site.data.keyword.secrets-manager_short}} servic
 | --- | --- |
 | {{site.data.keyword.secrets-manager_short}} service instances | 1 per {{site.data.keyword.cloud_notm}} account |
 | Total secret groups | 200 per {{site.data.keyword.secrets-manager_short}} service instance |
-| Total secrets | - |
+| Total secrets | – |
 {: caption="Table 2. {{site.data.keyword.secrets-manager_short}} service limits" caption-side="top"}
 
 ## API rate limits
@@ -115,7 +115,7 @@ The following limits apply to secret groups.
 | Name | 2 - 64 characters |
 | Description | 2 - 1024 characters |
 | Labels | 2 - 30 characters  /n  /n 30 labels per secret group |
-| Total secrets | - |
+| Total secrets | – |
 {: caption="Table 4. Secret group limits" caption-side="top"}
 
 #### Limits for arbitrary secrets
