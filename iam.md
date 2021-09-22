@@ -82,13 +82,13 @@ If a specific role and its actions don't fit the use case that you're looking to
 | Operator | As an operator, you can complete platform actions that are required to configure and operate {{site.data.keyword.secrets-manager_short}} service instances, such as the ability to view a {{site.data.keyword.secrets-manager_short}} dashboard. |
 | Editor | As an editor, you can create, modify, and delete {{site.data.keyword.secrets-manager_short}} service instances, but you can't assign access policies to other users. |
 | Administrator | As an administrator, you can complete all platform actions for {{site.data.keyword.secrets-manager_short}}, including the ability to assign access policies to other users. |
-{: row-headers}
 {: caption="Table 1. Platform roles - {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
 {: #platform-roles-table1}
 {: tab-title="Platform roles"}
 {: tab-group="secrets-manager"}
 {: summary="Use the tab buttons to change the context of the table. This table has row and column headers. The row headers provide the platform role name and the column headers identify the specific information available about each role."}
 {: class="simple-tab-table"}
+{: row-headers}
 
 | Role | Description |
 | ----- | :----- |
@@ -96,13 +96,13 @@ If a specific role and its actions don't fit the use case that you're looking to
 | SecretsReader | As a secrets reader, you can complete read-only actions, and you can also access the secret data that is associated with a secret. A secrets reader can't create secrets or modify the value of an existing secret. |
 | Writer | As a writer, you have permissions beyond the secrets reader role, including the ability to create and edit secrets. Writers can't create secret groups, manage the rotation policies of a secret, or configure secrets engines. |
 | Manager | As a manager, you have permissions beyond the writer role to complete privileged actions, such as the ability to manage secret groups, configure secrets engines, and manage secrets policies. |
-{: row-headers}
 {: caption="Table 1. Service roles - {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
 {: #service-roles-table1}
 {: tab-title="Service roles"}
 {: tab-group="secrets-manager"}
 {: summary="Use the tab buttons to change the context of the table. This table has row and column headers. The row headers provide the service role name and the column headers identify the specific information available about each role."}
 {: class="simple-tab-table"}
+{: row-headers}
 
 | Action | Description | Roles |
 | ----- | :----- | :----- |
