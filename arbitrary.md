@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-19"
+lastupdated: "2021-09-22"
 
 keywords: arbitrary secrets, arbitrary text, custom secrets
 
@@ -53,7 +53,7 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 
-# Arbitrary secrets
+# Storing arbitrary secrets
 {: #arbitrary-secrets}
 
 You can use {{site.data.keyword.secrets-manager_full}} to store arbitrary secrets that are used to access protected systems that are inside or outside of {{site.data.keyword.cloud_notm}}.
@@ -79,7 +79,7 @@ To add an arbitrary secret by using the {{site.data.keyword.secrets-manager_shor
 3. In the **Secrets** table, click **Add**.
 4. From the list of secret types, click the **Other secret type** tile.
 5. Add a name and description to easily identify your secret.
-6. Select the [secret group](#x9968962){:term} that you want to assign to the secret.
+6. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
 
     Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 7. Select a file or enter the secret value that you want to associate with the secret.

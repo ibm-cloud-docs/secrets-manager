@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-20"
+lastupdated: "2021-09-22"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -109,7 +109,7 @@ Thank you. If you have questions, please drop us a line. If you want to see more
 ## Working with secrets of different types
 {: #secret-types}
 
-Secrets that you create in {{site.data.keyword.secrets-manager_short}} can be static or dynamic in nature. A static secret has its expiration date and time enforced at secret creation or rotation time. In contrast, a [dynamic secret](#x9968958){:term} has its expiration date and time enforced when its secret data is read or accessed.
+Secrets that you create in {{site.data.keyword.secrets-manager_short}} can be static or dynamic in nature. A static secret has its expiration date and time enforced at secret creation or rotation time. In contrast, a [dynamic secret](#x9968958){: term} has its expiration date and time enforced when its secret data is read or accessed.
 
 {{site.data.keyword.secrets-manager_short}} further classifies static and dynamic secrets by their general purpose or function. For example, each secret type is identified programmatically by a keyword, such as `username_password`. If you're looking to manage your secret by using the {{site.data.keyword.secrets-manager_short}} API or CLI, you can use these keywords to run operations on secrets according to their type.
 

@@ -53,12 +53,8 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 
-
-# TLS certificates
+# Adding TLS certificates
 {: #certificates}
-
-
-
 
 You can use {{site.data.keyword.secrets-manager_full}} to store and request SSL or TLS certificates that you can use for your apps or services.
 {: shortdesc}

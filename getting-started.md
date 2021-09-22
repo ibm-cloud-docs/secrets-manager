@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-19"
+lastupdated: "2021-09-22"
 
 keywords: secrets management, manage secrets, manage credentials, store username and password, add secrets, add credentials, get started with Secrets Manager
 content-type: tutorial
@@ -92,7 +92,7 @@ You can get started with {{site.data.keyword.secrets-manager_short}} by choosing
 {: #gs-add-secret}
 {: step}
 
-When you're working with secrets, it's important to organize them in a single location so that you help to reduce the risk of compromised credentials. By storing a secret in {{site.data.keyword.secrets-manager_short}}, you can manage a secret centrally, use [secret groups](#x9968962){:term} to control access, and avoid coding it directly into your apps or version control systems.
+When you're working with secrets, it's important to organize them in a single location so that you help to reduce the risk of compromised credentials. By storing a secret in {{site.data.keyword.secrets-manager_short}}, you can manage a secret centrally, use [secret groups](#x9968962){: term} to control access, and avoid coding it directly into your apps or version control systems.
 
 Complete the following steps to enter the details of a secret and store it securely in your instance.
 

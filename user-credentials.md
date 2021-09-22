@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-19"
+lastupdated: "2021-09-22"
 
 keywords: username, password, user credentials, store password
 
@@ -53,7 +53,7 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 
-# User credentials
+# Storing user credentials
 {: #user-credentials}
 
 You can use {{site.data.keyword.secrets-manager_full}} to store a username and password that you can use to log in to and access a protected service inside or outside of {{site.data.keyword.cloud_notm}}.
@@ -80,7 +80,7 @@ To store a username and password by using the {{site.data.keyword.secrets-manage
 3. In the **Secrets** table, click **Add**.
 4. From the list of secret types, click the **User credentials** tile.
 5. Add a name and description to easily identify your secret.
-6. Select the [secret group](#x9968962){:term} that you want to assign to the secret.
+6. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
 
     Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 7. Enter the username and password that you want to associate with the secret.
