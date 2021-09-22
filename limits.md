@@ -90,7 +90,7 @@ The following limits apply to {{site.data.keyword.secrets-manager_short}} servic
 | Total secrets | – |
 {: caption="Table 2. {{site.data.keyword.secrets-manager_short}} service limits" caption-side="top"}
 
-## API rate limits
+### API rate limits
 {: #api-rate-limits}
 
 The following rate limits apply to {{site.data.keyword.secrets-manager_short}} APIs.
