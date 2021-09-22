@@ -1,0 +1,161 @@
+toc:
+  properties:
+    subcollection: secrets-manager
+    version: 2
+    category: security
+    audience: service
+    href: /docs/secrets-manager
+    console-page: /catalog/services/secrets-manager
+    product-page: https://ibm.com/cloud/secrets-manager
+    path: secrets-manager
+    label: Secrets Manager
+
+
+  entries: 
+  - navgroup: 
+      id: learn
+      topics:
+      - getting-started.md
+      - topicgroup: 
+          label: Internal adopters
+          topics:
+          - internal/onboarding.md
+          - topicgroup:
+              label: Migrating secrets from SOS Vault
+              topics:
+              - internal/sos-vault.md
+              - internal/community-vault.md
+              - internal/migrate-secrets.md
+              - internal/approle-policies.md
+          - internal/onboarding-faqs.md
+      - topicgroup:
+          label: Use cases
+          topics:
+          - use-cases/kubernetes-secrets.md
+          - use-cases/service-comparison.md
+      - topicgroup:
+          label: Migration guides
+          topics:
+          - certificates-migrate.md
+      - topicgroup:
+          label: Best practices
+          topics:
+          - best-practices/secret-organize.md
+      - integrations.md
+      - releases.md        
+
+
+  - navgroup: 
+      id: tutorial
+      topics: 
+      - tutorials/access-storage.md
+      - tutorials/kubernetes-secrets.md
+
+  - navgroup: 
+      id: howto
+      topics:
+      - topicgroup: 
+          label: Setting up the service
+          topics: 
+          - provision.md
+          - assign-access.md
+      - topicgroup: 
+          label: Working with secrets
+          topics: 
+          - secret-what-is.md
+          - topicgroup: 
+              label: Creating secrets
+              topics: 
+              - topic: arbitrary.md
+                navtitle: Arbitrary secrets
+              - topic: iam-credentials.md
+                navtitle: IAM credentials
+              - topic: certificates.md
+                navtitle: TLS certificates
+              - topic: user-credentials.md
+                navtitle: User credentials
+          - secret-access.md
+          - secret-rotate.md
+          - secret-delete.md
+      - secret-groups.md
+      - topicgroup: 
+          label: Configuring secrets engines
+          topics: 
+          - engine-what-is.md
+          - engine-iam.md
+          - topicgroup: 
+            label: Configuring the public certificates engine
+            topics:
+            - engine-public-certs.md
+            - certificate-authorities.md
+            - dns-providers.md 
+      - topicgroup: 
+          label: Logging and monitoring
+          topics: 
+          - at-events.md
+          - logging.md
+      - topicgroup: 
+          label: Enhancing security
+          topics: 
+          - iam.md
+          - architecture-workload-isolation.md
+          - topicgroup: 
+              label: Securing your connection to Secrets Manager
+              topics:
+              - cse.md
+              - vpe.md
+          - data-security.md
+          - manage-scc.md 
+
+
+  - navgroup:
+      id: reference
+      topics: 
+      - topicgroup:
+          label: API & SDK reference
+          links: 
+          - link: 
+              label: Secrets Manager API
+              href: https://{DomainName}/apidocs/secrets-manager
+          topics:
+          - changelog-api.md
+      - topicgroup:
+          label: CLI reference
+          topics:
+          - /secrets-manager-cli-plugin/secrets-manager-cli-plugin-secrets-manager-cli
+          - changelog-cli.md
+      - topicgroup:
+          label: Vault reference
+          topics:
+          - vault-api.md
+          - topicgroup:
+            label: Vault CLI
+            topics:
+            - vault-cli-configure.md
+            - vault-cli.md
+          - topicgroup:
+            label: Vault plug-ins
+            links:
+            - link:
+                label: IBM Cloud Auth method
+                href: https://github.com/ibm-cloud-security/vault-plugin-auth-ibmcloud
+            - link:
+                label: IBM Cloud Secrets backend
+                href: https://github.com/ibm-cloud-security/vault-plugin-secrets-ibmcloud
+      - endpoints.md
+      - ha-dr.md             
+
+  - navgroup:
+      id: help
+      topics: 
+      - faqs.md
+      - limits.md
+      - topicgroup: 
+          label: Troubleshooting
+          topics: 
+          - troubleshooting/support.md
+          - troubleshooting/troubleshoot-creation.md
+          - troubleshooting/troubleshoot-access.md
+          - troubleshooting/troubleshoot-pem.md
+          - troubleshooting/troubleshoot-iam-engine.md
+          - troubleshooting/troubleshoot-delete-group.md

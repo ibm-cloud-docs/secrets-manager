@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-20"
+lastupdated: "2021-09-22"
 
 subcollection: secrets-manager
 
@@ -181,7 +181,7 @@ ibmcloud secrets-manager secret-group-metadata-update --id ID --metadata METADAT
 
 Deletes a secret group by specifying the ID of the secret group.
 
-**Note:** To delete a secret group, it must be empty. If you need to remove a secret group that contains secrets, you must first [delete the secrets](#delete-secret) that are associated with the group.
+**Note:** To delete a secret group, it must be empty. If you need to remove a secret group that contains secrets, you must first [delete the secrets](#secrets-manager-cli-secret-delete-command) that are associated with the group.
 
 ```sh
 ibmcloud secrets-manager secret-group-delete --id ID [--force]
@@ -311,7 +311,7 @@ You can apply multiple filters by using a comma-separated list of secret group I
 
 Retrieves a secret and its details by specifying the ID of the secret.
 
-A successful request returns the secret data that is associated with your secret, along with other metadata. To view only the details of a specified secret without retrieving its value, use the [Get secret metadata](#get-secret-metadata) method.
+A successful request returns the secret data that is associated with your secret, along with other metadata. To view only the details of a specified secret without retrieving its value, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method.
 
 ```sh
 ibmcloud secrets-manager secret --secret-type SECRET-TYPE --id ID 
@@ -455,7 +455,7 @@ ibmcloud secrets-manager secret-version --secret-type SECRET-TYPE --id ID --vers
 --version-id (string)
 :   The v4 UUID that uniquely identifies the secret version. You can also use `previous` to retrieve the previous version.
 
-**Note:** To find the version ID of a secret, use the [Get secret metadata](#get-secret-metadata) method and check the response details. Required.
+**Note:** To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details. Required.
 
     The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
 
@@ -513,7 +513,7 @@ ibmcloud secrets-manager secret-version-metadata --secret-type SECRET-TYPE --id 
 --version-id (string)
 :   The v4 UUID that uniquely identifies the secret version. You can also use `previous` to retrieve the previous version.
 
-**Note:** To find the version ID of a secret, use the [Get secret metadata](#get-secret-metadata) method and check the response details. Required.
+**Note:** To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details. Required.
 
     The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
 
@@ -543,7 +543,7 @@ Get certificate version.
 
 Retrieves the details of a secret by specifying the ID.
 
-A successful request returns only metadata about the secret, such as its name and creation date. To retrieve the value of a secret, use the [Get a secret](#get-secret) or [Get a version of a secret](#get-secret-version) methods.
+A successful request returns only metadata about the secret, such as its name and creation date. To retrieve the value of a secret, use the [Get a secret](#secrets-manager-cli-secret-command) or [Get a version of a secret](#secrets-manager-cli-secret-version-command) methods.
 
 ```sh
 ibmcloud secrets-manager secret-metadata --secret-type SECRET-TYPE --id ID 
@@ -568,7 +568,7 @@ ibmcloud secrets-manager secret-metadata --secret-type SECRET-TYPE --id ID
 
 Updates the metadata of a secret, such as its name or description.
 
-To update the actual contents of a secret, rotate the secret by using the [Invoke an action on a secret](#update-secret) method.
+To update the actual contents of a secret, rotate the secret by using the [Invoke an action on a secret](#secrets-manager-cli-secret-update-command) method.
 
 ```sh
 ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id ID --metadata METADATA --resources RESOURCES 
@@ -671,7 +671,7 @@ Configure secrets engines for your instance so that you can work with specific t
 
 Sets the configuration for the specified secret type.
 
-Use this method to configure the IAM credentials (`iam_credentials`) engine for your service instance. Looking to set up certificate ordering? To configure the public certificates (`public_cert`) engine, use the [Add a configuration](#create_config_element) method.
+Use this method to configure the IAM credentials (`iam_credentials`) engine for your service instance. Looking to set up certificate ordering? To configure the public certificates (`public_cert`) engine, use the [Add a configuration](#secrets-manager-cli-config-element-create-command) method.
 
 ```sh
 ibmcloud secrets-manager config-update --secret-type SECRET-TYPE 

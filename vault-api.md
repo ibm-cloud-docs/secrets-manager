@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-19"
+lastupdated: "2021-09-22"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -1745,7 +1745,7 @@ curl -X DELETE "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v
 ### Set secret policies
 {: #vault-set-secret-policies}
 
-Creates or updates an [automatic rotation policy](/docs/secrets-manager?topic=secrets-manager-rotate-secrets&interface=ui#auto-rotate-user-credentials-ui) for a secret. Supported secret types include: `username_password`
+Creates or updates an [automatic rotation policy](/docs/secrets-manager?topic=secrets-manager-rotate-secrets) for a secret. Supported secret types include: `username_password`
 
 | Request parameters            | Description                                                                         |
 | ------------- | ----------------------------------------------------------------------------------- |

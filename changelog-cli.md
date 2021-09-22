@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-20"
+lastupdated: "2021-09-22"
 
 keywords: change log for {{site.data.keyword.secrets-manager_short}} CLI, CLI changelog, updates to {{site.data.keyword.secrets-manager_short}} CLI
 
@@ -71,7 +71,7 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 Version 0.1.12 was released on 20 September 2021. This release includes the following updates:
 
 - Added support for the `public_cert` secret type.
-- Added the [config-element-create](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-config-element-create-command), [config-elements](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-config-elements-command), [config-element](#secrets-manager-cli-config-element-command), [config-element-update](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-config-element-update-command), and [config-element-delete](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-config-element-delete-command) commands. Currently, these commands support adding configurations for `public_cert` secrets only. 
+- Added the [config-element-create](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-config-element-create-command), [config-elements](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-config-elements-command), [config-element](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-config-element-command), [config-element-update](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-config-element-update-command), and [config-element-delete](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-config-element-delete-command) commands. Currently, these commands support adding configurations for `public_cert` secrets only. 
 - Updated the [secret-version](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-version-command) and [secret-version-metadata](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-version-metadata-command) commands. These commands now support `pubilc_cert` and `imported_cert` secrets.
 
 

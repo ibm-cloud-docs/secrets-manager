@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-20"
+lastupdated: "2021-09-22"
 
 keywords: import certificates
 
@@ -96,7 +96,7 @@ Before you get started, be sure that you have the required level of access. To c
 ## Importing your existing certificates
 {: #import-certificates}
 
-You can use {{site.data.keyword.secrets-manager_short}} to store certificate files that are signed and issued by external certificate authorities. After you import your certificate files, you can deploy the certificate to your apps and services, download the certificate, or [rotate it manually](/docs/secrets-manager?topic=secrets-manager-rotate-secrets&interface=ui#rotate-certificates) when it's time to renew. 
+You can use {{site.data.keyword.secrets-manager_short}} to store certificate files that are signed and issued by external certificate authorities. After you import your certificate files, you can deploy the certificate to your apps and services, download the certificate, or [rotate it manually](/docs/secrets-manager?topic=secrets-manager-rotate-secrets#rotate-certificates) when it's time to renew. 
 
 
 ### Importing certificates in the UI
