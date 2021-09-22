@@ -106,7 +106,7 @@ You can import an existing certificate by using the {{site.data.keyword.secrets-
 3. In the **Secrets** table, click **Add**.
 4. From the list of secret types, click the **TLS certificates** tile.
 5. Add a name and description to easily identify your certificate.
-6. Select the [secret group](#x9968962){:term} that you want to assign to the secret.
+6. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
 
     Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 7. Select a certificate file or enter its value.
@@ -227,7 +227,7 @@ When you order a certificate, domain validation takes place to verify the owners
 4. From the list of secret types, click the **TLS certificates** tile.
 5. Click the **Order certificate** tile.
 6. Add a name and description to easily identify your certificate.
-7. Select the [secret group](#x9968962){:term} that you want to assign to the secret.
+7. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
 
    Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 8. Select a certificate authority configuration.

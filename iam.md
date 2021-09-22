@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-19"
+lastupdated: "2021-09-22"
 
 keywords: IAM access for Secrets Manager, permissions for Secrets Manager, identity and access management for Secrets Manager, roles for Secrets Manager, actions for Secrets Manager, assigning access for Secrets Manager
 
@@ -87,8 +87,8 @@ If a specific role and its actions don't fit the use case that you're looking to
 {: #platform-roles-table1}
 {: tab-title="Platform roles"}
 {: tab-group="secrets-manager"}
-{: class="simple-tab-table"}
 {: summary="Use the tab buttons to change the context of the table. This table has row and column headers. The row headers provide the platform role name and the column headers identify the specific information available about each role."}
+{: class="simple-tab-table"}
 
 | Role | Description |
 | ----- | :----- |
@@ -101,8 +101,8 @@ If a specific role and its actions don't fit the use case that you're looking to
 {: #service-roles-table1}
 {: tab-title="Service roles"}
 {: tab-group="secrets-manager"}
-{: class="simple-tab-table"}
 {: summary="Use the tab buttons to change the context of the table. This table has row and column headers. The row headers provide the service role name and the column headers identify the specific information available about each role."}
+{: class="simple-tab-table"}
 
 | Action | Description | Roles |
 | ----- | :----- | :----- |
