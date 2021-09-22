@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-20"
+lastupdated: "2021-09-22"
 
-keywords: secrets engines, IAM secrets, Identity and access management, vault engine, dynamic secrets
+keywords: secrets engines, engine configurations, IAM credentials engine, public certificates engine
 
 subcollection: secrets-manager
 

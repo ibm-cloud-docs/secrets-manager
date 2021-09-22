@@ -4,7 +4,7 @@ copyright:
   years: 2020, 2021
 lastupdated: "2021-09-22"
 
-keywords: import certificates
+keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
 
 subcollection: secrets-manager
 
@@ -208,6 +208,7 @@ After you [configure the public certificates engine](/docs/secrets-manager?topic
 
     If the validation doesn't complete successfully, the status of your certificate changes to **Deactivated**. You can use the [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
     {: api}
+
 - After the certificate is issued, you can deploy it to your integrated apps, download it, or modify its rotation options. 
 
 

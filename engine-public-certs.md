@@ -4,7 +4,7 @@ copyright:
   years: 2020, 2021
 lastupdated: "2021-09-22"
 
-keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
+keywords: set up certificates, set up public certificates, public certificates engine, set up CIS, set up CA, set up Let's Encrypt
 
 subcollection: secrets-manager
 
@@ -128,6 +128,7 @@ To create a service authorization, you can use the **Access (IAM)** section of t
    
    For testing purposes, you can assign the **Manager** service access role to manage all of your domains. For production environments, it is recommended that you assign the **Reader** service access role and use the [IAM Policy Management API](#authorize-specific-domains) to grant the **Manager** role only to specific domains.
    {: note}
+
 6. Click **Authorize**.
 7. Complete the steps to [add a certificate authority configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority) to your {{site.data.keyword.secrets-manager_short}} instance. 
 

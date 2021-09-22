@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-19"
+lastupdated: "2021-09-22"
 
 keywords: secrets management in IBM Cloud, differences between {{site.data.keyword.secrets-manager_short}} and Key Protect, when to use {{site.data.keyword.secrets-manager_short}}, {{site.data.keyword.secrets-manager_short}} use cases, single tenant, multi-tenant
 
@@ -89,7 +89,7 @@ For a higher level of security and control, your business might benefit from the
 
 | Service | Secret types | Multi-tenant[^multi-tenant] | Single-tenant[^single-tenant] | HSM backed[^hsm] |
 | --- | --- | --- | --- |  --- |
-| **{{site.data.keyword.secrets-manager_short}}** | Arbitrary secrets<br>IAM credentials<br>SSL/TLS certificates<br>User credentials | | ![Checkmark icon](../../icons/checkmark-icon.svg)| |
+| **{{site.data.keyword.secrets-manager_short}}** | Arbitrary secrets  /n IAM credentials  /n SSL/TLS certificates  /n User credentials | | ![Checkmark icon](../../icons/checkmark-icon.svg)| |
 | **{{site.data.keyword.cloudcerts_short}}** | SSL/TLS certificates | ![Checkmark icon](../../icons/checkmark-icon.svg) | | |
 | **{{site.data.keyword.keymanagementserviceshort}}** | Symmetric encryption keys | ![Checkmark icon](../../icons/checkmark-icon.svg)| | ![Checkmark icon](../../icons/checkmark-icon.svg) | |
 | **{{site.data.keyword.hscrypto}}** | Symmetric encryption keys | |![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |

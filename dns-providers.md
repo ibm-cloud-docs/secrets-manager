@@ -4,7 +4,7 @@ copyright:
   years: 2020, 2021
 lastupdated: "2021-09-22"
 
-keywords: 
+keywords: DNS provider, connect DNS provider, set up DNS provider, connect DNS, set up DNS, connect CIS, set up CIS, add DNS provider configuration
 
 subcollection: secrets-manager
 
