@@ -71,7 +71,7 @@ Before you get started, be sure that you have the required level of access. To c
 
 | Prerequisites |
 | :------------ |
-| <p>Before you import a certificate, be sure that you:</p><ul><li>Create an X.509 compliant certificate with a matching private key (optional).</li><li>Convert your files into Privacy-enhanced electronic mail (PEM) format.</li><li>Keep the private key unencrypted to ensure that it can be imported into {{site.data.keyword.secrets-manager_short}}</li></ul> |
+| Before you import a certificate, be sure that you:  /n  /n - Create an X.509 compliant certificate with a matching private key (optional). /n - Convert your files into Privacy-enhanced electronic mail (PEM) format. /n - Keep the private key unencrypted to ensure that it can be imported into {{site.data.keyword.secrets-manager_short}}. |
 {: caption="Table 1. Prerequisites - Importing certificates" caption-side="top"}
 {: #import-certificates-prereqs}
 {: tab-title="Importing certificates"}
@@ -80,7 +80,7 @@ Before you get started, be sure that you have the required level of access. To c
 
 | Prerequisites |
 | :------------ |
-| <p>Before you order a certificate, be sure that you:</p><ul><li>[Prepare your instance for certificate ordering](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates).<li>Review the certificate authority and DNS provider configurations that are available. To view the configurations that are defined for your instance, go to the **Secrets engines > Public certificates** page in the {{site.data.keyword.secrets-manager_short}} UI.</li></ul> |
+| Before you order a certificate, be sure that you:  /n  /n - [Prepare your instance for certificate ordering](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates).  /n - Review the certificate authority and DNS provider configurations that are available. To view the configurations that are defined for your instance, go to the **Secrets engines > Public certificates** page in the {{site.data.keyword.secrets-manager_short}} UI. |
 {: caption="Table 1. Prerequisites - Ordering certificates" caption-side="top"}
 {: #order-certificates-prereqs}
 {: tab-title="Ordering certificates"}
