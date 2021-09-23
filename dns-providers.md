@@ -90,7 +90,7 @@ You can connect the following DNS providers with your {{site.data.keyword.secret
 
 | Prerequisites |
 | :------------ |
-| Before you add a configuration for classic infrastructure, be sure that you:  \n  \n - [Obtain your classic infrastructure username](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#authorize-classic-infrastructure).  \n - [Create a classic infrastructure API key](/docs/account?topic=account-classic_keys).  \n - Assign your user permissions to manage DNS in the account. For more information abotu managing classic infrastructure access, see [Classic infrastructure permissions](/docs/account?topic=account-infrapermission). |
+| Before you add a configuration for classic infrastructure, be sure that you:  \n  \n - [Obtain your classic infrastructure username](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#authorize-classic-infrastructure).  \n - [Create a classic infrastructure API key](/docs/account?topic=account-classic_keys).  \n Assign your user permissions to manage DNS in the account. For more information abotu managing classic infrastructure access, see [Classic infrastructure permissions](/docs/account?topic=account-infrapermission). |
 {: caption="Table 1. Prerequisites - Classic infrastructure" caption-side="top"}
 {: #classic-infrastructure-prereqs}
 {: tab-title="Classic infrastructure"}
