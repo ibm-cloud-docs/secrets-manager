@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-20"
+lastupdated: "2021-09-22"
 
-keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
+keywords: set up certificates, set up public certificates, public certificates engine, set up CIS, set up CA, set up Let's Encrypt
 
 subcollection: secrets-manager
 
@@ -128,6 +128,7 @@ To create a service authorization, you can use the **Access (IAM)** section of t
    
    For testing purposes, you can assign the **Manager** service access role to manage all of your domains. For production environments, it is recommended that you assign the **Reader** service access role and use the [IAM Policy Management API](#authorize-specific-domains) to grant the **Manager** role only to specific domains.
    {: note}
+
 6. Click **Authorize**.
 7. Complete the steps to [add a certificate authority configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority) to your {{site.data.keyword.secrets-manager_short}} instance. 
 
@@ -246,7 +247,7 @@ To obtain your classic infrastructure username and API key, you can use the **Ac
 1. In the console, go to **Manage > Access (IAM) > Users**, then select the user's name.
 2. In the VPN password section, copy the **Username** value.
    
-   In most cases, your classic infrastracture username is your `<account_id>_<email_address>`. This username is also your VPN username for the account.
+   In most cases, your classic infrastructure username is your `<account_id>_<email_address>`. This username is also your VPN username for the account.
 3. In the API keys section, [create a classic infrastructure API key](/docs/account?topic=account-classic_keys) or find your existing key.
 4. Click the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> Details** to copy the API key value.
 5. Assign your user permissions to manage DNS in the account.

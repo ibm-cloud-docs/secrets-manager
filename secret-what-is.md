@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-20"
+lastupdated: "2021-09-22"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -109,7 +109,7 @@ Thank you. If you have questions, please drop us a line. If you want to see more
 ## Working with secrets of different types
 {: #secret-types}
 
-Secrets that you create in {{site.data.keyword.secrets-manager_short}} can be static or dynamic in nature. A static secret has its expiration date and time enforced at secret creation or rotation time. In contrast, a [dynamic secret](#x9968958){:term} has its expiration date and time enforced when its secret data is read or accessed.
+Secrets that you create in {{site.data.keyword.secrets-manager_short}} can be static or dynamic in nature. A static secret has its expiration date and time enforced at secret creation or rotation time. In contrast, a [dynamic secret](#x9968958){: term} has its expiration date and time enforced when its secret data is read or accessed.
 
 {{site.data.keyword.secrets-manager_short}} further classifies static and dynamic secrets by their general purpose or function. For example, each secret type is identified programmatically by a keyword, such as `username_password`. If you're looking to manage your secret by using the {{site.data.keyword.secrets-manager_short}} API or CLI, you can use these keywords to run operations on secrets according to their type.
 
@@ -119,7 +119,7 @@ Review the following table to understand the types of static and dynamic secrets
 | --- | --- | -- | -- |
 | [Arbitrary secret](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets) | `arbitrary` | Static | Arbitrary pieces of sensitive data, including any type of structured or unstructured data, that you can use to access an application or resource. |
 | [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) | `iam_credentials`_*_ | Dynamic | A dynamically generated service ID and API key that can be used to access an {{site.data.keyword.cloud_notm}} service that requires IAM authentication. |
-| [TLS certificates](/docs/secrets-manager?topic=secrets-manager-certificates) | `imported_cert`<br>`public_cert`_*_ | Static | A type of digital certificate that can be used to establish communication privacy between a server and a client.<br><br>Certificates that you import to the service `imported_cert` secrets. Certificates that you order are `public_cert` secrets. |
+| [TLS certificates](/docs/secrets-manager?topic=secrets-manager-certificates) | `imported_cert`  \n `public_cert`_*_ | Static | A type of digital certificate that can be used to establish communication privacy between a server and a client.  \n  \n Certificates that you import to the service `imported_cert` secrets. Certificates that you order are `public_cert` secrets. |
 | [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | `username_password` | Static | Username and password values that you can use to log in or access an application or resource. |
 {: caption="Table 1. Secret types in {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
 

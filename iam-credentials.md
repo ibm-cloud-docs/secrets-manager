@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-01"
+lastupdated: "2021-09-23"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -53,7 +53,7 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 
-# IAM credentials
+# Creating IAM credentials
 {: #iam-credentials}
 
 You can use {{site.data.keyword.secrets-manager_full}} to dynamically generate IAM credentials for accessing an {{site.data.keyword.cloud_notm}} resource that requires IAM authentication.
@@ -68,11 +68,9 @@ To learn more about the types of secrets that you can manage in {{site.data.keyw
 
 
 
+If you're setting up IAM credentials for the first time, be sure that you're assigned the [**Manager** service role](/docs/secrets-manager?topic=secrets-manager-iam) on the {{site.data.keyword.secrets-manager_short}} instance. Before you can start creating IAM credentials dynamically, you'll also need a [service ID API key](/docs/account?topic=account-serviceidapikeys) with the following access:	
 
-
-If you're setting up IAM credentials for the first time, be sure that you're assigned the [**Manager** service role](/docs/secrets-manager?topic=secrets-manager-iam) on the {{site.data.keyword.secrets-manager_short}} instance. Before you can start creating IAM credentials dynamically, you'll also need a [service ID API key](/docs/account?topic=account-serviceidapikeys) with the following access:
-
-- [**Editor** platform role](/docs/account?topic=account-account-services#access-groups-account-management) on the IAM Access Groups Service.
+- [**Editor** platform role](/docs/account?topic=account-account-services#access-groups-account-management) on the IAM Access Groups Service.	
 - [**Operator** platform role](/docs/account?topic=account-account-services#identity-service-account-management) on the IAM Identity Service.
 
 
@@ -96,8 +94,6 @@ To configure your instance to start creating IAM credentials, complete the follo
 6. Click **Configure**.
 
     Now, your {{site.data.keyword.secrets-manager_short}} instance is enabled for IAM credential secrets.
-
-
 
 
 ## Configuring the IAM secrets engine from the CLI
@@ -268,6 +264,7 @@ A successful response returns the ID value of the secret, along with other metad
 
 
 
+
 ## Creating IAM credentials in the UI
 {: #iam-credentials-ui}
 {: ui}
@@ -279,7 +276,7 @@ To create IAM credentials by using the {{site.data.keyword.secrets-manager_short
 3. In the **Secrets** table, click **Add**.
 4. From the list of secret types, click the **IAM credentials** tile.
 5. Add a name and description to easily identify your secret.
-6. Select the [secret group](#x9968962){:term} that you want to assign to the secret.
+6. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
 
     Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 7. Click **Select access group** to determine the scope of access for your IAM credential.

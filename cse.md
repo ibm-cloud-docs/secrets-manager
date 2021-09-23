@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-19"
+lastupdated: "2021-09-22"
 
 keywords: isolation for {{site.data.keyword.secrets-manager_short}}, service endpoints for {{site.data.keyword.secrets-manager_short}}, private network for {{site.data.keyword.secrets-manager_short}}, network isolation in {{site.data.keyword.secrets-manager_short}}, non-public routes for {{site.data.keyword.secrets-manager_short}}, private connection for {{site.data.keyword.secrets-manager_short}}
 
@@ -150,21 +150,12 @@ After your account is enabled for VRF and service endpoints, you can provision a
     ```
     {: pre}
 
-    <table>
-        <tr>
-        <th>Variable</th>
-        <th>Description</th>
-        </tr>
-        <tr>
-        <td><code>region</code></td>
-        <td>The region abbreviation, such as <code>us-south</code> that represents the geographic area where you want your {{site.data.keyword.secrets-manager_short}} to be handled and processed. For a complete list of supported regions, see
-    <a href="/docs/key-protect?topic=secrets-manager-endpoints">Regions and endpoints</a>.</td>
-        </tr>
-        <tr>
-        <td><code>connectivity-option</code></td>
-        <td>The network connectivity option that you want to allow for your instance.<br><br>To allow access to the instance over both public and private service endpoints, use <code>public-and-private</code>. To limit API requests to the instance to take place only through a private network, use <code>private-only</code>. Keep in mind that the {{site.data.keyword.secrets-manager_short}} service UI is not accessible for <code>private-only</code> instances.</td>
-        </tr>
-    </table>
+    | Variable | Description |
+    | -------- | ----------- |
+    | `region` | The region abbreviation, such as `us-south` that represents the geographic area where you want your {{site.data.keyword.secrets-manager_short}} to be handled and processed. For a complete list of supported regions, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints). |
+    | `connectivity-option` | The network connectivity option that you want to allow for your instance.  \n  \n To allow access to the instance over both public and private service endpoints, use `public-and-private`. To limit API requests to the instance to take place only through a private network, use `private-only`. Keep in mind that the {{site.data.keyword.secrets-manager_short}} service UI is not accessible for `private-only` instances. |
+    {: caption="Table 1. Variable descriptions" caption-side="top"}
+
 
 5. (Optional) Verify that that the service instance was created successfully.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-19"
+lastupdated: "2021-09-22"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -84,12 +84,11 @@ You need the [**Manager** service role](/docs/secrets-manager?topic=secrets-mana
 #### Command options
 {: #vault-cli-write-token-config-options}
 
-<dl>
-    <dt>token_ttl</dt>
-    <dd>The initial time-to-live (TTL) of the login token to generate. Default is `1h`.</dd>
-    <dt>token_max_ttl</dt>
-    <dd>The maximum lifespan of the login token. Default is `24h`. This value can't exceed the Vault `MaxLeaseTTL` value.</dd>
-</dl>
+token_ttl
+:   The initial time-to-live (TTL) of the login token to generate. Default is `1h`.
+
+token_max_ttl
+:   The maximum lifespan of the login token. Default is `24h`. This value can't exceed the Vault `MaxLeaseTTL` value.
 
 #### Examples
 {: #vault-cli-write-token-config-examples}
@@ -127,10 +126,8 @@ You need the [**Manager** service role](/docs/secrets-manager?topic=secrets-mana
 #### Command options
 {: #vault-cli-read-token-config-options}
 
-<dl>
-<dt>-format</dt>
-<dd>Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
-</dl>
+-format
+:   Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
 
 #### Examples
 {: #vault-cli-read-token-config-examples}
@@ -183,14 +180,14 @@ You need the [**Manager** service role](/docs/secrets-manager?topic=secrets-mana
 #### Command options
 {: #vault-cli-create-secret-group-options}
 
-<dl>
-    <dt>name</dt>
-    <dd>The human-readable alias that you want to assign to the secret group.</dd>
-    <dt>description</dt>
-    <dd>(Optional) An extended description of the secret group.</dd>
-    <dt>-format</dt>
-    <dd>Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
-</dl>
+name
+:   The human-readable alias that you want to assign to the secret group.
+
+description
+:   (Optional) An extended description of the secret group.
+
+-format
+:   Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
 
 #### Examples
 {: #vault-cli-create-secret-group-examples}
@@ -235,10 +232,8 @@ You need the [**Reader** service role](/docs/secrets-manager?topic=secrets-manag
 #### Command options
 {: #vault-cli-list-secret-groups-options}
 
-<dl>
-    <dt>-format</dt>
-    <dd>Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
-</dl>
+-format
+:   Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
 
 #### Examples
 {: #vault-cli-list-secret-groups-examples}
@@ -294,10 +289,9 @@ You need the [**Reader** service role](/docs/secrets-manager?topic=secrets-manag
 #### Command options
 {: #vault-cli-get-secret-group-options}
 
-<dl>
-    <dt>-format</dt>
-    <dd>Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
-</dl>
+-format
+:   Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
+
 
 #### Examples
 {: #vault-cli-get-secret-group-examples}
@@ -350,14 +344,16 @@ You need the [**Manager** service role](/docs/secrets-manager?topic=secrets-mana
 #### Command options
 {: #vault-cli-update-secret-group-options}
 
-<dl>
-    <dt>name</dt>
-    <dd>The human-readable alias that you want to assign to the secret group.</dd>
-    <dt>description</dt>
-    <dd>(Optional) An extended description of the secret group.</dd>
-    <dt>-format</dt>
-    <dd>Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
-</dl>
+
+name
+:   The human-readable alias that you want to assign to the secret group.
+
+description
+:   (Optional) An extended description of the secret group.
+
+-format
+:   Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
+
 
 #### Examples
 {: #vault-cli-update-secret-group-examples}
@@ -448,30 +444,39 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
 #### Command options
 {: #vault-cli-create-static-secret-options}
 
-<dl>
-    <dt>name</dt>
-    <dd>The human-readable alias that you want to assign to the secret.</dd>
-    <dt>payload</dt>
-    <dd>The data that you want to store for an `arbitrary` secret. Only text-based payloads are supported. If you need to store a binary file, be sure to base64 encode it before saving it to {{site.data.keyword.secrets-manager_short}}. For more information, see [Examples](#vault-cli-create-static-secret-examples).</dd>
-    <dt>username</dt>
-    <dd>The username that you want to assign to a `username_password` secret.</dd>
-    <dt>password</dt>
-    <dd>The password that you want assign to a `username_password` secret.</dd>
-    <dt>certificate</dt>
-    <dd>The certificate data that you want to store for an `imported_cert` secret. Supported file type is `.pem`.</dd>
-    <dt>private_key</dt>
-    <dd>(Optional) The private key data to store for an `imported_cert` secret. Supported file type is `.pem`.</dd>
-    <dt>intermediate</dt>
-    <dd>(Optional) Intermediate certificate data to store for an `imported_cert` secret. Supported file type is `.pem`.</dd>
-    <dt>description</dt>
-    <dd>(Optional) An extended description to assign to the secret.</dd>
-    <dt>expiration_date</dt>
-    <dd>(Optional) The expiration date that you want to assign to the secret. Supported for the `arbitrary` and `username_password` secret types. The date format follows [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).</dd>
-    <dt>labels</dt>
-    <dd>(Optional) Labels that you can use to group and search for similar secrets in your instance.</dd>
-    <dt>-format</dt>
-    <dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
-</dl>
+name
+:   The human-readable alias that you want to assign to the secret.
+
+payload
+:   The data that you want to store for an `arbitrary` secret. Only text-based payloads are supported. If you need to store a binary file, be sure to base64 encode it before saving it to {{site.data.keyword.secrets-manager_short}}. For more information, see [Examples](#vault-cli-create-static-secret-examples).
+
+username
+:   The username that you want to assign to a `username_password` secret.
+
+password
+:   The password that you want assign to a `username_password` secret.
+
+certificate
+:   The certificate data that you want to store for an `imported_cert` secret. Supported file type is `.pem`.
+
+private_key
+:   (Optional) The private key data to store for an `imported_cert` secret. Supported file type is `.pem`.
+
+intermediate
+:   (Optional) Intermediate certificate data to store for an `imported_cert` secret. Supported file type is `.pem`.
+
+description
+:   (Optional) An extended description to assign to the secret.
+
+expiration_date
+:   (Optional) The expiration date that you want to assign to the secret. Supported for the `arbitrary` and `username_password` secret types. The date format follows [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).
+
+labels
+:   (Optional) Labels that you can use to group and search for similar secrets in your instance.
+
+-format
+:   (Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
+
 
 #### Examples
 {: #vault-cli-create-static-secret-examples}
@@ -666,10 +671,8 @@ You need the [**Reader** service role](/docs/secrets-manager?topic=secrets-manag
 #### Command options
 {: #vault-cli-list-static-secrets-options}
 
-<dl>
-    <dt>-format</dt>
-    <dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
-</dl>
+-format
+:   (Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
 
 #### Examples
 {: #vault-cli-list-static-secrets-examples}
@@ -760,10 +763,8 @@ You need the [**SecretsReader** or **Writer** service role](/docs/secrets-manage
 #### Command options
 {: #vault-cli-get-static-secret-options}
 
-<dl>
-<dt>-format</dt>
-<dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
-</dl>
+-format
+:   (Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
 
 #### Examples
 {: #vault-cli-get-static-secret-examples}
@@ -829,18 +830,19 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
 #### Command options
 {: #vault-cli-update-static-secret-options}
 
-<dl>
-    <dt>name</dt>
-    <dd>(Optional) The human-readable alias that you want to assign to the secret.</dd>
-    <dt>description</dt>
-    <dd>(Optional) An extended description to assign to the secret.</dd>
-    <dt>expiration_date</dt>
-    <dd>(Optional) The expiration date that you want to assign to the secret. The date format follows [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).</dd>
-    <dt>labels</dt>
-    <dd>(Optional) Labels that you can use to group and search for similar secrets in your instance.</dd>
-    <dt>-format</dt>
-    <dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
-</dl>
+name
+:   (Optional) The human-readable alias that you want to assign to the secret.
+
+description
+:   (Optional) An extended description to assign to the secret.
+
+expiration_date
+:   (Optional) The expiration date that you want to assign to the secret. The date format follows [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).
+
+labels
+:   (Optional) Labels that you can use to group and search for similar secrets in your instance.
+-format
+:   (Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
 
 #### Examples
 {: #vault-cli-update-static-secret-examples}
@@ -897,22 +899,27 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
 #### Command options
 {: #vault-cli-rotate-static-secret-options}
 
-<dl>
-    <dt>payload</dt>
-    <dd>The new data to store for an `arbitrary` secret. Only text-based payloads are supported. If you need to store a binary file, be sure to base64 encode it before saving it to {{site.data.keyword.secrets-manager_short}}. For more information, see [Examples](#vault-cli-create-static-secret-examples).</dd>
-    <dt>password</dt>
-    <dd>The new password to assign to a `username_password` secret.</dd>
-    <dt>certificate</dt>
-    <dd>The new certificate data to store for an `imported_cert` secret. Supported file type is `.pem`.</dd>
-    <dt>private_key</dt>
-    <dd>(Optional) The new private key data to store for an `imported_cert` secret. Supported file type is `.pem`.</dd>
-    <dt>intermediate</dt>
-    <dd>(Optional) The new intermediate certificate data to store for an `imported_cert` secret. Supported file type is `.pem`.</dd>
-    <dt>-format</dt>
-    <dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
-    <dt>-force</dt>
-    <dd>(Optional) Replaces the password that is stored for a `username_password` secret with a randomly generated, 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.</dd>
-</dl>
+payload
+:   The new data to store for an `arbitrary` secret. Only text-based payloads are supported. If you need to store a binary file, be sure to base64 encode it before saving it to {{site.data.keyword.secrets-manager_short}}. For more information, see [Examples](#vault-cli-create-static-secret-examples).
+
+password
+:   The new password to assign to a `username_password` secret.
+
+certificate
+:   The new certificate data to store for an `imported_cert` secret. Supported file type is `.pem`.
+
+private_key
+:   (Optional) The new private key data to store for an `imported_cert` secret. Supported file type is `.pem`.
+
+intermediate
+:   (Optional) The new intermediate certificate data to store for an `imported_cert` secret. Supported file type is `.pem`.
+
+-format
+:   (Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
+
+-force
+:   (Optional) Replaces the password that is stored for a `username_password` secret with a randomly generated, 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
+
 
 #### Examples
 {: #vault-cli-rotate-static-secret-examples}
@@ -1022,10 +1029,9 @@ You need the [**Manager** service role](/docs/secrets-manager?topic=secrets-mana
 #### Command options
 {: #vault-cli-delete-static-secret-options}
 
-<dl>
-    <dt>-format</dt>
-    <dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
-</dl>
+-format
+:   (Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
+
 
 #### Examples
 {: #vault-cli-delete-static-secret-examples}
@@ -1077,24 +1083,30 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
 #### Command options
 {: #vault-cli-create-role-options}
 
-<dl>
-    <dt>SECRET_TYPE</dt>
-    <dd>The type of secret that you want to create. Currently, `iam_credentials` is supported.</dd>
-    <dt>SECRET_GROUP_ID</dt>
-    <dd>The ID of the secret group that you want to assign to the role and its credentials.</dd>
-    <dt>ROLE_NAME</dt>
-    <dd>The human-readable alias that you want to assign to the role and its credentials.</dd>
-    <dt>access_groups</dt>
-    <dd>The ID of the access group that determines the scope of access to assign to the role and its credentials.</dd>
-    <dt>ttl</dt>
-    <dd>The time-to-live (TTL) that determines how long a role's generated credentials can exist. Use a duration string such as `300s` or `1h30m`. Valid time units are `s`, `m`, and `h`.</dd>
-    <dt>description</dt>
-    <dd>(Optional) An extended description to assign to the role and its credentials.</dd>
-    <dt>labels</dt>
-    <dd>(Optional) Labels that you can use to group and search for similar secrets in your instance.</dd>
-    <dt>-format</dt>
-    <dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
-</dl>
+SECRET_TYPE
+:   The type of secret that you want to create. Currently, `iam_credentials` is supported.
+
+SECRET_GROUP_ID
+:   The ID of the secret group that you want to assign to the role and its credentials.
+
+ROLE_NAME
+:   The human-readable alias that you want to assign to the role and its credentials.
+
+access_groups
+:   The ID of the access group that determines the scope of access to assign to the role and its credentials.
+
+ttl
+:   The time-to-live (TTL) that determines how long a role's generated credentials can exist. Use a duration string such as `300s` or `1h30m`. Valid time units are `s`, `m`, and `h`.
+
+description
+:   (Optional) An extended description to assign to the role and its credentials.
+
+labels
+:   (Optional) Labels that you can use to group and search for similar secrets in your instance.
+
+-format
+:   (Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
+
 
 #### Examples
 {: #vault-cli-create-role-examples}
@@ -1176,14 +1188,15 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
 #### Command options
 {: #vault-cli-create-iam-creds-for-role-options}
 
-<dl>
-    <dt>SECRET_GROUP_ID</dt>
-    <dd>The ID of the secret group that you want to assign to this secret.</dd>
-    <dt>ROLE_ID</dt>
-    <dd>The ID or name that is assigned to the role for this secret.</dd>
-    <dt>-format</dt>
-    <dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
-</dl>
+SECRET_GROUP_ID
+:   The ID of the secret group that you want to assign to this secret.
+
+ROLE_ID
+:   The ID or name that is assigned to the role for this secret.
+
+-format
+:   (Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
+
 
 #### Examples
 {: #vault-cli-create-iam-creds-for-role-examples}
@@ -1265,14 +1278,15 @@ You need the [**Reader** service role](/docs/secrets-manager?topic=secrets-manag
 #### Command options
 {: #vault-cli-list-roles-options}
 
-<dl>
-    <dt>SECRET_TYPE</dt>
-    <dd>The type of secret that you want to list. Currently, `iam_credentials` is supported.</dd>
-    <dt>SECRET_GROUP_ID</dt>
-    <dd>The ID of the secret group.</dd>
-    <dt>-format</dt>
-    <dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
-</dl>
+SECRET_TYPE
+:   The type of secret that you want to list. Currently, `iam_credentials` is supported.
+
+SECRET_GROUP_ID
+:   The ID of the secret group.
+
+-format
+:   (Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
+
 
 #### Examples
 {: #vault-cli-list-roles-examples}
@@ -1372,16 +1386,18 @@ You need the [**Reader** service role](/docs/secrets-manager?topic=secrets-manag
 #### Command options
 {: #vault-cli-read-role-metadata-options}
 
-<dl>
-    <dt>SECRET_TYPE</dt>
-    <dd>The type of secret that you want to view. Currently, `iam_credentials` is supported.</dd>
-    <dt>SECRET_GROUP_ID</dt>
-    <dd>The ID of the secret group that is assigned to the role and its credentials</dd>
-    <dt>ROLE_ID</dt>
-    <dd>The ID that is assigned to the role for this secret.</dd>
-    <dt>-format</dt>
-    <dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
-</dl>
+SECRET_TYPE
+:   The type of secret that you want to view. Currently, `iam_credentials` is supported.
+
+SECRET_GROUP_ID
+:   The ID of the secret group that is assigned to the role and its credentials
+
+ROLE_ID
+:   The ID that is assigned to the role for this secret.
+
+-format
+:   (Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
+
 
 #### Examples
 {: #vault-cli-read-role-metadata-examples}
@@ -1453,26 +1469,33 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
 #### Command options
 {: #vault-cli-update-role-metadata-options}
 
-<dl>
-    <dt>SECRET_TYPE</dt>
-    <dd>The type of secret that you want to update. Currently, `iam_credentials` is supported.</dd>
-    <dt>SECRET_GROUP_ID</dt>
-    <dd>The ID of the secret group that is assigned to the role and its credentials.</dd>
-    <dt>ROLE_ID</dt>
-    <dd>The ID that assigned to this secret.</dd>
-    <dt>access_groups</dt>
-    <dd>(Optional) The ID of the access group that determines the scope of access to assign to the role and its credentials.</dd>
-    <dt>ttl</dt>
-    <dd>(Optional) The time-to-live (TTL) that determines how long a role's generated credentials can exist. Use a duration string such as `300s` or `1h30m`. Valid time units are `s`, `m`, and `h`.</dd>
-    <dt>name</dt>
-    <dd>(Optional) The new name that you want to assign for this secret.</dd>
-    <dt>description</dt>
-    <dd>(Optional) An extended description to assign to the role and its credentials.</dd>
-    <dt>labels</dt>
-    <dd>(Optional) Labels that you can use to group and search for similar secrets in your instance.</dd>
-    <dt>-format</dt>
-    <dd>(Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.</dd>
-</dl>
+SECRET_TYPE
+:   The type of secret that you want to update. Currently, `iam_credentials` is supported.
+
+SECRET_GROUP_ID
+:   The ID of the secret group that is assigned to the role and its credentials.
+
+ROLE_ID
+:   The ID that assigned to this secret.
+
+access_groups
+:   (Optional) The ID of the access group that determines the scope of access to assign to the role and its credentials.
+
+ttl
+:   (Optional) The time-to-live (TTL) that determines how long a role's generated credentials can exist. Use a duration string such as `300s` or `1h30m`. Valid time units are `s`, `m`, and `h`.
+
+name
+:   (Optional) The new name that you want to assign for this secret.
+
+description
+:   (Optional) An extended description to assign to the role and its credentials.
+
+labels
+:   (Optional) Labels that you can use to group and search for similar secrets in your instance.
+
+-format
+:   (Optional) Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
+
 
 #### Examples
 {: #vault-cli-update-role-metadata-examples}
@@ -1543,14 +1566,15 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
 #### Command options
 {: #vault-cli-delete-role-options}
 
-<dl>
-    <dt>SECRET_TYPE</dt>
-    <dd>The type of secret that you want to delete. Currently, `iam_credentials` is supported.</dd>
-    <dt>SECRET_GROUP_ID</dt>
-    <dd>The ID of the secret group that is assigned to the role and its credentials.</dd>
-    <dt>ROLE_ID</dt>
-    <dd>The ID that assigned to this secret.</dd>
-</dl>
+SECRET_TYPE
+:   The type of secret that you want to delete. Currently, `iam_credentials` is supported.
+
+SECRET_GROUP_ID
+:   The ID of the secret group that is assigned to the role and its credentials.
+
+ROLE_ID
+:   The ID that assigned to this secret.
+
 
 #### Examples
 {: #vault-cli-delete-role-examples}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-19"
+lastupdated: "2021-09-22"
 
 keywords: Vault CLI, configure the Vault CLI, use Secrets Manager with Vault CLI, CLI commands, log in to Vault
 
@@ -98,20 +98,11 @@ First, set up your environment to access a {{site.data.keyword.secrets-manager_s
 
     Replace the variables according to the following table.
 
-    <table>
-        <tr>
-            <th>Variable</th>
-            <th>Description</th>
-        </tr>
-        <tr>
-            <td><code>IBM_CLOUD_API_KEY</code></td>
-            <td>An {{site.data.keyword.cloud_notm}} API key that has at least <a href="/docs/secrets-manager?topic=secrets-manager-iam"><strong>Viewer</strong> platform access</a> and <a href="/docs/secrets-manager?topic=secrets-manager-iam"><strong>Reader</strong> service access</a> to your {{site.data.keyword.secrets-manager_short}} instance.</td>
-        </tr>
-        <tr>
-            <td><code>VAULT_ADDR</code></td>
-            <td><p>The Vault API endpoint that's unique to your {{site.data.keyword.secrets-manager_short}} instance.</p><p>You can find your unique endpoint URL in the <strong>Endpoints</strong> page of the {{site.data.keyword.secrets-manager_short}} UI, or by <a href="/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls">retrieving it by HTTP request</a>.</p></td>
-        </tr>
-    </table>
+    | Variable | Description |
+    | -------- | ----------- |
+    | `IBM_CLOUD_API_KEY` | An {{site.data.keyword.cloud_notm}} API key that has at least [**Viewer** platform access](/docs/secrets-manager?topic=secrets-manager-iam) and [**Reader** service access](/docs/secrets-manager?topic=secrets-manager-iam) to your {{site.data.keyword.secrets-manager_short}} instance.|
+    | `VAULT_ADDR` | The Vault API endpoint that's unique to your {{site.data.keyword.secrets-manager_short}} instance.  \n  \n You can find your unique endpoint URL in the **Endpoints** page of the {{site.data.keyword.secrets-manager_short}} UI, or by [retrieving it by HTTP request](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls). |
+
 
 2. Mark the file as executable by running the `chmod` command in your command line.
 

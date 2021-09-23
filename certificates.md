@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-20"
+lastupdated: "2021-09-22"
 
-keywords: import certificates
+keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
 
 subcollection: secrets-manager
 
@@ -53,12 +53,8 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 
-
-# TLS certificates
+# Adding TLS certificates
 {: #certificates}
-
-
-
 
 You can use {{site.data.keyword.secrets-manager_full}} to store and request SSL or TLS certificates that you can use for your apps or services.
 {: shortdesc}
@@ -75,7 +71,7 @@ Before you get started, be sure that you have the required level of access. To c
 
 | Prerequisites |
 | :------------ |
-| <p>Before you import a certificate, be sure that you:</p><ul><li>Create an X.509 compliant certificate with a matching private key (optional).</li><li>Convert your files into Privacy-enhanced electronic mail (PEM) format.</li><li>Keep the private key unencrypted to ensure that it can be imported into {{site.data.keyword.secrets-manager_short}}</li></ul> |
+| Before you import a certificate, be sure that you:  \n  \n - Create an X.509 compliant certificate with a matching private key (optional). \n - Convert your files into Privacy-enhanced electronic mail (PEM) format. \n - Keep the private key unencrypted to ensure that it can be imported into {{site.data.keyword.secrets-manager_short}}. |
 {: caption="Table 1. Prerequisites - Importing certificates" caption-side="top"}
 {: #import-certificates-prereqs}
 {: tab-title="Importing certificates"}
@@ -84,7 +80,7 @@ Before you get started, be sure that you have the required level of access. To c
 
 | Prerequisites |
 | :------------ |
-| <p>Before you order a certificate, be sure that you:</p><ul><li>[Prepare your instance for certificate ordering](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates).<li>Review the certificate authority and DNS provider configurations that are available. To view the configurations that are defined for your instance, go to the **Secrets engines > Public certificates** page in the {{site.data.keyword.secrets-manager_short}} UI.</li></ul> |
+| Before you order a certificate, be sure that you:  \n  \n - [Prepare your instance for certificate ordering](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates).  \n - Review the certificate authority and DNS provider configurations that are available. To view the configurations that are defined for your instance, go to the **Secrets engines > Public certificates** page in the {{site.data.keyword.secrets-manager_short}} UI. |
 {: caption="Table 1. Prerequisites - Ordering certificates" caption-side="top"}
 {: #order-certificates-prereqs}
 {: tab-title="Ordering certificates"}
@@ -96,7 +92,7 @@ Before you get started, be sure that you have the required level of access. To c
 ## Importing your existing certificates
 {: #import-certificates}
 
-You can use {{site.data.keyword.secrets-manager_short}} to store certificate files that are signed and issued by external certificate authorities. After you import your certificate files, you can deploy the certificate to your apps and services, download the certificate, or [rotate it manually](/docs/secrets-manager?topic=secrets-manager-rotate-secrets&interface=ui#rotate-certificates) when it's time to renew. 
+You can use {{site.data.keyword.secrets-manager_short}} to store certificate files that are signed and issued by external certificate authorities. After you import your certificate files, you can deploy the certificate to your apps and services, download the certificate, or [rotate it manually](/docs/secrets-manager?topic=secrets-manager-rotate-secrets#rotate-certificates) when it's time to renew. 
 
 
 ### Importing certificates in the UI
@@ -110,7 +106,7 @@ You can import an existing certificate by using the {{site.data.keyword.secrets-
 3. In the **Secrets** table, click **Add**.
 4. From the list of secret types, click the **TLS certificates** tile.
 5. Add a name and description to easily identify your certificate.
-6. Select the [secret group](#x9968962){:term} that you want to assign to the secret.
+6. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
 
     Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 7. Select a certificate file or enter its value.
@@ -212,6 +208,7 @@ After you [configure the public certificates engine](/docs/secrets-manager?topic
 
     If the validation doesn't complete successfully, the status of your certificate changes to **Deactivated**. You can use the [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
     {: api}
+
 - After the certificate is issued, you can deploy it to your integrated apps, download it, or modify its rotation options. 
 
 
@@ -230,7 +227,7 @@ When you order a certificate, domain validation takes place to verify the owners
 4. From the list of secret types, click the **TLS certificates** tile.
 5. Click the **Order certificate** tile.
 6. Add a name and description to easily identify your certificate.
-7. Select the [secret group](#x9968962){:term} that you want to assign to the secret.
+7. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
 
    Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 8. Select a certificate authority configuration.

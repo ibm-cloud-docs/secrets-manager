@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-20"
+lastupdated: "2021-09-23"
 
-keywords: 
+keywords: DNS provider, connect DNS provider, set up DNS provider, connect DNS, set up DNS, connect CIS, set up CIS, add DNS provider configuration
 
 subcollection: secrets-manager
 
@@ -81,7 +81,7 @@ You can connect the following DNS providers with your {{site.data.keyword.secret
 
 | Prerequisites |
 | :------------ |
-| <p>Before you add a configuration for Cloud Internet Services (CIS), be sure that you:</p><ul><li>[Create a CIS service instance](/docs/cis?topic=cis-getting-started).</li><li>[Create an authorization between {{site.data.keyword.secrets-manager_short}} and CIS](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#authorize-cis).</li><li>If your CIS instance is located in another account, obtain the CRN of the instance and [create an API key with the correct level of access](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#authorize-cis-another-account).</li></ul> |
+| Before you add a configuration for Cloud Internet Services (CIS), be sure that you:  \n  \n - [Create a CIS service instance](/docs/cis?topic=cis-getting-started).  \n - [Create an authorization between {{site.data.keyword.secrets-manager_short}} and CIS](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#authorize-cis).  \n - If your CIS instance is located in another account, obtain the CRN of the instance and [create an API key with the correct level of access](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#authorize-cis-another-account). |
 {: caption="Table 1. Prerequisites - CIS" caption-side="top"}
 {: #cis-prereqs}
 {: tab-title="Cloud Internet Services"}
@@ -96,7 +96,6 @@ You can connect the following DNS providers with your {{site.data.keyword.secret
 {: tab-title="Classic infrastructure"}
 {: tab-group="dns-provider-prereqs"}
 {: class="simple-tab-table"}
-
 
 ## Adding a DNS provider configuration in the UI
 {: #add-dns-provider-ui}

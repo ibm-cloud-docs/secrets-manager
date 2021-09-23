@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-20"
+lastupdated: "2021-09-22"
 
 subcollection: secrets-manager
 
@@ -181,7 +181,7 @@ ibmcloud secrets-manager secret-group-metadata-update --id ID --metadata METADAT
 
 Deletes a secret group by specifying the ID of the secret group.
 
-**Note:** To delete a secret group, it must be empty. If you need to remove a secret group that contains secrets, you must first [delete the secrets](#delete-secret) that are associated with the group.
+**Note:** To delete a secret group, it must be empty. If you need to remove a secret group that contains secrets, you must first [delete the secrets](#secrets-manager-cli-secret-delete-command) that are associated with the group.
 
 ```sh
 ibmcloud secrets-manager secret-group-delete --id ID [--force]
@@ -311,7 +311,7 @@ You can apply multiple filters by using a comma-separated list of secret group I
 
 Retrieves a secret and its details by specifying the ID of the secret.
 
-A successful request returns the secret data that is associated with your secret, along with other metadata. To view only the details of a specified secret without retrieving its value, use the [Get secret metadata](#get-secret-metadata) method.
+A successful request returns the secret data that is associated with your secret, along with other metadata. To view only the details of a specified secret without retrieving its value, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method.
 
 ```sh
 ibmcloud secrets-manager secret --secret-type SECRET-TYPE --id ID 
@@ -455,7 +455,7 @@ ibmcloud secrets-manager secret-version --secret-type SECRET-TYPE --id ID --vers
 --version-id (string)
 :   The v4 UUID that uniquely identifies the secret version. You can also use `previous` to retrieve the previous version.
 
-**Note:** To find the version ID of a secret, use the [Get secret metadata](#get-secret-metadata) method and check the response details. Required.
+**Note:** To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details. Required.
 
     The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
 
@@ -513,7 +513,7 @@ ibmcloud secrets-manager secret-version-metadata --secret-type SECRET-TYPE --id 
 --version-id (string)
 :   The v4 UUID that uniquely identifies the secret version. You can also use `previous` to retrieve the previous version.
 
-**Note:** To find the version ID of a secret, use the [Get secret metadata](#get-secret-metadata) method and check the response details. Required.
+**Note:** To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details. Required.
 
     The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
 
@@ -543,7 +543,7 @@ Get certificate version.
 
 Retrieves the details of a secret by specifying the ID.
 
-A successful request returns only metadata about the secret, such as its name and creation date. To retrieve the value of a secret, use the [Get a secret](#get-secret) or [Get a version of a secret](#get-secret-version) methods.
+A successful request returns only metadata about the secret, such as its name and creation date. To retrieve the value of a secret, use the [Get a secret](#secrets-manager-cli-secret-command) or [Get a version of a secret](#secrets-manager-cli-secret-version-command) methods.
 
 ```sh
 ibmcloud secrets-manager secret-metadata --secret-type SECRET-TYPE --id ID 
@@ -568,7 +568,7 @@ ibmcloud secrets-manager secret-metadata --secret-type SECRET-TYPE --id ID
 
 Updates the metadata of a secret, such as its name or description.
 
-To update the actual contents of a secret, rotate the secret by using the [Invoke an action on a secret](#update-secret) method.
+To update the actual contents of a secret, rotate the secret by using the [Invoke an action on a secret](#secrets-manager-cli-secret-update-command) method.
 
 ```sh
 ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id ID --metadata METADATA --resources RESOURCES 
@@ -671,7 +671,7 @@ Configure secrets engines for your instance so that you can work with specific t
 
 Sets the configuration for the specified secret type.
 
-Use this method to configure the IAM credentials (`iam_credentials`) engine for your service instance. Looking to set up certificate ordering? To configure the public certificates (`public_cert`) engine, use the [Add a configuration](#create_config_element) method.
+Use this method to configure the IAM credentials (`iam_credentials`) engine for your service instance. Looking to set up certificate ordering? To configure the public certificates (`public_cert`) engine, use the [Add a configuration](#secrets-manager-cli-config-element-create-command) method.
 
 ```sh
 ibmcloud secrets-manager config-update --secret-type SECRET-TYPE 
@@ -856,13 +856,12 @@ ibmcloud secrets-manager config-element --secret-type SECRET-TYPE --config-eleme
 
 The following schema examples represent the data that you need to specify for a command option. These examples model the data structure and include placeholder values for the expected value type. When you run a command, replace these values with the values that apply to your environment as appropriate.
 
-### CollectionMetadata
+### `CollectionMetadata`
 {: #cli-collection-metadata-example-schema}
 
-The following example shows the format of the CollectionMetadata object.
+The following example shows the format of the `CollectionMetadata` object.
 
 ```json
-
 {
   "collection_type" : "application/vnd.ibm.secrets-manager.secret.group+json",
   "collection_total" : 1
@@ -870,39 +869,36 @@ The following example shows the format of the CollectionMetadata object.
 ```
 {: codeblock}
 
-### ConfigElementDefConfig
+### `ConfigElementDefConfig`
 {: #cli-config-element-def-config-example-schema}
 
-The following example shows the format of the ConfigElementDefConfig object.
+The following example shows the format of the `ConfigElementDefConfig` object.
 
 ```json
-
 {
   "private_key" : "exampleString"
 }
 ```
 {: codeblock}
 
-### SecretAction
+### `SecretAction`
 {: #cli-secret-action-example-schema}
 
-The following example shows the format of the SecretAction object.
+The following example shows the format of the `SecretAction` object.
 
 ```json
-
 {
   "payload" : "exampleString"
 }
 ```
 {: codeblock}
 
-### SecretGroupMetadataUpdatable[]
+### `SecretGroupMetadataUpdatable[]`
 {: #cli-secret-group-metadata-updatable-example-schema}
 
-The following example shows the format of the SecretGroupMetadataUpdatable[] object.
+The following example shows the format of the `SecretGroupMetadataUpdatable[]` object.
 
 ```json
-
 [ {
   "name" : "updated-secret-group-name",
   "description" : "Updated description for this group."
@@ -910,13 +906,12 @@ The following example shows the format of the SecretGroupMetadataUpdatable[] obj
 ```
 {: codeblock}
 
-### SecretGroupResource[]
+### `SecretGroupResource[]`
 {: #cli-secret-group-resource-example-schema}
 
-The following example shows the format of the SecretGroupResource[] object.
+The following example shows the format of the `SecretGroupResource[]` object.
 
 ```json
-
 [ {
   "name" : "my-secret-group",
   "description" : "Extended description for this group."
@@ -924,13 +919,12 @@ The following example shows the format of the SecretGroupResource[] object.
 ```
 {: codeblock}
 
-### SecretMetadata[]
+### `SecretMetadata[]`
 {: #cli-secret-metadata-example-schema}
 
-The following example shows the format of the SecretMetadata[] object.
+The following example shows the format of the `SecretMetadata[]` object.
 
 ```json
-
 [ {
   "labels" : [ "dev", "us-south" ],
   "name" : "example-secret",
@@ -940,13 +934,12 @@ The following example shows the format of the SecretMetadata[] object.
 ```
 {: codeblock}
 
-### SecretPolicyRotation[]
+### `SecretPolicyRotation[]`
 {: #cli-secret-policy-rotation-example-schema}
 
-The following example shows the format of the SecretPolicyRotation[] object.
+The following example shows the format of the `SecretPolicyRotation[]` object.
 
 ```json
-
 [ {
   "type" : "application/vnd.ibm.secrets-manager.secret.policy+json",
   "rotation" : {
@@ -957,13 +950,12 @@ The following example shows the format of the SecretPolicyRotation[] object.
 ```
 {: codeblock}
 
-### SecretResource[]
+### `SecretResource[]`
 {: #cli-secret-resource-example-schema}
 
-The following example shows the format of the SecretResource[] object.
+The following example shows the format of the `SecretResource[]` object.
 
 ```json
-
 [ {
   "name" : "exampleString",
   "description" : "exampleString",
@@ -974,6 +966,5 @@ The following example shows the format of the SecretResource[] object.
 } ]
 ```
 {: codeblock}
-
 
 

@@ -3,7 +3,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-17"
+lastupdated: "2021-09-23"
 
 keywords: tutorial, Secrets Manager
 
@@ -325,7 +325,7 @@ e0246cea-d668-aba7-eef2-58ca11ad3707
 
 Now that you have a secret for your application, you can set up [Kubernetes External Secrets](https://github.com/external-secrets/kubernetes-external-secrets){: external} for your cluster. This package configures the connection between {{site.data.keyword.secrets-manager_short}} and your cluster by creating `ExternalSecrets` objects that are converted to Kubernetes secrets for your application.
 
-Kubernetes External Secrets is an open source tool that is not maintained by IBM. For more information about this tool or to troubleshoot any issues, refer to the project in [GitHub](https://github.com/external-secrets/kubernetes-external-secrets).
+Kubernetes External Secrets is an open source tool that is not maintained by IBM. For more information about this tool or to troubleshoot any issues, refer to the project in [GitHub](https://github.com/external-secrets/kubernetes-external-secrets){: external}.
 {: note}
 
 ### Configure Kubernetes External Secrets for your cluster
