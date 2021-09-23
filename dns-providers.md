@@ -90,14 +90,12 @@ You can connect the following DNS providers with your {{site.data.keyword.secret
 
 | Prerequisites |
 | :------------ |
-| Before you add a configuration for classic infrastructure, be sure that you:  \n  \n - [Obtain your classic infrastructure username](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#authorize-classic-infrastructure).  \n If you are using IBMid to log in to your account, your classic infrastructure username is your `<account_id>_<email_address>`. In the console, this username is also your VPN username for the account. To find your classic infrastructure username, go to **Manage > Access (IAM) > Users > _name_ > VPN password**.  \n - [Create a classic infrastructure API key](/docs/account?topic=account-classic_keys).  \n Assign your user permissions to manage DNS in the account. For more information about managing classic infrastructure access, see [Classic infrastructure permissions](/docs/account?topic=account-infrapermission). |
+| <p>Before you add a configuration for classic infrastructure, be sure that you:</p><ul><li>Obtain your classic infrastructure username.<p>If you are using IBMid to log in to your account, your classic infrastructure username is your `<account_id>_<email_address>`. In the console, this username is also your VPN username for the account. To find your classic infrastructure username, go to **Manage > Access (IAM) > Users > _name_ > VPN password**.</p></li><li>[Create a classic infrastructure API key](/docs/account?topic=account-classic_keys).<p>Assign your user permissions to manage DNS in the account. For more information about managing classic infrastructure access, see [Classic infrastructure permissions](/docs/account?topic=account-infrapermission).</li></ul> |
 {: caption="Table 1. Prerequisites - Classic infrastructure" caption-side="top"}
 {: #classic-infrastructure-prereqs}
 {: tab-title="Classic infrastructure"}
 {: tab-group="dns-provider-prereqs"}
 {: class="simple-tab-table"}
-
-
 
 ## Adding a DNS provider configuration in the UI
 {: #add-dns-provider-ui}
