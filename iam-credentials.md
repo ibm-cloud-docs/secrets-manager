@@ -66,9 +66,12 @@ To learn more about the types of secrets that you can manage in {{site.data.keyw
 ## Before you begin
 {: #before-iam-credentials}
 
-Before you get started, be sure that you have the required level of access. To create or add secrets, you need the [**Writer** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam).
 
 
+If you're setting up IAM credentials for the first time, be sure that you're assigned the [**Manager** service role](/docs/secrets-manager?topic=secrets-manager-iam) on the {{site.data.keyword.secrets-manager_short}} instance. Before you can start creating IAM credentials dynamically, you'll also need a [service ID API key](/docs/account?topic=account-serviceidapikeys) with the following access:	
+
+- [**Editor** platform role](/docs/account?topic=account-account-services#access-groups-account-management) on the IAM Access Groups Service.	
+- [**Operator** platform role](/docs/account?topic=account-account-services#identity-service-account-management) on the IAM Identity Service.
 
 
 ## Configuring the IAM secrets engine in the UI
