@@ -90,7 +90,7 @@ You can connect the following DNS providers with your {{site.data.keyword.secret
 
 | Prerequisites |
 | :------------ |
-| Before you add a configuration for classic infrastructure, be sure that you:  \n  \n - Obtain your classic infrastructure username.  \n If you are using IBMid to log in to your account, your classic infrastructure username is your `<account_id>_<email_address>`. In the console, this username is also your VPN username for the account. To find your classic infrastructure username, go to **Manage > Access (IAM) > Users > _name_ > VPN password**.  \n  \n - [Create a classic infrastructure API key](/docs/account?topic=account-classic_keys).  \n Assign your user permissions to manage DNS in the account. For more information about managing classic infrastructure access, see [Classic infrastructure permissions](/docs/account?topic=account-infrapermission). |
+| Before you add a configuration for classic infrastructure, be sure that you:  \n  \n - Obtain your classic infrastructure username.  \n If you are using IBMid to log in to your account, your classic infrastructure username is your `<account_id>_<email_address>`.  \n  \n - [Create a classic infrastructure API key](/docs/account?topic=account-classic_keys).  \n Assign your user permissions to manage DNS in the account. For more information about managing classic infrastructure access, see [Classic infrastructure permissions](/docs/account?topic=account-infrapermission). |
 {: caption="Table 1. Prerequisites - Classic infrastructure" caption-side="top"}
 {: #classic-infrastructure-prereqs}
 {: tab-title="Classic infrastructure"}
