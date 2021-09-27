@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-22"
+lastupdated: "2021-09-27"
 content-type: tutorial
 services: secrets-manager,cloud-object-storage
 account-plan: lite
@@ -278,6 +278,9 @@ Finally, configure your {{site.data.keyword.secrets-manager_short}} instance to 
 
     Using a Windows™ command prompt (`cmd.exe`) or PowerShell? If you encounter errors with passing JSON content on the command line, you might need to adjust the strings for quotation-escaping requirements that are specific to your operating system. For more information, see [Using quotation marks with strings in the {{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-quote-strings).
     {: tip}
+
+    If you run into the following error: `Error processing the response received, most likely an error response: Get "https://secrets-manager.cloud.ibm.com/api/v1/secret_groups": dial tcp: lookup secrets-manager.cloud.ibm.com on 1.1.1.1:53: no such host`, be sure that you export an environment variable with your unique {{site.data.keyword.secrets-manager_short}} API endpoint URL as shown in the previous step.
+    {: note}
 
 4. Enable the IAM secrets engine for your instance.
 
