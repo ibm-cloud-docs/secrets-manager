@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-19"
+lastupdated: "2021-09-28"
 
 keywords: Data security for Secrets Manager, byok, kyok, data storage, data encryption in Secrets Manager, customer managed keys
 
@@ -62,7 +62,13 @@ To ensure that you can securely manage your data when you use {{site.data.keywor
 ## How your data is stored and encrypted in {{site.data.keyword.secrets-manager_short}}
 {: #data-storage}
 
+
+
 When you work with the {{site.data.keyword.secrets-manager_short}} service, you store secrets that allow users or services to access your protected resources. Your secrets are encrypted at rest by using [envelope encryption](#x9860393){: term}. At no time are your credentials available in clear text while they are stored by the service.
+
+
+
+
 
 {{site.data.keyword.secrets-manager_short}} also uses the following security mechanisms to protect your data in transit.
 
@@ -76,7 +82,7 @@ When you work with the {{site.data.keyword.secrets-manager_short}} service, you 
 
 You can add a higher level of encryption control to your data at rest (when it is stored) by enabling integration with a key management service.
 
-The data that you store in {{site.data.keyword.cloud_notm}} is encrypted at rest by using envelope encryption. If you need to control the encryption keys, you can integrate a key management service. This process is commonly referred to as Bring your own keys (BYOK). With a key management service, you can create, import, and manage encryption keys. You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service.
+The data that you store in {{site.data.keyword.cloud_notm}} is encrypted at rest by using [envelope encryption](#x9860393){: term}. If you need to control the encryption keys, you can integrate a key management service. This process is commonly referred to as Bring your own keys (BYOK). With a key management service, you can create, import, and manage encryption keys. You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service.
 
 The following table describes your options for managing the encryption of your {{site.data.keyword.secrets-manager_short}} data.
 
