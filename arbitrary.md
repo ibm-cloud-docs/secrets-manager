@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-22"
+lastupdated: "2021-09-28"
 
 keywords: arbitrary secrets, arbitrary text, custom secrets
 
@@ -103,6 +103,9 @@ ibmcloud secrets-manager secret-create --secret-type arbitrary --resources '[{"n
 ```
 {: pre}
 
+{{site.data.keyword.secrets-manager_short}} supports text-based payloads only for arbitrary secrets. If you need to upload a binary file, you must base64 encode the data first so that you can pass it to the {{site.data.keyword.secrets-manager_short}} CLI in a single-line string. To access this secret later in its original form, you need to base64 decode it. Consider assigning a label on your secret with encoded data, such as `encode:base64`, so that you can keep track of secrets that require base64 decoding.
+{: note}
+
 The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
 
 ## Creating arbitrary secrets with the API
@@ -130,6 +133,9 @@ If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](htt
 
 If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `CreateSecret` method to create and store an arbitrary secret. The following code shows an example call.
 {: go}
+
+{{site.data.keyword.secrets-manager_short}} supports text-based payloads only for arbitrary secrets. If you need to upload a binary file, you must base64 encode the data first so that you can pass it to the {{site.data.keyword.secrets-manager_short}} API in a single-line string. To access this secret later in its original form, you need to base64 decode it. Consider assigning a label on your secret with encoded data, such as `encode:base64`, so that you can keep track of secrets that require base64 decoding.
+{: note}
 
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/arbitrary" \

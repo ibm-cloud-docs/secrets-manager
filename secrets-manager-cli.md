@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-22"
+lastupdated: "2021-09-29"
 
 subcollection: secrets-manager
 
@@ -95,6 +95,8 @@ Current version: **`0.1.12`**
     {: important}
 
     
+
+
 
 
 
@@ -602,7 +604,7 @@ Define rotation policies for secrets.
 ### ibmcloud secrets-manager policy-update
 {: #secrets-manager-cli-policy-update-command}
 
-Creates or updates one or more policies, such as an [automatic rotation policy](http://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-rotate-secrets#auto-rotate-secret), for the specified secret.
+Creates or updates one or more policies, such as an [automatic rotation policy](/docs/secrets-manager?topic=secrets-manager-rotate-secrets), for the specified secret.
 
 ```sh
 ibmcloud secrets-manager policy-update --secret-type SECRET-TYPE --id ID --metadata METADATA --resources RESOURCES [--policy POLICY] 
