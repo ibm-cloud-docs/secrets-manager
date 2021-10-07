@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-10-07"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -235,7 +235,7 @@ engine_config = {
 
 response = secretsManager.put_config(
     secret_type='iam_credentials',
-    engine_config_one_of=engine_config
+    engine_config=engine_config
 ).get_result()
 
 print(json.dumps(response, indent=2))
@@ -402,7 +402,7 @@ const params = {
         'access_groups': [
         'AccessGroupId-e7e1a364-c5b9-4027-b4fe-083454499a20'
         ],
-        'secret_group_id: '432b91f1-ff6d-4b47-9f06-82debc236d90',
+        'secret_group_id': '432b91f1-ff6d-4b47-9f06-82debc236d90',
         'ttl': '12h',
         'labels': [
         'dev',
@@ -435,7 +435,7 @@ secret_resource = {
     'access_groups': [
         'AccessGroupId-e7e1a364-c5b9-4027-b4fe-083454499a20'
     ],
-    'secret_group_id: '432b91f1-ff6d-4b47-9f06-82debc236d90',
+    'secret_group_id': '432b91f1-ff6d-4b47-9f06-82debc236d90',
     'ttl': '12h',
     'labels': [
         'dev',
