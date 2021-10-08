@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-22"
+lastupdated: "2021-10-08"
 
 keywords: Vault CLI, configure the Vault CLI, use Secrets Manager with Vault CLI, CLI commands, log in to Vault
 
@@ -114,7 +114,7 @@ First, set up your environment to access a {{site.data.keyword.secrets-manager_s
 3. Run the script to set your environment variables.
 
     ```sh
-    ./<filename>.sh
+    source ./<filename>.sh
     ```
     {: pre}
 

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-19"
+lastupdated: "2021-10-08"
 
-keywords: unable to configure IAM secrets engine, can't create API key, access required for IAM secrets engine
+keywords: unable to configure IAM credentials engine, can't create API key, access required for IAM credentials engine
 
 subcollection: secrets-manager
 
@@ -56,15 +56,15 @@ content-type: troubleshoot
 {:unity: .ph data-hd-programlang='unity'}
 
 
-# Why can't I configure the IAM secrets engine?
+# Why can't I configure the IAM credentials engine?
 {: #troubleshoot-IAM-secrets-engine}
 {: troubleshoot}
 {: support}
 
-You try to configure the IAM secrets engine in an {{site.data.keyword.secrets-manager_full}} instance, but you're unable to do so.
+You try to configure the IAM credentials engine in an {{site.data.keyword.secrets-manager_full}} instance, but you're unable to do so.
 {: shortdesc}
 
-In the {{site.data.keyword.secrets-manager_short}} UI, you go to the **Secrets engines** page to configure the IAM secrets engine for a {{site.data.keyword.secrets-manager_short}} instance. You receive the following error message when you try to create an API key:
+In the {{site.data.keyword.secrets-manager_short}} UI, you go to the **Secrets engines** page to configure the IAM credentials engine for a {{site.data.keyword.secrets-manager_short}} instance. You receive the following error message when you try to create an API key:
 {: tsSymptoms}
 
 ```
@@ -73,17 +73,22 @@ You're not authorized to complete this action. To verify your permissions, conta
 ```
 {: screen}
 
-You verify with an account owner that you already have [**Manager** service access](/docs/secrets-manager?topic=secrets-manager-iam#iam-roles-actions) to {{site.data.keyword.secrets-manager_short}}, but you're still unable to configure the IAM secrets engine for the instance.
+You verify with an account owner that you already have [**Manager** service access](/docs/secrets-manager?topic=secrets-manager-iam#iam-roles-actions) to {{site.data.keyword.secrets-manager_short}}, but you're still unable to configure the IAM credentials engine for the instance.
 
-You need extra permissions to [create service ID API keys](/docs/account?topic=account-account-services#identity-service-account-management) in the account.
+You need extra permissions to [create service ID API keys](/docs/account?topic=account-account-services#identity-service-account-management) in the account. In some cases, API key and service ID creation might also be restricted on the account.
 {: tsCauses}
 
-To resolve the issue, verify with the account owner that you're assigned the following IAM permissions:
+First, verify with the account owner that you're assigned the following IAM permissions:
 {: tsResolve}
 
 - _Administrator_ platform access on the IAM Access Groups Service.
 - _Administrator_ platform access on the IAM Identity Service.
 - _Manager_ service access on the {{site.data.keyword.secrets-manager_short}} instance.
+
+If the updated access permissions do not resolve the issue, verify with the account owner that the [**Restrict API key creation**](/docs/account?topic=account-allow-api-create) and [**Restrict service ID creation**](/docs/account?topic=account-restrict-service-id-create) options are disabled on the account.
+
+![The figure shows a simplified IAM dashboard with numbered steps for disabling account restrictions.](../images/disable-acct-restrictions.svg){: caption="Figure 1. Disabling API key and service ID restrictions" caption-side="bottom"}
+
 
 If the problem persists, contact {{site.data.keyword.cloud_notm}} support.
 

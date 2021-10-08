@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-22"
+lastupdated: "2021-10-07"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -1632,8 +1632,7 @@ Create a new version of a secret. The secret retains its identifying information
 | Request parameters            | Description                                                                         |
 | ------------- | ----------------------------------------------------------------------------------- |
 | `payload`     | The new secret data to assign to an `arbitrary` secret. |
-| `username`    | The new password to assign to a `username_password` secret.|
-| `password`    | The password to assign to a `username_password` secret. |
+| `password`    | The new password to assign to a `username_password` secret. |
 | `certificate` | The new certificate to assign to an `imported_cert` secret. |
 | `private_key` | The new private key to assign to an `imported_cert` secret. |
 | `intermediate` | The new intermediate certificate data to assign to an `import_cert` secret.|
