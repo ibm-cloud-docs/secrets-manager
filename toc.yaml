@@ -16,18 +16,6 @@ toc:
       id: learn
       topics:
       - getting-started.md
-      - topicgroup: 
-          label: Internal adopters
-          topics:
-          - internal/onboarding.md
-          - topicgroup:
-              label: Migrating secrets from SOS Vault
-              topics:
-              - internal/sos-vault.md
-              - internal/community-vault.md
-              - internal/migrate-secrets.md
-              - internal/approle-policies.md
-          - internal/onboarding-faqs.md
       - topicgroup:
           label: Use cases
           topics:
