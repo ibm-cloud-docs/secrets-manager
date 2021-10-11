@@ -121,6 +121,9 @@ If you choose to work with a key that you manage, you must ensure that valid IAM
     5. Assign the Reader role.
     6. Click **Authorize** to confirm the authorization.
 
+    If you choose to [delete your {{site.data.keyword.secrets-manager_short}} instance later](#service-delete), this authorization is also deleted by IAM.
+    {: note}
+
 4. Create an instance of the {{site.data.keyword.secrets-manager_short}} service.
 
     1. Select the region that corresponds to the region for the instance of the key management service that you created previously.
