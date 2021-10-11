@@ -72,11 +72,11 @@ toc:
           - engine-what-is.md
           - engine-iam.md
           - topicgroup: 
-            label: Configuring the public certificates engine
-            topics:
-            - engine-public-certs.md
-            - certificate-authorities.md
-            - dns-providers.md 
+              label: Configuring the public certificates engine
+              topics:
+              - engine-public-certs.md
+              - certificate-authorities.md
+              - dns-providers.md 
       - topicgroup: 
           label: Logging and monitoring
           topics: 
@@ -117,19 +117,19 @@ toc:
           topics:
           - vault-api.md
           - topicgroup:
-            label: Vault CLI
-            topics:
-            - vault-cli-configure.md
-            - vault-cli.md
+              label: Vault CLI
+              topics:
+              - vault-cli-configure.md
+              - vault-cli.md
           - topicgroup:
-            label: Vault plug-ins
-            links:
-            - link:
-                label: IBM Cloud Auth method
-                href: https://github.com/ibm-cloud-security/vault-plugin-auth-ibmcloud
-            - link:
-                label: IBM Cloud Secrets backend
-                href: https://github.com/ibm-cloud-security/vault-plugin-secrets-ibmcloud
+              label: Vault plug-ins
+              links:
+              - link:
+                  label: IBM Cloud Auth method
+                  href: https://github.com/ibm-cloud-security/vault-plugin-auth-ibmcloud
+              - link:
+                  label: IBM Cloud Secrets backend
+                  href: https://github.com/ibm-cloud-security/vault-plugin-secrets-ibmcloud
       - endpoints.md
       - ha-dr.md             
 
