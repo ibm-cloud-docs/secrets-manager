@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-27"
+lastupdated: "2021-10-14"
 content-type: tutorial
 services: secrets-manager,cloud-object-storage
 account-plan: lite
@@ -56,6 +56,7 @@ subcollection: secrets-manager
 {:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
+{:release-note: data-hd-content-type='release-note'}
 
 # Access a storage bucket by using a dynamic secret
 {: #tutorial-access-storage-bucket}

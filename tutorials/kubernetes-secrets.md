@@ -3,7 +3,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-10-14"
 
 keywords: tutorial, Secrets Manager
 
@@ -57,6 +57,7 @@ completion-time: 45m
 {:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
+{:release-note: data-hd-content-type='release-note'}
 
 
 # Secure secrets for apps that run in your Kubernetes cluster

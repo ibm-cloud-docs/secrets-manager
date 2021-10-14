@@ -30,7 +30,8 @@ toc:
           topics:
           - best-practices/secret-organize.md
       - integrations.md
-      - releases.md        
+      - topic: releases.md
+        navtitle: Release notes        
 
 
   - navgroup: 

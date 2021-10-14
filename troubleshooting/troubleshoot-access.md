@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-19"
+lastupdated: "2021-10-14"
 
 keywords: troubleshoot secrets manager, troubleshooting for credentials, IAM credentials, unable to create credentials, troubleshooting Secrets Manager
 
@@ -54,6 +54,7 @@ content-type: troubleshoot
 {:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
+{:release-note: data-hd-content-type='release-note'}
 
 
 # Why can't I create an IAM credential?

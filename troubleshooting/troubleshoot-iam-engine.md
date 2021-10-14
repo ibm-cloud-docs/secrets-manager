@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-08"
+lastupdated: "2021-10-14"
 
 keywords: unable to configure IAM credentials engine, can't create API key, access required for IAM credentials engine
 
@@ -54,6 +54,7 @@ content-type: troubleshoot
 {:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
+{:release-note: data-hd-content-type='release-note'}
 
 
 # Why can't I configure the IAM credentials engine?
