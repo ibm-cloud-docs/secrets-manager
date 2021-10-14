@@ -80,7 +80,7 @@ toc:
               - dns-providers.md 
       - topicgroup: 
           label: Logging and monitoring
-          topics: 
+          topics:
           - at-events.md
           - logging.md
       - topicgroup: 
