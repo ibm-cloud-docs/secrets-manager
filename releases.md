@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-10-15"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -68,7 +68,7 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 {: release-note}
 
 Introducing {{site.data.keyword.secrets-manager_full}}
-With IBM Cloud® Secrets Manager, you can create secrets dynamically and lease them to applications while you control access from a single location. Built on open source HashiCorp Vault, Secrets Manager helps you get the data isolation of a dedicated environment with the benefits of a public cloud.
+:   With IBM Cloud® Secrets Manager, you can create secrets dynamically and lease them to applications while you control access from a single location. Built on open source HashiCorp Vault, Secrets Manager helps you get the data isolation of a dedicated environment with the benefits of a public cloud.
 
 ## 20 September 2021
 {: #subcollection-sept2021}
