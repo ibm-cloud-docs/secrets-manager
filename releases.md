@@ -63,13 +63,6 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
-## 18 December 2020
-{: #subcollection-december1820}
-{: release-note}
-
-Introducing {{site.data.keyword.secrets-manager_full}}
-:   With IBM Cloud® Secrets Manager, you can create secrets dynamically and lease them to applications while you control access from a single location. Built on open source HashiCorp Vault, Secrets Manager helps you get the data isolation of a dedicated environment with the benefits of a public cloud.
-
 ## 20 September 2021
 {: #subcollection-sept2021}
 {: release-note}
@@ -247,20 +240,19 @@ IAM roles
 
    To learn more about service access roles, see [Managing IAM access for {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-iam).
 
+
 ## 24 September 2020
 {: #subcollection-sept2420}
 {: release-note}
 
-Availability
-:   {{site.data.keyword.secrets-manager_short}} is now available as a beta service in the {{site.data.keyword.cloud_notm}} catalog!
+Introducing {{site.data.keyword.secrets-manager_full}}
+:   With IBM Cloud® Secrets Manager, you can create secrets dynamically and lease them to applications while you control access from a single location. Built on open source HashiCorp Vault, Secrets Manager helps you get the data isolation of a dedicated environment with the benefits of a public cloud.
 
    In this release, {{site.data.keyword.secrets-manager_short}} offers support for the following types of secrets:
 
-   - IAM credentials, which consist of a service ID and API key that are generated dynamically on your behalf.
-   - Arbitrary secrets, such as custom credentials that can be used to store any type of structured or  unstructured data.
-   - User credentials, such as usernames and passwords that you can use to log in to applications.
+      - IAM credentials, which consist of a service ID and API key that are generated dynamically on your behalf.
+      - Arbitrary secrets, such as custom credentials that can be used to store any type of structured or  unstructured data.
+      - User credentials, such as usernames and passwords that you can use to log in to applications.
 
-   To find out more about capabilities and use cases for {{site.data.keyword.secrets-manager_short}}, check out the [announcement blog](https://www.ibm.com/cloud/blog/announcements/introducing-ibm-cloud-secrets-manager-beta){: external}.
-
-
+      To find out more about capabilities and use cases for {{site.data.keyword.secrets-manager_short}}, check out the [announcement blog](https://www.ibm.com/cloud/blog/announcements/introducing-ibm-cloud-secrets-manager-beta){: external}.
 
