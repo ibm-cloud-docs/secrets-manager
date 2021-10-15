@@ -64,7 +64,7 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
 ## 20 September 2021
-{: #subcollection-sept2021}
+{: #secrets-manager-sept2021}
 {: release-note}
 
 Order domain-validated TLS certificates from Let's Encrypt
@@ -80,7 +80,7 @@ Order domain-validated TLS certificates from Let's Encrypt
 
 
 ## 30 August 2021
-{: #subcollection-aug3021}
+{: #secrets-manager-aug3021}
 {: release-note}
 
 Now available: {{site.data.keyword.cloudcerts_short}} to {{site.data.keyword.secrets-manager_short}} migration scripts
@@ -90,7 +90,7 @@ Now available: {{site.data.keyword.cloudcerts_short}} to {{site.data.keyword.sec
 
 
 ## 20 June 2021
-{: #subcollection-jun2021}
+{: #secrets-manager-jun2021}
 {: release-note}
 
 Import and manage your existing TLS certificates
@@ -104,7 +104,7 @@ Connect to {{site.data.keyword.secrets-manager_short}} from your VPC network
    To learn how to connect your existing {{site.data.keyword.secrets-manager_short}} instance, see [Securing your connection to {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-virtual-private-endpoint). For more information about setting up a virtual private endpoint gateway, check out [About virtual private endpoint gateways](/docs/vpc?topic=vpc-about-vpe).
 
 ## 19 May 2021
-{: #subcollection-may1921}
+{: #secrets-manager-may1921}
 {: release-note}
 
 Notice: Upcoming updates to supported cipher suites
@@ -127,7 +127,7 @@ Manage secrets in your {{site.data.keyword.contdelivery_short}} toolchain
    For more information, check out the [announcement blog](https://www.ibm.com/cloud/blog/manage-secrets-in-continuous-delivery-with-ibm-cloud-secrets-manager){: external}.
 
 ## 22 March 2021
-{: #subcollection-mar2221}
+{: #secrets-manager-mar2221}
 {: release-note}
 
 Manage secrets over a private network connection
@@ -151,7 +151,7 @@ London, Tokyo, and Washington DC availability
    For more information, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
 
 ## 15 February 2021
-{: #subcollection-feb1521}
+{: #secrets-manager-feb1521}
 {: release-note}
 
 Java SDK
@@ -160,7 +160,7 @@ Java SDK
    For more information, check out the [{{site.data.keyword.secrets-manager_full_notm}} Java SDK repository in GitHub](https://github.com/IBM/secrets-manager-java-sdk){: external}.
 
 ## 27 January 2021
-{: #subcollection-jan2721}
+{: #secrets-manager-jan2721}
 {: release-note}
 
 Python SDK
@@ -169,7 +169,7 @@ Python SDK
    For more information, check out the [{{site.data.keyword.secrets-manager_full_notm}} Python SDK repository in GitHub](https://github.com/IBM/secrets-manager-python-sdk){: external}.
 
 ## 26 January 2021
-{: #subcollection-jan2621}
+{: #secrets-manager-jan2621}
 {: release-note}
 
 Go SDK
@@ -179,7 +179,7 @@ Go SDK
 
 
 ## 18 December 2020
-{: #subcollection-dec1820}
+{: #secrets-manager-dec1820}
 {: release-note}
 
 General availability
@@ -188,7 +188,7 @@ General availability
    To find out more about this release, check out the [announcement blog](https://www.ibm.com/cloud/blog/announcements/ibm-cloud-secrets-manager-is-now-generally-available){: external}.
 
 ## 15 December 2020
-{: #subcollection-dec1520}
+{: #secrets-manager-dec1520}
 {: release-note}
 
 New region
@@ -197,7 +197,7 @@ New region
    For more information, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
 
 ## 14 December 2020
-{: #subcollection-dec1420}
+{: #secrets-manager-dec1420}
 {: release-note}
 
 CLI plug-in
@@ -209,7 +209,7 @@ CLI plug-in
    - To find out more about the CLI commands and options that are available for {{site.data.keyword.secrets-manager_short}}, see the [CLI reference](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli).
 
 ## 24 November 2020
-{: #subcollection-nov2420}
+{: #secrets-manager-nov2420}
 {: release-note}
 
 Node.js SDK
@@ -218,7 +218,7 @@ Node.js SDK
    For more information, check out the [{{site.data.keyword.secrets-manager_full_notm}} Node.js SDK repository in GitHub](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}.
 
 ## 13 November 2020
-{: #subcollection-nov1320}
+{: #secrets-manager-nov1320}
 {: release-note}
 
 :   Need to manage {{site.data.keyword.cloud_notm}} secrets by using an on-premises Vault? You can now integrate stand-alone {{site.data.keyword.cloud_notm}} plug-ins for Vault. These open source plug-ins can be used independently from each other so that you can manage {{site.data.keyword.cloud_notm}} secrets through your on-premises Vault server.
@@ -229,7 +229,7 @@ Node.js SDK
    For more information, check out the [announcement blog](https://www.ibm.com/cloud/blog/announcements/hashicorp-enterprise-vault-plugins-for-ibm-cloud){: external}
 
 ## 9 November 2020
-{: #subcollection-nov0920}
+{: #secrets-manager-nov0920}
 {: release-note}
 
 IAM roles
@@ -242,7 +242,7 @@ IAM roles
 
 
 ## 24 September 2020
-{: #subcollection-sept2420}
+{: #secrets-manager-sept2420}
 {: release-note}
 
 Introducing {{site.data.keyword.secrets-manager_full}}
