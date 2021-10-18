@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-10-18"
 
 keywords: Data security for Secrets Manager, byok, kyok, data storage, data encryption in Secrets Manager, customer managed keys
 
@@ -144,12 +144,12 @@ The {{site.data.keyword.secrets-manager_short}} data retention policy describes 
 
 If you no longer need an instance of {{site.data.keyword.secrets-manager_short}}, you can delete the service instance and any data that is stored. Your instance enters a disabled state, and after 7 days its data is permanently deleted. You can also choose to delete your service instance by using the console.
 
-During the 7-day reclamation period, do not delete authorizations between {{site.data.keyword.secrets-manager_short}} and other integrated services, such as {{site.data.keyword.keymanagementserviceshort}}. {{site.data.keyword.secrets-manager_short}} uses the authorization to deregister your instance from any associated resources in those services. After the instance is permanently deleted, the authorization is also deleted by IAM.
+During the 7-day reclamation period, do not delete authorizations between {{site.data.keyword.secrets-manager_short}} and other integrated services, such as {{site.data.keyword.keymanagementserviceshort}}. {{site.data.keyword.secrets-manager_short}} uses the authorization to unregister your instance from any associated resources in those services. After the instance is permanently deleted, the authorization is also deleted by IAM.
 {: important}
 
 1. Delete the service and place it in a reclamation period of 7 days.
 
-    ```
+    ```sh
     ibmcloud resource service-instance-delete "<instance_name>"
     ```
     {: pre}
@@ -158,7 +158,7 @@ During the 7-day reclamation period, do not delete authorizations between {{site
 
 2. Optional: To permanently delete your instance, get the reclamation ID.
 
-    ```
+    ```sh
     ibmcloud resource reclamations --resource-instance-id <instance_ID>
     ```
     {: pre}
@@ -170,7 +170,7 @@ During the 7-day reclamation period, do not delete authorizations between {{site
 
 3. Optional: Permanently delete the reclamation instance.
 
-    ```
+    ```sh
     ibmcloud resource reclamation-delete <reclamation_ID>
     ```
     {: pre}
@@ -184,7 +184,7 @@ If you haven't permanently deleted your instance, you can restore it during the 
 
 1. View which service instances are available for restoration.
 
-    ```
+    ```sh
     ibmcloud resource reclamations
     ```
     {: pre}
@@ -193,7 +193,7 @@ If you haven't permanently deleted your instance, you can restore it during the 
 
 2. Restore the reclamation.
 
-    ```
+    ```sh
     ibmcloud resource reclamation-restore <reclamation_ID>
     ```
     {: pre}
