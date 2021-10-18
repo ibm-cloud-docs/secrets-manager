@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-15"
+lastupdated: "2021-10-18"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -55,7 +55,7 @@ content-type: release-note
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
-# Release notes for {{site.data.keyword.secrets-manager_full}}
+# Release notes for {{site.data.keyword.secrets-manager_short}}
 {: #release-notes}
 
 Use these release notes to learn about the latest changes to {{site.data.keyword.secrets-manager_full}} that are grouped by date.
@@ -76,15 +76,15 @@ Order domain-validated TLS certificates from Let's Encrypt
    - {{site.data.keyword.cloud_notm}} Internet Services (CIS)
    - {{site.data.keyword.cloud_notm}} classic infrastructure (SoftLayer)
 
-   For more information, check out [Ordering domain-validated certificates from third-parties](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates).
+   For more information, see [Ordering domain-validated certificates from third-parties](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates) or check out the [announcement blog](https://www.ibm.com/cloud/blog/announcements/now-available-order-domain-validated-tls-certificates-with-single-tenant-ibm-cloud-secrets-manager){: external}.
 
 
 ## 30 August 2021
 {: #secrets-manager-aug3021}
 {: release-note}
 
-Now available: {{site.data.keyword.cloudcerts_short}} to {{site.data.keyword.secrets-manager_short}} migration scripts
-:   You can now take advantage of automation scripts that can help you to move certificates from {{site.data.keyword.cloudcerts_short}} to {{site.data.keyword.secrets-manager_short}}.
+Migrate certificates from {{site.data.keyword.cloudcerts_short}} to {{site.data.keyword.secrets-manager_short}}
+:   Ready to try {{site.data.keyword.secrets-manager_short}} for certificates management? You can now take advantage of automation scripts that can help you to move certificates from {{site.data.keyword.cloudcerts_short}} to {{site.data.keyword.secrets-manager_short}}.
 
    For more information, check out the [migration scripts in GitHub](https://github.com/ibm-cloud-security/certificate-manager-to-secrets-manager){: external}. 
 
@@ -107,7 +107,7 @@ Connect to {{site.data.keyword.secrets-manager_short}} from your VPC network
 {: #secrets-manager-may1921}
 {: release-note}
 
-Notice: Upcoming updates to supported cipher suites
+Upcoming updates to supported cipher suites
 :   On 2021 May 29, Secrets Manager will deliver changes to the cipher suites that it supports for TLS connections to the service. This update is being implemented to enhance the security of IBM Cloud users and protect user data.
 
    - **What's changing?** Beginning 2021 May 29, Secrets Manager API endpoints will allow only the following cipher suites:
@@ -154,7 +154,7 @@ London, Tokyo, and Washington DC availability
 {: #secrets-manager-feb1521}
 {: release-note}
 
-Java SDK
+Now available: {{site.data.keyword.secrets-manager_short}} Java SDK
 :   You can now use the {{site.data.keyword.secrets-manager_full_notm}} Java SDK to connect to your {{site.data.keyword.secrets-manager_short}} service instance.
 
    For more information, check out the [{{site.data.keyword.secrets-manager_full_notm}} Java SDK repository in GitHub](https://github.com/IBM/secrets-manager-java-sdk){: external}.
@@ -163,26 +163,20 @@ Java SDK
 {: #secrets-manager-jan2721}
 {: release-note}
 
-Python SDK
-:   You can now use the {{site.data.keyword.secrets-manager_full_notm}} Python SDK to connect to your {{site.data.keyword.secrets-manager_short}} service instance.
+Now available: {{site.data.keyword.secrets-manager_short}} Go and Python SDKs
+:   You can now use the {{site.data.keyword.secrets-manager_full_notm}} Go and Python SDKs to connect to your {{site.data.keyword.secrets-manager_short}} service instance.
 
-   For more information, check out the [{{site.data.keyword.secrets-manager_full_notm}} Python SDK repository in GitHub](https://github.com/IBM/secrets-manager-python-sdk){: external}.
-
-## 26 January 2021
-{: #secrets-manager-jan2621}
-{: release-note}
-
-Go SDK
-:   You can now use the {{site.data.keyword.secrets-manager_full_notm}} Go SDK to connect to your {{site.data.keyword.secrets-manager_short}} service instance.
-
-   For more information, check out the [{{site.data.keyword.secrets-manager_full_notm}} Go SDK repository in GitHub](https://github.com/IBM/secrets-manager-go-sdk){: external}.
+   For more information, check out the SDK repositories in GitHub:
+   
+   - [{{site.data.keyword.secrets-manager_full_notm}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}
+   - [{{site.data.keyword.secrets-manager_full_notm}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}
 
 
 ## 18 December 2020
 {: #secrets-manager-dec1820}
 {: release-note}
 
-General availability
+Announcing {{site.data.keyword.secrets-manager_short}} general availability
 :   {{site.data.keyword.secrets-manager_short}} is now generally available in the {{site.data.keyword.cloud_notm}} catalog!
 
    To find out more about this release, check out the [announcement blog](https://www.ibm.com/cloud/blog/announcements/ibm-cloud-secrets-manager-is-now-generally-available){: external}.
@@ -191,7 +185,7 @@ General availability
 {: #secrets-manager-dec1520}
 {: release-note}
 
-New region
+Sydney availability
 :   You can now create a {{site.data.keyword.secrets-manager_short}} service instance in the Sydney (`au-syd`) region.
 
    For more information, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
@@ -200,7 +194,7 @@ New region
 {: #secrets-manager-dec1420}
 {: release-note}
 
-CLI plug-in
+Now available: {{site.data.keyword.secrets-manager_short}} CLI plug-in
 :   The {{site.data.keyword.secrets-manager_short}} CLI plug-in is now available for download!
 
    You can use the {{site.data.keyword.secrets-manager_short}} CLI to interact with the secrets that you store in your {{site.data.keyword.secrets-manager_short}} instance. To install the plug-in, log in to the IBM Cloud CLI and run `ibmcloud plugin install secrets-manager`.
@@ -212,7 +206,7 @@ CLI plug-in
 {: #secrets-manager-nov2420}
 {: release-note}
 
-Node.js SDK
+Now available: {{site.data.keyword.secrets-manager_short}} Node.js SDK
 :   You can now use the {{site.data.keyword.secrets-manager_full_notm}} Node.js SDK to connect to your {{site.data.keyword.secrets-manager_short}} service instance.
 
    For more information, check out the [{{site.data.keyword.secrets-manager_full_notm}} Node.js SDK repository in GitHub](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}.
@@ -221,6 +215,7 @@ Node.js SDK
 {: #secrets-manager-nov1320}
 {: release-note}
 
+Now available: {{site.data.keyword.cloud_notm}} plug-ins for Vault
 :   Need to manage {{site.data.keyword.cloud_notm}} secrets by using an on-premises Vault? You can now integrate stand-alone {{site.data.keyword.cloud_notm}} plug-ins for Vault. These open source plug-ins can be used independently from each other so that you can manage {{site.data.keyword.cloud_notm}} secrets through your on-premises Vault server.
 
    - To set up authentication between Vault and your {{site.data.keyword.cloud_notm}} account, you can use the [{{site.data.keyword.cloud_notm}} Auth Method plug-in for Vault](https://github.com/ibm-cloud-security/vault-plugin-auth-ibmcloud){: external}.
@@ -232,7 +227,7 @@ Node.js SDK
 {: #secrets-manager-nov0920}
 {: release-note}
 
-IAM roles
+Grant controlled access to secret data with the `SecretsReader` role
 :   You can now choose between the Reader and SecretsReader IAM roles for better control over access to the payload of your secrets.
 
    - As a reader, you can browse a high-level view of secrets in your instance. Readers can't access the payload of a secret.
@@ -245,14 +240,14 @@ IAM roles
 {: #secrets-manager-sept2420}
 {: release-note}
 
-Introducing {{site.data.keyword.secrets-manager_full}}
-:   With IBM Cloud® Secrets Manager, you can create secrets dynamically and lease them to applications while you control access from a single location. Built on open source HashiCorp Vault, Secrets Manager helps you get the data isolation of a dedicated environment with the benefits of a public cloud.
+Introducing {{site.data.keyword.secrets-manager_short}}
+:   With {{site.data.keyword.secrets-manager_full_notm}}, you can create secrets dynamically and lease them to applications while you control access from a single location. Built on open source HashiCorp Vault, {{site.data.keyword.secrets-manager_short}} helps you get the data isolation of a dedicated environment with the benefits of a public cloud.
 
    In this release, {{site.data.keyword.secrets-manager_short}} offers support for the following types of secrets:
 
-      - IAM credentials, which consist of a service ID and API key that are generated dynamically on your behalf.
-      - Arbitrary secrets, such as custom credentials that can be used to store any type of structured or  unstructured data.
-      - User credentials, such as usernames and passwords that you can use to log in to applications.
+   - IAM credentials, which consist of a service ID and API key that are generated dynamically on your behalf.
+   - Arbitrary secrets, such as custom credentials that can be used to store any type of structured or  unstructured data.
+   - User credentials, such as usernames and passwords that you can use to log in to applications.
 
-      To find out more about capabilities and use cases for {{site.data.keyword.secrets-manager_short}}, check out the [announcement blog](https://www.ibm.com/cloud/blog/announcements/introducing-ibm-cloud-secrets-manager-beta){: external}.
+   To find out more about capabilities and use cases for {{site.data.keyword.secrets-manager_short}}, check out the [announcement blog](https://www.ibm.com/cloud/blog/announcements/introducing-ibm-cloud-secrets-manager-beta){: external}.
 
