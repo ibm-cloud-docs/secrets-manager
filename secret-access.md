@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-08"
+lastupdated: "2021-10-14"
 
 keywords: access secret, retrieve secret, read secret, get secret value, get secrets, view secrets, search secrets, read secrets, get secret value
 
@@ -52,6 +52,7 @@ subcollection: secrets-manager
 {:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
+{:release-note: data-hd-content-type='release-note'}
 
 # Accessing secrets
 {: #access-secrets}

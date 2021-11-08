@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-22"
+lastupdated: "2021-10-14"
 
 keywords: isolation for {{site.data.keyword.secrets-manager_short}}, service endpoints for {{site.data.keyword.secrets-manager_short}}, private network for {{site.data.keyword.secrets-manager_short}}, network isolation in {{site.data.keyword.secrets-manager_short}}, non-public routes for {{site.data.keyword.secrets-manager_short}}, private connection for {{site.data.keyword.secrets-manager_short}}
 
@@ -52,6 +52,7 @@ subcollection: secrets-manager
 {:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
+{:release-note: data-hd-content-type='release-note'}
 
 # Privately connecting to {{site.data.keyword.secrets-manager_short}} with service endpoints
 {: #service-connection}

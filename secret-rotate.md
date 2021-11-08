@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-20"
+lastupdated: "2021-10-14"
 
 keywords: rotate secrets, manually rotate, new secret, automatically rotate, automatic rotation, set rotation policy
 
@@ -52,6 +52,7 @@ subcollection: secrets-manager
 {:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
+{:release-note: data-hd-content-type='release-note'}
 
 # Rotating secrets
 {: #rotate-secrets}

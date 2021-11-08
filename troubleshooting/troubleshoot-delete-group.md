@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-19"
+lastupdated: "2021-10-14"
 
 keywords: troubleshoot secrets manager, troubleshooting for secret group, delete secret group, can't delete secret group, unable to delete secret group, troubleshooting Secrets Manager
 
@@ -54,6 +54,7 @@ content-type: troubleshoot
 {:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
+{:release-note: data-hd-content-type='release-note'}
 
 
 # Why can't I delete my secret group?

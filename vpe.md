@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-19"
+lastupdated: "2021-10-14"
 
 keywords: connect to {{site.data.keyword.secrets-manager_short}} on a VPC, virtual service endpoints, virtual private cloud, connect via VPC, connect through VPC, connect via VPE, connect through VPE
 
@@ -52,6 +52,7 @@ subcollection: secrets-manager
 {:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
+{:release-note: data-hd-content-type='release-note'}
 
 # Connecting to {{site.data.keyword.secrets-manager_short}} with virtual private endpoints
 {: #virtual-private-endpoint}

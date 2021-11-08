@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-22"
+lastupdated: "2021-10-20"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
 
@@ -52,6 +52,7 @@ subcollection: secrets-manager
 {:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
+{:release-note: data-hd-content-type='release-note'}
 
 # Adding TLS certificates
 {: #certificates}
@@ -60,6 +61,9 @@ You can use {{site.data.keyword.secrets-manager_full}} to store and request SSL 
 {: shortdesc}
 
 An SSL or TLS certificate is a type of digital certificate that is used to establish communication privacy between a server and a client. Certificates are issued by [certificate authorities (CA)](#x2016383){: term} and contain information that is used to create trusted and secure connections between endpoints. After you add a certificate to your {{site.data.keyword.secrets-manager_short}} instance, you can use it to secure network communications for your cloud or on-premises deployments. Your certificate is stored securely in your dedicated {{site.data.keyword.secrets-manager_short}} service instance, where you can centrally manage its lifecycle.
+
+In {{site.data.keyword.secrets-manager_short}}, certificates that you import to the service are _imported certificates_ (`import_cert`). Certificates that you order through {{site.data.keyword.secrets-manager_short}} from a third-party certificate authority are _public certificates_ (`public_cert`).
+{: note}
 
 To learn more about the types of secrets that you can manage in {{site.data.keyword.secrets-manager_short}}, see [What is a secret?](/docs/secrets-manager?topic=secrets-manager-what-is-secret)
 
@@ -235,7 +239,7 @@ When you order a certificate, domain validation takes place to verify the owners
    The configuration that you select determines the certificate authority to use for signing and issuing the certificate. To view the configurations that are defined for your instance, you can go to **Secrets engines > Public certificates**.
 9. Select the key algorithm to be used to generate the public key for your certificate.
 
-   The key algorithm that you select determines the encryption algorithm (`RSA` or `ECDSA`) and key size that to use to generate keys and sign certificates. For longer living certificates it is recommended to use longer key lengths to provide more encryption protection. Options include `RSA2048`, `RSA4096`, `ECDSA256`, and `ECDSA384`.
+   The key algorithm that you select determines the encryption algorithm (`RSA` or `ECDSA`) and key size to use to generate keys and sign certificates. For longer living certificates it is recommended to use longer key lengths to provide more encryption protection. Options include `RSA2048`, `RSA4096`, `ECDSA256`, and `ECDSA384`.
 10. Optional: Add labels to help you to search for similar secrets in your instance.
 11. Optional: Enable advanced options for the certificate.
     1. To bundle your issued certificate with intermediate certificates, switch the bundle toggle to **On**. After your certificates are bundled, they can no longer be unbundled.

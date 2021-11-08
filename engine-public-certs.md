@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-22"
+lastupdated: "2021-10-14"
 
 keywords: set up certificates, set up public certificates, public certificates engine, set up CIS, set up CA, set up Let's Encrypt
 
@@ -52,6 +52,7 @@ subcollection: secrets-manager
 {:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
+{:release-note: data-hd-content-type='release-note'}
 
 # Preparing to order certificates
 {: #prepare-order-certificates}

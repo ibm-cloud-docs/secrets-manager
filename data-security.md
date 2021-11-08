@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-09-28"
+lastupdated: "2021-11-08"
 
 keywords: Data security for Secrets Manager, byok, kyok, data storage, data encryption in Secrets Manager, customer managed keys
 
@@ -52,6 +52,7 @@ subcollection: secrets-manager
 {:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
+{:release-note: data-hd-content-type='release-note'}
 
 # Securing your data in {{site.data.keyword.secrets-manager_short}}
 {: #mng-data}
@@ -62,13 +63,9 @@ To ensure that you can securely manage your data when you use {{site.data.keywor
 ## How your data is stored and encrypted in {{site.data.keyword.secrets-manager_short}}
 {: #data-storage}
 
+When you work with {{site.data.keyword.secrets-manager_short}}, the service communicates with HashiCorp Vault to process operations on secrets of different types. By design, [Vault uses a security barrier](https://www.vaultproject.io/docs/internals/security#external-threat-overview) for all requests that are made to its back end. Data that leaves Vault is automatically encrypted by using a 256-bit Advanced Encryption Standard (AES) cipher in the Galois Counter Mode (GCM) with 96-bit nonces. 
 
-
-When you work with the {{site.data.keyword.secrets-manager_short}} service, you store secrets that allow users or services to access your protected resources. Your secrets are encrypted at rest by using [envelope encryption](#x9860393){: term}. At no time are your credentials available in clear text while they are stored by the service.
-
-
-
-
+{{site.data.keyword.secrets-manager_short}} encrypts all secrets at rest with [envelope encryption](#x9860393){: term}. Your encrypted secrets are stored in a dedicated Cloud Object Storage bucket that is unique to your instance. To protect secrets at rest, {{site.data.keyword.secrets-manager_short}} integrates with a key management service, such as {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}}. Each version of every secret is encrypted by a data encryption key (DEK) that is protected by a [root key](#x6946961){: term}, which is used by {{site.data.keyword.secrets-manager_short}} to [seal and unseal access to Vault](https://www.vaultproject.io/docs/concepts/seal). This integration protects your secrets by using encryption keys that are rooted in FIPS-validated [hardware security modules](#x6704988){: term}. At no time are your credentials available in clear text while they are stored by the service.
 
 {{site.data.keyword.secrets-manager_short}} also uses the following security mechanisms to protect your data in transit.
 
@@ -121,6 +118,9 @@ If you choose to work with a key that you manage, you must ensure that valid IAM
     5. Assign the Reader role.
     6. Click **Authorize** to confirm the authorization.
 
+    If you choose to [delete your {{site.data.keyword.secrets-manager_short}} instance later](#service-delete), this authorization is also deleted by IAM.
+    {: note}
+
 4. Create an instance of the {{site.data.keyword.secrets-manager_short}} service.
 
     1. Select the region that corresponds to the region for the instance of the key management service that you created previously.
@@ -140,9 +140,12 @@ The {{site.data.keyword.secrets-manager_short}} data retention policy describes 
 
 If you no longer need an instance of {{site.data.keyword.secrets-manager_short}}, you can delete the service instance and any data that is stored. Your instance enters a disabled state, and after 7 days its data is permanently deleted. You can also choose to delete your service instance by using the console.
 
+During the 7-day reclamation period, do not delete authorizations between {{site.data.keyword.secrets-manager_short}} and other integrated services, such as {{site.data.keyword.keymanagementserviceshort}}. {{site.data.keyword.secrets-manager_short}} uses the authorization to unregister your instance from any associated resources in those services. After the instance is permanently deleted, the authorization is also deleted by IAM.
+{: important}
+
 1. Delete the service and place it in a reclamation period of 7 days.
 
-    ```
+    ```sh
     ibmcloud resource service-instance-delete "<instance_name>"
     ```
     {: pre}
@@ -151,7 +154,7 @@ If you no longer need an instance of {{site.data.keyword.secrets-manager_short}}
 
 2. Optional: To permanently delete your instance, get the reclamation ID.
 
-    ```
+    ```sh
     ibmcloud resource reclamations --resource-instance-id <instance_ID>
     ```
     {: pre}
@@ -159,11 +162,11 @@ If you no longer need an instance of {{site.data.keyword.secrets-manager_short}}
     Replace `<instance_ID>` with your {{site.data.keyword.secrets-manager_short}} instance ID.
 
     If you choose to permanently delete the instance by deleting its reclamation, you cannot restore your data.
-    {: pre}
+    {: note}
 
 3. Optional: Permanently delete the reclamation instance.
 
-    ```
+    ```sh
     ibmcloud resource reclamation-delete <reclamation_ID>
     ```
     {: pre}
@@ -177,7 +180,7 @@ If you haven't permanently deleted your instance, you can restore it during the 
 
 1. View which service instances are available for restoration.
 
-    ```
+    ```sh
     ibmcloud resource reclamations
     ```
     {: pre}
@@ -186,7 +189,7 @@ If you haven't permanently deleted your instance, you can restore it during the 
 
 2. Restore the reclamation.
 
-    ```
+    ```sh
     ibmcloud resource reclamation-restore <reclamation_ID>
     ```
     {: pre}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-29"
+lastupdated: "2021-10-14"
 
 subcollection: secrets-manager
 
@@ -52,6 +52,7 @@ keywords: Secrets Manager CLI, Secrets Manager command line , Secrets Manager te
 {:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
+{:release-note: data-hd-content-type='release-note'}
 
 # {{site.data.keyword.secrets-manager_short}} CLI
 {: #secrets-manager-cli}
