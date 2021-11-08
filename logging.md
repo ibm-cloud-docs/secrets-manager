@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-11-08"
 
 keywords: logging, activity, monitor app, monitor secrets
 
@@ -53,7 +53,7 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
-# Viewing logs for {{site.data.keyword.secrets-manager_short}}
+# Logging for {{site.data.keyword.secrets-manager_short}}
 {: #service-logs}
 
 Use the {{site.data.keyword.la_full}} service to view {{site.data.keyword.secrets-manager_full}} logs for your instance.
