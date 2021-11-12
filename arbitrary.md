@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-11-12"
 
 keywords: arbitrary secrets, arbitrary text, custom secrets
 
@@ -280,6 +280,6 @@ secretIdLink = *result.;
 {: codeblock}
 {: go}
 
-A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
+A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager#create-secret)..
 
 
