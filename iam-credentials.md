@@ -87,24 +87,46 @@ To create IAM credentials by using the {{site.data.keyword.secrets-manager_short
 6. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
 
     Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
-7. Click **Select access group** to determine the scope of access for your IAM credential.
-
-    By selecting an access group from your {{site.data.keyword.cloud_notm}} account, you determine the scope of access to assign to the service ID that is dynamically generated and associated with your new IAM credential. This step ensures that your IAM credentials are scoped with the preferred level of permissions in your {{site.data.keyword.cloud_notm}} account. You can assign up to 10 access groups.
-8. Optional: Add labels to help you to search for similar secrets in your instance.
-9. Set a lease duration or time-to-live (TTL) for the secret.
+7. Optional: Add labels to help you to search for similar secrets in your instance.
+8. Set a lease duration or time-to-live (TTL) for the secret.
 
     By setting a lease duration for your IAM credential, you determine how long its associated API key remains valid. After the IAM credential reaches the end of its lease, it is revoked automatically.
-10. Optional: Determine whether IAM credentials can be reused for your secret.
+9.  Optional: [Determine whether IAM credentials can be reused](#iam-credentials-reuse-ui) for your secret.
+10. Click **Next**.
+11. In the **Assign access** step, [determine the scope of access](#iam-credentials-service-id-ui) to assign for your IAM credential.
+12. To confirm your selections, click **Add**.
 
-    By default, a service ID and API key are generated and deleted each time that an IAM credentials secret is read or accessed. By setting **Reuse IAM credentials** to **On**, your secret retains its current service ID and API key values and reuses them on each read while the secret remains valid. After the secret reaches the end of its lease, the credentials are revoked automatically. You can set this option to **Off** if you want the service ID API key to be a single-use, ephemeral secret.
-11. Click **Next**.
-12. Determine the scope of access to assign for your IAM credential.
 
-    You can assign access by either selecting an existing service ID from your account, or selecting access groups.
+### Reusing the same API key until the lease expires
+{: #iam-credentials-reuse-ui}
+{: ui}
 
-    1. To use an existing service ID, select an ID from the list. Only the service IDs that you have access to are displayed. Choose this option when you need {{site.data.keyword.secrets-manager_short}} to generate and manage only an API key for your IAM credentials secret, and not the service ID itself. The API key inherits the access policy of the service ID that you select from your account. 
-    2. To generate both a new service ID and API key for the secret, select an access group. By selecting an access group from your {{site.data.keyword.cloud_notm}} account, you determine the scope of access to assign to the service ID API key that is dynamically generated and associated with your new IAM credential. This step ensures that your IAM credentials are scoped with the preferred level of permissions in your {{site.data.keyword.cloud_notm}} account. You can assign up to 10 access groups.
-13. Click **Add**.
+IAM credentials consist of a service ID and an API key. By default, the service ID and API key are single-use, ephemeral values that are generated and deleted each time that an IAM credentials secret is read or accessed. 
+
+If you'd like to continue to use those credentials through the end of the lease of your secret, you can enable the option by using the UI. 
+
+1. In the Create IAM credentials wizard, set **Reuse IAM credentials until lease expires** to **On**.
+2. If set to **On**, your secret retains its current service ID and API key values and reuses them on each read while the secret remains valid. After the secret reaches the end of its lease, the credentials are revoked automatically. 
+
+
+
+
+
+### Using an existing service ID in your account
+{: #iam-credentials-service-id-ui}
+{: ui}
+
+You might already have a service ID in your account that you'd like to use to dynamically generate an API key. In this scenario, you can choose to create an IAM credentials secret by bringing your own service ID. Or, if you prefer to generate both a service ID and an API key, you can assign access by choosing an access group.
+
+In the **Assign access** step of the Create IAM credentials wizard, determine how you'd like to scope access for your credentials.
+
+1. To use an existing service ID, select an ID from the list.
+   
+   Choose this option when you need {{site.data.keyword.secrets-manager_short}} to generate and manage only an API key for your IAM credentials secret, and not the service ID itself. The API key inherits the access policy of the service ID that you select from your account. Only the service IDs that you have access to are displayed. 
+
+2. To generate both a new service ID and API key for the secret, select an access group.
+   
+   By selecting an access group from your {{site.data.keyword.cloud_notm}} account, you determine the scope of access to assign to the service ID API key that is dynamically generated and associated with your new IAM credential. This step ensures that your IAM credentials are scoped with the preferred level of permissions in your {{site.data.keyword.cloud_notm}} account. You can assign up to 10 access groups.
 
 ## Creating IAM credentials from the CLI
 {: #iam-credentials-cli}
@@ -120,14 +142,14 @@ ibmcloud secrets-manager secret-create --secret-type iam_credentials --resources
 The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
 
 ### Reusing the same API key until the lease expires
-{: #iam-credentials-service-id-cli}
+{: #iam-credentials-reuse-cli}
 {: cli}
 
 IAM credentials consist of a service ID and an API key. By default, the service ID and API key are single-use, ephemeral values that are generated and deleted each time that an IAM credentials secret is read or accessed. 
 
-If you'd like to continue using those credentials through the end of the lease of your secret, you can use the `reuse_api_key` field. If set to `true`, your secret retains its current service ID and API key values and reuses them on each read while the secret remains valid. After the secret reaches the end of its lease, the credentials are revoked automatically. 
+If you'd like to continue to use those credentials through the end of the lease of your secret, you can use the `reuse_api_key` field. If set to `true`, your secret retains its current service ID and API key values and reuses them on each read while the secret remains valid. After the secret reaches the end of its lease, the credentials are revoked automatically. 
 
-
+The following example command uses an exisiting service ID to create IAM credentials.
 
 ```sh
 ibmcloud secrets-manager secret-create --secret-type iam_credentials --resources '[{"name":"example-reuse-credentials","description":"Uses the same service ID API key on each read until the lease expires.","reuse_api_key": true,"secret_group_id":"<secret_group_id>","ttl":"30m","labels":["reusable"]}]'
@@ -136,13 +158,15 @@ ibmcloud secrets-manager secret-create --secret-type iam_credentials --resources
 
 The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
 
+
+
 ### Using an existing service ID in your account
 {: #iam-credentials-service-id-cli}
 {: cli}
 
 You might already have a service ID in your account that you'd like to use to dynamically generate an API key. In this scenario, you can choose to create an IAM credentials secret by bringing your own service ID. 
 
-From the list of service IDs in your account. Then use the `service_id` field to specify the ID. 
+For example, the following command creates an IAM credential by using the `service_id` field.
 
 You can find the ID value of a service ID in the IAM section of the console. Go to **Manage > Access (IAM) > Service IDs > _name_**. Click **Details** to view the ID.
 {: note}
