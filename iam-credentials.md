@@ -103,11 +103,7 @@ To create IAM credentials by using the {{site.data.keyword.secrets-manager_short
 
 IAM credentials consist of a service ID and an API key. By default, the service ID and API key are single-use, ephemeral values that are generated and deleted each time that an IAM credentials secret is read or accessed. 
 
-If you'd like to continue to use those credentials through the end of the lease of your secret, you can enable the option by using the UI. 
-
-1. In the Create IAM credentials wizard, set **Reuse IAM credentials until lease expires** to **On**.
-2. If set to **On**, your secret retains its current service ID and API key values and reuses them on each read while the secret remains valid. After the secret reaches the end of its lease, the credentials are revoked automatically. 
-
+If you'd like to continue to use those credentials through the end of the lease of your secret, you can set **Reuse IAM credentials until lease expires** to **On**. When you enable this option, your secret retains its current service ID and API key values and reuses them on each read while the secret remains valid. After the secret reaches the end of its lease, the credentials are revoked automatically. 
 
 
 
