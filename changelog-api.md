@@ -64,6 +64,8 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 
 
 
+
+
 ## 22 November 2021
 {: #2021-11-22-api}
 
@@ -76,12 +78,6 @@ This release includes the following updates:
 - Added `payload_available` and `downloaded` boolean parameters to the response details of the [Get a secret](/apidocs/secrets-manager#get-secret), [Get secret version metadata](/apidocs/secrets-manager#get-secret-version-metadata), [List versions of a secret](/apidocs/secrets-manager#list-secret-versions) methods. These parameters can help you to identify whether the a secret version is available to be restored, and whether it has already been previously read or accessed.
 - Updated the [Get a version of a secret](/apidocs/secrets-manager#get-secret-version) method that can be used to retrieve the previous version of a secret. This API now supports `arbitrary`, `iam_credentials`, and `username_password` secrets, in addition to `public_cert` and `imported_cert`.
 
-The following beta updates are now available for evaluation and testing:
-
-Beta features can change at any time and aren't intended for production use.
-{: beta}
-
-- Added the `restore` query option to the [Invoke an action on a secret](/apidocs/secrets-manager#update-secret) method. This action can be used to restore or revert an IAM credentials secret to a previous version.
 
 ## 20 September 2021
 {: #2021-09-20-api}

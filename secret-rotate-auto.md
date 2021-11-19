@@ -83,7 +83,7 @@ User credentials
 Public certificates
 :   On each rotation, the certificate moves to the **Active, Rotation pending** status to indicate that the request to renew the certificate is being processed. {{site.data.keyword.secrets-manager_short}} uses DNS validation to verify that you own the domains that are listed as part of the certificate. This process can take a few minutes to complete. If the validation completes successfully, a new certificate is issued and its status changes back to **Active**. If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**. 
 
-   Automatic rotation or renewal of certificates is supported only for public TLS certificates, which are certificates that are ordered through {{site.data.keyword.secrets-manager_short}} from a third-party, such as Let's Encrypt. If you need to rotate an imported certificate, see [Manually rotating secrets](/docs/secrets-manager?topic=secrets-manager-manual-rotation).
+   Automatic rotation or renewal of certificates is supported for public certificates, which are certificates that are ordered through {{site.data.keyword.secrets-manager_short}} from a third-party, such as Let's Encrypt. If you need to rotate an imported certificate, see [Manually rotating secrets](/docs/secrets-manager?topic=secrets-manager-manual-rotation).
    {: note}
 
 ## Scheduling automatic rotation in the UI
@@ -113,7 +113,7 @@ If you need more control over the rotation frequency of a secret, you can use th
 
 If you prefer to schedule your public TLS certificates to be automatically renewed, you can enable automatic rotation for certificates when you order them, or by editing the details of an existing certificate. In the certificate's next rotation cycle, {{site.data.keyword.secrets-manager_short}} reorders the certificate 31 days before it expires. 
 
-Certificates that expire in less than 31 days must also be rotated manually before rotation becomes automatic in the following cycles.
+Certificates that expire in less than 31 days must also be [rotated manually](/docs/secrets-manager?topic=secrets-manager-manual-rotation) before rotation becomes automatic in the following cycles.
 {: note}
 
 1. If you're [ordering a certificate](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates), enable the rotation options.
