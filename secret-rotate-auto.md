@@ -77,10 +77,10 @@ Before you get started, be sure that you have the required level of access. To r
 
 Automatic rotation is supported for [user credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) and [public certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates). Depending on the type of secret, automatic rotation takes place immediately on the date and time that you set, or it might need to complete a few extra steps before a new version of the secret can be created.
 
-User credentials (`username_password`)
+User credentials
 :   On each rotation, {{site.data.keyword.secrets-manager_short}} replaces the existing `password` value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols. The `username` value does not change.
 
-Public certificates (`public_cert`)
+Public certificates
 :   On each rotation, the certificate moves to the **Active, Rotation pending** status to indicate that the request to renew the certificate is being processed. {{site.data.keyword.secrets-manager_short}} uses DNS validation to verify that you own the domains that are listed as part of the certificate. This process can take a few minutes to complete. If the validation completes successfully, a new certificate is issued and its status changes back to **Active**. If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**. 
 
    Automatic rotation or renewal of certificates is supported only for public TLS certificates, which are certificates that are ordered through {{site.data.keyword.secrets-manager_short}} from a third-party, such as Let's Encrypt. If you need to rotate an imported certificate, see [Manually rotating secrets](/docs/secrets-manager?topic=secrets-manager-manual-rotation).
