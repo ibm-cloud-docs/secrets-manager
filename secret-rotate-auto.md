@@ -136,7 +136,7 @@ You can schedule the automatic rotation of secrets by using the {{site.data.keyw
 ### Scheduling rotation for user credentials
 {: #schedule-auto-rotate-password-api}
 
-The following example request creates a new version of a user credentials (`username_password`) secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+The following example request creates an automatic rotation polocy for a user credentials (`username_password`) secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
 
 
@@ -156,86 +156,123 @@ If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https:/
 {: go}
 
 ```bash
-curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password/{id}?action=rotate" \
+curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password/{id}/policies" \
     -H "Authorization: Bearer $IAM_TOKEN" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{
-        "password": "new-password"
-    }'
+    -d '{ 
+        "metadata": { 
+          "collection_type": "application/vnd.ibm.secrets-manager.secret.policy+json", "collection_total": 1 
+        }, 
+        "resources": [ 
+          { 
+            "type": "application/vnd.ibm.secrets-manager.secret.policy+json", 
+            "rotation": { 
+              "interval": 1, 
+              "unit": "month" 
+            } 
+          } 
+        ] 
+      }'
 ```
 {: codeblock}
 {: curl}
 
 ```java
-SecretActionOneOfRotateUsernamePasswordBody secretActionOneOfModel = new SecretActionOneOfRotateUsernamePasswordBody.Builder()
-    .password("new-password")
-    .build();
-UpdateSecretOptions updateSecretOptions = new UpdateSecretOptions.Builder()
-    .secretType("username_password")
-    .id(secretIdLink)
-    .action("rotate")
-    .secretActionOneOf(secretActionOneOfModel)
-    .build();
+CollectionMetadata collectionMetadataModel = new CollectionMetadata.Builder()
+  .collectionType("application/vnd.ibm.secrets-manager.config+json")
+  .collectionTotal(Long.valueOf("1"))
+  .build();
+SecretPolicyRotationRotationPolicyRotation secretPolicyRotationRotationModel = new SecretPolicyRotationRotationPolicyRotation.Builder()
+  .interval(Long.valueOf("1"))
+  .unit("day")
+  .build();
+SecretPolicyRotation secretPolicyRotationModel = new SecretPolicyRotation.Builder()
+  .type("application/vnd.ibm.secrets-manager.secret.policy+json")
+  .rotation(secretPolicyRotationRotationModel)
+  .build();
+PutPolicyOptions putPolicyOptions = new PutPolicyOptions.Builder()
+  .secretType("username_password")
+  .id("testString")
+  .metadata(collectionMetadataModel)
+  .resources(new java.util.ArrayList<SecretPolicyRotation>(java.util.Arrays.asList(secretPolicyRotationModel)))
+  .build();
 
-Response<GetSecret> response = sm.updateSecret(updateSecretOptions).execute();
-GetSecret getSecret = response.getResult();
+Response<GetSecretPolicies> response = secretsManagerService.putPolicy(putPolicyOptions).execute();
+GetSecretPolicies getSecretPolicies = response.getResult();
 
-System.out.println(getSecret);
+System.out.println(getSecretPolicies);
 ```
 {: codeblock}
 {: java}
 
 ```javascript
-const params = {
-    secretType: 'username_password',
-    id: secretId,
-    action: 'rotate',
-    password: 'new-password',
+// Request models needed by this operation.
+
+// CollectionMetadata
+const collectionMetadataModel = {
+  collection_type: 'application/vnd.ibm.secrets-manager.config+json',
+  collection_total: 1,
 };
 
-secretsManagerApi.updateSecret(params)
-    .then(res => {
-        console.log('Rotate secret:\n', JSON.stringify(result.resources, null, 2));
-    })
-    .catch(err => {
-        console.warn(err)
-    });
+// SecretPolicyRotationRotationPolicyRotation
+const secretPolicyRotationRotationModel = {
+  interval: 1,
+  unit: 'day',
+};
+
+// SecretPolicyRotation
+const secretPolicyRotationModel = {
+  type: 'application/vnd.ibm.secrets-manager.secret.policy+json',
+  rotation: secretPolicyRotationRotationModel,
+};
+
+const params = {
+  secretType: 'username_password',
+  id: 'testString',
+  metadata: collectionMetadataModel,
+  resources: [secretPolicyRotationModel],
+};
+
+let res;
+try {
+  res = await secretsManagerService.putPolicy(params);
+  console.log(JSON.stringify(res.result, null, 2));
+} catch (err) {
+  console.warn(err);
+}
 ```
 {: codeblock}
 {: javascript}
 
 ```python
-secret_data = {
-    'password': 'new-password'
+collectionMetadataModel := &secretsmanagerv1.CollectionMetadata{
+  CollectionType: core.StringPtr("application/vnd.ibm.secrets-manager.config+json"),
+  CollectionTotal: core.Int64Ptr(int64(1)),
 }
 
-response = secretsManager.update_secret(
-    secret_type='username_password',
-    id=secret_id_link,
-    action='rotate'
-).get_result()
-
-print(json.dumps(response, indent=2))
-```
-{: codeblock}
-{: python}
-
-```go
-secretAction := &sm.SecretActionOneOfRotateUsernamePasswordBody{
-    Password: core.StringPtr("new-password"),
+secretPolicyRotationRotationModel := &secretsmanagerv1.SecretPolicyRotationRotationPolicyRotation{
+  Interval: core.Int64Ptr(int64(1)),
+  Unit: core.StringPtr("day"),
 }
 
-updateSecretOptions := secretsManagerApi.NewUpdateSecretOptions(
-    "username_password", secretIdLink, "rotate", secretAction,
+secretPolicyRotationModel := &secretsmanagerv1.SecretPolicyRotation{
+  Type: core.StringPtr("application/vnd.ibm.secrets-manager.secret.policy+json"),
+  Rotation: secretPolicyRotationRotationModel,
+}
+
+putPolicyOptions := secretsManagerService.NewPutPolicyOptions(
+  "username_password",
+  "testString",
+  collectionMetadataModel,
+  []secretsmanagerv1.SecretPolicyRotation{*secretPolicyRotationModel},
 )
 
-result, response, err := secretsManagerApi.UpdateSecret(updateSecretOptions)
+getSecretPolicies, response, err := secretsManagerService.PutPolicy(putPolicyOptions)
 if err != nil {
-    panic(err)
+  panic(err)
 }
-
-b, _ := json.MarshalIndent(result, "", "  ")
+b, _ := json.MarshalIndent(getSecretPolicies, "", "  ")
 fmt.Println(string(b))
 ```
 {: codeblock}
