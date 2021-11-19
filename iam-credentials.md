@@ -91,10 +91,9 @@ To create IAM credentials by using the {{site.data.keyword.secrets-manager_short
 8. Set a lease duration or time-to-live (TTL) for the secret.
 
     By setting a lease duration for your IAM credential, you determine how long its associated API key remains valid. After the IAM credential reaches the end of its lease, it is revoked automatically.
-9.  Optional: [Determine whether IAM credentials can be reused](#iam-credentials-reuse-ui) for your secret.
-10. Click **Next**.
-11. In the **Assign access** step, [determine the scope of access](#iam-credentials-service-id-ui) to assign for your IAM credential.
-12. To confirm your selections, click **Add**.
+9.  Optional: [Determine whether IAM credentials can be reused](#iam-credentials-reuse-ui) for your secret. Then, click **Next**.
+10. In the **Assign access** step, [determine the scope of access](#iam-credentials-service-id-ui) to assign for your IAM credential.
+11. To confirm your selections, click **Add**.
 
 
 ### Reusing the same API key until the lease expires
@@ -143,16 +142,14 @@ The command outputs the ID value of the secret, along with other metadata. For m
 
 IAM credentials consist of a service ID and an API key. By default, the service ID and API key are single-use, ephemeral values that are generated and deleted each time that an IAM credentials secret is read or accessed. 
 
-If you'd like to continue to use those credentials through the end of the lease of your secret, you can use the `reuse_api_key` field. If set to `true`, your secret retains its current service ID and API key values and reuses them on each read while the secret remains valid. After the secret reaches the end of its lease, the credentials are revoked automatically. 
-
-The following example command uses an exisiting service ID to create IAM credentials.
+If you'd like to continue to use those credentials through the end of the lease of your secret, you can use the `reuse_api_key` field. If set to `true`, your secret retains its current service ID and API key values and reuses them on each read while the secret remains valid. For example, the following example command create IAM credentials that can be reused until they expire.
 
 ```sh
 ibmcloud secrets-manager secret-create --secret-type iam_credentials --resources '[{"name":"example-reuse-credentials","description":"Uses the same service ID API key on each read until the lease expires.","reuse_api_key": true,"secret_group_id":"<secret_group_id>","ttl":"30m","labels":["reusable"]}]'
 ```
 {: pre}
 
-The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
+The command outputs the ID value of the secret, along with other metadata. After the secret reaches the end of its lease, the credentials are revoked automatically. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
 
 
 
@@ -160,9 +157,7 @@ The command outputs the ID value of the secret, along with other metadata. For m
 {: #iam-credentials-service-id-cli}
 {: cli}
 
-You might already have a service ID in your account that you'd like to use to dynamically generate an API key. In this scenario, you can choose to create an IAM credentials secret by bringing your own service ID. 
-
-For example, the following command creates an IAM credential by using the `service_id` field.
+You might already have a service ID in your account that you'd like to use to dynamically generate an API key. In this scenario, you can choose to create an IAM credentials secret by bringing your own service ID. For example, the following command creates an IAM credential by using the `service_id` field.
 
 You can find the ID value of a service ID in the IAM section of the console. Go to **Manage > Access (IAM) > Service IDs > _name_**. Click **Details** to view the ID.
 {: note}
