@@ -280,7 +280,7 @@ fmt.Println(string(b))
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see the [API docs](/apidocs/secrets-manager#update-secret).
 
-### Scheduling rotation for public certificates
+### Setting an automatic rotation policy for public certificates
 {: #schedule-auto-rotate-public-cert-api}
 
 If you prefer to schedule your certificates to be automatically renewed, you can enable automatic rotation for certificates when you order them, or by editing the details of an existing certificate. In the certificate's next rotation cycle, {{site.data.keyword.secrets-manager_short}} reorders the certificate 31 days before its expiry date.
