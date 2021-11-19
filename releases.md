@@ -74,14 +74,9 @@ View the version history of your secrets
 Create IAM credentials by using a service ID in your account
 :   In addition to using access groups to determine the access capabilities of an IAM credentials secret, you can now create a secret by using an existing service ID in your account. You can choose this option if you need {{site.data.keyword.secrets-manager_short}} to dynamically generate and manage an API key only.
 
-   For more information, see [Creating IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials
+   For more information, see [Creating IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials),
    
-<iam-credentials-rotate>
 
-Rotate IAM credentials on-demand
-:   You can now rotate IAM credentials manually by using the UI or APIs. For more information, see [Rotating secrets manually](/docs/secrets-manager?topic=secrets-manager-manual-rotate-secrets).
-
-</iam-credentials-rotate>
 
 
 ## 20 September 2021
