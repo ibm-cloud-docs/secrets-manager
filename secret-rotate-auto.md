@@ -246,7 +246,10 @@ A successful response returns the ID value for the secret, along with other meta
 ### Scheduling rotation for public certificates
 {: #schedule-auto-rotate-public-cert-api}
 
-If you prefer to schedule your certificates to be automatically renewed, you can enable automatic rotation for certificates when you order them, or by editing the details of an existing certificate. In the certificate's next rotation cycle, {{site.data.keyword.secrets-manager_short}} reorders the certificate 31 days before it expires.
+If you prefer to schedule your certificates to be automatically renewed, you can enable automatic rotation for certificates when you order them, or by editing the details of an existing certificate. In the certificate's next rotation cycle, {{site.data.keyword.secrets-manager_short}} reorders the certificate 31 days before its expiry date.
+
+#### Ordering a public certificate that renews automatically
+{: #order-auto-rotate-public-cert-api}
 
 
 The following example request orders a certificate with automatic rotation enabled. When you call the API, set the `auto_rotate` property to `true`. Optionally, you can set `rotate_keys` to `true` to request a new private key for the certificate on each rotation.
