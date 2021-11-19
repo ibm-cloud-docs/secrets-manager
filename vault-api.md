@@ -1825,7 +1825,7 @@ curl -X DELETE "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v
 ### Set secret policies
 {: #vault-set-secret-policies}
 
-Creates or updates an [automatic rotation policy](/docs/secrets-manager?topic=secrets-manager-rotate-secrets) for a secret. Supported secret types include: `username_password`
+Creates or updates an [automatic rotation policy](/docs/secrets-manager?topic=secrets-manager-automatic-rotation) for a secret. Supported secret types include: `username_password`
 
 | Request parameters            | Description                                                                         |
 | ------------- | ----------------------------------------------------------------------------------- |
