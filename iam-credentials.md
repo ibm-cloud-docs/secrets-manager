@@ -119,6 +119,43 @@ ibmcloud secrets-manager secret-create --secret-type iam_credentials --resources
 
 The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
 
+### Reusing the same API key until the lease expires
+{: #iam-credentials-service-id-cli}
+{: cli}
+
+IAM credentials consist of a service ID and an API key. By default, the service ID and API key are single-use, ephemeral values that are generated and deleted each time that an IAM credentials secret is read or accessed. 
+
+If you'd like to continue using those credentials through the end of the lease of your secret, you can use the `reuse_api_key` field. If set to `true`, your secret retains its current service ID and API key values and reuses them on each read while the secret remains valid. After the secret reaches the end of its lease, the credentials are revoked automatically. 
+
+
+
+```sh
+ibmcloud secrets-manager secret-create --secret-type iam_credentials --resources '[{"name":"example-reuse-credentials","description":"Uses the same service ID API key on each read until the lease expires.","reuse_api_key": true,"secret_group_id":"<secret_group_id>","ttl":"30m","labels":["reusable"]}]'
+```
+{: pre}
+
+The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
+
+### Using an existing service ID in your account
+{: #iam-credentials-service-id-cli}
+{: cli}
+
+You might already have a service ID in your account that you'd like to use to dynamically generate an API key. In this scenario, you can choose to create an IAM credentials secret by bringing your own service ID. 
+
+From the list of service IDs in your account. Then use the `service_id` field to specify the ID. 
+
+You can find the ID value of a service ID in the IAM section of the console. Go to **Manage > Access (IAM) > Service IDs > _name_**. Click **Details** to view the ID.
+{: note}
+
+```sh
+ibmcloud secrets-manager secret-create --secret-type iam_credentials --resources '[{"name":"example-api-key-only","description":"Generates only an API key on each read.","service_id":"<service_id>","secret_group_id":"<secret_group_id>","ttl":"12h","labels":["api-key-only"]}]'
+```
+{: pre}
+
+The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
+
+
+
 ## Creating IAM credentials with the API
 {: #iam-credentials-api}
 {: api}
@@ -303,5 +340,4 @@ When you set the `reuse_api_key` parameter true, the credentials that are genera
 {: tip}
 
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager#create-secret).
-
 
