@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-12"
+lastupdated: "2021-11-19"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -96,7 +96,14 @@ To create IAM credentials by using the {{site.data.keyword.secrets-manager_short
     By setting a lease duration for your IAM credential, you determine how long its associated API key remains valid. After the IAM credential reaches the end of its lease, it is revoked automatically.
 10. Optional: Determine whether IAM credentials can be reused for your secret.
 
-    By default, IAM credentials are generated and deleted each time that a secret is read or accessed. By setting **Reuse IAM credentials** to **On**, your secret retains its current service ID and API key values, so that you can reuse the same credentials on each read while the secret remains valid. After the secret reaches the end of its lease, the credentials are revoked automatically.
+    By default, a service ID and API key are generated and deleted each time that an IAM credentials secret is read or accessed. By setting **Reuse IAM credentials** to **On**, your secret retains its current service ID and API key values and reuses them on each read while the secret remains valid. After the secret reaches the end of its lease, the credentials are revoked automatically. You can set this option to **Off** if you want the service ID API key to be a single-use, ephemeral secret.
+11. Click **Next**.
+12. Determine the scope of access to assign for your IAM credential.
+
+    You can assign access by either selecting an existing service ID from your account, or selecting access groups.
+
+    1. To use an existing service ID, select an ID from the list. Only the service IDs that you have access to are displayed. Choose this option when you need {{site.data.keyword.secrets-manager_short}} to generate and manage only an API key for your IAM credentials secret, and not the service ID itself. The API key inherits the access policy of the service ID that you select from your account. 
+    2. To generate both a new service ID and API key for the secret, select an access group. By selecting an access group from your {{site.data.keyword.cloud_notm}} account, you determine the scope of access to assign to the service ID API key that is dynamically generated and associated with your new IAM credential. This step ensures that your IAM credentials are scoped with the preferred level of permissions in your {{site.data.keyword.cloud_notm}} account. You can assign up to 10 access groups.
 13. Click **Add**.
 
 ## Creating IAM credentials from the CLI
