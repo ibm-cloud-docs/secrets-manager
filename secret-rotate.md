@@ -60,7 +60,7 @@ subcollection: secrets-manager
 With {{site.data.keyword.secrets-manager_full}}, you can manually create new versions of a secret by using the UI or APIs.
 {: shortdesc}
 
-When you rotate a secret, you create a new version of its value. Rotating your credentials limits how long a protected resource can be accessed by a single secret, which can protect your business against the risks that are associated with secret compromise. Rotate your secrets regularly, for example every 30 or 60 days, so that you're always meeting best practices around secrets management.
+When you rotate a secret, you create a new version of its value. Rotating your credentials limits how long a protected resource can be accessed by a single secret, which can protect your business against the risks that are associated with compromised credentials. Rotate your secrets regularly, for example every 30 or 60 days, so that you're always meeting best practices around secrets management.
 
 
 
@@ -80,7 +80,7 @@ Most secrets that you store in {{site.data.keyword.secrets-manager_short}} can b
 | --- | --- | 
 | Arbitrary secrets | Arbitrary secrets are immediately replaced with the data that you provide on rotation. |
 | Imported certificates | Certificates that were initially imported to a service instance are immediately replaced with the data that you reimport on rotation. |
-| Public certificates | Public certificates move to the **Active, Rotation pending** status to indicate that a request to rotate a certificate is being processed. {{site.data.keyword.secrets-manager_short}} sends the request to the associated certificate authority (CA), for example Let's Encrypt, to validate the ownership of your domains. If the validation completes successfully, a new certificate is issued. |
+| Public certificates | Public certificates move to the **Active, Rotation pending** status to indicate that a request to rotate a certificate is being processed. {{site.data.keyword.secrets-manager_short}} sends the request to the configured certificate authority (CA), for example Let's Encrypt, to validate the ownership of your domains. If the validation completes successfully, a new certificate is issued. |
 | User credentials | Passwords that are associated with user credentials secrets are immediately replaced with the data that you provide on rotation. |
 {: caption="Table 1. Describes how {{site.data.keyword.secrets-manager_short}} evaluates manual rotation by secret type" caption-side="top"}
 
@@ -210,6 +210,8 @@ To have the service generate and assign a random password to your credential, yo
 {: tip}
 
 The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-update`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-update-command).
+
+
 
 ## Manually rotating secrets with the API
 {: #manual-rotate-api}

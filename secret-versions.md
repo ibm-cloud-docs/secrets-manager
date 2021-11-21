@@ -69,7 +69,7 @@ Before you get started, be sure that you have the required level of access. To v
 {: #versions-ui}
 {: ui}
 
-If you're auditing the version history of a secret in your service instance, you can use the {{site.data.keyword.secrets-manager_short}} UI to view the general characteristics of each rotation.
+If you're auditing the version history of a secret, you can use the {{site.data.keyword.secrets-manager_short}} UI to view the general characteristics of each rotation.
 
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
@@ -102,4 +102,4 @@ curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/
 {: codeblock}
 {: curl}
 
-A successful response returns metadata details about each secret version.. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager).
+A successful response returns metadata details about each secret version. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager).
