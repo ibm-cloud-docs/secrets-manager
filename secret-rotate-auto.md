@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-19"
+lastupdated: "2021-11-21"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -99,7 +99,7 @@ You can schedule the automatic rotation of secrets by using the {{site.data.keyw
 
 If you prefer to schedule your passwords to be automatically rotated at regular intervals, you can enable automatic rotation for your user credentials at their creation, or by editing the details of an existing secret. Choose between a 30, 60, or 90-day rotation interval.
 
-If you need more control over the rotation frequency of a secret, you can use the {{site.data.keyword.secrets-manager_short}} API to set a custom interval by using `day` or `month` units of time. For more information, see the [API docs](/apidocs/secrets-manager#put-policy).
+If you need more control over the rotation frequency of a secret, you can use the {{site.data.keyword.secrets-manager_short}} API to set a custom interval by using `day` or `month` units of time. For more information, see the [API reference](/apidocs/secrets-manager#put-policy).
 {: tip}
 
 1. If you're [adding a secret](/docs/secrets-manager?topic=secrets-manager-user-credentials#user-credentials-ui), enable the rotation option by selecting a 30, 60, or 90-day rotation interval.
@@ -278,7 +278,7 @@ fmt.Println(string(b))
 {: codeblock}
 {: go}
 
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see the [API docs](/apidocs/secrets-manager#update-secret).
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager#update-secret).
 
 ### Setting an automatic rotation policy for public certificates
 {: #schedule-auto-rotate-public-cert-api}
@@ -337,4 +337,4 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 
 
 
-A successful response returns the ID value for the certificate, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager#create-secret).
+A successful response returns the ID value for the certificate, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager#create-secret).

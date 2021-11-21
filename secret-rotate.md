@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-19"
+lastupdated: "2021-11-21"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -170,7 +170,7 @@ If your {{site.data.keyword.secrets-manager_short}} service instance is enabled 
 
 7. Redeploy the latest certificate version to your TLS termination point.
 
-   To access the current version, can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager#get-secret) API.
+   To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager#get-secret) API.
 
 
 
@@ -357,8 +357,6 @@ If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](htt
 If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `UpdateSecret` method to rotate a secret. The following code shows an example call to rotate user credentials.
 {: go}
 
-To have the service generate and assign a random password to your credential, you can pass an empty string on the `password` field. For example, `{ "password": ""}`. {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
-{: tip}
 
 ```bash
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password/{id}?action=rotate" \
@@ -445,5 +443,8 @@ fmt.Println(string(b))
 ```
 {: codeblock}
 {: go}
+
+To have the service generate and assign a random password to your credential, you can pass an empty string on the `password` field. For example, `{ "password": ""}`. {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
+{: tip}
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager#update-secret).

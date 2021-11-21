@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-19"
+lastupdated: "2021-11-21"
 
 keywords: secret version history, view versions, secret versions
 
@@ -57,7 +57,7 @@ subcollection: secrets-manager
 # Viewing your version history
 {: #version-history}
 
-When you rotate a secret in {{site.data.keyword.secrets-manager_full}}, you create a new version of its value. You can quickly examine the version history of your secrets using the UI.
+When you rotate a secret in {{site.data.keyword.secrets-manager_full}}, you create a new version of its value. You can quickly examine the version history of your secrets by using the UI or API.
 {: shortdesc}
 
 ## Before you begin
@@ -69,7 +69,7 @@ Before you get started, be sure that you have the required level of access. To v
 {: #versions-ui}
 {: ui}
 
-If you're auditing the version history of a secret, you can use the {{site.data.keyword.secrets-manager_short}} UI to view the general characteristics of each rotation.
+If you're auditing the version history of a secret in your service instance, you can use the {{site.data.keyword.secrets-manager_short}} UI to view the general characteristics of each rotation.
 
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
