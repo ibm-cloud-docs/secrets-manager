@@ -82,3 +82,24 @@ If you're auditing the version history of a secret in your service instance, you
     {: tip}
 
 
+
+## Listing secret versions with the API
+{: #versions-api}
+{: api}
+
+If you're auditing the version history of a secret, you can use the {{site.data.keyword.secrets-manager_short}} API to view the general characteristics of each rotation.
+
+When you use the API to list the secrets that are stored in your service instance, each secret contains a `versions_total` field that indicates the number of versions that are associated with it. You can use the List versions API to retrieve information about each version. 
+
+The following example request lists metadata properties for each version. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. The options for `{secret_type}` are: `arbitrary`, `iam_credentials`, `username_password`, `imported_cert`, `public_cert`. 
+{: curl}
+
+```sh
+curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}/versions" \
+  --H "Authorization: Bearer $IAM_TOKEN" \
+  --H "Accept: application/json"
+```
+{: codeblock}
+{: curl}
+
+A successful response returns metadata details about each secret version.. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager).
