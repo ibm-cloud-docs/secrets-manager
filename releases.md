@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-19"
+lastupdated: "2021-11-21"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -69,7 +69,7 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 {: release-note}
 
 View the version history of your secrets
-:   Need to know when a secret in your instance was last rotated? With the the {{site.data.keyword.secrets-manager_short}} UI, you can now check the version history of your secrets. For more information, see [Viewing your verison history](/docs/secrets-manager?topic=secrets-manager-version-history).
+:   With the the {{site.data.keyword.secrets-manager_short}} UI, you can now check the version history of your secrets, so that you can quickly understand when a secret was last rotated. For more information, see [Viewing your verison history](/docs/secrets-manager?topic=secrets-manager-version-history).
 
 Create IAM credentials by using a service ID in your account
 :   In addition to using access groups to determine the access capabilities of an IAM credentials secret, you can now create a secret by using an existing service ID in your account. You can choose this option if you need {{site.data.keyword.secrets-manager_short}} to dynamically generate and manage an API key only.
