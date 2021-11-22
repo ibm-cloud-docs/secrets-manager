@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-11-19"
 
 keywords: faqs, Frequently Asked Questions, question, Secrets Manager, dynamic what is a secret, what is an arbitrary secret, what is an IAM credential, arbitrary secret, IAM credential, what happens when secret expires
 
@@ -95,7 +95,7 @@ An IAM credential is a type of dynamic secret that you can use to access an {{si
 
 When a secret is rotated, a new version of its value becomes available for use. You can choose to manually add a value or automatically generate one at regular intervals by enabling automatic rotation. 
 
-For more information about secret rotation, see [Rotating secrets](/docs/secrets-manager?topic=secrets-manager-rotate-secrets).
+For more information about secret rotation, see [Rotating secrets](/docs/secrets-manager?topic=secrets-manager-manual-rotation).
 
 ## What happens when my secret expires?
 {: #faq-secret-expire}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-20"
+lastupdated: "2021-11-19"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
 
@@ -62,7 +62,7 @@ You can use {{site.data.keyword.secrets-manager_full}} to store and request SSL 
 
 An SSL or TLS certificate is a type of digital certificate that is used to establish communication privacy between a server and a client. Certificates are issued by [certificate authorities (CA)](#x2016383){: term} and contain information that is used to create trusted and secure connections between endpoints. After you add a certificate to your {{site.data.keyword.secrets-manager_short}} instance, you can use it to secure network communications for your cloud or on-premises deployments. Your certificate is stored securely in your dedicated {{site.data.keyword.secrets-manager_short}} service instance, where you can centrally manage its lifecycle.
 
-In {{site.data.keyword.secrets-manager_short}}, certificates that you import to the service are _imported certificates_ (`import_cert`). Certificates that you order through {{site.data.keyword.secrets-manager_short}} from a third-party certificate authority are _public certificates_ (`public_cert`).
+In {{site.data.keyword.secrets-manager_short}}, certificates that you import to the service are imported certificates (`import_cert`). Certificates that you order through {{site.data.keyword.secrets-manager_short}} from a third-party certificate authority are public certificates (`public_cert`).
 {: note}
 
 To learn more about the types of secrets that you can manage in {{site.data.keyword.secrets-manager_short}}, see [What is a secret?](/docs/secrets-manager?topic=secrets-manager-what-is-secret)
@@ -96,7 +96,7 @@ Before you get started, be sure that you have the required level of access. To c
 ## Importing your existing certificates
 {: #import-certificates}
 
-You can use {{site.data.keyword.secrets-manager_short}} to store certificate files that are signed and issued by external certificate authorities. After you import your certificate files, you can deploy the certificate to your apps and services, download the certificate, or [rotate it manually](/docs/secrets-manager?topic=secrets-manager-rotate-secrets#rotate-certificates) when it's time to renew. 
+You can use {{site.data.keyword.secrets-manager_short}} to store certificate files that are signed and issued by external certificate authorities. After you import your certificate files, you can deploy the certificate to your apps and services, download the certificate, or [rotate it manually](/docs/secrets-manager?topic=secrets-manager-manual-rotation) when it's time to renew. 
 
 
 ### Importing certificates in the UI

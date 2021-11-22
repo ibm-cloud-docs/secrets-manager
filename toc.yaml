@@ -64,7 +64,12 @@ toc:
               - topic: user-credentials.md
                 navtitle: User credentials
           - secret-access.md
-          - secret-rotate.md
+          - topicgroup:
+              label: Rotating secrets
+              topics:
+              - secret-rotate.md
+              - secret-versions.md
+              - secret-rotate-auto.md
           - secret-delete.md
       - secret-groups.md
       - topicgroup: 
@@ -75,7 +80,7 @@ toc:
           - topicgroup: 
               label: Configuring the public certificates engine
               topics:
-              - engine-public-certs.md
+              - engine-public-certificates.md
               - certificate-authorities.md
               - dns-providers.md
       - topicgroup: 

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-11-21"
 
-keywords: rotate secrets, manually rotate, new secret, automatically rotate, automatic rotation, set rotation policy
+keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
 subcollection: secrets-manager
 
@@ -54,52 +54,177 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
-# Rotating secrets
-{: #rotate-secrets}
+# Manually rotating secrets
+{: #manual-rotation}
 
-You can rotate your secrets manually or automatically by using {{site.data.keyword.secrets-manager_full}}.
+With {{site.data.keyword.secrets-manager_full}}, you can manually create new versions of a secret by using the UI or APIs.
 {: shortdesc}
 
-When you rotate a secret in {{site.data.keyword.secrets-manager_short}}, you create a new version of its value. By rotating your secret at regular intervals, you limit its lifespan and protect against inadvertent exposure of your sensitive data. Rotation is supported for the following secret types:
+When you rotate a secret, you create a new version of its value. Rotating your credentials limits how long a protected resource can be accessed by a single secret, which can protect your business against the risks that are associated with compromised credentials. Rotate your secrets regularly, for example every 30 or 60 days, so that you're always meeting best practices around secrets management.
 
-- Arbitrary secrets (`arbitrary`)
-- TLS certificates (`imported_cert`, `public_cert`)
-- User credentials (`username_password`)
-
-IAM credentials (`iam_credentials)` are recreated dynamically on your behalf so that you don't have to rotate them.
-{: note}
 
 
 
 ## Before you begin
-{: #before-rotate-secrets}
+{: #before-manual-rotate}
 
 Before you get started, be sure that you have the required level of access. To rotate secrets, you need the [**Writer** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam).
 
-## Rotating arbitrary secrets
-{: #rotate-arbitrary-secret}
 
-### Rotating arbitrary secrets manually in the UI
-{: #manual-rotate-arbitrary-secret-ui}
+### Supported secret types
+{: #manual-rotate-by-type}
+
+Most secrets that you store in {{site.data.keyword.secrets-manager_short}} can be rotated and replaced on-demand. The way in which {{site.data.keyword.secrets-manager_short}} evaluates a request to rotate a secret depends on the secret type.
+
+| Type | Description |
+| --- | --- | 
+| Arbitrary secrets | Arbitrary secrets are immediately replaced with the data that you provide on rotation. |
+| Imported certificates | Certificates that were initially imported to a service instance are immediately replaced with the data that you reimport on rotation. |
+| Public certificates | Public certificates move to the **Active, Rotation pending** status to indicate that a request to rotate a certificate is being processed. {{site.data.keyword.secrets-manager_short}} sends the request to the configured certificate authority (CA), for example Let's Encrypt, to validate the ownership of your domains. If the validation completes successfully, a new certificate is issued. |
+| User credentials | Passwords that are associated with user credentials secrets are immediately replaced with the data that you provide on rotation. |
+{: caption="Table 1. Describes how {{site.data.keyword.secrets-manager_short}} evaluates manual rotation by secret type" caption-side="top"}
+
+## Manually rotating secrets in the UI
+{: #manual-rotate-ui}
 {: ui}
 
-You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotate your secrets.
+You can manually rotate your secrets and certificates by using the {{site.data.keyword.secrets-manager_short}} UI.
 
-1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+### Rotating arbitrary secrets
+{: #manual-rotate-arbitrary-ui}
+{: ui}
+
+You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotate your arbitrary secrets.
+
+1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
-3. Use the **Secrets** table to view the secrets in your instance.
+3. In the {{site.data.keyword.secrets-manager_short}} UI, go to the **Secrets** list.
 4. In the row for the secret that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
 5. Select a new file or enter a new secret value.
-6. Click **Rotate**.
+6. To rotate the secret immediately, click **Rotate**.
+7. Optional: Check the version history to view the latest updates.
+   
+   In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
 
-    The previous version of your secret is now replaced by its latest value. If you need to audit your version history, you can use the {{site.data.keyword.secrets-manager_short}} API to retrieve the secret. To learn more, check out the [API docs](/apidocs/secrets-manager#get-secret){: external}.
 
-### Rotating arbitrary secrets manually with the API
-{: #manual-rotate-arbitrary-secret-api}
+### Rotating user credentials
+{: #manual-rotate-user-credentials-ui}
+{: ui}
+
+You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotate the password values that are associated with a user credentials secret.
+
+1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
+3. In the {{site.data.keyword.secrets-manager_short}} UI, go to the **Secrets** list.
+4. In the row for the secret that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
+
+5. Determine whether to enter your own password or generate a new one.
+
+    If you choose to generate a new password, {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
+
+6. To rotate the secret immediately, click **Rotate**.  
+7. Optional: Check the version history to view the latest updates.
+   
+   In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
+
+
+### Rotating imported certificates
+{: #manual-rotate-imported-cert-ui}
+{: ui}
+
+When it's time to renew a certificate that was initially imported to the service, you can use the {{site.data.keyword.secrets-manager_short}} UI to manually reimport it. After a certificate is rotated, the previous version is retained in case you need it.
+
+If the certificate that you are rotating was previously imported with an intermediate certificate and a private key, include an intermediate certificate and private key on rotation to avoid service disruptions.
+{: important}
+
+1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
+3. In the {{site.data.keyword.secrets-manager_short}} UI, go to the **Secrets** list.
+4. In the row for the certificate that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
+5. Select or enter the new certificate data.
+
+    Keep in mind that manually rotating a certificate replaces the content of the certificate with the new data that you provide only. Private keys and intermediate certificates from previous versions are not retained. 
+6. To rotate the certificate immediately, click **Rotate**.
+7. Optional: Check the version history to view the latest updates.
+   
+   In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
+8. Redeploy the latest certificate version to your TLS termination point.
+
+### Rotating public certificates
+{: #manual-rotate-public-cert-ui}
+{: ui}
+
+If your {{site.data.keyword.secrets-manager_short}} service instance is enabled for [public certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates), you can manually renew a certificate that was previously ordered from a third-party certificate authority.
+
+1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
+3. In the {{site.data.keyword.secrets-manager_short}} UI, go to the **Secrets** list.
+4. In the row for the certificate that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
+5. Click **Rotate**.
+
+   A success message is displayed to indicate that your order is currently being processed. If the validation completes successfully, a new certificate is issued and the status of the certificate changes from **Active, Rotation pending** back to **Active**. If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**.
+
+6. Optional: Check the issuance details of a certificate.
+   
+   You can check its issuance details of a public certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> Details**. If there was an issue with the request, the Status field provides information about why the rotation couldn't complete successfully.
+
+7. Redeploy the latest certificate version to your TLS termination point.
+
+   To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager#get-secret) API.
+
+
+
+
+
+## Manually rotating secrets from the CLI
+{: #manual-rotate-cli}
+{: cli}
+
+You can manually rotate your secrets and certificates by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in.
+
+### Rotating arbitrary secrets
+{: #manual-rotate-arbitrary-cli}
+{: cli}
+
+To rotate an arbitrary secret using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-update`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-update-command) command. You can specify the type of secret by using the `--secret-type arbitrary` option. For example, the following command rotates a secret and assigns `new-secret-data` as its new version.
+
+```sh
+ibmcloud secrets-manager secret-update --action rotate --id SECRET_ID --secret-type arbitrary --body '{"payload": "new-secret-data"}' --output json
+```
+{: codeblock}
+
+The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-update`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-update-command).
+
+### Rotating user credentials
+{: #manual-rotate-user-credentials-cli}
+{: cli}
+
+To rotate a user credential secret using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-update`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-update-command) command. You can specify the type of secret by using the `--secret-type username_password` option. For example, the following command rotates a secret and assigns `new-password` as its new version.
+
+```sh
+ibmcloud secrets-manager secret-update --action rotate --id SECRET_ID --secret-type username_password --body '{"password": "new-password"}' --output json
+```
+{: codeblock}
+
+To have the service generate and assign a random password to your credential, you can pass an empty string on the `password` field. For example, `{ "password": ""}`. {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
+{: tip}
+
+The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-update`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-update-command).
+
+
+
+## Manually rotating secrets with the API
+{: #manual-rotate-api}
+{: api}
+
+You can manually rotate your secrets and certificates by using the {{site.data.keyword.secrets-manager_short}} API.
+
+### Rotating arbitrary secrets
+{: #manual-rotate-arbitrary-api}
 {: api}
 
 
-You can rotate secrets by calling the {{site.data.keyword.secrets-manager_short}} API.
+You can rotate arbitrary secrets by calling the {{site.data.keyword.secrets-manager_short}} API.
 
 The following example request creates a new version of your secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
@@ -206,31 +331,9 @@ fmt.Println(string(b))
 {: codeblock}
 {: go}
 
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see [Invoke an action on a secret](/apidocs/secrets-manager#update-secret){: external}.
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager#update-secret).
 
-## Rotating user credentials
-{: #rotate-user-credentials}
-
-### Rotating user credentials manually in the UI
-{: #manual-rotate-user-credentials-ui}
-{: ui}
-
-You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotate the password values that are associated with user credentials secret.
-
-1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
-2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
-3. Use the **Secrets** table to view the secrets in your instance.
-4. In the row for the secret that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
-
-5. Optional: Enter a new password value.
-
-    You can enter a new value or choose to have the service generate a new password on your behalf. If you skip this step, {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
-
-6. Click **Rotate**.
-
-    The previous version of your secret is now replaced by its latest value. If you need to audit your version history, you can use the {{site.data.keyword.secrets-manager_short}} API to retrieve the secret. To learn more, check out the [API docs](/apidocs/secrets-manager#get-secret){: external}.
-
-### Rotating user credentials manually with the API
+### Rotating user credentials
 {: #manual-rotate-user-credentials-api}
 {: api}
 
@@ -255,6 +358,7 @@ If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](htt
 
 If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `UpdateSecret` method to rotate a secret. The following code shows an example call to rotate user credentials.
 {: go}
+
 
 ```bash
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password/{id}?action=rotate" \
@@ -342,296 +446,7 @@ fmt.Println(string(b))
 {: codeblock}
 {: go}
 
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see [Invoke an action on a secret](/apidocs/secrets-manager#update-secret){: external}.
-
-### Enabling automatic rotation for user credentials in the UI
-{: #auto-rotate-user-credentials-ui}
-{: ui}
-
-You can enable automatic rotation for your user credentials at their creation, or by editing the details of an existing secret. Choose between a 30, 60, or 90-day rotation interval.
-
-If you need more control over the rotation frequency of a secret, you can use the {{site.data.keyword.secrets-manager_short}} API to set a custom interval by using `day` or `month` units of time. For more information, see [Set secret policies](/apidocs/secrets-manager#put-policy){: external}.
+To have the service generate and assign a random password to your credential, you can pass an empty string on the `password` field. For example, `{ "password": ""}`. {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
 {: tip}
 
-1. If you're [adding a secret](/docs/secrets-manager?topic=secrets-manager-user-credentials#user-credentials-ui), enable the rotation option by selecting a 30, 60, or 90-day rotation interval.
-2. If you're editing an existing secret, enable automatic rotation by updating its details.
-    1. In the **Secrets** table, view a list of your existing secrets.
-    2. In the row for the secret that you want to edit, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Edit details**.
-    3. Use the **Automatic rotation** option to enable or disable automatic rotation for the secret.
-
-### Enabling automatic rotation for user credentials with the API
-{: #auto-rotate-user-credentials-api}
-{: api}
-
-
-You can set rotation policies by calling the {{site.data.keyword.secrets-manager_short}} API.
-
-The following example request sets a monthly rotation policy for a `username_password` secret type. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
-{: curl}
-
-
-If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `putPolicy` method to set a rotation policy for a secret. The following code shows an example call.
-{: java}
-
-
-If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `putPolicy(params)` method to set a rotation policy for a secret. The following code shows an example call.
-{: javascript}
-
-
-If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `put_policy(params)` method to set a rotation policy for a secret. The following code shows an example call.
-{: python}
-
-
-If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `PutPolicy` method to set a rotation policy for a secret. The following code shows an example call.
-{: go}
-
-```bash
-curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password/{id}/policies?policy=rotation" \
-    -H "Authorization: Bearer $IAM_TOKEN"
-    -H "Accept: application/json"
-    -H "Content-Type: application/json"
-    -d '{
-    "metadata": {
-        "collection_type": "application/vnd.ibm.secrets-manager.secret.policy+json",
-    "collection_total": 1
-    },
-    "resources": [
-        {
-        "type": "application/vnd.ibm.secrets-manager.secret.policy+json",
-        "rotation": {
-        "interval": 1,
-        "unit": "month"
-        }
-    }
-    ]
-}'
-```
-{: codeblock}
-{: curl}
-
-```java
-CollectionMetadata collectionMetadataModel = new CollectionMetadata.Builder()
-    .collectionType("application/vnd.ibm.secrets-manager.secret.policy+json")
-    .collectionTotal(Long.valueOf("1"))
-    .build();
-SecretPolicyRotationRotation secretPolicyRotationRotationModel = new SecretPolicyRotationRotation.Builder()
-    .interval(Long.valueOf("1"))
-    .unit("month")
-    .build();
-SecretPolicyRotation secretPolicyRotationModel = new SecretPolicyRotation.Builder()
-    .type("application/vnd.ibm.secrets-manager.secret.policy+json")
-    .rotation(secretPolicyRotationRotationModel)
-    .build();
-PutPolicyOptions putPolicyOptions = new PutPolicyOptions.Builder()
-    .secretType("username_password")
-    .id(secretIdLink)
-    .metadata(collectionMetadataModel)
-    .resources(new java.util.ArrayList<SecretPolicyRotation>(java.util.Arrays.asList(secretPolicyRotationModel)))
-    .build();
-
-Response<GetSecretPoliciesOneOf> response = sm.putPolicy(putPolicyOptions).execute();
-GetSecretPoliciesOneOf getSecretPoliciesOneOf = response.getResult();
-
-System.out.println(getSecretPoliciesOneOf);
-```
-{: codeblock}
-{: java}
-
-```javascript
-const params = {
-    secretType: 'username_password',
-    id: secretId,
-    'metadata': {
-        'collection_type': 'application/vnd.ibm.secrets-manager.secret.policy+json',
-    'collection_total': 1,
-    },
-    'resources': [
-        {
-        'type': 'application/vnd.ibm.secrets-manager.secret.policy+json',
-        'rotation': {
-        'interval': 1,
-        'unit': 'month',
-        },
-    },
-    ],
-};
-
-secretsManagerApi.putPolicy(params)
-    .then(res => {
-        console.log('Set rotation policy:\n', JSON.stringify(result.resources, null, 2));
-    })
-    .catch(err => {
-        console.warn(err)
-    });
-```
-{: codeblock}
-{: javascript}
-
-```python
-collection_metadata = {
-    'collection_type': 'application/vnd.ibm.secrets-manager.secret+json',
-    'collection_total': 1
-}
-
-rotation_policy_details = {
-    'interval': 1,
-    'unit': 'month'
-}
-
-secret_policy = {
-    'type': 'application/vnd.ibm.secrets-manager.secret.policy+json',
-    'rotation': rotation_policy_details
-}
-
-response = secretsManager.put_policy(
-    secret_type='username_password',
-    id=secret_id_link,
-    metadata=collection_metadata,
-    resources=[secret_policy]
-).get_result()
-
-print(json.dumps(response, indent=2))
-```
-{: codeblock}
-{: python}
-
-```go
-collectionMetadata := &sm.CollectionMetadata{
-    CollectionType: core.StringPtr("application/vnd.ibm.secrets-manager.secret.policy+json"),
-    CollectionTotal: core.Int64Ptr(int64(1)),
-}
-
-rotationPolicyDetails := &sm.SecretPolicyRotationRotation{
-    Interval: core.Int64Ptr(int64(1)),
-    Unit: core.StringPtr("month"),
-}
-
-secretPolicy := &sm.SecretPolicyRotation{
-    Type: core.StringPtr("application/vnd.ibm.secrets-manager.secret.policy+json"),
-    Rotation: rotationPolicyDetails,
-}
-
-setPolicyOptions := secretsManagerApi.NewPutPolicyOptions(
-    "username_password", secretIdLink, collectionMetadata, []sm.SecretPolicyRotation{*secretPolicy},
-)
-
-result, response, err := secretsManagerApi.PutPolicy(setPolicyOptions)
-if err != nil {
-    panic(err)
-}
-
-b, _ := json.MarshalIndent(result, "", "  ")
-fmt.Println(string(b))
-```
-{: codeblock}
-{: go}
-
-A successful response returns the ID value for the policy, along with other metadata. For more information about the required and optional request parameters, see [Set secret policies](/apidocs/secrets-manager#put-policy){: external}.
-
-## Rotating TLS certificates
-{: #rotate-certificates}
-
-You can manually rotate your TLS certificates, or you can enable automatic rotation for certificates that you order from a third-party certificate authority. After a certificate is rotated, the previous version is retained in case you need it.
-
-The way in which {{site.data.keyword.secrets-manager_short}} evaluates requests to rotate a certificate differs based on the secret type.
-
-- [Imported certificates](/docs/secrets-manager?topic=secrets-manager-certificates#import-certificates) are replaced immediately by the data that is provided on rotation.
-- [Public certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates) move to the **Active, Rotation pending** status to indicate that the request to renew the certificate is being processed. {{site.data.keyword.secrets-manager_short}} uses DNS validation to verify that you own the domains that are listed as part of the certificate. This process can take a few minutes to complete. If the validation completes successfully, a new certificate is issued and its status changes back to **Active**. If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**. 
-  
-
-
-### Rotating certificates manually in the UI
-{: #manual-rotate-certificate-ui}
-{: ui}
-
-When it's time to renew your certificates, you can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotate them.
-
-If the certificate that you are rotating was previously imported with an intermediate certificate and a private key, include an intermediate certificate and private key on rotation to avoid service disruptions.
-{: important}
-
-1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
-2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
-3. Use the **Secrets** table to view the secrets in your instance.
-4. In the row for the certificate that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
-5. Select or enter the new certificate data that you want to associate with your certificate.
-
-    Keep in mind that manually rotating a certificate replaces the content of the certificate with the new data that you provide only. Private keys and intermediate certificates from previous versions are not retained. 
-6. Click **Rotate**.
-
-   After your certificate is rotated, be sure to deploy the latest version to the apps or services that use it. You can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager#get-secret) API.
-
-### Enabling automatic rotation for certificates in the UI
-{: #auto-rotate-certificate-ui}
-{: ui}
-
-If you prefer to schedule your certificates to be automatically renewed, you can enable automatic rotation for certificates when you order them, or by editing the details of an existing certificate. In the certificate's next rotation cycle, {{site.data.keyword.secrets-manager_short}} reorders the certificate 31 days before it expires. 
-
-Certificates that expire in less than 31 days must also be rotated manually before rotation becomes automatic in the following cycles.
-{: note}
-
-1. If you're [ordering a certificate](/docs/secrets-manager?topic=secrets-manager-user-credentials#user-credentials-ui), enable the rotation options.
-   
-   1. To rotate the certificate automatically, switch the rotation toggle to **On**. Your certificate is automatically rotated 31 days before its expiration date.
-   2. To request a new private key for the certificate on each rotation, switch the rekey toggle to **On**.
-2. If you're editing an existing public certificate, enable automatic rotation by updating its details.
-   1. In the **Secrets** table, view a list of your existing Public certificates.
-   2. In the row for the certificate that you want to edit, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Edit details**.
-   3. Use the **Automatic rotation** option to add or remove a rotation policy for the secret.
-
-
-### Enabling automatic rotation for certificates with the API
-{: #auto-rotate-certificates-api}
-{: api}
-
-If you prefer to schedule your certificates to be automatically renewed, you can enable automatic rotation for certificates when you order them, or by editing the details of an existing certificate. In the certificate's next rotation cycle, {{site.data.keyword.secrets-manager_short}} reorders the certificate 31 days before it expires.
-
-
-The following example request orders a certificate with automatic rotation enabled. When you call the API, set the `auto_rotate` property to `true`. Optionally, you can set `rotate_keys` to `true` to request a new private key for the certificate on each rotation.
-{: curl}
-
-
-
-Certificates that expires in less than 31 days must also be rotated manually before rotation becomes automatic in the following cycles.
-{: note}
-
-```bash
-curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/public_cert" \
-    -H "Authorization: Bearer $IAM_TOKEN" \
-    -H "Accept: application/json" \
-    -H "Content-Type: application/json" \
-    -d '{
-      "metadata": {
-        "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
-        "collection_total": 1
-      },
-      "resources": [
-        {
-          "name": "example-certificate-with-auto-rotation",
-          "description": "Extended description for my secret.",
-          "secret_group_id": "432b91f1-ff6d-4b47-9f06-82debc236d90",
-          "ca": "my-ca-configuration-name",
-          "dns": "my-dns-configuration-name",
-          "labels": [
-            "dev",
-            "us-south"
-          ],
-          "common_name": "certificate-common-name.com",
-          "alt_names": [
-            "www.certificate-common-name.com"
-          ],
-          "bundle_certs": false,
-          "key_algorithm": "RSA2048",
-          "rotation": {
-            "auto_rotate": true,
-            "rotate_keys": true
-          }
-        }
-      ]
-    }'
-```
-{: codeblock}
-{: curl}
-
-
-
-A successful response returns the ID value for the certificate, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager#update-secret).

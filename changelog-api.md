@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-11-19"
 
 keywords: change log for [{sm-short}] APIs, API changelog, updates to [{sm-short}] APIs
 
@@ -62,6 +62,21 @@ In this change log, you can learn about the latest changes, improvements, and up
 
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
 
+
+
+
+
+## 22 November 2021
+{: #2021-11-22-api}
+
+This release includes the following updates:
+
+- Added the `service_id` string parameter as a request body option to the [Create a secret](/apidocs/secrets-manager#create-secret) method. You can use this field to create IAM credentials with an existing service ID from your account, so that only an API key is generated when the secret is read or accessed.
+- Added the `api_key_id` string parameter to the response details of the [Create a secret](/apidocs/secrets-manager#create-secret) and [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) methods.
+- Added the `service_id_is_static` boolean parameter to the response details of the [Create a secret](/apidocs/secrets-manager#create-secret) and [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) methods. This parameter indicates whether an IAM credential secret was created by using an existing service ID.
+- Added the [List versions of a secret](/apidocs/secrets-manager#list-secret-versions) method that can be used to obtain version history information for a secret. 
+- Added `payload_available` and `downloaded` boolean parameters to the response details of the [Get a secret](/apidocs/secrets-manager#get-secret), [Get secret version metadata](/apidocs/secrets-manager#get-secret-version-metadata), [List versions of a secret](/apidocs/secrets-manager#list-secret-versions) methods. These parameters can help you to identify whether the a secret version is available to be restored, and whether it has already been previously read or accessed.
+- Updated the [Get a version of a secret](/apidocs/secrets-manager#get-secret-version) method that can be used to retrieve the previous version of a secret. This API now supports `arbitrary`, `iam_credentials`, and `username_password` secrets, in addition to `public_cert` and `imported_cert`.
 
 
 ## 20 September 2021
