@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-11-24"
 
 keywords: unable to configure IAM credentials engine, can't create API key, access required for IAM credentials engine
 
@@ -68,7 +68,7 @@ You try to configure the IAM credentials engine in an {{site.data.keyword.secret
 In the {{site.data.keyword.secrets-manager_short}} UI, you go to the **Secrets engines** page to configure the IAM credentials engine for a {{site.data.keyword.secrets-manager_short}} instance. You receive the following error message when you try to create an API key:
 {: tsSymptoms}
 
-```
+```plaintext
 Access required
 You're not authorized to complete this action. To verify your permissions, contact your administrator.
 ```

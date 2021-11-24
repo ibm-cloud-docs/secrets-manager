@@ -79,13 +79,13 @@ Current version: **`0.1.12`**
 * Export an environment variable with your {{site.data.keyword.secrets-manager_short}} service endpoint URL.
 
     If you're using plug-in version `0.0.8` or later, export the following variable.
-    ```
+    ```sh
     export SECRETS_MANAGER_URL=https://{instance_ID}.{region}.secrets-manager.appdomain.cloud
     ```
     {: pre}
 
     If you're using plug-in version `0.0.6` or earlier, export the following variable.
-    ```
+    ```sh
     export IBM_CLOUD_SECRETS_MANAGER_API_URL=https://{instance_ID}.{region}.secrets-manager.appdomain.cloud
     ```
     {: pre}
@@ -134,6 +134,7 @@ Retrieves the list of secret groups that are available in your Secrets Manager i
 ```sh
 ibmcloud secrets-manager secret-groups 
 ```
+{: codeblock}
 
 
 ### ibmcloud secrets-manager secret-group
@@ -144,6 +145,7 @@ Retrieves the metadata of an existing secret group by specifying the ID of the g
 ```sh
 ibmcloud secrets-manager secret-group --id ID 
 ```
+{: codeblock}
 
 
 #### Command options
@@ -162,6 +164,7 @@ Updates the metadata of an existing secret group, such as its name or descriptio
 ```sh
 ibmcloud secrets-manager secret-group-metadata-update --id ID --metadata METADATA --resources RESOURCES 
 ```
+{: codeblock}
 
 
 #### Command options
@@ -188,7 +191,7 @@ Deletes a secret group by specifying the ID of the secret group.
 ```sh
 ibmcloud secrets-manager secret-group-delete --id ID [--force]
 ```
-
+{: codeblock}
 
 #### Command options
 {: #secrets-manager-secret-group-delete-cli-options}
@@ -218,6 +221,7 @@ To learn more about the types of secrets that you can create with Secrets Manage
 ```sh
 ibmcloud secrets-manager secret-create --secret-type SECRET-TYPE --metadata METADATA --resources RESOURCES 
 ```
+{: codeblock}
 
 
 #### Command options
@@ -242,6 +246,7 @@ Retrieves a list of secrets based on the type that you specify.
 ```sh
 ibmcloud secrets-manager secrets --secret-type SECRET-TYPE [--limit LIMIT] [--offset OFFSET] 
 ```
+{: codeblock}
 
 
 #### Command options
@@ -270,6 +275,7 @@ Retrieves a list of all secrets in your Secrets Manager instance.
 ```sh
 ibmcloud secrets-manager all-secrets [--limit LIMIT] [--offset OFFSET] [--search SEARCH] [--sort-by SORT-BY] [--groups GROUPS] 
 ```
+{: codeblock}
 
 
 #### Command options
@@ -318,6 +324,7 @@ A successful request returns the secret data that is associated with your secret
 ```sh
 ibmcloud secrets-manager secret --secret-type SECRET-TYPE --id ID 
 ```
+{: codeblock}
 
 
 #### Command options
@@ -344,6 +351,7 @@ Invokes an action on a specified secret. This method supports the following acti
 ```sh
 ibmcloud secrets-manager secret-update --secret-type SECRET-TYPE --id ID --action ACTION --body BODY 
 ```
+{: codeblock}
 
 
 #### Command options
@@ -411,6 +419,7 @@ Deletes a secret by specifying the ID of the secret.
 ```sh
 ibmcloud secrets-manager secret-delete --secret-type SECRET-TYPE --id ID [--force]
 ```
+{: codeblock}
 
 
 #### Command options
@@ -439,6 +448,7 @@ A successful request returns the secret data that is associated with the specifi
 ```sh
 ibmcloud secrets-manager secret-version --secret-type SECRET-TYPE --id ID --version-id VERSION-ID 
 ```
+{: codeblock}
 
 
 #### Command options
@@ -497,6 +507,7 @@ A successful request returns the metadata that is associated with the specified 
 ```sh
 ibmcloud secrets-manager secret-version-metadata --secret-type SECRET-TYPE --id ID --version-id VERSION-ID 
 ```
+{: codeblock}
 
 
 #### Command options
@@ -550,6 +561,7 @@ A successful request returns only metadata about the secret, such as its name an
 ```sh
 ibmcloud secrets-manager secret-metadata --secret-type SECRET-TYPE --id ID 
 ```
+{: codeblock}
 
 
 #### Command options
@@ -575,6 +587,7 @@ To update the actual contents of a secret, rotate the secret by using the [Invok
 ```sh
 ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id ID --metadata METADATA --resources RESOURCES 
 ```
+{: codeblock}
 
 
 #### Command options
@@ -609,6 +622,7 @@ Creates or updates one or more policies, such as an [automatic rotation policy](
 ```sh
 ibmcloud secrets-manager policy-update --secret-type SECRET-TYPE --id ID --metadata METADATA --resources RESOURCES [--policy POLICY] 
 ```
+{: codeblock}
 
 
 #### Command options
@@ -643,6 +657,7 @@ Retrieves a list of policies that are associated with a specified secret.
 ```sh
 ibmcloud secrets-manager policy --secret-type SECRET-TYPE --id ID [--policy POLICY] 
 ```
+{: codeblock}
 
 
 #### Command options
@@ -678,6 +693,7 @@ Use this method to configure the IAM credentials (`iam_credentials`) engine for 
 ```sh
 ibmcloud secrets-manager config-update --secret-type SECRET-TYPE 
 ```
+{: codeblock}
 
 
 #### Command options
@@ -696,6 +712,7 @@ Retrieves the configuration that is associated with the specified secret type.
 ```sh
 ibmcloud secrets-manager config --secret-type SECRET-TYPE 
 ```
+{: codeblock}
 
 
 #### Command options
@@ -716,6 +733,7 @@ Use this method to define the configurations that are required to enable the pub
 ```sh
 ibmcloud secrets-manager config-element-create --secret-type SECRET-TYPE --config-element CONFIG-ELEMENT --name NAME --type TYPE --config CONFIG 
 ```
+{: codeblock}
 
 
 #### Command options
@@ -752,6 +770,7 @@ Lists the configuration elements that are associated with a specified secret typ
 ```sh
 ibmcloud secrets-manager config-elements --secret-type SECRET-TYPE --config-element CONFIG-ELEMENT 
 ```
+{: codeblock}
 
 
 #### Command options
@@ -775,6 +794,7 @@ Updates a configuration element that is associated with the specified secret typ
 ```sh
 ibmcloud secrets-manager config-element-update --secret-type SECRET-TYPE --config-element CONFIG-ELEMENT --config-name CONFIG-NAME --type TYPE --config CONFIG 
 ```
+{: codeblock}
 
 
 #### Command options
@@ -809,6 +829,7 @@ Removes a configuration element from the specified secret type.
 ```sh
 ibmcloud secrets-manager config-element-delete --secret-type SECRET-TYPE --config-element CONFIG-ELEMENT --config-name CONFIG-NAME 
 ```
+{: codeblock}
 
 
 #### Command options
@@ -835,6 +856,7 @@ Retrieves the details of a specific configuration that is associated with a secr
 ```sh
 ibmcloud secrets-manager config-element --secret-type SECRET-TYPE --config-element CONFIG-ELEMENT --config-name CONFIG-NAME 
 ```
+{: codeblock}
 
 
 #### Command options
@@ -869,7 +891,7 @@ The following example shows the format of the `CollectionMetadata` object.
   "collection_total" : 1
 }
 ```
-{: codeblock}
+{: screen}
 
 ### `ConfigElementDefConfig`
 {: #cli-config-element-def-config-example-schema}
@@ -881,7 +903,7 @@ The following example shows the format of the `ConfigElementDefConfig` object.
   "private_key" : "exampleString"
 }
 ```
-{: codeblock}
+{: screen}
 
 ### `SecretAction`
 {: #cli-secret-action-example-schema}
@@ -893,7 +915,7 @@ The following example shows the format of the `SecretAction` object.
   "payload" : "exampleString"
 }
 ```
-{: codeblock}
+{: screen}
 
 ### `SecretGroupMetadataUpdatable[]`
 {: #cli-secret-group-metadata-updatable-example-schema}
@@ -906,7 +928,7 @@ The following example shows the format of the `SecretGroupMetadataUpdatable[]` o
   "description" : "Updated description for this group."
 } ]
 ```
-{: codeblock}
+{: screen}
 
 ### `SecretGroupResource[]`
 {: #cli-secret-group-resource-example-schema}
@@ -919,7 +941,7 @@ The following example shows the format of the `SecretGroupResource[]` object.
   "description" : "Extended description for this group."
 } ]
 ```
-{: codeblock}
+{: screen}
 
 ### `SecretMetadata[]`
 {: #cli-secret-metadata-example-schema}
@@ -934,7 +956,7 @@ The following example shows the format of the `SecretMetadata[]` object.
   "expiration_date" : "2030-04-01T09:30:00.000Z"
 } ]
 ```
-{: codeblock}
+{: screen}
 
 ### `SecretPolicyRotation[]`
 {: #cli-secret-policy-rotation-example-schema}
@@ -950,7 +972,7 @@ The following example shows the format of the `SecretPolicyRotation[]` object.
   }
 } ]
 ```
-{: codeblock}
+{: screen}
 
 ### `SecretResource[]`
 {: #cli-secret-resource-example-schema}
@@ -967,6 +989,6 @@ The following example shows the format of the `SecretResource[]` object.
   "payload" : "exampleString"
 } ]
 ```
-{: codeblock}
+{: screen}
 
 

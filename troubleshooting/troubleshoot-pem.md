@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-11-24"
 
 keywords: troubleshoot secrets manager, import certificates doesn't work, can't import certificate, convert crt to pem, convert cer to pem, convert der to pem, convert certificate file to pem
 
@@ -68,7 +68,7 @@ You try to use {{site.data.keyword.secrets-manager_full}} to import an SSL/TLS c
 You have an unexpired TLS certificate that you want to store in {{site.data.keyword.secrets-manager_short}}. When you try to import the file by using the {{site.data.keyword.secrets-manager_short}} UI, you get the following error:
 {: tsSymptoms}
 
-```
+```plaintext
 Add secret failed
 An error occurred and the secret couldn't be added.
 ```
@@ -76,7 +76,7 @@ An error occurred and the secret couldn't be added.
 
 You also try to import the file by using the {{site.data.keyword.secrets-manager_short}} API, but you get the following error:
 
-```
+```plaintext
 Unable to parse the certificate
 ```
 {: screen}

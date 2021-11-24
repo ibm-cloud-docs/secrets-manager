@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-11-24"
 
 keywords: troubleshoot secrets manager, troubleshooting for secret group, delete secret group, can't delete secret group, unable to delete secret group, troubleshooting Secrets Manager
 
@@ -68,7 +68,7 @@ You try to use {{site.data.keyword.secrets-manager_full}} to delete a secret gro
 You have a secret group that you no longer need. When you try to delete it in the {{site.data.keyword.secrets-manager_short}} UI, you get the following error:
 {: tsSymptoms}
 
-```
+```plaintext
 Delete group failed
 An error occurred and the secret group couldn't be deleted.
 ```
