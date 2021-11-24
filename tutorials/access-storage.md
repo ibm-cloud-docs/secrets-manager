@@ -84,7 +84,7 @@ With {{site.data.keyword.secrets-manager_short}}, you can create a [dynamic secr
 
 Before you get started, be sure that you have [**Administrator** platform access](/docs/account?topic=account-assign-access-resources#assign-new-access) so that you can provision services, create access groups, and customize access policies for others. You also need the following prerequisites:
 
-- [Download and install the IBM Cloud CLI](https://cloud.ibm.com/docs/cli).
+- [Download and install the IBM Cloud CLI](/docs/cli).
 - [Install the {{site.data.keyword.secrets-manager_short}} CLI plug-in](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli).
 - [Download and install jq](https://stedolan.github.io/jq/){: external}.
 
@@ -210,10 +210,7 @@ Next, define the access hierarchy that you need to be able to run operations aga
 
     You use this API key later to enable the {{site.data.keyword.secrets-manager_short}} IAM secrets engine.
 
-<hidden>
 
-
-</hiidden>
 
 ### Prepare your Cloud Object Storage instance
 {: #access-cos-provision-cos}

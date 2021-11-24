@@ -3,7 +3,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-11-24"
 
 keywords: tutorial, Secrets Manager
 
@@ -131,7 +131,7 @@ Start by creating the account credentials that you need to be able to run operat
     ```
     {: pre}
 
-2. Assign the service ID permissions to read secrets from {{site.data.keyword.secrets-manager_short}}.
+3. Assign the service ID permissions to read secrets from {{site.data.keyword.secrets-manager_short}}.
 
     ```sh
     ibmcloud iam service-policy-create $SERVICE_ID --roles "SecretsReader" --service-name secrets-manager
@@ -212,7 +212,7 @@ You can create one free Kubernetes cluster and {{site.data.keyword.secrets-manag
         ```
         {: screen}
 
-    1. Next, verify that your {{site.data.keyword.secrets-manager_short}} instance provisioned successfully.
+    2. Next, verify that your {{site.data.keyword.secrets-manager_short}} instance provisioned successfully.
 
         ```sh
         ibmcloud resource service-instance my-secrets-manager
@@ -353,11 +353,11 @@ First, add `kubernetes-external-secrets` resources to your cluster by installing
     ```
     {: pre}
 
-2. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> Kubernetes > Clusters**.
-3. Click _my-test-cluster_ **> Kubernetes dashboard > Deployments**.
-4. In the table row for _secrets-manager-tutorial-kubernetes-external-secrets_, click the **Actions** menu ![Actions icon](../../icons/actions-icon-vertical.svg) **> Edit**.
-5. In the JSON editor, scroll to find the `spec.containers` object that contains information about `kubernetes-external-secrets`.
-6. Set the following environment variables. 
+3. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> Kubernetes > Clusters**.
+4. Click _my-test-cluster_ **> Kubernetes dashboard > Deployments**.
+5. In the table row for _secrets-manager-tutorial-kubernetes-external-secrets_, click the **Actions** menu ![Actions icon](../../icons/actions-icon-vertical.svg) **> Edit**.
+6. In the JSON editor, scroll to find the `spec.containers` object that contains information about `kubernetes-external-secrets`.
+7. Set the following environment variables. 
 
     ```yaml
     env:
@@ -374,7 +374,7 @@ First, add `kubernetes-external-secrets` resources to your cluster by installing
     {: codeblock}
 
     Replace `<endpoint_url>` with the {{site.data.keyword.secrets-manager_short}} endpoint URL that you retrieved in [step 1](#tutorial-kubernetes-secrets-prepare-sm).
-7. Click **Update** to save your changes.
+8. Click **Update** to save your changes.
 
 
 ### Update your app configuration 
