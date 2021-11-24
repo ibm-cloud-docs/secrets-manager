@@ -148,8 +148,7 @@ If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](ht
 If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `update_secret(params)` method to rotate a secret. The following code shows an example call to rotate user credentials.
 {: python}
 
-If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `UpdateSecret` method to rotate a secret. The following code shows an example call to rotate user credentials.
-{: go}
+
 
 ```sh
 curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password/{id}/policies" \
@@ -272,7 +271,7 @@ b, _ := json.MarshalIndent(getSecretPolicies, "", "  ")
 fmt.Println(string(b))
 ```
 {: codeblock}
-{: go}
+{: python}
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager#update-secret).
 
