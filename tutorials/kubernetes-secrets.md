@@ -94,8 +94,8 @@ Before you get started, be sure that you have [**Administrator** platform access
 - [Download and install the IBM Cloud CLI](https://cloud.ibm.com/docs/cli).
 - [Install the {{site.data.keyword.secrets-manager_short}} CLI plug-in](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli).
 - [Install the Kubernetes CLI (`kubectl`)](https://kubernetes.io/docs/tasks/tools/){: external}.
-- [Download and install jq](https://stedolan.github.io/jq/){: external}.\
-\
+- [Download and install jq](https://stedolan.github.io/jq/){: external}.
+
     `jq` helps you slice and filter JSON data. You use `jq` in this tutorial to grab and use stored environment variables.
 
 
@@ -206,7 +206,7 @@ You can create one free Kubernetes cluster and {{site.data.keyword.secrets-manag
 
         When your worker node is finished provisioning, the status changes to **Ready**.
 
-        ```
+        ```sh
         ID                                                       Public IP       Private IP      Flavor   State          Status                Zone    Version
         kube-c39pf4ld0m87o3fv1utg-mytestclust-default-000000dd   169.xx.xx.xxx   10.xxx.xx.xxx   free     normal   Ready   mex01   1.20.7_1543
         ```
@@ -221,7 +221,7 @@ You can create one free Kubernetes cluster and {{site.data.keyword.secrets-manag
 
         When the instance is finished provisioning, the state changes to **Active**.
 
-        ```
+        ```plaintext
         Name:                  my-secrets-manager
         ID:                    crn:v1:bluemix:public:secrets-manager:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:fe06948b-0c6b-4183-8d4b-e6c1d38ff65f::
         GUID:                  fe06948b-0c6b-4183-8d4b-e6c1d38ff65f
@@ -314,7 +314,7 @@ export SECRET_ID=`ibmcloud secrets-manager secret-create --secret-type username_
 
 The output shows the ID of your newly created secret. For example:
 
-```
+```plaintext
 e0246cea-d668-aba7-eef2-58ca11ad3707
 ```
 {: screen}
@@ -336,7 +336,7 @@ First, add `kubernetes-external-secrets` resources to your cluster by installing
 
 1. From your command line, use the service ID API key that you created in step 1 to define `secret-api-key`.
 
-    ```
+    ```sh
     kubectl -n default create secret generic secret-api-key --from-literal=apikey=$IBM_CLOUD_API_KEY
     ```
     {: pre}
