@@ -86,8 +86,8 @@ Before you get started, be sure that you have [**Administrator** platform access
 
 - [Download and install the IBM Cloud CLI](https://cloud.ibm.com/docs/cli).
 - [Install the {{site.data.keyword.secrets-manager_short}} CLI plug-in](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli).
-- [Download and install jq](https://stedolan.github.io/jq/){: external}.\
-\
+- [Download and install jq](https://stedolan.github.io/jq/){: external}.
+
     `jq` helps you slice and filter JSON data. You use `jq` in this tutorial to grab and use stored environment variables.
 
 ## Set up your environment
@@ -134,7 +134,7 @@ Start by creating test instances of {{site.data.keyword.secrets-manager_short}} 
 
 4. Create a {{site.data.keyword.secrets-manager_short}} instance.
 
-    ```
+    ```sh
     ibmcloud resource service-instance-create test-sm-instance-tutorial secrets-manager lite us-south
     ```
     {: pre}
@@ -210,7 +210,10 @@ Next, define the access hierarchy that you need to be able to run operations aga
 
     You use this API key later to enable the {{site.data.keyword.secrets-manager_short}} IAM secrets engine.
 
+<hidden>
 
+
+</hiidden>
 
 ### Prepare your Cloud Object Storage instance
 {: #access-cos-provision-cos}
@@ -242,7 +245,7 @@ Next, create a bucket in your Cloud Object Storage instance and set up access.
 
     You can drag and drop any file or folder from your local system. For example, you can create and upload a file called `sample.txt` with the following sample text.
 
-    ```
+    ```plaintext
     A quick brown fox jumped over the lazy dog.
     ```
     {: screen}
@@ -305,7 +308,6 @@ Finally, configure your {{site.data.keyword.secrets-manager_short}} instance to 
 IAM credentials are dynamic secrets that you can use to access an IBM Cloud resource on-demand, such as a Cloud Object Storage bucket. A set of IAM credentials consists of a service ID and an API key that is generated each time that the protected resource is read or accessed. You can define a time-to-live (TTL) or a lease duration for your IAM credential at its creation so that you shorten the amount of time that the secret exists.
 
 To create an IAM credential from the {{site.data.keyword.cloud_notm}} CLI, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command.
-
 
 
 ```sh
@@ -483,7 +485,7 @@ curl -X GET \
 
 Replace `sample.txt` with the name of the file that you uploaded to your bucket. The following screen shows an example response.
 
-```
+```plaintext
 A quick brown fox jumps over the lazy dog.
 ```
 {: screen}
