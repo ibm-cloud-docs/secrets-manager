@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-11-24"
 
 keywords: secret groups, assign secret access, iam roles, secrets policies, organize secrets
 
@@ -252,18 +252,14 @@ You can delete secret groups by using the {{site.data.keyword.secrets-manager_sh
 The following example request deletes a secret group. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
 
-
 If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `deleteSecretGrouop` method to delete a secret group. The following code shows an example call.
 {: java}
-
 
 If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `deleteSecretGroup(params)` method to delete a secret group. The following code shows an example call.
 {: javascript}
 
-
 If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `delete_secret_group(params)` method to delete a secret group. The following code shows an example call.
 {: python}
-
 
 If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `DeleteSecretGroup` method to delete a secret group. The following code shows an example call.
 {: go}

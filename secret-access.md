@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-11-24"
 
 keywords: access secret, retrieve secret, read secret, get secret value, get secrets, view secrets, search secrets, read secrets, get secret value
 
@@ -130,22 +130,17 @@ The command outputs the value of the certificate and stores it to `my-cert-file.
 
 After you store a secret in your instance, you might need to retrieve its value so that you can connect to an external app or get access to a protected service. You can retrieve the value of a secret by using the {{site.data.keyword.secrets-manager_short}} API.
 
-
 The following example request retrieves a secret and its contents. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. The options for `{secret_type}` are: `arbitrary`, `iam_credentials`, `imported_cert`, and `username_password`.
 {: curl}
-
 
 If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `getSecret` method to retrieve a secret and its contents. The following code shows an example call.
 {: java}
 
-
 If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `getSecret(params)` method to retrieve a secret and its contents. The following code shows an example call.
 {: javascript}
 
-
 If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `get_secret(params)` method to retrieve a secret and its contents. The following code shows an example call.
 {: python}
-
 
 If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `GetSecret` method to retrieve a secret and its contents. The following code shows an example call.
 {: go}

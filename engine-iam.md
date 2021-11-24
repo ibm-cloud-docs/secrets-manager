@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-11-24"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -162,7 +162,6 @@ To allow your {{site.data.keyword.cloud_notm}} API key to create and manage othe
 {: #configure-iam-engine-api}
 {: api}
 
-
 Before you can create dynamic IAM credentials, you must configure the IAM secrets engine for your service instance. You can configure a secrets engines programmatically by calling the {{site.data.keyword.secrets-manager_short}} API.
 
 First, you need an [{{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-serviceidapikeys) that is associated with a service ID in your {{site.data.keyword.cloud_notm}} account. To allow your {{site.data.keyword.cloud_notm}} API key to create and manage other API keys dynamically, its associated service ID must have _Editor_ platform access for the IAM Access Groups Service, and _Operator_ platform access for the IAM Identity Service.
@@ -173,18 +172,14 @@ For step-by-step instructions to create an {{site.data.keyword.cloud_notm}} API 
 The following example shows a query that you can use to configure a secrets engine for your instance. When you call the API, replace the API key variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
 
-
 If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `putConfig` method to configure a secrets engine. The following code shows an example call.
 {: java}
-
 
 If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `putConfig(params)` method to configure a secrets engine. The following code shows an example call.
 {: javascript}
 
-
 If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `put_config(params)` method to configure a secrets engine. The following code shows an example call.
 {: python}
-
 
 If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `PutConfig` method to configure a secrets engine. The following code shows an example call.
 {: go}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-11-19"
+lastupdated: "2021-11-24"
 
 subcollection: secrets-manager
 
@@ -96,7 +96,6 @@ Current version: **`0.1.12`**
     {: important}
 
     
-
 
 
 

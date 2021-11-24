@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-19"
+lastupdated: "2021-11-24"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
 
@@ -153,7 +153,6 @@ The command outputs the ID value of the secret, along with other metadata. For m
 
 You can import certificates programmatically by calling the {{site.data.keyword.secrets-manager_short}} API.
 
-
 The following example shows a query that you can use to import an existing certificate. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
 
@@ -273,7 +272,6 @@ Currently, ordering certificates is available by using the UI or API only. To se
 ### Ordering certificates with the API
 {: #order-certificates-api}
 {: api}
-
 
 You can order certificates programmatically by calling the {{site.data.keyword.secrets-manager_short}} API.
 
