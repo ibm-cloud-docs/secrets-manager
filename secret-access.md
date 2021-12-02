@@ -77,7 +77,7 @@ You can retrieve all secret types programmatically by using the CLI, API, or SDK
 {: note}
 
 
-### Downloading certificates in the UI
+### Downloading certificates
 {: #download-certificate-ui}
 {: ui}
 
@@ -108,7 +108,7 @@ ibmcloud secrets-manager secret --secret-type SECRET_TYPE --id ID
 The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-command).
 
 
-### Downloading certificates with the CLI
+### Downloading certificates
 {: #download-certificate-cli}
 {: cli}
 
