@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-24"
+lastupdated: "2021-12-02"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -136,7 +136,7 @@ You can schedule the automatic rotation of secrets by using the {{site.data.keyw
 ### Scheduling rotation for user credentials
 {: #schedule-auto-rotate-password-api}
 
-The following example request creates an automatic rotation polocy for a user credentials (`username_password`) secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+The following example request creates an automatic rotation policy for a user credentials (`username_password`) secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
 
 If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `updateSecret` method to rotate a secret. The following code shows an example call to rotate user credentials.
