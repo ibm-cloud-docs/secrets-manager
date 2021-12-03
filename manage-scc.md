@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-11-24"
 
 keywords: security and compliance for {{site.data.keyword.secrets-manager_short}}, security for {{site.data.keyword.secrets-manager_short}}, compliance for {{site.data.keyword.secrets-manager_short}},
 
@@ -57,12 +57,8 @@ subcollection: secrets-manager
 # Managing security and compliance with {{site.data.keyword.secrets-manager_short}}
 {: #manage-security-compliance}
 
-
-
 {{site.data.keyword.secrets-manager_full}} is integrated with the {{site.data.keyword.compliance_short}} to help you manage security and compliance for your organization.
 {: shortdesc}
-
-
 
 With the {{site.data.keyword.compliance_short}}, you can monitor your {{site.data.keyword.cloud_notm}} accounts to understand whether they adhere to controls and goals that pertain to {{site.data.keyword.secrets-manager_short}}.
 

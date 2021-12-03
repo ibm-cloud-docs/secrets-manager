@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-11-24"
 
 keywords: delete secret, remove secret, destroy secret
 
@@ -99,24 +99,19 @@ For more information about the command options, see [**`ibmcloud secrets-manager
 {: #delete-secret-api}
 {: api}
 
-
 You can delete secrets by calling the {{site.data.keyword.secrets-manager_short}} API.
 
 The following example request deletes a secret and its contents. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. The options for `{secret_type}` are: `arbitrary`, `iam_credentials`, and `username_password`.
 {: curl}
 
-
 If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `deleteSecret` method to delete a secret. The following code shows an example call.
 {: java}
-
 
 If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `deleteSecret(params)` method to delete a secret. The following code shows an example call.
 {: javascript}
 
-
 If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `delete_secret(params)` method to delete a secret. The following code shows an example call.
 {: python}
-
 
 If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `DeleteSecret` method to delete a secret. The following code shows an example call.
 {: go}

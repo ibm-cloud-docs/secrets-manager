@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-11-24"
 
 keywords: Vault CLI, configure the Vault CLI, use Secrets Manager with Vault CLI, CLI commands, log in to Vault
 
@@ -103,6 +103,7 @@ First, set up your environment to access a {{site.data.keyword.secrets-manager_s
     | -------- | ----------- |
     | `IBM_CLOUD_API_KEY` | An {{site.data.keyword.cloud_notm}} API key that has at least [**Viewer** platform access](/docs/secrets-manager?topic=secrets-manager-iam) and [**Reader** service access](/docs/secrets-manager?topic=secrets-manager-iam) to your {{site.data.keyword.secrets-manager_short}} instance.|
     | `VAULT_ADDR` | The Vault API endpoint that's unique to your {{site.data.keyword.secrets-manager_short}} instance.  \n  \n You can find your unique endpoint URL in the **Endpoints** page of the {{site.data.keyword.secrets-manager_short}} UI, or by [retrieving it by HTTP request](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls). |
+    {: caption="Table 1. Required variables that are needed to extract a token" caption-side="top"}
 
 
 2. Mark the file as executable by running the `chmod` command in your command line.
@@ -143,7 +144,7 @@ After you configure your environment, log in to Vault to start interacting with 
 
     The following screen shows the example output.
 
-    ```
+    ```plaintext
     Key                      Value
     ---                      -----
     token                    s.5DQYF57xU1qOAIj2PhnMC39H
@@ -170,7 +171,7 @@ After you configure your environment, log in to Vault to start interacting with 
 
     The following screen shows the example output.
 
-    ```
+    ```plaintext
     Success! You are now authenticated. The token information displayed is
     already stored in the token helper. You do NOT need to run "vault login"
     again. Future Vault requests will automatically use this token.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-11-24"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -73,9 +73,10 @@ Before you get started, [configure the Vault CLI](/docs/secrets-manager?topic=se
 
 Use this command to configure the time-to-live (TTL) and lifespan (MaxTTL) of a Vault login token.
 
-```
+```sh
 vault write auth/ibmcloud/manage/login [token_ttl=DURATION] [token_max_ttl=MAX_DURATION]
 ```
+{: codeblock}
 
 #### Prerequisites
 {: #vault-cli-write-token-config-prereqs}
@@ -96,7 +97,7 @@ token_max_ttl
 
 Configure a Vault login token by entering `30m` for the initial time-to-live and `2h` for the maximum lifespan.
 
-```
+```sh
 vault write auth/ibmcloud/manage/login token_ttl=30m token_max_ttl=2h
 ```
 {: pre}
@@ -105,7 +106,7 @@ vault write auth/ibmcloud/manage/login token_ttl=30m token_max_ttl=2h
 {: #vault-cli-write-token-config-output}
 
 The command returns the following output:
-```
+```plaintext
 Success! Data written to: auth/ibmcloud/manage/login
 ```
 {: screen}
@@ -115,9 +116,10 @@ Success! Data written to: auth/ibmcloud/manage/login
 
 Use this command to view the configuration of a Vault login token.
 
-```
+```sh
 vault read [-format=FORMAT] auth/ibmcloud/manage/login
 ```
+{: codeblock}
 
 #### Prerequisites
 {: #vault-cli-read-token-config-prereqs}
@@ -135,7 +137,7 @@ You need the [**Manager** service role](/docs/secrets-manager?topic=secrets-mana
 
 View the login configuration of a Vault token in JSON format.
 
-```
+```sh
 vault read -format=json auth/ibmcloud/manage/login
 ```
 {: pre}
@@ -169,9 +171,10 @@ The command returns the following output:
 
 Use this command to create a secret group.
 
-```
+```sh
 vault write [-format=FORMAT] auth/ibmcloud/manage/groups name=NAME [description="DESCRIPTION"]
 ```
+{: codeblock}
 
 #### Prerequisites
 {: #vault-cli-create-secret-group-prereqs}
@@ -195,7 +198,7 @@ description
 
 Create a secret group with a name and description.
 
-```
+```sh
 vault write auth/ibmcloud/manage/groups name="my-secret-group" description="A group of secrets."
 ```
 {: pre}
@@ -204,7 +207,7 @@ vault write auth/ibmcloud/manage/groups name="my-secret-group" description="A gr
 {: #vault-cli-create-secret-group-output}
 
 The command returns the following output:
-```
+```plaintext
 Key            Value
 ---            -----
 created_at     2020-10-05T17:43:49Z
@@ -221,9 +224,10 @@ updated_at     n/a
 
 Use this command to list the secret groups that are available if your {{site.data.keyword.secrets-manager_short}} instance.
 
-```
+```sh
 vault read [-format=FORMAT] auth/ibmcloud/manage/groups
 ```
+{: codeblock}
 
 #### Prerequisites
 {: #vault-cli-list-secret-groups-prereqs}
@@ -241,7 +245,7 @@ You need the [**Reader** service role](/docs/secrets-manager?topic=secrets-manag
 
 Retrieve a list of secret groups in JSON format.
 
-```
+```sh
 vault read -format=json auth/ibmcloud/manage/groups
 ```
 {: pre}
@@ -278,9 +282,10 @@ The command returns the following output:
 
 Use this command to get the details of a secret group.
 
-```
+```sh
 vault read [-format=FORMAT] auth/ibmcloud/manage/groups/SECRET_GROUP_ID
 ```
+{: codeblock}
 
 #### Prerequisites
 {: #vault-cli-get-secret-group-prereqs}
@@ -299,7 +304,7 @@ You need the [**Reader** service role](/docs/secrets-manager?topic=secrets-manag
 
 Get the details of a specific secret group in JSON format.
 
-```
+```sh
 vault read -format=json auth/ibmcloud/manage/groups/9c6d20ad-779e-27c5-3842-2a20b19abfcf
 ```
 {: pre}
@@ -332,10 +337,10 @@ The command returns the following output:
 
 Use this command to update a secret group.
 
-```
+```sh
 vault write [-format=FORMAT] auth/ibmcloud/manage/groups/SECRET_GROUP_ID name=NAME [description="DESCRIPTION"]
 ```
-
+{: codeblock}
 
 #### Prerequisites
 {: #vault-cli-update-secret-group-prereqs}
@@ -361,7 +366,7 @@ description
 
 Update the name and description of a secret group.
 
-```
+```sh
 vault write auth/ibmcloud/manage/groups/9c6d20ad-779e-27c5-3842-2a20b19abfcf name="my-updated-secret-group" description="An updated group of secrets."
 ```
 {: pre}
@@ -370,7 +375,7 @@ vault write auth/ibmcloud/manage/groups/9c6d20ad-779e-27c5-3842-2a20b19abfcf nam
 {: #vault-cli-update-secret-group-output}
 
 The command returns the following output:
-```
+```plaintext
 Key            Value
 ---            -----
 created_at     2020-10-05T17:43:49Z
@@ -387,10 +392,10 @@ updated_at     2020-10-05T17:56:56Z
 
 Use this command to delete a secret group.
 
-```
+```sh
 vault delete auth/ibmcloud/manage/groups/SECRET_GROUP_ID
 ```
-
+{: codeblock}
 
 #### Prerequisites
 {: #vault-cli-delete-secret-group-prereqs}
@@ -403,7 +408,7 @@ You need the [**Manager** service role](/docs/secrets-manager?topic=secrets-mana
 
 Delete a secret group by its assigned ID.
 
-```
+```sh
 vault delete auth/ibmcloud/manage/groups/9c6d20ad-779e-27c5-3842-2a20b19abfcf
 ```
 {: pre}
@@ -412,7 +417,7 @@ vault delete auth/ibmcloud/manage/groups/9c6d20ad-779e-27c5-3842-2a20b19abfcf
 {: #vault-cli-delete-secret-group-output}
 
 The command returns the following output:
-```
+```plaintext
 Success! Data deleted (if it existed) at: auth/ibmcloud/manage/groups/9c6d20ad-779e-27c5-3842-2a20b19abfcf
 ```
 {: screen}
@@ -427,14 +432,16 @@ Use the following commands to add a static secret, such as a user credential or 
 
 
 Create a secret in the `default` secret group.
-```
+```sh
 vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets name=NAME [description="DESCRIPTION"] [username=USERNAME] [password=USERNAME] [payload=DATA] [expiration_date=EXPIRATION] [certificate=CERTIFICATE_DATA] [private_key=PRIVATE_KEY_DATA] [intermediate=INTERMEDIATE_CERTIFICATE_DATA] [ca=CA_CONFIGURATION_NAME] [dns=DNS_CONFIGURATION_NAME] [key_algorithm=KEY_ALGORITHM] [labels=LABEL,LABEL]
 ```
+{: codeblock}
 
 Create a secret in a specified secret group.
-```
+```sh
 vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets/groups/SECRET_GROUP_ID name=NAME [description="DESCRIPTION"] [username=USERNAME] [password=USERNAME] [payload=DATA] [expiration_date=EXPIRATION] [certificate=CERTIFICATE_DATA] [private_key=PRIVATE_KEY_DATA] [intermediate=INTERMEDIATE_CERTIFICATE_DATA] [ca=CA_CONFIGURATION_NAME] [dns=DNS_CONFIGURATION_NAME] [key_algorithm=KEY_ALGORITHM] [labels=LABEL,LABEL]
 ```
+{: codeblock}
 
 
 #### Prerequisites
@@ -493,35 +500,35 @@ key_algorithm
 
 Create a user credential with an expiration date and two labels.
 
-```
+```sh
 vault write -format=json ibmcloud/username_password/secrets name="my-test-user-credential" expiration_date="2020-12-31T23:59:59Z" username="user123" password="window-steel-dogs-coffee" labels=label-1,label-2
 ```
 {: pre}
 
 Create an arbitrary secret with an expiration date and two labels.
 
-```
+```sh
 vault write -format=json ibmcloud/arbitrary/secrets name="my-test-arbitrary-secret" expiration_date="2020-12-31T23:59:59Z" payload="this is my secret data" labels=label-1,label-2
 ```
 {: pre}
 
 Create an arbitrary secret with binary payload.
 
-```
+```sh
 base64 -w0 <filename> | vault write ibmcloud/arbitrary/secrets name="my-test-arbitrary-secret" payload=- labels="encode:base64"
 ```
 {: pre}
 
 Import a TLS certificate with a matching private key.
 
-```
+```sh
 vault write -format=json ibmcloud/imported_cert/secrets name="my-test-imported-certificate" certificate=@cert.pem private_key=@key.pem
 ```
 {: pre}
 
 Order a TLS certificate by specifying a certificate authority and DNS provider configuration.
 
-```
+```sh
 vault write -format=json ibmcloud/public_cert/secrets name="my-test-public-certificate" "ca="my-configured-certificate-authority" dns="my-configured-dns-provider" common_name="example.com" key_algorithm=RSA2048
 ```
 {: pre}
@@ -710,14 +717,16 @@ The command to order a `public_cert` secret returns the following output:
 Use the following commands to list the static secrets in your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`, `imported_cert`
 
 List secrets by type.
-```
+```sh
 vault read [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets
 ```
+{: codeblock}
 
 List secrets by secret group.
-```
+```sh
 vault read [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets/groups/ID
 ```
+{: codeblock}
 
 #### Prerequisites
 {: #vault-cli-list-static-secrets-prereqs}
@@ -735,14 +744,14 @@ You need the [**Reader** service role](/docs/secrets-manager?topic=secrets-manag
 
 Retrieve a list of available user credential secrets in the `default` secret group.
 
-```
+```sh
 vault read -format=json ibmcloud/username_password/secrets
 ```
 {: pre}
 
 Retrieve a list of arbitrary secrets that are assigned to a specified secret group.
 
-```
+```sh
 vault read -format=json ibmcloud/arbitrary/secrets/groups/9ab2250f-a369-4e07-ade7-d417d63ad587
 ```
 {: pre}
@@ -802,12 +811,12 @@ If the secrets belong to a secret group, the `data.secrets.secret_group_id` valu
 Use the following commands to retrieve a secret and its details. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`, `imported_cert`
 
 Get a secret that is in the `default` secret group.
-```
+```sh
 vault read [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets/SECRET_ID
 ```
 
 Get a secret that's assigned to a specified secret group.
-```
+```sh
 vault read [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets/groups/SECRET_GROUP_ID/SECRET_ID
 ```
 
@@ -827,7 +836,7 @@ You need the [**SecretsReader** or **Writer** service role](/docs/secrets-manage
 
 Retrieve an arbitrary secret, including its payload, that's assigned to the `default` secret group.
 
-```
+```sh
 vault read -format=json ibmcloud/arbitrary/secrets/71539dff-9e84-804a-debb-ab3eb3d8afce
 ```
 {: pre}
@@ -874,9 +883,10 @@ The command returns the following output:
 
 Use this command to update the metadata of a secret, such as its name or description. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`, `imported_cert`
 
-```
+```sh
 vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets/SECRET_ID/metadata name=NAME [description="DESCRIPTION"][expiration_date=EXPIRATION] [labels=LABEL,LABEL]
 ```
+{: codeblock}
 
 #### Prerequisites
 {: #vault-cli-update-static-secret-prereqs}
@@ -905,7 +915,7 @@ labels
 
 Update the name of an arbitrary secret.
 
-```
+```sh
 vault write -format=json ibmcloud/arbitrary/secrets/fe874c2b-e8fd-bbb6-9f19-e91bbe744735/metadata name="updated-name-arbitrary-secret"
 ```
 {: pre}
@@ -942,9 +952,10 @@ The command returns the following output:
 
 Use this command to rotate a secret. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`, `imported_cert`
 
-```
+```sh
 vault write [-format=FORMAT] [-force] ibmcloud/SECRET_TYPE/secrets/SECRET_ID/rotate [payload="SECRET_DATA"] [password=PASSWORD] [certificate=CERTIFICATE_DATA] [private_key=PRIVATE_KEY_DATA] [intermediate=INTERMEDIATE_CERTIFICATE_DATA]
 ```
+{: codeblock}
 
 
 #### Prerequisites
@@ -982,21 +993,21 @@ intermediate
 
 Manually rotate the secret data that is stored for an arbitrary secret.
 
-```
+```sh
 vault write -format=json ibmcloud/arbitrary/secrets/fe874c2b-e8fd-bbb6-9f19-e91bbe744735/rotate payload="Updated secret data."
 ```
 {: pre}
 
 Manually rotate the password that is stored for a `username_password` secret.
 
-```
+```sh
 vault write -format=json ibmcloud/username_password/secrets/cb32abc1-2a4b-e0fd-f403-233e5249e130/rotate password="my-updated-password"
 ```
 {: pre}
 
 Replace the password that is stored for a `username_password` secret with a randomly generated 32-character password.
 
-```
+```sh
 vault write -format=json -force ibmcloud/username_password/secrets/cb32abc1-2a4b-e0fd-f403-233e5249e130/rotate
 ```
 {: pre}
@@ -1067,15 +1078,17 @@ Use this command to delete a secret. Allowable values for **`SECRET_TYPE`** incl
 
 Delete a secret in the `default` secret group.
 
-```
+```sh
 vault delete ibmcloud/SECRET_TYPE/secrets/SECRET_ID
 ```
+{: codeblock}
 
 Delete a secret in an existing secret group.
 
-```
+```sh
 vault delete ibmcloud/SECRET_TYPE/secrets/groups/SECRET_GROUP_ID/SECRET_ID
 ```
+{: codeblock}
 
 #### Prerequisites
 {: #vault-cli-delete-static-secret-prereqs}
@@ -1094,7 +1107,7 @@ You need the [**Manager** service role](/docs/secrets-manager?topic=secrets-mana
 
 Delete an arbitrary secret by its assigned ID.
 
-```
+```sh
 vault delete ibmcloud/arbitrary/secrets/d26702aa-77ae-400e-4f25-9790a9cabf9c
 ```
 {: pre}
@@ -1103,7 +1116,7 @@ vault delete ibmcloud/arbitrary/secrets/d26702aa-77ae-400e-4f25-9790a9cabf9c
 {: #vault-cli-delete-static-secret-output}
 
 The command returns the following output:
-```
+```plaintext
 Success! Data deleted (if it existed) at: ibmcloud/arbitrary/secrets/d26702aa-77ae-400e-4f25-9790a9cabf9c
 ```
 {: screen}
@@ -1122,14 +1135,16 @@ Use the following commands to register a role for a [secrets engine that support
 
 
 Create a role in the `default` secret group.
-```
+```sh
 vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/roles/ROLE_NAME access_groups=ACCESS_GROUP_ID,ACCESS_GROUP_ID ttl=LEASE_DURATION [description="DESCRIPTION"] [labels=LABEL,LABEL]
 ```
+{: codeblock}
 
 Create a role in a specified secret group.
-```
+```sh
 vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/roles/groups/SECRET_GROUP_ID/ROLE_NAME access_groups=ACCESS_GROUP_ID,ACCESS_GROUP_ID ttl=LEASE_DURATION [description="DESCRIPTION"] [labels=LABEL,LABEL]
 ```
+{: codeblock}
 
 #### Prerequisites
 {: #vault-cli-create-role-prereqs}
@@ -1169,14 +1184,14 @@ labels
 
 Configure an IAM credential with a lease duration of 1 hour and assign it to the `default` secret group.
 
-```
+```sh
 vault write -format=json ibmcloud/iam_credentials/roles/test-iam-credentials access_groups=AccessGroupId-985dc0a3-857b-48bd-b6d6-33819da7ba42 ttl=1h description="My test IAM credential." labels=test,us-south
 ```
 {: pre}
 
 Configure an IAM credential with a lease duration of 1 hour and assign it to a specified secret group.
 
-```
+```sh
 vault write -format=json ibmcloud/iam_credentials/roles/groups/9ab2250f-a369-4e07-ade7-d417d63ad587/test-iam-credential-in-group access_groups=AccessGroupId-985dc0a3-857b-48bd-b6d6-33819da7ba42 ttl=1h description="My test IAM credential that is assigned to a secret group." labels=test,us-south
 ```
 {: pre}
@@ -1225,14 +1240,16 @@ If the role is created in a secret group, the `data.secret_group_id` value is in
 Use the following commands to generate an API key for a role. This command creates a service ID, adds the service ID to the access group that you configured for the role, and then generates an API key for the service ID.
 
 Generate an API key for a role in the `default` secret group.
-```
+```sh
 vault read [-format=FORMAT] ibmcloud/iam_credentials/creds/ROLE_ID
 ```
+{: codeblock}
 
 Generate an API key for a role in a specified secret group.
-```
+```sh
 vault read [-format=FORMAT] ibmcloud/iam_credentials/creds/groups/SECRET_GROUP_ID/ROLE_ID
 ```
+{: codeblock}
 
 The generated API keys are renewable and have a time-to-live (TTL) as defined by the role or the system default.
 
@@ -1259,14 +1276,14 @@ ROLE_ID
 
 Generate an IAM credential for a secret that is assigned to the `default` secret group.
 
-```
+```sh
 vault read -format=json ibmcloud/iam_credentials/creds/test-iam-credentials
 ```
 {: pre}
 
 Generate an IAM credential for a secret that is assigned to a specified secret group.
 
-```
+```sh
 vault read -format=json ibmcloud/iam_credentials/creds/groups/9ab2250f-a369-4e07-ade7-d417d63ad587/test-iam-credential-in-group
 ```
 {: pre}
@@ -1317,14 +1334,16 @@ If the role belongs to a secret group, the `data.secret_group_id` value is inclu
 Use the following commands to list the roles or secrets in your {{site.data.keyword.secrets-manager_short}} instance.
 
 List roles by type.
-```
+```sh
 vault read [-format=FORMAT] ibmcloud/SECRET_TYPE/roles
 ```
+{: codeblock}
 
 List roles by secret group ID.
-```
+```sh
 vault read [-format=FORMAT] ibmcloud/SECRET_TYPE/roles/groups/SECRET_GROUP_ID
 ```
+{: codeblock}
 
 #### Prerequisites
 {: #vault-cli-list-roles-prereqs}
@@ -1349,14 +1368,14 @@ SECRET_GROUP_ID
 
 Retrieve a list of IAM credentials that are assigned to the `default` secret group.
 
-```
+```sh
 vault read -format=json ibmcloud/iam_credentials/roles
 ```
 {: pre}
 
 Retrieve a list of IAM credentials that belong to a specified secret group.
 
-```
+```sh
 vault read -format=json ibmcloud/iam_credentials/roles/groups/9ab2250f-a369-4e07-ade7-d417d63ad587
 ```
 {: pre}
@@ -1425,14 +1444,16 @@ Use the following commands to view details about a registered role or secret, su
 
 View the details of a role in the `default` secret group.
 
-```
+```sh
 vault read [-format=FORMAT] ibmcloud/SECRET_TYPE/roles/ROLE_ID/metadata
 ```
+{: codeblock}
 
 View the details of a role that's assigned to a secret group.
-```
+```sh
 vault read [-format=FORMAT] ibmcloud/SECRET_TYPE/roles/groups/GROUP_ID/ROLE/metadata
 ```
+{: codeblock}
 
 #### Prerequisites
 {: #vault-cli-read-role-metadata-prereqs}
@@ -1460,7 +1481,7 @@ ROLE_ID
 
 View the details of a role that's assigned to a secret group.
 
-```
+```sh
 vault read -format=json ibmcloud/iam_credentials/roles/groups/9ab2250f-a369-4e07-ade7-d417d63ad587/091ca93f-5c99-4078-9d7e-4801143030fd/metadata
 ```
 {: pre}
@@ -1508,14 +1529,16 @@ Use the following commands to view details about a registered role or secret, su
 
 Update the details of a role in the `default` secret group.
 
-```
+```sh
 vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/roles/ROLE_ID/metadata [name="ROLE_NAME"] [access_groups=ACCESS_GROUP_ID,ACCESS_GROUP_ID] [ttl=LEASE_DURATION] [description="DESCRIPTION"] [labels=LABEL,LABEL]
 ```
+{: codeblock}
 
 Update the details of a role that's assigned to a secret group.
-```
+```sh
 vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/roles/groups/SECRET_GROUP_ID/ROLE_ID/metadata [name="ROLE_NAME"] [access_groups=ACCESS_GROUP_ID,ACCESS_GROUP_ID] [ttl=LEASE_DURATION] [description="DESCRIPTION"] [labels=LABEL,LABEL]
 ```
+{: codeblock}
 
 #### Prerequisites
 {: #vault-cli-update-role-metadata-prereqs}
@@ -1558,7 +1581,7 @@ labels
 
 Update the details of a role that's assigned to the `default` group.
 
-```
+```sh
 vault write -format=json ibmcloud/iam_credentials/roles/091ca93f-5c99-4078-9d7e-4801143030fd/metadata name="new-credential-name"
 ```
 {: pre}
@@ -1605,14 +1628,16 @@ Use the following commands to delete a role.
 
 Delete a role in the `default` secret group.
 
-```
+```sh
 vault delete ibmcloud/SECRET_TYPE/roles/ROLE_ID
 ```
+{: codeblock}
 
 Delete a role that's assigned to a secret group.
-```
+```sh
 vault delete ibmcloud/SECRET_TYPE/roles/groups/SECRET_GROUP_ID/ROLE_ID
 ```
+{: codeblock}
 
 #### Prerequisites
 {: #vault-cli-delete-role-prereqs}
@@ -1637,7 +1662,7 @@ ROLE_ID
 
 Delete a role that's assigned to the `default` group.
 
-```
+```sh
 vault delete ibmcloud/iam_credentials/roles/091ca93f-5c99-4078-9d7e-4801143030fd
 ```
 {: pre}
@@ -1646,7 +1671,7 @@ vault delete ibmcloud/iam_credentials/roles/091ca93f-5c99-4078-9d7e-4801143030fd
 {: #vault-cli-delete-role-output}
 
 The command returns the following output:
-```
+```plaintext
 Success! Data deleted (if it existed) at: ibmcloud/iam_credentials/roles/091ca93f-5c99-4078-9d7e-4801143030fd
 ```
 {: screen}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-12"
+lastupdated: "2021-12-02"
 
 keywords: username, password, user credentials, store password
 
@@ -87,8 +87,8 @@ To store a username and password by using the {{site.data.keyword.secrets-manage
 7. Enter the username and password that you want to associate with the secret.
 8. Optional: Add labels to help you to search for similar secrets in your instance.
 9. Optional: Enable expiration and rotation options to control the lifespan of the secret.
-        1. To set an expiration date for the secret, switch the expiration toggle to **Yes**.
-        2. To rotate your secret at a 30, 60, or 90-day interval, switch the rotate toggle to **Yes**.
+    1. To set an expiration date for the secret, switch the expiration toggle to **Yes**.
+    2. To rotate your secret at a 30, 60, or 90-day interval, switch the rotate toggle to **Yes**.
 
 10. Click **Add**.
 
@@ -109,24 +109,18 @@ The command outputs the ID value of the secret, along with other metadata. For m
 {: #user-credentials-api}
 {: api}
 
-
 You can store a username and password programmatically by calling the {{site.data.keyword.secrets-manager_short}} API.
 
 The following example shows a query that you can use to create a username and password secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
-{: curl}
-
 
 If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `createSecret` method to create a username and password secret. The following code shows an example call.
 {: java}
 
-
 If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `createSecret(params)` method to create a username and password secret. The following code shows an example call.
 {: javascript}
 
-
 If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `create_secret(params)` method to create a username and password secret. The following code shows an example call.
 {: python}
-
 
 If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `CreateSecret` method to create a username and password secret. The following code shows an example call.
 {: go}
@@ -278,5 +272,3 @@ fmt.Println(string(b))
 {: go}
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager#create-secret)..
-
-

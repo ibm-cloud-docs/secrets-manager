@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-21"
+lastupdated: "2021-12-02"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -94,7 +94,7 @@ You can schedule the automatic rotation of secrets by using the {{site.data.keyw
 
 
 
-### Scheduling rotation for user credentials
+### Setting an automatic rotation policy for user credentials
 {: #schedule-auto-rotate-password-ui}
 
 If you prefer to schedule your passwords to be automatically rotated at regular intervals, you can enable automatic rotation for your user credentials at their creation, or by editing the details of an existing secret. Choose between a 30, 60, or 90-day rotation interval.
@@ -108,7 +108,7 @@ If you need more control over the rotation frequency of a secret, you can use th
     2. In the row for the secret that you want to edit, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Edit details**.
     3. Use the **Automatic rotation** option to enable or disable automatic rotation for the secret.
 
-### Scheduling rotation for public certificates
+### Setting an automatic rotation policy for public certificates
 {: #schedule-auto-rotate-public-cert-ui}
 
 If you prefer to schedule your public TLS certificates to be automatically renewed, you can enable automatic rotation for certificates when you order them, or by editing the details of an existing certificate. In the certificate's next rotation cycle, {{site.data.keyword.secrets-manager_short}} reorders the certificate 31 days before its expiry date. 
@@ -133,29 +133,24 @@ Certificates that expire in less than 31 days must also be [rotated manually](/d
 
 You can schedule the automatic rotation of secrets by using the {{site.data.keyword.secrets-manager_short}} API. 
 
-### Scheduling rotation for user credentials
+### Setting an automatic rotation policy for user credentials
 {: #schedule-auto-rotate-password-api}
 
-The following example request creates an automatic rotation polocy for a user credentials (`username_password`) secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+The following example request creates an automatic rotation policy for a user credentials (`username_password`) secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
-
 
 If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `updateSecret` method to rotate a secret. The following code shows an example call to rotate user credentials.
 {: java}
 
-
 If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `updateSecret(params)` method to rotate a secret. The following code shows an example call to rotate user credentials.
 {: javascript}
-
 
 If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `update_secret(params)` method to rotate a secret. The following code shows an example call to rotate user credentials.
 {: python}
 
 
-If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `UpdateSecret` method to rotate a secret. The following code shows an example call to rotate user credentials.
-{: go}
 
-```bash
+```sh
 curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password/{id}/policies" \
     -H "Authorization: Bearer $IAM_TOKEN" \
     -H "Accept: application/json" \
@@ -276,7 +271,7 @@ b, _ := json.MarshalIndent(getSecretPolicies, "", "  ")
 fmt.Println(string(b))
 ```
 {: codeblock}
-{: go}
+{: python}
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager#update-secret).
 
@@ -288,16 +283,15 @@ If you prefer to schedule your certificates to be automatically renewed, you can
 #### Ordering a public certificate that renews automatically
 {: #order-auto-rotate-public-cert-api}
 
-
 The following example request orders a certificate with automatic rotation enabled. When you call the API, set the `auto_rotate` property to `true`. Optionally, you can set `rotate_keys` to `true` to request a new private key for the certificate on each rotation.
 {: curl}
 
 
 
-Certificates that expires in less than 31 days must also be rotated manually before rotation becomes automatic in the following cycles.
+Certificates that expire in less than 31 days must also be rotated manually before rotation becomes automatic in the following cycles.
 {: note}
 
-```bash
+```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/public_cert" \
     -H "Authorization: Bearer $IAM_TOKEN" \
     -H "Accept: application/json" \

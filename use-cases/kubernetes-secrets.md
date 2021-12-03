@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-11-24"
 
 keywords:
 
@@ -53,8 +53,6 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
-
-
 
 
 # Securing Kubernetes secrets

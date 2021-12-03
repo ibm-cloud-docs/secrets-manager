@@ -3,7 +3,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-11-24"
 
 keywords: tutorial, Secrets Manager
 
@@ -94,8 +94,8 @@ Before you get started, be sure that you have [**Administrator** platform access
 - [Download and install the IBM Cloud CLI](https://cloud.ibm.com/docs/cli).
 - [Install the {{site.data.keyword.secrets-manager_short}} CLI plug-in](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli).
 - [Install the Kubernetes CLI (`kubectl`)](https://kubernetes.io/docs/tasks/tools/){: external}.
-- [Download and install jq](https://stedolan.github.io/jq/){: external}.\
-\
+- [Download and install jq](https://stedolan.github.io/jq/){: external}.
+
     `jq` helps you slice and filter JSON data. You use `jq` in this tutorial to grab and use stored environment variables.
 
 
@@ -131,7 +131,7 @@ Start by creating the account credentials that you need to be able to run operat
     ```
     {: pre}
 
-2. Assign the service ID permissions to read secrets from {{site.data.keyword.secrets-manager_short}}.
+3. Assign the service ID permissions to read secrets from {{site.data.keyword.secrets-manager_short}}.
 
     ```sh
     ibmcloud iam service-policy-create $SERVICE_ID --roles "SecretsReader" --service-name secrets-manager
@@ -206,13 +206,13 @@ You can create one free Kubernetes cluster and {{site.data.keyword.secrets-manag
 
         When your worker node is finished provisioning, the status changes to **Ready**.
 
-        ```
+        ```sh
         ID                                                       Public IP       Private IP      Flavor   State          Status                Zone    Version
         kube-c39pf4ld0m87o3fv1utg-mytestclust-default-000000dd   169.xx.xx.xxx   10.xxx.xx.xxx   free     normal   Ready   mex01   1.20.7_1543
         ```
         {: screen}
 
-    1. Next, verify that your {{site.data.keyword.secrets-manager_short}} instance provisioned successfully.
+    2. Next, verify that your {{site.data.keyword.secrets-manager_short}} instance provisioned successfully.
 
         ```sh
         ibmcloud resource service-instance my-secrets-manager
@@ -221,7 +221,7 @@ You can create one free Kubernetes cluster and {{site.data.keyword.secrets-manag
 
         When the instance is finished provisioning, the state changes to **Active**.
 
-        ```
+        ```plaintext
         Name:                  my-secrets-manager
         ID:                    crn:v1:bluemix:public:secrets-manager:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:fe06948b-0c6b-4183-8d4b-e6c1d38ff65f::
         GUID:                  fe06948b-0c6b-4183-8d4b-e6c1d38ff65f
@@ -314,7 +314,7 @@ export SECRET_ID=`ibmcloud secrets-manager secret-create --secret-type username_
 
 The output shows the ID of your newly created secret. For example:
 
-```
+```plaintext
 e0246cea-d668-aba7-eef2-58ca11ad3707
 ```
 {: screen}
@@ -336,7 +336,7 @@ First, add `kubernetes-external-secrets` resources to your cluster by installing
 
 1. From your command line, use the service ID API key that you created in step 1 to define `secret-api-key`.
 
-    ```
+    ```sh
     kubectl -n default create secret generic secret-api-key --from-literal=apikey=$IBM_CLOUD_API_KEY
     ```
     {: pre}
@@ -353,11 +353,11 @@ First, add `kubernetes-external-secrets` resources to your cluster by installing
     ```
     {: pre}
 
-2. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> Kubernetes > Clusters**.
-3. Click _my-test-cluster_ **> Kubernetes dashboard > Deployments**.
-4. In the table row for _secrets-manager-tutorial-kubernetes-external-secrets_, click the **Actions** menu ![Actions icon](../../icons/actions-icon-vertical.svg) **> Edit**.
-5. In the JSON editor, scroll to find the `spec.containers` object that contains information about `kubernetes-external-secrets`.
-6. Set the following environment variables. 
+3. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> Kubernetes > Clusters**.
+4. Click _my-test-cluster_ **> Kubernetes dashboard > Deployments**.
+5. In the table row for _secrets-manager-tutorial-kubernetes-external-secrets_, click the **Actions** menu ![Actions icon](../../icons/actions-icon-vertical.svg) **> Edit**.
+6. In the JSON editor, scroll to find the `spec.containers` object that contains information about `kubernetes-external-secrets`.
+7. Set the following environment variables. 
 
     ```yaml
     env:
@@ -374,7 +374,7 @@ First, add `kubernetes-external-secrets` resources to your cluster by installing
     {: codeblock}
 
     Replace `<endpoint_url>` with the {{site.data.keyword.secrets-manager_short}} endpoint URL that you retrieved in [step 1](#tutorial-kubernetes-secrets-prepare-sm).
-7. Click **Update** to save your changes.
+8. Click **Update** to save your changes.
 
 
 ### Update your app configuration 

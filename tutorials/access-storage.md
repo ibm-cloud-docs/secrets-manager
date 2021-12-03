@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-11-24"
 content-type: tutorial
-services: secrets-manager,cloud-object-storage
+services: secrets-manager, cloud-object-storage
 account-plan: lite
 completion-time: 1h
 
@@ -58,10 +58,11 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
+
 # Access a storage bucket by using a dynamic secret
 {: #tutorial-access-storage-bucket}
 {: toc-content-type="tutorial"}
-{: toc-services="cloud-object-storage,secrets-manager"}
+{: toc-services="secrets-manager, cloud-object-storage"}
 {: toc-completion-time="1h"}
 
 In this tutorial, you learn how to use {{site.data.keyword.secrets-manager_full}} to create and lease an IAM credential that can be used to access a bucket in Cloud Object Storage.
@@ -83,10 +84,10 @@ With {{site.data.keyword.secrets-manager_short}}, you can create a [dynamic secr
 
 Before you get started, be sure that you have [**Administrator** platform access](/docs/account?topic=account-assign-access-resources#assign-new-access) so that you can provision services, create access groups, and customize access policies for others. You also need the following prerequisites:
 
-- [Download and install the IBM Cloud CLI](https://cloud.ibm.com/docs/cli).
+- [Download and install the IBM Cloud CLI](/docs/cli).
 - [Install the {{site.data.keyword.secrets-manager_short}} CLI plug-in](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli).
-- [Download and install jq](https://stedolan.github.io/jq/){: external}.\
-\
+- [Download and install jq](https://stedolan.github.io/jq/){: external}.
+
     `jq` helps you slice and filter JSON data. You use `jq` in this tutorial to grab and use stored environment variables.
 
 ## Set up your environment
@@ -133,7 +134,7 @@ Start by creating test instances of {{site.data.keyword.secrets-manager_short}} 
 
 4. Create a {{site.data.keyword.secrets-manager_short}} instance.
 
-    ```
+    ```sh
     ibmcloud resource service-instance-create test-sm-instance-tutorial secrets-manager lite us-south
     ```
     {: pre}
@@ -241,7 +242,7 @@ Next, create a bucket in your Cloud Object Storage instance and set up access.
 
     You can drag and drop any file or folder from your local system. For example, you can create and upload a file called `sample.txt` with the following sample text.
 
-    ```
+    ```plaintext
     A quick brown fox jumped over the lazy dog.
     ```
     {: screen}
@@ -304,7 +305,6 @@ Finally, configure your {{site.data.keyword.secrets-manager_short}} instance to 
 IAM credentials are dynamic secrets that you can use to access an IBM Cloud resource on-demand, such as a Cloud Object Storage bucket. A set of IAM credentials consists of a service ID and an API key that is generated each time that the protected resource is read or accessed. You can define a time-to-live (TTL) or a lease duration for your IAM credential at its creation so that you shorten the amount of time that the secret exists.
 
 To create an IAM credential from the {{site.data.keyword.cloud_notm}} CLI, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command.
-
 
 
 ```sh
@@ -482,7 +482,7 @@ curl -X GET \
 
 Replace `sample.txt` with the name of the file that you uploaded to your bucket. The following screen shows an example response.
 
-```
+```plaintext
 A quick brown fox jumps over the lazy dog.
 ```
 {: screen}
