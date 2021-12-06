@@ -2,11 +2,11 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-11-24"
+lastupdated: "2021-12-06"
 
 subcollection: secrets-manager
 
-keywords: Secrets Manager CLI, Secrets Manager command line , Secrets Manager terminal, Secrets Manager shell
+keywords: Secrets Manager CLI, Secrets Manager command line, Secrets Manager terminal, Secrets Manager shell
 
 ---
 
@@ -60,7 +60,7 @@ keywords: Secrets Manager CLI, Secrets Manager command line , Secrets Manager te
 You can use the {{site.data.keyword.secrets-manager_full}} command-line interface (CLI) to manage secrets in your {{site.data.keyword.secrets-manager_short}} instance.
 {: shortdesc}
 
-Current version: **`0.1.12`**
+Current version: **`0.1.14`**
 
 ## Prerequisites
 {: #secrets-manager-cli-prereq}
@@ -95,7 +95,8 @@ Current version: **`0.1.12`**
     If you copy your service endpoint URL from the {{site.data.keyword.secrets-manager_short}} UI, be sure to trim `/api` from the URL before you export it as variable to use with the CLI plug-in.
     {: important}
 
-    
+    Need to override the URL? You can also specify the endpoint at the command-level by using the `--service-url INSTANCE` flag. For example, `ibmcloud secrets-manager secrets --service-url https://{instance_ID}.{region}.secrets-manager.appdomain.cloud`.
+    {: tip}
 
 
 
@@ -126,6 +127,14 @@ ibmcloud secrets-manager secret-group-create --metadata METADATA --resources RES
 --resources ([SecretGroupResource[]](#cli-secret-group-resource-example-schema))
 :   A collection of resources. Required.
 
+#### Examples
+
+```sh
+ibmcloud secrets-manager secret-group-create \
+    --metadata='{"collection_type": "application/vnd.ibm.secrets-manager.secret.group+json", "collection_total": 1}' \
+    --resources='[{"name": "my-secret-group", "description": "Extended description for this group."}]'
+```
+
 ### ibmcloud secrets-manager secret-groups
 {: #secrets-manager-cli-secret-groups-command}
 
@@ -134,8 +143,13 @@ Retrieves the list of secret groups that are available in your Secrets Manager i
 ```sh
 ibmcloud secrets-manager secret-groups 
 ```
-{: codeblock}
 
+
+#### Examples
+
+```sh
+ibmcloud secrets-manager secret-groups
+```
 
 ### ibmcloud secrets-manager secret-group
 {: #secrets-manager-cli-secret-group-command}
@@ -145,7 +159,6 @@ Retrieves the metadata of an existing secret group by specifying the ID of the g
 ```sh
 ibmcloud secrets-manager secret-group --id ID 
 ```
-{: codeblock}
 
 
 #### Command options
@@ -156,6 +169,13 @@ ibmcloud secrets-manager secret-group --id ID
 
     The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
 
+#### Examples
+
+```sh
+ibmcloud secrets-manager secret-group \
+    --id=exampleString
+```
+
 ### ibmcloud secrets-manager secret-group-metadata-update
 {: #secrets-manager-cli-secret-group-metadata-update-command}
 
@@ -164,7 +184,6 @@ Updates the metadata of an existing secret group, such as its name or descriptio
 ```sh
 ibmcloud secrets-manager secret-group-metadata-update --id ID --metadata METADATA --resources RESOURCES 
 ```
-{: codeblock}
 
 
 #### Command options
@@ -181,6 +200,15 @@ ibmcloud secrets-manager secret-group-metadata-update --id ID --metadata METADAT
 --resources ([SecretGroupMetadataUpdatable[]](#cli-secret-group-metadata-updatable-example-schema))
 :   A collection of resources. Required.
 
+#### Examples
+
+```sh
+ibmcloud secrets-manager secret-group-metadata-update \
+    --id=exampleString \
+    --metadata='{"collection_type": "application/vnd.ibm.secrets-manager.secret.group+json", "collection_total": 1}' \
+    --resources='[{"name": "updated-secret-group-name", "description": "Updated description for this group."}]'
+```
+
 ### ibmcloud secrets-manager secret-group-delete
 {: #secrets-manager-cli-secret-group-delete-command}
 
@@ -191,7 +219,7 @@ Deletes a secret group by specifying the ID of the secret group.
 ```sh
 ibmcloud secrets-manager secret-group-delete --id ID [--force]
 ```
-{: codeblock}
+
 
 #### Command options
 {: #secrets-manager-secret-group-delete-cli-options}
@@ -203,6 +231,13 @@ ibmcloud secrets-manager secret-group-delete --id ID [--force]
 
 -f, --force
 :   Force the operation without a confirmation.
+
+#### Examples
+
+```sh
+ibmcloud secrets-manager secret-group-delete \
+    --id=exampleString
+```
 
 ## Secrets
 {: #secrets-manager-secrets-cli}
@@ -221,7 +256,6 @@ To learn more about the types of secrets that you can create with Secrets Manage
 ```sh
 ibmcloud secrets-manager secret-create --secret-type SECRET-TYPE --metadata METADATA --resources RESOURCES 
 ```
-{: codeblock}
 
 
 #### Command options
@@ -238,6 +272,15 @@ ibmcloud secrets-manager secret-create --secret-type SECRET-TYPE --metadata META
 --resources ([SecretResource[]](#cli-secret-resource-example-schema))
 :   A collection of resources. Required.
 
+#### Examples
+
+```sh
+ibmcloud secrets-manager secret-create \
+    --secret-type=arbitrary \
+    --metadata='{"collection_type": "application/vnd.ibm.secrets-manager.config+json", "collection_total": 1}' \
+    --resources='[{"name": "exampleString", "description": "exampleString", "secret_group_id": "exampleString", "labels": ["exampleString"], "expiration_date": "2030-04-01T09:30:00.000Z", "payload": "exampleString"}]'
+```
+
 ### ibmcloud secrets-manager secrets
 {: #secrets-manager-cli-secrets-command}
 
@@ -246,7 +289,6 @@ Retrieves a list of secrets based on the type that you specify.
 ```sh
 ibmcloud secrets-manager secrets --secret-type SECRET-TYPE [--limit LIMIT] [--offset OFFSET] 
 ```
-{: codeblock}
 
 
 #### Command options
@@ -267,6 +309,15 @@ ibmcloud secrets-manager secrets --secret-type SECRET-TYPE [--limit LIMIT] [--of
 
     The minimum value is `0`.
 
+#### Examples
+
+```sh
+ibmcloud secrets-manager secrets \
+    --secret-type=arbitrary \
+    --limit=1 \
+    --offset=0
+```
+
 ### ibmcloud secrets-manager all-secrets
 {: #secrets-manager-cli-all-secrets-command}
 
@@ -275,7 +326,6 @@ Retrieves a list of all secrets in your Secrets Manager instance.
 ```sh
 ibmcloud secrets-manager all-secrets [--limit LIMIT] [--offset OFFSET] [--search SEARCH] [--sort-by SORT-BY] [--groups GROUPS] 
 ```
-{: codeblock}
 
 
 #### Command options
@@ -294,25 +344,29 @@ ibmcloud secrets-manager all-secrets [--limit LIMIT] [--offset OFFSET] [--search
 --search (string)
 :   Filter secrets that contain the specified string. The fields that are searched include: id, name, description, labels, secret_type.
 
-**Usage:** If you want to list only the secrets that contain the string "text", use
-`../secrets/{secret-type}?search=text`.
-
     The maximum length is `128` characters.
 
 --sort-by (string)
 :   Sort a list of secrets by the specified field.
-
-**Usage:** To sort a list of secrets by their creation date, use
-`../secrets/{secret-type}?sort_by=creation_date`.
 
     Allowable values are: `id`, `creation_date`, `expiration_date`, `secret_type`, `name`.
 
 --groups ([]string)
 :   Filter secrets by groups.
 
-You can apply multiple filters by using a comma-separated list of secret group IDs. If you need to filter secrets that are in the default secret group, use the `default` keyword.
+    You can apply multiple filters by using a comma-separated list of secret group IDs. If you need to filter secrets that are in the default secret group, use the `default` keyword.
 
-**Usage:** To retrieve a list of secrets that are associated with an existing secret group or the default group, use `../secrets?groups={secret_group_ID},default`.
+
+#### Examples
+
+```sh
+ibmcloud secrets-manager all-secrets \
+    --limit=1 \
+    --offset=0 \
+    --search=exampleString \
+    --sort-by=id \
+    --groups=exampleString
+```
 
 ### ibmcloud secrets-manager secret
 {: #secrets-manager-cli-secret-command}
@@ -324,7 +378,6 @@ A successful request returns the secret data that is associated with your secret
 ```sh
 ibmcloud secrets-manager secret --secret-type SECRET-TYPE --id ID 
 ```
-{: codeblock}
 
 
 #### Command options
@@ -340,18 +393,26 @@ ibmcloud secrets-manager secret --secret-type SECRET-TYPE --id ID
 
     The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
 
+#### Examples
+
+```sh
+ibmcloud secrets-manager secret \
+    --secret-type=arbitrary \
+    --id=exampleString
+```
+
 ### ibmcloud secrets-manager secret-update
 {: #secrets-manager-cli-secret-update-command}
 
 Invokes an action on a specified secret. This method supports the following actions:
 
-- `rotate`: Replace the value of an `arbitrary`, `username_password`, `public_cert` or `imported_cert` secret. 
+- `rotate`: Replace the value of a secret.
+- `restore`: Restore a previous version of an `iam_credentials` secret.
 - `delete_credentials`: Delete the API key that is associated with an `iam_credentials` secret.
 
 ```sh
-ibmcloud secrets-manager secret-update --secret-type SECRET-TYPE --id ID --action ACTION --body BODY 
+ibmcloud secrets-manager secret-update --secret-type SECRET-TYPE --id ID --action ACTION [--body BODY] 
 ```
-{: codeblock}
 
 
 #### Command options
@@ -370,10 +431,20 @@ ibmcloud secrets-manager secret-update --secret-type SECRET-TYPE --id ID --actio
 --action (string)
 :   The action to perform on the specified secret. Required.
 
-    Allowable values are: `rotate`, `delete_credentials`.
+    Allowable values are: `rotate`, `restore`, `delete_credentials`.
 
 --body ([SecretAction](#cli-secret-action-example-schema))
-:   The properties to update for the secret. Required.
+:   The properties to update for the secret.
+
+#### Examples
+
+```sh
+ibmcloud secrets-manager secret-update \
+    --secret-type=arbitrary \
+    --id=exampleString \
+    --action=rotate \
+    --body='{"payload": "exampleString"}'
+```
 
 #### Example output
 {: #secrets-manager-secret-update-cli-output}
@@ -419,7 +490,6 @@ Deletes a secret by specifying the ID of the secret.
 ```sh
 ibmcloud secrets-manager secret-delete --secret-type SECRET-TYPE --id ID [--force]
 ```
-{: codeblock}
 
 
 #### Command options
@@ -436,7 +506,48 @@ ibmcloud secrets-manager secret-delete --secret-type SECRET-TYPE --id ID [--forc
     The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
 
 -f, --force
-:   Force the operation without a confirmation.
+:   Force a delete operation without a confirmation.
+
+#### Examples
+
+```sh
+ibmcloud secrets-manager secret-delete \
+    --secret-type=arbitrary \
+    --id=exampleString
+```
+
+### ibmcloud secrets-manager secret-versions
+{: #secrets-manager-cli-secret-versions-command}
+
+Retrieves a list of the versions of a secret.
+
+A successful request returns the list of the versions along with the metadata of each version.
+
+```sh
+ibmcloud secrets-manager secret-versions --secret-type SECRET-TYPE --id ID 
+```
+
+
+#### Command options
+{: #secrets-manager-secret-versions-cli-options}
+
+--secret-type (string)
+:   The secret type. Required.
+
+    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `username_password`.
+
+--id (string)
+:   The v4 UUID that uniquely identifies the secret. Required.
+
+    The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
+
+#### Examples
+
+```sh
+ibmcloud secrets-manager secret-versions \
+    --secret-type=arbitrary \
+    --id=exampleString
+```
 
 ### ibmcloud secrets-manager secret-version
 {: #secrets-manager-cli-secret-version-command}
@@ -448,7 +559,6 @@ A successful request returns the secret data that is associated with the specifi
 ```sh
 ibmcloud secrets-manager secret-version --secret-type SECRET-TYPE --id ID --version-id VERSION-ID 
 ```
-{: codeblock}
 
 
 #### Command options
@@ -457,7 +567,7 @@ ibmcloud secrets-manager secret-version --secret-type SECRET-TYPE --id ID --vers
 --secret-type (string)
 :   The secret type. Required.
 
-    Allowable values are: `imported_cert`, `public_cert`.
+    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `username_password`.
 
 --id (string)
 :   The v4 UUID that uniquely identifies the secret. Required.
@@ -467,35 +577,18 @@ ibmcloud secrets-manager secret-version --secret-type SECRET-TYPE --id ID --vers
 --version-id (string)
 :   The v4 UUID that uniquely identifies the secret version. You can also use `previous` to retrieve the previous version.
 
-**Note:** To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details. Required.
+    **Note:** To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details. Required.
 
     The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
 
-#### Example output
-{: #secrets-manager-secret-version-cli-output}
+#### Examples
 
-Get certificate version.
-
-```json
-{
-  "id" : "24ec2c34-38ee-4038-9f1d-9a629423158d",
-  "crn" : "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:f1bc94a6-64aa-4c55-b00f-f6cd70e4b2ce:secret:24ec2c34-38ee-4038-9f1d-9a629423158d",
-  "version_id" : "7bf3814d-58f8-4df8-9cbd-f6860e4ca973",
-  "payload_available" : true,
-  "serial_number" : "d9:be:fe:35:ba:09:42:b5",
-  "expiration_date" : "2021-01-01T00:00:00Z",
-  "validity" : {
-    "not_before" : "2020-10-05T21:33:11Z",
-    "not_after" : "2021-01-01T00:00:00Z"
-  },
-  "secret_data" : {
-    "certificate" : "certificate_content",
-    "private_key" : "certificate_private_key",
-    "intermediate" : "intermediate_certificate_content"
-  }
-}
+```sh
+ibmcloud secrets-manager secret-version \
+    --secret-type=arbitrary \
+    --id=exampleString \
+    --version-id=exampleString
 ```
-{: screen}
 
 ### ibmcloud secrets-manager secret-version-metadata
 {: #secrets-manager-cli-secret-version-metadata-command}
@@ -507,16 +600,15 @@ A successful request returns the metadata that is associated with the specified 
 ```sh
 ibmcloud secrets-manager secret-version-metadata --secret-type SECRET-TYPE --id ID --version-id VERSION-ID 
 ```
-{: codeblock}
 
 
 #### Command options
 {: #secrets-manager-secret-version-metadata-cli-options}
 
 --secret-type (string)
-:   The secret type. Supported options include: imported_cert. Required.
+:   The secret type. Required.
 
-    Allowable values are: `imported_cert`, `public_cert`.
+    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `username_password`.
 
 --id (string)
 :   The v4 UUID that uniquely identifies the secret. Required.
@@ -526,30 +618,18 @@ ibmcloud secrets-manager secret-version-metadata --secret-type SECRET-TYPE --id 
 --version-id (string)
 :   The v4 UUID that uniquely identifies the secret version. You can also use `previous` to retrieve the previous version.
 
-**Note:** To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details. Required.
+    **Note:** To find the version ID of a secret, use the [Get secret metadata](#get-secret-metadata) method and check the response details. Required.
 
     The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
 
-#### Example output
-{: #secrets-manager-secret-version-metadata-cli-output}
+#### Examples
 
-Get certificate version.
-
-```json
-{
-  "id" : "24ec2c34-38ee-4038-9f1d-9a629423158d",
-  "crn" : "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:f1bc94a6-64aa-4c55-b00f-f6cd70e4b2ce:secret:24ec2c34-38ee-4038-9f1d-9a629423158d",
-  "version_id" : "7bf3814d-58f8-4df8-9cbd-f6860e4ca973",
-  "payload_available" : true,
-  "serial_number" : "d9:be:fe:35:ba:09:42:b5",
-  "expiration_date" : "2021-01-01T00:00:00Z",
-  "validity" : {
-    "not_before" : "2020-10-05T21:33:11Z",
-    "not_after" : "2021-01-01T00:00:00Z"
-  }
-}
+```sh
+ibmcloud secrets-manager secret-version-metadata \
+    --secret-type=arbitrary \
+    --id=exampleString \
+    --version-id=exampleString
 ```
-{: screen}
 
 ### ibmcloud secrets-manager secret-metadata
 {: #secrets-manager-cli-secret-metadata-command}
@@ -561,7 +641,6 @@ A successful request returns only metadata about the secret, such as its name an
 ```sh
 ibmcloud secrets-manager secret-metadata --secret-type SECRET-TYPE --id ID 
 ```
-{: codeblock}
 
 
 #### Command options
@@ -577,17 +656,24 @@ ibmcloud secrets-manager secret-metadata --secret-type SECRET-TYPE --id ID
 
     The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
 
+#### Examples
+
+```sh
+ibmcloud secrets-manager secret-metadata \
+    --secret-type=arbitrary \
+    --id=exampleString
+```
+
 ### ibmcloud secrets-manager secret-metadata-update
 {: #secrets-manager-cli-secret-metadata-update-command}
 
 Updates the metadata of a secret, such as its name or description.
 
-To update the actual contents of a secret, rotate the secret by using the [Invoke an action on a secret](#secrets-manager-cli-secret-update-command) method.
+To update the actual contents of a secret, rotate the secret by using the [Invoke an action on a secret](#update-secret) method.
 
 ```sh
 ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id ID --metadata METADATA --resources RESOURCES 
 ```
-{: codeblock}
 
 
 #### Command options
@@ -609,6 +695,16 @@ ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id I
 --resources ([SecretMetadata[]](#cli-secret-metadata-example-schema))
 :   A collection of resources. Required.
 
+#### Examples
+
+```sh
+ibmcloud secrets-manager secret-metadata-update \
+    --secret-type=arbitrary \
+    --id=exampleString \
+    --metadata='{"collection_type": "application/vnd.ibm.secrets-manager.config+json", "collection_total": 1}' \
+    --resources='[{"labels": ["dev","us-south"], "name": "example-secret", "description": "Extended description for this secret.", "expiration_date": "2030-04-01T09:30:00.000Z"}]'
+```
+
 ## Policies
 {: #secrets-manager-policies-cli}
 
@@ -617,12 +713,11 @@ Define rotation policies for secrets.
 ### ibmcloud secrets-manager policy-update
 {: #secrets-manager-cli-policy-update-command}
 
-Creates or updates one or more policies, such as an [automatic rotation policy](/docs/secrets-manager?topic=secrets-manager-automatic-rotation), for the specified secret.
+Creates or updates one or more policies, such as an [automatic rotation policy](/docs/secrets-manager?topic=secrets-manager-rotate-secrets#auto-rotate-secret), for the specified secret.
 
 ```sh
 ibmcloud secrets-manager policy-update --secret-type SECRET-TYPE --id ID --metadata METADATA --resources RESOURCES [--policy POLICY] 
 ```
-{: codeblock}
 
 
 #### Command options
@@ -649,6 +744,17 @@ ibmcloud secrets-manager policy-update --secret-type SECRET-TYPE --id ID --metad
 
     Allowable values are: `rotation`.
 
+#### Examples
+
+```sh
+ibmcloud secrets-manager policy-update \
+    --secret-type=username_password \
+    --id=exampleString \
+    --metadata='{"collection_type": "application/vnd.ibm.secrets-manager.config+json", "collection_total": 1}' \
+    --resources='[{"type": "application/vnd.ibm.secrets-manager.secret.policy+json", "rotation": {"interval": 1, "unit": "day"}}]' \
+    --policy=rotation
+```
+
 ### ibmcloud secrets-manager policy
 {: #secrets-manager-cli-policy-command}
 
@@ -657,7 +763,6 @@ Retrieves a list of policies that are associated with a specified secret.
 ```sh
 ibmcloud secrets-manager policy --secret-type SECRET-TYPE --id ID [--policy POLICY] 
 ```
-{: codeblock}
 
 
 #### Command options
@@ -678,6 +783,15 @@ ibmcloud secrets-manager policy --secret-type SECRET-TYPE --id ID [--policy POLI
 
     Allowable values are: `rotation`.
 
+#### Examples
+
+```sh
+ibmcloud secrets-manager policy \
+    --secret-type=username_password \
+    --id=exampleString \
+    --policy=rotation
+```
+
 ## Config
 {: #secrets-manager-config-cli}
 
@@ -691,9 +805,8 @@ Sets the configuration for the specified secret type.
 Use this method to configure the IAM credentials (`iam_credentials`) engine for your service instance. Looking to set up certificate ordering? To configure the public certificates (`public_cert`) engine, use the [Add a configuration](#secrets-manager-cli-config-element-create-command) method.
 
 ```sh
-ibmcloud secrets-manager config-update --secret-type SECRET-TYPE 
+ibmcloud secrets-manager config-update --secret-type SECRET-TYPE --engine-config ENGINE-CONFIG 
 ```
-{: codeblock}
 
 
 #### Command options
@@ -702,7 +815,18 @@ ibmcloud secrets-manager config-update --secret-type SECRET-TYPE
 --secret-type (string)
 :   The secret type. Required.
 
-    Allowable values are: `iam_credentials`, `public_cert`.
+    Allowable values are: `iam_credentials`.
+
+--engine-config ([EngineConfig](#cli-engine-config-example-schema))
+:   Properties to update for a secrets engine. Required.
+
+#### Examples
+
+```sh
+ibmcloud secrets-manager config-update \
+    --secret-type=iam_credentials \
+    --engine-config='{"api_key": "API_KEY"}'
+```
 
 ### ibmcloud secrets-manager config
 {: #secrets-manager-cli-config-command}
@@ -712,7 +836,6 @@ Retrieves the configuration that is associated with the specified secret type.
 ```sh
 ibmcloud secrets-manager config --secret-type SECRET-TYPE 
 ```
-{: codeblock}
 
 
 #### Command options
@@ -722,6 +845,13 @@ ibmcloud secrets-manager config --secret-type SECRET-TYPE
 :   The secret type. Required.
 
     Allowable values are: `iam_credentials`, `public_cert`.
+
+#### Examples
+
+```sh
+ibmcloud secrets-manager config \
+    --secret-type=iam_credentials
+```
 
 ### ibmcloud secrets-manager config-element-create
 {: #secrets-manager-cli-config-element-create-command}
@@ -733,7 +863,6 @@ Use this method to define the configurations that are required to enable the pub
 ```sh
 ibmcloud secrets-manager config-element-create --secret-type SECRET-TYPE --config-element CONFIG-ELEMENT --name NAME --type TYPE --config CONFIG 
 ```
-{: codeblock}
 
 
 #### Command options
@@ -762,6 +891,17 @@ ibmcloud secrets-manager config-element-create --secret-type SECRET-TYPE --confi
 --config ([ConfigElementDefConfig](#cli-config-element-def-config-example-schema))
 :   The configuration to define for the specified secret type. Required.
 
+#### Examples
+
+```sh
+ibmcloud secrets-manager config-element-create \
+    --secret-type=public_cert \
+    --config-element=certificate_authorities \
+    --name=exampleString \
+    --type=letsencrypt \
+    --config='{"private_key": "exampleString"}'
+```
+
 ### ibmcloud secrets-manager config-elements
 {: #secrets-manager-cli-config-elements-command}
 
@@ -770,7 +910,6 @@ Lists the configuration elements that are associated with a specified secret typ
 ```sh
 ibmcloud secrets-manager config-elements --secret-type SECRET-TYPE --config-element CONFIG-ELEMENT 
 ```
-{: codeblock}
 
 
 #### Command options
@@ -786,6 +925,49 @@ ibmcloud secrets-manager config-elements --secret-type SECRET-TYPE --config-elem
 
     Allowable values are: `certificate_authorities`, `dns_providers`.
 
+#### Examples
+
+```sh
+ibmcloud secrets-manager config-elements \
+    --secret-type=public_cert \
+    --config-element=certificate_authorities
+```
+
+### ibmcloud secrets-manager config-element
+{: #secrets-manager-cli-config-element-command}
+
+Retrieves the details of a specific configuration that is associated with a secret type.
+
+```sh
+ibmcloud secrets-manager config-element --secret-type SECRET-TYPE --config-element CONFIG-ELEMENT --config-name CONFIG-NAME 
+```
+
+
+#### Command options
+{: #secrets-manager-config-element-cli-options}
+
+--secret-type (string)
+:   The secret type. Required.
+
+    Allowable values are: `public_cert`.
+
+--config-element (string)
+:   The configuration element to define or manage. Required.
+
+    Allowable values are: `certificate_authorities`, `dns_providers`.
+
+--config-name (string)
+:   The name of your configuration. Required.
+
+#### Examples
+
+```sh
+ibmcloud secrets-manager config-element \
+    --secret-type=public_cert \
+    --config-element=certificate_authorities \
+    --config-name=exampleString
+```
+
 ### ibmcloud secrets-manager config-element-update
 {: #secrets-manager-cli-config-element-update-command}
 
@@ -794,7 +976,6 @@ Updates a configuration element that is associated with the specified secret typ
 ```sh
 ibmcloud secrets-manager config-element-update --secret-type SECRET-TYPE --config-element CONFIG-ELEMENT --config-name CONFIG-NAME --type TYPE --config CONFIG 
 ```
-{: codeblock}
 
 
 #### Command options
@@ -819,17 +1000,27 @@ ibmcloud secrets-manager config-element-update --secret-type SECRET-TYPE --confi
     Allowable values are: `letsencrypt`, `letsencrypt-stage`, `cis`, `classic_infrastructure`. The maximum length is `128` characters. The minimum length is `2` characters.
 
 --config (interface{})
-:   &nbsp; Required.
+:   Properties that describe a configuration, depends on type. Required.
+
+#### Examples
+
+```sh
+ibmcloud secrets-manager config-element-update \
+    --secret-type=public_cert \
+    --config-element=certificate_authorities \
+    --config-name=exampleString \
+    --type=letsencrypt \
+    --config='{"anyKey": "anyValue"}'
+```
 
 ### ibmcloud secrets-manager config-element-delete
 {: #secrets-manager-cli-config-element-delete-command}
 
-Removes a configuration element from the specified secret type.
+Deletes a configuration element from the specified secret type.
 
 ```sh
 ibmcloud secrets-manager config-element-delete --secret-type SECRET-TYPE --config-element CONFIG-ELEMENT --config-name CONFIG-NAME 
 ```
-{: codeblock}
 
 
 #### Command options
@@ -848,42 +1039,24 @@ ibmcloud secrets-manager config-element-delete --secret-type SECRET-TYPE --confi
 --config-name (string)
 :   The name of your configuration. Required.
 
-### ibmcloud secrets-manager config-element
-{: #secrets-manager-cli-config-element-command}
-
-Retrieves the details of a specific configuration that is associated with a secret type.
+#### Examples
 
 ```sh
-ibmcloud secrets-manager config-element --secret-type SECRET-TYPE --config-element CONFIG-ELEMENT --config-name CONFIG-NAME 
+ibmcloud secrets-manager config-element-delete \
+    --secret-type=public_cert \
+    --config-element=certificate_authorities \
+    --config-name=exampleString
 ```
-{: codeblock}
-
-
-#### Command options
-{: #secrets-manager-config-element-cli-options}
-
---secret-type (string)
-:   The secret type. Required.
-
-    Allowable values are: `public_cert`.
-
---config-element (string)
-:   The configuration element to define or manage. Required.
-
-    Allowable values are: `certificate_authorities`, `dns_providers`.
-
---config-name (string)
-:   The name of your configuration. Required.
 
 ## Schema examples
 {: #secrets-manager-schema-examples}
 
 The following schema examples represent the data that you need to specify for a command option. These examples model the data structure and include placeholder values for the expected value type. When you run a command, replace these values with the values that apply to your environment as appropriate.
 
-### `CollectionMetadata`
+### CollectionMetadata
 {: #cli-collection-metadata-example-schema}
 
-The following example shows the format of the `CollectionMetadata` object.
+The following example shows the format of the CollectionMetadata object.
 
 ```json
 {
@@ -891,36 +1064,48 @@ The following example shows the format of the `CollectionMetadata` object.
   "collection_total" : 1
 }
 ```
-{: screen}
+{: codeblock}
 
-### `ConfigElementDefConfig`
+### ConfigElementDefConfig
 {: #cli-config-element-def-config-example-schema}
 
-The following example shows the format of the `ConfigElementDefConfig` object.
+The following example shows the format of the ConfigElementDefConfig object.
 
 ```json
 {
   "private_key" : "exampleString"
 }
 ```
-{: screen}
+{: codeblock}
 
-### `SecretAction`
+### EngineConfig
+{: #cli-engine-config-example-schema}
+
+The following example shows the format of the EngineConfig object.
+
+```json
+{
+  "api_key" : "API_KEY"
+}
+```
+{: codeblock}
+
+### SecretAction
 {: #cli-secret-action-example-schema}
 
-The following example shows the format of the `SecretAction` object.
+The following example shows the format of the SecretAction object.
 
 ```json
 {
   "payload" : "exampleString"
 }
 ```
-{: screen}
+{: codeblock}
 
-### `SecretGroupMetadataUpdatable[]`
+### SecretGroupMetadataUpdatable[]
 {: #cli-secret-group-metadata-updatable-example-schema}
 
-The following example shows the format of the `SecretGroupMetadataUpdatable[]` object.
+The following example shows the format of the SecretGroupMetadataUpdatable[] object.
 
 ```json
 [ {
@@ -928,12 +1113,12 @@ The following example shows the format of the `SecretGroupMetadataUpdatable[]` o
   "description" : "Updated description for this group."
 } ]
 ```
-{: screen}
+{: codeblock}
 
-### `SecretGroupResource[]`
+### SecretGroupResource[]
 {: #cli-secret-group-resource-example-schema}
 
-The following example shows the format of the `SecretGroupResource[]` object.
+The following example shows the format of the SecretGroupResource[] object.
 
 ```json
 [ {
@@ -941,12 +1126,12 @@ The following example shows the format of the `SecretGroupResource[]` object.
   "description" : "Extended description for this group."
 } ]
 ```
-{: screen}
+{: codeblock}
 
-### `SecretMetadata[]`
+### SecretMetadata[]
 {: #cli-secret-metadata-example-schema}
 
-The following example shows the format of the `SecretMetadata[]` object.
+The following example shows the format of the SecretMetadata[] object.
 
 ```json
 [ {
@@ -956,12 +1141,12 @@ The following example shows the format of the `SecretMetadata[]` object.
   "expiration_date" : "2030-04-01T09:30:00.000Z"
 } ]
 ```
-{: screen}
+{: codeblock}
 
-### `SecretPolicyRotation[]`
+### SecretPolicyRotation[]
 {: #cli-secret-policy-rotation-example-schema}
 
-The following example shows the format of the `SecretPolicyRotation[]` object.
+The following example shows the format of the SecretPolicyRotation[] object.
 
 ```json
 [ {
@@ -972,12 +1157,12 @@ The following example shows the format of the `SecretPolicyRotation[]` object.
   }
 } ]
 ```
-{: screen}
+{: codeblock}
 
-### `SecretResource[]`
+### SecretResource[]
 {: #cli-secret-resource-example-schema}
 
-The following example shows the format of the `SecretResource[]` object.
+The following example shows the format of the SecretResource[] object.
 
 ```json
 [ {
@@ -989,6 +1174,5 @@ The following example shows the format of the `SecretResource[]` object.
   "payload" : "exampleString"
 } ]
 ```
-{: screen}
-
+{: codeblock}
 
