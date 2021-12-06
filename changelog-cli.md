@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-12-06"
 
 keywords: change log for {{site.data.keyword.secrets-manager_short}} CLI, CLI changelog, updates to {{site.data.keyword.secrets-manager_short}} CLI
 
@@ -64,6 +64,17 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 
 
 
+
+
+## Version 0.1.14
+{: #0.1.14}
+
+Version 0.1.14 was released on 6 December 2021. This release includes the following updates:
+
+- Added options for setting the `SECRETS_MANAGER_URL`. You can now either define your {{site.data.keyword.secrets-manager_short}} service endpoint URL once by setting an environment variable (for example `export SECRETS_MANAGER_URL`), or you can override the value on the command-level by using the `--service-url INSTANCE` flag.
+- Added support for using the {{site.data.keyword.secrets-manager_short}} CLI plug-in to interact with a service instance over a private network connection.
+- Fixed an issue in the [config-update](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-config-update-command) command for IAM credential secrets. 
+- Updated command descriptions for clarity.
 
 
 ## Version 0.1.12
