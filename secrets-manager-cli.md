@@ -54,6 +54,7 @@ keywords: Secrets Manager CLI, Secrets Manager command line, Secrets Manager ter
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
+
 # {{site.data.keyword.secrets-manager_short}} CLI
 {: #secrets-manager-cli}
 
