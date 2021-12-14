@@ -68,8 +68,8 @@ toc:
               label: Rotating secrets
               topics:
               - secret-rotate.md
-              - secret-versions.md
               - secret-rotate-auto.md
+              - secret-versions.md
           - secret-delete.md
       - secret-groups.md
       - topicgroup: 
