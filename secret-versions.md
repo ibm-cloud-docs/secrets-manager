@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-21"
+lastupdated: "2021-12-14"
 
 keywords: secret version history, view versions, secret versions
 
@@ -77,7 +77,7 @@ If you're auditing the version history of a secret, you can use the {{site.data.
 4. In the row for the secret that you want to inspect, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history**.
 
     If the secret was rotated previously, the page displays information about the current and previous versions, for example the date that each version was created. Up to 50 versions can be listed for a secret.
-    
+
     If you're inspecting the version history of a public or imported certificate, you can also [download the certificate contents](/docs/secrets-manager?topic=secrets-manager-access-secrets#download-certificate-ui).
     {: tip}
 
