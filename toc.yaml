@@ -86,20 +86,20 @@ toc:
       - topicgroup: 
           label: Logging and monitoring
           topics:
-          - at-events.md
-          - logging.md
+          - framework/at-events.md
+          - framework/logging.md
       - topicgroup: 
           label: Enhancing security
           topics: 
-          - iam.md
-          - architecture-workload-isolation.md
+          - framework/iam.md
+          - framework/architecture-workload-isolation.md
           - topicgroup: 
               label: Securing your connection to Secrets Manager
               topics:
-              - cse.md
-              - vpe.md
-          - data-security.md
-          - manage-scc.md 
+              - framework/cse.md
+              - framework/vpe.md
+          - framework/data-security.md
+          - framework/manage-scc.md 
 
 
   - navgroup:
