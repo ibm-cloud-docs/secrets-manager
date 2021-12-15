@@ -69,6 +69,7 @@ toc:
               topics:
               - secret-rotate.md
               - secret-rotate-auto.md
+              - secret-versions.md
           - secret-delete.md
       - secret-groups.md
       - topicgroup: 
