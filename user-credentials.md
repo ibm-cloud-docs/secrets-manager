@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-12-02"
+lastupdated: "2021-12-15"
 
 keywords: username, password, user credentials, store password
 
@@ -76,7 +76,7 @@ Before you get started, be sure that you have the required level of access. To c
 
 To store a username and password by using the {{site.data.keyword.secrets-manager_short}} UI, complete the following steps.
 
-1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
 4. From the list of secret types, click the **User credentials** tile.

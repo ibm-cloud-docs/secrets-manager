@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-12-15"
 
 keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, lite plan
 
@@ -71,7 +71,7 @@ You can create only one Lite plan instance of {{site.data.keyword.secrets-manage
 
 To create an instance of {{site.data.keyword.secrets-manager_short}} from the {{site.data.keyword.cloud_notm}} console, complete the following steps.
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to the [{{site.data.keyword.secrets-manager_short}} offering details page](/catalog/services/secrets-manager){: external}.
+1. In the console, go to the [{{site.data.keyword.secrets-manager_short}} offering details page](/catalog/services/secrets-manager){: external}.
 2. In the **Create** tab, select the region that represents the geographic area where you want provision your instance.
 3. Review and select a pricing plan.
 4. Provide a name for your instance.
