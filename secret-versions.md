@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-12-14"
+lastupdated: "2021-12-15"
 
 keywords: secret version history, view versions, secret versions
 
@@ -54,7 +54,7 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
-# Viewing your version history
+# Viewing the version history of secrets
 {: #version-history}
 
 When you rotate a secret in {{site.data.keyword.secrets-manager_full}}, you create a new version of its value. You can quickly examine the version history of your secrets by using the UI or API.
