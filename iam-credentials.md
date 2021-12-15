@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-24"
+lastupdated: "2021-12-15"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -79,7 +79,7 @@ IAM credentials require an extra configuration step before you can start to crea
 
 To create IAM credentials by using the {{site.data.keyword.secrets-manager_short}} UI, complete the following steps.
 
-1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
 4. From the list of secret types, click the **IAM credentials** tile.
@@ -105,6 +105,8 @@ IAM credentials consist of a service ID and an API key. By default, the service 
 If you'd like to continue to use those credentials through the end of the lease of your secret, you can set **Reuse IAM credentials until lease expires** to **On**. When you enable this option, your secret retains its current service ID and API key values and reuses them on each read while the secret remains valid. After the secret reaches the end of its lease, the credentials are revoked automatically. 
 
 
+If **Reuse IAM credentials until lease expires** for IAM credentials is set to **Off**, manual rotation for the secret isn't supported. Additionally, For more information, see [Manually rotating secrets](/docs/secrets-manager?topic=secrets-manager-manual-rotate-secrets).
+{: important}
 
 
 ### Using an existing service ID in your account
@@ -151,6 +153,9 @@ ibmcloud secrets-manager secret-create --secret-type iam_credentials --resources
 
 The command outputs the ID value of the secret, along with other metadata. After the secret reaches the end of its lease, the credentials are revoked automatically. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
 
+
+If `reuse_api_key` is `false` for IAM credentials, manual rotation for the secret isn't supported. For more information, see [Manually rotating secrets](/docs/secrets-manager?topic=secrets-manager-manual-rotate-secrets).
+{: important}
 
 
 ### Using an existing service ID in your account
@@ -346,7 +351,7 @@ fmt.Println(string(b))
 {: codeblock}
 {: go}
 
-When you set the `reuse_api_key` parameter true, the credentials that are generated for the secret can be reused until the secret expires. For more information, check out the [API reference](/apidocs/secrets-manager#create-secret).
+When you set the `reuse_api_key` parameter to `true`, the credentials that are generated for the secret can be reused until the secret expires. For more information, check out the [API reference](/apidocs/secrets-manager#create-secret).
 {: tip}
 
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager#create-secret).
