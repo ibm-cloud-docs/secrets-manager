@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-12-14"
+lastupdated: "2021-12-16"
 
 keywords: connect to {{site.data.keyword.secrets-manager_short}} on a VPC, virtual service endpoints, virtual private cloud, connect via VPC, connect through VPC, connect via VPE, connect through VPE
 
@@ -54,13 +54,13 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
-# Connecting to {{site.data.keyword.secrets-manager_short}} with virtual private endpoints
+# Using virtual private endpoints for VPC to privately connect to {{site.data.keyword.secrets-manager_short}}
 {: #virtual-private-endpoint}
 
-If you need to manage secrets in your {{site.data.keyword.vpc_full}} (VPC), you can establish a connection to {{site.data.keyword.secrets-manager_full}} by using Virtual Private Endpoints (VPE). Similar to private service endpoints, VPE for VPC provides private connectivity to IBM services, but within a VPC network.
+{{site.data.keyword.cloud}} Virtual Private Endpoints (VPE) for VPC enables you to connect to {{site.data.keyword.secrets-manager_short}} from your VPC network by using the IP addresses of your choosing, allocated from a subnet within your VPC.
 {: shortdesc}
 
-For more information about VPE, check out [About virtual private gateways](/docs/vpc?topic=vpc-about-vpe).
+VPEs are virtual IP interfaces that are bound to an endpoint gateway created on a per service, or service instance, basis (depending on the service operation model). The endpoint gateway is a virtualized function that scales horizontally, is redundant and highly available, and spans all availability zones of your VPC. Endpoint gateways enable communications from virtual server instances within your VPC and {{site.data.keyword.cloud}} service on the private backbone. VPE for VPC gives you the experience of controlling all the private addressing within your cloud. For more information, see [About virtual private endpoint gateways](/docs/vpc?topic=vpc-about-vpe).
 
 ## Before you begin
 {: #vpe-prereqs}
@@ -69,7 +69,7 @@ Before you target a virtual private endpoint for {{site.data.keyword.secrets-man
 
 For more information about setting up VPC, check out [Getting started with Virtual Private Cloud (VPC)](/docs/vpc?topic=vpc-getting-started). 
 
-## Setting up a virtual service endpoint for {{site.data.keyword.secrets-manager_short}} with the API
+## Setting up a VPE for {{site.data.keyword.secrets-manager_short}} with the API
 {: #vpe-setup}
 {: api}
 

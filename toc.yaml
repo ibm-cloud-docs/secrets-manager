@@ -94,10 +94,12 @@ toc:
           - framework/iam.md
           - framework/architecture-workload-isolation.md
           - topicgroup: 
-              label: Securing your connection to Secrets Manager
+              label: Privately connecting to Secrets Manager
               topics:
-              - framework/cse.md
-              - framework/vpe.md
+              - topic: framework/cse.md
+                navtitle: Using service endpoints
+              - topic: framework/vpe.md
+                navtitle: Using virtual private endpoints for VPC
           - framework/data-security.md
           - framework/manage-scc.md 
 
