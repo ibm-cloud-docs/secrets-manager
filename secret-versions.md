@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-12-15"
+lastupdated: "2021-12-16"
 
 keywords: secret version history, view versions, secret versions
 
@@ -81,7 +81,20 @@ If you're auditing the version history of a secret, you can use the {{site.data.
     If you're inspecting the version history of a public or imported certificate, you can also [download the certificate contents](/docs/secrets-manager?topic=secrets-manager-access-secrets#download-certificate-ui).
     {: tip}
 
+## Listing secret versions from the CLI
+{: #versions-cli}
+{: cli}
 
+If you're auditing the version history of a secret, you can use the {{site.data.keyword.secrets-manager_short}} CLI plug-in to view the general characteristics of each rotation.
+
+To list all of the versions that are associated with a secret, run the [**`ibmcloud secrets-manager secret-versions`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-versions-command) command.
+
+```sh
+ibmcloud secrets-manager secret-versions --secret-type SECRET-TYPE --id ID
+```
+{: pre}
+
+The command outputs a information about the current and previous versions, for example the date that each version was created. Up to 50 versions can be listed for a secret. For more information about the command options, see [**`ibmcloud secrets-manager secret-versions`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-versionscommand).
 
 ## Listing secret versions with the API
 {: #versions-api}
