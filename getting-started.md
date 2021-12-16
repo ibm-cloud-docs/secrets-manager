@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-12-16"
 
 keywords: secrets management, manage secrets, manage credentials, store username and password, add secrets, add credentials, get started with Secrets Manager
 content-type: tutorial
@@ -82,7 +82,7 @@ Before you begin, be sure to [create a {{site.data.keyword.secrets-manager_short
 
 You can get started with {{site.data.keyword.secrets-manager_short}} by choosing the type of [secret](#x2789492){: term} that is required by the resource that you want to access. For this tutorial, complete the following steps to select a secret that contains a username and password.
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Menu** ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+1. In the console, go to **Menu** ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
 4. Select the **User credentials** tile.
