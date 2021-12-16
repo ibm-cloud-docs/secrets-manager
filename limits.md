@@ -118,7 +118,7 @@ The following limits apply to secret groups.
 | Description | 2 - 1024 characters |
 | Labels | 2 - 30 characters  
   
-30 labels per secret group |
+ 30 labels per secret group |
 | Total secrets | – |
 {: caption="Table 4. Secret group limits" caption-side="top"}
 
@@ -131,12 +131,12 @@ The following limits apply to arbitrary secrets.
 | --- | --- |
 | Name | 2 - 256 characters  
   
-The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
+ The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
 | Description | 2 - 1024 characters |
 | Secret value | 1 MB |
 | Labels | 2 - 30 characters  
   
-30 labels per secret |
+ 30 labels per secret |
 | Versions | For auditing purposes, the service retains the metadata of up to 50 versions for each secret, which you can review as part of a secret's [version history](/docs/secrets-manager?topic=secrets-manager-versions). |
 {: caption="Table 5. Arbitrary secret limits" caption-side="top"}
 
@@ -149,16 +149,16 @@ The following limits apply to IAM credentials.
 | --- | --- |
 | Name | 2 - 256 characters  
   
-The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
+ The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
 | Description | 2 - 1024 characters |
 | Access groups | 1 - 10 groups |
 | Labels | 2 - 30 characters  
   
-30 labels per secret |
+ 30 labels per secret |
 | Maximum lease duration | 90 days |
 | Versions | 2 versions per secret (current and previous)  
   
-A secret version can be retrieved, rotated, or restored only if the defined time-to-live (TTL) or lease duration hasn't been reached. For auditing purposes, the service retains the metadata of up to 50 versions for each secret, which you can review as part of a secret's [version history](/docs/secrets-manager?topic=secrets-manager-versions). |
+ A secret version can be retrieved, rotated, or restored only if the defined time-to-live (TTL) or lease duration hasn't been reached. For auditing purposes, the service retains the metadata of up to 50 versions for each secret, which you can review as part of a secret's [version history](/docs/secrets-manager?topic=secrets-manager-versions). |
 {: caption="Table 6. IAM credential limits" caption-side="top"}
 
 
@@ -172,20 +172,20 @@ The following limits apply to TLS certificates.
 | --- | --- |
 | Name | 2 - 256 characters  
   
-The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
+ The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
 | Description | 2 - 1024 characters|
 | Certificate | 100 KB  
   
-Supported file type is `.pem`. The certificate must be a valid, X.509-based certificate. |
+ Supported file type is `.pem`. The certificate must be a valid, X.509-based certificate. |
 | Private key | 100 KB  
   
-Private key file is limited to PEM-formatted content. If provided, the private key must match the certificate that you are importing. Only unencrypted private keys are supported. |
+ Private key file is limited to PEM-formatted content. If provided, the private key must match the certificate that you are importing. Only unencrypted private keys are supported. |
 | Intermediate certificate | 100 KB  
   
-Supported file type is `.pem`. If provided, the intermediate certificate must be a valid, X.509-based certificate. |
+ Supported file type is `.pem`. If provided, the intermediate certificate must be a valid, X.509-based certificate. |
 | Labels | 2 - 30 characters  
   
-30 labels per secret |
+ 30 labels per secret |
 | Versions | 2 versions per certificate (current and previous)  
   
 For auditing purposes, the service retains the metadata of up to 50 versions for each secret, which you can review as part of a secret's [version history](/docs/secrets-manager?topic=secrets-manager-versions). |
@@ -202,13 +202,13 @@ The following limits apply to user credentials.
 | --- | --- |
 | Name | 2 - 256 characters  
   
-The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
+ The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
 | Description | 2 - 1024 characters |
 | Username | 2 - 64 characters |
 | Password | 64 characters |
 | Labels | 2 - 30 characters  
   
-30 labels per secret |
+ 30 labels per secret |
 | Versions | For auditing purposes, the service retains the metadata of up to 50 versions for each secret, which you can review as part of a secret's [version history](/docs/secrets-manager?topic=secrets-manager-versions). |
 {: caption="Table 8. User credential limits" caption-side="top"}
 
