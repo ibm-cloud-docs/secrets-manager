@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-24"
+lastupdated: "2021-12-16"
 
 keywords: change log for [{sm-short}] APIs, API changelog, updates to [{sm-short}] APIs
 
@@ -74,6 +74,7 @@ This release includes the following updates:
 - Added the `service_id_is_static` boolean parameter to the response details of the [Create a secret](/apidocs/secrets-manager#create-secret) and [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) methods. This parameter indicates whether an IAM credential secret was created by using an existing service ID.
 - Added the [List versions of a secret](/apidocs/secrets-manager#list-secret-versions) method that can be used to obtain version history information for a secret. 
 - Added `payload_available` and `downloaded` boolean parameters to the response details of the [Get a secret](/apidocs/secrets-manager#get-secret), [Get secret version metadata](/apidocs/secrets-manager#get-secret-version-metadata), [List versions of a secret](/apidocs/secrets-manager#list-secret-versions) methods. These parameters can help you to identify whether the a secret version is available to be restored, and whether it has already been previously read or accessed.
+- Added the `restore` query parameter as a request option on the [Invoke an action on a secret](/apidocs/secrets-manager#update-secret) method. You can use this action to [restore the previous version](/docs/secrets-manager?topic=secrets-manager-versions) of a secret.
 - Updated the [Get a version of a secret](/apidocs/secrets-manager#get-secret-version) method that can be used to retrieve the previous version of a secret. This API now supports `arbitrary`, `iam_credentials`, and `username_password` secrets, in addition to `public_cert` and `imported_cert`.
 
 
