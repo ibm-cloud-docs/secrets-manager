@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-12-02"
+lastupdated: "2021-12-16"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -70,15 +70,15 @@ When you rotate a secret, you create a new version of its value. Rotating your c
 
 Before you get started, be sure that you have the required level of access. To rotate secrets, you need the [**Writer** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam).
 
-
 ### Supported secret types
 {: #manual-rotate-by-type}
 
 Most secrets that you store in {{site.data.keyword.secrets-manager_short}} can be rotated and replaced on-demand. The way in which {{site.data.keyword.secrets-manager_short}} evaluates a request to rotate a secret depends on the secret type.
 
 | Type | Description |
-| --- | --- | 
+| --- | --- |
 | Arbitrary secrets | Arbitrary secrets are immediately replaced with the data that you provide on rotation. |
+| IAM credentials |<p>IAM credentials, which consist of a service ID and API key, are immediately regenerated according to their initial configuration.</p><p>If the IAM credentials secret was created by using an existing service ID in the account, only the API key is regenerated as part of a manual rotation. Whereas, if the secret was created by selecting an access group, both the service ID and API key values are regenerated when they're manually rotated.</p><p class="important">The **Reuse IAM credentials until lease expires** (`reuse_api_key`) option for an IAM credentials secret impacts whether it can be rotated manually. If this field is `false` or set to **Off** for an IAM credentials secret, manual rotation isn't supported. The API key that is dynamically generated for the secret on each read is already a single-use, ephemeral value.</p>|
 | Imported certificates | Certificates that were initially imported to a service instance are immediately replaced with the data that you reimport on rotation. |
 | Public certificates | Public certificates move to the **Active, Rotation pending** status to indicate that a request to rotate a certificate is being processed. {{site.data.keyword.secrets-manager_short}} sends the request to the configured certificate authority (CA), for example Let's Encrypt, to validate the ownership of your domains. If the validation completes successfully, a new certificate is issued. |
 | User credentials | Passwords that are associated with user credentials secrets are immediately replaced with the data that you provide on rotation. |
@@ -103,7 +103,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 5. Select a new file or enter a new secret value.
 6. To rotate the secret immediately, click **Rotate**.
 7. Optional: Check the version history to view the latest updates.
-   
+
    In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
 
 
@@ -124,7 +124,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 
 6. To rotate the secret immediately, click **Rotate**.  
 7. Optional: Check the version history to view the latest updates.
-   
+
    In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
 
 
@@ -143,10 +143,10 @@ If the certificate that you are rotating was previously imported with an interme
 4. In the row for the certificate that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
 5. Select or enter the new certificate data.
 
-    Keep in mind that manually rotating a certificate replaces the content of the certificate with the new data that you provide only. Private keys and intermediate certificates from previous versions are not retained. 
+   Keep in mind that manually rotating a certificate replaces the content of the certificate with the new data that you provide only. Private keys and intermediate certificates from previous versions are not retained. 
 6. To rotate the certificate immediately, click **Rotate**.
 7. Optional: Check the version history to view the latest updates.
-   
+
    In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
 8. Redeploy the latest certificate version to your TLS termination point.
 
@@ -165,7 +165,7 @@ If your {{site.data.keyword.secrets-manager_short}} service instance is enabled 
    A success message is displayed to indicate that your order is currently being processed. If the validation completes successfully, a new certificate is issued and the status of the certificate changes from **Active, Rotation pending** back to **Active**. If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**.
 
 6. Optional: Check the issuance details of a certificate.
-   
+
    You can check its issuance details of a public certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> Details**. If there was an issue with the request, the Status field provides information about why the rotation couldn't complete successfully.
 
 7. Redeploy the latest certificate version to your TLS termination point.
