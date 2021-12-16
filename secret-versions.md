@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-21"
+lastupdated: "2021-12-16"
 
 keywords: secret version history, view versions, secret versions
 
@@ -54,7 +54,7 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
-# Viewing your version history
+# Viewing the version history of secrets
 {: #version-history}
 
 When you rotate a secret in {{site.data.keyword.secrets-manager_full}}, you create a new version of its value. You can quickly examine the version history of your secrets by using the UI or API.
@@ -77,11 +77,24 @@ If you're auditing the version history of a secret, you can use the {{site.data.
 4. In the row for the secret that you want to inspect, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history**.
 
     If the secret was rotated previously, the page displays information about the current and previous versions, for example the date that each version was created. Up to 50 versions can be listed for a secret.
-    
+
     If you're inspecting the version history of a public or imported certificate, you can also [download the certificate contents](/docs/secrets-manager?topic=secrets-manager-access-secrets#download-certificate-ui).
     {: tip}
 
+## Listing secret versions from the CLI
+{: #versions-cli}
+{: cli}
 
+If you're auditing the version history of a secret, you can use the {{site.data.keyword.secrets-manager_short}} CLI plug-in to view the general characteristics of each rotation.
+
+To list all of the versions that are associated with a secret, run the [**`ibmcloud secrets-manager secret-versions`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-versions-command) command. You can specify the type of secret by using the `--secret-type SECRET-TYPE` option. The options for `SECRET_TYPE` are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, and `username_password`.
+
+```sh
+ibmcloud secrets-manager secret-versions --secret-type SECRET-TYPE --id ID
+```
+{: pre}
+
+The command outputs a information about the current and previous versions, for example the date that each version was created. Up to 50 versions can be listed for a secret. For more information about the command options, see [**`ibmcloud secrets-manager secret-versions`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-versionscommand).
 
 ## Listing secret versions with the API
 {: #versions-api}
@@ -89,9 +102,7 @@ If you're auditing the version history of a secret, you can use the {{site.data.
 
 If you're auditing the version history of a secret, you can use the {{site.data.keyword.secrets-manager_short}} API to view the general characteristics of each rotation.
 
-When you use the API to list the secrets that are stored in your service instance, each secret contains a `versions_total` field that indicates the number of versions that are associated with it. You can use the List versions API to retrieve information about each version. 
-
-The following example request lists metadata properties for each version. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. The options for `{secret_type}` are: `arbitrary`, `iam_credentials`, `username_password`, `imported_cert`, `public_cert`. 
+The following example request lists metadata properties for each version. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. The options for `{secret_type}` are: `arbitrary`, `iam_credentials`, `username_password`, `imported_cert`, `public_cert`.
 {: curl}
 
 ```sh
@@ -102,4 +113,46 @@ curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/
 {: codeblock}
 {: curl}
 
-A successful response returns metadata details about each secret version. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager).
+A successful response returns metadata details about each secret version.
+
+```json
+{
+    "metadata": {
+        "collection_type": "application/vnd.ibm.secrets-manager.secret.version+json",
+        "collection_total": 4
+    },
+    "resources": [
+        {
+            "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
+            "creation_date": "2021-12-14T17:27:32Z",
+            "downloaded": false,
+            "id": "88fe8ddd-caf9-45c7-59c4-35c9954045db",
+            "payload_available": false
+        },
+        {
+            "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
+            "creation_date": "2021-12-14T17:28:27Z",
+            "downloaded": true,
+            "id": "c73845b2-4a3f-7a59-a691-1e678680a970",
+            "payload_available": false
+        },
+        {
+            "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
+            "creation_date": "2021-12-14T17:29:02Z",
+            "downloaded": true,
+            "id": "78c3dba8-cb34-7868-fbf5-8c608dc10d5a",
+            "payload_available": false
+        },
+        {
+            "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
+            "creation_date": "2021-12-14T17:29:16Z",
+            "downloaded": true,
+            "id": "b46092a0-af37-eb51-0ce5-d3ddfb369b9f",
+            "payload_available": false
+        }
+    ]
+}
+```
+{: screen}
+
+The `downloaded` property indicates whether the data for each secret version was already read or accessed. If the `payload_available` field has a value of `true`, it means that you're able to access or [restore the secret data of that version](/docs/secrets-manager?topic=secrets-manager-restore-secrets&interface=api#restore-secret-api). For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager).

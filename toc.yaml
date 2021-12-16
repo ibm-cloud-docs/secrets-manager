@@ -68,8 +68,8 @@ toc:
               label: Rotating secrets
               topics:
               - secret-rotate.md
-              - secret-versions.md
               - secret-rotate-auto.md
+              - secret-versions.md
           - secret-delete.md
       - secret-groups.md
       - topicgroup: 
@@ -86,20 +86,22 @@ toc:
       - topicgroup: 
           label: Logging and monitoring
           topics:
-          - at-events.md
-          - logging.md
+          - framework/at-events.md
+          - framework/logging.md
       - topicgroup: 
           label: Enhancing security
           topics: 
-          - iam.md
-          - architecture-workload-isolation.md
+          - framework/iam.md
+          - framework/architecture-workload-isolation.md
           - topicgroup: 
-              label: Securing your connection to Secrets Manager
+              label: Privately connecting to Secrets Manager
               topics:
-              - cse.md
-              - vpe.md
-          - data-security.md
-          - manage-scc.md 
+              - topic: framework/cse.md
+                navtitle: Using service endpoints
+              - topic: framework/vpe.md
+                navtitle: Using virtual private endpoints for VPC
+          - framework/data-security.md
+          - framework/manage-scc.md 
 
 
   - navgroup:
@@ -148,8 +150,9 @@ toc:
           label: Troubleshooting
           topics: 
           - troubleshooting/support.md
-          - troubleshooting/troubleshoot-creation.md
-          - troubleshooting/troubleshoot-access.md
+          - troubleshooting/troubleshoot-provision.md
+          - troubleshooting/troubleshoot-iam-engine-access.md
+          - troubleshooting/troubleshoot-iam-engine-required.md
+          - troubleshooting/troubleshoot-iam-restore.md
           - troubleshooting/troubleshoot-pem.md
-          - troubleshooting/troubleshoot-iam-engine.md
           - troubleshooting/troubleshoot-delete-group.md

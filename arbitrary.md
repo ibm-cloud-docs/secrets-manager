@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-24"
+lastupdated: "2021-12-16"
 
 keywords: arbitrary secrets, arbitrary text, custom secrets
 
@@ -75,7 +75,7 @@ Before you get started, be sure that you have the required level of access. To c
 
 To add an arbitrary secret by using the {{site.data.keyword.secrets-manager_short}} UI, complete the following steps.
 
-1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
 4. From the list of secret types, click the **Other secret type** tile.

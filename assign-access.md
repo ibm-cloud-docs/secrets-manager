@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-12-16"
 
 keywords: assign access for Secrets Manager, secret group access, assign access for all secrets, grant access, add users
 
@@ -102,7 +102,7 @@ You can further narrow the scope of access to secrets in your instance by creati
 
 [After you create a secret group for your instance](/docs/secrets-manager?topic=secrets-manager-secret-groups#create-secret-groups), you can use the **Secret groups** section of the {{site.data.keyword.secrets-manager_short}} UI to manage its access.
 
-1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List** to view a list of your resources.
+1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List** to view a list of your resources.
 2. Select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the navigation, click **Secret groups**.
 4. Use the **Secret groups** table to browse the groups in your instance.
@@ -124,7 +124,7 @@ To assign access in the {{site.data.keyword.cloud_notm}} console, be sure that y
 
 ![The figure shows a simplified IAM dashboard with numbered steps for assigning access to a Secrets Manager secret group. The steps are described in the following text.](images/assign-access-secret-group.svg){: caption="Figure 1. Assigning access to a secret group" caption-side="bottom"}
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM) > Access Groups**.
+1. In the console, go to **Manage > Access (IAM) > Access Groups**.
 2. In the row for the access group that you want to manage, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Assign access**.
 3. Select **IAM services**.
 4. From the list of services, select **{{site.data.keyword.secrets-manager_short}}**.

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-12-15"
 
-keywords: troubleshoot secrets manager, troubleshooting for credentials, IAM credentials, unable to create credentials, troubleshooting Secrets Manager
+keywords: unable to create IAM credentials, can't create IAM credentials, engine configuration required
 
 subcollection: secrets-manager
 

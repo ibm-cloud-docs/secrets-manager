@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-24"
+lastupdated: "2021-12-16"
 
 keywords: DNS provider, connect DNS provider, set up DNS provider, connect DNS, set up DNS, connect CIS, set up CIS, add DNS provider configuration
 
@@ -104,7 +104,7 @@ You can connect the following DNS providers with your {{site.data.keyword.secret
 
 You can add DNS provider configurations to your service instance by using the {{site.data.keyword.secrets-manager_short}} UI. 
 
-1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets engines** page, click the **Public certificates** tab.
 4. In the DNS providers table, click **Add**.
@@ -194,7 +194,7 @@ If you no longer need a configuration, you can delete it by using the {{site.dat
 After you delete a configuration, the certificates that are associated with the DNS provider can no longer be rotated automatically. Do not delete configurations that are associated with certificates in your production apps or services.
 {: important}
 
-1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
    
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}. 
 3. In the **Secrets engines** page, click the **Public certificates** tab.

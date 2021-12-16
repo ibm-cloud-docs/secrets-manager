@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-12-15"
+lastupdated: "2021-12-16"
 
 keywords: provisioning stuck, unable to create instance, can't create instance
 

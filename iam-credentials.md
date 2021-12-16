@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-24"
+lastupdated: "2021-12-16"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -79,7 +79,7 @@ IAM credentials require an extra configuration step before you can start to crea
 
 To create IAM credentials by using the {{site.data.keyword.secrets-manager_short}} UI, complete the following steps.
 
-1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
 4. From the list of secret types, click the **IAM credentials** tile.
@@ -91,7 +91,7 @@ To create IAM credentials by using the {{site.data.keyword.secrets-manager_short
 8. Set a lease duration or time-to-live (TTL) for the secret.
 
     By setting a lease duration for your IAM credential, you determine how long its associated API key remains valid. After the IAM credential reaches the end of its lease, it is revoked automatically.
-9.  Optional: [Determine whether IAM credentials can be reused](#iam-credentials-reuse-ui) for your secret. Then, click **Next**.
+9. Optional: [Determine whether IAM credentials can be reused](#iam-credentials-reuse-ui) for your secret. Then, click **Next**.
 10. In the **Assign access** step, [determine the scope of access](#iam-credentials-service-id-ui) to assign for your IAM credential.
 11. To confirm your selections, click **Add**.
 
@@ -102,10 +102,10 @@ To create IAM credentials by using the {{site.data.keyword.secrets-manager_short
 
 IAM credentials consist of a service ID and an API key. By default, the service ID and API key are single-use, ephemeral values that are generated and deleted each time that an IAM credentials secret is read or accessed. 
 
-If you'd like to continue to use those credentials through the end of the lease of your secret, you can set **Reuse IAM credentials until lease expires** to **On**. When you enable this option, your secret retains its current service ID and API key values and reuses them on each read while the secret remains valid. After the secret reaches the end of its lease, the credentials are revoked automatically. 
+If you'd like to continue to use those credentials through the end of the lease of your secret, you can set **Reuse IAM credentials until lease expires** to **On**. When you enable this option, your secret retains its current service ID and API key values and reuses them on each read while the secret remains valid. After the secret reaches the end of its lease, the credentials are revoked automatically.
 
-
-
+If **Reuse IAM credentials until lease expires** for IAM credentials is set to **Off**, manual rotation for the secret isn't supported. For more information, see [Manually rotating secrets](/docs/secrets-manager?topic=secrets-manager-manual-rotation).
+{: important}
 
 ### Using an existing service ID in your account
 {: #iam-credentials-service-id-ui}
@@ -116,11 +116,11 @@ You might already have a service ID in your account that you'd like to use to dy
 In the **Assign access** step of the Create IAM credentials wizard, determine how you'd like to scope access for your credentials.
 
 1. To use an existing service ID, select an ID from the list.
-   
+
    Choose this option when you need {{site.data.keyword.secrets-manager_short}} to generate and manage only an API key for your IAM credentials secret, and not the service ID itself. The API key inherits the access policy of the service ID that you select from your account. Only the service IDs that you have access to are displayed. 
 
 2. To generate both a new service ID and API key for the secret, select an access group.
-   
+
    By selecting an access group from your {{site.data.keyword.cloud_notm}} account, you determine the scope of access to assign to the service ID API key that is dynamically generated and associated with your new IAM credential. This step ensures that your IAM credentials are scoped with the preferred level of permissions in your {{site.data.keyword.cloud_notm}} account. You can assign up to 10 access groups.
 
 ## Creating IAM credentials from the CLI
@@ -151,7 +151,8 @@ ibmcloud secrets-manager secret-create --secret-type iam_credentials --resources
 
 The command outputs the ID value of the secret, along with other metadata. After the secret reaches the end of its lease, the credentials are revoked automatically. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
 
-
+If `reuse_api_key` is `false` for IAM credentials, manual rotation for the secret isn't supported. For more information, see [Manually rotating secrets](/docs/secrets-manager?topic=secrets-manager-manual-rotate-secrets).
+{: important}
 
 ### Using an existing service ID in your account
 {: #iam-credentials-service-id-cli}
@@ -168,7 +169,6 @@ ibmcloud secrets-manager secret-create --secret-type iam_credentials --resources
 {: pre}
 
 The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
-
 
 
 ## Creating IAM credentials with the API
@@ -346,7 +346,7 @@ fmt.Println(string(b))
 {: codeblock}
 {: go}
 
-When you set the `reuse_api_key` parameter true, the credentials that are generated for the secret can be reused until the secret expires. For more information, check out the [API reference](/apidocs/secrets-manager#create-secret).
+When you set the `reuse_api_key` parameter to `true`, the credentials that are generated for the secret can be reused until the secret expires. For more information, check out the [API reference](/apidocs/secrets-manager#create-secret).
 {: tip}
 
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager#create-secret).

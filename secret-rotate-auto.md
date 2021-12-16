@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-12-02"
+lastupdated: "2021-12-16"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -75,16 +75,14 @@ Before you get started, be sure that you have the required level of access. To r
 ### Supported secret types
 {: #before-auto-rotate-supported-secret-types}
 
-Automatic rotation is supported for [user credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) and [public certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates). Depending on the type of secret, automatic rotation takes place immediately on the date and time that you set, or it might need to complete a few extra steps before a new version of the secret can be created.
+Automatic rotation is supported for [public certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates) and [user credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials). Depending on the type of secret, automatic rotation takes place immediately on the date and time that you set, or it might need to complete a few extra steps before a new version of the secret can be created.
 
-User credentials
-:   On each rotation, {{site.data.keyword.secrets-manager_short}} replaces the existing `password` value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols. The `username` value does not change.
+| Type | Rotation description |
+| --- | --- |
+| [Public certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates) | Public certificates move to the **Active, Rotation pending** status to indicate that the request to renew the certificate is being processed. {{site.data.keyword.secrets-manager_short}} uses DNS validation to verify that you own the domains that are listed as part of the certificate. This process can take a few minutes to complete. If the validation completes successfully, a new certificate is issued and its status changes back to **Active**. If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**.<p class="note">Automatic rotation or renewal of certificates is supported for public certificates, which are certificates that are ordered through {{site.data.keyword.secrets-manager_short}} from a third-party, such as Let's Encrypt. If you need to rotate an imported certificate, see [Manually rotating secrets](/docs/secrets-manager?topic=secrets-manager-manual-rotation).</p>|
+| [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | The existing `password` value is replaced with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols. The `username` value does not change.|
+{: caption="Table 1. Describes how {{site.data.keyword.secrets-manager_short}} evaluates manual rotation by secret type" caption-side="top"}
 
-Public certificates
-:   On each rotation, the certificate moves to the **Active, Rotation pending** status to indicate that the request to renew the certificate is being processed. {{site.data.keyword.secrets-manager_short}} uses DNS validation to verify that you own the domains that are listed as part of the certificate. This process can take a few minutes to complete. If the validation completes successfully, a new certificate is issued and its status changes back to **Active**. If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**. 
-
-   Automatic rotation or renewal of certificates is supported for public certificates, which are certificates that are ordered through {{site.data.keyword.secrets-manager_short}} from a third-party, such as Let's Encrypt. If you need to rotate an imported certificate, see [Manually rotating secrets](/docs/secrets-manager?topic=secrets-manager-manual-rotation).
-   {: note}
 
 ## Scheduling automatic rotation in the UI
 {: #schedule-auto-rotate-ui}

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-12-15"
+lastupdated: "2021-12-16"
 
-keywords: provisioning stuck, unable to create instance, can't create instance
+keywords: can't restore IAM credentials, reuse credentials is off, unable to restore
 
 subcollection: secrets-manager
 
@@ -57,23 +57,29 @@ content-type: troubleshoot
 {:release-note: data-hd-content-type='release-note'}
 
 
-# Why is my instance of {{site.data.keyword.secrets-manager_short}} stuck on provisioning?
-{: #troubleshoot-provision}
+# Why can't I restore the previous version of an IAM credentials secret?
+{: #troubleshoot-restore-iam}
 {: troubleshoot}
 {: support}
 
-You try to create an instance of {{site.data.keyword.secrets-manager_full}}, but the provisioning doesn't complete.
+You try to restore the previous version of an IAM credentials secret in {{site.data.keyword.secrets-manager_full}}, but you're unable to do so.
 {: shortdesc}
 
-
-When you try to create an instance of the service in the {{site.data.keyword.cloud_notm}} console, you see the **Provisioning...** status in your resource list, but the status never transitions to an **Active** state.
+You want to restore the previous service ID API key that was associated with an IAM credentials secret. When you try to [restore the secret version](/docs/secrets-manager?topic=secrets-manager-versions) by using the {{site.data.keyword.secrets-manager_short}} UI or API, you get one of the following errors:
 {: tsSymptoms}
 
-Because an instance of the service is created that is dedicated only to you, provisioning might take a few minutes to complete. Or, there might be an error in the provisioning process.
+```plaintext
+Rotating IAM credentials is not supported when reuse credentials is off.
+```
+{: screen}
+
+```
+Version previous is not active.
+```
+{: screen}
+
+You might receive these errors due to the following reasons:
 {: tsCauses}
 
-To resolve the issue, try waiting 5 - 8 minutes and refreshing your web browser. If the problem persists, contact {{site.data.keyword.cloud_notm}} support.
-{: tsResolve}
-
-
-
+- The secret was initially created with the [**Reuse IAM credentials until lease expires** option](/docs/secrets-manager?topic=secrets-manager-iam-credentials#iam-credentials-reuse-ui) set to **Off** (or, the `reuse_api_key` property set to `false`). This means that the secret can hold only a short-lived ephemeral value that is created and and then deleted after each read operation, so its previous version can't be restored.
+- The service ID API key reached its defined time-to-live (TTL) or lease duration, and it can no longer be restored.

@@ -3,7 +3,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-11-24"
+lastupdated: "2021-12-16"
 
 keywords: tutorial, Secrets Manager
 
@@ -353,7 +353,7 @@ First, add `kubernetes-external-secrets` resources to your cluster by installing
     ```
     {: pre}
 
-3. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> Kubernetes > Clusters**.
+3. In the console, click the **Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> Kubernetes > Clusters**.
 4. Click _my-test-cluster_ **> Kubernetes dashboard > Deployments**.
 5. In the table row for _secrets-manager-tutorial-kubernetes-external-secrets_, click the **Actions** menu ![Actions icon](../../icons/actions-icon-vertical.svg) **> Edit**.
 6. In the JSON editor, scroll to find the `spec.containers` object that contains information about `kubernetes-external-secrets`.

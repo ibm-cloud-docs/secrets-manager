@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-12-15"
+lastupdated: "2021-12-16"
 
-keywords: provisioning stuck, unable to create instance, can't create instance
+keywords: unable to create IAM credentials, can't create IAM credentials, engine configuration required
 
 subcollection: secrets-manager
 
@@ -57,23 +57,21 @@ content-type: troubleshoot
 {:release-note: data-hd-content-type='release-note'}
 
 
-# Why is my instance of {{site.data.keyword.secrets-manager_short}} stuck on provisioning?
-{: #troubleshoot-provision}
+# Why can't I create an IAM credential?
+{: #troubleshoot-access}
 {: troubleshoot}
 {: support}
 
-You try to create an instance of {{site.data.keyword.secrets-manager_full}}, but the provisioning doesn't complete.
+You try to use {{site.data.keyword.secrets-manager_full}} to create an IAM credential, but the option is disabled.
 {: shortdesc}
 
-
-When you try to create an instance of the service in the {{site.data.keyword.cloud_notm}} console, you see the **Provisioning...** status in your resource list, but the status never transitions to an **Active** state.
+In the {{site.data.keyword.secrets-manager_short}} UI, you click **Add** from the Secrets table to see a list of options. The option to create an IAM credential is disabled, and you see a message that shows `Engine configuration required`.
 {: tsSymptoms}
 
-Because an instance of the service is created that is dedicated only to you, provisioning might take a few minutes to complete. Or, there might be an error in the provisioning process.
+To create an IAM credential, you must first enable the IAM credentials engine for your service instance. The engine creates a connection between {{site.data.keyword.secrets-manager_short}} and IAM that grants your service instance the permissions that are required to create dynamic service IDs and API keys on your behalf.
 {: tsCauses}
 
-To resolve the issue, try waiting 5 - 8 minutes and refreshing your web browser. If the problem persists, contact {{site.data.keyword.cloud_notm}} support.
+First, [create an API key for a service ID](/docs/account?topic=account-serviceidapikeys) in your {{site.data.keyword.cloud_notm}} account. Be sure to assign it the [required level of access](/docs/secrets-manager?topic=secrets-manager-configure-iam-engine#before-configure-iam-engine) to be able to manage other API keys on your behalf. Then, go to the **Settings** page in the {{site.data.keyword.secrets-manager_short}} UI and enter the API key to complete the configuration.
 {: tsResolve}
-
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-24"
+lastupdated: "2021-12-16"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -76,7 +76,7 @@ If you're setting up IAM credentials for the first time, be sure that you're ass
 
 You can add an IAM credentials engine configuration by using the {{site.data.keyword.secrets-manager_short}} UI. To configure your instance to start creating IAM credentials, complete the following steps.
 
-1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets engines** page, click the **IAM credentials** tab.
 4. Click **Configure**.

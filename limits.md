@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-12-16"
 
 keywords: known issues for Secrets Manager, known limitations for Secrets Manager
 
@@ -131,6 +131,7 @@ The following limits apply to arbitrary secrets.
 | Description | 2 - 1024 characters |
 | Secret value | 1 MB |
 | Labels | 2 - 30 characters  \n  \n 30 labels per secret |
+| Versions | For auditing purposes, the service retains the metadata of up to 50 versions for each secret, which you can review as part of a secret's [version history](/docs/secrets-manager?topic=secrets-manager-versions). |
 {: caption="Table 5. Arbitrary secret limits" caption-side="top"}
 
 #### Limits for IAM credentials
@@ -145,6 +146,7 @@ The following limits apply to IAM credentials.
 | Access groups | 1 - 10 groups |
 | Labels | 2 - 30 characters  \n  \n 30 labels per secret |
 | Maximum lease duration | 90 days |
+| Versions | 2 versions per secret (current and previous)  \n  \n A secret version can be retrieved, rotated, or restored only if the defined time-to-live (TTL) or lease duration hasn't been reached. For auditing purposes, the service retains the metadata of up to 50 versions for each secret, which you can review as part of a secret's [version history](/docs/secrets-manager?topic=secrets-manager-versions). |
 {: caption="Table 6. IAM credential limits" caption-side="top"}
 
 
@@ -162,7 +164,7 @@ The following limits apply to TLS certificates.
 | Private key | 100 KB  \n  \n Private key file is limited to PEM-formatted content. If provided, the private key must match the certificate that you are importing. Only unencrypted private keys are supported. |
 | Intermediate certificate | 100 KB  \n  \n Supported file type is `.pem`. If provided, the intermediate certificate must be a valid, X.509-based certificate. |
 | Labels | 2 - 30 characters  \n  \n 30 labels per secret |
-| Versions | 2 versions per certificate (current and previous) |
+| Versions | 2 versions per certificate (current and previous)  \n  \nFor auditing purposes, the service retains the metadata of up to 50 versions for each secret, which you can review as part of a secret's [version history](/docs/secrets-manager?topic=secrets-manager-versions). |
 {: caption="Table 7. TLS certificate limits" caption-side="top"}
 
 
@@ -179,6 +181,7 @@ The following limits apply to user credentials.
 | Username | 2 - 64 characters |
 | Password | 64 characters |
 | Labels | 2 - 30 characters  \n  \n 30 labels per secret |
+| Versions | For auditing purposes, the service retains the metadata of up to 50 versions for each secret, which you can review as part of a secret's [version history](/docs/secrets-manager?topic=secrets-manager-versions). |
 {: caption="Table 8. User credential limits" caption-side="top"}
 
 

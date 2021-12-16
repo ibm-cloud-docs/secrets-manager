@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-24"
+lastupdated: "2021-12-15"
 
 keywords: secret groups, assign secret access, iam roles, secrets policies, organize secrets
 
@@ -88,7 +88,7 @@ You can create secret groups by using the {{site.data.keyword.secrets-manager_sh
 
 You can create secret groups by using the console. You can also create a secret group during the process of adding or creating a secret.
 
-1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the navigation, click **Secret groups > Create**.
 4. Add a name and description to easily identify your group.
@@ -236,7 +236,7 @@ To delete a secret group, it must be empty. If you need to remove a secret group
 
 You can delete secret groups by using the console.
 
-1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the navigation, click **Secret groups**.
 4. In the row for the secret group that you want to delete, click the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg).
