@@ -73,15 +73,15 @@ Before you get started, be sure that you have the required level of access. To r
 ### Supported secret types
 {: #manual-rotate-by-type}
 
-Most secrets that you store in {{site.data.keyword.secrets-manager_short}} can be rotated and replaced on-demand. The way in which {{site.data.keyword.secrets-manager_short}} evaluates a request to rotate a secret depends on the secret type.
+All of the secrets that you store in {{site.data.keyword.secrets-manager_short}} can be rotated and replaced on-demand. The way in which {{site.data.keyword.secrets-manager_short}} evaluates a request to rotate a secret depends on the secret type.
 
-| Type | Description |
+| Type | Rotation description |
 | --- | --- |
-| Arbitrary secrets | Arbitrary secrets are immediately replaced with the data that you provide on rotation. |
-| IAM credentials |<p>IAM credentials, which consist of a service ID and API key, are immediately regenerated according to their initial configuration.</p><p>If the IAM credentials secret was created by using an existing service ID in the account, only the API key is regenerated as part of a manual rotation. Whereas, if the secret was created by selecting an access group, both the service ID and API key values are regenerated when they're manually rotated.</p><p class="important">The **Reuse IAM credentials until lease expires** (`reuse_api_key`) option for an IAM credentials secret impacts whether it can be rotated manually. If this field is `false` or set to **Off** in the UI, manual rotation isn't supported. The API key that is dynamically generated for the secret on each read is already a single-use, ephemeral value.</p>|
-| Imported certificates | Certificates that were initially imported to a service instance are immediately replaced with the data that you reimport on rotation. |
-| Public certificates | Public certificates move to the **Active, Rotation pending** status to indicate that a request to rotate a certificate is being processed. {{site.data.keyword.secrets-manager_short}} sends the request to the configured certificate authority (CA), for example Let's Encrypt, to validate the ownership of your domains. If the validation completes successfully, a new certificate is issued. |
-| User credentials | Passwords that are associated with user credentials secrets are immediately replaced with the data that you provide on rotation. |
+| [Arbitrary secret]({[link]-arbitrary-secrets}) | Arbitrary secrets are immediately replaced with the data that you provide on rotation. |
+| [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) |<p>IAM credentials, which consist of a service ID and API key, are immediately regenerated according to their initial configuration.</p><p>If the IAM credentials secret was created by using an existing service ID in the account, only the API key is regenerated as part of a manual rotation. Whereas, if the secret was created by selecting an access group, both the service ID and API key values are regenerated when they're manually rotated.</p><p class="important">The **Reuse IAM credentials until lease expires** (`reuse_api_key`) option for an IAM credentials secret impacts whether it can be rotated manually. If this field is `false` or set to **Off** in the UI, manual rotation isn't supported. The API key that is dynamically generated for the secret on each read is already a single-use, ephemeral value.</p>|
+| [Imported certificate](/docs/secrets-manager?topic=secrets-manager-certificates#import-certificates) | Certificates that were initially imported to a service instance are immediately replaced with the data that you reimport on rotation. |
+| [Public certificate](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates) | Public certificates move to the **Active, Rotation pending** status to indicate that a request to rotate a certificate is being processed. {{site.data.keyword.secrets-manager_short}} sends the request to the configured certificate authority (CA), for example Let's Encrypt, to validate the ownership of your domains. If the validation completes successfully, a new certificate is issued. |
+| [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | Passwords that are associated with user credentials secrets are immediately replaced with the data that you provide on rotation. |
 {: caption="Table 1. Describes how {{site.data.keyword.secrets-manager_short}} evaluates manual rotation by secret type" caption-side="top"}
 
 ## Manually rotating secrets in the UI
@@ -150,6 +150,8 @@ If the certificate that you are rotating was previously imported with an interme
    In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
 8. Redeploy the latest certificate version to your TLS termination point.
 
+   To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager#get-secret) API.
+
 ### Rotating public certificates
 {: #manual-rotate-public-cert-ui}
 {: ui}
@@ -166,7 +168,7 @@ If your {{site.data.keyword.secrets-manager_short}} service instance is enabled 
 
 6. Optional: Check the issuance details of a certificate.
 
-   You can check its issuance details of a public certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> Details**. If there was an issue with the request, the Status field provides information about why the rotation couldn't complete successfully.
+   You can check the issuance details of a public certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> Details**. If there was an issue with the request, the Status field provides information about why the rotation couldn't complete successfully.
 
 7. Redeploy the latest certificate version to your TLS termination point.
 
