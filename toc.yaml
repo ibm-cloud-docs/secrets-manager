@@ -148,8 +148,9 @@ toc:
           label: Troubleshooting
           topics: 
           - troubleshooting/support.md
-          - troubleshooting/troubleshoot-creation.md
-          - troubleshooting/troubleshoot-access.md
+          - troubleshooting/troubleshoot-provision.md
+          - troubleshooting/troubleshoot-iam-engine-access.md
+          - troubleshooting/troubleshoot-iam-engine-required.md
+          - troubleshooting/troubleshoot-iam-restore.md
           - troubleshooting/troubleshoot-pem.md
-          - troubleshooting/troubleshoot-iam-engine.md
           - troubleshooting/troubleshoot-delete-group.md
