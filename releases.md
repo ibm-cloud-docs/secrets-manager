@@ -81,13 +81,9 @@ Restore secrets to a previous version
 
    Currently, you can restore 1 version back for IAM credentials and public certificate secrets only. For more information, see [Restoring to a previous version](/docs/secrets-manager?topic=secrets-manager-restore-secrets).
    {: note}
-   
-
 
 Rotate IAM credentials on-demand
 :   You can now rotate IAM credentials manually by using the UI or APIs. For more information, see [Rotating secrets manually](/docs/secrets-manager?topic=secrets-manager-manual-rotate-secrets).
-
-
 
 
 ## 20 September 2021
