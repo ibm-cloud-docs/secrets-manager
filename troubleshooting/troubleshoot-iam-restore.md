@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-12-16"
+lastupdated: "2021-12-17"
 
 keywords: can't restore IAM credentials, reuse credentials is off, unable to restore
 
@@ -65,7 +65,7 @@ content-type: troubleshoot
 You try to restore the previous version of an IAM credentials secret in {{site.data.keyword.secrets-manager_full}}, but you're unable to do so.
 {: shortdesc}
 
-You want to restore the previous service ID API key that was associated with an IAM credentials secret. When you try to [restore the secret version](/docs/secrets-manager?topic=secrets-manager-versions) by using the {{site.data.keyword.secrets-manager_short}} UI or API, you get one of the following errors:
+You want to restore the previous service ID API key that was associated with an IAM credentials secret. When you try to [restore the secret version](/docs/secrets-manager?topic=secrets-manager-version-history) by using the {{site.data.keyword.secrets-manager_short}} UI or API, you get one of the following errors:
 {: tsSymptoms}
 
 ```plaintext

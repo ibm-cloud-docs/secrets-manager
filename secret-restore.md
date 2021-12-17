@@ -57,7 +57,7 @@ subcollection: secrets-manager
 # Restoring secrets to a previous version
 {: #restore-secrets}
 
-Accidentally replaced an existing secret? You can use {{site.data.keyword.secrets-manager_full}} to immediately roll back to the previous version.
+Accidentally replace or overwrite an existing secret? You can use {{site.data.keyword.secrets-manager_full}} to immediately roll back to the previous version.
 {: shortdesc}
 
 When you restore a secret to its previous version, a new version of the secret is created. For example, if the current version of your secret is 3, and you roll back to version 2, the data that was restored from version 2 becomes version 4.
