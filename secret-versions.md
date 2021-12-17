@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-12-16"
+lastupdated: "2021-12-17"
 
 keywords: secret version history, view versions, secret versions
 
@@ -94,7 +94,7 @@ ibmcloud secrets-manager secret-versions --secret-type SECRET-TYPE --id ID
 ```
 {: pre}
 
-The command outputs a information about the current and previous versions, for example the date that each version was created. Up to 50 versions can be listed for a secret. For more information about the command options, see [**`ibmcloud secrets-manager secret-versions`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-versionscommand).
+The command outputs a information about the current and previous versions, for example the date that each version was created. Up to 50 versions can be listed for a secret. For more information about the command options, see [**`ibmcloud secrets-manager secret-versions`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-versions-command).
 
 ## Listing secret versions with the API
 {: #versions-api}
