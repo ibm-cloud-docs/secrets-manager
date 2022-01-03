@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-10-14"
+  years: 2020, 2022
+lastupdated: "2022-01-03"
 
 keywords: Secrets Manager integrations, enable integration, service to service, grant access between services
 
@@ -76,7 +76,7 @@ The following table lists the services that can be authorized to work with {{sit
 ## Creating an authorization between {{site.data.keyword.secrets-manager_short}} and another {{site.data.keyword.cloud_notm}} service
 {: #create-authorization}
 
-To authorize another service to use a secret that's stored your {{site.data.keyword.secrets-manager_short}} instance, you can [create an authorization between the services](/docs/account?topic=account-serviceauth). Be sure that you have the [**SecretsReader** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam) on your {{site.data.keyword.secrets-manager_short}} instance.
+To authorize another service to use a secret that is stored in your {{site.data.keyword.secrets-manager_short}} instance, you can [create an authorization between the services](/docs/account?topic=account-serviceauth). Be sure that you have the [**SecretsReader** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam) on your {{site.data.keyword.secrets-manager_short}} instance.
 
 1. In the {{site.data.keyword.cloud_notm}} console, click **Manage > Access (IAM)**, and select **Authorizations**.
 2. Click **Create**.
