@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-12-17"
+  years: 2020, 2022
+lastupdated: "2022-01-03"
 
 keywords: restore previous version, revert, roll back
 
@@ -94,7 +94,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to restore a secr
 
 
 
-## Restoring to a previous version with the API
+## Restoring a previous version with the API
 {: #restore-secret-api}
 {: api}
 
