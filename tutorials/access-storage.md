@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-11-24"
+  years: 2020, 2022
+lastupdated: "2022-01-04"
 content-type: tutorial
 services: secrets-manager, cloud-object-storage
 account-plan: lite

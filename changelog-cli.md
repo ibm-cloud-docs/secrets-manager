@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-12-06"
+  years: 2020, 2022
+lastupdated: "2022-01-04"
 
 keywords: change log for {{site.data.keyword.secrets-manager_short}} CLI, CLI changelog, updates to {{site.data.keyword.secrets-manager_short}} CLI
 

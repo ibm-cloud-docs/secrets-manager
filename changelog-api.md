@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-12-17"
+  years: 2020, 2022
+lastupdated: "2022-01-04"
 
 keywords: change log for [{sm-short}] APIs, API changelog, updates to [{sm-short}] APIs
 

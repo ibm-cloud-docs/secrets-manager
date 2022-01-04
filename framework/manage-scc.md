@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-12-14"
+  years: 2020, 2022
+lastupdated: "2022-01-04"
 
 keywords: security and compliance for {{site.data.keyword.secrets-manager_short}}, security for {{site.data.keyword.secrets-manager_short}}, compliance for {{site.data.keyword.secrets-manager_short}},
 
