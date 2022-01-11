@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-12-15"
+  years: 2020, 2022
+lastupdated: "2022-01-11"
 
 keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, lite plan
 
@@ -109,14 +109,14 @@ You can also create an instance of {{site.data.keyword.secrets-manager_short}} b
     You can use the following command to set your target region and resource group.
 
     ```sh
-    ibmcloud target -r <region_name> -g <resource_group_name>
+    ibmcloud target -r <region> -g <resource_group_name>
     ```
     {: pre}
 
 3. Create an instance of {{site.data.keyword.secrets-manager_short}} within that account and resource group.
 
     ```sh
-    ibmcloud resource service-instance-create <instance_name> secrets-manager lite
+    ibmcloud resource service-instance-create <instance_name> secrets-manager lite <region>
     ```
     {: pre}
 
