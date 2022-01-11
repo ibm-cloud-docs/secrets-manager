@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-03"
+lastupdated: "2022-01-05"
 
 keywords: restore previous version, revert, roll back
 
@@ -91,6 +91,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to restore a secr
 5. Click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Restore** next to the version of the secret that you want to restore.
 
    Currently, you can restore only 1 version back for IAM credentials and public certificate secrets. A secret version can be restored only if the defined time-to-live (TTL) or lease duration hasn't been reached. If you don't see an option available, restoring a version isn't supported.
+   {: note}
 
 
 
@@ -115,5 +116,8 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 ```
 {: codeblock}
 {: curl}
+
+Currently, you can restore only 1 version back for IAM credentials and public certificate secrets. A secret version can be restored only if the defined time-to-live (TTL) or lease duration hasn't been reached.
+{: note}
 
 A successful response returns the value of the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager).
