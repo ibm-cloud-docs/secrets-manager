@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-12-17"
+  years: 2020, 2022
+lastupdated: "2022-01-18"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -130,7 +130,7 @@ In the **Assign access** step of the Create IAM credentials wizard, determine ho
 To create a dynamic service ID and API key by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. You can specify the type of secret by using the `--secret-type iam_credentials` option. For example, the following command creates an IAM secret with a lease duration of 12 hours.
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-type iam_credentials --resources '[{"name":"example-IAM-credentials","description":"Extended description for my secret.","access_groups":["e7e1a364-c5b9-4027-b4fe-083454499a20"],"secret_group_id":"432b91f1-ff6d-4b47-9f06-82debc236d90","ttl":"12h","labels":["dev","us-south"]}]'
+ibmcloud secrets-manager secret-create --secret-type iam_credentials --resources '[{"name":"example-IAM-credentials","description":"Extended description for my secret.","access_groups":["<access_group_id>"],"secret_group_id":"<secret_group_id>","ttl":"12h","labels":["<label>","<label>"]}]'
 ```
 {: pre}
 
@@ -207,14 +207,14 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
           "name": "example-IAM-credentials",
           "description": "Extended description for my secret.",
           "access_groups": [
-            "AccessGroupId-e7e1a364-c5b9-4027-b4fe-083454499a20"
+            "<access_group_id>"
           ],
-          "secret_group_id": "432b91f1-ff6d-4b47-9f06-82debc236d90",
+          "secret_group_id": "<secret_group_id>",
           "reuse_api_key": <true|false>,
           "ttl": "12h",
           "labels": [
-            "dev",
-            "us-south"
+            "<label>",
+            "<label>"
           ]
         }
         ]
@@ -231,9 +231,9 @@ CollectionMetadata collectionMetadataModel = new CollectionMetadata.Builder()
 SecretResourceIAMSecretResource secretResourceModel = new SecretResourceIAMSecretResource.Builder()
     .name("example-IAM-credentials")
     .description("Extended description for this secret.")
-    .accessGroups(new java.util.ArrayList<String>(java.util.Arrays.asList("AccessGroupId-e7e1a364-c5b9-4027-b4fe-083454499a20")))
-    .secretGroupId("432b91f1-ff6d-4b47-9f06-82debc236d90")
-    .labels(new java.util.ArrayList<String>(java.util.Arrays.asList("dev","us-south")))
+    .accessGroups(new java.util.ArrayList<String>(java.util.Arrays.asList("<access_group_id>")))
+    .secretGroupId("<secret_group_id>")
+    .labels(new java.util.ArrayList<String>(java.util.Arrays.asList("<label>","<label>")))
     .ttl("12h")
     .build();
 CreateSecretOptions createSecretOptions = new CreateSecretOptions.Builder()
@@ -262,13 +262,13 @@ const params = {
         'name': 'example-IAM-credentials',
         'description': 'Extended description for my secret.',
         'access_groups': [
-        'AccessGroupId-e7e1a364-c5b9-4027-b4fe-083454499a20'
+        '<access_group_id>'
         ],
-        'secret_group_id': '432b91f1-ff6d-4b47-9f06-82debc236d90',
+        'secret_group_id': '<secret_group_id>',
         'ttl': '12h',
         'labels': [
-        'dev',
-        'us-south'
+        '<label>',
+        '<label>'
         ]
     },
     ],
@@ -295,13 +295,13 @@ secret_resource = {
     'name': 'example-IAM-credentials',
     'description': 'Extended description for this secret.',
     'access_groups': [
-        'AccessGroupId-e7e1a364-c5b9-4027-b4fe-083454499a20'
+        '<access_group_id>'
     ],
-    'secret_group_id': '432b91f1-ff6d-4b47-9f06-82debc236d90',
+    'secret_group_id': '<secret_group_id>',
     'ttl': '12h',
     'labels': [
-        'dev',
-        'us-south'
+        '<label>',
+        '<label>'
     ]
 }
 
@@ -325,10 +325,10 @@ collectionMetadata := &sm.CollectionMetadata{
 secretResource := &sm.SecretResourceIAMSecretResource{
     Name: core.StringPtr("example-IAM-credentials"),
     Description: core.StringPtr("Extended description for this secret."),
-    AccessGroups: []string{"AccessGroupId-e7e1a364-c5b9-4027-b4fe-083454499a20"},
-    SecretGroupID: core.StringPtr("432b91f1-ff6d-4b47-9f06-82debc236d90"),
+    AccessGroups: []string{"<access_group_id>"},
+    SecretGroupID: core.StringPtr("<secret_group_id>"),
     TTL: []string{"12h"},
-    Labels: []string{"dev","us-south"},
+    Labels: []string{"<label>","<label>"},
 }
 
 createSecretOptions := secretsManagerApi.NewCreateSecretOptions(
@@ -351,3 +351,86 @@ When you set the `reuse_api_key` parameter to `true`, the credentials that are g
 
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager#create-secret).
 
+### Reusing the same API key until the lease expires
+{: #iam-credentials-reuse-api}
+{: api}
+
+IAM credentials consist of a service ID and an API key. By default, the service ID and API key are single-use, ephemeral values that are generated and deleted each time that an IAM credentials secret is read or accessed.
+
+If want to use those credentials through the end of the lease of your secret, you can use the `reuse_api_key` field. If set to `true`, your secret retains its current service ID and API key values and reuses them on each read while the secret remains valid. For example, the following example command create IAM credentials that can be reused until they expire.
+
+```sh
+curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/iam_credentials" \
+    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{
+        "metadata": {
+        "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
+        "collection_total": 1
+        },
+        "resources": [
+        {
+          "name": "example-IAM-credentials",
+          "description": "Extended description for my secret.",
+          "access_groups": [
+            "<access_group_id>"
+          ],
+          "secret_group_id": "<secret_group_id>",
+          "reuse_api_key": true,
+          "ttl": "12h",
+          "labels": [
+            "<label>",
+            "<label>"
+          ]
+        }
+        ]
+    }'
+```
+{: codeblock}
+{: curl}
+
+A successful request returns the ID value of the secret, along with other metadata. After the secret reaches the end of its lease, the credentials are revoked automatically. For more information, check out the [API reference](/apidocs/secrets-manager).
+
+If `reuse_api_key` is `false` for IAM credentials, manual rotation for the secret isn't supported. For more information, see [Manually rotating secrets](/docs/secrets-manager?topic=secrets-manager-manual-rotation).
+{: important}
+
+### Using an existing service ID in your account
+{: #iam-credentials-service-id-api}
+{: api}
+
+You might already have a service ID in your account that you want to use to dynamically generate an API key. In this scenario, you can choose to create an IAM credentials secret by bringing your own service ID. For example, the following command creates an IAM credential by using the `service_id` field.
+
+You can find the ID value of a service ID in the IAM section of the console. Go to **Manage > Access (IAM) > Service IDs > _name_**. Click **Details** to view the ID.
+{: note}
+
+```sh
+```sh
+curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/iam_credentials" \
+    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{
+        "metadata": {
+        "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
+        "collection_total": 1
+        },
+        "resources": [
+        {
+          "name": "example-IAM-credentials",
+          "description": "Extended description for my secret.",
+          "service_id": "<service_id>,
+          "secret_group_id": "<secret_group_id>",
+          "ttl": "12h",
+          "labels": [
+            "<label>",
+            "<label>"
+          ]
+        }
+        ]
+    }'
+```
+{: codeblock}
+{: curl}
+
+A successful request returns the ID value of the secret, along with other metadata. For more information, check out the [API reference](/apidocs/secrets-manager).
