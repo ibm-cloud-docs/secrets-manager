@@ -405,7 +405,6 @@ You can find the ID value of a service ID in the IAM section of the console. Go 
 {: note}
 
 ```sh
-```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/iam_credentials" \
     -H "Authorization: Bearer $IAM_TOKEN" \
     -H "Accept: application/json" \
