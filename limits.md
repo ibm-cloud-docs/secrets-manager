@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-12-17"
+  years: 2020, 2022
+lastupdated: "2022-01-21"
 
 keywords: known issues for Secrets Manager, known limitations for Secrets Manager
 
@@ -145,7 +145,7 @@ The following limits apply to IAM credentials.
 | Description | 2 - 1024 characters |
 | Access groups | 1 - 10 groups |
 | Labels | 2 - 30 characters  \n  \n 30 labels per secret |
-| Maximum lease duration | 90 days |
+| Time-to-live (TTL) / lease duration | Minimum duration is 1 minute. Maximum is 90 days. |
 | Versions | 2 versions per secret (current and previous)  \n  \n A secret version can be retrieved, rotated, or restored only if the defined time-to-live (TTL) or lease duration hasn't been reached. For auditing purposes, the service retains the metadata of up to 50 versions for each secret, which you can review as part of a secret's [version history](/docs/secrets-manager?topic=secrets-manager-version-history). |
 {: caption="Table 6. IAM credential limits" caption-side="top"}
 

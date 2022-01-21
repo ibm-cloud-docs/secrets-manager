@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-04"
+lastupdated: "2022-01-21"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -116,7 +116,7 @@ Review the following table to understand the types of static and dynamic secrets
 
 | Name | Keyword | Type | Description |
 | --- | --- | -- | -- |
-| [Arbitrary secret](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets) | `arbitrary` | Static | Arbitrary pieces of sensitive data, including any type of structured or unstructured data, that you can use to access an application or resource. |
+| [Arbitrary secrets](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets) | `arbitrary` | Static | Arbitrary pieces of sensitive data, including any type of structured or unstructured data, that you can use to access an application or resource. |
 | [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) | `iam_credentials`_*_ | Dynamic | A dynamically generated service ID and API key that can be used to access an {{site.data.keyword.cloud_notm}} service that requires IAM authentication. |
 | [TLS certificates](/docs/secrets-manager?topic=secrets-manager-certificates) | `imported_cert`  \n `public_cert`_*_ | Static | A type of digital certificate that can be used to establish communication privacy between a server and a client.  \n  \n Certificates that you import to the service `imported_cert` secrets. Certificates that you order are `public_cert` secrets. |
 | [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | `username_password` | Static | Username and password values that you can use to log in or access an application or resource. |
