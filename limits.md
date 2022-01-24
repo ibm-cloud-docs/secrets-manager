@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-21"
+lastupdated: "2022-01-24"
 
 keywords: known issues for Secrets Manager, known limitations for Secrets Manager
 
@@ -149,7 +149,16 @@ The following limits apply to IAM credentials.
 | Versions | 2 versions per secret (current and previous)  \n  \n A secret version can be retrieved, rotated, or restored only if the defined time-to-live (TTL) or lease duration hasn't been reached. For auditing purposes, the service retains the metadata of up to 50 versions for each secret, which you can review as part of a secret's [version history](/docs/secrets-manager?topic=secrets-manager-version-history). |
 {: caption="Table 6. IAM credential limits" caption-side="top"}
 
+<staging>
 
+#### Limits for key-value secrets
+{: #key-value-limits}
+
+The following limits apply to key-value secrets. 
+
+| Attribute | Limit | 
+| Payload | The maximum file size is 512 KB. |
+{: caption="Table 7. Key-value limits" caption-side="top"}
 
 #### Limits for TLS certificates
 {: #certificates-limits}
@@ -165,7 +174,7 @@ The following limits apply to TLS certificates.
 | Intermediate certificate | 100 KB  \n  \n Supported file type is `.pem`. If provided, the intermediate certificate must be a valid, X.509-based certificate. |
 | Labels | 2 - 30 characters  \n  \n 30 labels per secret |
 | Versions | 2 versions per certificate (current and previous)  \n  \nFor auditing purposes, the service retains the metadata of up to 50 versions for each secret, which you can review as part of a secret's [version history](/docs/secrets-manager?topic=secrets-manager-version-history). |
-{: caption="Table 7. TLS certificate limits" caption-side="top"}
+{: caption="Table 8. TLS certificate limits" caption-side="top"}
 
 
 
@@ -182,7 +191,7 @@ The following limits apply to user credentials.
 | Password | 64 characters |
 | Labels | 2 - 30 characters  \n  \n 30 labels per secret |
 | Versions | For auditing purposes, the service retains the metadata of up to 50 versions for each secret, which you can review as part of a secret's [version history](/docs/secrets-manager?topic=secrets-manager-version-history). |
-{: caption="Table 8. User credential limits" caption-side="top"}
+{: caption="Table 9. User credential limits" caption-side="top"}
 
 
 
