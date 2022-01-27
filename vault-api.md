@@ -2055,7 +2055,7 @@ Create a new version of a secret. The secret retains its identifying information
 
 | Request parameters            | Description                                                                         |
 | ------------- | ----------------------------------------------------------------------------------- |
-| `payload`     | The new secret data to assign to an `arbitrary` secret. |
+| `payload`     | The new secret data to assign to an `arbitrary` or a `kv` secret. |
 | `password`    | The new password to assign to a `username_password` secret. |
 | `certificate` | The new certificate to assign to an `imported_cert` secret. |
 | `private_key` | The new private key to assign to an `imported_cert` secret. |
