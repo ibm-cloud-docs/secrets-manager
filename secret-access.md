@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-04"
+lastupdated: "2022-01-27"
 
 keywords: access secret, retrieve secret, read secret, get secret value, get secrets, view secrets, search secrets, read secrets, get secret value
 
@@ -73,7 +73,7 @@ Before you begin, be sure that you have the required level of access. To view a 
 
 Most secret types in {{site.data.keyword.secrets-manager_short}} can't be retrieved directly from the {{site.data.keyword.secrets-manager_short}} service dashboard. This security mechanism is in place by default to help to prevent inadvertent exposure of your sensitive data. Secret types that you can access in the UI include: [TLS certificates](#download-certificate-ui)
 
-You can retrieve all secret types programmatically by using the CLI, API, or SDKs. To see the steps for accessing `arbitrary`, `iam_credentials`,  and `username_password` secrets, switch to the **CLI** or **API**  instructions.
+You can retrieve all secret types programmatically by using the CLI, API, or SDKs. To see the steps for accessing `arbitrary`, `iam_credentials`, and `username_password` secrets, switch to the **CLI** or **API**  instructions.
 {: note}
 
 
