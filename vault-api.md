@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-03"
+lastupdated: "2022-01-27"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -509,6 +509,7 @@ Creates or imports a secret by using the {{site.data.keyword.secrets-manager_sho
 
 - Arbitrary secrets (`arbitrary`)
 - IAM credentials (`iam_credentials`)
+- Key-value secrets (`kv`)
 - User credentials (`user_credentials`)
 - Imported certificates (`import_cert`)
 - Public certificates (`public_cert`)
@@ -539,6 +540,19 @@ Creates or imports a secret by using the {{site.data.keyword.secrets-manager_sho
 {: tab-title="IAM credentials"}
 {: tab-group="vault-create-secret-params"}
 {: class="simple-tab-table"}
+
+| Request parameters            | Description                                                                         |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `name`        | **Required.** The human-readable alias that you want to assign to the secret. |
+| `description` | An extended description of the secret.                                      |
+| `payload` | **Required.** The secret data in JSON format to assign to the secret. The maximum file size is 512 KB. |
+| `labels[]` | Labels that you can use to filter for secrets in your instance. Up to 30 labels can be added. |
+{: caption="Table 6. Create secret request parameters - Key-value secrets" caption-side="top"}
+{: #vault-create-secret-params-kv}
+{: tab-title="Key-value secrets"}
+{: tab-group="vault-create-secret-params"}
+{: class="simple-tab-table"}
+
 
 | Request parameters           | Description                                                                         |
 | ------------- | ----------------------------------------------------------------------------------- |
@@ -629,6 +643,45 @@ curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
     }'
 ```
 {: codeblock}
+
+Create a key-value secret in the `default` secret group.
+
+```sh
+curl -X POST 'https://{instance_id}.{region}.secrets-manager.test.appdomain.cloud/v1/ibmcloud/kv/secrets' \
+-H 'Accept: application/json' \
+-H 'X-Vault-Token: {Vault-Token}' \
+-H 'Content-Type: application/json' \
+-d '{
+    "name": "test-kv-secret",
+    "description": "Extended description for my secret.",
+    "payload": {
+        "key1": "value1"
+    },
+    "labels": [
+        "dev",
+        "us-south"
+    ]
+}'
+```
+Create a key-value secret in an existing secret group.
+
+```sh
+curl -X POST 'https://{instance_id}.{region}.secrets-manager.test.appdomain.cloud/v1/ibmcloud/kv/secrets' \
+-H 'Accept: application/json/groups/{group_id}' \
+-H 'X-Vault-Token: {Vault-Token}' \
+-H 'Content-Type: application/json' \
+-d '{
+    "name": "test-kv-secret",
+    "description": "Extended description for my secret.",
+    "payload": {
+        "key1": "value1"
+    },
+    "labels": [
+        "dev",
+        "us-south"
+    ]
+}'
+```
 
 Create IAM credentials in the `default` secret group.
 
@@ -907,6 +960,7 @@ A request to create an arbitrary secret in an existing secret group returns the 
 ```
 {: screen}
 
+
 A request to create IAM credentials in the `default` secret group returns the following response:
 
 ```json
@@ -970,6 +1024,100 @@ A request to create IAM credentials in an existing secret group returns the foll
     "state": 1,
     "state_description": "Active",
     "ttl": 1800
+    },
+    "wrap_info": null,
+    "warnings": null,
+    "auth": null
+}
+```
+{: screen}
+
+A request to create key-value secrets in the `default` secret group returns the following response:
+
+```json
+{
+    "request_id": "6e0000-60c0-d0ef-bc00-000c0a000b00",
+    "lease_id": "",
+    "renewable": false,
+    "lease_duration": 0,
+    "data": {
+        "created_by": "iam-ServiceId-9ca407-f38d-000e-0b02-ed6b41",
+        "creation_date": "2022-01-25T19:22:59Z",
+        "crn": "crn:v1:staging:public:secrets-manager:eu-gb:a/0000000be376647f5f961f5:50004-5f59-4164-8bfc-5000cf66:secret:43f000f-4085-000c-c028-6ff00004dbd",
+        "description": "Extended description for my secret.",
+        "downloaded": false,
+        "id": "40000df-4000-300c-c01028-6ff20000dbd",
+        "labels": [
+            "dev",
+            "us-south"
+        ],
+        "last_update_date": "2022-01-25T19:22:59Z",
+        "name": "test-kv-secret",
+        "secret_data": {
+            "payload": {
+                "key1": "value1"
+            }
+        },
+        "secret_type": "kv",
+        "state": 1,
+        "state_description": "Active",
+        "versions": [
+            {
+                "created_by": "iam-ServiceId-9ca407-f38d-000e-0b02-ed6b41",
+                "creation_date": "2022-01-25T19:22:59Z",
+                "downloaded": false,
+                "id": "40000df-4000-300c-c01028-6ff20000dbd",
+                "payload_available": true
+            }
+        ],
+        "versions_total": 1
+    },
+    "wrap_info": null,
+    "warnings": null,
+    "auth": null
+}
+```
+{: screen}
+
+A request to create key-value secrets in an existing secret group returns the following response:
+
+```json
+{
+    "request_id": "6e0000-60c0-d0ef-bc00-000c0a000b00",
+    "lease_id": "",
+    "renewable": false,
+    "lease_duration": 0,
+    "data": {
+        "created_by": "iam-ServiceId-9ca407-f38d-000e-0b02-ed6b41",
+        "creation_date": "2022-01-26T19:59:27Z",
+        "crn": "crn:v1:staging:public:secrets-manager:eu-gb:a/0000000be376647f5f961f5:50004-5f59-4164-8bfc-5000cf66:secret:43f000f-4085-000c-c028-6ff00004dbd",
+        "description": "Extended description for my secret.",
+        "downloaded": false,
+        "id": "40000df-4000-300c-c01028-6ff20000dbd",
+        "labels": [
+            "dev",
+            "us-south"
+        ],
+        "last_update_date": "2022-01-26T19:59:27Z",
+        "name": "test-kv-secret",
+        "secret_data": {
+            "payload": {
+                "key1": "value1"
+            }
+        },
+        "secret_type": "kv",
+        "state": 1,
+        "state_description": "Active",
+        "versions": [
+            {
+                "created_by": "iam-ServiceId-9ca407-f38d-000e-0b02-ed6b41",
+                "creation_date": "2022-01-26T19:59:27Z",
+                "downloaded": false,
+                "id": "40000df-4000-300c-c01028-6ff20000dbd",
+                "payload_available": true
+            }
+        ],
+        "versions_total": 1
     },
     "wrap_info": null,
     "warnings": null,
@@ -1226,6 +1374,29 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 ```
 {: codeblock}
 
+Get key-value secrets in the `default` secret group.
+
+```sh
+curl -L -X GET 'https://{instance_id}.{region}.secrets-manager.test.appdomain.cloud/v1/ibmcloud/kv/secrets/{secret_id}' \
+    -H 'Accept: application/json'\
+    -H 'X-Vault-Token: {Vault-Token}' 
+```
+{: codeblock}
+
+Get key-value secrets in an existing secret group.
+
+```sh
+curl -X GET 'https://{instance_id}.{region}.secrets-manager.test.appdomain.cloud/v1/ibmcloud/kv/secrets/groups/{group_id}/{secret_id}' \
+    -H 'Accept: application/json' \
+    -H 'X-Vault-Token: {Vault-Token}' \
+```
+{: codeblock}
+
+
+
+
+
+
 Get user credentials in the `default` secret group.
 
 ```sh
@@ -1417,6 +1588,95 @@ A request to generate IAM credentials in an existing secret group returns the fo
     "state": 1,
     "state_description": "Active",
     "ttl": 1800
+    },
+    "wrap_info": null,
+    "warnings": null,
+    "auth": null
+}
+```
+{: screen}
+
+A request to retrieve a key-value secret in the `default` secret group returns the following response:
+
+```json
+{
+    "request_id": "1e0000-7100-cb00b-d00a-b350000f5a",
+    "lease_id": "",
+    "renewable": false,
+    "lease_duration": 0,
+    "data": {
+        "created_by": "iam-ServiceId-9c00000-00d-000e-8000-ed6b40000",
+        "creation_date": "2022-01-25T19:22:04Z",
+        "crn": "crn:v1:staging:public:secrets-manager:eu-gb:a/4b85000004a6be3700000f5:5f1000-5f00-4000-8bfc-5e0000f66:secret:0000ea8e-7d00-69ce-c000a-0a00000b3ee",
+        "description": "Extended description for my secret.",
+        "downloaded": true,
+        "id": "00002ea8e-7lk90-00ce-c200a-00004b3ee",
+        "labels": [],
+        "last_update_date": "2022-01-25T19:22:04Z",
+        "name": "test-kv-secret",
+        "secret_data": {
+            "payload": {
+                "key1": "value1"
+            }
+        },
+        "secret_type": "kv",
+        "state": 1,
+        "state_description": "Active",
+        "versions": [
+            {
+                "created_by": "iam-ServiceId-000000-f000d-479e-8b02-ed600000",
+                "creation_date": "2022-01-25T19:22:04Z",
+                "downloaded": true,
+                "id": "bf00007-800dc-0006-14d9-a7c720000bh",
+                "payload_available": true
+            }
+        ],
+        "versions_total": 1
+    },
+    "wrap_info": null,
+    "warnings": null,
+    "auth": null
+}
+```
+{: screen}
+
+A request to retrieve a key-value secret in an existing secret group returns the following response:
+
+```json
+{
+    "request_id": "a0000c-e00-000ef-d000e8-a68e60000",
+    "lease_id": "",
+    "renewable": false,
+    "lease_duration": 0,
+    "data": {
+        "created_by": "Id-000000",
+        "creation_date": "2022-01-26T20:11:29Z",
+        "crn": "crn:v1:staging:public:secrets-manager:eu-gb:a/4b0000a6bbe: 5f1a3554-5f59-4164-8bfc-5e0000000cf66:secret:e006e8bc-f497-dc93-4102-9d0000001",
+        "description": "Extended description for my secret.",
+        "downloaded": true,
+        "id": "e00000c-f0000-d0003-00002-9d9cf2000001",
+        "labels": [],
+        "last_update_date": "2022-01-26T20:11:29Z",
+        "name": "test-kv-secret-fromgroup",
+        "secret_data": {
+            "payload": {
+                "key5": "value5"
+            }
+        },
+        "secret_group_id": "0000ffd-da17-c0000-eb0000-600000002",
+        "secret_type": "kv",
+        "state": 1,
+        "state_description": "Active",
+        "versions": [
+            {
+                "created_by": "Id-0000000",
+                "creation_date": "2022-01-26T20:11:29Z",
+                "downloaded": true,
+                "id": "5c000000-000c3-00003-de0000-c0d200000",
+                "payload_available": true
+            }
+        ],
+        "versions_total": 1
     },
     "wrap_info": null,
     "warnings": null,
