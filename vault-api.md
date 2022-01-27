@@ -1389,14 +1389,9 @@ Get key-value secrets in an existing secret group.
 ```sh
 curl -X GET 'https://{instance_id}.{region}.secrets-manager.test.appdomain.cloud/v1/ibmcloud/kv/secrets/groups/{group_id}/{secret_id}' \
     -H 'Accept: application/json' \
-    -H 'X-Vault-Token: {Vault-Token}' \
+    -H 'X-Vault-Token: {Vault-Token}' 
 ```
 {: codeblock}
-
-
-
-
-
 
 Get user credentials in the `default` secret group.
 
