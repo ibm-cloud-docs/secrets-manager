@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-12-14"
+  years: 2020, 2022
+lastupdated: "2022-01-28"
 
 keywords: activity tracker events for Secrets Manager, events, Secrets Manager actions
 
@@ -78,7 +78,7 @@ The following table lists the secret actions that generate an event.
 | `secrets-manager.secrets.list`              | List secrets.                                                  |
 | `secrets-manager.secret.read`               | Get a secret.                                                  |
 | `secrets-manager.secret.rotate`             | Rotate a secret.                                               |
-| `secrets-manager.secret-credentials.delete` | Delete the Cloud IAM API key that is associated with a secret. |
+| `secrets-manager.secret-credentials.delete` | Delete the {{site.data.keyword.cloud_notm}} API key that is associated with a secret. |
 | `secrets-manager.secret.delete`             | Delete a secret.                                               |
 | `secrets-manager.secret-metadata.read`      | View the metadata of a secret.                                 |
 | `secrets-manager.secret-metadata.update`    | Update the metadata of a secret.                               |
@@ -110,9 +110,13 @@ The following table lists the instance operation actions that generate an event.
 | Action                                     | Description                      |
 | ------------------------------------------ | -------------------------------- |
 | `secrets-manager.instance.login`           | Log in to Vault.                 |
-| `secrets-manager.secret-engine-config.set` | Set secret engine configuration. |
-| `secrets-manager.secret-engine-config.get` | Get secret engine configuration. |
+| `secrets-manager.secret-engine-config.set` | Set secrets engine configuration. |
+| `secrets-manager.secret-engine-config.get` | Get secrets engine configuration. |
 | `secrets-manager.endpoints.get`            | Get service instance endpoints.  |
+| `secrets-manager.notifications-registration.create` | Create a registration with Event Notifications. | Manager |
+| `secrets-manager.notifications-registration.read` | Get Event Notifications registration details. | Reader, SecretsReader, Writer, Manager |
+| `secrets-manager.notifications-registration.delete` | Delete an Event Notifications registration. | Manager |
+| `secrets-manager.notifications-registration.test` | Send a test event. | Reader, SecretsReader, Writer, Manager |
 {: caption="Table 3. List of instance operation events" caption-side="top"}
 
 
