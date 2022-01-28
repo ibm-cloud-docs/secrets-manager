@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-27"
+lastupdated: "2022-01-28"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -691,7 +691,7 @@ curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
 Create a key-value secret in the `default` secret group.
 
 ```sh
-curl -X POST 'https://{instance_id}.{region}.secrets-manager.test.appdomain.cloud/v1/ibmcloud/kv/secrets' \
+curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/secrets' \
 -H 'Accept: application/json' \
 -H 'X-Vault-Token: {Vault-Token}' \
 -H 'Content-Type: application/json' \
@@ -710,7 +710,7 @@ curl -X POST 'https://{instance_id}.{region}.secrets-manager.test.appdomain.clou
 Create a key-value secret in an existing secret group.
 
 ```sh
-curl -X POST 'https://{instance_id}.{region}.secrets-manager.test.appdomain.cloud/v1/ibmcloud/kv/secrets/groups/{group_id}' \
+curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/secrets/groups/{group_id}' \
 -H 'Accept: application/json/groups/{group_id}' \
 -H 'X-Vault-Token: {Vault-Token}' \
 -H 'Content-Type: application/json' \
@@ -1378,7 +1378,7 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 Get key-value secrets in the `default` secret group.
 
 ```sh
-curl -L -X GET 'https://{instance_id}.{region}.secrets-manager.test.appdomain.cloud/v1/ibmcloud/kv/secrets/{secret_id}' \
+curl -L -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/secrets/{secret_id}' \
     -H 'Accept: application/json'\
     -H 'X-Vault-Token: {Vault-Token}' 
 ```
@@ -1387,7 +1387,7 @@ curl -L -X GET 'https://{instance_id}.{region}.secrets-manager.test.appdomain.cl
 Get key-value secrets in an existing secret group.
 
 ```sh
-curl -X GET 'https://{instance_id}.{region}.secrets-manager.test.appdomain.cloud/v1/ibmcloud/kv/secrets/groups/{group_id}/{secret_id}' \
+curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/secrets/groups/{group_id}/{secret_id}' \
     -H 'Accept: application/json' \
     -H 'X-Vault-Token: {Vault-Token}' 
 ```
@@ -1856,7 +1856,7 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 Get metadata for a `kv` secret in the `default` secret group. With Secrets Manager, you can store multiple versions per key and access the history and metadata of your key-value secret.
 
 ```sh
-curl -X GET 'https://{instance_id}.{region}.secrets-manager.test.appdomain.cloud/v1/ibmcloud/kv/secrets/{secret_id}/metadata' \
+curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/secrets/{secret_id}/metadata' \
     -H 'Accept: application/json' \
     -H 'X-Vault-Token: {Vault-Token}'
 ```
@@ -1865,7 +1865,7 @@ curl -X GET 'https://{instance_id}.{region}.secrets-manager.test.appdomain.cloud
 Get metadata for a `kv` secret in an existing secret group. With Secrets Manager, you can store multiple versions per key and access the history and metadata of your key-value secret.
 
 ```sh
-curl -X GET 'https://{instance_id}.{region}.secrets-manager.test.appdomain.cloud/v1/ibmcloud/kv/secrets/groups/{group_id}/{secret_id}/metadata' \
+curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/secrets/groups/{group_id}/{secret_id}/metadata' \
     -H 'Accept: application/json' \
     -H 'X-Vault-Token: {Vault-Token}' 
 ```
@@ -2088,7 +2088,7 @@ curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
 Rotate a `kv` secret in the `default` secret group.
 
 ```sh
-curl -X POST 'https://{instance_id}.{region}.secrets-manager.test.appdomain.cloud/v1/ibmcloud/kv/secrets/{secret_id}/rotate' \
+curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/secrets/{secret_id}/rotate' \
     -H 'Accept: application/json' \
     -H 'X-Vault-Token: {Vault-Token}' \
     -H 'Content-Type: application/json' \
@@ -2103,7 +2103,7 @@ curl -X POST 'https://{instance_id}.{region}.secrets-manager.test.appdomain.clou
 Rotate a `kv` secret in an existing secret group.
 
 ```sh
-curl -X POST 'https://{instance_id}.{region}.secrets-manager.test.appdomain.cloud/v1/ibmcloud/kv/secrets/groups/{group_id}/{secret_id}/rotate' \
+curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/secrets/groups/{group_id}/{secret_id}/rotate' \
     -H 'Accept: application/json'
     -H 'X-Vault-Token: {Vault-Token}' \
     -H 'Content-Type: application/json' \
