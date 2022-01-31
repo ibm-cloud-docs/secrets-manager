@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-24"
+lastupdated: "2022-01-31"
 
 keywords: change log for [{sm-short}] APIs, API changelog, updates to [{sm-short}] APIs
 
@@ -64,7 +64,12 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 
 
 
+## 31 January 2022
+{: #2022-01-31-api}
 
+This release includes the following update: 
+
+- Added `kv` as a secret type to the [Create a secret](/apidocs/secrets-manager#create-secret) method. You can store and manage key-value secrets, including complex JSON documents, that are used to access protected systems that are inside or outside of IBM.
 
 ## 22 November 2021
 {: #2021-11-22-api}
