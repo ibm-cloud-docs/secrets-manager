@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-28"
+lastupdated: "2022-01-31"
 
 keywords: IAM access for Secrets Manager, permissions for Secrets Manager, identity and access management for Secrets Manager, roles for Secrets Manager, actions for Secrets Manager, assigning access for Secrets Manager
 
@@ -127,10 +127,6 @@ If a specific role and its actions don't fit the use case that you're looking to
 | `secrets-manager.secret-engine-config.get` | Get secrets engine configuration. | Manager |
 | `secrets-manager.secret-versions.list` | List secret versions. | Reader, SecretsReader, Writer, Manager |
 | `secrets-manager.endpoints.view` | Get service instance endpoints. | Reader, SecretsReader, Writer, Manager |
-| `secrets-manager.notifications-registration.create` | Create a registration with Event Notifications. | Manager |
-| `secrets-manager.notifications-registration.read` | Get Event Notifications registration details. | Reader, SecretsReader, Writer, Manager |
-| `secrets-manager.notifications-registration.delete` | Delete an Event Notifications registration. | Manager |
-| `secrets-manager.notifications-registration.test` | Send a test event. | Reader, SecretsReader, Writer, Manager |
 {: caption="Table 1. Service actions - {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
 {: #actions-table1}
 {: tab-title="Actions"}
