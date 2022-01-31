@@ -1043,7 +1043,7 @@ A request to create key-value secrets in the `default` secret group returns the 
     "data": {
         "created_by": "iam-ServiceId-9ca407-f38d-000e-0b02-ed6b41",
         "creation_date": "2022-01-25T19:22:59Z",
-        "crn": "crn:v1:staging:public:secrets-manager:eu-gb:a/0000000be376647f5f961f5:50004-5f59-4164-8bfc-5000cf66:secret:43f000f-4085-000c-c028-6ff00004dbd",
+        "crn": "crn:v1:bluemix:public:secrets-manager:eu-gb:a/0000000be376647f5f961f5:50004-5f59-4164-8bfc-5000cf66:secret:43f000f-4085-000c-c028-6ff00004dbd",
         "description": "Extended description for my secret.",
         "downloaded": false,
         "id": "40000df-4000-300c-c01028-6ff20000dbd",
@@ -1090,7 +1090,7 @@ A request to create key-value secrets in an existing secret group returns the fo
     "data": {
         "created_by": "iam-ServiceId-9ca24407-f38d-479e-8b02-ed6b4e1b0d31",
         "creation_date": "2022-01-27T17:59:20Z",
-        "crn": "crn:v1:staging:public:secrets-manager:eu-gb:a/4b85ea6bbea644a6be376647f5f961f5:5f1a3554-5f59-4164-8bfc-5eef0a20cf66:secret:21764466-5a9d-a9df-fc71-5b8ee4ecbb99",
+        "crn": "crn:v1:bluemix:public:secrets-manager:eu-gb:a/4b85ea6bbea644a6be376647f5f961f5:5f1a3554-5f59-4164-8bfc-5eef0a20cf66:secret:21764466-5a9d-a9df-fc71-5b8ee4ecbb99",
         "description": "Extended description for my secret.",
         "downloaded": false,
         "id": "21764466-5a9d-a9df-fc71-5b8ee4ecbb99",
@@ -1529,7 +1529,7 @@ A request to generate IAM credentials in the `default` secret group returns the 
         "access_groups": [
         "AccessGroupId-0529f490-129c-4877-a2a0-b57f50d3e53b"
     ],
-    "api_key": "U40hERZ0h-0C0cnka2bEuL2yK5Yyz2MoHC8FKeYfcV7Z",
+    "api_key": "U40hERZ0h-0C0cnka2bEuL2y...(redacted)",
     "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
     "creation_date": "2020-12-16T21:55:31Z",
     "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0:secret:d7a2b83f-997c-4914-857a-86bfcdbf0873",
@@ -1566,7 +1566,7 @@ A request to generate IAM credentials in an existing secret group returns the fo
         "access_groups": [
         "AccessGroupId-0529f490-129c-4877-a2a0-b57f50d3e53b"
     ],
-    "api_key": "CFQY6wWPI3C3wKx6XLC9p0c3eiejr5WXd7lpRGiKr40a",
+    "api_key": "CFQY6wWPI3C3wKx6XLC9p0c3e...(redacted)",
     "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
     "creation_date": "2020-12-16T21:57:13Z",
     "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0:secret:99425779-0707-4877-81CB-ca11e28b6ef1",
@@ -1603,7 +1603,7 @@ A request to retrieve a key-value secret in the `default` secret group returns t
     "data": {
         "created_by": "iam-ServiceId-9c00000-00d-000e-8000-ed6b40000",
         "creation_date": "2022-01-25T19:22:04Z",
-        "crn": "crn:v1:staging:public:secrets-manager:eu-gb:a/4b85000004a6be3700000f5:5f1000-5f00-4000-8bfc-5e0000f66:secret:0000ea8e-7d00-69ce-c000a-0a00000b3ee",
+        "crn": "crn:v1:bluemix:public:secrets-manager:eu-gb:a/4b85000004a6be3700000f5:5f1000-5f00-4000-8bfc-5e0000f66:secret:0000ea8e-7d00-69ce-c000a-0a00000b3ee",
         "description": "Extended description for my secret.",
         "downloaded": true,
         "id": "00002ea8e-7lk90-00ce-c200a-00004b3ee",
@@ -1647,13 +1647,13 @@ A request to retrieve a key-value secret in an existing secret group returns the
     "data": {
         "created_by": "Id-000000",
         "creation_date": "2022-01-26T20:11:29Z",
-        "crn": "crn:v1:staging:public:secrets-manager:eu-gb:a/4b0000a6bbe: 5f1a3554-5f59-4164-8bfc-5e0000000cf66:secret:e006e8bc-f497-dc93-4102-9d0000001",
+        "crn": "crn:v1:bluemix:public:secrets-manager:eu-gb:a/4b0000a6bbe:5f1a3554-5f59-4164-8bfc-5e0000000cf66:secret:e006e8bc-f497-dc93-4102-9d0000001",
         "description": "Extended description for my secret.",
         "downloaded": true,
         "id": "e00000c-f0000-d0003-00002-9d9cf2000001",
         "labels": [],
         "last_update_date": "2022-01-26T20:11:29Z",
-        "name": "test-kv-secret-fromgroup",
+        "name": "test-kv-secret-from-group",
         "secret_data": {
             "payload": {
                 "key5": "value5"
@@ -1918,7 +1918,7 @@ A request to retrieve the metadata of a `kv` secret in the `default` secret grou
     "data": {
         "created_by": "iam-ServiceId-9ca00000-f00d-000e-8b02-ed6b000pl",
         "creation_date": "2022-01-25T19:22:04Z",
-        "crn": "crn:v1:staging:public:secrets-manager:eu-gb:a/4000000bbea00000000647f000001f5:5f000004-5f00-40000-8bfc-5mnh0a200000:secret:00000ea8e-7d00-00ce-c00poa-0a00000f0000e",
+        "crn": "crn:v1:bluemix:public:secrets-manager:eu-gb:a/4000000bbea00000000647f000001f5:5f000004-5f00-40000-8bfc-5mnh0a200000:secret:00000ea8e-7d00-00ce-c00poa-0a00000f0000e",
         "description": "Extended description for my secret.",
         "downloaded": true,
         "id": "0a0000e-0a0f-edfh-000a-ec2000ab00",
@@ -1948,13 +1948,13 @@ A request to retrieve the metadata of a `kv` secret in an existing secret group 
     "data": {
         "created_by": "id-0000000YC6X",
         "creation_date": "2022-01-26T20:11:29Z",
-        "crn": "crn:v1:staging:public:secrets-manager:eu-gb:a/4000000bbea00000000647f000001f5:5f000004-5f00-40000-8bfc-5mnh0a200000:secret:00000ea8e-7d00-00ce-c00poa-0a00000f0000e",
+        "crn": "crn:v1:bluemix:public:secrets-manager:eu-gb:a/4000000bbea00000000647f000001f5:5f000004-5f00-40000-8bfc-5mnh0a200000:secret:00000ea8e-7d00-00ce-c00poa-0a00000f0000e",
         "description": "Test secret in test secret group.",
         "downloaded": true,
         "id": "0a0000e-0a0f-edfh-000a-ec2000ab00",
         "labels": [],
         "last_update_date": "2022-01-26T20:11:29Z",
-        "name": "test-kv-secret-fromgroup",
+        "name": "test-kv-secret-from-group",
         "secret_group_id": "aded0a0000e-0a0f-edfh-000a-ec2000ab00",
         "secret_type": "kv",
         "state": 1,
@@ -2155,7 +2155,7 @@ A request to rotate a `kv` secret in the `default` secret group returns the foll
     "data": {
         "created_by": "iam-ServiceId-9ca2000007-f0000d-400000e-8b02-ed6b000000",
         "creation_date": "2022-01-25T19:22:04Z",
-        "crn": "crn:v1:staging:public:secrets-manager:eu-gb:a/00000a6bbea644a6be000000001f5:5f1a000000-5f000-4000-8bfc-5eef00000:secret:00000ea8e-7d00-00ce-c00a-0a0000f000ee",
+        "crn": "crn:v1:bluemix:public:secrets-manager:eu-gb:a/00000a6bbea644a6be000000001f5:5f1a000000-5f000-4000-8bfc-5eef00000:secret:00000ea8e-7d00-00ce-c00a-0a0000f000ee",
         "description": "Extended description for my secret.",
         "downloaded": false,
         "id": "00000ea00-7d0000-0000ce-c0002a-0a0000f4b3ee",
@@ -2206,13 +2206,13 @@ A request to rotate a `kv` secret in an existing secret group returns the follow
     "data": {
         "created_by": "IBMid-662001YC6X",
         "creation_date": "2022-01-26T20:11:29Z",
-        "crn": "crn:v1:staging:public:secrets-manager:eu-gb:a/4b85ea6bbea644a6be376647f5f961f5:5f1a3554-5f59-4164-8bfc-5eef0a20cf66:secret:e006e8bc-f497-dc93-4102-9d9cf2051a41",
+        "crn": "crn:v1:bluemix:public:secrets-manager:eu-gb:a/4b85ea6bbea644a6be376647f5f961f5:5f1a3554-5f59-4164-8bfc-5eef0a20cf66:secret:e006e8bc-f497-dc93-4102-9d9cf2051a41",
         "description": "Test secret in test secret group.",
         "downloaded": false,
         "id": "00000ea00-7d0000-0000ce-c0002a-0a0000f4b3ee",
         "labels": [],
         "last_update_date": "2022-01-27T21:00:27Z",
-        "name": "test-kv-secret-fromgroup",
+        "name": "test-kv-secret-from-group",
         "secret_data": {
             "payload": {
                 "key7": "value7"
