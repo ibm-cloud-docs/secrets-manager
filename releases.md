@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-21"
+lastupdated: "2022-01-31"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -62,6 +62,14 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 {: shortdesc}
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
+
+
+## 31 January 2022
+{: #secrets-manager-jan3122}
+{: release-note}
+
+Store key-value secrets
+:   You can now create key-value secrets with the {{site.data.keyword.secrets-manager_short}} UI and API. For more information, see [Storing key-value secrets](/docs/secrets-manager?topic=secrets-manager-key-value&interface=ui).
 
 
 
