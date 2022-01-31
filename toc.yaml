@@ -59,6 +59,8 @@ toc:
                 navtitle: Arbitrary secrets
               - topic: iam-credentials.md
                 navtitle: IAM credentials
+              - topic: key-value.md
+                navtitle: Key-value secrets
               - topic: certificates.md
                 navtitle: TLS certificates
               - topic: user-credentials.md
