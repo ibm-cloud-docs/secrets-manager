@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-28"
+lastupdated: "2022-01-31"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -1830,7 +1830,7 @@ A request to list all arbitrary secrets returns the following response:
 ### Get secret metadata
 {: #vault-get-secret-metadata}
 
-Retrieve the metadata of a secret, such as it's name, description. To retrieve the actual value of a secret, use [Get a secret](#vault-get-secret).
+Retrieve the metadata of a secret, such as its name, description. To retrieve the actual value of a secret, use [Get a secret](#vault-get-secret).
 
 #### Example requests
 {: #vault-get-secret-metadata-request}
@@ -1971,7 +1971,7 @@ A request to retrieve the metadata of a `kv` secret in an existing secret group 
 ### Update secret metadata
 {: #vault-update-secret-metadata}
 
-Update the metadata of a secret, such as it's name, description, or expiration date. To rotate the actual value of a secret, use [Rotate a secret](#vault-rotate-secret).
+Update the metadata of a secret, such as its name, description, or expiration date. To rotate the actual value of a secret, use [Rotate a secret](#vault-rotate-secret).
 
 | Request parameters            | Description                                                                         |
 | ------------- | ----------------------------------------------------------------------------------- |
