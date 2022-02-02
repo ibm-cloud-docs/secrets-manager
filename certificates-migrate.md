@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-10-14"
+  years: 2020, 2022
+lastupdated: "2022-02-02"
 
 keywords: 
 
@@ -77,7 +77,7 @@ Both {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudce
 | Ability to import TLS certificates | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Ability to order public TLS certificates from Let's Encrypt | ![Checkmark icon](../icons/checkmark-icon.svg)| ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Ability to manage secrets of various types | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
-| Notifications |  | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| Notifications |  ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Go, Python, Node.js, and Java SDKs | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
 | CLI plug-in | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
 | Logging and monitoring | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
