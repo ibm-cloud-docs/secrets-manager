@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-03"
+lastupdated: "2022-02-02"
 
 keywords: Secrets Manager integrations, enable integration, service to service, grant access between services
 
@@ -69,16 +69,17 @@ The following table lists the services that can be authorized to work with {{sit
 
 | Service | Supports | Description |
 | ------------------ | ----------- | ----------- |
-| [Catalog management](/docs/account?topic=account-create-private-catalog) | Arbitrary secrets | Centrally manage the credentials for software in your private catalogs. For more information about this integration, check out [Onboarding software to your account](/docs/account?topic=account-create-private-catalog).  |
+| [Catalog management](/docs/account?topic=account-create-private-catalog) | Arbitrary secrets | Centrally manage the credentials for software in your private catalogs. For more information about this integration, check out [Onboarding software to your account](/docs/account?topic=account-create-private-catalog).
+| [{{site.data.keyword.en_short}}](/docs/event-notifications) | Public certificates  /nImported certificates | Be notified of events that take place in your {{site.data.keyword.secrets-manager_short}} service instance, and route alerts to your preferred destinations, such as email or SMS. For more information about this integration, check out [Enabling event notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications).  |
 | [Toolchain](/docs/ContinuousDelivery?topic=ContinuousDelivery-secretsmanager) | Arbitrary secrets | Centrally manage the credentials for your {{site.data.keyword.contdelivery_short}} toolchain. For more information about this integration, check out [Configuring {{site.data.keyword.secrets-manager_short}}](/docs/ContinuousDelivery?topic=ContinuousDelivery-secretsmanager).  |
 {: caption="Table 1. Available integrations" caption-side="top"}
 
 ## Creating an authorization between {{site.data.keyword.secrets-manager_short}} and another {{site.data.keyword.cloud_notm}} service
 {: #create-authorization}
 
-To authorize another service to use a secret that is stored in your {{site.data.keyword.secrets-manager_short}} instance, you can [create an authorization between the services](/docs/account?topic=account-serviceauth). Be sure that you have the [**SecretsReader** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam) on your {{site.data.keyword.secrets-manager_short}} instance.
+To authorize another service to access your {{site.data.keyword.secrets-manager_short}} instance, you can [create an authorization between the services](/docs/account?topic=account-serviceauth). Be sure that you have the [**SecretsReader** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam) on your {{site.data.keyword.secrets-manager_short}} instance.
 
-1. In the {{site.data.keyword.cloud_notm}} console, click **Manage > Access (IAM)**, and select **Authorizations**.
+1. In the console, click **Manage > Access (IAM)**, and select **Authorizations**.
 2. Click **Create**.
 3. Select a source and target service for the authorization.
 
