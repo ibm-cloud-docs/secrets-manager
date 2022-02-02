@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-31"
+lastupdated: "2022-02-02"
 
 keywords: change log for [{sm-short}] APIs, API changelog, updates to [{sm-short}] APIs
 
@@ -64,12 +64,18 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 
 
 
+## 3 February 2022
+{: #2022-02-03-api}
+
+This release includes the following update: 
+
+- Added the [Register with {{site.data.keyword.en_short}}](apidocs/secrets-manager#create-notifications-registration), [Get {{site.data.keyword.en_short}} registration details](/apidocs/secrets-manager#get-notifications-registration), [Unregister from {{site.data.keyword.en_short}}](/apidocs/secrets-manager#delete-notifications-registration), and [Send test event](/apidocs/secrets-manager#send-test-notification) methods that can be used to manage your connection to the {{site.data.keyword.en_short}} service.
 ## 31 January 2022
 {: #2022-01-31-api}
 
 This release includes the following update: 
 
-- Added `kv` as a secret type to the [Create a secret](/apidocs/secrets-manager#create-secret) method. You can store and manage key-value secrets, including complex JSON documents, that are used to access protected systems that are inside or outside of IBM.
+- Added `kv` as a secret type to the [Create a secret](/apidocs/secrets-manager#create-secret) method. You can store and manage key-value secrets, including complex JSON documents, that are used to access protected systems that are inside or outside of {{site.data.keyword.cloud_notm}}.
 
 ## 22 November 2021
 {: #2021-11-22-api}
