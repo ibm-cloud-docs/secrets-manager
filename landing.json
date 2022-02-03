@@ -39,7 +39,7 @@
     "view_more": "/docs/secrets-manager?topic=secrets-manager-release-notes",
     "tiles": [
       {
-        "date": "4 February 2022",
+        "date": "3 February 2022",
         "title": "Enable lifecycle notifications for your certificates",
         "description": "To be notified of critical certificate lifecycle events, you can now configure your notification preferences through the Event Notifications service."
       },
