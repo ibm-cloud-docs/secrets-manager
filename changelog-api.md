@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-02"
+lastupdated: "2022-02-03"
 
-keywords: change log for [{sm-short}] APIs, API changelog, updates to [{sm-short}] APIs
+keywords: change log for Secrets Manager APIs, API changelog, updates to Secrets Manager APIs
 
 subcollection: secrets-manager
 
@@ -69,7 +69,7 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 
 This release includes the following update: 
 
-- Added the [Register with {{site.data.keyword.en_short}}](apidocs/secrets-manager#create-notifications-registration), [Get {{site.data.keyword.en_short}} registration details](/apidocs/secrets-manager#get-notifications-registration), [Unregister from {{site.data.keyword.en_short}}](/apidocs/secrets-manager#delete-notifications-registration), and [Send test event](/apidocs/secrets-manager#send-test-notification) methods that can be used to manage your connection to the {{site.data.keyword.en_short}} service.
+- Added the [Register with {{site.data.keyword.en_short}}](/apidocs/secrets-manager#create-notifications-registration), [Get {{site.data.keyword.en_short}} registration details](/apidocs/secrets-manager#get-notifications-registration), [Unregister from {{site.data.keyword.en_short}}](/apidocs/secrets-manager#delete-notifications-registration), and [Send test event](/apidocs/secrets-manager#send-test-notification) methods that can be used to manage your connection to the {{site.data.keyword.en_short}} service.
 ## 31 January 2022
 {: #2022-01-31-api}
 

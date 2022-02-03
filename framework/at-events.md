@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-31"
+lastupdated: "2022-02-03"
 
 keywords: activity tracker events for Secrets Manager, events, Secrets Manager actions
 
@@ -113,6 +113,10 @@ The following table lists the instance operation actions that generate an event.
 | `secrets-manager.secret-engine-config.set` | Set secrets engine configuration. |
 | `secrets-manager.secret-engine-config.get` | Get secrets engine configuration. |
 | `secrets-manager.endpoints.get`            | Get service instance endpoints.  |
+| `secrets-manager.notifications-registration.create` | Create a registration with Event Notifications. | Manager |
+| `secrets-manager.notifications-registration.read` | Get Event Notifications registration details. | Reader, SecretsReader, Writer, Manager |
+| `secrets-manager.notifications-registration.delete` | Delete an Event Notifications registration. | Manager |
+| `secrets-manager.notifications-registration.test` | Send a test event. | Reader, SecretsReader, Writer, Manager |
 {: caption="Table 3. List of instance operation events" caption-side="top"}
 
 
