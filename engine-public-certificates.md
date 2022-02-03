@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-04"
+lastupdated: "2022-02-02"
 
 keywords: set up certificates, set up public certificates, public certificates engine, set up CIS, set up CA, set up Let's Encrypt
 
@@ -253,7 +253,7 @@ To obtain your classic infrastructure username and API key, you can use the **Ac
 4. Click the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> Details** to copy the API key value.
 5. Assign your user permissions to manage DNS in the account.
    
-   For more information about managing classic infrastructure access, see [Classic infrastructure permissions](/docs/account?topic=account-infrapermission).
+   For more information about managing classic infrastructure access, see [Classic infrastructure permissions](/docs/account?topic=account-mngclassicinfra#how-classic-infra-permissions-work).
 
    1. Click the **Classic infrastructure** tab to manage your classic infrastructure permissions.
    2. In the Services section, ensure that the **Manage DNS** permission is selected.
