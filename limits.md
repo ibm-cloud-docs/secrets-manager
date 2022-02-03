@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-31"
+lastupdated: "2022-02-03"
 
 keywords: known issues for Secrets Manager, known limitations for Secrets Manager
 
@@ -155,6 +155,7 @@ The following limits apply to IAM credentials.
 The following limits apply to key-value secrets. 
 
 | Attribute | Limit | 
+| --- | --- |
 | Name | 2 - 256 characters  \n  \n The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
 | Description | 2 - 1024 characters |
 | Labels | 2 - 30 characters  \n  \n 30 labels per secret |
