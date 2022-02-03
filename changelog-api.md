@@ -4,7 +4,7 @@ copyright:
   years: 2020, 2022
 lastupdated: "2022-02-03"
 
-keywords: change log for [{sm-short}] APIs, API changelog, updates to [{sm-short}] APIs
+keywords: change log for Secrets Manager APIs, API changelog, updates to Secrets Manager APIs
 
 subcollection: secrets-manager
 

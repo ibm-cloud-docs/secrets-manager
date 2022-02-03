@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-24"
+lastupdated: "2022-02-03"
 
-keywords: change log for {{site.data.keyword.secrets-manager_short}} CLI, CLI changelog, updates to {{site.data.keyword.secrets-manager_short}} CLI
+keywords: change log for Secrets Manager CLI, CLI changelog, updates to Secrets Manager CLI
 
 subcollection: secrets-manager
 
