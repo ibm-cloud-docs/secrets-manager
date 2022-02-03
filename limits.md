@@ -129,7 +129,7 @@ The following limits apply to arbitrary secrets.
 | --- | --- |
 | Name | 2 - 256 characters  \n  \n The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
 | Description | 2 - 1024 characters |
-| Secret value | 1 MB |
+| Secret value / payload | 1 MB |
 | Labels | 2 - 30 characters  \n  \n 30 labels per secret |
 | Versions | For auditing purposes, the service retains the metadata of up to 50 versions for each secret, which you can review as part of a secret's [version history](/docs/secrets-manager?topic=secrets-manager-version-history). |
 {: caption="Table 5. Arbitrary secret limits" caption-side="top"}
@@ -158,8 +158,8 @@ The following limits apply to key-value secrets.
 | --- | --- |
 | Name | 2 - 256 characters  \n  \n The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
 | Description | 2 - 1024 characters |
+| Secret value / payload | 512 KB |
 | Labels | 2 - 30 characters  \n  \n 30 labels per secret |
-| Payload | The maximum file size is 512 KB. |
 {: caption="Table 7. Key-value limits" caption-side="top"}
 
 #### Limits for TLS certificates
