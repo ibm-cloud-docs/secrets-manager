@@ -1,6 +1,6 @@
 {
   "title": "Secrets Manager docs",
-  "lastupdated": "2022-01-31",
+  "lastupdated": "2022-02-03",
   "introduction": "Explore recommended content and resources to help you get started with IBM Cloud Secrets Manager.",
   "section_devtools": {
     "api": "/apidocs/secrets-manager",
@@ -39,6 +39,11 @@
     "view_more": "/docs/secrets-manager?topic=secrets-manager-release-notes",
     "tiles": [
       {
+        "date": "4 February 2022",
+        "title": "Enable lifecycle notifications for your certificates",
+        "description": "To be notified of critical certificate lifecycle events, you can now configure your notification preferences through the Event Notifications service."
+      },
+      {
         "date": "31 January 2022",
         "title": "Store key-value secrets",
         "description": "You can now use Secrets Manager to store key-value secrets. Check the full release notes for details. "
@@ -47,11 +52,6 @@
         "date": "22 November 2021",
         "title": "View version history and create IAM credentials by using a service ID",
         "description": "You can now use Secrets Manager to audit the version history of your secrets, and more. Check the full release notes for details."
-      },
-      {
-        "date": "20 September 2021",
-        "title": "Order domain-validated TLS certificates from Let's Encrypt",
-        "description": "You can now use Secrets Manager to order Let's Encrypt certificates that you can deploy to your apps and services. Check the full release notes for details."
       }
     ]
   }
