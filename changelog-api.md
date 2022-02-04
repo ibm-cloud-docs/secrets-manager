@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-03"
+lastupdated: "2022-02-04"
 
 keywords: change log for Secrets Manager APIs, API changelog, updates to Secrets Manager APIs
 
@@ -70,6 +70,7 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 This release includes the following update: 
 
 - Added the [Register with {{site.data.keyword.en_short}}](/apidocs/secrets-manager#create-notifications-registration), [Get {{site.data.keyword.en_short}} registration details](/apidocs/secrets-manager#get-notifications-registration), [Unregister from {{site.data.keyword.en_short}}](/apidocs/secrets-manager#delete-notifications-registration), and [Send test event](/apidocs/secrets-manager#send-test-notification) methods that can be used to manage your connection to the {{site.data.keyword.en_short}} service.
+
 ## 31 January 2022
 {: #2022-01-31-api}
 
@@ -90,7 +91,6 @@ This release includes the following updates:
 - Added the `restore` query parameter as a request option on the [Invoke an action on a secret](/apidocs/secrets-manager#update-secret) method. You can use this action to [restore the previous version](/docs/secrets-manager?topic=secrets-manager-version-history) of a secret.
 - Updated the [Get a version of a secret](/apidocs/secrets-manager#get-secret-version) method that can be used to retrieve the previous version of a secret. This API now supports `arbitrary`, `iam_credentials`, and `username_password` secrets, in addition to `public_cert` and `imported_cert`.
 
-
 ## 20 September 2021
 {: #2021-09-20-api}
 
@@ -108,7 +108,6 @@ This release includes the following updates:
 - Changed the maximum length for secret names to 240 characters.
 - Changed the maximum length for secret descriptions to 1024 characters.
 
-
 ## 20 June 2021
 {: #2021-06-20-api}
 
@@ -117,15 +116,12 @@ This release includes the following updates:
 - Added `imported_cert` secret type that can be used to store X.509 certificates in the service. For more information, see [Importing certificates](/docs/secrets-manager?topic=secrets-manager-certificates#import-certificates).
 - Added the [Get a version of a secret](/apidocs/secrets-manager#get-secret-version) method that can be used to retrieve the previous version of a secret. Currently, this API supports `imported_cert` secrets only.
 
-
-
 ## 13 April 2021
 {: #2021-04-13-api}
 
 This release includes the following updates:
 
 - Added `group={secret_group_ID}` query parameter that can be used to filter a list of secrets by secret group.
-
 
 ## 7 March 2021
 {: #2021-03-07-api}
@@ -149,6 +145,4 @@ This release includes the following updates:
 
 - Changed the maximum length for secret names to 128 characters.
 - Changed the maximum length for secret group names to 62 characters.
-
-
 

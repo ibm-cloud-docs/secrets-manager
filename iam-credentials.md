@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-21"
+lastupdated: "2022-02-04"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -94,6 +94,7 @@ To create IAM credentials by using the {{site.data.keyword.secrets-manager_short
 
     Minimum duration is 1 minute. Maximum is 90 days.
     {: note}
+
 9. Optional: [Determine whether IAM credentials can be reused](#iam-credentials-reuse-ui) for your secret. Then, click **Next**.
 10. In the **Assign access** step, [determine the scope of access](#iam-credentials-service-id-ui) to assign for your IAM credential.
 11. To confirm your selections, click **Add**.

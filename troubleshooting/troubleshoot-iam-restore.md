@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-12-17"
+  years: 2020, 2022
+lastupdated: "2022-02-04"
 
 keywords: can't restore IAM credentials, reuse credentials is off, unable to restore
 
@@ -73,7 +73,7 @@ Rotating IAM credentials is not supported when reuse credentials is off.
 ```
 {: screen}
 
-```
+```plaintext
 Version previous is not active.
 ```
 {: screen}
