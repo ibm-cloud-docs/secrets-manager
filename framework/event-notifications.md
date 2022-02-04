@@ -167,7 +167,7 @@ curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api
 A successful request returns the CRN value of your connected {{site.data.keyword.en_short}} service instance. For more information about the required and optional request parameters, see the [API docs](/apidocs/secrets-manager).
 
 
-### Sending a test event to {{site.data.keyword.en_short}}
+### Sending a test event to {{site.data.keyword.en_short}} in the UI
 {: #event-notifications-test-ui}
 {: ui}
 
@@ -183,7 +183,7 @@ Before you can send a test {{site.data.keyword.secrets-manager_short}} events, y
 
    A success message is displayed to indicate that the test event was forwarded successfully to {{site.data.keyword.en_short}}.
 
-### Sending a test event to {{site.data.keyword.en_short}}
+### Sending a test event to {{site.data.keyword.en_short}} with the API
 {: #event-notifications-test-api}
 {: api}
 
