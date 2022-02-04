@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-12-15"
+  years: 2020, 2022
+lastupdated: "2022-02-04"
 
 keywords: secret groups, assign secret access, iam roles, secrets policies, organize secrets
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-03"
+lastupdated: "2022-02-04"
 
 keywords: event notifications for {{site.data.keyword.secrets-manager_short}}, event notifications integration for {{site.data.keyword.secrets-manager_short}}, alerts for {{site.data.keyword.secrets-manager_short}}
 
@@ -64,6 +64,7 @@ To send information to {{site.data.keyword.en_short}}, you must connect your {{s
 
 Currently, {{site.data.keyword.secrets-manager_short}} supports notifications for certificates (`imported_cert` and `public_cert`) only.
 {: note}
+
 ## How events are collected and sent by {{site.data.keyword.secrets-manager_short}}
 {: #event-notifications-how}
 
