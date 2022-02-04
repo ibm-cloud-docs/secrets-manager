@@ -73,7 +73,7 @@ Rotating IAM credentials is not supported when reuse credentials is off.
 ```
 {: screen}
 
-```
+```plaintext
 Version previous is not active.
 ```
 {: screen}
