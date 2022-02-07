@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-04"
+lastupdated: "2022-02-07"
 
 keywords: username, password, user credentials, store password
 
@@ -113,17 +113,7 @@ You can store a username and password programmatically by calling the {{site.dat
 
 The following example shows a query that you can use to create a username and password secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 
-If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `createSecret` method to create a username and password secret. The following code shows an example call.
-{: java}
 
-If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `createSecret(params)` method to create a username and password secret. The following code shows an example call.
-{: javascript}
-
-If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `create_secret(params)` method to create a username and password secret. The following code shows an example call.
-{: python}
-
-If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `CreateSecret` method to create a username and password secret. The following code shows an example call.
-{: go}
 
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password" \
@@ -154,121 +144,6 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 {: codeblock}
 {: curl}
 
-```java
-CollectionMetadata collectionMetadataModel = new CollectionMetadata.Builder()
-    .collectionType("application/vnd.ibm.secrets-manager.secret+json")
-    .collectionTotal(Long.valueOf("1"))
-    .build();
-SecretResourceUsernamePasswordSecretResource secretResourceModel = new SecretResourceUsernamePasswordSecretResource.Builder()
-    .name("example-username-password-secret")
-    .description("Extended description for this secret.")
-    .secretGroupId("432b91f1-ff6d-4b47-9f06-82debc236d90")
-    .labels(new java.util.ArrayList<String>(java.util.Arrays.asList("dev","us-south")))
-    .expirationDate(TestUtilities.createMockDateTime("2030-01-01T00:00:00Z"))
-    .username("user123")
-    .password("cloudy-rainy-coffee-book")
-    .build();
-CreateSecretOptions createSecretOptions = new CreateSecretOptions.Builder()
-    .secretType("username_password")
-    .metadata(collectionMetadataModel)
-    .resources(new java.util.ArrayList<SecretResource>(java.util.Arrays.asList(secretResourceModel)))
-    .build();
 
-Response<CreateSecret> response = sm.createSecret(createSecretOptions).execute();
-CreateSecret createSecret = response.getResult();
 
-System.out.println(createSecret);
-```
-{: codeblock}
-{: java}
-
-```javascript
-const params = {
-    secretType: 'username_password',
-    'metadata': {
-        'collection_type': 'application/vnd.ibm.secrets-manager.secret+json',
-    'collection_total': 1,
-    },
-    'resources': [
-        {
-        'name': 'example-username-password-secret',
-        'description': 'Extended description for my secret.',
-        'secret_group_id': '432b91f1-ff6d-4b47-9f06-82debc236d90',
-        'username': 'user123',
-        'password': 'cloudy-rainy-coffee-book',
-        'labels': ['dev', 'us-south'],
-        'expiration_date': '2030-12-31T00:00:00Z',
-    },
-    ],
-};
-
-secretsManagerApi.createRules(params)
-    .then(res => {
-        console.log('Create secret:\n', JSON.stringify(result.resources, null, 2));
-    })
-    .catch(err => {
-        console.warn(err)
-    });
-```
-{: codeblock}
-{: javascript}
-
-```python
-collection_metadata = {
-    'collection_type': 'application/vnd.ibm.secrets-manager.secret+json',
-    'collection_total': 1
-}
-
-secret_resource = {
-    'name': 'example-username-password-secret',
-    'description': 'Extended description for my secret.',
-    'secret_group_id': '432b91f1-ff6d-4b47-9f06-82debc236d90',
-    'username': 'user123',
-    'password': 'cloudy-rainy-coffee-book',
-    'labels': ['dev', 'us-south'],
-    'expiration_date': '2030-12-31T00:00:00Z'
-}
-
-response = secretsManager.create_secret(
-    secret_type='username_password',
-    metadata=collection_metadata,
-    resources=[secret_resource]
-).get_result()
-
-print(json.dumps(response, indent=2))
-```
-{: codeblock}
-{: python}
-
-```go
-collectionMetadata := &sm.CollectionMetadata{
-    CollectionType: core.StringPtr("application/vnd.ibm.secrets-manager.secret+json"),
-    CollectionTotal: core.Int64Ptr(int64(1)),
-}
-
-secretResource := &sm.SecretResourceUsernamePasswordSecretResource{
-    Name: core.StringPtr("example-username-password-secret"),
-    Description: core.StringPtr("Extended description for this secret."),
-    SecretGroupID: core.StringPtr("bc656587-8fda-4d05-9ad8-b1de1ec7e712"),
-    Labels: []string{"dev","south"},
-    Username: core.StringPtr("user123"),
-    Password: core.StringPtr("cloud-rainy-coffee-book"),
-    ExpirationDate: core.StrfmtDateTimePtr(CreateMockDateTime()),
-}
-
-createSecretOptions := secretsManagerApi.NewCreateSecretOptions(
-    "username_password", collectionMetadata, []sm.SecretResourceIntf{secretResource},
-)
-
-result, response, err := secretsManagerApi.CreateSecret(createSecretOptions)
-if err != nil {
-    panic(err)
-}
-
-b, _ := json.MarshalIndent(result, "", "  ")
-fmt.Println(string(b))
-```
-{: codeblock}
-{: go}
-
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager#create-secret)..
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager#create-secret).

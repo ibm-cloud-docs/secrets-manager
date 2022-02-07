@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-31"
+lastupdated: "2022-02-07"
 
 keywords: access secret, retrieve secret, read secret, get secret value, get secrets, view secrets, search secrets, read secrets, get secret value
 
@@ -64,8 +64,6 @@ After you store secrets in your {{site.data.keyword.secrets-manager_full}} servi
 {: #before-access-secrets}
 
 Before you begin, be sure that you have the required level of access. To view a list of your available secrets, you need the [**Reader** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam). To retrieve the value of a secret, you need the [**SecretsReader** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam).
-
-
 
 ## Retrieving a secret in the UI
 {: #get-secret-value-ui}
@@ -133,17 +131,7 @@ After you store a secret in your instance, you might need to retrieve its value 
 The following example request retrieves a secret and its contents. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. The options for `{secret_type}` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `public_cert`, and `username_password`.
 {: curl}
 
-If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `getSecret` method to retrieve a secret and its contents. The following code shows an example call.
-{: java}
 
-If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `getSecret(params)` method to retrieve a secret and its contents. The following code shows an example call.
-{: javascript}
-
-If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `get_secret(params)` method to retrieve a secret and its contents. The following code shows an example call.
-{: python}
-
-If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `GetSecret` method to retrieve a secret and its contents. The following code shows an example call.
-{: go}
 
 ```bash
 curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}" \
@@ -153,64 +141,7 @@ curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/
 {: codeblock}
 {: curl}
 
-```java
-GetSecretOptions getSecretOptions = new GetSecretOptions.Builder()
-    .secretType("<secret_type>")
-    .id(secretIdLink)
-    .build();
 
-Response<GetSecret> response = sm.getSecret(getSecretOptions).execute();
-GetSecret getSecret = response.getResult();
-
-System.out.println(getSecret);
-```
-{: codeblock}
-{: java}
-
-```javascript
-const params = {
-    secretType: '<secret_type>',
-    id: secretId,
-};
-
-secretsManagerApi.getSecret(params)
-    .then(res => {
-        console.log('Get secret:\n', JSON.stringify(result.resources, null, 2));
-    })
-    .catch(err => {
-        console.warn(err)
-    });
-```
-{: codeblock}
-{: javascript}
-
-```python
-response = secretsManager.get_secret(
-    secret_type='<secret_type>',
-    id=secret_id_link
-).get_result()
-
-print(json.dumps(response, indent=2))
-```
-{: codeblock}
-{: python}
-
-```go
-getSecretOptions := secretsManagerApi.NewGetSecretOptions(
-    "<secret_type>",
-    secretIdLink,
-)
-
-result, response, err := secretsManagerApi.GetSecret(getSecretOptions)
-if err != nil {
-    panic(err)
-}
-
-b, _ := json.MarshalIndent(result, "", "  ")
-fmt.Println(string(b))
-```
-{: codeblock}
-{: go}
 
 A successful response returns the value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Get a secret](/apidocs/secrets-manager#get-secret){: external}.
 
@@ -254,6 +185,9 @@ The data is converted back to a binary file that you can open from your local co
 
 After you rotate a certificate, you can programmatically access its previous version by using the {{site.data.keyword.secrets-manager_short}} API.
 
+The following example request retrieves a secret and its contents. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+{: curl}
+
 
 
 ```bash
@@ -263,7 +197,5 @@ curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/
 ```
 {: codeblock}
 {: curl}
-
-
 
 

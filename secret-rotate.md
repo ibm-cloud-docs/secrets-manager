@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-04"
+lastupdated: "2022-02-07"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -61,8 +61,6 @@ With {{site.data.keyword.secrets-manager_full}}, you can manually create new ver
 {: shortdesc}
 
 When you rotate a secret in your service instance, you create a new version of its value. Rotating your credentials limits how long a protected resource can be accessed by a single secret, which can protect your business against the risks that are associated with compromised credentials. Rotate your secrets regularly, for example every 30 or 60 days, so that you're always meeting best practices around secrets management.
-
-
 
 
 ## Before you begin
@@ -229,17 +227,7 @@ You can rotate arbitrary secrets by calling the {{site.data.keyword.secrets-mana
 The following example request creates a new version of your secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
 
-If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `updateSecret` method to rotate a secret. The following code shows an example call to rotate an arbitrary secret.
-{: java}
 
-If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `updateSecret(params)` method to rotate a secret. The following code shows an example call to rotate an arbitrary secret.
-{: javascript}
-
-If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `update_secret(params)` method to rotate a secret. The following code shows an example call to rotate an arbitrary secret.
-{: python}
-
-If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `UpdateSecret` method to rotate a secret. The following code shows an example call to rotate an arbitrary secret.
-{: go}
 
 ```bash
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/arbitrary/{id}?action=rotate" \
@@ -253,79 +241,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 {: codeblock}
 {: curl}
 
-```java
-SecretActionOneOfRotateArbitrarySecretBody secretActionOneOfModel = new SecretActionOneOfRotateArbitrarySecretBody.Builder()
-    .payload("new-secret-data")
-    .build();
-UpdateSecretOptions updateSecretOptions = new UpdateSecretOptions.Builder()
-    .secretType("arbitrary")
-    .id(secretIdLink)
-    .action("rotate")
-    .secretActionOneOf(secretActionOneOfModel)
-    .build();
 
-Response<GetSecret> response = sm.updateSecret(updateSecretOptions).execute();
-GetSecret getSecret = response.getResult();
-
-System.out.println(getSecret);
-```
-{: codeblock}
-{: java}
-
-```javascript
-const params = {
-    secretType: 'arbitrary',
-    id: secretId,
-    action: 'rotate',
-    payload: 'new-secret-data',
-};
-
-secretsManagerApi.updateSecret(params)
-    .then(res => {
-        console.log('Rotate secret:\n', JSON.stringify(result.resources, null, 2));
-    })
-    .catch(err => {
-        console.warn(err)
-    });
-```
-{: codeblock}
-{: javascript}
-
-```python
-secret_data = {
-    'payload': 'new-secret-data'
-}
-
-response = secretsManager.update_secret(
-    secret_type='arbitrary',
-    id=secret_id_link,
-    action='rotate'
-).get_result()
-
-print(json.dumps(response, indent=2))
-```
-{: codeblock}
-{: python}
-
-```go
-secretAction := &sm.SecretActionOneOfRotateArbitrarySecretBody{
-    Payload: core.StringPtr("new-secret-data"),
-}
-
-updateSecretOptions := secretsManagerApi.NewUpdateSecretOptions(
-    "arbitrary", secretIdLink, "rotate", secretAction,
-)
-
-result, response, err := secretsManagerApi.UpdateSecret(updateSecretOptions)
-if err != nil {
-    panic(err)
-}
-
-b, _ := json.MarshalIndent(result, "", "  ")
-fmt.Println(string(b))
-```
-{: codeblock}
-{: go}
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager#update-secret).
 
@@ -338,17 +254,6 @@ You can rotate secrets by calling the {{site.data.keyword.secrets-manager_short}
 The following example request creates a new version of your secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
 
-If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `updateSecret` method to rotate a secret. The following code shows an example call to rotate user credentials.
-{: java}
-
-If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `updateSecret(params)` method to rotate a secret. The following code shows an example call to rotate user credentials.
-{: javascript}
-
-If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `update_secret(params)` method to rotate a secret. The following code shows an example call to rotate user credentials.
-{: python}
-
-If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `UpdateSecret` method to rotate a secret. The following code shows an example call to rotate user credentials.
-{: go}
 
 
 ```bash
@@ -363,79 +268,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 {: codeblock}
 {: curl}
 
-```java
-SecretActionOneOfRotateUsernamePasswordBody secretActionOneOfModel = new SecretActionOneOfRotateUsernamePasswordBody.Builder()
-    .password("new-password")
-    .build();
-UpdateSecretOptions updateSecretOptions = new UpdateSecretOptions.Builder()
-    .secretType("username_password")
-    .id(secretIdLink)
-    .action("rotate")
-    .secretActionOneOf(secretActionOneOfModel)
-    .build();
 
-Response<GetSecret> response = sm.updateSecret(updateSecretOptions).execute();
-GetSecret getSecret = response.getResult();
-
-System.out.println(getSecret);
-```
-{: codeblock}
-{: java}
-
-```javascript
-const params = {
-    secretType: 'username_password',
-    id: secretId,
-    action: 'rotate',
-    password: 'new-password',
-};
-
-secretsManagerApi.updateSecret(params)
-    .then(res => {
-        console.log('Rotate secret:\n', JSON.stringify(result.resources, null, 2));
-    })
-    .catch(err => {
-        console.warn(err)
-    });
-```
-{: codeblock}
-{: javascript}
-
-```python
-secret_data = {
-    'password': 'new-password'
-}
-
-response = secretsManager.update_secret(
-    secret_type='username_password',
-    id=secret_id_link,
-    action='rotate'
-).get_result()
-
-print(json.dumps(response, indent=2))
-```
-{: codeblock}
-{: python}
-
-```go
-secretAction := &sm.SecretActionOneOfRotateUsernamePasswordBody{
-    Password: core.StringPtr("new-password"),
-}
-
-updateSecretOptions := secretsManagerApi.NewUpdateSecretOptions(
-    "username_password", secretIdLink, "rotate", secretAction,
-)
-
-result, response, err := secretsManagerApi.UpdateSecret(updateSecretOptions)
-if err != nil {
-    panic(err)
-}
-
-b, _ := json.MarshalIndent(result, "", "  ")
-fmt.Println(string(b))
-```
-{: codeblock}
-{: go}
 
 To have the service generate and assign a random password to your credential, you can pass an empty string on the `password` field. For example, `{ "password": ""}`. {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
 {: tip}
