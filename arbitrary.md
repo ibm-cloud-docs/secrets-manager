@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-04"
+lastupdated: "2022-02-07"
 
 keywords: arbitrary secrets, arbitrary text, custom secrets
 
@@ -118,17 +118,7 @@ You can create arbitrary secrets programmatically by calling the {{site.data.key
 The following example shows a query that you can use to create and store an arbitrary secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
 
-If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `createSecret` method to create and store an arbitrary secret. The following code shows an example call.
-{: java}
 
-If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `createSecret(params)` method to create and store an arbitrary secret. The following code shows an example call.
-{: javascript}
-
-If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `create_secret(params)` method to create and store an arbitrary secret. The following code shows an example call.
-{: python}
-
-If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `CreateSecret` method to create and store an arbitrary secret. The following code shows an example call.
-{: go}
 
 {{site.data.keyword.secrets-manager_short}} supports text-based payloads only for arbitrary secrets. If you need to upload a binary file, you must base64 encode the data first so that you can pass it to the {{site.data.keyword.secrets-manager_short}} API in a single-line string. To access this secret later in its original form, you need to base64 decode it. Consider assigning a label on your secret with encoded data, such as `encode:base64`, so that you can keep track of secrets that require base64 decoding.
 {: note}
@@ -161,120 +151,6 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 {: codeblock}
 {: curl}
 
-```java
-CollectionMetadata collectionMetadataModel = new CollectionMetadata.Builder()
-    .collectionType("application/vnd.ibm.secrets-manager.secret+json")
-    .collectionTotal(Long.valueOf("1"))
-    .build();
-SecretResourceArbitrarySecretResource secretResourceModel = new SecretResourceArbitrarySecretResource.Builder()
-    .name("example-arbitrary-secret")
-    .description("Extended description for this secret.")
-    .secretGroupId("432b91f1-ff6d-4b47-9f06-82debc236d90")
-    .labels(new java.util.ArrayList<String>(java.util.Arrays.asList("testString")))
-    .expirationDate(TestUtilities.createMockDateTime("2030-01-01T00:00:00Z"))
-    .payload("secret-data")
-    .build();
-CreateSecretOptions createSecretOptions = new CreateSecretOptions.Builder()
-    .secretType("arbitrary")
-    .metadata(collectionMetadataModel)
-    .resources(new java.util.ArrayList<SecretResource>(java.util.Arrays.asList(secretResourceModel)))
-    .build();
 
-Response<CreateSecret> response = sm.createSecret(createSecretOptions).execute();
-CreateSecret createSecret = response.getResult();
-
-System.out.println(createSecret);
-```
-{: codeblock}
-{: java}
-
-```javascript
-const params = {
-    secretType: 'arbitrary',
-    'metadata': {
-        'collection_type': 'application/vnd.ibm.secrets-manager.secret+json',
-    'collection_total': 1,
-    },
-    'resources': [
-        {
-        'name': 'example-arbitrary-secret',
-        'description': 'Extended description for my secret.',
-        'secret_group_id': '432b91f1-ff6d-4b47-9f06-82debc236d90',
-        'payload': 'secret-data',
-        'expiration_date': '2030-12-31T00:00:00Z',
-        'labels': ['dev', 'us-south'],
-    },
-    ],
-};
-
-secretsManagerApi.createRules(params)
-    .then(res => {
-        console.log('Create secret:\n', JSON.stringify(result.resources, null, 2));
-    })
-    .catch(err => {
-        console.warn(err)
-    });
-```
-{: codeblock}
-{: javascript}
-
-```python
-collection_metadata = {
-    'collection_type': 'application/vnd.ibm.secrets-manager.secret+json',
-    'collection_total': 1
-}
-
-secret_resource = {
-    'name': 'example-arbitrary-secret',
-    'description': 'Extended description for this secret.',
-    'secret_group_id': '432b91f1-ff6d-4b47-9f06-82debc236d90',
-    'payload': 'secret-data',
-    'labels': ['dev', 'us-south']
-}
-
-response = secretsManager.create_secret(
-    secret_type='arbitrary',
-    metadata=collection_metadata,
-    resources=[secret_resource]
-).get_result()
-
-print(json.dumps(response, indent=2))
-```
-{: codeblock}
-{: python}
-
-```go
-collectionMetadata := &sm.CollectionMetadata{
-    CollectionType: core.StringPtr("application/vnd.ibm.secrets-manager.secret+json"),
-    CollectionTotal: core.Int64Ptr(int64(1)),
-}
-
-secretResource := &sm.SecretResourceArbitrarySecretResource{
-    Name: core.StringPtr("example-arbitrary-secret"),
-    Description: core.StringPtr("Extended description for this secret."),
-    SecretGroupID: core.StringPtr("bc656587-8fda-4d05-9ad8-b1de1ec7e712"),
-    Labels: []string{"dev","us-south"},
-    ExpirationDate: core.StrfmtDateTimePtr(CreateMockDateTime()),
-    Payload: core.StringPtr("secret-data"),
-}
-
-createSecretOptions := secretsManagerApi.NewCreateSecretOptions(
-    "arbitrary", collectionMetadata, []sm.SecretResourceIntf{secretResource},
-)
-
-result, response, err := secretsManagerApi.CreateSecret(createSecretOptions)
-if err != nil {
-    panic(err)
-}
-
-b, _ := json.MarshalIndent(result, "", "  ")
-fmt.Println(string(b))
-
-secretIdLink = *result.;
-```
-{: codeblock}
-{: go}
 
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager#create-secret)..
-
-

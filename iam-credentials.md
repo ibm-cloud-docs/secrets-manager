@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-04"
+lastupdated: "2022-02-07"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -184,17 +184,7 @@ You can create IAM credentials programmatically by calling the {{site.data.keywo
 The following example shows a query that you can use to create a dynamic service ID and API key. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
 
-If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `createSecret` method to create a dynamic service ID and API key. The following code shows an example call.
-{: java}
 
-If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `createSecret(params)` method to create a dynamic service ID and API key. The following code shows an example call.
-{: javascript}
-
-If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `create_secret(params)` method to create a dynamic service ID and API key. The following code shows an example call.
-{: python}
-
-If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `CreateSecret` method to create a dynamic service ID and API key. The following code shows an example call.
-{: go}
 
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/iam_credentials" \
@@ -227,128 +217,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 {: codeblock}
 {: curl}
 
-```java
-CollectionMetadata collectionMetadataModel = new CollectionMetadata.Builder()
-    .collectionType("application/vnd.ibm.secrets-manager.secret+json")
-    .collectionTotal(Long.valueOf("1"))
-    .build();
-SecretResourceIAMSecretResource secretResourceModel = new SecretResourceIAMSecretResource.Builder()
-    .name("example-IAM-credentials")
-    .description("Extended description for this secret.")
-    .accessGroups(new java.util.ArrayList<String>(java.util.Arrays.asList("<access_group_id>")))
-    .secretGroupId("<secret_group_id>")
-    .labels(new java.util.ArrayList<String>(java.util.Arrays.asList("<label>","<label>")))
-    .ttl("12h")
-    .build();
-CreateSecretOptions createSecretOptions = new CreateSecretOptions.Builder()
-    .secretType("iam_credentials")
-    .metadata(collectionMetadataModel)
-    .resources(new java.util.ArrayList<SecretResource>(java.util.Arrays.asList(secretResourceModel)))
-    .build();
 
-Response<CreateSecret> response = sm.createSecret(createSecretOptions).execute();
-CreateSecret createSecret = response.getResult();
-
-System.out.println(createSecret);
-```
-{: codeblock}
-{: java}
-
-```javascript
-const params = {
-    secretType: 'iam_credentials',
-    'metadata': {
-        'collection_type': 'application/vnd.ibm.secrets-manager.secret+json',
-    'collection_total': 1,
-    },
-    'resources': [
-        {
-        'name': 'example-IAM-credentials',
-        'description': 'Extended description for my secret.',
-        'access_groups': [
-        '<access_group_id>'
-        ],
-        'secret_group_id': '<secret_group_id>',
-        'ttl': '12h',
-        'labels': [
-        '<label>',
-        '<label>'
-        ]
-    },
-    ],
-};
-
-secretsManagerApi.createRules(params)
-    .then(res => {
-        console.log('Create secret:\n', JSON.stringify(result.resources, null, 2));
-    })
-    .catch(err => {
-        console.warn(err)
-    });
-```
-{: codeblock}
-{: javascript}
-
-```python
-collection_metadata = {
-    'collection_type': 'application/vnd.ibm.secrets-manager.secret+json',
-    'collection_total': 1
-}
-
-secret_resource = {
-    'name': 'example-IAM-credentials',
-    'description': 'Extended description for this secret.',
-    'access_groups': [
-        '<access_group_id>'
-    ],
-    'secret_group_id': '<secret_group_id>',
-    'ttl': '12h',
-    'labels': [
-        '<label>',
-        '<label>'
-    ]
-}
-
-response = secretsManager.create_secret(
-    secret_type='iam_credentials',
-    metadata=collection_metadata,
-    resources=[secret_resource]
-).get_result()
-
-print(json.dumps(response, indent=2))
-```
-{: codeblock}
-{: python}
-
-```go
-collectionMetadata := &sm.CollectionMetadata{
-    CollectionType: core.StringPtr("application/vnd.ibm.secrets-manager.secret+json"),
-    CollectionTotal: core.Int64Ptr(int64(1)),
-}
-
-secretResource := &sm.SecretResourceIAMSecretResource{
-    Name: core.StringPtr("example-IAM-credentials"),
-    Description: core.StringPtr("Extended description for this secret."),
-    AccessGroups: []string{"<access_group_id>"},
-    SecretGroupID: core.StringPtr("<secret_group_id>"),
-    TTL: []string{"12h"},
-    Labels: []string{"<label>","<label>"},
-}
-
-createSecretOptions := secretsManagerApi.NewCreateSecretOptions(
-    "iam_credentials", collectionMetadata, []sm.SecretResourceIntf{secretResource},
-)
-
-result, response, err := secretsManagerApi.CreateSecret(createSecretOptions)
-if err != nil {
-    panic(err)
-}
-
-b, _ := json.MarshalIndent(result, "", "  ")
-fmt.Println(string(b))
-```
-{: codeblock}
-{: go}
 
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager#create-secret).
 
