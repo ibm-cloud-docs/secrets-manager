@@ -268,33 +268,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 {: codeblock}
 {: curl}
 
-</sdk-examples>
 
-```java
-
-```
-{: codeblock}
-{: java}
-
-```javascript
-
-```
-{: codeblock}
-{: javascript}
-
-```python
-
-```
-{: codeblock}
-{: python}
-
-```go
-
-```
-{: codeblock}
-{: go}
-
-</sdk-examples>
 
 To have the service generate and assign a random password to your credential, you can pass an empty string on the `password` field. For example, `{ "password": ""}`. {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
 {: tip}
