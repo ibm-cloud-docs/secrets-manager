@@ -1,6 +1,6 @@
 {
   "title": "Secrets Manager docs",
-  "lastupdated": "2022-02-04",
+  "lastupdated": "2022-02-08",
   "introduction": "Explore recommended content and resources to help you get started with IBM Cloud Secrets Manager.",
   "section_devtools": {
     "api": "/apidocs/secrets-manager",
