@@ -476,6 +476,12 @@ If you no longer need the resources that you created in this tutorial, you can c
     ```
     {: pre}
 
+## Best Practices
+You should note that the Secret Manager sets a limit on the rate in which a client can send API requests to it. The limit is 20 calls per second for all API methods. See: [api-rate-limits](https://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-known-issues-and-limits#api-rate-limits). 
+When constructing the [yaml document](https://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-tutorial-kubernetes-secrets#tutorial-kubernetes-secrets-update-deployment), each key in the data section is will be polled periodically via REST from the SM instance.  Be aware that:
+1. Polling interval is default for 10 seconds, and should be configured with an enviornment parameter `POLLER_INTERVAL_MILLISECONDS` to be greater than 1000 * number of kuberenets secrets.  
+2. While multiple kuberenets secrets (represented by multiple yaml docs) poll is spread evenly over the interval time, multiple data entries (represented by keys inside the yaml data section) are fetched consequently without delays from SM. Having many such data entries aggregated inside a kube secret (in the above example we have two: user and password), could make your instance reach the rate limit and return 429 erros back to the tool. Please make sure that you do not create more data entries than needed in each kubernetes secret.  
+3. When setting yaml to fetch a SM secret by name rather than id (`keyByName: true`), each data entry generates 2 API calls rather tben one, so be extra careful with the number of data entries in the yaml if you select this option. see: [IBM Cloud Secret Manage Backend documentation](https://github.com/external-secrets/kubernetes-external-secrets#ibm-cloud-secrets-manager). 
 
 ## Next steps
 {: #kubernetes-secrets-next-steps}
