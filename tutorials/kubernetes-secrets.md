@@ -3,7 +3,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-08"
+lastupdated: "2022-02-09"
 
 keywords: tutorial, Secrets Manager
 
@@ -66,6 +66,9 @@ completion-time: 45m
 {: toc-services="secrets-manager,containers,Registry"}
 {: toc-completion-time="45m"}
 
+
+Kubernetes External Secrets is deprecated. Use [External Secrets Operator](https://github.com/external-secrets/external-secrets){: external} instead to get the latest enhancements. For more information, see the [deprecation announcement](https://github.com/external-secrets/kubernetes-external-secrets/issues/864#issue-1042914893){: external}.
+{: deprecated}
 
 In this tutorial, you learn how to use {{site.data.keyword.secrets-manager_full}} to manage secrets for applications that run your {{site.data.keyword.containerfull_notm}} cluster.
 {: shortdesc}
@@ -325,6 +328,9 @@ e0246cea-d668-aba7-eef2-58ca11ad3707
 {: step}
 
 Now that you have a secret for your application, you can set up [Kubernetes External Secrets](https://github.com/external-secrets/kubernetes-external-secrets){: external} for your cluster. This package configures the connection between {{site.data.keyword.secrets-manager_short}} and your cluster by creating `ExternalSecrets` objects that are converted to Kubernetes secrets for your application.
+
+Kubernetes External Secrets is deprecated. Use [External Secrets Operator](https://github.com/external-secrets/external-secrets){: external} instead to get the latest enhancements. For more information, see the [deprecation announcement](https://github.com/external-secrets/kubernetes-external-secrets/issues/864#issue-1042914893){: external}.
+{: deprecated}
 
 Kubernetes External Secrets is an open source tool that is not maintained by IBM. For more information about this tool or to troubleshoot any issues, refer to the project in [GitHub](https://github.com/external-secrets/kubernetes-external-secrets){: external}.
 {: note}
