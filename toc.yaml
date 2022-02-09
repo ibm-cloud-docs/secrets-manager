@@ -125,10 +125,7 @@ toc:
       - topicgroup:
           label: Vault reference
           topics:
-          - topicgroup:
-              label: Vault API
-              topics:
-                - topic: vault-api.md
+          - vault-api.md
           - topicgroup:
               label: Vault CLI
               topics:
