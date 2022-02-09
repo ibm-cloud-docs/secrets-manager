@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-08"
+lastupdated: "2022-02-09"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -1853,7 +1853,7 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 ```
 {: codeblock}
 
-Get metadata for a `kv` secret in the `default` secret group. [Learn more](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv).
+Get metadata for a `kv` secret in the `default` secret group. 
 
 ```sh
 curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/secrets/{secret_id}/metadata' \
@@ -1862,7 +1862,7 @@ curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 ```
 {: codeblock}
 
-Get metadata for a `kv` secret in an existing secret group. [Learn more](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv).
+Get metadata for a `kv` secret in an existing secret group. 
 
 ```sh
 curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/secrets/groups/{group_id}/{secret_id}/metadata' \
