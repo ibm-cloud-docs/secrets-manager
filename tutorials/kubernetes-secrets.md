@@ -67,7 +67,7 @@ completion-time: 45m
 {: toc-completion-time="45m"}
 
 
-The [third-party tool](#tutorial-kubernetes-secrets-configure-external) that is featured in this tutorial is deprecated. You can try [External Secrets Operator](https://github.com/external-secrets/external-secrets){: external} instead to get the same benefits. For more information, see the [deprecation announcement on GitHub](https://github.com/external-secrets/kubernetes-external-secrets/issues/864#issue-1042914893){: external}.
+The third-party tool (External Kubernetes Secrets) that is featured in this tutorial is deprecated. You can try [External Secrets Operator](https://github.com/external-secrets/external-secrets){: external} instead to get the same benefits. For more information, see the [deprecation announcement on GitHub](https://github.com/external-secrets/kubernetes-external-secrets/issues/864#issue-1042914893){: external}.
 {: deprecated}
 
 In this tutorial, you learn how to use {{site.data.keyword.secrets-manager_full}} to manage secrets for applications that run your {{site.data.keyword.containerfull_notm}} cluster.
