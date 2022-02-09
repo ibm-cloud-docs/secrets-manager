@@ -3,7 +3,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-01-04"
+lastupdated: "2022-02-09"
 
 keywords: tutorial, Secrets Manager
 
@@ -66,6 +66,9 @@ completion-time: 45m
 {: toc-services="secrets-manager,containers,Registry"}
 {: toc-completion-time="45m"}
 
+
+The third-party tool (External Kubernetes Secrets) that is featured in this tutorial is deprecated. You can try [External Secrets Operator](https://github.com/external-secrets/external-secrets){: external} instead to get the same benefits. For more information, see the [deprecation announcement on GitHub](https://github.com/external-secrets/kubernetes-external-secrets/issues/864#issue-1042914893){: external}.
+{: deprecated}
 
 In this tutorial, you learn how to use {{site.data.keyword.secrets-manager_full}} to manage secrets for applications that run your {{site.data.keyword.containerfull_notm}} cluster.
 {: shortdesc}
@@ -326,6 +329,9 @@ e0246cea-d668-aba7-eef2-58ca11ad3707
 
 Now that you have a secret for your application, you can set up [Kubernetes External Secrets](https://github.com/external-secrets/kubernetes-external-secrets){: external} for your cluster. This package configures the connection between {{site.data.keyword.secrets-manager_short}} and your cluster by creating `ExternalSecrets` objects that are converted to Kubernetes secrets for your application.
 
+Kubernetes External Secrets is deprecated. You can try [External Secrets Operator](https://github.com/external-secrets/external-secrets){: external} instead to get the same benefits. For more information, see the [deprecation announcement on GitHub](https://github.com/external-secrets/kubernetes-external-secrets/issues/864#issue-1042914893){: external}.
+{: deprecated}
+
 Kubernetes External Secrets is an open source tool that is not maintained by IBM. For more information about this tool or to troubleshoot any issues, refer to the project in [GitHub](https://github.com/external-secrets/kubernetes-external-secrets){: external}.
 {: note}
 
@@ -475,6 +481,17 @@ If you no longer need the resources that you created in this tutorial, you can c
     ibmcloud resource service-id-delete $SERVICE_ID
     ```
     {: pre}
+
+## Best practices for using Kubernetes External Secrets with {{site.data.keyword.secrets-manager_short}} 
+{: #kubernetes-secrets-best-practices}
+
+Note that {{site.data.keyword.secrets-manager_short}} sets a limit on the rate in which a client can send API requests to it. The limit is 20 calls per second for all API methods. For more information, see [API rate limits](/docs/secrets-manager?topic=secrets-manager-known-issues-and-limits#api-rate-limits). 
+
+As you construct your [YAML document](#tutorial-kubernetes-secrets-update-deployment), keep in mind that each key in the data section is polled periodically via REST from the {{site.data.keyword.secrets-manager_short}} instance. Be aware that:
+
+1. By default, the polling interval is set to 10 seconds. For best results with {{site.data.keyword.secrets-manager_short}}, the polling interval must be greater than 1000 * number of Kubernetes secrets. You can set this value by using the `POLLER_INTERVAL_MILLISECONDS` environment parameter.
+2. While multiple Kubernetes secrets (represented by multiple YAML documents) are polled evenly over the interval time, multiple data entries (represented by the keys inside the YAML data section) are fetched consistently without delays from {{site.data.keyword.secrets-manager_short}}. Having many data entries that are aggregated inside of a Kubernetes secret (for example in this tutorial, you created two entries: `username` and `password`) can make your {{site.data.keyword.secrets-manager_short}} instance reach the rate limit and return HTTP `429 Too Many Request` errors back to the tool. Make sure that you do not create more data entries than needed in each Kubernetes secret.  
+3. If you set the YAML to fetch a {{site.data.keyword.secrets-manager_short}} secret by name rather than ID (`keyByName: true`), each data entry generates two API calls rather than one. Be extra careful with the number of data entries in the YAML configuration file if you select this option. For more information, see the [Kubernetes External Secrets documentation](https://github.com/external-secrets/kubernetes-external-secrets#ibm-cloud-secrets-manager). 
 
 
 ## Next steps

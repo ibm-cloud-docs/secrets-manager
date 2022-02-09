@@ -10,9 +10,8 @@ toc:
     path: secrets-manager
     label: Secrets Manager
 
-
-  entries: 
-  - navgroup: 
+  entries:
+  - navgroup:
       id: learn
       topics:
       - getting-started.md
@@ -33,28 +32,27 @@ toc:
       - topic: releases.md
         navtitle: Release notes        
 
-
   - navgroup: 
       id: tutorial
       topics: 
       - tutorials/access-storage.md
       - tutorials/kubernetes-secrets.md
 
-  - navgroup: 
+  - navgroup:
       id: howto
       topics:
-      - topicgroup: 
+      - topicgroup:
           label: Setting up the service
-          topics: 
+          topics:
           - provision.md
           - assign-access.md
-      - topicgroup: 
+      - topicgroup:
           label: Working with secrets
-          topics: 
+          topics:
           - secret-what-is.md
-          - topicgroup: 
+          - topicgroup:
               label: Creating secrets
-              topics: 
+              topics:
               - topic: arbitrary.md
                 navtitle: Arbitrary secrets
               - topic: iam-credentials.md
@@ -75,12 +73,12 @@ toc:
               - secret-restore.md
           - secret-delete.md
       - secret-groups.md
-      - topicgroup: 
+      - topicgroup:
           label: Configuring secrets engines
-          topics: 
+          topics:
           - engine-what-is.md
           - engine-iam.md
-          - topicgroup: 
+          - topicgroup:
               label: Configuring the public certificates engine
               topics:
               - engine-public-certificates.md
@@ -88,17 +86,17 @@ toc:
               - dns-providers.md
       - topic: framework/event-notifications.md
         navtitle: Enabling event notifications
-      - topicgroup: 
+      - topicgroup:
           label: Logging and monitoring
           topics:
           - framework/at-events.md
           - framework/logging.md
-      - topicgroup: 
+      - topicgroup:
           label: Enhancing security
-          topics: 
+          topics:
           - framework/iam.md
           - framework/architecture-workload-isolation.md
-          - topicgroup: 
+          - topicgroup:
               label: Privately connecting to Secrets Manager
               topics:
               - topic: framework/cse.md
@@ -108,14 +106,13 @@ toc:
           - framework/data-security.md
           - framework/manage-scc.md 
 
-
   - navgroup:
       id: reference
-      topics: 
+      topics:
       - topicgroup:
           label: API & SDK reference
-          links: 
-          - link: 
+          links:
+          - link:
               label: Secrets Manager API
               href: https://{DomainName}/apidocs/secrets-manager
           topics:
@@ -144,16 +141,16 @@ toc:
                   label: IBM Cloud Secrets backend
                   href: https://github.com/ibm-cloud-security/vault-plugin-secrets-ibmcloud
       - endpoints.md
-      - ha-dr.md             
+      - ha-dr.md
 
   - navgroup:
       id: help
-      topics: 
+      topics:
       - faqs.md
       - limits.md
-      - topicgroup: 
+      - topicgroup:
           label: Troubleshooting
-          topics: 
+          topics:
           - troubleshooting/support.md
           - troubleshooting/troubleshoot-provision.md
           - troubleshooting/troubleshoot-iam-engine-access.md

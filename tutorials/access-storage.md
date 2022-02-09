@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-04"
+lastupdated: "2022-02-07"
 content-type: tutorial
 services: secrets-manager, cloud-object-storage
 account-plan: lite
@@ -291,7 +291,7 @@ Finally, configure your {{site.data.keyword.secrets-manager_short}} instance to 
     To configure the IAM secrets engine from the {{site.data.keyword.cloud_notm}} CLI, run the [**`ibmcloud secrets-manager config-update`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-config-update-command) command.
 
     ```sh
-    ibmcloud secrets-manager config-update --secret-type iam_credentials --engine-config '{"api_key": "'"$API_KEY"'"}'
+    ibmcloud secrets-manager config-update --secret-type iam_credentials --engine-config '{"api_key": "$API_KEY"}'
     ```
     {: pre}
 
@@ -308,7 +308,7 @@ To create an IAM credential from the {{site.data.keyword.cloud_notm}} CLI, run t
 
 
 ```sh
-export SECRET_ID=`ibmcloud secrets-manager secret-create --secret-type iam_credentials --resources '[{"name":"test-iam-credentials","description":"Extended description for my secret.","access_groups":["'"$ACCESS_GROUP_ID"'"],"secret_group_id":"'"$SECRET_GROUP_ID"'","ttl":"2h","labels":["storage","us-south"]}]' --output json | jq -r ".resources[].id"`
+export SECRET_ID=`ibmcloud secrets-manager secret-create --secret-type iam_credentials --resources '[{"name":"test-iam-credentials","description":"Extended description for my secret.","access_groups":["$ACCESS_GROUP_ID"],"secret_group_id":"$SECRET_GROUP_ID","ttl":"2h","labels":["storage","us-south"]}]' --output json | jq -r ".resources[].id"`
 ```
 {: pre}
 
@@ -408,8 +408,8 @@ On the command line, run the following cURL request to list the buckets in your 
 ```sh
 curl -X GET \
     "https://s3.us-south.cloud-object-storage.appdomain.cloud" \
-    -H "Authorization: Bearer "'"$IAM_TOKEN"'"" \
-    -H "ibm-service-instance-id: "'"$COS_INSTANCE_ID"'"" \
+    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "ibm-service-instance-id: $COS_INSTANCE_ID" \
     -H "Accept: application/json"
 ```
 {: codeblock}
@@ -437,8 +437,8 @@ To see the contents of your `test-secrets-tutorial` bucket, you can run the foll
 ```sh
 curl -X GET \
     "https://s3.us-south.cloud-object-storage.appdomain.cloud/test-secrets-tutorial" \
-    -H "Authorization: Bearer "'"$IAM_TOKEN"'"" \
-    -H "ibm-service-instance-id: "'"$COS_INSTANCE_ID"'"" \
+    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "ibm-service-instance-id: $COS_INSTANCE_ID" \
     -H "Accept: application/json"
 ```
 {: codeblock}
@@ -474,8 +474,8 @@ And finally, to read the object in the bucket, you can run the following command
 ```sh
 curl -X GET \
     "https://s3.us-south.cloud-object-storage.appdomain.cloud/test-secrets-tutorial/sample.txt" \
-    -H "Authorization: Bearer "'"$IAM_TOKEN"'"" \
-    -H "ibm-service-instance-id: "'"$COS_INSTANCE_ID"'"" \
+    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "ibm-service-instance-id: $COS_INSTANCE_ID" \
     -H "Accept: application/json"
 ```
 {: codeblock}

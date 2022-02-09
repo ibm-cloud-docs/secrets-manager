@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-04"
+lastupdated: "2022-02-09"
 
 keywords:
 
@@ -69,6 +69,9 @@ You're a security architect for a large, financial institution that competes reg
 After much deliberation, your organization chooses {{site.data.keyword.cloud_notm}} in a major initiative to accelerate velocity within its IT division. Your teams start their transition by using [{{site.data.keyword.containerfull_notm}}](/docs/containers?topic=containers-getting-started) to containerize their apps and move them to the cloud. As part of their automation, they need the ability to generate, secure, and reference thousands of {{site.data.keyword.containershort}} application secrets. Rather than to inject those secrets at deployment time, you want the ability to secure them in an external secrets management service, and then retrieve them seamlessly at application run time.
 
 You look to {{site.data.keyword.secrets-manager_short}} as a solution to store secrets in a central repository. By extending the Kubernetes API with the [Kubernetes External Secrets](https://github.com/external-secrets/kubernetes-external-secrets){: external} open source project, your team is able to use {{site.data.keyword.secrets-manager_full_notm}} to securely add secrets to Kubernetes.
+
+Kubernetes External Secrets is deprecated. You can try [External Secrets Operator](https://github.com/external-secrets/external-secrets){: external} instead to get the same benefits. For more information, see the [deprecation announcement on GitHub](https://github.com/external-secrets/kubernetes-external-secrets/issues/864#issue-1042914893){: external}.
+{: deprecated}
 
 This scenario features a third-party tool that can impact the compliance readiness of workloads that run in your Kubernetes cluster. If you add a community or third-party tool, keep in mind that you are responsible for maintaining the compliance of your apps and working with the appropriate provider to troubleshoot any issues. For more information, see [Your responsibilities with using {{site.data.keyword.containerfull_notm}}](/docs/containers?topic=containers-responsibilities_iks).
 {: note}
