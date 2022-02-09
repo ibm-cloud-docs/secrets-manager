@@ -59,9 +59,7 @@ subcollection: secrets-manager
 
 You can use {{site.data.keyword.secrets-manager_full}} to store and manage key-value secrets, including complex JSON documents, that are used to access protected systems that are inside or outside of IBM Cloud. {: shortdesc}
 
-A key-value secret is a type of application secret that can be used to hold sensitive data that is structured as a JSON object. After you create the secret, you can use it to connect your application to a protected resource, such as a database or a third-party app. Your secret is stored securely in your dedicated {{site.data.keyword.secrets-manager_short}} service instance, where you can centrally manage its lifecycle. You can store multiple versions per key and access the history and metadata of your key-value secret with {{site.data.keyword.secrets-manager_short}}.</staging>
-
-You can store multiple versions per key and access the history and metadata of your key-value secret with {{site.data.keyword.secrets-manager_short}}. For more information, see [Managing key-value secrets with Vault](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv).</staging>
+A key-value secret is a type of application secret that can be used to hold sensitive data that is structured as a JSON object. After you create the secret, you can use it to connect your application to a protected resource, such as a database or a third-party app. Your secret is stored securely in your dedicated {{site.data.keyword.secrets-manager_short}} service instance, where you can centrally manage its lifecycle. You can store multiple versions per key and access the history and metadata of your key-value secret with {{site.data.keyword.secrets-manager_short}}.
 
 To learn more about the types of secrets that you can manage in {{site.data.keyword.secrets-manager_short}}, see [What is a secret?](/docs/secrets-manager?topic=secrets-manager-what-is-secret)
 
