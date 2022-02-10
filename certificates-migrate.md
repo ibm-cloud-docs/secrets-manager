@@ -4,7 +4,7 @@ copyright:
   years: 2020, 2022
 lastupdated: "2022-02-10"
 
-keywords: 
+keywords: migrate from Certificate Manager, migrate to Secrets Manager, migrate certificates
 
 subcollection: secrets-manager
 
@@ -61,10 +61,14 @@ With {{site.data.keyword.secrets-manager_full}}, you can centralize your applica
 {: shortdesc}
 
 
+{{site.data.keyword.cloudcerts_long_notm}} is deprecated. The strategic alternative for managing certificates in {{site.data.keyword.cloud_notm}} is {{site.data.keyword.secrets-manager_short}}. For more information, see the [deprecation announcement](/docs/certificate-manager?topic=certificate-manager-release-notes#certificate-manager-feb1022).
+{: note}
+
+
 ## Comparison between {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudcerts_short}}
 {: #migrate-differences}
 
-{{site.data.keyword.secrets-manager_short}} provides a secure repository for storing and managing certificates. All of the features that are available for the {{site.data.keyword.cloudcerts_short}} service are supported by {{site.data.keyword.secrets-manager_short}}. The following table compares and contrasts some common characteristics between the services.
+Both {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudcerts_short}} provide a secure repository for storing and managing certificates. All of the features that are available for the {{site.data.keyword.cloudcerts_short}} service are supported by {{site.data.keyword.secrets-manager_short}}. The following table compares and contrasts some common characteristics between the services.
 
 
 | Characteristics | {{site.data.keyword.secrets-manager_short}} | {{site.data.keyword.cloudcerts_short}} |
