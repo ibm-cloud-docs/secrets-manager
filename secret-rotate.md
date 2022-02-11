@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-02-11"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -103,6 +103,9 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 7. Optional: Check the version history to view the latest updates.
 
    In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
+
+
+
 
 
 ### Rotating user credentials
@@ -244,6 +247,8 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager#update-secret).
+
+
 
 ### Rotating user credentials
 {: #manual-rotate-user-credentials-api}
