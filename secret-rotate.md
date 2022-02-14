@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-02-11"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -71,7 +71,7 @@ Before you get started, be sure that you have the required level of access. To r
 ### Supported secret types
 {: #manual-rotate-by-type}
 
-All of the secrets that you store in {{site.data.keyword.secrets-manager_short}} can be rotated and replaced on-demand. The way in which {{site.data.keyword.secrets-manager_short}} evaluates a request to rotate a secret depends on the secret type.
+All of the secrets that you store in {{site.data.keyword.secrets-manager_short}} can be rotated and replaced on-demand. How {{site.data.keyword.secrets-manager_short}} evaluates a request to rotate a secret depends on the secret type.
 
 | Type | Rotation description |
 | --- | --- |
@@ -103,6 +103,9 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 7. Optional: Check the version history to view the latest updates.
 
    In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
+
+
+
 
 
 ### Rotating user credentials
@@ -162,11 +165,11 @@ If your {{site.data.keyword.secrets-manager_short}} service instance is enabled 
 4. In the row for the certificate that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
 5. Click **Rotate**.
 
-   A success message is displayed to indicate that your order is currently being processed. If the validation completes successfully, a new certificate is issued and the status of the certificate changes from **Active, Rotation pending** back to **Active**. If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**.
+   A success message is displayed to indicate that your order is being processed. If the validation completes successfully, a new certificate is issued and the status of the certificate changes from **Active, Rotation pending** back to **Active**. If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**.
 
 6. Optional: Check the issuance details of a certificate.
 
-   You can check the issuance details of a public certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> Details**. If there was an issue with the request, the Status field provides information about why the rotation couldn't complete successfully.
+   You can check the issuance details of a public certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> Details**. If there was an issue with the request, the Status field provides information about why the rotation did not complete successfully.
 
 7. Redeploy the latest certificate version to your TLS termination point.
 
@@ -198,7 +201,7 @@ The command outputs the value of the secret, along with other metadata. For more
 {: #manual-rotate-user-credentials-cli}
 {: cli}
 
-To rotate a user credential secret using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-update`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-update-command) command. You can specify the type of secret by using the `--secret-type username_password` option. For example, the following command rotates a secret and assigns `new-password` as its new version.
+To rotate a user credential secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-update`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-update-command) command. You can specify the type of secret by using the `--secret-type username_password` option. For example, the following command rotates a secret and assigns `new-password` as its new version.
 
 ```sh
 ibmcloud secrets-manager secret-update --action rotate --id SECRET_ID --secret-type username_password --body '{"password": "new-password"}' --output json
@@ -244,6 +247,8 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager#update-secret).
+
+
 
 ### Rotating user credentials
 {: #manual-rotate-user-credentials-api}

@@ -141,7 +141,7 @@ toc:
                   label: IBM Cloud Secrets backend
                   href: https://github.com/ibm-cloud-security/vault-plugin-secrets-ibmcloud
       - endpoints.md
-      - ha-dr.md
+      - framework/ha-dr.md
 
   - navgroup:
       id: help

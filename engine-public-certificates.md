@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-03"
+lastupdated: "2022-02-14"
 
 keywords: set up certificates, set up public certificates, public certificates engine, set up CIS, set up CA, set up Let's Encrypt
 
@@ -243,16 +243,20 @@ If you manage domains by using classic infrastructure, you must grant service ac
 
 To obtain your classic infrastructure username and API key, you can use the **Access (IAM)** section of the console.
 
+You can view and access your classic infrastructure credentials from the **Access (IAM)** section of the console only if you are a classic infrastructure user. If you do not have classic infrastructure access, the VPN username and classic infrastructure API key fields do not display on the page. For more information, see [Managing classic infrastructure access](/docs/account?topic=account-infrapermission).
+{: important}
+
 ![The figure shows a simplified IAM dashboard with numbered steps for viewing your classic infrastructure username and API key. The steps are described in the following text.](images/classic-infra-creds.svg){: caption="Figure 3. Viewing your classic infrastructure username and API key" caption-side="bottom"}
 
 1. In the console, go to **Manage > Access (IAM) > Users**, then select the user's name.
 2. In the VPN password section, copy the **Username** value.
-   
+
    In most cases, your classic infrastructure username is your `<account_id>_<email_address>`. This username is also your VPN username for the account.
+
 3. In the API keys section, [create a classic infrastructure API key](/docs/account?topic=account-classic_keys) or find your existing key.
 4. Click the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> Details** to copy the API key value.
 5. Assign your user permissions to manage DNS in the account.
-   
+
    For more information about managing classic infrastructure access, see [Classic infrastructure permissions](/docs/account?topic=account-infrapermission).
 
    1. Click the **Classic infrastructure** tab to manage your classic infrastructure permissions.
