@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-11"
+lastupdated: "2022-02-15"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -78,6 +78,7 @@ All of the secrets that you store in {{site.data.keyword.secrets-manager_short}}
 | [Arbitrary secrets](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets) | Arbitrary secrets are immediately replaced with the data that you provide on rotation. |
 | [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) |IAM credentials, which consist of a service ID and API key, are immediately regenerated according to their initial configuration. If the IAM credentials secret was created by using an existing service ID in the account, only the API key is regenerated as part of a manual rotation. In contrast, if the secret was created by selecting an access group, both the service ID and API key values are regenerated when they're manually rotated.<p class="important">The **Reuse IAM credentials until lease expires** (`reuse_api_key`) option for an IAM credentials secret impacts whether it can be rotated manually. If this field is `false` or set to **Off** in the UI, manual rotation isn't supported. The API key that is dynamically generated for the secret on each read is already a single-use, ephemeral value.</p>|
 | [Imported certificates](/docs/secrets-manager?topic=secrets-manager-certificates#import-certificates) | Certificates that were initially imported to a service instance are immediately replaced with the data that you reimport on rotation. |
+| [Key-value secrets](/docs/secrets-manager?topic=secrets-manager-key-value) | Key-value secrets are immediately replaced with the data that you provide on rotation. |
 | [Public certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates) | Public certificates move to the **Active, Rotation pending** status to indicate that a request to rotate a certificate is being processed. {{site.data.keyword.secrets-manager_short}} sends the request to the configured certificate authority (CA), for example Let's Encrypt, to validate the ownership of your domains. If the validation completes successfully, a new certificate is issued. |
 | [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | Passwords that are associated with user credentials secrets are immediately replaced with the data that you provide on rotation. |
 {: caption="Table 1. Describes how {{site.data.keyword.secrets-manager_short}} evaluates manual rotation by secret type" caption-side="top"}
@@ -105,7 +106,21 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
    In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
 
 
+### Rotating key-value secrets
+{: #manual-rotate-key-value-ui}
+{: ui}
 
+You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotate your key-value secrets.
+
+1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
+3. In the {{site.data.keyword.secrets-manager_short}} UI, go to the **Secrets** list.
+4. In the row for the secret that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
+5. Select a file or enter a new secret value in JSON format.
+6. To rotate the secret immediately, click **Rotate**.
+7. Optional: Check the version history to view the latest updates.
+
+   In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
 
 
 ### Rotating user credentials
@@ -248,6 +263,31 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager#update-secret).
 
+### Rotating key-value secrets
+{: #manual-rotate-key-value-api}
+{: api}
+
+You can rotate key-value secrets by calling the {{site.data.keyword.secrets-manager_short}} API.
+
+The following example request creates a new version of your secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+{: curl}
+
+```bash
+curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/kv/{secret_id}?action=rotate"
+   -H "Authorization: Bearer {iam_token}" 
+   -H "Accept: application/json" 
+   -H "Content-Type: application/json"
+   -d {
+         "payload": {
+            "key1": "val2"
+         }
+      } 
+```
+{: codeblock}
+{: curl}
+
+
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager#update-secret).
 
 
 ### Rotating user credentials
