@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-09"
+lastupdated: "2022-02-15"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -688,7 +688,7 @@ curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
 ```
 {: codeblock}
 
-Create a key-value secret in the `default` secret group.
+Create a key-value secret in the `default` secret group. 
 
 ```sh
 curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/secrets' \
@@ -707,7 +707,7 @@ curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
     ]
 }'
 ```
-Create a key-value secret in an existing secret group.
+Create a key-value secret in an existing secret group. 
 
 ```sh
 curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/secrets/groups/{group_id}' \
@@ -727,7 +727,7 @@ curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
 }'
 ```
 
-Create user credentials in the `default` secret group.
+Create user credentials in the `default` secret group. 
 
 ```sh
 curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/username_password/secrets" \
@@ -1375,7 +1375,7 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 ```
 {: codeblock}
 
-Get key-value secrets in the `default` secret group.
+Get key-value secrets in the `default` secret group. 
 
 ```sh
 curl -L -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/secrets/{secret_id}' \
@@ -2085,7 +2085,7 @@ curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
 ```
 {: codeblock}
 
-Rotate a `kv` secret in the `default` secret group.
+Rotate a `kv` secret in the `default` secret group. 
 
 ```sh
 curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/secrets/{secret_id}/rotate' \

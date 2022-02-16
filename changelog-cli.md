@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-03"
+lastupdated: "2022-02-16"
 
 keywords: change log for Secrets Manager CLI, CLI changelog, updates to Secrets Manager CLI
 
@@ -65,7 +65,15 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 
 
 
+## Version 0.1.15
+{: #0.1.15}
 
+Version 0.1.15 was released on 16 February 2022. This release includes the following updates:
+
+- Added support for the `kv` secret type.
+- Added support for IBM Z (s390x platform).
+- Fixed an issue with error messages not displaying properly in responses.
+- Updated command descriptions and translations.
 
 
 ## Version 0.1.14
@@ -75,8 +83,8 @@ Version 0.1.14 was released on 6 December 2021. This release includes the follow
 
 - Added options for setting the `SECRETS_MANAGER_URL`. You can now either define your {{site.data.keyword.secrets-manager_short}} service endpoint URL once by setting an environment variable (for example `export SECRETS_MANAGER_URL`), or you can override the value on the command-level by using the `--service-url INSTANCE` flag.
 - Added support for using the {{site.data.keyword.secrets-manager_short}} CLI plug-in to interact with a service instance over a private network connection.
-- Fixed an issue in the [config-update](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-config-update-command) command for IAM credential secrets. 
-- Updated command descriptions for clarity.
+- Fixed an issue in the [config-update](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-config-update-command) command for IAM credential secrets.
+- Updated command descriptions.
 
 
 ## Version 0.1.12
