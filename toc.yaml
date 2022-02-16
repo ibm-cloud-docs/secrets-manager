@@ -125,7 +125,13 @@ toc:
       - topicgroup:
           label: Vault reference
           topics:
-          - vault-api.md
+          - topicgroup:
+              label: Vault API
+              topics:
+                - topic: vault-api.md
+                  navtitle: Vault API reference
+                - topic: vault-kv-api.md
+                  navtitle: KV secrets engine
           - topicgroup:
               label: Vault CLI
               topics:
