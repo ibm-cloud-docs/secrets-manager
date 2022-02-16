@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-15"
+lastupdated: "2022-02-16"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -688,7 +688,7 @@ curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
 ```
 {: codeblock}
 
-Create a key-value secret in the `default` secret group. 
+Create a key-value secret in the `default` secret group. [Learn more](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv&interface=api#overview-kv).
 
 ```sh
 curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/secrets' \
@@ -1375,7 +1375,7 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 ```
 {: codeblock}
 
-Get key-value secrets in the `default` secret group. 
+Get key-value secrets in the `default` secret group. [Learn more](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv&interface=api#overview-kv).
 
 ```sh
 curl -L -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/secrets/{secret_id}' \
@@ -1853,7 +1853,7 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 ```
 {: codeblock}
 
-Get metadata for a `kv` secret in the `default` secret group. 
+Get metadata for a `kv` secret in the `default` secret group. [Learn more](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv).
 
 ```sh
 curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/secrets/{secret_id}/metadata' \
@@ -2085,7 +2085,7 @@ curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
 ```
 {: codeblock}
 
-Rotate a `kv` secret in the `default` secret group. 
+Rotate a `kv` secret in the `default` secret group. [Learn more](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv&interface=api#overview-kv).
 
 ```sh
 curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/secrets/{secret_id}/rotate' \

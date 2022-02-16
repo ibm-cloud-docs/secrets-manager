@@ -60,7 +60,7 @@ toc:
               - topic: key-value.md
                 navtitle: Key-value secrets
               - topic: certificates.md
-                navtitle: SSL or TLS certificates
+                navtitle: SSL/TLS certificates
               - topic: user-credentials.md
                 navtitle: User credentials
           - secret-access.md
@@ -125,7 +125,13 @@ toc:
       - topicgroup:
           label: Vault reference
           topics:
-          - vault-api.md
+          - topicgroup:
+              label: Vault API
+              topics:
+                - topic: vault-api.md
+                  navtitle: Vault API reference
+                - topic: vault-kv-api.md
+                  navtitle: KV secrets engine
           - topicgroup:
               label: Vault CLI
               topics:
