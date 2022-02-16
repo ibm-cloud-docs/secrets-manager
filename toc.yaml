@@ -16,19 +16,6 @@ toc:
       topics:
       - getting-started.md
       - topicgroup:
-          label: Internal adopters
-          topics:
-          - internal/onboarding.md
-          - topicgroup:
-              label: Migrating secrets from SOS Vault
-              topics:
-              - internal/sos-vault.md
-              - internal/community-vault.md
-              - internal/migrate-secrets.md
-              - internal/approle-policies.md
-              - internal/community-at-events.md
-          - internal/onboarding-faqs.md</staging>
-      - topicgroup:
           label: Use cases
           topics:
           - use-cases/kubernetes-secrets.md
