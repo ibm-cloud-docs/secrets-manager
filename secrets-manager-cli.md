@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-01-04"
+lastupdated: "2022-02-16"
 
 subcollection: secrets-manager
 
@@ -61,7 +61,7 @@ keywords: Secrets Manager CLI, Secrets Manager command line, Secrets Manager ter
 You can use the {{site.data.keyword.secrets-manager_full}} command-line interface (CLI) to manage secrets in your {{site.data.keyword.secrets-manager_short}} instance.
 {: shortdesc}
 
-Current version: **`0.1.14`**
+Current version: **`0.1.15`**
 
 ## Prerequisites
 {: #secrets-manager-cli-prereq}
@@ -231,7 +231,7 @@ ibmcloud secrets-manager secret-group-delete --id ID [--force]
     The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
 
 -f, --force
-:   Force the operation without a confirmation.
+:   Force a delete operation without a confirmation.
 
 #### Examples
 
@@ -248,7 +248,7 @@ Create, import, and manage different types of secrets for your apps and services
 ### ibmcloud secrets-manager secret-create
 {: #secrets-manager-cli-secret-create-command}
 
-Creates a secret or imports an existing value that you can use to access or authenticate to a protected resource.
+Create a secret or import an existing value that you can use to access or authenticate to a protected resource.
 
 Use this method to either generate or import an existing secret, such as an arbitrary value or a TLS certificate, that you can manage in your Secrets Manager service instance. A successful request stores the secret in your dedicated instance based on the secret type and data that you specify. The response returns the ID value of the secret, along with other metadata.
 
@@ -265,7 +265,7 @@ ibmcloud secrets-manager secret-create --secret-type SECRET-TYPE --metadata META
 --secret-type (string)
 :   The secret type. Required.
 
-    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `username_password`.
+    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `username_password`, `kv`.
 
 --metadata ([CollectionMetadata](#cli-collection-metadata-example-schema))
 :   The metadata that describes the resource array. Required.
@@ -298,7 +298,7 @@ ibmcloud secrets-manager secrets --secret-type SECRET-TYPE [--limit LIMIT] [--of
 --secret-type (string)
 :   The secret type. Required.
 
-    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `username_password`.
+    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `username_password`, `kv`.
 
 --limit (int64)
 :   The number of secrets to retrieve. By default, list operations return the first 200 items. To retrieve a different set of items, use `limit` with `offset` to page through your available resources.
@@ -357,6 +357,7 @@ ibmcloud secrets-manager all-secrets [--limit LIMIT] [--offset OFFSET] [--search
 
     You can apply multiple filters by using a comma-separated list of secret group IDs. If you need to filter secrets that are in the default secret group, use the `default` keyword.
 
+    **Usage:** To retrieve a list of secrets that are associated with an existing secret group or the default group, use `../secrets?groups={secret_group_ID},default`.
 
 #### Examples
 
@@ -372,7 +373,7 @@ ibmcloud secrets-manager all-secrets \
 ### ibmcloud secrets-manager secret
 {: #secrets-manager-cli-secret-command}
 
-Retrieves a secret and its details by specifying the ID of the secret.
+Get a secret and its details by specifying the ID of the secret.
 
 A successful request returns the secret data that is associated with your secret, along with other metadata. To view only the details of a specified secret without retrieving its value, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method.
 
@@ -387,7 +388,7 @@ ibmcloud secrets-manager secret --secret-type SECRET-TYPE --id ID
 --secret-type (string)
 :   The secret type. Required.
 
-    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `username_password`.
+    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `username_password`, `kv`.
 
 --id (string)
 :   The v4 UUID that uniquely identifies the secret. Required.
@@ -422,7 +423,7 @@ ibmcloud secrets-manager secret-update --secret-type SECRET-TYPE --id ID --actio
 --secret-type (string)
 :   The secret type. Required.
 
-    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `username_password`.
+    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `username_password`, `kv`.
 
 --id (string)
 :   The v4 UUID that uniquely identifies the secret. Required.
@@ -499,7 +500,7 @@ ibmcloud secrets-manager secret-delete --secret-type SECRET-TYPE --id ID [--forc
 --secret-type (string)
 :   The secret type. Required.
 
-    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `username_password`.
+    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `username_password`, `kv`.
 
 --id (string)
 :   The v4 UUID that uniquely identifies the secret. Required.
@@ -535,7 +536,7 @@ ibmcloud secrets-manager secret-versions --secret-type SECRET-TYPE --id ID
 --secret-type (string)
 :   The secret type. Required.
 
-    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `username_password`.
+    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `username_password`, `kv`.
 
 --id (string)
 :   The v4 UUID that uniquely identifies the secret. Required.
@@ -568,7 +569,7 @@ ibmcloud secrets-manager secret-version --secret-type SECRET-TYPE --id ID --vers
 --secret-type (string)
 :   The secret type. Required.
 
-    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `username_password`.
+    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `username_password`, `kv`.
 
 --id (string)
 :   The v4 UUID that uniquely identifies the secret. Required.
@@ -609,7 +610,7 @@ ibmcloud secrets-manager secret-version-metadata --secret-type SECRET-TYPE --id 
 --secret-type (string)
 :   The secret type. Required.
 
-    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `username_password`.
+    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `username_password`, `kv`.
 
 --id (string)
 :   The v4 UUID that uniquely identifies the secret. Required.
@@ -650,7 +651,7 @@ ibmcloud secrets-manager secret-metadata --secret-type SECRET-TYPE --id ID
 --secret-type (string)
 :   The secret type. Required.
 
-    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `username_password`.
+    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `username_password`, `kv`.
 
 --id (string)
 :   The v4 UUID that uniquely identifies the secret. Required.
@@ -683,7 +684,7 @@ ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id I
 --secret-type (string)
 :   The secret type. Required.
 
-    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `username_password`.
+    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `username_password`, `kv`.
 
 --id (string)
 :   The v4 UUID that uniquely identifies the secret. Required.
@@ -1001,7 +1002,7 @@ ibmcloud secrets-manager config-element-update --secret-type SECRET-TYPE --confi
     Allowable values are: `letsencrypt`, `letsencrypt-stage`, `cis`, `classic_infrastructure`. The maximum length is `128` characters. The minimum length is `2` characters.
 
 --config (interface{})
-:   Properties that describe a configuration, depends on type. Required.
+:   Properties that describe a configuration, which depends on type. Required.
 
 #### Examples
 
