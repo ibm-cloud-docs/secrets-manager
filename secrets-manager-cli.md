@@ -357,7 +357,6 @@ ibmcloud secrets-manager all-secrets [--limit LIMIT] [--offset OFFSET] [--search
 
     You can apply multiple filters by using a comma-separated list of secret group IDs. If you need to filter secrets that are in the default secret group, use the `default` keyword.
 
-    **Usage:** To retrieve a list of secrets that are associated with an existing secret group or the default group, use `../secrets?groups={secret_group_ID},default`.
 
 #### Examples
 
