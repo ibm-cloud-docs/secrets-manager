@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-04"
+lastupdated: "2022-02-17"
 
 keywords: certificate authority, connect certificate authority, set up certificate authority, connect CA, set up CA, connect Let's Encrypt, set up Let's Encrypt, add certificate authority configuration, add CA configuration
 
@@ -128,7 +128,7 @@ Be sure to convert your private key file to single-line format so that it can be
 
 ```sh
 curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/config/public_cert/certificate_authorities' \
--H 'Authorization: Bearer $IAM_TOKEN'  \
+-H 'Authorization: Bearer {IAM_token}' \
 -H 'Content-Type: application/json' \
 -d'{
     "type": "<letsencrypt|letsencrypt-stage>",

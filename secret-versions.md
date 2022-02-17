@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-02-17"
 
 keywords: secret version history, view versions, secret versions
 
@@ -107,7 +107,7 @@ The following example request lists metadata properties for each version. When y
 
 ```sh
 curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}/versions" \
-  --H "Authorization: Bearer $IAM_TOKEN" \
+  --H "Authorization: Bearer {IAM_token}" \
   --H "Accept: application/json"
 ```
 {: codeblock}

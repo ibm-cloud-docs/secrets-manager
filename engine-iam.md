@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-04"
+lastupdated: "2022-02-17"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -186,7 +186,7 @@ If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https:/
 
 ```sh
 curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/config/iam_credentials" \
-    -H "Authorization: Bearer $IAM_TOKEN"
+    -H "Authorization: Bearer {IAM_token}"
     -H "Accept: application/json"
     -H "Content-Type: application/json"
     -d '{

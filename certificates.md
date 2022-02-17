@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-10"
+lastupdated: "2022-02-17"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
 
@@ -138,7 +138,7 @@ You can import certificate files that are in the `.pem` format. Be sure to [conv
 {: note}
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-type imported_cert --resources '[{"name": "example-imported-certificate","description": "Extended description for my secret.","certificate": "-----BEGIN CERTIFICATE-----\nMIICWzCCAcQCC...(redacted)","private_key": "-----BEGIN PRIVATE KEY-----\nMIICdgIBADANB...(redacted)","intermediate": "-----BEGIN CERTIFICATE-----\nMIICUzHHraOa...(redacted)"}]'
+ibmcloud secrets-manager secret-create --secret-type imported_cert --resources '[{"name": "example-imported-certificate","description": "Extended description for my secret.","certificate": "-----BEGIN CERTIFICATE-----\nMIICWzCCAcQCC...(redacted)","private_key": "-----BEGIN PRIVATE KEY-----\nMIICdgIBADANB...(redacted)","intermediate": "-----BEGIN CERTIFICATE-----\nMIICUzHHraOa...(redacted)"}]' --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
 ```
 {: pre}
 
@@ -163,7 +163,7 @@ You can import certificate files that are in the `.pem` format. Be sure to [conv
 
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/imported_cert" \
-    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "Authorization: Bearer {IAM_token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d '{
@@ -285,7 +285,7 @@ When you order a certificate, domain validation takes place to verify the owners
 
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/public_cert" \
-    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "Authorization: Bearer {IAM_token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d '{

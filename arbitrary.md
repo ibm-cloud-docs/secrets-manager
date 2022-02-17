@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-02-17"
 
 keywords: arbitrary secrets, arbitrary text, custom secrets
 
@@ -125,7 +125,7 @@ The following example shows a query that you can use to create and store an arbi
 
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/arbitrary" \
-    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "Authorization: Bearer {IAM_token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d '{

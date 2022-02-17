@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-15"
+lastupdated: "2022-02-17"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -249,7 +249,7 @@ The following example request creates a new version of your secret. When you cal
 
 ```bash
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/arbitrary/{id}?action=rotate" \
-    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "Authorization: Bearer {IAM_token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d '{
@@ -274,7 +274,7 @@ The following example request creates a new version of your secret. When you cal
 
 ```bash
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/kv/{secret_id}?action=rotate"
-   -H "Authorization: Bearer {iam_token}" 
+   -H "Authorization: Bearer {IAM_token}" 
    -H "Accept: application/json" 
    -H "Content-Type: application/json"
    -d {
@@ -303,7 +303,7 @@ The following example request creates a new version of your secret. When you cal
 
 ```bash
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password/{id}?action=rotate" \
-    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "Authorization: Bearer {IAM_token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d '{

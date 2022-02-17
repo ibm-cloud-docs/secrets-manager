@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-02-17"
 
 keywords: username, password, user credentials, store password
 
@@ -117,7 +117,7 @@ The following example shows a query that you can use to create a username and pa
 
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password" \
-    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "Authorization: Bearer {IAM_token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d '{
