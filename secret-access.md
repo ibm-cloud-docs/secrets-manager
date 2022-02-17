@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-02-17"
 
 keywords: access secret, retrieve secret, read secret, get secret value, get secrets, view secrets, search secrets, read secrets, get secret value
 
@@ -99,7 +99,7 @@ After you store a secret in your instance, you might need to retrieve its value 
 To get the value of a secret, run the [**`ibmcloud secrets-manager secret`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-command) command. You can specify the type of secret by using the `--secret-type SECRET-TYPE` option. The options for `SECRET_TYPE` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `public_cert`, and `username_password`.
 
 ```sh
-ibmcloud secrets-manager secret --secret-type SECRET_TYPE --id ID
+ibmcloud secrets-manager secret --secret-type SECRET_TYPE --id ID --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
 ```
 {: pre}
 
@@ -115,7 +115,7 @@ When you're working with certificates, you might need the ability to download th
 To store the certificate into a `pem` file, run the [**`ibmcloud secrets-manager secret`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-command) command.
 
 ```sh
-ibmcloud secrets-manager secret --secret-type <imported_cert|public_cert> --id ID --output json | jq -r '.resources[0].secret_data.certificate' | sed 's/\\n/\n/g' > my-cert-file.pem
+ibmcloud secrets-manager secret --secret-type <imported_cert|public_cert> --id ID --output json | jq -r '.resources[0].secret_data.certificate' | sed 's/\\n/\n/g' > my-cert-file.pem --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
 ```
 {: pre}
 
