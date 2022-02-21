@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-05"
+lastupdated: "2022-02-21"
 
 keywords: restore previous version, revert, roll back
 
@@ -108,7 +108,7 @@ To list the versions of a secret and obtain the ID of each version, use the [Lis
 
 ```bash
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}" \
-    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "Authorization: Bearer {IAM_token}" \
     -H "Accept: application/json" \
     -d '{
       "version_id": <version_id|previous>
