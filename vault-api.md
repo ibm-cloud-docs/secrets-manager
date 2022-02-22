@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-16"
+lastupdated: "2022-02-22"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -290,7 +290,7 @@ Creates a secret group.
 {: #vault-create-secret-group-request}
 
 ```sh
-curl -X PUT "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/groups" \
+curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/auth/ibmcloud/manage/groups" \
     -H 'Accept: application/json' \
     -H 'X-Vault-Token: {Vault-Token}' \
     -H 'Content-Type: application/json' \
