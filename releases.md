@@ -63,6 +63,8 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
+
+
 ## 23 Feburary 2022
 {: #secrets-manager-feb2322}
 {: release-note}
@@ -103,10 +105,10 @@ Pricing plan updates coming soon in Secrets Manager
 {: #secrets-manager-feb0322}
 {: release-note}
 
-Enable notifications for {{site.data.keyword.secrets-manager_short}} events
+Enable lifecyle notifications for your certificates
 :   You can now integrate with the [{{site.data.keyword.en_short}}](/catalog/services/event-notifications){: external} service so that you can manage and route all of your {{site.data.keyword.secrets-manager_short}} alerts to your preferred destinations.
 
-   Currently, you can receive notifications for certificates (`imported_cert` and `public_cert`) only. For more information, see [Enabling event notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications).
+   Currently, {{site.data.keyword.secrets-manager_short}} supports notifications for certificates only. For more information, see [Enabling event notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications).
    {: note}
 
 
