@@ -75,27 +75,25 @@ Pricing plan updates coming soon in Secrets Manager
    When you provision an instance of the service after the 23 March, you can choose either a Trial or Standard plan.
 
 
-      **Trial**: To try out the service, you can provision an instance of the service that allows you to access all of the features that Secrets Manager has to offer for a limited time. After the trial period, all functionality is disabled but the instance remains in your account for an additional 30 days, during which you can choose to upgrade your plan. If you choose not to, the instance and its data are automatically removed from your account without any action on your part.
+   * **Trial**: To try out the service, you can provision an instance of the service that allows you to access all of the features that Secrets Manager has to offer for a limited time. After the trial period, all functionality is disabled but the instance remains in your account for an additional 30 days, during which you can choose to upgrade your plan. If you choose not to, the instance and its data are automatically removed from your account without any action on your part.
 
+   *Note: You can have one instance of the service on the trial plan provisioned in your account at any time.*
 
-      *Note: You can have one instance of the service on the trial plan provisioned in your account at any time.*
-
-
-      **Standard**: When you're ready to upgrade, you get unlimited access to all of the features that the service has to offer without any limit on the number of instances that your teams can provision. With the Standard plan, you are charged per secret and per instance that is provisioned. To view the most current pricing information, see the Secrets Manager UI.
+   * **Standard**: When you're ready to upgrade, you get unlimited access to all of the features that the service has to offer without any limit on the number of instances that your teams can provision. With the Standard plan, you are charged per secret and per instance that is provisioned. To view the most current pricing information, see the Secrets Manager UI.
 
 
    **Important dates:**
 
-      Be sure to keep the following dates in mind:
+   Be sure to keep the following dates in mind:
 
 
-         **23 March 2022**: Instances of Secrets Manager on the Lite plan will be deprecated. As an existing user, you can continue to use the service without interruption, but you should upgrade your instances to the Standard plan as soon as you can.
+   * **23 March 2022**: Instances of Secrets Manager on the Lite plan will be deprecated. As an existing user, you can continue to use the service without interruption, but you should upgrade your instances to the Standard plan as soon as you can.
 
 
-         **22 May 2022**: Instances of Secrets Manager on the Lite plan will be disabled and functionality is removed. However, the instance remains in your account for an additional 30 days, during which you can choose to upgrade your plan.
+   * **22 May 2022**: Instances of Secrets Manager on the Lite plan will be disabled and functionality is removed. However, the instance remains in your account for an additional 30 days, during which you can choose to upgrade your plan.
 
 
-         **21 June 2022**: If you have chosen not to upgrade your plan, the instances of the service and their data will be removed from your account.
+   * **21 June 2022**: If you have chosen not to upgrade your plan, the instances of the service and their data will be removed from your account.
 
 
    *To ensure that your service functionality is not disrupted, be sure to upgrade to a Standard plan prior to 22 May 2022.*
