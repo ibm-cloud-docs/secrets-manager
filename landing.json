@@ -52,11 +52,6 @@
         "date": "31 January 2022",
         "title": "Store key-value secrets",
         "description": "You can now use Secrets Manager to store key-value secrets. Check the full release notes for details."
-      },
-      {
-        "date": "22 November 2021",
-        "title": "View version history and create IAM credentials by using a service ID",
-        "description": "You can now use Secrets Manager to audit the version history of your secrets, and more. Check the full release notes for details."
       }
     ]
   }
