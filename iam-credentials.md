@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-02-17"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -134,7 +134,7 @@ In the **Assign access** step of the Create IAM credentials wizard, choose a sco
 To create a dynamic service ID and API key by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. You can specify the type of secret by using the `--secret-type iam_credentials` option. For example, the following command creates an IAM secret with a lease duration of 12 hours.
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-type iam_credentials --resources '[{"name":"example-IAM-credentials","description":"Extended description for my secret.","access_groups":["<access_group_id>"],"secret_group_id":"<secret_group_id>","ttl":"12h","labels":["<label>","<label>"]}]'
+ibmcloud secrets-manager secret-create --secret-type iam_credentials --resources '[{"name":"example-IAM-credentials","description":"Extended description for my secret.","access_groups":["<access_group_id>"],"secret_group_id":"<secret_group_id>","ttl":"12h","labels":["dev","us-south"]}]' --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
 ```
 {: pre}
 
@@ -149,7 +149,7 @@ IAM credentials consist of a service ID and an API key. By default, the service 
 If you'd like to continue to use those credentials through the end of the lease of your secret, you can use the `reuse_api_key` field. If set to `true`, your secret retains its current service ID and API key values and reuses them on each read while the secret remains valid. For example, the following example command create IAM credentials that can be reused until they expire.
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-type iam_credentials --resources '[{"name":"example-reuse-credentials","description":"Uses the same service ID API key on each read until the lease expires.","reuse_api_key": true,"secret_group_id":"<secret_group_id>","ttl":"30m","labels":["reusable"]}]'
+ibmcloud secrets-manager secret-create --secret-type iam_credentials --resources '[{"name":"example-reuse-credentials","description":"Uses the same service ID API key on each read until the lease expires.","reuse_api_key": true,"secret_group_id":"<secret_group_id>","ttl":"30m","labels":["reusable"]}]' --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
 ```
 {: pre}
 
@@ -168,7 +168,7 @@ You can find the ID value of a service ID in the IAM section of the console. Go 
 {: note}
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-type iam_credentials --resources '[{"name":"example-api-key-only","description":"Generates only an API key on each read.","service_id":"<service_id>","secret_group_id":"<secret_group_id>","ttl":"12h","labels":["api-key-only"]}]'
+ibmcloud secrets-manager secret-create --secret-type iam_credentials --resources '[{"name":"example-api-key-only","description":"Generates only an API key on each read.","service_id":"<service_id>","secret_group_id":"<secret_group_id>","ttl":"12h","labels":["api-key-only"]}]'  --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
 ```
 {: pre}
 
@@ -188,7 +188,7 @@ The following example shows a query that you can use to create a dynamic service
 
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/iam_credentials" \
-    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "Authorization: Bearer {IAM_token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d '{
@@ -201,14 +201,14 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
           "name": "example-IAM-credentials",
           "description": "Extended description for my secret.",
           "access_groups": [
-            "<access_group_id>"
+            "AccessGroupId-0529f490-129c-4877-a2a0-b57f50d3e53b"
           ],
-          "secret_group_id": "<secret_group_id>",
+          "secret_group_id": "339c026a-ac0f-1ea1-3d43-99adf871b49a",
           "reuse_api_key": <true|false>,
           "ttl": "12h",
           "labels": [
-            "<label>",
-            "<label>"
+            "dev",
+            "us-south"
           ]
         }
         ]
@@ -231,7 +231,7 @@ If you'd like to use those credentials through the end of the lease of your secr
 
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/iam_credentials" \
-    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "Authorization: Bearer {IAM_token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d '{
@@ -244,14 +244,14 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
           "name": "example-IAM-credentials",
           "description": "Extended description for my secret.",
           "access_groups": [
-            "<access_group_id>"
+            "AccessGroupId-0529f490-129c-4877-a2a0-b57f50d3e53b"
           ],
-          "secret_group_id": "<secret_group_id>",
+          "secret_group_id": "339c026a-ac0f-1ea1-3d43-99adf871b49a",
           "reuse_api_key": true,
           "ttl": "12h",
           "labels": [
-            "<label>",
-            "<label>"
+            "dev",
+            "us-south"
           ]
         }
         ]
@@ -276,7 +276,7 @@ You can find the ID value of a service ID in the IAM section of the console. Go 
 
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/iam_credentials" \
-    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "Authorization: Bearer {IAM_token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d '{
@@ -288,12 +288,12 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
         {
           "name": "example-IAM-credentials",
           "description": "Extended description for my secret.",
-          "service_id": "<service_id>,
-          "secret_group_id": "<secret_group_id>",
+          "service_id": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0,
+          "secret_group_id": "339c026a-ac0f-1ea1-3d43-99adf871b49a",
           "ttl": "12h",
           "labels": [
-            "<label>",
-            "<label>"
+            "dev",
+            "us-south"
           ]
         }
         ]

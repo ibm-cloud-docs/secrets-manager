@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-15"
+lastupdated: "2022-02-17"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -206,7 +206,7 @@ You can manually rotate your secrets and certificates by using the {{site.data.k
 To rotate an arbitrary secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-update`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-update-command) command. You can specify the type of secret by using the `--secret-type arbitrary` option. For example, the following command rotates a secret and assigns `new-secret-data` as its new version.
 
 ```sh
-ibmcloud secrets-manager secret-update --action rotate --id SECRET_ID --secret-type arbitrary --body '{"payload": "new-secret-data"}' --output json
+ibmcloud secrets-manager secret-update --action rotate --id SECRET_ID --secret-type arbitrary --body '{"payload": "new-secret-data"}' --output json --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
 ```
 {: codeblock}
 
@@ -219,7 +219,7 @@ The command outputs the value of the secret, along with other metadata. For more
 To rotate a user credential secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-update`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-update-command) command. You can specify the type of secret by using the `--secret-type username_password` option. For example, the following command rotates a secret and assigns `new-password` as its new version.
 
 ```sh
-ibmcloud secrets-manager secret-update --action rotate --id SECRET_ID --secret-type username_password --body '{"password": "new-password"}' --output json
+ibmcloud secrets-manager secret-update --action rotate --id SECRET_ID --secret-type username_password --body '{"password": "new-password"}' --output json --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
 ```
 {: codeblock}
 
@@ -249,7 +249,7 @@ The following example request creates a new version of your secret. When you cal
 
 ```bash
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/arbitrary/{id}?action=rotate" \
-    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "Authorization: Bearer {IAM_token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d '{
@@ -274,7 +274,7 @@ The following example request creates a new version of your secret. When you cal
 
 ```bash
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/kv/{secret_id}?action=rotate"
-   -H "Authorization: Bearer {iam_token}" 
+   -H "Authorization: Bearer {IAM_token}" 
    -H "Accept: application/json" 
    -H "Content-Type: application/json"
    -d {
@@ -303,7 +303,7 @@ The following example request creates a new version of your secret. When you cal
 
 ```bash
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password/{id}?action=rotate" \
-    -H "Authorization: Bearer $IAM_TOKEN" \
+    -H "Authorization: Bearer {IAM_token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d '{

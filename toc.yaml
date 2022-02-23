@@ -30,7 +30,7 @@ toc:
           - best-practices/secret-organize.md
       - integrations.md
       - topic: releases.md
-        navtitle: Release notes        
+        navtitle: Release notes
 
   - navgroup: 
       id: tutorial
