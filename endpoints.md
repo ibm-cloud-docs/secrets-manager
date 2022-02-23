@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-04"
+lastupdated: "2022-02-23"
 
 keywords: Secrets Manager availability, regions, Secrets Manager endpoints, Vault endpoint
 
@@ -91,11 +91,11 @@ If you are managing your {{site.data.keyword.secrets-manager_short}} resources o
 | Region        | Endpoint URL             |
 | ------------- | ---------------------------- |
 | Dallas        | `https://{instance_ID}.us-south.secrets-manager.appdomain.cloud/api` |
-| Washington DC | `https://{instance_ID}.us-east.secrets-manager.appdomain.cloud/api`  |
-| London        | `https://{instance_ID}.eu-gb.secrets-manager.appdomain.cloud/api`    |
 | Frankfurt     | `https://{instance_ID}.eu-de.secrets-manager.appdomain.cloud/api`    |
+| London        | `https://{instance_ID}.eu-gb.secrets-manager.appdomain.cloud/api`    |
 | Sydney        | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud/api`   |
 | Tokyo         | `https://{instance_ID}.jp-tok.secrets-manager.appdomain.cloud/api`   |
+| Washington DC | `https://{instance_ID}.us-east.secrets-manager.appdomain.cloud/api`  |
 {: caption="Table 1. Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using standard {{site.data.keyword.cloud_notm}} APIs" caption-side="top"}
 {: #public-endpoints-secrets-manager}
 {: tab-title="Service API"}
@@ -105,11 +105,11 @@ If you are managing your {{site.data.keyword.secrets-manager_short}} resources o
 | Region        | Endpoint URL             |
 | ------------- | ---------------------------- |
 | Dallas        | `https://{instance_ID}.us-south.secrets-manager.appdomain.cloud` |
-| Washington DC | `https://{instance_ID}.us-east.secrets-manager.appdomain.cloud`  |
-| London        | `https://{instance_ID}.eu-gb.secrets-manager.appdomain.cloud`    |
 | Frankfurt     | `https://{instance_ID}.eu-de.secrets-manager.appdomain.cloud`    |
+| London        | `https://{instance_ID}.eu-gb.secrets-manager.appdomain.cloud`    |
 | Sydney        | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud`   |
 | Tokyo         | `https://{instance_ID}.jp-tok.secrets-manager.appdomain.cloud`   |
+| Washington DC | `https://{instance_ID}.us-east.secrets-manager.appdomain.cloud`  |
 {: caption="Table 1. Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
 {: #public-endpoints-vault}
 {: tab-title="Vault API"}
@@ -130,11 +130,11 @@ To learn how to configure your {{site.data.keyword.secrets-manager_short}} insta
 | Region        | Endpoint URL             |
 | ------------- | ---------------------------- |
 | Dallas        | `https://{instance_ID}.private.us-south.secrets-manager.appdomain.cloud/api` |
-| Washington DC | `https://{instance_ID}.private.us-east.secrets-manager.appdomain.cloud/api`  |
-| London        | `https://{instance_ID}.private.eu-gb.secrets-manager.appdomain.cloud/api`    |
 | Frankfurt     | `https://{instance_ID}.private.eu-de.secrets-manager.appdomain.cloud/api`    |
+| London        | `https://{instance_ID}.private.eu-gb.secrets-manager.appdomain.cloud/api`    |
 | Sydney        | `https://{instance_ID}.private.au-syd.secrets-manager.appdomain.cloud/api`   |
 | Tokyo         | `https://{instance_ID}.private.jp-tok.secrets-manager.appdomain.cloud/api`   |
+| Washington DC | `https://{instance_ID}.private.us-east.secrets-manager.appdomain.cloud/api`  |
 {: caption="Table 2. Private endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using standard {{site.data.keyword.cloud_notm}} APIs" caption-side="top"}
 {: #private-endpoints-secrets-manager}
 {: tab-title="Service API"}
@@ -144,11 +144,11 @@ To learn how to configure your {{site.data.keyword.secrets-manager_short}} insta
 | Region        | Endpoint URL             |
 | ------------- | ---------------------------- |
 | Dallas        | `https://{instance_ID}.private.us-south.secrets-manager.appdomain.cloud` |
-| Washington DC | `https://{instance_ID}.private.us-east.secrets-manager.appdomain.cloud`  |
-| London        | `https://{instance_ID}.private.eu-gb.secrets-manager.appdomain.cloud`    |
 | Frankfurt     | `https://{instance_ID}.private.eu-de.secrets-manager.appdomain.cloud`    |
+| London        | `https://{instance_ID}.private.eu-gb.secrets-manager.appdomain.cloud`    |
 | Sydney        | `https://{instance_ID}.private.au-syd.secrets-manager.appdomain.cloud`   |
 | Tokyo         | `https://{instance_ID}.private.jp-tok.secrets-manager.appdomain.cloud`   |
+| Washington DC | `https://{instance_ID}.private.us-east.secrets-manager.appdomain.cloud`  |
 {: caption="Table 2. Private endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
 {: #private-endpoints-vault}
 {: tab-title="Vault API"}
