@@ -39,7 +39,7 @@
     "view_more": "/docs/secrets-manager?topic=secrets-manager-release-notes",
     "tiles": [
       {
-        "date": "28 February 2022",
+        "date": "23 February 2022",
         "title": "Pricing updates coming soon",
         "description": "On 23 March 2022, Secrets Manager will introduce Standard and Trial pricing plans. The current Lite plan option will be deprecated. To ensure that your service functionality is not disrupted, be sure to upgrade to a Standard plan prior to 22 May 2022. For more information, check the full release notes."
       },
