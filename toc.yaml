@@ -82,7 +82,7 @@ toc:
               label: Configuring the public certificates engine
               topics:
               - engine-public-certificates.md
-              - certificate-authorities.md
+              - third-party-ca.md
               - dns-providers.md
       - topic: framework/event-notifications.md
         navtitle: Enabling event notifications

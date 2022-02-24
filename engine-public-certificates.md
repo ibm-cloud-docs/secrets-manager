@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-22"
+lastupdated: "2022-02-24"
 
 keywords: set up certificates, set up public certificates, public certificates engine, set up CIS, set up CA, set up Let's Encrypt
 
@@ -138,80 +138,86 @@ To create a service authorization, you can use the **Access (IAM)** section of t
 
 To grant access to specific domains, you can use the [IAM Policy Management API](/apidocs/iam-policy-management#create-a-policy) to assign the **Manager** service role. With **Manager** access, {{site.data.keyword.secrets-manager_short}} can manage the DNS records for the individual domains that exist in your {{site.data.keyword.cis_short_notm}} instance.
 
-The following example shows a query that you can use to assign access between {{site.data.keyword.secrets-manager_short}} and your selected domains.
+1. Create a service authorization with **Reader** access between your {{site.data.keyword.secrets-manager_short}} and CIS instances.
 
-```sh
-curl -X POST https://iam.cloud.ibm.com/v1/policies \
--H 'Accept: application/json' \
--H 'Content-Type: application/json' \
--H 'Authorization: Bearer <IAM_token>' \
--d '{ 
-    "type": "authorization", 
-    "subjects": [ 
-        { 
-            "attributes": [ 
-                { 
-                    "name": "serviceName", 
-                    "value": "secrets-manager" 
-                },
-                {
-                    "name": "accountId", 
-                    "value": "<account_id>" 
-                }, 
-                { 
-                    "name": "serviceInstance", 
-                    "value": "<secrets_manager_instance_id>" 
-                } 
-            ] 
-        } 
-    ], 
-    "roles": [
-        { 
-            "role_id": "crn:v1:bluemix:public:iam::::serviceRole:Manager" 
-        }
-    ], 
-    "resources": [ 
-        { 
-            "attributes": [ 
-                { 
-                    "name": "serviceName", 
-                    "value": "internet-svcs" 
-                }, 
-                { 
-                    "name": "accountId",
-                    "value": "<account_id>"
-                }, 
-                {
-                    "name": "serviceInstance",
-                    "value": "<cis_instance_id>"
-                }, 
-                {
-                    "name": "domainId", 
-                    "value": "<domain_id>" 
-                },
-                { 
-                    "name": "cfgType", 
-                    "value": "reliability" 
-                }, 
-                { 
-                    "name": "subScope", 
-                    "value": "dnsRecord" 
-                } 
-            ] 
-        }
-    ]
-}'
-```
-{: codeblock}
+    You can follow the steps in the [previous section](#authorize-all-domains) to create an authorization. With these permissions, your {{site.data.keyword.secrets-manager_short}} instance can access the CIS instance and its domains.
 
-| Variable | Descriptions |
-| -------- | ------------ |
-| `IAM_token` | A valid IAM token. You can find the value by using the {{site.data.keyword.cloud_notm}} CLI: `ibmcloud iam oauth-tokens`. |
-| `account_id` | The ID for the account where the {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cis_short_notm}} instances exist. You can find the value by navigating to **{{site.data.keyword.cloud_notm}} > Manage > Account > Account Settings** or by using the {{site.data.keyword.cloud_notm}} CLI: `ibmcloud account show`. |
-| `secrets_manager_instance_id` | The ID of your {{site.data.keyword.secrets-manager_short}} instance. To find the value, use the {{site.data.keyword.cloud_notm}} CLI: `ibmcloud resource service-instance "Instance name"`. |
-| `cis_instance_id` | The ID of your {{site.data.keyword.cis_short_notm}} instance. To find the value, use the {{site.data.keyword.cloud_notm}} CLI: `ibmcloud resource service-instance "Instance name"`. |
-| `domain_id` | The ID of your domain as it is found in {{site.data.keyword.cis_short_notm}}. To find the value, use the {{site.data.keyword.cloud_notm}} CLI to run `ibmcloud cis domains`. To manage multiple domains, modify the `resources` array. |
-{: caption="Table 3. Parameter descriptions" caption-side="top"}
+2. Create another authorization with **Manager** access to a specific domain.
+
+    The following example shows a query that you can use to assign access between {{site.data.keyword.secrets-manager_short}} and your selected domains.
+
+    ```sh
+    curl -X POST https://iam.cloud.ibm.com/v1/policies \
+    -H 'Accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer {IAM_token}' \
+    -d '{ 
+        "type": "authorization", 
+        "subjects": [ 
+            { 
+                "attributes": [ 
+                    { 
+                        "name": "serviceName", 
+                        "value": "secrets-manager" 
+                    },
+                    {
+                        "name": "accountId", 
+                        "value": "<account_id>" 
+                    }, 
+                    { 
+                        "name": "serviceInstance", 
+                        "value": "<secrets_manager_instance_id>" 
+                    } 
+                ] 
+            } 
+        ], 
+        "roles": [
+            { 
+                "role_id": "crn:v1:bluemix:public:iam::::serviceRole:Manager" 
+            }
+        ], 
+        "resources": [ 
+            { 
+                "attributes": [ 
+                    { 
+                        "name": "serviceName", 
+                        "value": "internet-svcs" 
+                    }, 
+                    { 
+                        "name": "accountId",
+                        "value": "<account_id>"
+                    }, 
+                    {
+                        "name": "serviceInstance",
+                        "value": "<cis_instance_id>"
+                    }, 
+                    {
+                        "name": "domainId", 
+                        "value": "<domain_id>" 
+                    },
+                    { 
+                        "name": "cfgType", 
+                        "value": "reliability" 
+                    }, 
+                    { 
+                        "name": "subScope", 
+                        "value": "dnsRecord" 
+                    } 
+                ] 
+            }
+        ]
+    }'
+    ```
+    {: codeblock}
+
+    | Variable | Descriptions |
+    | -------- | ------------ |
+    | `IAM_token` | A valid IAM token. You can find the value by using the {{site.data.keyword.cloud_notm}} CLI: `ibmcloud iam oauth-tokens`. |
+    | `account_id` | The ID for the account where the {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cis_short_notm}} instances exist. You can find the value by navigating to **{{site.data.keyword.cloud_notm}} > Manage > Account > Account Settings** or by using the {{site.data.keyword.cloud_notm}} CLI: `ibmcloud account show`. |
+    | `secrets_manager_instance_id` | The ID of your {{site.data.keyword.secrets-manager_short}} instance. To find the value, use the {{site.data.keyword.cloud_notm}} CLI: `ibmcloud resource service-instance "Instance name"`. |
+    | `cis_instance_id` | The ID of your {{site.data.keyword.cis_short_notm}} instance. To find the value, use the {{site.data.keyword.cloud_notm}} CLI: `ibmcloud resource service-instance "Instance name"`. |
+    | `domain_id` | The ID of your domain as it is found in {{site.data.keyword.cis_short_notm}}. To find the value, use the {{site.data.keyword.cloud_notm}} CLI to run `ibmcloud cis domains`. To manage multiple domains, modify the `resources` array. |
+    {: caption="Table 3. Parameter descriptions" caption-side="top"}
 
 #### Granting service access by using an API key
 {: #authorize-cis-another-account}
