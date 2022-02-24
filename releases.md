@@ -99,7 +99,7 @@ Pricing plan updates coming soon in Secrets Manager
    * **21 June 2022**: If you have chosen not to upgrade your plan, the instances of the service and their data will be removed from your account.
 
 
-   To ensure that your service functionality is not disrupted, be sure to upgrade to a Standard plan prior to 22 May 2022.
+   Users will have the option to upgrade their service starting 23 March 2022. To ensure that your service functionality is not disrupted, be sure to upgrade to a Standard plan prior to 22 May 2022.
    {: important}
 
 
