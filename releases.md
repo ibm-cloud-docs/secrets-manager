@@ -90,7 +90,7 @@ Pricing plan updates coming soon in Secrets Manager
    Be sure to keep the following dates in mind:
 
 
-   * **23 March 2022**: Instances of Secrets Manager on the Lite plan will be deprecated. As an existing user, you can continue to use the service without interruption, but you should upgrade your instances to the Standard plan as soon as you can.
+   * **23 March 2022**: Instances of Secrets Manager on the Lite plan will be deprecated. As an existing user, you can continue to use the service without interruption, but you should upgrade your instances to the Standard plan as soon as you can after this date.
 
 
    * **22 May 2022**: Instances of Secrets Manager on the Lite plan will be disabled and functionality is removed. However, the instance remains in your account for an additional 30 days, during which you can choose to upgrade your plan.
