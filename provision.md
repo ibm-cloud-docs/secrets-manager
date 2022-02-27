@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-11"
+lastupdated: "2022-02-27"
 
 keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, lite plan
 
@@ -62,31 +62,17 @@ You can get started with {{site.data.keyword.secrets-manager_full}} by creating 
 
 When you provision {{site.data.keyword.secrets-manager_short}} in your {{site.data.keyword.cloud_notm}} account, the service creates a single tenant, dedicated instance.
 
+
 You can create only one Lite plan instance of {{site.data.keyword.secrets-manager_short}} per {{site.data.keyword.cloud_notm}} account. The Lite plan includes access to all service capabilities for free.
 {: note}
 
-## Creating a {{site.data.keyword.secrets-manager_short}} instance in the UI
-{: #create-instance-ui}
-{: ui}
+<staging>
 
-To create an instance of {{site.data.keyword.secrets-manager_short}} from the {{site.data.keyword.cloud_notm}} console, complete the following steps.
+Provisioning a {{site.data.keyword.secrets-manager_short}} instance can take 5 - 8 minutes to complete.
+{: note}
 
-1. In the console, go to the [{{site.data.keyword.secrets-manager_short}} offering details page](/catalog/services/secrets-manager){: external}.
-2. In the **Create** tab, select the region that represents the geographic area where you want provision your instance.
-3. Review and select a pricing plan.
-4. Provide a name for your instance.
-5. Select a resource group.
-6. Optional: Add tags to help you to organize the instance in your account.
-7. Determine an option for enabling customer-managed encryption for your instance.
 
-    You can enhance the security of your secrets at rest by integrating with a key management service. For more information about customer-managed encryption, check out [Protecting your sensitive data in {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption).
-8. Determine an option for connecting to {{site.data.keyword.secrets-manager_short}}.
 
-    To further protect your connection to {{site.data.keyword.secrets-manager_short}}, you can choose to provision an instance that uses a private service endpoint. For more information about setting up your account to support the private connectivity option, see [Enabling VRF and service endpoints](/docs/account?topic=account-vrf-service-endpoint).
-9. Click **Create** to create an instance of {{site.data.keyword.secrets-manager_short}} in the account, region, and resource group that you selected.
-
-    Provisioning a {{site.data.keyword.secrets-manager_short}} instance can take 5 - 8 minutes to complete.
-    {: note}
 
 ## Creating a {{site.data.keyword.secrets-manager_short}} instance from the CLI
 {: #create-instance-cli}
@@ -134,4 +120,6 @@ You can also create an instance of {{site.data.keyword.secrets-manager_short}} b
 
     Provisioning a {{site.data.keyword.secrets-manager_short}} instance can take 5 - 8 minutes to complete.
     {: note}
+
+
 
