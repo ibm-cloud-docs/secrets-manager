@@ -60,7 +60,9 @@ subcollection: secrets-manager
 You can get started with {{site.data.keyword.secrets-manager_full}} by creating a service instance in {{site.data.keyword.cloud_notm}} console or with the {{site.data.keyword.cloud_notm}} CLI.
 {: shortdesc}
 
-When you provision {{site.data.keyword.secrets-manager_short}} in your {{site.data.keyword.cloud_notm}} account, the service creates a single tenant, dedicated instance.
+
+
+When you provision {{site.data.keyword.secrets-manager_short}} in your {{site.data.keyword.cloud_notm}} account, the service creates a single tenant, dedicated instance. 
 
 
 You can create only one Lite plan instance of {{site.data.keyword.secrets-manager_short}} per {{site.data.keyword.cloud_notm}} account. The Lite plan includes access to all service capabilities for free.
