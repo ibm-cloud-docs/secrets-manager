@@ -1,6 +1,6 @@
 {
   "title": "Secrets Manager docs",
-  "lastupdated": "2022-02-23",
+  "lastupdated": "2022-02-28",
   "introduction": "Explore recommended content and resources to help you get started with IBM Cloud Secrets Manager.",
   "section_devtools": {
     "api": "/apidocs/secrets-manager",
@@ -38,6 +38,11 @@
   "section_updates": {
     "view_more": "/docs/secrets-manager?topic=secrets-manager-release-notes",
     "tiles": [
+      {
+        "date": "28 February 2022",
+        "title": "Now available in the Sao Paulo region",
+        "description": "You can now create an instance of Secrets Manager in the Sao Paulo region."
+      },
       {
         "date": "23 February 2022",
         "title": "Pricing updates coming soon",
