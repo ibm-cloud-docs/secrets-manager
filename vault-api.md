@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-23"
+lastupdated: "2022-02-28"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -82,6 +82,7 @@ The following table lists the endpoint URLs by region that can be used to intera
 | Region        | Endpoint URL                                                     |
 | ------------- | ---------------------------------------------------------------- |
 | Dallas        | `https://{instance_id}.us-south.secrets-manager.appdomain.cloud` |
+| Sao Paulo     | `https://{instance_id}.br-sao.secrets-manager.appdomain.cloud`   |
 | Washington DC | `https://{instance_id}.us-east.secrets-manager.appdomain.cloud`  |
 | Frankfurt     | `https://{instance_id}.eu-de.secrets-manager.appdomain.cloud`    |
 | London        | `https://{instance_id}.eu-gb.secrets-manager.appdomain.cloud`    |
@@ -96,6 +97,7 @@ The following table lists the endpoint URLs by region that can be used to intera
 | Region        | Endpoint URL                                                             |
 | ------------- | ------------------------------------------------------------------------ |
 | Dallas        | `https://{instance_id}.private.us-south.secrets-manager.appdomain.cloud` |
+| Sao Paulo     | `https://{instance_id}.private.br-sao.secrets-manager.appdomain.cloud`   |
 | Washington DC | `https://{instance_id}.private.us-east.secrets-manager.appdomain.cloud`  |
 | Frankfurt     | `https://{instance_id}.private.eu-de.secrets-manager.appdomain.cloud`    |
 | London        | `https://{instance_id}.private.eu-gb.secrets-manager.appdomain.cloud`    |

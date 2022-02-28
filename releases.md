@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-24"
+lastupdated: "2022-02-28"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -65,6 +65,17 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 
 
 
+## 28 Feburary 2022
+{: #secrets-manager-feb2822}
+{: release-note}
+
+Sao Paulo availability
+:   You can now create a {{site.data.keyword.secrets-manager_short}} service instance in the Sao Paulo (`br-sao`) region.
+
+   For more information, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
+
+
+
 ## 23 Feburary 2022
 {: #secrets-manager-feb2322}
 {: release-note}
@@ -90,7 +101,7 @@ Pricing plan updates coming soon in Secrets Manager
    Be sure to keep the following dates in mind:
 
 
-   * **23 March 2022**: Instances of Secrets Manager on the Lite plan will be deprecated. As an existing user, you can continue to use the service without interruption, but you should upgrade your instances to the Standard plan as soon as you can.
+   * **23 March 2022**: Instances of Secrets Manager on the Lite plan will be deprecated. As an existing user, you can continue to use the service without interruption, but you should upgrade your instances to the Standard plan as soon as you can after this date.
 
 
    * **22 May 2022**: Instances of Secrets Manager on the Lite plan will be disabled and functionality is removed. However, the instance remains in your account for an additional 30 days, during which you can choose to upgrade your plan.
@@ -99,7 +110,7 @@ Pricing plan updates coming soon in Secrets Manager
    * **21 June 2022**: If you have chosen not to upgrade your plan, the instances of the service and their data will be removed from your account.
 
 
-   To ensure that your service functionality is not disrupted, be sure to upgrade to a Standard plan prior to 22 May 2022.
+   Users will have the option to upgrade their service starting 23 March 2022. To ensure that your service functionality is not disrupted, be sure to upgrade to a Standard plan prior to 22 May 2022.
    {: important}
 
 
