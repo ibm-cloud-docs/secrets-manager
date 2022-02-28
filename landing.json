@@ -52,11 +52,6 @@
         "date": "3 February 2022",
         "title": "Enable lifecycle notifications for your certificates",
         "description": "To be notified of critical certificate lifecycle events, you can now configure your notification preferences through the Event Notifications service."
-      },
-      {
-        "date": "31 January 2022",
-        "title": "Store key-value secrets",
-        "description": "You can now use Secrets Manager to store key-value secrets. Check the full release notes for details."
       }
     ]
   }
