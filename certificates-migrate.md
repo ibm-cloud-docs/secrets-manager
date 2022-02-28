@@ -104,26 +104,23 @@ Before you begin, consider the following items and service limitations that migh
 
 Currently, {{site.data.keyword.secrets-manager_short}} is a free service that enforces a limit of one instance per {{site.data.keyword.cloud_notm}} account. Pricing and service limits for {{site.data.keyword.secrets-manager_short}} are subject to change. During the transition period, you can create a {{site.data.keyword.secrets-manager_short}} service instance to start migrating your existing certificates from {{site.data.keyword.cloudcerts_short}}. {{site.data.keyword.secrets-manager_short}} does not enforce a limit on the total number of secrets or certificates you can store per instance.
 
-#### Provisioning a {{site.data.keyword.secrets-manager_short}} instance takes 5 - 8 minutes to complete
-{: #migrate-limit-provision}
+On 23 March 2022, Secrets Manager will introduce Standard and Trial pricing plans. With the Standard pricing plan, you get unlimited access to all service capabilities without any limit on the number of instances that your teams can provision. For more information, refer to the [release notes](/docs/secrets-manager?topic=secrets-manager--release-notes#secrets-manager-feb2322).
+{: important}
 
-Unlike {{site.data.keyword.cloudcerts_short}}, {{site.data.keyword.secrets-manager_short}} is a single-tenant offering. During instance provisioning, {{site.data.keyword.secrets-manager_short}} creates various dedicated resources that are assigned to your service instance only. If you dynamically provision instances of {{site.data.keyword.cloudcerts_short}} and you plan to do the same with {{site.data.keyword.secrets-manager_short}} instances, keep in mind that {{site.data.keyword.secrets-manager_short}} provisioning is asynchronous and takes 5 - 8 minutes to complete.
+Provisioning a {{site.data.keyword.secrets-manager_short}} instance takes 5 - 8 minutes to complete
+:   Unlike {{site.data.keyword.cloudcerts_short}}, {{site.data.keyword.secrets-manager_short}} is a single-tenant offering. During instance provisioning, {{site.data.keyword.secrets-manager_short}} creates various dedicated resources that are assigned to your service instance only. If you dynamically provision instances of {{site.data.keyword.cloudcerts_short}} and you plan to do the same with {{site.data.keyword.secrets-manager_short}} instances, keep in mind that {{site.data.keyword.secrets-manager_short}} provisioning is asynchronous and takes 5 - 8 minutes to complete.
 
-#### **Secret groups in {{site.data.keyword.secrets-manager_short}} are used to enforce granular access to secrets
-{: #migrate-limit-access}
+Secret groups in {{site.data.keyword.secrets-manager_short}} are used to enforce granular access to secrets
+:   In {{site.data.keyword.cloudcerts_short}}, you can create access policies on individual certificates. In {{site.data.keyword.secrets-manager_short}}, you can set access policies on secret groups that contain one or more certificates. Additionally, {{site.data.keyword.secrets-manager_short}} supports a **SecretsReader** IAM role that provides read-only access to download certificates.
 
-In {{site.data.keyword.cloudcerts_short}}, you can create access policies on individual certificates. In {{site.data.keyword.secrets-manager_short}}, you can set access policies on secret groups that contain one or more certificates. Additionally, {{site.data.keyword.secrets-manager_short}} supports a **SecretsReader** IAM role that provides read-only access to download certificates.
+{{site.data.keyword.secrets-manager_short}} provides a unique endpoint URL for each service instance
+:   Unlike {{site.data.keyword.cloudcerts_short}}, {{site.data.keyword.secrets-manager_short}} constructs a unique endpoint URL for your service instance. {{site.data.keyword.secrets-manager_short}} endpoints uses the `appdomain.cloud` domain, whereas {{site.data.keyword.cloudcerts_short}} uses the `cloud.ibm.com` domain. For more information, review the {{site.data.keyword.cloudcerts_short}} and {{site.data.keyword.secrets-manager_short}} API docs.
 
-#### {{site.data.keyword.secrets-manager_short}} provides a unique endpoint URL for each service instance
-{: #migrate-limit-endpoint}
+{{site.data.keyword.cloudcerts_short}} and {{site.data.keyword.secrets-manager_short}} APIs are different in structure
+:   If you use {{site.data.keyword.cloudcerts_short}} to manage your certificates programmatically, be sure to review the [{{site.data.keyword.secrets-manager_short}} API docs](/apidocs/secrets-manager) to understand how moving your certificates impacts your current experience.
 
-Unlike {{site.data.keyword.cloudcerts_short}}, {{site.data.keyword.secrets-manager_short}} constructs a unique endpoint URL for your service instance. {{site.data.keyword.secrets-manager_short}} endpoints uses the `appdomain.cloud` domain, whereas {{site.data.keyword.cloudcerts_short}} uses the `cloud.ibm.com` domain. For more information, review the {{site.data.keyword.cloudcerts_short}} and {{site.data.keyword.secrets-manager_short}} API docs.
-
-#### {{site.data.keyword.cloudcerts_short}} and {{site.data.keyword.secrets-manager_short}} APIs are different in structure
-{: #migrate-limit-apis}
-
-If you use {{site.data.keyword.cloudcerts_short}} to manage your certificates programmatically, be sure to review the [{{site.data.keyword.secrets-manager_short}} API docs](/apidocs/secrets-manager) to understand how moving your certificates impacts your current experience.
-
+Ordering Let's Encrypt certificates with {{site.data.keyword.secrets-manager_short}} requires an ACME account
+:   Before you can order Let's Encrypt certificates through {{site.data.keyword.secrets-manager_short}}, you must [configure the public certificates secrets engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates) for your instance. This process involves creating an Automatic Certificate Management Environment (ACME) account for Let's Encrypt, and connecting to a [supported DNS provider](/docs/secrets-manager?topic=secrets-manager--prepare-order-certificates#connect-dns-provider). Be sure to review the documentation to understand how to enable your instance to order public certificates.
 
 ### Migration guidelines
 {: #migrate-guidelines}
@@ -131,7 +128,7 @@ If you use {{site.data.keyword.cloudcerts_short}} to manage your certificates pr
 If you're ready to start your transition to {{site.data.keyword.secrets-manager_short}}, you can use automation tools to begin your migration. Start by setting up your {{site.data.keyword.secrets-manager_short}} service instance.
 
 1. [Create a {{site.data.keyword.secrets-manager_short}} service instance](/docs/secrets-manager?topic=secrets-manager-create-instance).
-2. Determine an access hierarchy for your certificates within {{site.data.keyword.secrets-manager_short}}. 
+2. Determine an access hierarchy for your certificates within {{site.data.keyword.secrets-manager_short}}.
 
     Create [secret groups](/docs/secrets-manager?topic=secrets-manager-secret-groups) in {{site.data.keyword.secrets-manager_short}} ahead of time so that you can organize your incoming certificates by mapped IAM policies. 
 
@@ -140,3 +137,9 @@ If you're ready to start your transition to {{site.data.keyword.secrets-manager_
 
 3. Migrate your certificates by using the [{{site.data.keyword.cloudcerts_short}} to {{site.data.keyword.secrets-manager_short}} migration scripts](https://github.com/ibm-cloud-security/certificate-manager-to-secrets-manager){: external}.
 
+4. Optional. Configure the [public certificates secrets engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates).
+
+   If you plan to use {{site.data.keyword.secrets-manager_short}} to order Let's Encrypt certificates, you can add certificate authority and DNS provider configurations to your {{site.data.keyword.secrets-manager_short}} service instance.
+   
+   To add a Let's Encrypt certificate authority configuration, an Automatic Certificate Management Environment (ACME) is required. For more information, see [Creating a Let's Encrypt ACME account](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#create-acme-account).
+   {: note}
