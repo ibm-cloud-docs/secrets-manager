@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-04"
+lastupdated: "2022-03-01"
 
 keywords: secrets engines, engine configurations, IAM credentials engine, public certificates engine
 
@@ -63,16 +63,16 @@ subcollection: secrets-manager
 ## Learning about engine configurations
 {: #secrets-engines-about}
 
-In {{site.data.keyword.secrets-manager_short}}, a secrets engine serves as the back end for a specific type of secret, such as a password or an API key. Depending on its type, a secrets engine can store data, generate secrets on demand, and more. 
+In {{site.data.keyword.secrets-manager_short}}, a secrets engine serves as the back end for a specific type of secret, such as a password or an API key. Depending on its type, a secrets engine can store data, generate secrets on demand, and more.
 
-Some engines require a configuration before you can enable them for your instance. For example, when you try to [order TLS certificates](/docs/secrets-manager?topic=secrets-manager-certificates) or create [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) for the first time, a message is displayed to show that an engine configuration is required.
+Some engines require a configuration before you can enable them for your instance. For example, when you try to [order SSL/TLS certificates](/docs/secrets-manager?topic=secrets-manager-certificates) or create [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) for the first time, a message is displayed to show that an engine configuration is required.
 
 ![The image shows the secrets selection screen in the Secrets Manager UI.](images/engine-required.svg){: caption="Figure 1. Example - Engine configuration required" caption-side="bottom"}
 
 ## What's in a configuration?
 {: #secrets-engine-components}
 
-Engine configurations that you add to your instance contain the properties that the service can use to enable operations for a secret type. For example, if you define [certificate authority (CA) and DNS provider configurations](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority) for your instance, you can use {{site.data.keyword.secrets-manager_short}} to order public TLS certificates (`public_cert`). 
+Engine configurations that you add to your instance contain the properties that the service can use to enable operations for a secret type. For example, if you define [certificate authority (CA) and DNS provider configurations](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority) for your instance, you can use {{site.data.keyword.secrets-manager_short}} to order public certificates (`public_cert`). 
 
 Check out the following image to see how a configuration is structured.
 
@@ -100,9 +100,3 @@ Check out the following image to see how a configuration is structured.
 {: #secrets-engines-get-started}
 
 To get started with secrets, you can go to the **Secrets engines** page of the {{site.data.keyword.secrets-manager_short}} UI, or check out the [API reference](/apidocs/secrets-manager) to learn more about managing secret types programmatically.
-
-
-
-
-
-

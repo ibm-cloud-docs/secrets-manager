@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-24"
+lastupdated: "2022-03-01"
 
-keywords: set up certificates, set up public certificates, public certificates engine, set up CIS, set up CA, set up Let's Encrypt
+keywords: set up public certificates, public certificates engine, set up CIS, set up CA, set up Let's Encrypt
 
 subcollection: secrets-manager
 
@@ -54,7 +54,7 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
-# Preparing to order certificates
+# Preparing to order public certificates
 {: #prepare-order-certificates}
 
 You can enable your {{site.data.keyword.secrets-manager_full}} service instance to order certificates by configuring the public certificates engine.
