@@ -130,7 +130,7 @@ If you use {{site.data.keyword.cloudcerts_short}} to manage your certificates pr
 #### Ordering Let's Encrypt certificates with {{site.data.keyword.secrets-manager_short}} requires an ACME account
 {: #migrate-limit-order-certs}
 
-Before you can order Let's Encrypt certificates through {{site.data.keyword.secrets-manager_short}}, you must [configure the public certificates secrets engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates) for your instance. This process involves creating an Automatic Certificate Management Environment (ACME) account for Let's Encrypt, and connecting to a [supported DNS provider](/docs/secrets-manager?topic=secrets-manager--prepare-order-certificates#connect-dns-provider). Be sure to review the documentation to understand how to enable your instance to order public certificates.
+Unlike {{site.data.keyword.cloudcerts_short}}, {{site.data.keyword.secrets-manager_short}} is a single-tenant service that uses dedicated resources for each instance that you provision. Both {{site.data.keyword.cloudcerts_short}} and {{site.data.keyword.secrets-manager_short}} use the [Automatic Certificate Management Environment (ACME)](https://datatracker.ietf.org/doc/html/rfc8555){: external} protocol to connect with Let's Encrypt for ordering certificates. But, in {{site.data.keyword.secrets-manager_short}} you grant access to Let's Encrypt by registering your own ACME account and providing your account credentials. For more information, see [Preparing to order certificates](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates).
 
 ### Migration guidelines
 {: #migrate-guidelines}
@@ -147,9 +147,9 @@ If you're ready to start your transition to {{site.data.keyword.secrets-manager_
 
 3. Migrate your certificates by using the [{{site.data.keyword.cloudcerts_short}} to {{site.data.keyword.secrets-manager_short}} migration scripts](https://github.com/ibm-cloud-security/certificate-manager-to-secrets-manager){: external}.
 
-4. Optional. Configure the [public certificates secrets engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates).
+4. (Optional) Configure the [public certificates secrets engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates).
 
    If you plan to use {{site.data.keyword.secrets-manager_short}} to order Let's Encrypt certificates, you can add certificate authority and DNS provider configurations to your {{site.data.keyword.secrets-manager_short}} service instance.
-   
+
    To add a Let's Encrypt certificate authority configuration, an Automatic Certificate Management Environment (ACME) is required. For more information, see [Creating a Let's Encrypt ACME account](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#create-acme-account).
    {: note}
