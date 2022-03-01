@@ -104,7 +104,7 @@ Before you begin, consider the following items and service limitations that migh
 
 Currently, {{site.data.keyword.secrets-manager_short}} is a free service that enforces a limit of one instance per {{site.data.keyword.cloud_notm}} account. Pricing and service limits for {{site.data.keyword.secrets-manager_short}} are subject to change. During the transition period, you can create a {{site.data.keyword.secrets-manager_short}} service instance to start migrating your existing certificates from {{site.data.keyword.cloudcerts_short}}. {{site.data.keyword.secrets-manager_short}} does not enforce a limit on the total number of secrets or certificates you can store per instance.
 
-On 23 March 2022, Secrets Manager will introduce Standard and Trial pricing plans. With the Standard pricing plan, you get unlimited access to all service capabilities without any limit on the number of instances that your teams can provision. For more information, refer to the [release notes](/docs/secrets-manager?topic=secrets-manager--release-notes#secrets-manager-feb2322).
+On 23 March 2022, Secrets Manager will introduce Standard and Trial pricing plans. With the Standard pricing plan, you can create an unlimited number of instances per account. For more information, refer to the [release notes](/docs/secrets-manager?topic=secrets-manager-release-notes#secrets-manager-feb2322).
 {: note}
 
 #### Provisioning a {{site.data.keyword.secrets-manager_short}} instance takes 5 - 8 minutes to complete
