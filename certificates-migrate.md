@@ -102,7 +102,7 @@ Before you begin, consider the following items and service limitations that migh
 #### {{site.data.keyword.secrets-manager_short}} instances are limited to 1 per account
 {: #migrate-limit-instance}
 
-Currently, {{site.data.keyword.secrets-manager_short}} is a free service that enforces a limit of one instance per {{site.data.keyword.cloud_notm}} account. Pricing and service limits for {{site.data.keyword.secrets-manager_short}} are subject to change. During the transition period, you can create a {{site.data.keyword.secrets-manager_short}} service instance to start migrating your existing certificates from {{site.data.keyword.cloudcerts_short}}. {{site.data.keyword.secrets-manager_short}} does not enforce a limit on the total number of secrets or certificates you can store per instance.
+Currently, {{site.data.keyword.secrets-manager_short}} is a no-cost service that enforces a limit of one instance per {{site.data.keyword.cloud_notm}} account. New pricing plans will become available for the service on 23 March 2022. To try the service, you can create a {{site.data.keyword.secrets-manager_short}} service instance and use [migration scripts](#migrate-guidelines) to copy your existing certificates from {{site.data.keyword.cloudcerts_short}}. {{site.data.keyword.secrets-manager_short}} does not enforce a limit on the total number of secrets or certificates that you can store per instance.
 
 On 23 March 2022, Secrets Manager will introduce Standard and Trial pricing plans. With the Standard pricing plan, you can create an unlimited number of instances per account. For more information, refer to the [release notes](/docs/secrets-manager?topic=secrets-manager-release-notes#secrets-manager-feb2322).
 {: note}
@@ -130,7 +130,7 @@ If you use {{site.data.keyword.cloudcerts_short}} to manage your certificates pr
 #### Ordering Let's Encrypt certificates with {{site.data.keyword.secrets-manager_short}} requires an ACME account
 {: #migrate-limit-order-certs}
 
-Before you can order Let's Encrypt certificates through {{site.data.keyword.secrets-manager_short}}, you must configure the [public certificates secrets engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates) for your instance. This process involves granting access to Let's Encrypt by [registering your own Automatic Certificate Management Environment (ACME) account](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#create-acme-account) and providing your account credentials. Be sure to review the documentation to understand how to enable your instance to order public certificates.
+Before you can order Let's Encrypt certificates through {{site.data.keyword.secrets-manager_short}}, you must configure the [public certificates secrets engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates) for your instance. This process involves granting access to Let's Encrypt by registering an [Automatic Certificate Management Environment (ACME) account](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#create-acme-account) and providing your account credentials. Be sure to review the documentation to understand how to enable your instance to order public certificates.
 
 
 ### Migration guidelines
