@@ -130,7 +130,8 @@ If you use {{site.data.keyword.cloudcerts_short}} to manage your certificates pr
 #### Ordering Let's Encrypt certificates with {{site.data.keyword.secrets-manager_short}} requires an ACME account
 {: #migrate-limit-order-certs}
 
-Unlike {{site.data.keyword.cloudcerts_short}}, {{site.data.keyword.secrets-manager_short}} is a single-tenant service that uses dedicated resources for each instance that you provision. Both {{site.data.keyword.cloudcerts_short}} and {{site.data.keyword.secrets-manager_short}} use the [Automatic Certificate Management Environment (ACME)](https://datatracker.ietf.org/doc/html/rfc8555){: external} protocol to connect with Let's Encrypt for ordering certificates. But, in {{site.data.keyword.secrets-manager_short}} you grant access to Let's Encrypt by registering your own ACME account and providing your account credentials. For more information, see [Preparing to order certificates](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates).
+Before you can order Let's Encrypt certificates through {{site.data.keyword.secrets-manager_short}}, you must configure the [public certificates secrets engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates) for your instance. This process involves granting access to Let's Encrypt by [registering your own Automatic Certificate Management Environment (ACME) account](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#create-acme-account) and providing your account credentials. Be sure to review the documentation to understand how to enable your instance to order public certificates.
+
 
 ### Migration guidelines
 {: #migrate-guidelines}
