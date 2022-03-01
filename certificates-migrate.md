@@ -146,11 +146,11 @@ If you're ready to start your transition to {{site.data.keyword.secrets-manager_
     Be sure to create secret groups first because you can't change assignments to certificates after you migrate them. If you accidentally assign an incoming certificate to the wrong secret group, or if you don't want a certificate to belong to the default secret group, you must delete the certificate and add it again.
     {: tip}
 
-3. Migrate your certificates by using the [{{site.data.keyword.cloudcerts_short}} to {{site.data.keyword.secrets-manager_short}} migration scripts](https://github.com/ibm-cloud-security/certificate-manager-to-secrets-manager){: external}.
-
-4. (Optional) Configure the [public certificates secrets engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates).
+3. (Optional) Configure the [public certificates secrets engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates).
 
    If you plan to use {{site.data.keyword.secrets-manager_short}} to order Let's Encrypt certificates, you can add certificate authority and DNS provider configurations to your {{site.data.keyword.secrets-manager_short}} service instance.
 
    To add a Let's Encrypt certificate authority configuration, an Automatic Certificate Management Environment (ACME) is required. For more information, see [Creating a Let's Encrypt ACME account](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#create-acme-account).
    {: note}
+
+4. Migrate your certificates by using the [{{site.data.keyword.cloudcerts_short}} to {{site.data.keyword.secrets-manager_short}} migration scripts](https://github.com/ibm-cloud-security/certificate-manager-to-secrets-manager){: external}.
