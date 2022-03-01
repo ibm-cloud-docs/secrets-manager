@@ -81,9 +81,9 @@ toc:
           - topicgroup:
               label: Configuring the public certificates engine
               topics:
-              - engine-public-certificates.md
-              - third-party-ca.md
-              - dns-providers.md
+              - engine-public.md
+              - engine-public-ca.md
+              - engine-public-dns-providers.md
       - topic: framework/event-notifications.md
         navtitle: Enabling event notifications
       - topicgroup:
