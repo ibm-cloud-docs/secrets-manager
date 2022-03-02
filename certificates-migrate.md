@@ -74,13 +74,13 @@ Both {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudce
 | Characteristics | {{site.data.keyword.secrets-manager_short}} | {{site.data.keyword.cloudcerts_short}} |
 | --- | --- | --- |
 | Secrets or certificates management experience in the {{site.data.keyword.cloud_notm}} console | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
-| Worldwide availability in multizone regions | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| Worldwide availability in multizone regions | ![Checkmark icon](../icons/checkmark-icon.svg)[^instance-limit] | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Data isolation through single-tenancy | ![Checkmark icon](../icons/checkmark-icon.svg) | |
 | Ability to integrate a key management service| ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Ability to manage resources through private service endpoints | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Ability to manage resources in an {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) | ![Checkmark icon](../icons/checkmark-icon.svg) | |
 | Ability to import SSL or TLS certificates | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
-| Ability to order public SSL or TLS certificates from Let's Encrypt | ![Checkmark icon](../icons/checkmark-icon.svg)| ![Checkmark icon](../icons/checkmark-icon.svg) |
+| Ability to order public SSL or TLS certificates from Let's Encrypt | ![Checkmark icon](../icons/checkmark-icon.svg)[^dns-providers] | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Ability to manage secrets of various types | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
 | Notifications |  ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Go, Python, Node.js, and Java SDKs | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
@@ -88,6 +88,9 @@ Both {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudce
 | Logging and monitoring | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 {: caption="Table 1. Comparison between the {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudcerts_short}} offerings" caption-side="top"}
 
+[^instance-limit]: Currently, {{site.data.keyword.secrets-manager_short}} instances are limited to 1 per account. [Learn more](#migrate-prepare).
+
+[^dns-providers]: Ordering a certificate requires a DNS provider. The DNS providers that are supported with {{site.data.keyword.secrets-manager_short}} include {{site.data.keyword.cis_full_notm}} (CIS) and {{site.data.keyword.cloud_notm}} Domain Name Registration, which is available as part of {{site.data.keyword.cloud_notm}} classic infrastructure. [Learn more](#migrate-prepare).
 
 ## Migrating {{site.data.keyword.cloudcerts_short}} resources to {{site.data.keyword.secrets-manager_short}}
 {: #migrate-process}
@@ -126,6 +129,9 @@ Before you begin, consider the following items and service limitations that migh
 
   Before you can order Let's Encrypt certificates through {{site.data.keyword.secrets-manager_short}}, you must configure the [public certificates secrets engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates) for your instance. This process involves granting access to Let's Encrypt by registering an [Automatic Certificate Management Environment (ACME) account](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#create-acme-account) and providing your account credentials. Be sure to review the documentation to understand how to enable your instance to order public certificates.
 
+- **{{site.data.keyword.secrets-manager_short}} supports {{site.data.keyword.cis_full_notm}} (CIS) and {{site.data.keyword.cloud_notm}} Domain Name Registration as DNS providers.**
+
+  In {{site.data.keyword.cloudcerts_short}}, you might be working with either CIS or a [third-party DNS provider](/docs/certificate-manager?topic=certificate-manager-ordering-certificates#other_provider), such as GoDaddy, to order certificates. With {{site.data.keyword.secrets-manager_short}}, you can continue to use CIS, but third-party DNS providers are not supported at this time. For more information, see [Supported DNS providers](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#connect-dns-provider).
 
 ### Migration guidelines
 {: #migrate-guidelines}
