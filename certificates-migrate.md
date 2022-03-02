@@ -131,7 +131,7 @@ Before you begin, consider the following items and service limitations that migh
 
 - **{{site.data.keyword.secrets-manager_short}} supports {{site.data.keyword.cis_full_notm}} (CIS) and {{site.data.keyword.cloud_notm}} Domain Name Registration as DNS providers.**
 
-  In {{site.data.keyword.cloudcerts_short}}, you might be working with either CIS or a [third-party DNS provider](/docs/certificate-manager?topic=certificate-manager-ordering-certificates#other_provider), such as GoDaddy, to order certificates. With {{site.data.keyword.secrets-manager_short}}, you can continue to use CIS, but third-party DNS providers are not supported at this time. For more information, see [Supported DNS providers](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#connect-dns-provider).
+  In {{site.data.keyword.cloudcerts_short}}, you might be working with either CIS or a [third-party DNS provider](/docs/certificate-manager?topic=certificate-manager-ordering-certificates#other_provider), such as GoDaddy®, to order certificates. With {{site.data.keyword.secrets-manager_short}}, you can continue to use CIS, but third-party DNS providers are not supported at this time. For more information, see [Supported DNS providers](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#connect-dns-provider).
 
 ### Migration guidelines
 {: #migrate-guidelines}
