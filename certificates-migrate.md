@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-01"
+lastupdated: "2022-03-02"
 
 keywords: migrate from Certificate Manager, migrate to Secrets Manager, migrate certificates
 
@@ -99,38 +99,32 @@ You can take advantage of the data isolation benefits of a single-tenant secrets
 
 Before you begin, consider the following items and service limitations that might impact your experience as you integrate to {{site.data.keyword.secrets-manager_short}}.
 
-#### {{site.data.keyword.secrets-manager_short}} instances are limited to 1 per account
-{: #migrate-limit-instance}
+- **{{site.data.keyword.secrets-manager_short}} instances are limited to 1 per account.**
 
-Currently, {{site.data.keyword.secrets-manager_short}} is a no-cost service that enforces a limit of one instance per {{site.data.keyword.cloud_notm}} account. New pricing plans will become available for the service on 23 March 2022. To try the service, you can create a {{site.data.keyword.secrets-manager_short}} service instance and use [migration scripts](#migrate-guidelines) to copy your existing certificates from {{site.data.keyword.cloudcerts_short}}. {{site.data.keyword.secrets-manager_short}} does not enforce a limit on the total number of secrets or certificates that you can store per instance.
+  Currently, {{site.data.keyword.secrets-manager_short}} is a free service that enforces a limit of one instance per {{site.data.keyword.cloud_notm}} account. New pricing plans will become available for the service on 23 March 2022. During the transition period, you can create a {{site.data.keyword.secrets-manager_short}} service instance to start migrating your existing certificates from {{site.data.keyword.cloudcerts_short}}. {{site.data.keyword.secrets-manager_short}} does not enforce a limit on the total number of secrets or certificates that you can store per instance.
 
-On 23 March 2022, Secrets Manager will introduce Standard and Trial pricing plans. With the Standard pricing plan, you can create an unlimited number of instances per account. For more information, refer to the [release notes](/docs/secrets-manager?topic=secrets-manager-release-notes#secrets-manager-feb2322).
-{: note}
+  On 23 March 2022, Secrets Manager will introduce Standard and Trial pricing plans. With the Standard pricing plan, you can create an unlimited number of instances per account. For more information, refer to the [release notes](/docs/secrets-manager?topic=secrets-manager-release-notes#secrets-manager-feb2322).
+  {: note}
 
-#### Provisioning a {{site.data.keyword.secrets-manager_short}} instance takes 5 - 8 minutes to complete
-{: #migrate-limit-provision}
+- **Provisioning a {{site.data.keyword.secrets-manager_short}} instance takes 5 - 8 minutes to complete.**
 
-Unlike {{site.data.keyword.cloudcerts_short}}, {{site.data.keyword.secrets-manager_short}} is a single-tenant offering. During instance provisioning, {{site.data.keyword.secrets-manager_short}} creates various dedicated resources that are assigned to your service instance only. If you dynamically provision instances of {{site.data.keyword.cloudcerts_short}} and you plan to do the same with {{site.data.keyword.secrets-manager_short}} instances, keep in mind that {{site.data.keyword.secrets-manager_short}} provisioning is asynchronous and takes 5 - 8 minutes to complete.
+  Unlike {{site.data.keyword.cloudcerts_short}}, {{site.data.keyword.secrets-manager_short}} is a single-tenant offering. During instance provisioning, {{site.data.keyword.secrets-manager_short}} creates various dedicated resources that are assigned to your service instance only. If you dynamically provision instances of {{site.data.keyword.cloudcerts_short}} and you plan to do the same with {{site.data.keyword.secrets-manager_short}} instances, keep in mind that {{site.data.keyword.secrets-manager_short}} provisioning is asynchronous and takes 5 - 8 minutes to complete.
 
-#### Secret groups in {{site.data.keyword.secrets-manager_short}} are used to enforce granular access to secrets
-{: #migrate-limit-secret-groups}
+- **Secret groups in {{site.data.keyword.secrets-manager_short}} are used to enforce granular access to secrets.**
 
-In {{site.data.keyword.cloudcerts_short}}, you can create access policies on individual certificates. In {{site.data.keyword.secrets-manager_short}}, you can set access policies on secret groups that contain one or more certificates. Additionally, {{site.data.keyword.secrets-manager_short}} supports a **SecretsReader** IAM role that provides read-only access to download certificates.
+  In {{site.data.keyword.cloudcerts_short}}, you can create access policies on individual certificates. In {{site.data.keyword.secrets-manager_short}}, you can set access policies on secret groups that contain one or more certificates. Additionally, {{site.data.keyword.secrets-manager_short}} supports a **SecretsReader** IAM role that provides read-only access to download certificates.
 
-#### {{site.data.keyword.secrets-manager_short}} provides a unique endpoint URL for each service instance
-{: #migrate-limit-dedicated}
+- **{{site.data.keyword.secrets-manager_short}} provides a unique endpoint URL for each service instance.**
 
-Unlike {{site.data.keyword.cloudcerts_short}}, {{site.data.keyword.secrets-manager_short}} constructs a unique endpoint URL for your service instance. {{site.data.keyword.secrets-manager_short}} endpoints uses the `appdomain.cloud` domain, whereas {{site.data.keyword.cloudcerts_short}} uses the `cloud.ibm.com` domain. For more information, review the {{site.data.keyword.cloudcerts_short}} and {{site.data.keyword.secrets-manager_short}} API docs.
+  Unlike {{site.data.keyword.cloudcerts_short}}, {{site.data.keyword.secrets-manager_short}} constructs a unique endpoint URL for your service instance. {{site.data.keyword.secrets-manager_short}} endpoints uses the `appdomain.cloud` domain, whereas {{site.data.keyword.cloudcerts_short}} uses the `cloud.ibm.com` domain. For more information, review the {{site.data.keyword.cloudcerts_short}} and {{site.data.keyword.secrets-manager_short}} API docs.
 
-#### {{site.data.keyword.cloudcerts_short}} and {{site.data.keyword.secrets-manager_short}} APIs are different in structure
-{: #migrate-limit-apis}
+- **{{site.data.keyword.cloudcerts_short}} and {{site.data.keyword.secrets-manager_short}} APIs are different in structure.**
 
-If you use {{site.data.keyword.cloudcerts_short}} to manage your certificates programmatically, be sure to review the [{{site.data.keyword.secrets-manager_short}} API docs](/apidocs/secrets-manager) to understand how moving your certificates impacts your current experience.
+  If you use {{site.data.keyword.cloudcerts_short}} to manage your certificates programmatically, be sure to review the [{{site.data.keyword.secrets-manager_short}} API docs](/apidocs/secrets-manager) to understand how moving your certificates impacts your current experience.
 
-#### Ordering Let's Encrypt certificates with {{site.data.keyword.secrets-manager_short}} requires an ACME account
-{: #migrate-limit-order-certs}
+- **Ordering Let's Encrypt certificates with {{site.data.keyword.secrets-manager_short}} requires an ACME account.**
 
-Before you can order Let's Encrypt certificates through {{site.data.keyword.secrets-manager_short}}, you must configure the [public certificates secrets engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates) for your instance. This process involves granting access to Let's Encrypt by registering an [Automatic Certificate Management Environment (ACME) account](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#create-acme-account) and providing your account credentials. Be sure to review the documentation to understand how to enable your instance to order public certificates.
+  Before you can order Let's Encrypt certificates through {{site.data.keyword.secrets-manager_short}}, you must configure the [public certificates secrets engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates) for your instance. This process involves granting access to Let's Encrypt by registering an [Automatic Certificate Management Environment (ACME) account](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#create-acme-account) and providing your account credentials. Be sure to review the documentation to understand how to enable your instance to order public certificates.
 
 
 ### Migration guidelines
