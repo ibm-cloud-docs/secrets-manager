@@ -82,17 +82,16 @@ Both {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudce
 | Ability to import SSL or TLS certificates | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Ability to order public SSL or TLS certificates from Let's Encrypt | ![Checkmark icon](../icons/checkmark-icon.svg)[^dns-providers] | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Ability to manage secrets of various types | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
-| Notifications |  ![Checkmark icon](../icons/checkmark-icon.svg)[^en] | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| Notifications |  ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Go, Python, Node.js, and Java SDKs | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
 | CLI plug-in | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
 | Logging and monitoring | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 {: caption="Table 1. Comparison between the {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudcerts_short}} offerings" caption-side="top"}
 
-[^instance-limit]: Currently, {{site.data.keyword.secrets-manager_short}} instances are limited to 1 per account. [Learn more](#migrate-prepare).
+[^instance-limit]: {{site.data.keyword.secrets-manager_short}} instances are currently limited to 1 per account. After 23 March 2023, you can create an unlimited number of instances per account with the Standard pricing plan. [Learn more](#migrate-prepare).
 
-[^dns-providers]: Ordering a certificate requires a DNS provider. The DNS providers that are supported with {{site.data.keyword.secrets-manager_short}} include {{site.data.keyword.cis_full_notm}} (CIS) and {{site.data.keyword.cloud_notm}} Domain Name Registration, which is available as part of {{site.data.keyword.cloud_notm}} classic infrastructure. [Learn more](#migrate-prepare).
+[^dns-providers]: The DNS providers that are supported with {{site.data.keyword.secrets-manager_short}} include {{site.data.keyword.cis_full_notm}} (CIS) and {{site.data.keyword.cloud_notm}} Domain Name Registration, which is available as part of {{site.data.keyword.cloud_notm}} classic infrastructure. [Learn more](#migrate-prepare).
 
-[^en]: Available with the {{site.data.keyword.en_short}} service. [Learn more](/docs/secrets-manager?topic=secrets-manager-event-notifications).
 
 ## Migrating {{site.data.keyword.cloudcerts_short}} resources to {{site.data.keyword.secrets-manager_short}}
 {: #migrate-process}
