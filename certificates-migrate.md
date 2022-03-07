@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-04"
+lastupdated: "2022-03-07"
 
 keywords: migrate from Certificate Manager, migrate to Secrets Manager, migrate certificates
 
@@ -126,13 +126,13 @@ Before you begin, consider the following items and service limitations that migh
 
   If you use {{site.data.keyword.cloudcerts_short}} to manage your certificates programmatically, be sure to review the [{{site.data.keyword.secrets-manager_short}} API docs](/apidocs/secrets-manager) to understand how moving your certificates impacts your current experience.
 
-- **Ordering Let's Encrypt certificates with {{site.data.keyword.secrets-manager_short}} requires an ACME account.**
+- **Ordering Let's Encrypt certificates with {{site.data.keyword.secrets-manager_short}} requires an Automatic Certificate Management Environment (ACME) account.**
 
   Before you can order Let's Encrypt certificates through {{site.data.keyword.secrets-manager_short}}, you must configure the [public certificates secrets engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates) for your instance. This process involves granting access to Let's Encrypt by registering an Automatic Certificate Management Environment (ACME) account and providing your ACME account credentials. Be sure to review the documentation to understand how to enable your instance to order public certificates.
 
-- **{{site.data.keyword.secrets-manager_short}} supports Cloud Internet Services and Classic infrastructure as DNS providers.**
+- **{{site.data.keyword.secrets-manager_short}} supports IBM Cloud Internet Services (CIS) and Classic infrastructure as DNS providers.**
 
-  In {{site.data.keyword.cloudcerts_short}}, you might be working with either {{site.data.keyword.cis_full_notm}} or a [third-party DNS provider](/docs/certificate-manager?topic=certificate-manager-ordering-certificates#other_provider) to order domain-validated certificates. The DNS providers that are currently supported with {{site.data.keyword.secrets-manager_short}} are Cloud Internet Services and the Domain Name Registration service, which is available as part of {{site.data.keyword.cloud_notm}} classic infrastructure. If you're working with an another DNS provider, stay tuned as support for additional third-party providers in {{site.data.keyword.secrets-manager_short}} becomes available. For an updated list of providers, see [Supported DNS providers](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#connect-dns-provider).
+  In {{site.data.keyword.cloudcerts_short}}, you might be working with either CIS or a [third-party DNS provider](/docs/certificate-manager?topic=certificate-manager-ordering-certificates#other_provider) to order domain-validated certificates. The DNS providers that are currently supported with {{site.data.keyword.secrets-manager_short}} are CIS and the Domain Name Registration service, which is available as part of {{site.data.keyword.cloud_notm}} classic infrastructure. If you're working with another DNS provider, stay tuned as support for additional third-party providers in {{site.data.keyword.secrets-manager_short}} becomes available. For an updated listed of providers, see [Supported DNS providers](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#connect-dns-provider).
 
 ### Migration guidelines
 {: #migrate-guidelines}
