@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-10"
+lastupdated: "2022-03-07"
 
 keywords: migrate from Certificate Manager, migrate to Secrets Manager, migrate certificates
 
@@ -74,19 +74,23 @@ Both {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudce
 | Characteristics | {{site.data.keyword.secrets-manager_short}} | {{site.data.keyword.cloudcerts_short}} |
 | --- | --- | --- |
 | Secrets or certificates management experience in the {{site.data.keyword.cloud_notm}} console | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
-| Worldwide availability in multizone regions | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| Worldwide availability in multizone regions | ![Checkmark icon](../icons/checkmark-icon.svg)[^instance-limit] | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Data isolation through single-tenancy | ![Checkmark icon](../icons/checkmark-icon.svg) | |
 | Ability to integrate a key management service| ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Ability to manage resources through private service endpoints | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Ability to manage resources in an {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) | ![Checkmark icon](../icons/checkmark-icon.svg) | |
 | Ability to import SSL or TLS certificates | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
-| Ability to order public SSL or TLS certificates from Let's Encrypt | ![Checkmark icon](../icons/checkmark-icon.svg)| ![Checkmark icon](../icons/checkmark-icon.svg) |
+| Ability to order public SSL or TLS certificates from Let's Encrypt | ![Checkmark icon](../icons/checkmark-icon.svg)[^dns-providers] | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Ability to manage secrets of various types | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
 | Notifications |  ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Go, Python, Node.js, and Java SDKs | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
 | CLI plug-in | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
 | Logging and monitoring | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 {: caption="Table 1. Comparison between the {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudcerts_short}} offerings" caption-side="top"}
+
+[^instance-limit]: {{site.data.keyword.secrets-manager_short}} instances are currently limited to 1 per account. After 23 March 2023, you can create an unlimited number of instances per account with the Standard pricing plan. [Learn more](#migrate-prepare).
+
+[^dns-providers]: The DNS providers that are supported with {{site.data.keyword.secrets-manager_short}} include {{site.data.keyword.cis_full_notm}} (CIS) and the Domain Name Registration service, which is available as part of {{site.data.keyword.cloud_notm}} classic infrastructure. [Learn more](#migrate-prepare).
 
 
 ## Migrating {{site.data.keyword.cloudcerts_short}} resources to {{site.data.keyword.secrets-manager_short}}
@@ -101,13 +105,16 @@ Before you begin, consider the following items and service limitations that migh
 
 - **{{site.data.keyword.secrets-manager_short}} instances are limited to 1 per account.**
 
-  Currently, {{site.data.keyword.secrets-manager_short}} is a free service that enforces a limit of one instance per {{site.data.keyword.cloud_notm}} account. Pricing and service limits for {{site.data.keyword.secrets-manager_short}} are subject to change. During the transition period, you can create a {{site.data.keyword.secrets-manager_short}} service instance to start migrating your existing certificates from {{site.data.keyword.cloudcerts_short}}. {{site.data.keyword.secrets-manager_short}} does not enforce a limit on the total number of secrets or certificates you can store per instance.
+  Currently, {{site.data.keyword.secrets-manager_short}} is a free service that enforces a limit of one instance per {{site.data.keyword.cloud_notm}} account. New pricing plans will become available for the service on 23 March 2022. While you wait for new service plans to become available, you can create a {{site.data.keyword.secrets-manager_short}} service instance to start migrating your existing certificates from {{site.data.keyword.cloudcerts_short}}. {{site.data.keyword.secrets-manager_short}} does not enforce a limit on the total number of secrets or certificates that you can store per instance.
 
-- **Provisioning a {{site.data.keyword.secrets-manager_short}} instance takes 5 - 8 minutes to complete.** 
+  On 23 March 2022, Secrets Manager will introduce Standard and Trial pricing plans. With the Standard pricing plan, you can create an unlimited number of instances per account. For more information, refer to the [release notes](/docs/secrets-manager?topic=secrets-manager-release-notes#secrets-manager-feb2322).
+  {: note}
+
+- **Provisioning a {{site.data.keyword.secrets-manager_short}} instance takes 5 - 8 minutes to complete.**
 
   Unlike {{site.data.keyword.cloudcerts_short}}, {{site.data.keyword.secrets-manager_short}} is a single-tenant offering. During instance provisioning, {{site.data.keyword.secrets-manager_short}} creates various dedicated resources that are assigned to your service instance only. If you dynamically provision instances of {{site.data.keyword.cloudcerts_short}} and you plan to do the same with {{site.data.keyword.secrets-manager_short}} instances, keep in mind that {{site.data.keyword.secrets-manager_short}} provisioning is asynchronous and takes 5 - 8 minutes to complete.
 
-- **Secret groups in {{site.data.keyword.secrets-manager_short}} are used to enforce granular access to secrets.** 
+- **Secret groups in {{site.data.keyword.secrets-manager_short}} are used to enforce granular access to secrets.**
 
   In {{site.data.keyword.cloudcerts_short}}, you can create access policies on individual certificates. In {{site.data.keyword.secrets-manager_short}}, you can set access policies on secret groups that contain one or more certificates. Additionally, {{site.data.keyword.secrets-manager_short}} supports a **SecretsReader** IAM role that provides read-only access to download certificates.
 
@@ -119,6 +126,13 @@ Before you begin, consider the following items and service limitations that migh
 
   If you use {{site.data.keyword.cloudcerts_short}} to manage your certificates programmatically, be sure to review the [{{site.data.keyword.secrets-manager_short}} API docs](/apidocs/secrets-manager) to understand how moving your certificates impacts your current experience.
 
+- **Ordering Let's Encrypt certificates with {{site.data.keyword.secrets-manager_short}} requires an Automatic Certificate Management Environment (ACME) account.**
+
+  Before you can order Let's Encrypt certificates through {{site.data.keyword.secrets-manager_short}}, you must configure the [public certificates secrets engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates) for your instance. This process involves granting access to Let's Encrypt by registering an Automatic Certificate Management Environment (ACME) account and providing your ACME account credentials. Be sure to review the documentation to understand how to enable your instance to order public certificates.
+
+- **{{site.data.keyword.secrets-manager_short}} supports {{site.data.keyword.cis_full_notm}} (CIS) and classic infrastructure as DNS providers.**
+
+  In {{site.data.keyword.cloudcerts_short}}, you might be working with either {{site.data.keyword.cis_full_notm}} (CIS) or a [third-party DNS provider](/docs/certificate-manager?topic=certificate-manager-ordering-certificates#other_provider) to order domain-validated certificates. The DNS providers that are currently supported with {{site.data.keyword.secrets-manager_short}} are CIS and the Domain Name Registration service, which is available as part of {{site.data.keyword.cloud_notm}} classic infrastructure. If you're working with another DNS provider, stay tuned as support for additional third-party providers in {{site.data.keyword.secrets-manager_short}} becomes available. For an updated listed of providers, see [Supported DNS providers](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#connect-dns-provider).
 
 ### Migration guidelines
 {: #migrate-guidelines}
@@ -126,12 +140,18 @@ Before you begin, consider the following items and service limitations that migh
 If you're ready to start your transition to {{site.data.keyword.secrets-manager_short}}, you can use automation tools to begin your migration. Start by setting up your {{site.data.keyword.secrets-manager_short}} service instance.
 
 1. [Create a {{site.data.keyword.secrets-manager_short}} service instance](/docs/secrets-manager?topic=secrets-manager-create-instance).
-2. Determine an access hierarchy for your certificates within {{site.data.keyword.secrets-manager_short}}. 
+2. Determine an access hierarchy for your certificates within {{site.data.keyword.secrets-manager_short}}.
 
     Create [secret groups](/docs/secrets-manager?topic=secrets-manager-secret-groups) in {{site.data.keyword.secrets-manager_short}} ahead of time so that you can organize your incoming certificates by mapped IAM policies. 
 
     Be sure to create secret groups first because you can't change assignments to certificates after you migrate them. If you accidentally assign an incoming certificate to the wrong secret group, or if you don't want a certificate to belong to the default secret group, you must delete the certificate and add it again.
     {: tip}
 
-3. Migrate your certificates by using the [{{site.data.keyword.cloudcerts_short}} to {{site.data.keyword.secrets-manager_short}} migration scripts](https://github.com/ibm-cloud-security/certificate-manager-to-secrets-manager){: external}.
+3. Optional. Configure the [public certificates secrets engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates).
 
+   If you plan to use {{site.data.keyword.secrets-manager_short}} to order Let's Encrypt certificates, you can add certificate authority and DNS provider configurations to your {{site.data.keyword.secrets-manager_short}} service instance.
+
+   To add a Let's Encrypt certificate authority configuration, an Automatic Certificate Management Environment (ACME) is required. For more information, see [Creating a Let's Encrypt ACME account](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#create-acme-account).
+   {: note}
+
+4. Migrate your certificates by using the [{{site.data.keyword.cloudcerts_short}} to {{site.data.keyword.secrets-manager_short}} migration scripts](https://github.com/ibm-cloud-security/certificate-manager-to-secrets-manager){: external}.

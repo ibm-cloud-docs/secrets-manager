@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-24"
+lastupdated: "2022-03-04"
 
-keywords: set up certificates, set up public certificates, public certificates engine, set up CIS, set up CA, set up Let's Encrypt
+keywords: set up public certificates, public certificates engine, set up CIS, set up CA, set up Let's Encrypt
 
 subcollection: secrets-manager
 
@@ -54,7 +54,7 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
-# Preparing to order certificates
+# Preparing to order public certificates
 {: #prepare-order-certificates}
 
 You can enable your {{site.data.keyword.secrets-manager_full}} service instance to order certificates by configuring the public certificates engine.
@@ -98,7 +98,7 @@ A DNS provider is the service that is used to manage the domains that you own. Y
 | DNS provider | Description |
 | --------- | ----------- | 
 | [{{site.data.keyword.cis_full_notm}}](https://{DomainName}/catalog/services/internet-services) | {{site.data.keyword.cis_full}} (CIS), powered by Cloudflare, provides a fast, highly performant, reliable, and secure internet service for customers running their business on {{site.data.keyword.cloud_notm}}. |
-| [{{site.data.keyword.cloud_notm}} classic infrastructure](https://{DomainName}/catalog/infrastructure/domain_registration)  | {{site.data.keyword.cloud}} Domain Name Registration, available as part of {{site.data.keyword.cloud_notm}} classic infrastructure (SoftLayer), offers a central location from which to view and manage domains. |
+| [{{site.data.keyword.cloud_notm}} classic infrastructure](https://{DomainName}/catalog/infrastructure/domain_registration)  | [{{site.data.keyword.cloud}} Domain Name Registration](/docs/dns), available as part of {{site.data.keyword.cloud_notm}} classic infrastructure (SoftLayer), offers a central location from which to view and manage domains. |
 {: caption="Table 2. DNS provider options" caption-side="top"}
 
 ### Granting service access to CIS

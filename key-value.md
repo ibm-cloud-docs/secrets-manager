@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-09"
+lastupdated: "2022-03-07"
 
 keywords: key:value, key/value, key-value, storing key:value secrets
 
@@ -91,6 +91,18 @@ To add a key-value secret by using the {{site.data.keyword.secrets-manager_short
 9. Click **Add**.
 
 
+## Creating key-value secrets from the CLI
+{: #key-value-cli}
+{: cli}
+
+To create a key-value secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. You can specify the type of secret by using the `--secret-type kv` option. For example, the following command creates a key-value secret and stores `{"key1":"value1"}` as its value.
+
+```sh
+ibmcloud secrets-manager secret-create --secret-type kv --resources '[{"name": "example-kv-secret","description": "Extended description for my secret.","payload": {"key1":"value1"}}]' --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
+```
+{: pre}
+
+The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
 
 ## Creating key-value secrets with the API
 {: #key-value-api}
@@ -131,7 +143,6 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 ```
 {: codeblock}
 {: curl}
-
 
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
 
