@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-11"
+lastupdated: "2022-03-08"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -465,7 +465,7 @@ labels
 :   Labels that you can use to group and search for similar secrets in your instance.
 
 payload
-:   The data that you want to store for an `arbitrary` secret. Only text-based payloads are supported. If you need to store a binary file, be sure to base64 encode it before saving it to {{site.data.keyword.secrets-manager_short}}. For more information, see [Examples](#vault-cli-create-static-secret-examples).
+:   The data that you want to store for an `arbitrary`secret. Only text-based payloads are supported.If you need to store a binary file, be sure to base64 encode it before you save it to {{site.data.keyword.secrets-manager_short}}. For more information, see [Examples](#vault-cli-create-static-secret-examples).  
 
 username
 :   The username that you want to assign to a `username_password` secret.
@@ -815,7 +815,7 @@ Get a secret that is in the `default` secret group.
 vault read [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets/SECRET_ID
 ```
 
-Get a secret that's assigned to a specified secret group.
+Get a secret that is assigned to a specified secret group.
 ```sh
 vault read [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets/groups/SECRET_GROUP_ID/SECRET_ID
 ```
@@ -834,7 +834,7 @@ You need the [**SecretsReader** or **Writer** service role](/docs/secrets-manage
 #### Examples
 {: #vault-cli-get-static-secret-examples}
 
-Retrieve an arbitrary secret, including its payload, that's assigned to the `default` secret group.
+Retrieve an arbitrary secret, including its payload, that is assigned to the `default` secret group.
 
 ```sh
 vault read -format=json ibmcloud/arbitrary/secrets/71539dff-9e84-804a-debb-ab3eb3d8afce
@@ -907,6 +907,7 @@ expiration_date
 
 labels
 :   Labels that you can use to group and search for similar secrets in your instance.
+
 -format
 :   Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
 
@@ -967,7 +968,7 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
 {: #vault-cli-rotate-static-secret-options}
 
 payload
-:   The new data to store for an `arbitrary` secret. Only text-based payloads are supported. If you need to store a binary file, be sure to base64 encode it before saving it to {{site.data.keyword.secrets-manager_short}}. For more information, see [Examples](#vault-cli-create-static-secret-examples).
+:   The new data to store for an `arbitrary` secret. Only text-based payloads are supported. If you need to store a binary file, be sure to base64 encode it before you save it to {{site.data.keyword.secrets-manager_short}}. For more information, see [Examples](#vault-cli-create-static-secret-examples).
 
 password
 :   The new password to assign to a `username_password` secret.
@@ -1449,7 +1450,7 @@ vault read [-format=FORMAT] ibmcloud/SECRET_TYPE/roles/ROLE_ID/metadata
 ```
 {: codeblock}
 
-View the details of a role that's assigned to a secret group.
+View the details of a role that is assigned to a secret group.
 ```sh
 vault read [-format=FORMAT] ibmcloud/SECRET_TYPE/roles/groups/GROUP_ID/ROLE/metadata
 ```
@@ -1479,7 +1480,7 @@ ROLE_ID
 #### Examples
 {: #vault-cli-read-role-metadata-examples}
 
-View the details of a role that's assigned to a secret group.
+View the details of a role that is assigned to a secret group.
 
 ```sh
 vault read -format=json ibmcloud/iam_credentials/roles/groups/9ab2250f-a369-4e07-ade7-d417d63ad587/091ca93f-5c99-4078-9d7e-4801143030fd/metadata
@@ -1534,7 +1535,7 @@ vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/roles/ROLE_ID/metadata [name="
 ```
 {: codeblock}
 
-Update the details of a role that's assigned to a secret group.
+Update the details of a role that is assigned to a secret group.
 ```sh
 vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/roles/groups/SECRET_GROUP_ID/ROLE_ID/metadata [name="ROLE_NAME"] [access_groups=ACCESS_GROUP_ID,ACCESS_GROUP_ID] [ttl=LEASE_DURATION] [description="DESCRIPTION"] [labels=LABEL,LABEL]
 ```
@@ -1579,7 +1580,7 @@ labels
 #### Examples
 {: #vault-cli-update-role-metadata-examples}
 
-Update the details of a role that's assigned to the `default` group.
+Update the details of a role that is assigned to the `default` group.
 
 ```sh
 vault write -format=json ibmcloud/iam_credentials/roles/091ca93f-5c99-4078-9d7e-4801143030fd/metadata name="new-credential-name"
@@ -1633,7 +1634,7 @@ vault delete ibmcloud/SECRET_TYPE/roles/ROLE_ID
 ```
 {: codeblock}
 
-Delete a role that's assigned to a secret group.
+Delete a role that is to a secret group.
 ```sh
 vault delete ibmcloud/SECRET_TYPE/roles/groups/SECRET_GROUP_ID/ROLE_ID
 ```
@@ -1660,7 +1661,7 @@ ROLE_ID
 #### Examples
 {: #vault-cli-delete-role-examples}
 
-Delete a role that's assigned to the `default` group.
+Delete a role that is assigned to the `default` group.
 
 ```sh
 vault delete ibmcloud/iam_credentials/roles/091ca93f-5c99-4078-9d7e-4801143030fd
