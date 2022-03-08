@@ -76,7 +76,7 @@ All operations follow the guidelines that are available for the Vault CLI. To le
 ## Setting up your environment
 {: #configure-vault-cli-env}
 
-First, set up your environment to access a {{site.data.keyword.secrets-manager_short}} service instance by using Vault.
+First, set up your environment to access a {{site.data.keyword.secrets-manager_short}} service instance by using Vault. Start by creaing a shell script that sets the credentials that are needed to authenticate to Vault.
 
 1. In a project directory, create a `login-vault.sh` file.
 
@@ -85,7 +85,7 @@ First, set up your environment to access a {{site.data.keyword.secrets-manager_s
     ```
     {: codeblock}
 
-2. Modify the file to set the credentials that are needed to authenticate to Vault.
+2. Copy and paste the following script into `login-vault.sh` and update the placeholder values.
 
     ```sh
     #!/bin/sh
