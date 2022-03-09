@@ -69,7 +69,7 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 
 Version 0.1.16 was released on 9 March 2022. This release includes the following updates:
 
-- Added the [notifications-registration-create](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-notifications-registration-create-command), [notifications-registration](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-notifications-registration-command), [notifications-registration-delete](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-notifictions-delete-command), and [notifications-test](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-notifications-test-command) commands.
+- Added the [notifications-registration-create](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-notifications-registration-create-command), [notifications-registration](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-notifications-registration-command), [notifications-registration-delete](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-notifications-registration-delete-command), and [notifications-test](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-notifications-test-command) commands.
 - Updated translations.
 
 
