@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-16"
+lastupdated: "2022-03-09"
 
 subcollection: secrets-manager
 
@@ -61,7 +61,7 @@ keywords: Secrets Manager CLI, Secrets Manager command line, Secrets Manager ter
 You can use the {{site.data.keyword.secrets-manager_full}} command-line interface (CLI) to manage secrets in your {{site.data.keyword.secrets-manager_short}} instance.
 {: shortdesc}
 
-Current version: **`0.1.15`**
+Current version: **`0.1.16`**
 
 ## Prerequisites
 {: #secrets-manager-cli-prereq}
@@ -1049,6 +1049,94 @@ ibmcloud secrets-manager config-element-delete \
     --config-name=exampleString
 ```
 
+## Notifications
+{: #secrets-manager-notifications-cli}
+
+Enable lifecycle notifications for your instance by connecting to Event Notifications.
+
+### ibmcloud secrets-manager notifications-registration-create
+{: #secrets-manager-cli-notifications-registration-create-command}
+
+Creates a registration between a Secrets Manager instance and [Event Notifications](https://cloud.ibm.com/apidocs/event-notifications).
+
+A successful request adds Secrets Manager as a source that you can reference from your Event Notifications instance. For more information about enabling notifications for Secrets Manager, check out the [docs](/docs/secrets-manager?topic=secrets-manager-event-notifications).
+
+```sh
+ibmcloud secrets-manager notifications-registration-create --event-notifications-instance-crn EVENT-NOTIFICATIONS-INSTANCE-CRN --event-notifications-source-name EVENT-NOTIFICATIONS-SOURCE-NAME [--event-notifications-source-description EVENT-NOTIFICATIONS-SOURCE-DESCRIPTION] 
+```
+
+
+#### Command options
+{: #secrets-manager-notifications-registration-create-cli-options}
+
+--event-notifications-instance-crn (string)
+:   The Cloud Resource Name (CRN) of the connected Event Notifications instance. Required.
+
+--event-notifications-source-name (string)
+:   The name that is displayed as a source in your Event Notifications instance. Required.
+
+--event-notifications-source-description (string)
+:   An optional description for the source in your Event Notifications instance.
+
+#### Examples
+
+```sh
+ibmcloud secrets-manager notifications-registration-create \
+    --event-notifications-instance-crn=crn:v1:bluemix:public:event-notifications:us-south:a/<account-id>:<service-instance>:: \
+    --event-notifications-source-name='My Secrets Manager' \
+    --event-notifications-source-description='Optional description of this source in an Event Notifications instance.'
+```
+
+### ibmcloud secrets-manager notifications-registration
+{: #secrets-manager-cli-notifications-registration-command}
+
+Retrieves the details of an existing registration between a Secrets Manager instance and Event Notifications.
+
+```sh
+ibmcloud secrets-manager notifications-registration 
+```
+
+
+#### Examples
+
+```sh
+ibmcloud secrets-manager notifications-registration
+```
+
+### ibmcloud secrets-manager notifications-registration-delete
+{: #secrets-manager-cli-notifications-registration-delete-command}
+
+Deletes a registration between a Secrets Manager instance and Event Notifications.
+
+A successful request removes your Secrets Manager instance as a source in Event Notifications.
+
+```sh
+ibmcloud secrets-manager notifications-registration-delete 
+```
+
+#### Examples
+
+```sh
+ibmcloud secrets-manager notifications-registration-delete
+```
+
+### ibmcloud secrets-manager notifications-test
+{: #secrets-manager-cli-notifications-test-command}
+
+Send a test event from a Secrets Manager instance to a configured [Event Notifications](https://cloud.ibm.com/apidocs/event-notifications) instance.
+
+A successful request sends a test event to the Event Notifications instance. For more information about enabling notifications for Secrets Manager, check out the [docs](/docs/secrets-manager?topic=secrets-manager-event-notifications).
+
+```sh
+ibmcloud secrets-manager notifications-test 
+```
+
+#### Examples
+
+```sh
+ibmcloud secrets-manager notifications-test
+```
+
 ## Schema examples
 {: #secrets-manager-schema-examples}
 
@@ -1135,6 +1223,7 @@ The following example shows the format of the SecretGroupResource[] object.
 The following example shows the format of the SecretMetadata[] object.
 
 ```json
+
 [ {
   "labels" : [ "dev", "us-south" ],
   "name" : "example-secret",
@@ -1148,7 +1237,6 @@ The following example shows the format of the SecretMetadata[] object.
 {: #cli-secret-policy-rotation-example-schema}
 
 The following example shows the format of the SecretPolicyRotation[] object.
-
 ```json
 [ {
   "type" : "application/vnd.ibm.secrets-manager.secret.policy+json",
@@ -1176,4 +1264,3 @@ The following example shows the format of the SecretResource[] object.
 } ]
 ```
 {: codeblock}
-

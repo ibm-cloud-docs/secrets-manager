@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-04"
+lastupdated: "2022-03-08"
 
 keywords: Vault CLI, configure the Vault CLI, use Secrets Manager with Vault CLI, CLI commands, log in to Vault
 
@@ -76,11 +76,16 @@ All operations follow the guidelines that are available for the Vault CLI. To le
 ## Setting up your environment
 {: #configure-vault-cli-env}
 
-First, set up your environment to access a {{site.data.keyword.secrets-manager_short}} service instance by using Vault.
+First, set up your environment to access a {{site.data.keyword.secrets-manager_short}} service instance by using Vault. Start by creaing a shell script that sets the credentials that are needed to authenticate to Vault.
 
-1. In a text editor, create a shell script that sets the credentials that are needed to authenticate to Vault.
+1. In a project directory, create a `login-vault.sh` file.
 
-    The following sample script uses `jq` to extract your {{site.data.keyword.cloud_notm}} access token from the JSON output that's returned by the IAM Identity Service API.
+    ```sh
+    touch login-vault.sh
+    ```
+    {: codeblock}
+
+2. Copy and paste the following script into `login-vault.sh` and update the placeholder values.
 
     ```sh
     #!/bin/sh
@@ -97,7 +102,7 @@ First, set up your environment to access a {{site.data.keyword.secrets-manager_s
     ```
     {: codeblock}
 
-    Replace the variables according to the following table.
+    Replace the placeholder values according to the following table.
 
     | Variable | Description |
     | -------- | ----------- |
@@ -106,26 +111,31 @@ First, set up your environment to access a {{site.data.keyword.secrets-manager_s
     {: caption="Table 1. Required variables that are needed to extract a token" caption-side="top"}
 
 
-2. Mark the file as executable by running the `chmod` command in your command line.
+3. Mark the file as executable by running the `chmod` command in your command line.
 
     ```sh
-    chmod +x <filename>.sh
+    chmod +x login-vault.sh
     ```
     {: pre}
 
-3. Run the script to set your environment variables.
+4. Run the script to set your environment variables.
 
     ```sh
-    source ./<filename>.sh
+    source ./login-vault.sh
     ```
     {: pre}
 
-4. Optional. Verify that the environment variables are set correctly by printing them to your command line window.
+5. Optional. Verify that the environment variables are set correctly by printing them to your command line window.
 
     ```sh
-    $ echo $VAULT_ADDR
+    echo $VAULT_ADDR && echo $IAM_TOKEN
+    ```
+    {: codeblock}
+
+    The output might look similar to the following example.
+
+    ```sh
     https://e415e570-f073-423a-abdc-55de9b58f54e.us-south.secrets-manager.appdomain.cloud
-    $ echo $IAM_TOKEN
     eyJraWQiOiIyMDIwMTAxODE3MDEiLCJhbGciOiJSUzI1NiJ9.eyJpYW1faWQi...(truncated)
     ```
     {: screen}
