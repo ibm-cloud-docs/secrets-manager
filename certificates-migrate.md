@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-07"
+lastupdated: "2022-03-10"
 
 keywords: migrate from Certificate Manager, migrate to Secrets Manager, migrate certificates
 
@@ -142,10 +142,10 @@ If you're ready to start your transition to {{site.data.keyword.secrets-manager_
 1. [Create a {{site.data.keyword.secrets-manager_short}} service instance](/docs/secrets-manager?topic=secrets-manager-create-instance).
 2. Determine an access hierarchy for your certificates within {{site.data.keyword.secrets-manager_short}}.
 
-    Create [secret groups](/docs/secrets-manager?topic=secrets-manager-secret-groups) in {{site.data.keyword.secrets-manager_short}} ahead of time so that you can organize your incoming certificates by mapped IAM policies. 
+   Create [secret groups](/docs/secrets-manager?topic=secrets-manager-secret-groups) in {{site.data.keyword.secrets-manager_short}} ahead of time so that you can organize your incoming certificates by mapped IAM policies. 
 
-    Be sure to create secret groups first because you can't change assignments to certificates after you migrate them. If you accidentally assign an incoming certificate to the wrong secret group, or if you don't want a certificate to belong to the default secret group, you must delete the certificate and add it again.
-    {: tip}
+   Be sure to create secret groups first because you can't change assignments to certificates after you migrate them. If you accidentally assign an incoming certificate to the wrong secret group, or if you don't want a certificate to belong to the default secret group, you must delete the certificate and add it again.
+   {: tip}
 
 3. Optional. Configure the [public certificates secrets engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates).
 
