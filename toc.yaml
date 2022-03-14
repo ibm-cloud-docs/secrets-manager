@@ -1,6 +1,7 @@
 toc:
   properties:
     subcollection: secrets-manager
+    service-name: secrets-manager
     version: 2
     category: security
     audience: service

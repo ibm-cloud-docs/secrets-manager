@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-03-09"
+lastupdated: "2022-03-10"
 
 subcollection: secrets-manager
 
@@ -129,6 +129,7 @@ ibmcloud secrets-manager secret-group-create --metadata METADATA --resources RES
 :   A collection of resources. Required.
 
 #### Examples
+{: #secrets-manager-secret-group-create-cli-examples}
 
 ```sh
 ibmcloud secrets-manager secret-group-create \
@@ -147,6 +148,7 @@ ibmcloud secrets-manager secret-groups
 
 
 #### Examples
+{: #secrets-manager-cli-secret-groups-cli-examples}
 
 ```sh
 ibmcloud secrets-manager secret-groups
@@ -171,6 +173,7 @@ ibmcloud secrets-manager secret-group --id ID
     The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
 
 #### Examples
+{: #secrets-manager-secret-group-cli-examples}
 
 ```sh
 ibmcloud secrets-manager secret-group \
@@ -202,6 +205,7 @@ ibmcloud secrets-manager secret-group-metadata-update --id ID --metadata METADAT
 :   A collection of resources. Required.
 
 #### Examples
+{: #secrets-manager-secret-group-metadata-update-cli-examples}
 
 ```sh
 ibmcloud secrets-manager secret-group-metadata-update \
@@ -234,6 +238,7 @@ ibmcloud secrets-manager secret-group-delete --id ID [--force]
 :   Force a delete operation without a confirmation.
 
 #### Examples
+{: #secrets-manager-secret-group-delete-cli-examples}
 
 ```sh
 ibmcloud secrets-manager secret-group-delete \
@@ -274,6 +279,7 @@ ibmcloud secrets-manager secret-create --secret-type SECRET-TYPE --metadata META
 :   A collection of resources. Required.
 
 #### Examples
+{: #secrets-manager-secret-create-cli-examples}
 
 ```sh
 ibmcloud secrets-manager secret-create \
@@ -311,6 +317,7 @@ ibmcloud secrets-manager secrets --secret-type SECRET-TYPE [--limit LIMIT] [--of
     The minimum value is `0`.
 
 #### Examples
+{: #secrets-manager-cli-secrets-examples}
 
 ```sh
 ibmcloud secrets-manager secrets \
@@ -359,6 +366,7 @@ ibmcloud secrets-manager all-secrets [--limit LIMIT] [--offset OFFSET] [--search
 
 
 #### Examples
+{: #secrets-manager-all-secrets-cli-examples}
 
 ```sh
 ibmcloud secrets-manager all-secrets \
@@ -395,6 +403,7 @@ ibmcloud secrets-manager secret --secret-type SECRET-TYPE --id ID
     The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
 
 #### Examples
+{: #secrets-manager-secret-cli-examples}
 
 ```sh
 ibmcloud secrets-manager secret \
@@ -438,6 +447,7 @@ ibmcloud secrets-manager secret-update --secret-type SECRET-TYPE --id ID --actio
 :   The properties to update for the secret.
 
 #### Examples
+{: #secrets-manager-secret-update-cli-examples}
 
 ```sh
 ibmcloud secrets-manager secret-update \
@@ -510,6 +520,7 @@ ibmcloud secrets-manager secret-delete --secret-type SECRET-TYPE --id ID [--forc
 :   Force a delete operation without a confirmation.
 
 #### Examples
+{: #secrets-manager-secret-delete-cli-examples}
 
 ```sh
 ibmcloud secrets-manager secret-delete \
@@ -543,6 +554,7 @@ ibmcloud secrets-manager secret-versions --secret-type SECRET-TYPE --id ID
     The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
 
 #### Examples
+{: #secrets-manager-secret-versions-cli-examples}
 
 ```sh
 ibmcloud secrets-manager secret-versions \
@@ -583,6 +595,7 @@ ibmcloud secrets-manager secret-version --secret-type SECRET-TYPE --id ID --vers
     The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
 
 #### Examples
+{: #secrets-manager-secret-version-cli-examples}
 
 ```sh
 ibmcloud secrets-manager secret-version \
@@ -624,6 +637,7 @@ ibmcloud secrets-manager secret-version-metadata --secret-type SECRET-TYPE --id 
     The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
 
 #### Examples
+{: #secrets-manager-secret-version-metadata-cli-examples}
 
 ```sh
 ibmcloud secrets-manager secret-version-metadata \
@@ -658,6 +672,7 @@ ibmcloud secrets-manager secret-metadata --secret-type SECRET-TYPE --id ID
     The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
 
 #### Examples
+{: #secrets-manager-secret-metadata-cli-examples}
 
 ```sh
 ibmcloud secrets-manager secret-metadata \
@@ -697,6 +712,7 @@ ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id I
 :   A collection of resources. Required.
 
 #### Examples
+{: #secrets-manager-secret-metadata-update-cli-examples}
 
 ```sh
 ibmcloud secrets-manager secret-metadata-update \
@@ -746,6 +762,7 @@ ibmcloud secrets-manager policy-update --secret-type SECRET-TYPE --id ID --metad
     Allowable values are: `rotation`.
 
 #### Examples
+{: #secrets-manager-policy-update-cli-examples}
 
 ```sh
 ibmcloud secrets-manager policy-update \
@@ -785,6 +802,7 @@ ibmcloud secrets-manager policy --secret-type SECRET-TYPE --id ID [--policy POLI
     Allowable values are: `rotation`.
 
 #### Examples
+{: #secrets-manager-policy-cli-examples}
 
 ```sh
 ibmcloud secrets-manager policy \
@@ -822,6 +840,7 @@ ibmcloud secrets-manager config-update --secret-type SECRET-TYPE --engine-config
 :   Properties to update for a secrets engine. Required.
 
 #### Examples
+{: #secrets-manager-config-update-cli-examples}
 
 ```sh
 ibmcloud secrets-manager config-update \
@@ -848,6 +867,7 @@ ibmcloud secrets-manager config --secret-type SECRET-TYPE
     Allowable values are: `iam_credentials`, `public_cert`.
 
 #### Examples
+{: #secrets-manager-config-cli-examples}
 
 ```sh
 ibmcloud secrets-manager config \
@@ -893,6 +913,7 @@ ibmcloud secrets-manager config-element-create --secret-type SECRET-TYPE --confi
 :   The configuration to define for the specified secret type. Required.
 
 #### Examples
+{: #secrets-manager-config-element-create-cli-examples}
 
 ```sh
 ibmcloud secrets-manager config-element-create \
@@ -927,6 +948,7 @@ ibmcloud secrets-manager config-elements --secret-type SECRET-TYPE --config-elem
     Allowable values are: `certificate_authorities`, `dns_providers`.
 
 #### Examples
+{: #secrets-manager-config-elements-cli-examples}
 
 ```sh
 ibmcloud secrets-manager config-elements \
@@ -961,6 +983,7 @@ ibmcloud secrets-manager config-element --secret-type SECRET-TYPE --config-eleme
 :   The name of your configuration. Required.
 
 #### Examples
+{: #secrets-manager-config-element-cli-examples}
 
 ```sh
 ibmcloud secrets-manager config-element \
@@ -1004,6 +1027,7 @@ ibmcloud secrets-manager config-element-update --secret-type SECRET-TYPE --confi
 :   Properties that describe a configuration, which depends on type. Required.
 
 #### Examples
+{: #secrets-manager-config-element-update-cli-examples}
 
 ```sh
 ibmcloud secrets-manager config-element-update \
@@ -1041,6 +1065,7 @@ ibmcloud secrets-manager config-element-delete --secret-type SECRET-TYPE --confi
 :   The name of your configuration. Required.
 
 #### Examples
+{: #secrets-manager-config-element-delete-cli-examples}
 
 ```sh
 ibmcloud secrets-manager config-element-delete \
@@ -1079,6 +1104,7 @@ ibmcloud secrets-manager notifications-registration-create --event-notifications
 :   An optional description for the source in your Event Notifications instance.
 
 #### Examples
+{: #secrets-manager-cli-notifications-registration-create-examples}
 
 ```sh
 ibmcloud secrets-manager notifications-registration-create \
@@ -1098,6 +1124,7 @@ ibmcloud secrets-manager notifications-registration
 
 
 #### Examples
+{: #secrets-manager-cli-notifications-registration-examples}
 
 ```sh
 ibmcloud secrets-manager notifications-registration
@@ -1115,6 +1142,7 @@ ibmcloud secrets-manager notifications-registration-delete
 ```
 
 #### Examples
+{: #secrets-manager-cli-notifications-registration-delete-examples}
 
 ```sh
 ibmcloud secrets-manager notifications-registration-delete
@@ -1132,6 +1160,7 @@ ibmcloud secrets-manager notifications-test
 ```
 
 #### Examples
+{: #secrets-manager-cli-notifications-test-examples}
 
 ```sh
 ibmcloud secrets-manager notifications-test
@@ -1223,7 +1252,6 @@ The following example shows the format of the SecretGroupResource[] object.
 The following example shows the format of the SecretMetadata[] object.
 
 ```json
-
 [ {
   "labels" : [ "dev", "us-south" ],
   "name" : "example-secret",
@@ -1237,6 +1265,7 @@ The following example shows the format of the SecretMetadata[] object.
 {: #cli-secret-policy-rotation-example-schema}
 
 The following example shows the format of the SecretPolicyRotation[] object.
+
 ```json
 [ {
   "type" : "application/vnd.ibm.secrets-manager.secret.policy+json",
