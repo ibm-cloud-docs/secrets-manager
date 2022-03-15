@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-03-15"
 content-type: tutorial
 services: secrets-manager, cloud-object-storage
 account-plan: lite
@@ -139,7 +139,7 @@ Start by creating test instances of {{site.data.keyword.secrets-manager_short}} 
     ```
     {: pre}
 
-    The provisioning process for {{site.data.keyword.secrets-manager_short}} takes 5 - 8 minutes to complete.
+    The provisioning process for {{site.data.keyword.secrets-manager_short}} takes 5 - 15 minutes to complete.
     {: note}
 
 5. Export environment variables with the IDs of both service instances.

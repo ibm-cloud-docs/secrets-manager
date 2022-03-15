@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-28"
+lastupdated: "2022-03-15"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -63,7 +63,12 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
+## 15 March 2022
+{: #secrets-manager-mar1522}
+{: release-note}
 
+Tutorial series: Set up alerts for expiring certificates
+:   Looking for examples that can help you to send {{site.data.keyword.secrets-manager_short}} notifications to GitHub or Slack?? Check out the new [tutorial series](/docs/secrets-manager?topic=secrets-manager-tutorial-expiring-secrets-part-1) to learn how to enable your {{site.data.keyword.secrets-manager_short}} instance for notifications, use webhooks to forward your post your alerts to GitHub, and more.
 
 ## 28 Feburary 2022
 {: #secrets-manager-feb2822}
@@ -73,8 +78,6 @@ Sao Paulo availability
 :   You can now create a {{site.data.keyword.secrets-manager_short}} service instance in the Sao Paulo (`br-sao`) region.
 
    For more information, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
-
-
 
 ## 23 Feburary 2022
 {: #secrets-manager-feb2322}

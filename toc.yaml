@@ -38,6 +38,12 @@ toc:
       topics: 
       - tutorials/access-storage.md
       - tutorials/kubernetes-secrets.md
+      - topicgroup:
+          label: Set up alerts for expiring certificates
+          topics:
+          - tutorials/notifications-setup.md
+          - tutorials/notifications-github.md
+          - tutorials/notifications-slack.md
 
   - navgroup:
       id: howto
