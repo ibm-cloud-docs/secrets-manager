@@ -40,7 +40,7 @@
     "tiles": [
       {
         "date": "15 March 2022",
-        "title": "New tutorial series: Setting up alerts for expiring certificates",
+        "title": "Tutorial series: Setting up alerts for expiring certificates",
         "description": "Looking for examples on how to send expiry alerts to GitHub or Slack? Check out the new tutorial series to learn how to enable your Secrets Manager instance for notifications, use webhooks to forward your post your alerts to GitHub, and more."
       },
       {
@@ -52,11 +52,6 @@
         "date": "23 February 2022",
         "title": "Pricing updates coming soon",
         "description": "On 23 March 2022, Secrets Manager will introduce Standard and Trial pricing plans. The current Lite plan option will be deprecated. To ensure that your service functionality is not disrupted, be sure to upgrade to a Standard plan prior to 22 May 2022. For more information, check the full release notes."
-      },
-      {
-        "date": "3 February 2022",
-        "title": "Enable lifecycle notifications for your certificates",
-        "description": "To be notified of critical certificate lifecycle events, you can now configure your notification preferences through the Event Notifications service."
       }
     ]
   }
