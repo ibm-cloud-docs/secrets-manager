@@ -68,7 +68,7 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 {: release-note}
 
 Tutorial series: Set up alerts for expiring certificates
-:   Looking for examples that can help you to send {{site.data.keyword.secrets-manager_short}} notifications to GitHub or Slack? Check out the new [tutorial series](/docs/secrets-manager?topic=secrets-manager-tutorial-expiring-secrets-part-1) to guides you through:
+:   Looking for examples that can help you to send {{site.data.keyword.secrets-manager_short}} notifications to GitHub or Slack? Check out the new [tutorial series](/docs/secrets-manager?topic=secrets-manager-tutorial-expiring-secrets-part-1) that guides you through:
 
 - Enabling [{{site.data.keyword.en_short}}](/docs/event-notifications) for {{site.data.keyword.secrets-manager_short}}
 - Using [Cloud Functions](/docs/openwhisk) to create a GitHub issue when a secret is about to expire
