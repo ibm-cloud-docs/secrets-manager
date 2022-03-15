@@ -3,7 +3,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-09"
+lastupdated: "2022-03-15"
 
 keywords: tutorial, Secrets Manager
 
@@ -185,7 +185,7 @@ You can create one free Kubernetes cluster and {{site.data.keyword.secrets-manag
     ```
     {: pre}
 
-    Provisioning for both {{site.data.keyword.secrets-manager_short}} and your Kubernetes cluster takes 5 - 8 minutes to complete.
+    Provisioning for both {{site.data.keyword.secrets-manager_short}} and your Kubernetes cluster takes 5 - 15 minutes to complete.
 
 4. Set up a private image repository in IBM Cloud Container Registry.
 

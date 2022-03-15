@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-10"
+lastupdated: "2022-03-15"
 
 keywords: migrate from Certificate Manager, migrate to Secrets Manager, migrate certificates
 
@@ -110,9 +110,9 @@ Before you begin, consider the following items and service limitations that migh
   On 23 March 2022, Secrets Manager will introduce Standard and Trial pricing plans. With the Standard pricing plan, you can create an unlimited number of instances per account. For more information, refer to the [release notes](/docs/secrets-manager?topic=secrets-manager-release-notes#secrets-manager-feb2322).
   {: note}
 
-- **Provisioning a {{site.data.keyword.secrets-manager_short}} instance takes 5 - 8 minutes to complete.**
+- **Provisioning a {{site.data.keyword.secrets-manager_short}} instance takes 5 - 15 minutes to complete.**
 
-  Unlike {{site.data.keyword.cloudcerts_short}}, {{site.data.keyword.secrets-manager_short}} is a single-tenant offering. During instance provisioning, {{site.data.keyword.secrets-manager_short}} creates various dedicated resources that are assigned to your service instance only. If you dynamically provision instances of {{site.data.keyword.cloudcerts_short}} and you plan to do the same with {{site.data.keyword.secrets-manager_short}} instances, keep in mind that {{site.data.keyword.secrets-manager_short}} provisioning is asynchronous and takes 5 - 8 minutes to complete.
+  Unlike {{site.data.keyword.cloudcerts_short}}, {{site.data.keyword.secrets-manager_short}} is a single-tenant offering. During instance provisioning, {{site.data.keyword.secrets-manager_short}} creates various dedicated resources that are assigned to your service instance only. If you dynamically provision instances of {{site.data.keyword.cloudcerts_short}} and you plan to do the same with {{site.data.keyword.secrets-manager_short}} instances, keep in mind that {{site.data.keyword.secrets-manager_short}} provisioning is asynchronous and takes 5 - 15 minutes to complete.
 
 - **Secret groups in {{site.data.keyword.secrets-manager_short}} are used to enforce granular access to secrets.**
 

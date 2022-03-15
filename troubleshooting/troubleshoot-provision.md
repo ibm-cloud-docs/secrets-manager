@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-04"
+lastupdated: "2022-03-15"
 
 keywords: provisioning stuck, unable to create instance, can't create instance
 
@@ -72,7 +72,7 @@ When you try to create an instance of the service in the {{site.data.keyword.clo
 Because an instance of the service is created that is dedicated only to you, provisioning might take a few minutes to complete. Or, there might be an error in the provisioning process.
 {: tsCauses}
 
-To resolve the issue, try waiting 5 - 8 minutes and refreshing your web browser. If the problem persists, contact {{site.data.keyword.cloud_notm}} support.
+To resolve the issue, try waiting 5 - 15 minutes and refreshing your web browser. If the problem persists, contact {{site.data.keyword.cloud_notm}} support.
 {: tsResolve}
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-04"
+lastupdated: "2022-03-15"
 
 keywords: isolation for {{site.data.keyword.secrets-manager_short}}, service endpoints for {{site.data.keyword.secrets-manager_short}}, private network for {{site.data.keyword.secrets-manager_short}}, network isolation in {{site.data.keyword.secrets-manager_short}}, non-public routes for {{site.data.keyword.secrets-manager_short}}, private connection for {{site.data.keyword.secrets-manager_short}}
 
@@ -90,7 +90,7 @@ After your account is enabled for VRF and service endpoints, you can provision a
     By default, {{site.data.keyword.secrets-manager_short}} instances accept API requests from both public and private endpoints. To limit access to your instance to take place only through a private network, select the **Private only** option. Keep in mind that the {{site.data.keyword.secrets-manager_short}} service UI is not accessible for **Private only** instances.
 8. Click **Create**.
 
-    Provisioning a {{site.data.keyword.secrets-manager_short}} instance can take 5 - 8 minutes to complete.
+    Provisioning a {{site.data.keyword.secrets-manager_short}} instance can take 5 - 15 minutes to complete.
     {: note}
 
 ## Setting up private endpoints for {{site.data.keyword.secrets-manager_short}} from the CLI
@@ -165,7 +165,7 @@ After your account is enabled for VRF and service endpoints, you can provision a
     ```
     {: pre}
 
-    Provisioning a {{site.data.keyword.secrets-manager_short}} instance can take 5 - 8 minutes to complete.
+    Provisioning a {{site.data.keyword.secrets-manager_short}} instance can take 5 - 15 minutes to complete.
     {: note}
 
 
