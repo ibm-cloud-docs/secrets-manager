@@ -122,7 +122,7 @@ Next, update your {{site.data.keyword.en_short}} settings so that the service ca
 
 Next, create a new {{site.data.keyword.en_short}} subscription with webhook signing enabled.
 
-With webhook signing, you verify that the notification payload is actually sent by {{site.data.keyword.en_short}} and not by a third party. For more information, check out the [{{site.data.keyword.en_short}} documentation](/docs/event-notifications?topic=event-notifications-en-destinations-webhook#en-webhook-sign).
+With webhook signing, you verify that the notification payload is sent by {{site.data.keyword.en_short}} and not by a third party. For more information, check out the [{{site.data.keyword.en_short}} documentation](/docs/event-notifications?topic=event-notifications-en-destinations-webhook#en-webhook-sign).
 {: tip}
 
 1. [Create a subscription with signing enabled](/docs/event-notifications?topic=event-notifications-en-create-en-subscription) between your existing {{site.data.keyword.secrets-manager_short}} topic and your new Cloud Functions destination.
@@ -141,7 +141,7 @@ With webhook signing, you verify that the notification payload is actually sent 
 
 Now you can prepare the sample code for your Cloud Functions action.
 
-1. Copy the following Javascript code and update the placeholder values.
+1. Copy the following JavaScript code and update the placeholder values.
 
    ```javascript
    const axios = require('axios');
@@ -250,5 +250,9 @@ Finally, verify that you're able to post your notifications to Slack. You can us
 ## Conclusion
 {: #tutorial-expiring-secrets-part-3-complete}
 
-Great job! In this tutorial series, you learned how to connect your {{site.data.keyword.secrets-manager_short}} service instance to {{site.data.keyword.en_short}} and create two Cloud Functions actions that forward your incoming notification content to GitHub and Slack. From now on, a GitHub issue and Slack post is created any time that a certificate in your {{site.data.keyword.secrets-manager_short}} service instance expires or is about to expire.
+Great job! In this tutorial series, you learned how to:
 
+- Connect your {{site.data.keyword.secrets-manager_short}} service instance to {{site.data.keyword.en_short}}.
+- Create two Cloud Functions actions that forward your incoming notification content to GitHub and Slack. 
+
+From now on, a GitHub issue and Slack post are created each time that a certificate in your {{site.data.keyword.secrets-manager_short}} service instance expires or is about to expire.

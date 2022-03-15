@@ -69,7 +69,7 @@ This tutorial is part 2 of a 3-part tutorial series that guides you through sett
 
 In part 1 of this tutorial series, you learned how to set up {{site.data.keyword.secrets-manager_full}} and {{site.data.keyword.en_short}} to route events to a test webhook URL. Part 2 shows you how to replace your test webhook with a Cloud Functions webhook URL so that you can open a GitHub issue that contains your {{site.data.keyword.secrets-manager_short}} notification content.
 
-![The diagram shows the basic flow between the Secrets Manager, Event Notifications, and Cloud Functions that creates a GitHub issue.](../images/notifications-github.svg){: caption="Figure 1. Notifications flow" caption-side="bottom"}
+![The diagram shows the basic flow between the Secrets Manager, Event Notifications, and Cloud Functions services to create a GitHub issue.](../images/notifications-github.svg){: caption="Figure 1. Notifications flow" caption-side="bottom"}
 
 ## Before you begin
 {: #tutorial-expiring-secrets-part-2-prereqs}
@@ -102,10 +102,10 @@ To create a Cloud Functions action, you can use the Functions UI.
 
 In part 1 of this tutorial series, you used [Webhook.site](https://webhook.site){: external} to test your notifications workflow for the first time. Now that you've set up a Cloud Functions action, you can also use it to receive any incoming notifications.
 
-1. From your the Cloud Functions action menu, click **Endpoints**.
+1. From the Cloud Functions action menu, click **Endpoints**.
 2. Select **Enable as Web Action**.
 3. Click **Save**.
-4. Copy the URL. This will be your new webhook URL that you can add as an {{site.data.keyword.en_short}} destination in the next step.
+4. Copy the URL. This URL will be your new webhook URL that you can add as an {{site.data.keyword.en_short}} destination in the next step.
 
 ## Update your {{site.data.keyword.en_short}} settings
 {: #tutorial-expiring-secrets-part-2-update-en}
@@ -137,7 +137,7 @@ Start by adding your Cloud Functions webhook URL as a new {{site.data.keyword.en
 
 By default, the notification content that is delivered to a webhook URL arrives in raw JSON format. {{site.data.keyword.en_short}} can optionally send notifications as signed JSON Web Tokens (JWT). In this step, you enable signing for the webhook subscription that you created in part 1.
 
-With webhook signing, you verify that the notification payload is actually sent by {{site.data.keyword.en_short}} and not by a third party. For more information, check out the [{{site.data.keyword.en_short}} documentation](/docs/event-notifications?topic=event-notifications-en-destinations-webhook#en-webhook-sign).
+With webhook signing, you verify that the notification payload is sent by {{site.data.keyword.en_short}} and not by a third party. For more information, check out the [{{site.data.keyword.en_short}} documentation](/docs/event-notifications?topic=event-notifications-en-destinations-webhook#en-webhook-sign).
 {: tip}
 
 1. [Create a subscription with signing enabled](/docs/event-notifications?topic=event-notifications-en-create-en-subscription) between your existing {{site.data.keyword.secrets-manager_short}} topic and your new Cloud Functions destination.
@@ -174,7 +174,7 @@ To verify the signature and decrypt the message, you'll need to obtain the publi
 
 Next, prepare the sample code for your Cloud Functions action.
 
-1. Copy the following Javascript code and update the placeholder values.
+1. Copy the following JavaScript code and update the placeholder values.
 
    ```javascript
    const axios = require('axios');
@@ -317,7 +317,7 @@ Finally, verify that you're able to post your notifications to GitHub. You can u
    ```
    {: screen}
 
-   If you have a existing certificate in your {{site.data.keyword.secrets-manager_short}} instance that expires soon, a GitHub issue is created similar to the following example:
+   If you have an existing certificate in your {{site.data.keyword.secrets-manager_short}} instance that expires soon, a GitHub issue is created similar to the following example:
 
    ```text
    Test issue
@@ -340,7 +340,7 @@ Finally, verify that you're able to post your notifications to GitHub. You can u
 ## Next steps
 {: #tutorial-expiring-secrets-part-2-next-steps}
 
-Great job! In part 2 of this tutorial series, you learned how to set up a Cloud Functions action that takes your incoming notification content and uses it to open an issue in your GitHub repository. From now on, a GitHub issue is created any time that a certificate in your {{site.data.keyword.secrets-manager_short}} service instance expires or is about to expire. In part 3, you create another Functions action that sends your notifications to Slack.
+Great job! In part 2 of this tutorial series, you learned how to set up a Cloud Functions action that takes your incoming notification content and uses it to open an issue in your GitHub repository. From now on, a GitHub issue is created each time that a certificate in your {{site.data.keyword.secrets-manager_short}} service instance expires or is about to expire. In part 3, you create another Functions action that sends your notifications to Slack.
 
 - [Part 3: Send your notifications to a Slack channel](/docs/secrets-manager?topic=secrets-manager-tutorial-expiring-secrets-part-3)
 
