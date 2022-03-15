@@ -83,7 +83,7 @@ Be sure that you've completed [Part 1: Enabling notifications for {{site.data.ke
 {: #tutorial-expiring-secrets-part-2-create-webhook}
 {: step}
 
-Let's start by creating a Cloud Functions action. A Cloud Functions action is a piece of code that can be run in response to a trigger, such as an incoming notification from the {{site.data.keyword.en_short}} service. Your Cloud Functions action can contain code that takes an incoming payload from {{site.data.keyword.en_short}}, which originated as an event in {{site.data.keyword.secrets-manager_short}}, and uses it to create a GitHub issue.
+Let's start by creating a [Cloud Functions](/docs/openwhisk) action. A Cloud Functions action is a piece of code that can be run in response to a trigger, such as an incoming notification from the {{site.data.keyword.en_short}} service. Your Cloud Functions action can contain code that takes an incoming payload from {{site.data.keyword.en_short}}, which originated as an event in {{site.data.keyword.secrets-manager_short}}, and uses it to create a GitHub issue.
 
 ### Create a Cloud Functions action
 {: #tutorial-expiring-secrets-part-2-create-function}
