@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-03-10"
+lastupdated: "2022-03-16"
 
 subcollection: secrets-manager
 
@@ -115,15 +115,12 @@ Creates a secret group that you can use to organize secrets and control who on y
 A successful request returns the ID value of the secret group, along with other metadata. To learn more about secret groups, check out the [docs](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 
 ```sh
-ibmcloud secrets-manager secret-group-create --metadata METADATA --resources RESOURCES 
+ibmcloud secrets-manager secret-group-create --resources RESOURCES 
 ```
 
 
 #### Command options
 {: #secrets-manager-secret-group-create-cli-options}
-
---metadata ([CollectionMetadata](#cli-collection-metadata-example-schema))
-:   The metadata that describes the resource array. Required.
 
 --resources ([SecretGroupResource[]](#cli-secret-group-resource-example-schema))
 :   A collection of resources. Required.
@@ -133,7 +130,6 @@ ibmcloud secrets-manager secret-group-create --metadata METADATA --resources RES
 
 ```sh
 ibmcloud secrets-manager secret-group-create \
-    --metadata='{"collection_type": "application/vnd.ibm.secrets-manager.secret.group+json", "collection_total": 1}' \
     --resources='[{"name": "my-secret-group", "description": "Extended description for this group."}]'
 ```
 
@@ -186,7 +182,7 @@ ibmcloud secrets-manager secret-group \
 Updates the metadata of an existing secret group, such as its name or description.
 
 ```sh
-ibmcloud secrets-manager secret-group-metadata-update --id ID --metadata METADATA --resources RESOURCES 
+ibmcloud secrets-manager secret-group-metadata-update --id ID --resources RESOURCES 
 ```
 
 
@@ -198,9 +194,6 @@ ibmcloud secrets-manager secret-group-metadata-update --id ID --metadata METADAT
 
     The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
 
---metadata ([CollectionMetadata](#cli-collection-metadata-example-schema))
-:   The metadata that describes the resource array. Required.
-
 --resources ([SecretGroupMetadataUpdatable[]](#cli-secret-group-metadata-updatable-example-schema))
 :   A collection of resources. Required.
 
@@ -210,7 +203,6 @@ ibmcloud secrets-manager secret-group-metadata-update --id ID --metadata METADAT
 ```sh
 ibmcloud secrets-manager secret-group-metadata-update \
     --id=exampleString \
-    --metadata='{"collection_type": "application/vnd.ibm.secrets-manager.secret.group+json", "collection_total": 1}' \
     --resources='[{"name": "updated-secret-group-name", "description": "Updated description for this group."}]'
 ```
 
@@ -260,7 +252,7 @@ Use this method to either generate or import an existing secret, such as an arbi
 To learn more about the types of secrets that you can create with Secrets Manager, check out the [docs](/docs/secrets-manager?topic=secrets-manager-what-is-secret).
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-type SECRET-TYPE --metadata METADATA --resources RESOURCES 
+ibmcloud secrets-manager secret-create --secret-type SECRET-TYPE  --resources RESOURCES 
 ```
 
 
@@ -272,9 +264,6 @@ ibmcloud secrets-manager secret-create --secret-type SECRET-TYPE --metadata META
 
     Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `username_password`, `kv`.
 
---metadata ([CollectionMetadata](#cli-collection-metadata-example-schema))
-:   The metadata that describes the resource array. Required.
-
 --resources ([SecretResource[]](#cli-secret-resource-example-schema))
 :   A collection of resources. Required.
 
@@ -284,7 +273,6 @@ ibmcloud secrets-manager secret-create --secret-type SECRET-TYPE --metadata META
 ```sh
 ibmcloud secrets-manager secret-create \
     --secret-type=arbitrary \
-    --metadata='{"collection_type": "application/vnd.ibm.secrets-manager.config+json", "collection_total": 1}' \
     --resources='[{"name": "exampleString", "description": "exampleString", "secret_group_id": "exampleString", "labels": ["exampleString"], "expiration_date": "2030-04-01T09:30:00.000Z", "payload": "exampleString"}]'
 ```
 
@@ -387,7 +375,6 @@ A successful request returns the secret data that is associated with your secret
 ```sh
 ibmcloud secrets-manager secret --secret-type SECRET-TYPE --id ID 
 ```
-
 
 #### Command options
 {: #secrets-manager-secret-cli-options}
@@ -688,7 +675,7 @@ Updates the metadata of a secret, such as its name or description.
 To update the actual contents of a secret, rotate the secret by using the [Invoke an action on a secret](#secrets-manager-cli-secret-update-command) method.
 
 ```sh
-ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id ID --metadata METADATA --resources RESOURCES 
+ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id ID  --resources RESOURCES 
 ```
 
 
@@ -705,9 +692,6 @@ ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id I
 
     The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
 
---metadata ([CollectionMetadata](#cli-collection-metadata-example-schema))
-:   The metadata that describes the resource array. Required.
-
 --resources ([SecretMetadata[]](#cli-secret-metadata-example-schema))
 :   A collection of resources. Required.
 
@@ -718,7 +702,6 @@ ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id I
 ibmcloud secrets-manager secret-metadata-update \
     --secret-type=arbitrary \
     --id=exampleString \
-    --metadata='{"collection_type": "application/vnd.ibm.secrets-manager.config+json", "collection_total": 1}' \
     --resources='[{"labels": ["dev","us-south"], "name": "example-secret", "description": "Extended description for this secret.", "expiration_date": "2030-04-01T09:30:00.000Z"}]'
 ```
 
@@ -733,7 +716,7 @@ Define rotation policies for secrets.
 Creates or updates one or more policies, such as an [automatic rotation policy](/docs/secrets-manager?topic=secrets-manager-automatic-rotation), for the specified secret.
 
 ```sh
-ibmcloud secrets-manager policy-update --secret-type SECRET-TYPE --id ID --metadata METADATA --resources RESOURCES [--policy POLICY] 
+ibmcloud secrets-manager policy-update --secret-type SECRET-TYPE --id ID  --resources RESOURCES [--policy POLICY] 
 ```
 
 
@@ -750,9 +733,6 @@ ibmcloud secrets-manager policy-update --secret-type SECRET-TYPE --id ID --metad
 
     The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
 
---metadata ([CollectionMetadata](#cli-collection-metadata-example-schema))
-:   The metadata that describes the resource array. Required.
-
 --resources ([SecretPolicyRotation[]](#cli-secret-policy-rotation-example-schema))
 :   A collection of resources. Required.
 
@@ -768,7 +748,6 @@ ibmcloud secrets-manager policy-update --secret-type SECRET-TYPE --id ID --metad
 ibmcloud secrets-manager policy-update \
     --secret-type=username_password \
     --id=exampleString \
-    --metadata='{"collection_type": "application/vnd.ibm.secrets-manager.config+json", "collection_total": 1}' \
     --resources='[{"type": "application/vnd.ibm.secrets-manager.secret.policy+json", "rotation": {"interval": 1, "unit": "day"}}]' \
     --policy=rotation
 ```
@@ -1170,19 +1149,6 @@ ibmcloud secrets-manager notifications-test
 {: #secrets-manager-schema-examples}
 
 The following schema examples represent the data that you need to specify for a command option. These examples model the data structure and include placeholder values for the expected value type. When you run a command, replace these values with the values that apply to your environment as appropriate.
-
-### CollectionMetadata
-{: #cli-collection-metadata-example-schema}
-
-The following example shows the format of the CollectionMetadata object.
-
-```json
-{
-  "collection_type" : "application/vnd.ibm.secrets-manager.secret.group+json",
-  "collection_total" : 1
-}
-```
-{: codeblock}
 
 ### ConfigElementDefConfig
 {: #cli-config-element-def-config-example-schema}
