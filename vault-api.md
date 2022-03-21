@@ -84,7 +84,7 @@ The following table lists the endpoint URLs by region that can be used to intera
 | Dallas        | `https://{instance_ID}.us-south.secrets-manager.appdomain.cloud` |
 | Frankfurt     | `https://{instance_ID}.eu-de.secrets-manager.appdomain.cloud`    |
 | London        | `https://{instance_ID}.eu-gb.secrets-manager.appdomain.cloud`    |
-| Osaka         | `https://{instance_ID}.jp-osa.secrets-manager.appdomain.cloud`   |
+| Sao Paulo     | `https://{instance_ID}.br-sao.secrets-manager.appdomain.cloud`   |
 | Sydney        | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud`   |
 | Tokyo         | `https://{instance_ID}.jp-tok.secrets-manager.appdomain.cloud`   |
 | Washington DC | `https://{instance_ID}.us-east.secrets-manager.appdomain.cloud`  |
@@ -99,7 +99,7 @@ The following table lists the endpoint URLs by region that can be used to intera
 | Dallas        | `https://{instance_ID}.private.us-south.secrets-manager.appdomain.cloud` |
 | Frankfurt     | `https://{instance_ID}.private.eu-de.secrets-manager.appdomain.cloud`    |
 | London        | `https://{instance_ID}.private.eu-gb.secrets-manager.appdomain.cloud`    |
-| Osaka         | `https://{instance_ID}.private.jp-osa.secrets-manager.appdomain.cloud`   |
+| Sao Paulo     | `https://{instance_ID}.private.br-sao.secrets-manager.appdomain.cloud`   |
 | Sydney        | `https://{instance_ID}.private.au-syd.secrets-manager.appdomain.cloud`   |
 | Tokyo         | `https://{instance_ID}.private.jp-tok.secrets-manager.appdomain.cloud`   |
 | Washington DC | `https://{instance_ID}.private.us-east.secrets-manager.appdomain.cloud`  |

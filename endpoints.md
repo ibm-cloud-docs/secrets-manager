@@ -94,7 +94,7 @@ If you are managing your {{site.data.keyword.secrets-manager_short}} resources o
 | Dallas        | `https://{instance_ID}.us-south.secrets-manager.appdomain.cloud/api` |
 | Frankfurt     | `https://{instance_ID}.eu-de.secrets-manager.appdomain.cloud/api`    |
 | London        | `https://{instance_ID}.eu-gb.secrets-manager.appdomain.cloud/api`    |
-| Osaka         | `https://{instance_ID}.jp-osa.secrets-manager.appdomain.cloud/api`   |
+| Sao Paulo     | `https://{instance_ID}.br-sao.secrets-manager.appdomain.cloud/api`   |
 | Sydney        | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud/api`   |
 | Tokyo         | `https://{instance_ID}.jp-tok.secrets-manager.appdomain.cloud/api`   |
 | Washington DC | `https://{instance_ID}.us-east.secrets-manager.appdomain.cloud/api`  |
@@ -109,7 +109,7 @@ If you are managing your {{site.data.keyword.secrets-manager_short}} resources o
 | Dallas        | `https://{instance_ID}.us-south.secrets-manager.appdomain.cloud` |
 | Frankfurt     | `https://{instance_ID}.eu-de.secrets-manager.appdomain.cloud`    |
 | London        | `https://{instance_ID}.eu-gb.secrets-manager.appdomain.cloud`    |
-| Osaka         | `https://{instance_ID}.jp-osa.secrets-manager.appdomain.cloud`   |
+| Sao Paulo     | `https://{instance_ID}.br-sao.secrets-manager.appdomain.cloud`   |
 | Sydney        | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud`   |
 | Tokyo         | `https://{instance_ID}.jp-tok.secrets-manager.appdomain.cloud`   |
 | Washington DC | `https://{instance_ID}.us-east.secrets-manager.appdomain.cloud`  |
@@ -135,7 +135,7 @@ To learn how to configure your {{site.data.keyword.secrets-manager_short}} insta
 | Dallas        | `https://{instance_ID}.private.us-south.secrets-manager.appdomain.cloud/api` |
 | Frankfurt     | `https://{instance_ID}.private.eu-de.secrets-manager.appdomain.cloud/api`    |
 | London        | `https://{instance_ID}.private.eu-gb.secrets-manager.appdomain.cloud/api`    |
-| Osaka         | `https://{instance_ID}.private.jp-osa.secrets-manager.appdomain.cloud/api`   |
+| Sao Paulo     | `https://{instance_ID}.private.br-sao.secrets-manager.appdomain.cloud/api`   |
 | Sydney        | `https://{instance_ID}.private.au-syd.secrets-manager.appdomain.cloud/api`   |
 | Tokyo         | `https://{instance_ID}.private.jp-tok.secrets-manager.appdomain.cloud/api`   |
 | Washington DC | `https://{instance_ID}.private.us-east.secrets-manager.appdomain.cloud/api`  |
@@ -150,7 +150,7 @@ To learn how to configure your {{site.data.keyword.secrets-manager_short}} insta
 | Dallas        | `https://{instance_ID}.private.us-south.secrets-manager.appdomain.cloud` |
 | Frankfurt     | `https://{instance_ID}.private.eu-de.secrets-manager.appdomain.cloud`    |
 | London        | `https://{instance_ID}.private.eu-gb.secrets-manager.appdomain.cloud`    |
-| Osaka         | `https://{instance_ID}.private.jp-osa.secrets-manager.appdomain.cloud`   |
+| Sao Paulo     | `https://{instance_ID}.private.br-sao.secrets-manager.appdomain.cloud`   |
 | Sydney        | `https://{instance_ID}.private.au-syd.secrets-manager.appdomain.cloud`   |
 | Tokyo         | `https://{instance_ID}.private.jp-tok.secrets-manager.appdomain.cloud`   |
 | Washington DC | `https://{instance_ID}.private.us-east.secrets-manager.appdomain.cloud`  |
