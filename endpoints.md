@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-28"
+lastupdated: "2022-03-21"
 
 keywords: Secrets Manager availability, regions, Secrets Manager endpoints, Vault endpoint
 

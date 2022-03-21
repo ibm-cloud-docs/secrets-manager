@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-15"
+lastupdated: "2022-03-21"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -63,12 +63,14 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
+
+
 ## 15 March 2022
 {: #secrets-manager-mar1522}
 {: release-note}
 
 Tutorial series: Set up alerts for expiring certificates
-:   Looking for examples that can help you to send {{site.data.keyword.secrets-manager_short}} notifications to GitHub or Slack? Check out the new [tutorial series](/docs/secrets-manager?topic=secrets-manager-tutorial-expiring-secrets-part-1) to guides you through:
+:   Looking for examples that can help you to send {{site.data.keyword.secrets-manager_short}} notifications to GitHub or Slack? Check out the new [tutorial series](/docs/secrets-manager?topic=secrets-manager-tutorial-expiring-secrets-part-1) that guides you through:
 
 - Enabling [{{site.data.keyword.en_short}}](/docs/event-notifications) for {{site.data.keyword.secrets-manager_short}}
 - Using [Cloud Functions](/docs/openwhisk) to create a GitHub issue when a secret is about to expire
@@ -87,20 +89,20 @@ Sao Paulo availability
 {: #secrets-manager-feb2322}
 {: release-note}
 
-Pricing plan updates coming soon in Secrets Manager
-:   On 23 March 2022, Secrets Manager will introduce Standard and Trial pricing plans. With the introduction of the new plans, the current Lite plan option will be deprecated. 
+Pricing plan updates coming soon in {{site.data.keyword.secrets-manager_short}}
+:   On 23 March 2022, {{site.data.keyword.secrets-manager_short}} will introduce Standard and Trial pricing plans. With the introduction of the new plans, the current Lite plan option will be deprecated. 
 
    **Types of plans:**
 
    When you provision an instance of the service after the 23 March, you can choose either a Trial or Standard plan.
 
 
-   * **Trial**: To try out the service, you can provision an instance of the service that allows you to access all of the features that Secrets Manager has to offer for a limited time. After the trial period, all functionality is disabled but the instance remains in your account for an additional 30 days, during which you can choose to upgrade your plan. If you choose not to, the instance and its data are automatically removed from your account without any action on your part.
+   * **Trial**: To try out the service, you can provision an instance of the service that allows you to access all of the features that {{site.data.keyword.secrets-manager_short}} has to offer for a limited time. After the trial period, all functionality is disabled but the instance remains in your account for an additional 30 days, during which you can choose to upgrade your plan. If you choose not to, the instance and its data are automatically removed from your account without any action on your part.
 
    You can have one instance of the service on the trial plan provisioned in your account at any time.
    {: note}
 
-   * **Standard**: When you're ready to upgrade, you get unlimited access to all of the features that the service has to offer without any limit on the number of instances that your teams can provision. With the Standard plan, you are charged per secret and per instance that is provisioned. To view the most current pricing information, see the Secrets Manager UI.
+   * **Standard**: When you're ready to upgrade, you get unlimited access to all of the features that the service has to offer without any limit on the number of instances that your teams can provision. With the Standard plan, you are charged per secret and per instance that is provisioned. To view the most current pricing information, see the {{site.data.keyword.secrets-manager_short}} UI.
 
 
    **Important dates:**
@@ -108,10 +110,10 @@ Pricing plan updates coming soon in Secrets Manager
    Be sure to keep the following dates in mind:
 
 
-   * **23 March 2022**: Instances of Secrets Manager on the Lite plan will be deprecated. As an existing user, you can continue to use the service without interruption, but you should upgrade your instances to the Standard plan as soon as you can after this date.
+   * **23 March 2022**: Instances of {{site.data.keyword.secrets-manager_short}} on the Lite plan will be deprecated. As an existing user, you can continue to use the service without interruption, but you should upgrade your instances to the Standard plan as soon as you can after this date.
 
 
-   * **22 May 2022**: Instances of Secrets Manager on the Lite plan will be disabled and functionality is removed. However, the instance remains in your account for an additional 30 days, during which you can choose to upgrade your plan.
+   * **22 May 2022**: Instances of {{site.data.keyword.secrets-manager_short}} on the Lite plan will be disabled and functionality is removed. However, the instance remains in your account for an additional 30 days, during which you can choose to upgrade your plan.
 
 
    * **21 June 2022**: If you have chosen not to upgrade your plan, the instances of the service and their data will be removed from your account.
@@ -206,9 +208,9 @@ Connect to {{site.data.keyword.secrets-manager_short}} from your VPC network
 {: release-note}
 
 Upcoming updates to supported cipher suites
-:   On 2021 May 29, Secrets Manager will deliver changes to the cipher suites that it supports for TLS connections to the service. This update is being implemented to enhance the security of IBM Cloud users and protect user data.
+:   On 2021 May 29, {{site.data.keyword.secrets-manager_short}} will deliver changes to the cipher suites that it supports for TLS connections to the service. This update is being implemented to enhance the security of IBM Cloud users and protect user data.
 
-   - **What's changing?** Beginning 2021 May 29, Secrets Manager API endpoints will allow only the following cipher suites:
+   - **What's changing?** Beginning 2021 May 29, {{site.data.keyword.secrets-manager_short}} API endpoints will allow only the following cipher suites:
 
       - `ECDHE-ECDSA-AES128-GCM-SHA256`
       - `ECDHE-ECDSA-CHACHA20-POLY1305`
@@ -217,7 +219,7 @@ Upcoming updates to supported cipher suites
       - `ECDHE-RSA-CHACHA20-POLY1305`
       - `ECDHE-RSA-AES256-GCM-SHA384`
 
-   - **How will this change impact my environment?** This change will impact clients that are configured to use ciphers that are not included on this list. To avoid connectivity issues with Secrets Manager, make sure that your client is configured to use only the allowed list of ciphers in TLS connections to the service. Reach out to [IBM Cloud support](https://cloud.ibm.com/unifiedsupport/cases/form) with any questions.
+   - **How will this change impact my environment?** This change will impact clients that are configured to use ciphers that are not included on this list. To avoid connectivity issues with {{site.data.keyword.secrets-manager_short}}, make sure that your client is configured to use only the allowed list of ciphers in TLS connections to the service. Reach out to [IBM Cloud support](https://cloud.ibm.com/unifiedsupport/cases/form) with any questions.
 
 Manage secrets in your {{site.data.keyword.contdelivery_short}} toolchain
 :   You can now configure {{site.data.keyword.secrets-manager_short}} to securely manage secrets that are part of your {{site.data.keyword.contdelivery_short}} toolchain.
