@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-15"
+lastupdated: "2022-03-23"
 
 keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, lite plan
 
@@ -60,14 +60,8 @@ subcollection: secrets-manager
 You can get started with {{site.data.keyword.secrets-manager_full}} by creating a service instance in {{site.data.keyword.cloud_notm}} console or with the {{site.data.keyword.cloud_notm}} CLI.
 {: shortdesc}
 
-
-
-When you provision {{site.data.keyword.secrets-manager_short}} in your {{site.data.keyword.cloud_notm}} account, the service creates a single tenant, dedicated instance. 
-
-
-You can create only one Lite plan instance of {{site.data.keyword.secrets-manager_short}} per {{site.data.keyword.cloud_notm}} account. The Lite plan includes access to all service capabilities for free.
+Provisioning {{site.data.keyword.secrets-manager_short}} in your {{site.data.keyword.cloud_notm}} account can take 5 - 15 minutes to complete as the service creates a single tenant, dedicated instance.
 {: note}
-
 
 
 ## Creating a {{site.data.keyword.secrets-manager_short}} instance in the UI
@@ -90,10 +84,8 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} from the {{
     To further protect your connection to {{site.data.keyword.secrets-manager_short}}, you can choose to provision an instance that uses a private service endpoint. For more information about setting up your account to support the private connectivity option, see [Enabling VRF and service endpoints](/docs/account?topic=account-vrf-service-endpoint).
 9. Click **Create** to create an instance of {{site.data.keyword.secrets-manager_short}} in the account, region, and resource group that you selected.
 
-    Provisioning a {{site.data.keyword.secrets-manager_short}} instance can take 5 - 15 minutes to complete.
-    {: note}
-  
-
+To update your service plan after you've created an instance, see [Updating your service plan](/docs/billing-usage?topic=billing-usage-changing).
+{: tip}
 
 
 ## Creating a {{site.data.keyword.secrets-manager_short}} instance from the CLI
@@ -114,8 +106,6 @@ You can also create an instance of {{site.data.keyword.secrets-manager_short}} b
 
 2. Select the account, region, and resource group where you want to create a {{site.data.keyword.secrets-manager_short}} service instance.
 
-    You can use the following command to set your target region and resource group.
-
     ```sh
     ibmcloud target -r <region> -g <resource_group_name>
     ```
@@ -124,14 +114,17 @@ You can also create an instance of {{site.data.keyword.secrets-manager_short}} b
 3. Create an instance of {{site.data.keyword.secrets-manager_short}} within that account and resource group.
 
     ```sh
-    ibmcloud resource service-instance-create <instance_name> secrets-manager lite <region>
+    ibmcloud resource service-instance-create <instance_name> secrets-manager <plan>
     ```
     {: pre}
 
-    Replace `<instance_name>` with a unique alias for your service instance.
-
-    If you need to provision an instance of {{site.data.keyword.secrets-manager_short}} that uses [private endpoints only](/docs/secrets-manager?topic=secrets-manager-service-connection), you can append `-p '{"allowed_network": "private-only"}'` to your command. To provision an instance of {{site.data.keyword.secrets-manager_short}} that uses [customer-managed encryption](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption), append `-p '{"kms_key": "<root_key_crn>"}'`. Replace `<root_key_crn>` with the CRN value for the root key that you want to integrate.
-    {: tip}
+    | Variable | Description |
+    |:---------|:------------|
+    | Instance name (`name`) | A unique alias for your service instance. |
+    | Pricing plan (`plan`) | The pricing plan that you want to use, provided as a plan ID. To obtain the plan ID, run `ibmcloud catalog service secrets-manager`. For more information about plan IDs, see [Updating your service plan](/docs/billing-usage?topic=billing-usage-changing). |
+    | Private endpoints | If you need to provision an instance of {{site.data.keyword.secrets-manager_short}} that uses [private endpoints only](/docs/secrets-manager?topic=secrets-manager-service-connection), you can append `-p '{"allowed_network": "private-only"}'` to your command. |
+    | Encryption | To provision an instance of {{site.data.keyword.secrets-manager_short}} that uses [customer-managed encryption](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption), append `-p '{"kms_key": "<root_key_crn>"}'`. Replace `<root_key_crn>` with the CRN value for the root key that you want to integrate. |
+    {: caption="Table 1. Descripition of the information that is required to provision the  {{site.data.keyword.secrets-manager_short}} service" caption-side="top"}
 
 4. Optional: Verify that the service instance was created successfully.
 
@@ -140,8 +133,5 @@ You can also create an instance of {{site.data.keyword.secrets-manager_short}} b
     ```
     {: pre}
 
-    Provisioning a {{site.data.keyword.secrets-manager_short}} instance can take 5 - 15 minutes to complete.
-    {: note}
-
-
-
+To update your service plan after you've created an instance, see [Updating your service plan](/docs/billing-usage?topic=billing-usage-changing).
+{: tip}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-21"
+lastupdated: "2022-03-23"
 
 keywords: Secrets Manager availability, regions, Secrets Manager endpoints, Vault endpoint
 
@@ -68,9 +68,11 @@ You can create {{site.data.keyword.secrets-manager_short}} resources in one of t
 - Dallas (`us-south`)
 - Frankfurt (`eu-de`)
 - London (`eu-gb`)
+- Osaka (`jp-osa`
 - Sao Paulo (`br-sao`)
 - Sydney (`au-syd`)
 - Tokyo (`jp-tok`)
+- Toronto (`ca-tor`)
 - Washington DC (`us-east`)
 
 ## Service endpoints
@@ -94,9 +96,11 @@ If you are managing your {{site.data.keyword.secrets-manager_short}} resources o
 | Dallas        | `https://{instance_ID}.us-south.secrets-manager.appdomain.cloud/api` |
 | Frankfurt     | `https://{instance_ID}.eu-de.secrets-manager.appdomain.cloud/api`    |
 | London        | `https://{instance_ID}.eu-gb.secrets-manager.appdomain.cloud/api`    |
+| Osaka         | `https://{instance_ID}.jp-osa.secrets-manager.appdomain.cloud/api`   |
 | Sao Paulo     | `https://{instance_ID}.br-sao.secrets-manager.appdomain.cloud/api`   |
 | Sydney        | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud/api`   |
 | Tokyo         | `https://{instance_ID}.jp-tok.secrets-manager.appdomain.cloud/api`   |
+| Toronto       | `https://{instance_ID}.ca-tor.secrets-manager.appdomain.cloud/api`   |
 | Washington DC | `https://{instance_ID}.us-east.secrets-manager.appdomain.cloud/api`  |
 {: caption="Table 1. Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using standard {{site.data.keyword.cloud_notm}} APIs" caption-side="top"}
 {: #public-endpoints-secrets-manager}
@@ -109,9 +113,11 @@ If you are managing your {{site.data.keyword.secrets-manager_short}} resources o
 | Dallas        | `https://{instance_ID}.us-south.secrets-manager.appdomain.cloud` |
 | Frankfurt     | `https://{instance_ID}.eu-de.secrets-manager.appdomain.cloud`    |
 | London        | `https://{instance_ID}.eu-gb.secrets-manager.appdomain.cloud`    |
+| Osaka         | `https://{instance_ID}.jp-osa.secrets-manager.appdomain.cloud`   |
 | Sao Paulo     | `https://{instance_ID}.br-sao.secrets-manager.appdomain.cloud`   |
 | Sydney        | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud`   |
 | Tokyo         | `https://{instance_ID}.jp-tok.secrets-manager.appdomain.cloud`   |
+| Toronto       | `https://{instance_ID}.ca-tor.secrets-manager.appdomain.cloud`   |
 | Washington DC | `https://{instance_ID}.us-east.secrets-manager.appdomain.cloud`  |
 {: caption="Table 1. Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
 {: #public-endpoints-vault}
@@ -135,9 +141,11 @@ To learn how to configure your {{site.data.keyword.secrets-manager_short}} insta
 | Dallas        | `https://{instance_ID}.private.us-south.secrets-manager.appdomain.cloud/api` |
 | Frankfurt     | `https://{instance_ID}.private.eu-de.secrets-manager.appdomain.cloud/api`    |
 | London        | `https://{instance_ID}.private.eu-gb.secrets-manager.appdomain.cloud/api`    |
+| Osaka         | `https://{instance_ID}.private.jp-osa.secrets-manager.appdomain.cloud/api`   |
 | Sao Paulo     | `https://{instance_ID}.private.br-sao.secrets-manager.appdomain.cloud/api`   |
 | Sydney        | `https://{instance_ID}.private.au-syd.secrets-manager.appdomain.cloud/api`   |
 | Tokyo         | `https://{instance_ID}.private.jp-tok.secrets-manager.appdomain.cloud/api`   |
+| Toronto       | `https://{instance_ID}.private.ca-tor.secrets-manager.appdomain.cloud/api`   |
 | Washington DC | `https://{instance_ID}.private.us-east.secrets-manager.appdomain.cloud/api`  |
 {: caption="Table 2. Private endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using standard {{site.data.keyword.cloud_notm}} APIs" caption-side="top"}
 {: #private-endpoints-secrets-manager}
@@ -150,9 +158,11 @@ To learn how to configure your {{site.data.keyword.secrets-manager_short}} insta
 | Dallas        | `https://{instance_ID}.private.us-south.secrets-manager.appdomain.cloud` |
 | Frankfurt     | `https://{instance_ID}.private.eu-de.secrets-manager.appdomain.cloud`    |
 | London        | `https://{instance_ID}.private.eu-gb.secrets-manager.appdomain.cloud`    |
+| Osaka         | `https://{instance_ID}.private.jp-osa.secrets-manager.appdomain.cloud`   |
 | Sao Paulo     | `https://{instance_ID}.private.br-sao.secrets-manager.appdomain.cloud`   |
 | Sydney        | `https://{instance_ID}.private.au-syd.secrets-manager.appdomain.cloud`   |
 | Tokyo         | `https://{instance_ID}.private.jp-tok.secrets-manager.appdomain.cloud`   |
+| Toronto       | `https://{instance_ID}.private.ca-tor.secrets-manager.appdomain.cloud`   |
 | Washington DC | `https://{instance_ID}.private.us-east.secrets-manager.appdomain.cloud`  |
 {: caption="Table 2. Private endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
 {: #private-endpoints-vault}
