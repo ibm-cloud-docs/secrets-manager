@@ -103,9 +103,9 @@ You can take advantage of the data isolation benefits of a single-tenant secrets
 
 Before you begin, consider the following items and service limitations that might impact your experience as you integrate to {{site.data.keyword.secrets-manager_short}}.
 
-- **{{site.data.keyword.secrets-manager_short}} is a paid service.**
+- **{{site.data.keyword.secrets-manager_short}} is a paid service with Standard and Trial pricing plans.**
 
-  You can create an instance of {{site.data.keyword.secrets-manager_short}} by choosing either the Standard and Trial pricing plans. To try out {{site.data.keyword.secrets-manager_short}} and create a Standard instance of the service, a credit card-equipped {{site.data.keyword.cloud_notm}} account is required. Be sure to review the [catalog entry for {{site.data.keyword.secrets-manager_short}}](/catalog/services/secrets-manager){: external} to learn more about pricing plans for the service.
+  You can create an instance of {{site.data.keyword.secrets-manager_short}} by choosing either the Standard and Trial pricing plans. To try out {{site.data.keyword.secrets-manager_short}} or create a Standard instance of the service, a credit card-equipped {{site.data.keyword.cloud_notm}} account is required. Be sure to review the [catalog entry for {{site.data.keyword.secrets-manager_short}}](/catalog/services/secrets-manager){: external} to learn more about pricing plans for the service.
 
 - **Provisioning a {{site.data.keyword.secrets-manager_short}} instance takes 5 - 15 minutes to complete.**
 
