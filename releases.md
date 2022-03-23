@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-21"
+lastupdated: "2022-03-23"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -64,6 +64,16 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
 
+## 23 March 2022
+{: #secrets-manager-mar2322}
+{: release-note}
+
+
+Osaka and Toronto availability
+:   You can now create a {{site.data.keyword.secrets-manager_short}} service instance in the Osaka (`jp-osa`) and Toronto (`ca-tor`) regions.
+
+   For more information, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
+   
 
 ## 15 March 2022
 {: #secrets-manager-mar1522}

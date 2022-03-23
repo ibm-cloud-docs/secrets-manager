@@ -1,6 +1,6 @@
 {
   "title": "Secrets Manager docs",
-  "lastupdated": "2022-03-21",
+  "lastupdated": "2022-03-23",
   "introduction": "Explore recommended content and resources to help you get started with IBM Cloud Secrets Manager.",
   "section_devtools": {
     "api": "/apidocs/secrets-manager",
@@ -38,6 +38,11 @@
   "section_updates": {
     "view_more": "/docs/secrets-manager?topic=secrets-manager-release-notes",
     "tiles": [
+      {
+        "date": "23 March 2022",
+        "title": "New pricing plans and regions now available",
+        "description": "Create an unlimited number of instances in your account by upgrading your Secrets Manager instance to the Standard plan. Additionally, you can now create an instance of the service in the Osaka and Toronto regions. For more information, check the full release notes."
+      },
       {
         "date": "15 March 2022",
         "title": "Tutorial series: Setting up alerts for expiring certificates",
