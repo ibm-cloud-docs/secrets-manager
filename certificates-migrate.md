@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-15"
+lastupdated: "2022-03-23"
 
 keywords: migrate from Certificate Manager, migrate to Secrets Manager, migrate certificates
 
@@ -103,12 +103,9 @@ You can take advantage of the data isolation benefits of a single-tenant secrets
 
 Before you begin, consider the following items and service limitations that might impact your experience as you integrate to {{site.data.keyword.secrets-manager_short}}.
 
-- **{{site.data.keyword.secrets-manager_short}} instances are limited to 1 per account.**
+- **{{site.data.keyword.secrets-manager_short}} is a paid service.**
 
-  Currently, {{site.data.keyword.secrets-manager_short}} is a free service that enforces a limit of one instance per {{site.data.keyword.cloud_notm}} account. New pricing plans will become available for the service on 23 March 2022. While you wait for new service plans to become available, you can create a {{site.data.keyword.secrets-manager_short}} service instance to start migrating your existing certificates from {{site.data.keyword.cloudcerts_short}}. {{site.data.keyword.secrets-manager_short}} does not enforce a limit on the total number of secrets or certificates that you can store per instance.
-
-  On 23 March 2022, Secrets Manager will introduce Standard and Trial pricing plans. With the Standard pricing plan, you can create an unlimited number of instances per account. For more information, refer to the [release notes](/docs/secrets-manager?topic=secrets-manager-release-notes#secrets-manager-feb2322).
-  {: note}
+  You can create an instance of {{site.data.keyword.secrets-manager_short}} by choosing either the Standard and Trial pricing plans. To try out {{site.data.keyword.secrets-manager_short}} and create a Standard instance of the service, a credit card-equipped {{site.data.keyword.cloud_notm}} account is required. Be sure to review the [catalog entry for {{site.data.keyword.secrets-manager_short}}](/catalog/services/secrets-manager){: external} to learn more about pricing plans for {{site.data.keyword.secrets-manager_short}}.
 
 - **Provisioning a {{site.data.keyword.secrets-manager_short}} instance takes 5 - 15 minutes to complete.**
 
