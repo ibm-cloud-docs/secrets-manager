@@ -68,12 +68,17 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 {: #secrets-manager-mar2322}
 {: release-note}
 
+Standard and Trial pricing plans
+:   You can now create an unlimited number of {{site.data.keyword.secrets-manager_short}} service instances by choosing the Standard pricing plan. For more information about pricing in {{site.data.keyword.secrets-manager_short}}, check out the [announcement blog](https://www.ibm.com/cloud/blog/announcements/ibm-cloud-secrets-manager-new-pricing-model){: external}.
+
+   If you're an existing {{site.data.keyword.secrets-manager_short}} Lite plan user, be sure to upgrade your instance to the Standard plan prior to 22 May 2022 if you'd like to maintain access. For more information, see the previous [release note](#secrets-manager-feb2322).
+   {: important}
 
 Osaka and Toronto availability
 :   You can now create a {{site.data.keyword.secrets-manager_short}} service instance in the Osaka (`jp-osa`) and Toronto (`ca-tor`) regions.
 
    For more information, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
-   
+
 
 ## 15 March 2022
 {: #secrets-manager-mar1522}

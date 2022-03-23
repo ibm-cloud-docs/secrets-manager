@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-03"
+lastupdated: "2022-03-23"
 
 keywords: known issues for Secrets Manager, known limitations for Secrets Manager
 
@@ -87,7 +87,7 @@ The following limits apply to {{site.data.keyword.secrets-manager_short}} servic
 
 | Resource | Limit|
 | --- | --- |
-| {{site.data.keyword.secrets-manager_short}} service instances | 1 per {{site.data.keyword.cloud_notm}} account |
+| {{site.data.keyword.secrets-manager_short}} service instances | Trial plan: 1 per {{site.data.keyword.cloud_notm}} account at any given time  \nStandard plan: No limit on number of instances per account |
 | Total secret groups | 200 per {{site.data.keyword.secrets-manager_short}} service instance |
 | Total secrets | – |
 {: caption="Table 2. {{site.data.keyword.secrets-manager_short}} service limits" caption-side="top"}
