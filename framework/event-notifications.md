@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-08"
+lastupdated: "2022-03-24"
 
 keywords: event notifications for {{site.data.keyword.secrets-manager_short}}, event notifications integration for {{site.data.keyword.secrets-manager_short}}, alerts for {{site.data.keyword.secrets-manager_short}}
 
@@ -291,7 +291,6 @@ The properties that are sent to {{site.data.keyword.en_short}} vary depending on
          "serial_number": "1:2:3:4"
       },
    ],
-   "secrets_expiration_date": "2022-01-14T00:00:00Z",
    "source_instance_api_private_url": "https://<instance_id>.private.<region>.secrets-manager.appdomain.cloud/api",
    "source_instance_api_public_url": "https://<instance_id>.<region>.secrets-manager.appdomain.cloud/api",
    "source_instance_crn": "crn:v1:bluemix:public:secrets-manager:<region>:a/<account_id>:<instance_id>::",
@@ -309,7 +308,6 @@ Review following table for more information about event notification properties.
 | `event_type` | The [type of event](#event-notifications-list) that triggered a notification. |
 | `secret_type` | The type of secret that is associated with the event.  \n  \n Possible values include: imported_cert, public_cert|
 | `secrets[]` | A list of objects that contain the metadata properties of a secret that is associated with the event. The properties that are listed vary depending on the secret type.  \n  \n Properties that are sent for all secret types include:  \n - `event_time`: The date and time the event was generated.  \n - `secret_group_id`: The ID of the secret group.  \n - `secret_id`: The ID that uniquely identifies the secret.  \n - `secret_name`: The name of the secret. |
-| `secrets_expiration_date` | The date that the secrets expire. |
 | `source_instance_api_private_url` | The [private endpoint URL](/docs/secrets-manager?topic=secrets-manager-endpoints#service-endpoints) that is assigned to your {{site.data.keyword.secrets-manager_short}} service instance.|
 | `source_instance_api_public_url` | The public endpoint URL that is assigned to your {{site.data.keyword.secrets-manager_short}} service instance.|
 | `source_instance_crn` | The Cloud Resource Name (CRN) that uniquely identifies your {{site.data.keyword.secrets-manager_short}} service instance. |
