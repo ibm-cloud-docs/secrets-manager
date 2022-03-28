@@ -8,7 +8,7 @@ keywords: create GitHub issue, open GitHub issue, send to GitHub, expiring secre
 subcollection: secrets-manager
 content-type: tutorial
 services: secrets-manager,openwhisk,event-notifications
-account-plan: lite
+account-plan: paid
 completion-time: 15m
 
 ---
