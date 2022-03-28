@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022
-lastupdated: "2022-03-15"
+lastupdated: "2022-03-28"
 
 keywords: Slack alerts, Slack notifications, expiring secrets, expiring certificates
 
@@ -168,7 +168,7 @@ Now you can prepare the sample code for your Cloud Functions action.
  
        const options = {
            method: 'GET',
-           url: '<event_notifications_endpoint_url>/<destination_id>/public_key',
+           url: '<event_notifications_endpoint_url>/destinations/<destination_id>/public_key',
            headers: {
                'authorization': 'Bearer ' + accessToken
            }
