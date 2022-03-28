@@ -2,10 +2,10 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-15"
+lastupdated: "2022-03-28"
 content-type: tutorial
 services: secrets-manager, cloud-object-storage
-account-plan: lite
+account-plan: paid
 completion-time: 1h
 
 keywords: create API key for Cloud Object Storage, use Secrets Manager to create API key, dynamic API key, connecting to Cloud Object Storage, authenticating to Cloud Object Storage, using dynamic secrets, what is a dynamic secret, Secrets Manager use case

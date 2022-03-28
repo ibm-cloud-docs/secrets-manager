@@ -1,14 +1,14 @@
 ---
 copyright:
   years: 2022
-lastupdated: "2022-03-15"
+lastupdated: "2022-03-28"
 
 keywords: set up alerts, set up notifications, expiring secrets, expiring certificates
 
 subcollection: secrets-manager
 content-type: tutorial
 services: secrets-manager,openwhisk,event-notifications
-account-plan: lite
+account-plan: paid
 completion-time: 10m
 
 ---

@@ -3,14 +3,14 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-03-15"
+lastupdated: "2022-03-28"
 
 keywords: tutorial, Secrets Manager
 
 subcollection: secrets-manager
 content-type: tutorial
 services: secrets-manager,containers,Registry
-account-plan: lite
+account-plan: paid
 completion-time: 45m
 
 ---
