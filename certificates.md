@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-17"
+lastupdated: "2022-04-01"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
 
@@ -84,13 +84,12 @@ Before you get started, be sure that you have the required level of access. To c
 
 | Prerequisites |
 | :------------ |
-| Before you order a certificate, be sure that you:  \n  \n - [Prepare your instance for certificate ordering](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates).  \n - Review the certificate authority and DNS provider configurations that are available. To view the configurations that are defined for your instance, go to the **Secrets engines > Public certificates** page in the {{site.data.keyword.secrets-manager_short}} UI. |
+| Before you order a certificate, be sure that you:  \n  \n - [Prepare your instance for ordering certificates](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates).  \n - Review the certificate authority and DNS provider configurations that are available. To view the configurations that are defined for your instance, go to the **Secrets engines > Public certificates** page in the {{site.data.keyword.secrets-manager_short}} UI. |
 {: caption="Table 1. Prerequisites - Ordering certificates" caption-side="top"}
 {: #order-certificates-prereqs}
 {: tab-title="Ordering certificates"}
 {: tab-group="cert-prereqs"}
 {: class="simple-tab-table"}
-
 
 
 ## Importing your existing certificates
@@ -327,3 +326,4 @@ When you submit your certificate details, {{site.data.keyword.secrets-manager_sh
 
 Need to check your order status? Use the [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
 {: tip} 
+
