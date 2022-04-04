@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-08"
+lastupdated: "2022-04-04"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -465,7 +465,7 @@ labels
 :   Labels that you can use to group and search for similar secrets in your instance.
 
 payload
-:   The data that you want to store for `arbitrary` or `kv`secrets. Only text-based payloads are supported for `arbitrary` secrets. The key-value secrets engine can store secrets in complex JSON format. With your key-value secret, you can integrate with tools that are compatible with the HashiCorp Vault KV(Version 2) CLI commands. Learn more about [managing key-value secrets](/docs/secrets-manager?topic=vault-manage-kv-cli) with the Vault CLI. 
+:   The data that you want to store for `arbitrary` or `kv`secrets. Only text-based payloads are supported for `arbitrary` secrets. The key-value secrets engine can store secrets in complex JSON format. With your key-value secret, you can integrate with tools that are compatible with the HashiCorp Vault KV (Version 2) CLI commands. Learn more about [managing key-value secrets](/docs/secrets-manager?topic=vault-manage-kv-cli) with the Vault CLI. 
 
 username
 :   The username that you want to assign to a `username_password` secret.
