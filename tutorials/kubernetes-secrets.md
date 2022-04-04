@@ -216,7 +216,7 @@ You can create one free Kubernetes cluster and {{site.data.keyword.secrets-manag
         GUID:                  fe06948b-0c6b-4183-8d4b-e6c1d38ff65f
         Location:              us-south
         Service Name:          secrets-manager
-        Service Plan Name:     lite
+        Service Plan Name:     trial
         Resource Group Name:   default
         State:                 active
         Type:                  service_instance
