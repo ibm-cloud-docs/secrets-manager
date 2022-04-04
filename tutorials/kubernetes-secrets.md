@@ -3,7 +3,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-03-28"
+lastupdated: "2022-04-04"
 
 keywords: tutorial, Secrets Manager
 
@@ -67,9 +67,6 @@ completion-time: 45m
 {: toc-completion-time="45m"}
 
 
-The third-party tool (External Kubernetes Secrets) that is featured in this tutorial is deprecated. You can try [External Secrets Operator](https://github.com/external-secrets/external-secrets){: external} instead to get the same benefits. For more information, see the [deprecation announcement on GitHub](https://github.com/external-secrets/kubernetes-external-secrets/issues/864#issue-1042914893){: external}.
-{: deprecated}
-
 In this tutorial, you learn how to use {{site.data.keyword.secrets-manager_full}} to manage secrets for applications that run your {{site.data.keyword.containerfull_notm}} cluster.
 {: shortdesc}
 
@@ -78,7 +75,7 @@ You're a developer for a large organization, and your team is using {{site.data.
 With {{site.data.keyword.secrets-manager_short}}, you can centralize and secure the secrets that are used by the apps that run in your Kubernetes clusters. Rather than injecting your secrets at deployment time, you can configure your apps to securely retrieve secrets from {{site.data.keyword.secrets-manager_short}} at run time. When it's time to rotate the secret, you can do so from {{site.data.keyword.secrets-manager_short}}. For example, consider the following scenario:
 
 
-![The diagram shows the basic flow between Secrets Manager and your Kubernetes cluster.](../images/iks-external-secrets-flow.svg){: caption="Figure 1. Kubernetes External Secrets flow" caption-side="bottom"}
+![The diagram shows the basic flow between Secrets Manager and your Kubernetes cluster.](../images/iks-external-secrets-flow.svg){: caption="Figure 1. External Secrets flow" caption-side="bottom"}
 
 
 1. As a developer, you use {{site.data.keyword.secrets-manager_short}} to store a secret for an application that you want to deploy in a Kubernetes cluster.
@@ -181,24 +178,13 @@ You can create one free Kubernetes cluster and {{site.data.keyword.secrets-manag
 3. Create a {{site.data.keyword.secrets-manager_short}} instance.
 
     ```sh
-    ibmcloud resource service-instance-create my-secrets-manager secrets-manager lite us-south
+    ibmcloud resource service-instance-create my-secrets-manager secrets-manager trial us-south
     ```
     {: pre}
 
     Provisioning for both {{site.data.keyword.secrets-manager_short}} and your Kubernetes cluster takes 5 - 15 minutes to complete.
 
-4. Set up a private image repository in IBM Cloud Container Registry.
-
-    A private image repository in IBM Cloud is identified by a namespace. The namespace is used to create a unique URL to your image repository that developers can use to access private Docker images.
-
-    ```sh
-    ibmcloud cr namespace-add <namespace>
-    ```
-    {: pre}
-
-    Replace `<namespace>` with a namespace of your choice that is unrelated to this tutorial. For example, `_test_namespace_`.
-
-5. Before you continue to the next step, verify that your cluster and {{site.data.keyword.secrets-manager_short}} instance provisioned successfully.
+4. Before you continue to the next step, verify that your cluster and {{site.data.keyword.secrets-manager_short}} instance provisioned successfully.
 
     1. Verify that the deployment of your worker node is complete.
 
@@ -241,14 +227,14 @@ You can create one free Kubernetes cluster and {{site.data.keyword.secrets-manag
         ```
         {: screen}
 
-6. Set the context for your Kubernetes cluster in the CLI.
+5. Set the context for your Kubernetes cluster in the CLI.
 
     ```sh
     ibmcloud ks cluster config --cluster my-test-cluster
     ```
     {: pre}
 
-7. Verify that `kubectl` commands run properly and that the Kubernetes context is set to your cluster.
+6. Verify that `kubectl` commands run properly and that the Kubernetes context is set to your cluster.
 
     ```sh
     kubectl config current-context
@@ -323,22 +309,20 @@ e0246cea-d668-aba7-eef2-58ca11ad3707
 {: screen}
 
 
-## Set up Kubernetes External Secrets
+## Set up External Secrets Operator
 {: #tutorial-kubernetes-secrets-configure-external}
 {: step}
 
-Now that you have a secret for your application, you can set up [Kubernetes External Secrets](https://github.com/external-secrets/kubernetes-external-secrets){: external} for your cluster. This package configures the connection between {{site.data.keyword.secrets-manager_short}} and your cluster by creating `ExternalSecrets` objects that are converted to Kubernetes secrets for your application.
+Now that you have a secret for your application, you can set up the [External Secrets Operator](https://external-secrets.io/){: external} tool for your cluster. This package configures the connection between {{site.data.keyword.secrets-manager_short}} and your cluster by creating `ExternalSecrets` objects that are converted to Kubernetes secrets for your application.
 
-Kubernetes External Secrets is deprecated. You can try [External Secrets Operator](https://github.com/external-secrets/external-secrets){: external} instead to get the same benefits. For more information, see the [deprecation announcement on GitHub](https://github.com/external-secrets/kubernetes-external-secrets/issues/864#issue-1042914893){: external}.
-{: deprecated}
-
-Kubernetes External Secrets is an open source tool that is not maintained by IBM. For more information about this tool or to troubleshoot any issues, refer to the project in [GitHub](https://github.com/external-secrets/kubernetes-external-secrets){: external}.
+External Secrets Operator is an open source tool that is not maintained by IBM. For more information about this tool or to troubleshoot any issues, refer to the [project documentation](https://external-secrets.io/
+){: external}.
 {: note}
 
-### Configure Kubernetes External Secrets for your cluster
+### Configure External Secrets Operator for your cluster
 {: #tutorial-kubernetes-secrets-configure-app}
 
-First, add `kubernetes-external-secrets` resources to your cluster by installing the official Helm chart. For more installation options, check out the [`README.md`](https://github.com/external-secrets/kubernetes-external-secrets){: external}.
+First, add `external-secrets` resources to your cluster by installing the official Helm chart. For more installation options, check out the [getting started guide](https://external-secrets.io/guides-getting-started/){: external}.
 
 1. From your command line, use the service ID API key that you created in step 1 to define `secret-api-key`.
 
@@ -347,46 +331,23 @@ First, add `kubernetes-external-secrets` resources to your cluster by installing
     ```
     {: pre}
 
-2. Run the following commands to install Kubernetes External Secrets.
+2. Run the following commands to install External Secrets.
 
     ```sh
-    helm repo add external-secrets https://external-secrets.github.io/kubernetes-external-secrets/
+    helm repo add external-secrets https://charts.external-secrets.io
     ```
     {: pre}
 
     ```sh
-    helm install secrets-manager-tutorial external-secrets/kubernetes-external-secrets
+    helm install external-secrets external-secrets/external-secrets -n external-secrets --create-namespace --set installCRDs=true
     ```
     {: pre}
-
-3. In the console, click the **Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> Kubernetes > Clusters**.
-4. Click _my-test-cluster_ **> Kubernetes dashboard > Deployments**.
-5. In the table row for _secrets-manager-tutorial-kubernetes-external-secrets_, click the **Actions** menu ![Actions icon](../../icons/actions-icon-vertical.svg) **> Edit**.
-6. In the JSON editor, scroll to find the `spec.containers` object that contains information about `kubernetes-external-secrets`.
-7. Set the following environment variables. 
-
-    ```yaml
-    env:
-      - name: IBM_CLOUD_SECRETS_MANAGER_API_APIKEY
-        valueFrom:
-          secretKeyRef:
-            name: secret-api-key
-            key: apikey
-      - name: IBM_CLOUD_SECRETS_MANAGER_API_AUTH_TYPE
-         value: iam
-      - name: IBM_CLOUD_SECRETS_MANAGER_API_ENDPOINT
-         value: <endpoint_url>
-    ```
-    {: codeblock}
-
-    Replace `<endpoint_url>` with the {{site.data.keyword.secrets-manager_short}} endpoint URL that you retrieved in [step 1](#tutorial-kubernetes-secrets-prepare-sm).
-8. Click **Update** to save your changes.
 
 
 ### Update your app configuration 
 {: #tutorial-kubernetes-secrets-update-deployment}
 
-After you install External Kubernetes Secrets in your cluster, you can define {{site.data.keyword.secrets-manager_short}} as the secrets backend for your application. Start by creating a configuration file that targets the secret in {{site.data.keyword.secrets-manager_short}} that you want to use.
+After you install External Secrets Operator in your cluster, you can define {{site.data.keyword.secrets-manager_short}} as the secrets backend for your application. Start by creating a configuration file that targets the secret in {{site.data.keyword.secrets-manager_short}} that you want to use.
 
 1. In the root directory of your application, create an `external-secrets-example.yml` file.
 
@@ -398,25 +359,43 @@ After you install External Kubernetes Secrets in your cluster, you can define {{
 2. Modify the file to include information about the secret that you want to fetch from your {{site.data.keyword.secrets-manager_short}} instance.
 
     ```yaml
-    apiVersion: kubernetes-client.io/v1
+    apiVersion: external-secrets.io/v1alpha1
+    kind: SecretStore
+    metadata:
+    name: ibmcloud-secrets-manager-example
+    spec:
+    provider:
+        ibm:
+        serviceUrl: <endpoint_url>
+        auth:
+            secretRef:
+            secretApiKeySecretRef:
+                name: secret-api-key
+                key: apikey
+    ---
+    apiVersion: external-secrets.io/v1alpha1
     kind: ExternalSecret
     metadata:
-      name: ibmcloud-secrets-manager-example
+    name: ibmcloud-secrets-manager-example
     spec:
-      backendType: ibmcloudSecretsManager
-      data:
-        - key: <SECRET_ID>
-          name: username
-          property: username 
-          secretType: username_password
-        - key: <SECRET_ID>
-          name: password
-          property: password
-          secretType: username_password
+    secretStoreRef:
+        name: ibmcloud-secrets-manager-example
+        kind: SecretStore
+    target:
+        name: ibmcloud-secrets-manager-example
+    data:
+    - secretKey: username
+        remoteRef:
+        property: username
+        key: username_password/<SECRET_ID>
+    - secretKey: password
+        remoteRef:
+        property: password
+        key: username_password/<SECRET_ID>
     ```
     {: codeblock}
 
-    Replace `<SECRET_ID>` with the unique ID of the secret that you created in the previous step.
+    Replace `<endpoint_url>` with the {{site.data.keyword.secrets-manager_short}} endpoint URL that you retrieved [earlier](#tutorial-kubernetes-secrets-prepare-sm). Replace `<SECRET_ID>` with the unique ID of the secret that you created in the previous step.
 
 3. Apply the configuration to your cluster.
 
@@ -425,7 +404,7 @@ After you install External Kubernetes Secrets in your cluster, you can define {{
     ```
     {: pre}
 
-4. Verify that Kubernetes External Secrets controller is able to fetch the secret that is stored in your {{site.data.keyword.secrets-manager_short}} instance.
+4. Verify that the External Secrets Operator is able to fetch the secret that is stored in your {{site.data.keyword.secrets-manager_short}} instance.
 
     ```sh
     kubectl get secret ibmcloud-secrets-manager-example -o json | jq '.data | map_values(@base64d)'
@@ -478,7 +457,7 @@ If you no longer need the resources that you created in this tutorial, you can c
 3. Delete your test service ID.
 
     ```sh
-    ibmcloud resource service-id-delete $SERVICE_ID
+    ibmcloud iam service-id-delete $SERVICE_ID
     ```
     {: pre}
 
@@ -489,9 +468,9 @@ Note that {{site.data.keyword.secrets-manager_short}} sets a limit on the rate i
 
 As you construct your [YAML document](#tutorial-kubernetes-secrets-update-deployment), keep in mind that each key in the data section is polled periodically via REST from the {{site.data.keyword.secrets-manager_short}} instance. Be aware that:
 
-1. By default, the polling interval is set to 10 seconds. For best results with {{site.data.keyword.secrets-manager_short}}, the polling interval must be greater than 1000 * number of Kubernetes secrets. You can set this value by using the `POLLER_INTERVAL_MILLISECONDS` environment parameter.
-2. While multiple Kubernetes secrets (represented by multiple YAML documents) are polled evenly over the interval time, multiple data entries (represented by the keys inside the YAML data section) are fetched consistently without delays from {{site.data.keyword.secrets-manager_short}}. Having many data entries that are aggregated inside of a Kubernetes secret (for example in this tutorial, you created two entries: `username` and `password`) can make your {{site.data.keyword.secrets-manager_short}} instance reach the rate limit and return HTTP `429 Too Many Request` errors back to the tool. Make sure that you do not create more data entries than needed in each Kubernetes secret.  
-3. If you set the YAML to fetch a {{site.data.keyword.secrets-manager_short}} secret by name rather than ID (`keyByName: true`), each data entry generates two API calls rather than one. Be extra careful with the number of data entries in the YAML configuration file if you select this option. For more information, see the [Kubernetes External Secrets documentation](https://github.com/external-secrets/kubernetes-external-secrets#ibm-cloud-secrets-manager). 
+1. By default, the polling interval is set to 1 hour. For best results with {{site.data.keyword.secrets-manager_short}}, the polling interval must be greater than 1000 * number of Kubernetes secrets. You can set this value by using `spec.refreshInterval` in the External Secrets template.
+2. While multiple Kubernetes secrets (represented by multiple YAML documents) are polled evenly over the interval time, multiple data entries (represented by the keys inside the YAML data section) are fetched consistently without delays from {{site.data.keyword.secrets-manager_short}}. Having many data entries that are aggregated inside of a Kubernetes secret can make your {{site.data.keyword.secrets-manager_short}} instance reach the rate limit and return HTTP `429 Too Many Request` errors back to the tool. Make sure that you do not create more data entries than needed in each Kubernetes secret. 
+3. If you set the YAML to fetch a {{site.data.keyword.secrets-manager_short}} secret by name rather than ID (`keyByName: true`), each data entry generates two API calls rather than one. Be extra careful with the number of data entries in the YAML configuration file if you select this option. For more information, see the [External Secrets documentation](https://external-secrets.io/provider-ibm-secrets-manager/).
 
 
 ## Next steps
