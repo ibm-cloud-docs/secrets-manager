@@ -477,7 +477,7 @@ As you construct your [YAML document](#tutorial-kubernetes-secrets-update-deploy
 
 Great job! In this tutorial, you learned how to set up {{site.data.keyword.secrets-manager_short}} to securely populate application secrets to your cluster. Check out more resources to help you get started with {{site.data.keyword.secrets-manager_short}}.
 
-- Design an access strategy with [secret groups](/docs/secrets-manager?topic=secrets-manager-secret-groups).
+- Review the [secret types in {{site.data.keyword.secrets-manager_short}}](https://external-secrets.io/provider-ibm-secrets-manager/#secret-types){: external} that are supported with External Secrets Operator.
 - Learn more about the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager).
 
 
