@@ -465,7 +465,7 @@ labels
 :   Labels that you can use to group and search for similar secrets in your instance.
 
 payload
-:   The data that you want to store for an `arbitrary`secret. Only text-based payloads are supported.If you need to store a binary file, be sure to base64 encode it before you save it to {{site.data.keyword.secrets-manager_short}}. For more information, see [Examples](#vault-cli-create-static-secret-examples).  
+:   The data that you want to store for `arbitrary` or `kv`secrets. Only text-based payloads are supported for `arbitrary` secrets. The key-value secrets engine can store secrets in complex JSON format. With your key-value secret, you can integrate with tools that are compatible with the HashiCorp Vault KV(Version 2) CLI commands. Learn more about [managing key-value secrets](/docs/secrets-manager?topic=vault-manage-kv-cli) with the Vault CLI. 
 
 username
 :   The username that you want to assign to a `username_password` secret.
