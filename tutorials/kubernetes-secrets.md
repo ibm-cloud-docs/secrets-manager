@@ -9,7 +9,7 @@ keywords: tutorial, Secrets Manager
 
 subcollection: secrets-manager
 content-type: tutorial
-services: secrets-manager,containers,Registry
+services: secrets-manager,containers
 account-plan: paid
 completion-time: 45m
 
@@ -63,7 +63,7 @@ completion-time: 45m
 # Secure secrets for apps that run in your Kubernetes cluster
 {: #tutorial-kubernetes-secrets}
 {: toc-content-type="tutorial"}
-{: toc-services="secrets-manager,containers,Registry"}
+{: toc-services="secrets-manager,containers"}
 {: toc-completion-time="45m"}
 
 
@@ -431,7 +431,6 @@ After you install External Secrets Operator in your cluster, you can define {{si
 Finally, you can deploy an application in your cluster that uses the {{site.data.keyword.secrets-manager_short}} secret that you defined in the `external-secret-example.yml` file. At application run time, the secret data that is fetched from {{site.data.keyword.secrets-manager_short}} is converted to a Kubernetes secret that can be used by your cluster.
 
 Looking for examples on how to deploy an app? Check out the [Kubernetes Service tutorial](/docs/containers?topic=containers-cs_cluster_tutorial#cs_cluster_tutorial_lesson3) to find out more about deploying a single instance of an app.
-
 
 
 ## (Optional) Clean up resources
