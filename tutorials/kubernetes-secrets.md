@@ -461,7 +461,7 @@ If you no longer need the resources that you created in this tutorial, you can c
     ```
     {: pre}
 
-## Best practices for using Kubernetes External Secrets with {{site.data.keyword.secrets-manager_short}} 
+## Best practices for using External Secrets Operator with {{site.data.keyword.secrets-manager_short}} 
 {: #kubernetes-secrets-best-practices}
 
 Note that {{site.data.keyword.secrets-manager_short}} sets a limit on the rate in which a client can send API requests to it. The limit is 20 calls per second for all API methods. For more information, see [API rate limits](/docs/secrets-manager?topic=secrets-manager-known-issues-and-limits#api-rate-limits). 
