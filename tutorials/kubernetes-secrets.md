@@ -331,7 +331,7 @@ First, add `external-secrets` resources to your cluster by installing the offici
     ```
     {: pre}
 
-2. Run the following commands to install External Secrets.
+2. Run the following commands to install External Secrets Operator.
 
     ```sh
     helm repo add external-secrets https://charts.external-secrets.io
