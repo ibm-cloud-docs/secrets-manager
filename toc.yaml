@@ -144,6 +144,8 @@ toc:
               topics:
               - vault-cli-configure.md
               - vault-cli.md
+              - topic: vault-kv-cli.md
+                navtitle: KV CLI commands
           - topicgroup:
               label: Vault plug-ins
               links:
