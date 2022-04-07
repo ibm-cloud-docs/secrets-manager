@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-06"
+lastupdated: "2022-04-07"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
 
@@ -85,7 +85,7 @@ Before you get started, be sure that you have the required level of access. To c
 | Prerequisites |
 | :------------ |
 | Before you order a certificate, be sure that you:  \n  \n - [Prepare your instance to order certificates](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates).  \n - Review the certificate authority and DNS provider configurations that are available. To view the configurations that are defined for your instance, go to the **Secrets engines > Public certificates** page in the {{site.data.keyword.secrets-manager_short}} UI. |
-{: caption="Table 1. Prerequisites - Ordering certificates" caption-side="top"}
+{: caption="Table 1. Prerequisites - Ordering public certificates" caption-side="top"}
 {: #order-certificates-prereqs}
 {: tab-title="Ordering certificates"}
 {: tab-group="cert-prereqs"}
