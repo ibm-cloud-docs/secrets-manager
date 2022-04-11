@@ -67,8 +67,8 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 {: #secrets-manager-apr1122}
 {: release-note}
 
-Now available: Integration with {[iks_short]} and {[roks_short]}
-: You can now integrate {{site.data.keyword.secrets-manager_short}} so that you can centrally manage Ingress subdomain certificates and other secrets for your Kubernetes clusters. To learn more about this integration, check out the [{[iks_short]} documentation](/docs/containers?topic=containers-ingress-types#manage_certs_secrets_mgr).
+Now available: Integration with {{site.data.keyword.containershort}} and {{site.data.keyword.openshiftshort}}
+: You can now integrate {{site.data.keyword.secrets-manager_short}} so that you can centrally manage Ingress subdomain certificates and other secrets for your Kubernetes clusters. To learn more about this integration, check out the [{{site.data.keyword.containershort}} documentation](/docs/containers?topic=containers-ingress-types#manage_certs_secrets_mgr).
 
 ## 23 March 2022
 {: #secrets-manager-mar2322}
