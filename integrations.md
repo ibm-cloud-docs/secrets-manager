@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-03"
+lastupdated: "2022-04-11"
 
 keywords: Secrets Manager integrations, enable integration, service to service, grant access between services
 
@@ -71,6 +71,7 @@ The following table lists the services that can be authorized to work with {{sit
 | ------------------ | ----------- | ----------- |
 | [Catalog management](/docs/account?topic=account-create-private-catalog) | Arbitrary secrets | Centrally manage the credentials for software in your private catalogs. For more information about this integration, check out [Onboarding software to your account](/docs/account?topic=account-create-private-catalog).
 | [{{site.data.keyword.en_short}}](/docs/event-notifications) | Certificates | Be notified of events that take place in your {{site.data.keyword.secrets-manager_short}} service instance, and route alerts to your preferred destinations, such as email or SMS. For more information about this integration, check out [Enabling event notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications).  |
+| [{{site.data.keyword.containershort}}](/docs/containers) | Arbitrary secrets  /n IAM credentials  /n Key-value secrets /n User credentials | Centrally manage Ingress subdomain certificates and other secrets for your Kubernetes clusters. For more information about this integration, check out [Managing TLS and Opaque certificates and secrets with {{site.data.keyword.secrets-manager_short}}](/docs/containers?topic=containers-ingress-types#manage_certs_secrets_mgr). |
 | [Toolchain](/docs/ContinuousDelivery?topic=ContinuousDelivery-secretsmanager) | Arbitrary secrets | Centrally manage the credentials for your {{site.data.keyword.contdelivery_short}} toolchain. For more information about this integration, check out [Configuring {{site.data.keyword.secrets-manager_short}}](/docs/ContinuousDelivery?topic=ContinuousDelivery-secretsmanager).  |
 {: caption="Table 1. Available integrations" caption-side="top"}
 
