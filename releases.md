@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-23"
+lastupdated: "2022-04-11"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -63,6 +63,12 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
+## 11 April 2022
+{: #secrets-manager-apr1122}
+{: release-note}
+
+Now available: Integration with {[iks_short]} and {[roks_short]}
+: You can now integrate {{site.data.keyword.secrets-manager_short}} instances with your Kubernetes clusters. To learn more about this integration, check out the [{[iks_short]} documentation](/docs/containers?topic=containers-ingress-types#manage_certs_secrets_mgr).
 
 ## 23 March 2022
 {: #secrets-manager-mar2322}
