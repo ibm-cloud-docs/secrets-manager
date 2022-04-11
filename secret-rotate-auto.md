@@ -112,7 +112,7 @@ If you prefer to schedule your public SSL or TLS certificates to be automaticall
 Certificates that expire in less than 31 days must also be [rotated manually](/docs/secrets-manager?topic=secrets-manager-manual-rotation) before rotation becomes automatic in the following cycles.
 {: note}
 
-1. If you're [ordering a certificate](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates), enable the rotation options.
+1. If you're [ordering a public certificate](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates), enable the rotation options.
    
    1. To rotate the certificate automatically, switch the rotation toggle to **On**. Your certificate is automatically reordered 31 days before its expiration date.
    2. To request a new private key for the certificate on each rotation, switch the rekey toggle to **On**.
