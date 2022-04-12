@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-01"
+lastupdated: "2022-04-11"
 
 keywords: certificate authority, connect certificate authority, set up certificate authority, connect CA, set up CA, connect Let's Encrypt, set up Let's Encrypt, add certificate authority configuration, add CA configuration
 
@@ -60,7 +60,7 @@ subcollection: secrets-manager
 With {{site.data.keyword.secrets-manager_full}}, you can connect to a third-party certificate authority by adding a configuration to your instance.
 {: shortdesc}
 
-A certificate authority (CA) is the entity that signs and issues your TLS certificates. By adding a CA configuration, you can specify the authority that you want to use when you [order certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates) through {{site.data.keyword.secrets-manager_short}}.
+A certificate authority (CA) is the entity that signs and issues your SSL or TLS certificates. By adding a CA configuration, you can specify the authority that you want to use when you [order public certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates) through {{site.data.keyword.secrets-manager_short}}.
 
 You can define up to 10 certificate authority configurations per instance. To view a list of configurations that are available for your instance, go to the **Secrets engines > Public certificates** page in the {{site.data.keyword.secrets-manager_short}} UI.
 {: note}

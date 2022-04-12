@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-24"
+lastupdated: "2022-04-12"
 
 keywords: event notifications for {{site.data.keyword.secrets-manager_short}}, event notifications integration for {{site.data.keyword.secrets-manager_short}}, alerts for {{site.data.keyword.secrets-manager_short}}
 
@@ -98,6 +98,8 @@ Depending on the type of secret that you're working with in the service, an even
 | Secret expires in 1 day | `com.ibm.cloud.secrets-manager.secret_about_to_expire`             | `in_1_days`    | An event is sent when a secret is 1 day from expiration. |
 | Secret expires in less than 1 day | `com.ibm.cloud.secrets-manager.secret_about_to_expire`             | `in_0_days`    | An event is sent when a secret is less than 1 day from expiration. |
 | Secret expired | `com.ibm.cloud.secrets-manager.secret_expired`                     |                | An event is sent when a secret reaches its expiration date and time. |
+| Secret revoked | `com.ibm.cloud.secrets-manager.secret_revoked`                     |                | An event is sent when a version of a secret is revoked before it is scheduled to expire. |
+| Secret deleted | `com.ibm.cloud.secrets-manager.secret_deleted`                     |                | An event is sent when a secret is deleted from a {{site.data.keyword.secrets-manager_short}} instance. |
 | Test event | `com.ibm.cloud.secrets-manager.test_event`                         |                | An event is sent when a test notification is forwarded to {{site.data.keyword.en_short}}. |
 {: caption="Table 1. Actions that generate event notifications" caption-side="bottom"}
 
@@ -106,6 +108,8 @@ Depending on the type of secret that you're working with in the service, an even
 {: #event-notifications-by-secret-type}
 
 The following table lists the {{site.data.keyword.secrets-manager_short}} events that can be generated based on secret types that are supported in the service.
+
+
 
 | Event name | Event type | Occurrence | Imported certificates | Public certificates |
 | --- | --- | --- | --- | --- |

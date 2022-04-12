@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-08"
+lastupdated: "2022-04-07"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -428,7 +428,7 @@ Success! Data deleted (if it existed) at: auth/ibmcloud/manage/groups/9c6d20ad-7
 ### Create a secret
 {: #vault-cli-create-static-secret}
 
-Use the following commands to add a static secret, such as a user credential or an arbitrary secret, to your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`, `imported_cert`
+Use the following commands to add a static secret, such as a user credential or an arbitrary secret, to your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`, `imported_cert`, and [`kv`](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv-cli).
 
 
 Create a secret in the `default` secret group.
@@ -465,7 +465,7 @@ labels
 :   Labels that you can use to group and search for similar secrets in your instance.
 
 payload
-:   The data that you want to store for `arbitrary` or `kv`secrets. Only text-based payloads are supported for `arbitrary` secrets. The key-value secrets engine can store secrets in complex JSON format. With your key-value secret, you can integrate with tools that are compatible with the HashiCorp Vault KV(Version 2) CLI commands. Learn more about [managing key-value secrets](/docs/secrets-manager?topic=vault-manage-kv-cli) with the Vault CLI. 
+:   The data that you want to store for `arbitrary` or `kv`secrets. Only text-based payloads are supported for `arbitrary` secrets. The key-value secrets engine can store secrets in complex JSON format. With your key-value secret, you can integrate with tools that are compatible with the HashiCorp Vault KV (Version 2) CLI commands. Learn more about [managing key-value secrets](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv-cli) with the Vault CLI. 
 
 username
 :   The username that you want to assign to a `username_password` secret.
@@ -714,7 +714,7 @@ The command to order a `public_cert` secret returns the following output:
 ### List secrets
 {: #vault-cli-list-static-secrets}
 
-Use the following commands to list the static secrets in your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`, `imported_cert`
+Use the following commands to list the static secrets in your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`, `imported_cert`, and `kv`.
 
 List secrets by type.
 ```sh
@@ -808,7 +808,7 @@ If the secrets belong to a secret group, the `data.secrets.secret_group_id` valu
 ### Get a secret
 {: #vault-cli-get-static-secret}
 
-Use the following commands to retrieve a secret and its details. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`, `imported_cert`
+Use the following commands to retrieve a secret and its details. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`, `imported_cert`, and `kv`.
 
 Get a secret that is in the `default` secret group.
 ```sh
@@ -881,7 +881,7 @@ The command returns the following output:
 ### Update a secret
 {: #vault-cli-update-static-secret}
 
-Use this command to update the metadata of a secret, such as its name or description. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`, `imported_cert`
+Use this command to update the metadata of a secret, such as its name or description. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`, `imported_cert`, and `kv`.
 
 ```sh
 vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets/SECRET_ID/metadata name=NAME [description="DESCRIPTION"][expiration_date=EXPIRATION] [labels=LABEL,LABEL]
@@ -951,7 +951,7 @@ The command returns the following output:
 ### Rotate a secret
 {: #vault-cli-rotate-static-secret}
 
-Use this command to rotate a secret. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`, `imported_cert`
+Use this command to rotate a secret. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`, `imported_cert`, and `kv`.
 
 ```sh
 vault write [-format=FORMAT] [-force] ibmcloud/SECRET_TYPE/secrets/SECRET_ID/rotate [payload="SECRET_DATA"] [password=PASSWORD] [certificate=CERTIFICATE_DATA] [private_key=PRIVATE_KEY_DATA] [intermediate=INTERMEDIATE_CERTIFICATE_DATA]
@@ -1075,7 +1075,7 @@ The command to manually rotate a `username_password` secret with a service-gener
 ### Delete a secret
 {: #vault-cli-delete-static-secret}
 
-Use this command to delete a secret. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`, `imported_cert`
+Use this command to delete a secret. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`, `imported_cert`, and `kv`.
 
 Delete a secret in the `default` secret group.
 

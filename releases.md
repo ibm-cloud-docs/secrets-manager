@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-23"
+lastupdated: "2022-04-12"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -63,6 +63,12 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
+## 11 April 2022
+{: #secrets-manager-apr1122}
+{: release-note}
+
+Integrations with {{site.data.keyword.containershort}} and {{site.data.keyword.openshiftshort}}
+: You can now use {{site.data.keyword.secrets-manager_short}} to centrally manage Ingress subdomain certificates and other secrets for your Kubernetes or {{site.data.keyword.openshiftshort}} clusters. To learn more about this integration, check out the [{{site.data.keyword.containershort}}](/docs/containers?topic=containers-ingress-types#manage_certs_secrets_mgr){: external} or [{{site.data.keyword.openshiftshort}} documentation](/docs/openshift?topic=openshift-ingress-roks4#manage_certs_secrets_mgr){: external}.
 
 ## 23 March 2022
 {: #secrets-manager-mar2322}
@@ -223,9 +229,9 @@ Connect to {{site.data.keyword.secrets-manager_short}} from your VPC network
 {: release-note}
 
 Upcoming updates to supported cipher suites
-:   On 2021 May 29, {{site.data.keyword.secrets-manager_short}} will deliver changes to the cipher suites that it supports for TLS connections to the service. This update is being implemented to enhance the security of IBM Cloud users and protect user data.
+:   On 29 May 2021, {{site.data.keyword.secrets-manager_short}} will deliver changes to the cipher suites that it supports for TLS connections to the service. This update is being implemented to enhance the security of IBM Cloud users and protect user data.
 
-   - **What's changing?** Beginning 2021 May 29, {{site.data.keyword.secrets-manager_short}} API endpoints will allow only the following cipher suites:
+   - **What's changing?** Beginning 29 May 2021, {{site.data.keyword.secrets-manager_short}} API endpoints will allow only the following cipher suites:
 
       - `ECDHE-ECDSA-AES128-GCM-SHA256`
       - `ECDHE-ECDSA-CHACHA20-POLY1305`

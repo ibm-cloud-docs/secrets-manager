@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-01"
+lastupdated: "2022-04-11"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
 
@@ -85,9 +85,9 @@ Before you get started, be sure that you have the required level of access. To c
 | Prerequisites |
 | :------------ |
 | Before you order a certificate, be sure that you:  \n  \n - [Prepare your instance to order certificates](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates).  \n - Review the certificate authority and DNS provider configurations that are available. To view the configurations that are defined for your instance, go to the **Secrets engines > Public certificates** page in the {{site.data.keyword.secrets-manager_short}} UI. |
-{: caption="Table 1. Prerequisites - Ordering certificates" caption-side="top"}
+{: caption="Table 1. Prerequisites - Ordering public certificates" caption-side="top"}
 {: #order-certificates-prereqs}
-{: tab-title="Ordering certificates"}
+{: tab-title="Ordering public certificates"}
 {: tab-group="cert-prereqs"}
 {: class="simple-tab-table"}
 
@@ -194,7 +194,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
 
 
-## Ordering certificates from third-parties
+## Ordering public certificates from third-parties
 {: #order-certificates}
 
 After you [configure the public certificates engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates) for your instance, you can use {{site.data.keyword.secrets-manager_short}} to request public SSL or TLS certificates from your trusted third-party certificate authorities. Before a certificate can be issued to you, {{site.data.keyword.secrets-manager_short}} uses domain validation to verify the ownership of your domains. When you order a certificate:
@@ -214,7 +214,7 @@ After you [configure the public certificates engine](/docs/secrets-manager?topic
 - After the certificate is issued, you can deploy it to your integrated apps, download it, or modify its rotation options. 
 
 
-### Ordering certificates in the UI
+### Ordering public certificates in the UI
 {: #order-certificates-ui}
 {: ui}
 
@@ -260,7 +260,7 @@ When you order a certificate, domain validation takes place to verify the owners
     {: tip} 
 
 
-### Ordering certificates from the CLI
+### Ordering public certificates from the CLI
 {: #order-certificates-cli}
 {: cli}
 
@@ -268,7 +268,7 @@ Currently, ordering certificates is available by using the UI or API only. To se
 
 
 
-### Ordering certificates with the API
+### Ordering public certificates with the API
 {: #order-certificates-api}
 {: api}
 

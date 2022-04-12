@@ -3,7 +3,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-04-04"
+lastupdated: "2022-04-07"
 
 keywords: tutorial, Secrets Manager
 
@@ -359,39 +359,39 @@ After you install External Secrets Operator in your cluster, you can define {{si
 2. Modify the file to include information about the secret that you want to fetch from your {{site.data.keyword.secrets-manager_short}} instance.
 
     ```yaml
-    apiVersion: external-secrets.io/v1alpha1
+    apiVersion: external-secrets.io/v1beta1
     kind: SecretStore
     metadata:
-    name: ibmcloud-secrets-manager-example
+      name: ibmcloud-secrets-manager-example
     spec:
-    provider:
+      provider:
         ibm:
-        serviceUrl: <endpoint_url>
-        auth:
+          serviceUrl: <endpoint_url>
+          auth:
             secretRef:
-            secretApiKeySecretRef:
+              secretApiKeySecretRef:
                 name: secret-api-key
                 key: apikey
     ---
-    apiVersion: external-secrets.io/v1alpha1
+    apiVersion: external-secrets.io/v1beta1
     kind: ExternalSecret
     metadata:
-    name: ibmcloud-secrets-manager-example
+      name: ibmcloud-secrets-manager-example
     spec:
-    secretStoreRef:
+      secretStoreRef:
         name: ibmcloud-secrets-manager-example
         kind: SecretStore
-    target:
+      target:
         name: ibmcloud-secrets-manager-example
-    data:
-    - secretKey: username
+      data:
+      - secretKey: username
         remoteRef:
-        property: username
-        key: username_password/<SECRET_ID>
-    - secretKey: password
+          property: username
+          key: username_password/<SECRET_ID>
+      - secretKey: password
         remoteRef:
-        property: password
-        key: username_password/<SECRET_ID>
+          property: password
+          key: username_password/<SECRET_ID>
     ```
     {: codeblock}
 
