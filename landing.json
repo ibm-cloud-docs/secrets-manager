@@ -39,6 +39,11 @@
     "view_more": "/docs/secrets-manager?topic=secrets-manager-release-notes",
     "tiles": [
       {
+        "date": "11 April 2022",
+        "title": "Integrations with Kubernetes Service and Red Hat OpenShift for IBM Cloud",
+        "description": "You can now use Secrets Manager to centrally manage Ingress subdomain certificates and other secrets for your Kubernetes or Red Hat OpenShift on IBM Cloud clusters."
+      },
+      {
         "date": "23 March 2022",
         "title": "New pricing plans and regions now available",
         "description": "Create an unlimited number of instances in your account by upgrading your Secrets Manager instance to the Standard plan. Additionally, you can now create an instance of the service in the Osaka and Toronto regions."
@@ -47,11 +52,6 @@
         "date": "15 March 2022",
         "title": "Tutorial series: Setting up alerts for expiring certificates",
         "description": "Looking for examples on how to send expiry alerts to GitHub or Slack? Check out the new tutorial series to learn how to enable your Secrets Manager instance for notifications, use webhooks to forward your post your alerts to GitHub, and more."
-      },
-      {
-        "date": "28 February 2022",
-        "title": "Now available in the Sao Paulo region",
-        "description": "You can now create an instance of Secrets Manager in the Sao Paulo region."
       }
     ]
   }
