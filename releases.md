@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-11"
+lastupdated: "2022-04-12"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -68,7 +68,7 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 {: release-note}
 
 Now available: Integration with {{site.data.keyword.containershort}} and {{site.data.keyword.openshiftshort}}
-: You can now integrate {{site.data.keyword.secrets-manager_short}} so that you can centrally manage Ingress subdomain certificates and other secrets for your Kubernetes clusters. To learn more about this integration, check out the [{{site.data.keyword.containershort}} documentation](/docs/containers?topic=containers-ingress-types#manage_certs_secrets_mgr).
+: You can now integrate {{site.data.keyword.secrets-manager_short}} so that you can centrally manage Ingress subdomain certificates and other secrets for your Kubernetes or {{site.data.keyword.openshiftshort}} clusters. To learn more about these integrations, check out the [{{site.data.keyword.containershort}}](/docs/containers?topic=containers-ingress-types#manage_certs_secrets_mgr){: external} or [{{site.data.keyword.openshiftshort}} documentation](/docs/openshift?topic=openshift-ingress-roks4#manage_certs_secrets_mgr){: external}.
 
 ## 23 March 2022
 {: #secrets-manager-mar2322}
