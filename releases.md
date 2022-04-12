@@ -67,7 +67,7 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 {: #secrets-manager-apr1122}
 {: release-note}
 
-Now available: Integrations with {{site.data.keyword.containershort}} and {{site.data.keyword.openshiftshort}}
+Integrations with {{site.data.keyword.containershort}} and {{site.data.keyword.openshiftshort}}
 : You can now integrate {{site.data.keyword.secrets-manager_short}} so that you can centrally manage Ingress subdomain certificates and other secrets for your Kubernetes or {{site.data.keyword.openshiftshort}} clusters. To learn more about these integrations, check out the [{{site.data.keyword.containershort}}](/docs/containers?topic=containers-ingress-types#manage_certs_secrets_mgr){: external} or [{{site.data.keyword.openshiftshort}} documentation](/docs/openshift?topic=openshift-ingress-roks4#manage_certs_secrets_mgr){: external}.
 
 ## 23 March 2022
@@ -229,9 +229,9 @@ Connect to {{site.data.keyword.secrets-manager_short}} from your VPC network
 {: release-note}
 
 Upcoming updates to supported cipher suites
-:   On 2021 May 29, {{site.data.keyword.secrets-manager_short}} will deliver changes to the cipher suites that it supports for TLS connections to the service. This update is being implemented to enhance the security of IBM Cloud users and protect user data.
+:   On 29 May 2021, {{site.data.keyword.secrets-manager_short}} will deliver changes to the cipher suites that it supports for TLS connections to the service. This update is being implemented to enhance the security of IBM Cloud users and protect user data.
 
-   - **What's changing?** Beginning 2021 May 29, {{site.data.keyword.secrets-manager_short}} API endpoints will allow only the following cipher suites:
+   - **What's changing?** Beginning 29 May 2021, {{site.data.keyword.secrets-manager_short}} API endpoints will allow only the following cipher suites:
 
       - `ECDHE-ECDSA-AES128-GCM-SHA256`
       - `ECDHE-ECDSA-CHACHA20-POLY1305`
