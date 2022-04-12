@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-17"
+lastupdated: "2022-04-12"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -192,6 +192,20 @@ If your {{site.data.keyword.secrets-manager_short}} service instance is enabled 
 
 
 
+### Rotating private certificates
+{: #manual-rotate-private-cert-ui}
+{: ui}
+
+If your {{site.data.keyword.secrets-manager_short}} service instance is enabled for [private certificates](/docs/secrets-manager?topic=secrets-manager-certificates#create-certificates), you can manually renew a certificate that was previously issued by a certificate authority that is configured for your service instance.
+
+1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
+3. In the {{site.data.keyword.secrets-manager_short}} UI, go to the **Secrets** list.
+4. In the row for the certificate that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
+5. Click **Rotate**.
+6. Redeploy the latest certificate version to your TLS termination point.
+
+   To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager#get-secret) API.
 
 ## Manually rotating secrets from the CLI
 {: #manual-rotate-cli}
