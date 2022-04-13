@@ -173,3 +173,4 @@ toc:
           - troubleshooting/troubleshoot-iam-restore.md
           - troubleshooting/troubleshoot-pem.md
           - troubleshooting/troubleshoot-delete-group.md
+          - troubleshooting/troubleshoot-instance-delete.md

@@ -82,3 +82,4 @@ Instances on the Trial plan are only available for 30 days. If, when the trial p
 
 If you were working with an instance of the service on the Lite plan that was deleted, you can restore your instance for 7 days through the [reclamation process](/docs/secrets-manager?topic=secrets-manager-mng-data#restore-instance). However, to continue working with the reclaimed instance you must upgrade the instance to the Standard plan within 1 hour.
 {: tsResolve}
+
