@@ -104,7 +104,7 @@ Use this option if your workload requires the simplest CA structure. In this sce
 ![The diagram shows a two-level hierarchy of certificates that begins with a root certificate authority in the first level.](images/certificate-hierarchy-2.svg){: caption="Figure 2. Two-level certificate authority hierarchy" caption-side="bottom"}
 
 #### Three levels: Root CA and two subordinate CAs
-{: #two-level-ca}
+{: #three-level-ca}
 
 Use this option if your workload requires an additional layer between the root CA and lower-level CA operations. In this scenario, the middle subordinate CA is used only to sign subordinate CAs that issue leaf certificates to your apps.
 
@@ -133,9 +133,9 @@ A certificate must have a validity period that is shorter than or equal to the v
 
 1. Choose a validity period for your leaf certificates that is appropriate for your use case.
 
-   The private certificates that you can create with {{site.data.keyword.secrets-manager_short}} are considered leaf certificates that can be issued to an end-entity, such as a client or server app. With {{site.data.keyword.secrets-manager_short}}, you can create certificates with a maximum validity period of three years or 36 months. After you determine a TTL or validity period for leaf certificates, you set the value using a [certificate template]({{link}}-certificate-templates) so that your preferred TTL is applied each time a new leaf certificate is generated.
+   The private certificates that you can create with {{site.data.keyword.secrets-manager_short}} are considered leaf certificates that can be issued to an end-entity, such as a client or server app. With {{site.data.keyword.secrets-manager_short}}, you can create certificates with a maximum validity period of three years or 36 months. After you determine a TTL or validity period for leaf certificates, you set the value using a [certificate template](/docs/secrets-manager?topic=secrets-manager-certificate-templates) so that your preferred TTL is applied each time a new leaf certificate is generated.
 
-   The shorter the TTL of your leaf certificates, the more protected you are against inadventent exposure or compromise of your certificate and its private key. A shorter validity period for your certificates means that you reduce the likelihood of compromise, but it also requires that you rotate the certificate more frequently to ensure that it stays valid. To avoid an inadvertent outage, you can schedule [automatic rotation]({{link}}-automatic-rotation) of your private certificates.
+   The shorter the TTL of your leaf certificates, the more protected you are against inadventent exposure or compromise of your certificate and its private key. A shorter validity period for your certificates means that you reduce the likelihood of compromise, but it also requires that you rotate the certificate more frequently to ensure that it stays valid. To avoid an inadvertent outage, you can schedule [automatic rotation](/docs/secrets-manager?topic=secrets-manager-automatic-rotation) of your private certificates.
    {: note}
 
 2. Choose a validity period for the subordinate CA.
