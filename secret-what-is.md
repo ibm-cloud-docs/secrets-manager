@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-14"
+lastupdated: "2022-04-18"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -128,7 +128,8 @@ _* Requires an [engine configuration](/docs/secrets-manager?topic=secrets-manage
 ### Supported features by secret type
 {: #compare-features-by-type}
 
-The following table compares and contrasts some common characteristics between the secret types
+The following table compares and contrasts some common characteristics between the secret types. 
+
 | | Arbitrary secrets | IAM credentials | User credentials | Key-value secrets | Imported certificates | Public certificates | Private certificates |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Automatic rotation](/docs/secrets-manager?topic=secrets-manager-automatic-rotation) | | ![Checkmark icon](../icons/checkmark-icon.svg)[^iam] | ![Checkmark icon](../icons/checkmark-icon.svg) |  | | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
