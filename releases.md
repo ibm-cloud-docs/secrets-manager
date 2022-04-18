@@ -65,6 +65,29 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 
 
 
+## 18 April 2022
+{: #secrets-manager-apr1822}
+{: release-note}
+
+Create private SSL or TLS certificates for your applications
+:   You can now use {{site.data.keyword.secrets-manager_short}} to set up a public-key infrastructure that you can use to issue private SSL or TLS certificates to your internal applications. By configuring root and intermediate certificate authorities for your instance, you can establish a valid chain of trust for your certificates. To find out more about this release, check out the announcement blog.
+
+  - [Preparing to create private certificates](/docs/secrets-manager?topic=secrets-manager-prepare-create-certificates)
+  - [Creating root certificate authorities](/docs/secrets-manager?topic=secrets-manager-root-certificate-authorities)
+  - [Creating intermediate certificate authorities](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities)
+  - [Adding certificate templates](/docs/secrets-manager?topic=secrets-manager-certificate-templates)
+  - [Creating private certificates](/docs/secrets-manager?topic=secrets-manager-certificates#create-certificates)
+
+New {{site.data.keyword.secrets-manager_short}} event notifications
+:   The following {{site.data.keyword.secrets-manager_short}} events can now be forwarded to a connected {{site.data.keyword.en_short}} instance.
+
+  - `secret_deleted`: Currently supported for imported certificates, private certificates, and public certificates.
+  - `secret_revoked`: Currently supported for private certificates only.
+
+    For more information about using {{site.data.keyword.en_short}} to enable lifecycle notifications for your {{site.data.keyword.secrets-manager_short}} instance, see [Enabling event notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications).
+
+
+
 ## 11 April 2022
 {: #secrets-manager-apr1122}
 {: release-note}
