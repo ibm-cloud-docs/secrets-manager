@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-23"
+lastupdated: "2022-04-19"
 
 keywords: secrets management best practice, managing secrets, secrets strategy, secrets best practices, organizing secrets, assigning access to secrets
 
@@ -76,7 +76,7 @@ As you use {{site.data.keyword.secrets-manager_short}} to design your secrets ma
 ## Organize secrets in your {{site.data.keyword.secrets-manager_short}} instance by using secret groups
 {: #best-practices-secret-groups}
 
-Use secret groups to narrow the scope of access to specific secrets at an instance level. 
+Use secret groups to narrow the scope of access to specific secrets at an instance level.
 
 1. Create secret groups to assign even more granular access to a group of secrets, such as those that map to a specific application. To create a secret group, go to the **{{site.data.keyword.secrets-manager_short}} UI > Secret groups > Create**.
 
@@ -84,6 +84,8 @@ Use secret groups to narrow the scope of access to specific secrets at an instan
 
     A default secret group is created for you when you create a {{site.data.keyword.secrets-manager_short}} instance.  It's important that you create your secret groups first because you can't change the assignment of secrets after you create them. If you accidentally assign a secret to the wrong secret group, or if you don't want a secret to belong to the default secret group, delete the secret and create a new one.
     {: tip}
+
+    
 
 ## Track your related secrets by adding labels
 {: #best-practices-labels}
