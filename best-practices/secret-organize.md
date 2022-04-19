@@ -87,6 +87,7 @@ Use secret groups to narrow the scope of access to specific secrets at an instan
 
     
 
+
 ## Track your related secrets by adding labels
 {: #best-practices-labels}
 
