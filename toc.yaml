@@ -118,11 +118,10 @@ toc:
       topics:
       - topicgroup:
           label: API & SDK reference
-          links:
+          topics:
           - link:
               label: Secrets Manager API
               href: https://{DomainName}/apidocs/secrets-manager
-          topics:
           - changelog-api.md
       - topicgroup:
           label: CLI reference
