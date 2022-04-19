@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-04"
+lastupdated: "2022-04-19"
 
 keywords: assign access for Secrets Manager, secret group access, assign access for all secrets, grant access, add users
 
@@ -96,6 +96,8 @@ To assign access to a {{site.data.keyword.secrets-manager_short}} instance and i
 {: #assign-access-secret-group}
 
 You can further narrow the scope of access to secrets in your instance by creating and managing [secret groups](#x9968962){: term}.
+
+
 
 ### Assigning access to a secret group in the service UI
 {: #assign-access-secret-group-ui}

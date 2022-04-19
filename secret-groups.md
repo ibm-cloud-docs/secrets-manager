@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-17"
+lastupdated: "2022-04-19"
 
 keywords: secret groups, assign secret access, iam roles, secrets policies, organize secrets
 
@@ -76,11 +76,12 @@ To learn about the suggested guidelines for using secret groups, check out [Best
 
 Before you begin, be sure that you have the required level of access. To create and manage secret groups, you need the [**Manager** service role](/docs/secrets-manager?topic=secrets-manager-iam).
 
-
 ## Creating secret groups
 {: #create-secret-groups}
 
 You can create secret groups by using the {{site.data.keyword.secrets-manager_short}} console or the API.
+
+
 
 ### Creating secret groups in the UI
 {: #create-group-ui}
