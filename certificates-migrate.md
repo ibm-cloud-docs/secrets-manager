@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-18"
+lastupdated: "2022-04-19"
 
 keywords: migrate from Certificate Manager, migrate to Secrets Manager, migrate certificates
 
@@ -57,7 +57,7 @@ subcollection: secrets-manager
 # Migrating certificates from {{site.data.keyword.cloudcerts_short}}
 {: #migrate-from-certificate-manager}
 
-With {{site.data.keyword.secrets-manager_full}}, you can centralize your application secrets in a single service, including the SSL or TLS certificates that you might already store and manage in {{site.data.keyword.cloudcerts_long_notm}}. Learn about suggested guidelines for moving your certificates from {{site.data.keyword.cloudcerts_short}} to {{site.data.keyword.secrets-manager_short}}.
+With {{site.data.keyword.secrets-manager_full}}, you can centralize your application secrets in a single service, including the SSL/TLS certificates that you might already store and manage in {{site.data.keyword.cloudcerts_long_notm}}. Learn about suggested guidelines for moving your certificates from {{site.data.keyword.cloudcerts_short}} to {{site.data.keyword.secrets-manager_short}}.
 {: shortdesc}
 
 
@@ -79,9 +79,8 @@ Both {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudce
 | Ability to integrate a key management service| ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Ability to manage resources through private service endpoints | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Ability to manage resources in an {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) | ![Checkmark icon](../icons/checkmark-icon.svg) | |
-| Ability to import SSL or TLS certificates | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
-| Ability to order public SSL or TLS certificates from Let's Encrypt | ![Checkmark icon](../icons/checkmark-icon.svg)[^dns-providers] | ![Checkmark icon](../icons/checkmark-icon.svg) |
-| Ability to create private SSL or TLS certificates by using an internal certificate authority | ![Checkmark icon](../icons/checkmark-icon.svg) | |
+| Ability to import SSL/TLS certificates | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| Ability to order public SSL/TLS certificates from Let's Encrypt | ![Checkmark icon](../icons/checkmark-icon.svg)[^dns-providers] | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Ability to manage secrets of various types | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
 | Notifications |  ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Go, Python, Node.js, and Java SDKs | ![Checkmark icon](../icons/checkmark-icon.svg) |  |

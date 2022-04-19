@@ -91,13 +91,6 @@ toc:
               - engine-public.md
               - engine-public-ca.md
               - engine-public-dns-providers.md
-          - topicgroup:
-              label: Private certificates
-              topics:
-              - engine-private.md
-              - engine-private-root-ca.md
-              - engine-private-intermediate-ca.md
-              - engine-private-templates.md
       - topic: framework/event-notifications.md
         navtitle: Enabling event notifications
       - topicgroup:
