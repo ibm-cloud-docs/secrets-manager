@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-19"
+lastupdated: "2022-04-20"
 
 keywords: secret groups, assign secret access, iam roles, secrets policies, organize secrets
 
@@ -80,8 +80,6 @@ Before you begin, be sure that you have the required level of access. To create 
 {: #create-secret-groups}
 
 You can create secret groups by using the {{site.data.keyword.secrets-manager_short}} console or the API.
-
-
 
 ### Creating secret groups in the UI
 {: #create-group-ui}
