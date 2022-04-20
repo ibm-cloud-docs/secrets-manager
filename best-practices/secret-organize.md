@@ -87,10 +87,7 @@ Use secret groups to narrow the scope of access to specific secrets at an instan
 
 2. Optionally, use secret groups to allow privileged access to specific resources in your account.
 
-    Secret groups can be used to grant direct access to resources that otherwise wouldn't be possible through IAM. For example, assume that `User A` has no access to `Service A` in IAM. If you create an IAM access policy that assigns `User A` to `Secret Group A`, and `Secret Group A` contains an [IAM credential](/docs/secrets-manager?topic=secrets-manager-iam-credentials) with a service ID that gives access to `Service A`, then you grant `User A` access to `Service A`. In this scenario, `Secret Group A` becomes a gateway to `Service A`, even if a restriction exists in IAM.
-
-    Review your access regularly to ensure your secret group assignments do not override your IAM access policies unintentionally.
-    {: important}
+    Secret groups can be used to grant direct access to resources that otherwise wouldn't be possible through IAM. For example, assume that `User A` has no access to `Service A` in IAM. If you create an IAM access policy that assigns `User A` to `Secret Group A`, and `Secret Group A` contains an [IAM credential](/docs/secrets-manager?topic=secrets-manager-iam-credentials) with a service ID that gives access to `Service A`, then you grant `User A` access to `Service A`. In this scenario, `Secret Group A` becomes a gateway to `Service A`, even if a restriction exists in IAM. Keep in mind that with this scenario it is possible to grant access to a resource unintentionally. Review your configuration carefully to ensure that your secret group assignments do not override your IAM access policies accidentally.
 
 3. Audit your secret groups on a regular basis and remove them when they're no longer needed.
 
