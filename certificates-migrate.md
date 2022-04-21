@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-19"
+lastupdated: "2022-04-21"
 
 keywords: migrate from Certificate Manager, migrate to Secrets Manager, migrate certificates
 
@@ -86,7 +86,8 @@ Both {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudce
 | Go, Python, Node.js, and Java SDKs | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
 | CLI plug-in | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
 | Logging and monitoring | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
-{: caption="Table 1. Comparison between the {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudcerts_short}} offerings" caption-side="top"}
+| Pricing plans | [Trial and Standard plans](/catalog/services/secrets-manager){: external} | [Free plan](/catalog/services/certificate-manager){: external} |
+{: caption="Table 1. Feature comparison between the {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudcerts_short}} offerings" caption-side="top"}
 
 [^instance-limit]: As of 23 March 2023, you can create an unlimited number of {{site.data.keyword.secrets-manager_short}} instances per account with the Standard pricing plan.
 
