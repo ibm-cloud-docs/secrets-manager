@@ -73,7 +73,8 @@ Both {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudce
 
 | Characteristics | {{site.data.keyword.secrets-manager_short}} | {{site.data.keyword.cloudcerts_short}} |
 | --- | --- | --- |
-| Secrets or certificates management experience in the {{site.data.keyword.cloud_notm}} console | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| Secrets and certificates management experience in the {{site.data.keyword.cloud_notm}} console | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| Pricing plans | [Trial and Standard](/catalog/services/secrets-manager){: external} | [Free](/catalog/services/certificate-manager){: external} |
 | Worldwide availability in multizone regions | ![Checkmark icon](../icons/checkmark-icon.svg)[^instance-limit] | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Data isolation through single-tenancy | ![Checkmark icon](../icons/checkmark-icon.svg) | |
 | Ability to integrate a key management service| ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
@@ -86,7 +87,7 @@ Both {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudce
 | Go, Python, Node.js, and Java SDKs | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
 | CLI plug-in | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
 | Logging and monitoring | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
-| Pricing plans | [Trial and Standard plans](/catalog/services/secrets-manager){: external} | [Free plan](/catalog/services/certificate-manager){: external} |
+
 {: caption="Table 1. Feature comparison between the {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudcerts_short}} offerings" caption-side="top"}
 
 [^instance-limit]: As of 23 March 2023, you can create an unlimited number of {{site.data.keyword.secrets-manager_short}} instances per account with the Standard pricing plan.
