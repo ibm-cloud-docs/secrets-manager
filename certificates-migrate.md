@@ -71,6 +71,7 @@ As of 10 February 2022, {{site.data.keyword.cloudcerts_long_notm}} is deprecated
 Both {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudcerts_short}} provide a secure repository for storing and managing certificates. All of the features that are available for the {{site.data.keyword.cloudcerts_short}} service are supported by {{site.data.keyword.secrets-manager_short}}. The following table compares and contrasts some common characteristics between the services.
 
 
+
 | Characteristics | {{site.data.keyword.secrets-manager_short}} | {{site.data.keyword.cloudcerts_short}} |
 | --- | --- | --- |
 | Secrets and certificates management experience in the {{site.data.keyword.cloud_notm}} console | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
