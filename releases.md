@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-12"
+lastupdated: "2022-04-25"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -63,12 +63,37 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
+
+
+## 25 April 2022
+{: #secrets-manager-apr2522}
+{: release-note}
+
+Create private SSL/TLS certificates for your applications
+:   You can now use {{site.data.keyword.secrets-manager_short}} to set up a private certificate authority (A) that you can use to issue SSL/TLS certificates to your internal applications. By configuring root and intermediate CAs for your instance, you can establish a valid chain of trust for your certificates. For more information, check out the following resources: 
+
+  - [Preparing to create private certificates](/docs/secrets-manager?topic=secrets-manager-prepare-create-certificates)
+  - [Creating root certificate authorities](/docs/secrets-manager?topic=secrets-manager-root-certificate-authorities)
+  - [Creating intermediate certificate authorities](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities)
+  - [Adding certificate templates](/docs/secrets-manager?topic=secrets-manager-certificate-templates)
+  - [Creating private certificates](/docs/secrets-manager?topic=secrets-manager-certificates#create-certificates)
+
+New {{site.data.keyword.secrets-manager_short}} event notifications
+:   The following {{site.data.keyword.secrets-manager_short}} events can now be forwarded to a connected {{site.data.keyword.en_short}} instance.
+
+  - `secret_deleted`: Currently supported for imported certificates, private certificates, and public certificates.
+  - `secret_revoked`: Currently supported for private certificates only.
+
+    For more information about using {{site.data.keyword.en_short}} to enable lifecycle notifications for your {{site.data.keyword.secrets-manager_short}} instance, see [Enabling event notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications).
+
+
+
 ## 11 April 2022
 {: #secrets-manager-apr1122}
 {: release-note}
 
 Integrations with {{site.data.keyword.containershort}} and {{site.data.keyword.openshiftshort}}
-: You can now use {{site.data.keyword.secrets-manager_short}} to centrally manage Ingress subdomain certificates and other secrets for your Kubernetes or {{site.data.keyword.openshiftshort}} clusters. To learn more about this integration, check out the [{{site.data.keyword.containershort}}](/docs/containers?topic=containers-ingress-types#manage_certs_secrets_mgr){: external} or [{{site.data.keyword.openshiftshort}} documentation](/docs/openshift?topic=openshift-ingress-roks4#manage_certs_secrets_mgr){: external}.
+:   You can now use {{site.data.keyword.secrets-manager_short}} to centrally manage Ingress subdomain certificates and other secrets for your Kubernetes or {{site.data.keyword.openshiftshort}} clusters. To learn more about this integration, check out the [{{site.data.keyword.containershort}}](/docs/containers?topic=containers-ingress-types#manage_certs_secrets_mgr){: external} or [{{site.data.keyword.openshiftshort}} documentation](/docs/openshift?topic=openshift-ingress-roks4#manage_certs_secrets_mgr){: external}.
 
 ## 23 March 2022
 {: #secrets-manager-mar2322}

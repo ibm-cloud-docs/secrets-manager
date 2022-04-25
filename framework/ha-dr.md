@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-23"
+lastupdated: "2022-04-14"
 
 keywords: HA for {{site.data.keyword.secrets-manager_short}}, DR for {{site.data.keyword.secrets-manager_short}}, high availability for {{site.data.keyword.secrets-manager_short}}, disaster recovery for {{site.data.keyword.secrets-manager_short}}, failover for {{site.data.keyword.secrets-manager_short}}
 
@@ -66,3 +66,24 @@ However, because {{site.data.keyword.secrets-manager_short}} is a regional servi
 
 See [How do I ensure zero downtime?](/docs/overview?topic=overview-zero-downtime) to learn more about the high availability and disaster recovery standards in {{site.data.keyword.cloud_notm}}. You can also find information about [Service Level Agreements](/docs/overview?topic=overview-slas).
 
+## Manually backing up secrets
+{: #manual-backup}
+
+To manually back up your secrets across regions, you must first have an instance of {{site.data.keyword.secrets-manager_short}} in another region. Then, use the following steps to ensure cross-region availability.
+
+1. List and download secrets from your instance by using the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager) or CLI.
+
+   If you have existing configurations on secrets engines in your instance, you can also retrieve the information programmatically so that it can be recreated in a new instance. For more information, see the [Get the configuration of a secret type](/apidocs/secrets-manager#get-config) API.
+
+2. Add your downloaded secrets to the newly created instance.
+
+## Automatically backing up secrets
+{: #auto-backup}
+
+Creating an automatic backup of your secrets is possible by automating the manual flow, which can be done in various ways. Check out some of the following examples to see whether one of them might work for you.
+
+- Create a script that periodically downloads all of your secrets and then imports them into your backup instance.
+- [Create a destination and subscription in {{site.data.keyword.en_short}}](/docs/event-notifications) that points to an IBM Cloud Functions action. Configure the action to listen for lifecycle events such as `secret_created` and `secret_rotated`. Then, when the action receives the event, the action downloads the secret from one instance and adds it to the backup instance.
+
+   Currently, {{site.data.keyword.secrets-manager_short}} supports notifications for certificates only. To learn about the various available lifecycle event types, see [Enabling event notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications).
+   {: note}

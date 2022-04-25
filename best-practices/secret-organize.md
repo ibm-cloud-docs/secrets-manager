@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-23"
+lastupdated: "2022-04-20"
 
 keywords: secrets management best practice, managing secrets, secrets strategy, secrets best practices, organizing secrets, assigning access to secrets
 
@@ -76,14 +76,26 @@ As you use {{site.data.keyword.secrets-manager_short}} to design your secrets ma
 ## Organize secrets in your {{site.data.keyword.secrets-manager_short}} instance by using secret groups
 {: #best-practices-secret-groups}
 
-Use secret groups to narrow the scope of access to specific secrets at an instance level. 
+Use secret groups to narrow the scope of access to specific secrets at an instance level.
 
 1. Create secret groups to assign even more granular access to a group of secrets, such as those that map to a specific application. To create a secret group, go to the **{{site.data.keyword.secrets-manager_short}} UI > Secret groups > Create**.
 
-    If you're familiar with using resource groups, think of organizing secrets in a secret group similar to the way that you organize resources in resource groups. As an administrator, you can have better control of secrets at the instance level with secret groups. For example, you can create a secret group that facilitates access to the secrets that are used to authenticate to a specific resource or system. For more information about managing secret groups, see [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
+    If you're familiar with using resource groups, think of organizing secrets in a secret group similar to the way that you organize resources in resource groups. As an admin, you create secret groups to control access to secrets in your instance. For example, you can create a secret group that contains only the secrets that are used to authenticate to a specific resource or system. Then, you assign the secret group to an IAM access group so that only your selected users or service IDs are able to access those secrets. For more information about managing secret groups, see [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 
-    A default secret group is created for you when you create a {{site.data.keyword.secrets-manager_short}} instance.  It's important that you create your secret groups first because you can't change the assignment of secrets after you create them. If you accidentally assign a secret to the wrong secret group, or if you don't want a secret to belong to the default secret group, delete the secret and create a new one.
+    A default secret group is created for you when you create a {{site.data.keyword.secrets-manager_short}} instance. It's important that you create your secret groups first because you can't change the assignment of secrets after you create them. If you accidentally assign a secret to the wrong secret group, or if you don't want a secret to belong to the default secret group, delete the secret and create a new one.
     {: tip}
+
+2. Optionally, use secret groups to allow privileged access to specific resources in your account.
+
+    Secret groups can be used to grant direct access to resources that otherwise wouldn't be possible through IAM. For example, assume that `User A` has no access to `Service A` in IAM. If you create an IAM access policy that assigns `User A` to `Secret Group A`, and `Secret Group A` contains an [IAM credential](/docs/secrets-manager?topic=secrets-manager-iam-credentials) with a service ID that gives access to `Service A`, then you grant `User A` access to `Service A`. In this scenario, `Secret Group A` becomes a gateway to `Service A`, even if a restriction exists in IAM. Keep in mind that with this scenario it is possible to grant access to a resource unintentionally. Review your configuration carefully to ensure that your secret group assignments do not override your IAM access policies accidentally.
+
+3. Audit your secret groups regularly and remove them when they're no longer needed.
+
+    Grant only the minimum access that is required, and delete a secret group when it is no longer needed.
+
+    To delete a secret group, it must be empty. If you need to remove a secret group that contains secrets, you must first [delete the secrets](/docs/secrets-manager?topic=secrets-manager-delete-secrets) that are part of the group.
+    {: note}
+
 
 ## Track your related secrets by adding labels
 {: #best-practices-labels}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-23"
+lastupdated: "2022-04-21"
 
 keywords: known issues for Secrets Manager, known limitations for Secrets Manager
 
@@ -70,7 +70,7 @@ Review the following known issues that you might encounter as you use {{site.dat
 | Multiple secrets of the same type can't be created with the same name. | It is not possible to create more than one secret of the same type with the same name. This limitation applies at the instance level. To organize similar secrets of the same type across multiple secret groups in your instance, try adding a prefix or suffix to the names of those secrets. |
 | Secrets can't be transferred between secret groups. | If you accidentally assign a secret to the wrong secret group, or if you don't want a secret to belong to the default secret group, you must delete the secret and create a new one. |
 | API keys that are associated with an IAM secret aren't valid immediately after they are generated. | If you have automation in place that calls the {{site.data.keyword.secrets-manager_short}} API to get the API key for an IAM secret, add a wait delay of 2 seconds to allow the new API key to be recognized by IAM. |
-| Secrets with a time-to-live (TTL) don't immediately expire. | After a secret with a TTL reaches the end of its lease duration, expect a tolerance of 1 - 2 minutes before the secret's associated service ID is deleted by IAM. |
+| IAM credentials with a time-to-live (TTL) don't immediately expire. | After a secret with a TTL reaches the end of its lease duration, expect a tolerance of 1 - 2 minutes before the secret's associated service ID is deleted by IAM. |
 | Certificates that you order from Let's Encrypt can't have a Common Name (CN) that exceeds 64 characters in length. | As a workaround, you can configure a shorter domain name so that it can be used as the certificate CN in your DNS provider. Then, you can order a multi-domain SAN certificate that uses the CN, along with longer application domains that specified as Subject Alternative Names (SANs). |
 | Community plug-ins for Vault are not supported. | It is not possible to integrate a community plug-in for Vault with {{site.data.keyword.secrets-manager_short}}, unless it is written against a secrets engine that {{site.data.keyword.secrets-manager_short}} supports. To manage {{site.data.keyword.cloud_notm}} secrets by using the full Vault native experience, use the [stand-alone {{site.data.keyword.cloud_notm}} plug-ins for Vault](/docs/secrets-manager?topic=secrets-manager-faqs#faq-vault-community-plugins). |
 {: caption="Table 1. Known issues and limitations that apply to the {{site.data.keyword.secrets-manager_short}} service" caption-side="top"}
@@ -80,17 +80,27 @@ Review the following known issues that you might encounter as you use {{site.dat
 
 Consider the following service limits as you use {{site.data.keyword.secrets-manager_short}}.
 
-### General limits
+### Account limits
 {: #general-limits}
+
+The following limits apply per {{site.data.keyword.cloud_notm}} account.
+
+| Resource | Limit|
+| --- | --- |
+| {{site.data.keyword.secrets-manager_short}} service instances | Trial plan: 1 per {{site.data.keyword.cloud_notm}} account at any given time  \nStandard plan: No limit on number of instances per account |
+{: caption="Table 1. {{site.data.keyword.secrets-manager_short}} limits per account" caption-side="top"}
+
+### Instance limits
+{: #instance-limits}
 
 The following limits apply to {{site.data.keyword.secrets-manager_short}} service instances.
 
 | Resource | Limit|
 | --- | --- |
-| {{site.data.keyword.secrets-manager_short}} service instances | Trial plan: 1 per {{site.data.keyword.cloud_notm}} account at any given time  \nStandard plan: No limit on number of instances per account |
-| Total secret groups | 200 per {{site.data.keyword.secrets-manager_short}} service instance |
-| Total secrets | – |
-{: caption="Table 2. {{site.data.keyword.secrets-manager_short}} service limits" caption-side="top"}
+| Configurations for secrets engines | **Public certificates engine:**  \n - 10 third-party CA configurations \n - 10 DNS provider configurations  \n - 10 certificate templates  \n  \n **Private certificates engine:**  \n - 10 root certificate authorities  \n - 10 intermediate certificate authorities  \n - 10 certificate templates |
+| Secret groups | 200 per instance |
+| Total secrets | No limit per instance |
+{: caption="Table 2. {{site.data.keyword.secrets-manager_short}} limits per instance" caption-side="top"}
 
 ### API rate limits
 {: #api-rate-limits}
@@ -162,10 +172,10 @@ The following limits apply to key-value secrets.
 | Labels | 2 - 30 characters  \n  \n 30 labels per secret |
 {: caption="Table 7. Key-value limits" caption-side="top"}
 
-#### Limits for TLS certificates
+#### Limits for SSL/TLS certificates
 {: #certificates-limits}
 
-The following limits apply to TLS certificates.
+The following limits apply to imported, private, or public certificates.
 
 | Attribute | Limit |
 | --- | --- |

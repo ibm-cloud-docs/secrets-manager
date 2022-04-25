@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-10"
+lastupdated: "2022-04-13"
 
 keywords: secrets management in IBM Cloud, differences between {{site.data.keyword.secrets-manager_short}} and Key Protect, when to use {{site.data.keyword.secrets-manager_short}}, {{site.data.keyword.secrets-manager_short}} use cases, single tenant, multi-tenant
 
@@ -93,7 +93,6 @@ For a higher level of security and control, your business might benefit from the
 | Service | Secret types | Multi-tenant[^multi-tenant] | Single-tenant[^single-tenant] | HSM backed[^hsm] |
 | --- | --- | --- | --- |  --- |
 | **{{site.data.keyword.secrets-manager_short}}** | Arbitrary secrets  \n IAM credentials  \n Key-value secrets  \n SSL/TLS certificates  \n User credentials | | ![Checkmark icon](../../icons/checkmark-icon.svg)| |
-| **{{site.data.keyword.cloudcerts_short}}** (Deprecated) | SSL/TLS certificates | ![Checkmark icon](../../icons/checkmark-icon.svg) | | |
 | **{{site.data.keyword.keymanagementserviceshort}}** | Symmetric encryption keys | ![Checkmark icon](../../icons/checkmark-icon.svg)| | ![Checkmark icon](../../icons/checkmark-icon.svg) | |
 | **{{site.data.keyword.hscrypto}}** | Symmetric encryption keys | |![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
 {: caption="Table 2. Key features for {{site.data.keyword.cloud_notm}} data protection services" caption-side="top"}
@@ -114,5 +113,4 @@ Each service supports either a Lite plan or a free trial that you can use to try
 - [{{site.data.keyword.keymanagementserviceshort}}](/catalog/services/key-protect){: external}
 - [{{site.data.keyword.hscrypto}}](/catalog/services/hs-crypto){: external}
 - [{{site.data.keyword.secrets-manager_short}}](/catalog/services/secrets-manager){: external}
-- [{{site.data.keyword.cloudcerts_short}}](/catalog/services/certificate-manager){: external} (Deprecated)
 

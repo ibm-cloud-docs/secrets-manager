@@ -84,13 +84,21 @@ toc:
           label: Configuring secrets engines
           topics:
           - engine-what-is.md
-          - engine-iam.md
+          - topic: engine-iam.md
+            navtitle: IAM credentials
           - topicgroup:
-              label: Configuring the public certificates engine
+              label: Public certificates
               topics:
               - engine-public.md
               - engine-public-ca.md
               - engine-public-dns-providers.md
+          - topicgroup:
+              label: Private certificates
+              topics:
+              - engine-private.md
+              - engine-private-root-ca.md
+              - engine-private-intermediate-ca.md
+              - engine-private-templates.md
       - topic: framework/event-notifications.md
         navtitle: Enabling event notifications
       - topicgroup:
@@ -118,11 +126,10 @@ toc:
       topics:
       - topicgroup:
           label: API & SDK reference
-          links:
+          topics:
           - link:
               label: Secrets Manager API
               href: https://{DomainName}/apidocs/secrets-manager
-          topics:
           - changelog-api.md
       - topicgroup:
           label: CLI reference
@@ -173,3 +180,4 @@ toc:
           - troubleshooting/troubleshoot-iam-restore.md
           - troubleshooting/troubleshoot-pem.md
           - troubleshooting/troubleshoot-delete-group.md
+          - troubleshooting/troubleshoot-instance-delete.md

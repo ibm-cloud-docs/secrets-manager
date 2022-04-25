@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-23"
+lastupdated: "2022-04-25"
 
 keywords: migrate from Certificate Manager, migrate to Secrets Manager, migrate certificates
 
@@ -57,7 +57,7 @@ subcollection: secrets-manager
 # Migrating certificates from {{site.data.keyword.cloudcerts_short}}
 {: #migrate-from-certificate-manager}
 
-With {{site.data.keyword.secrets-manager_full}}, you can centralize your application secrets in a single service, including the SSL or TLS certificates that you might already store and manage in {{site.data.keyword.cloudcerts_long_notm}}. Learn about suggested guidelines for moving your certificates from {{site.data.keyword.cloudcerts_short}} to {{site.data.keyword.secrets-manager_short}}.
+With {{site.data.keyword.secrets-manager_full}}, you can centralize your application secrets in a single service, including the SSL/TLS certificates that you might already store and manage in {{site.data.keyword.cloudcerts_long_notm}}. Learn about suggested guidelines for moving your certificates from {{site.data.keyword.cloudcerts_short}} to {{site.data.keyword.secrets-manager_short}}.
 {: shortdesc}
 
 
@@ -71,22 +71,26 @@ As of 10 February 2022, {{site.data.keyword.cloudcerts_long_notm}} is deprecated
 Both {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudcerts_short}} provide a secure repository for storing and managing certificates. All of the features that are available for the {{site.data.keyword.cloudcerts_short}} service are supported by {{site.data.keyword.secrets-manager_short}}. The following table compares and contrasts some common characteristics between the services.
 
 
+
 | Characteristics | {{site.data.keyword.secrets-manager_short}} | {{site.data.keyword.cloudcerts_short}} |
 | --- | --- | --- |
-| Secrets or certificates management experience in the {{site.data.keyword.cloud_notm}} console | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| Secrets and certificates management experience in the {{site.data.keyword.cloud_notm}} console | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| Pricing plans | [Trial and Standard](/catalog/services/secrets-manager){: external} | [Free](/catalog/services/certificate-manager){: external} |
 | Worldwide availability in multizone regions | ![Checkmark icon](../icons/checkmark-icon.svg)[^instance-limit] | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Data isolation through single-tenancy | ![Checkmark icon](../icons/checkmark-icon.svg) | |
 | Ability to integrate a key management service| ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Ability to manage resources through private service endpoints | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Ability to manage resources in an {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) | ![Checkmark icon](../icons/checkmark-icon.svg) | |
-| Ability to import SSL or TLS certificates | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
-| Ability to order public SSL or TLS certificates from Let's Encrypt | ![Checkmark icon](../icons/checkmark-icon.svg)[^dns-providers] | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| Ability to import SSL/TLS certificates | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| Ability to order public SSL/TLS certificates from Let's Encrypt | ![Checkmark icon](../icons/checkmark-icon.svg)[^dns-providers] | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| Ability to create private SSL/TLS certificates by using an internal certificate authority | ![Checkmark icon](../icons/checkmark-icon.svg) | |
 | Ability to manage secrets of various types | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
 | Notifications |  ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Go, Python, Node.js, and Java SDKs | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
 | CLI plug-in | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
 | Logging and monitoring | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
-{: caption="Table 1. Comparison between the {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudcerts_short}} offerings" caption-side="top"}
+
+{: caption="Table 1. Feature comparison between the {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudcerts_short}} offerings" caption-side="top"}
 
 [^instance-limit]: As of 23 March 2023, you can create an unlimited number of {{site.data.keyword.secrets-manager_short}} instances per account with the Standard pricing plan.
 
@@ -105,7 +109,7 @@ Before you begin, consider the following items and service limitations that migh
 
 - **{{site.data.keyword.secrets-manager_short}} is a paid service with Standard and Trial pricing plans.**
 
-  You can create an instance of {{site.data.keyword.secrets-manager_short}} by choosing either the Standard and Trial pricing plans. To try out {{site.data.keyword.secrets-manager_short}} or create a Standard instance of the service, a credit card-equipped {{site.data.keyword.cloud_notm}} account is required. Be sure to review the [catalog entry for {{site.data.keyword.secrets-manager_short}}](/catalog/services/secrets-manager){: external} to learn more about pricing plans for the service.
+  You can create an instance of {{site.data.keyword.secrets-manager_short}} by choosing either the Standard and Trial pricing plans. To try out {{site.data.keyword.secrets-manager_short}} or create a Standard instance of the service, a credit card-equipped {{site.data.keyword.cloud_notm}} account is required. Review the [catalog entry for {{site.data.keyword.secrets-manager_short}}](/catalog/services/secrets-manager){: external} to learn more about pricing plans for the service.
 
 - **Provisioning a {{site.data.keyword.secrets-manager_short}} instance takes 5 - 15 minutes to complete.**
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-04"
+lastupdated: "2022-04-25"
 
 keywords: change log for Secrets Manager APIs, API changelog, updates to Secrets Manager APIs
 
@@ -62,6 +62,19 @@ In this change log, you can learn about the latest changes, improvements, and up
 
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
 
+
+
+## 25 April 2022
+{: #2022-04-25-api}
+
+This release includes the following updates: 
+
+- Added the `private_cert` secret type that can be used to generate TLS certificates with the service. For more information, see [Creating private certificates](/docs/secrets-manager?topic=secrets-manager-certificates#create-certificates).
+- Added the [Invoke an action on a version of a secret](/apidocs/secrets-manager#update-secret-version) method that can be used to revoke a version of a private certificate. Currently, this API supports `private_cert` secrets only.
+- Updated the [Invoke an action on a secret](/apidocs/secrets-manager#update-secret) method to include `revoke` as a supported action. Currently, the `revoke` action is supported for `private_cert` secrets only.
+- Updated the [Get a version of a secret](/apidocs/secrets-manager#get-secret-version) method that can be used to retrieve the previous version of a secret. This API now supports `private_cert` secrets in addition to `imported_cert` and `public_cert`.
+- Updated the [Add a configuration](/apidocs/secrets-manager#create-config-element), [List configurations](/apidocs/secrets-manager#get-config-elements), [Update a configuration](/apidocs/secrets-manager#update-config-element), [Get a configuration](/apidocs/secrets-manager#get-config-element), and [Remove a configuration](/apidocs/secrets-manager#delete-config-element) methods. These APIs now support `private_cert` secrets in addition to `public_cert`.
+- Added the [Invoke an action on a configuration](/apidocs/secrets-manager#action-on-config-element) method that be used to run operations on specific configuration elements, for example root or intermediate certificate authorities. Currently, this API supports `private_cert` secrets only.
 
 
 ## 3 February 2022

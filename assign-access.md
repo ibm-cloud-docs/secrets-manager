@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-04"
+lastupdated: "2022-04-20"
 
 keywords: assign access for Secrets Manager, secret group access, assign access for all secrets, grant access, add users
 

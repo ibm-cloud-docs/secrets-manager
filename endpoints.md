@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-23"
+lastupdated: "2022-04-18"
 
 keywords: Secrets Manager availability, regions, Secrets Manager endpoints, Vault endpoint
 
@@ -91,6 +91,7 @@ Private endpoints
 
 If you are managing your {{site.data.keyword.secrets-manager_short}} resources over a public network, see the following table to determine the API endpoints to use when you connect to the {{site.data.keyword.secrets-manager_short}} API.
 
+
 | Region        | Endpoint URL             |
 | ------------- | ---------------------------- |
 | Dallas        | `https://{instance_ID}.us-south.secrets-manager.appdomain.cloud/api` |
@@ -125,6 +126,9 @@ If you are managing your {{site.data.keyword.secrets-manager_short}} resources o
 {: tab-group="public-endpoints"}
 {: class="simple-tab-table"}
 
+
+
+
 Ready to try the APIs? To interact with a Swagger UI from your browser, remove `/api` from your service endpoint URL and replace it with `/swagger-ui`. For example, `https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/swagger-ui`.
 {: tip}
 
@@ -135,6 +139,7 @@ If you need to manage your {{site.data.keyword.secrets-manager_short}} resources
 
 To learn how to configure your {{site.data.keyword.secrets-manager_short}} instance to use private endpoints, see [Securing your connection to {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-service-connection).
 {: note}
+
 
 | Region        | Endpoint URL             |
 | ------------- | ---------------------------- |
@@ -169,6 +174,8 @@ To learn how to configure your {{site.data.keyword.secrets-manager_short}} insta
 {: tab-title="Vault API"}
 {: tab-group="private-endpoints"}
 {: class="simple-tab-table"}
+
+
 
 
 ### Viewing your endpoint URLs
