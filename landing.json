@@ -39,6 +39,11 @@
     "view_more": "/docs/secrets-manager?topic=secrets-manager-release-notes",
     "tiles": [
       {
+        "date": "18 April 2022",
+        "title": "Create private SSL/TLS certificates",
+        "description": "You can now use Secrets Manager to set up a public-key infrastructure that you can use to issue private SSL/TLS certificates to your internal applications. By configuring root and intermediate certificate authorities for your instance, you can establish a valid chain of trust for your certificates."
+      },
+      {
         "date": "11 April 2022",
         "title": "Integrations with Kubernetes Service and Red Hat OpenShift for IBM Cloud",
         "description": "You can now use Secrets Manager to centrally manage Ingress subdomain certificates and other secrets for your Kubernetes or Red Hat OpenShift on IBM Cloud clusters."

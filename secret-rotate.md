@@ -79,6 +79,7 @@ All of the secrets that you store in {{site.data.keyword.secrets-manager_short}}
 | [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) |IAM credentials, which consist of a service ID and API key, are immediately regenerated according to their initial configuration. If the IAM credentials secret was created by using an existing service ID in the account, only the API key is regenerated as part of a manual rotation. In contrast, if the secret was created by selecting an access group, both the service ID and API key values are regenerated when they're manually rotated.<p class="important">The **Reuse IAM credentials until lease expires** (`reuse_api_key`) option for an IAM credentials secret impacts whether it can be rotated manually. If this field is `false` or set to **Off** in the UI, manual rotation isn't supported. The API key that is dynamically generated for the secret on each read is already a single-use, ephemeral value.</p>|
 | [Imported certificates](/docs/secrets-manager?topic=secrets-manager-certificates#import-certificates) | Certificates that were initially imported to a service instance are immediately replaced with the data that you reimport on rotation. |
 | [Key-value secrets](/docs/secrets-manager?topic=secrets-manager-key-value) | Key-value secrets are immediately replaced with the data that you provide on rotation. |
+| [Private certificates](/docs/secrets-manager?topic=secrets-manager-certificates#create-certificates) | Private certificates are immediately replaced with a certificate that is signed by its parent or issuing certificate authority.|
 | [Public certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates) | Public certificates move to the **Active, Rotation pending** status to indicate that a request to rotate a certificate is being processed. {{site.data.keyword.secrets-manager_short}} sends the request to the configured certificate authority (CA), for example Let's Encrypt, to validate the ownership of your domains. If the validation completes successfully, a new certificate is issued. |
 | [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | Passwords that are associated with user credentials secrets are immediately replaced with the data that you provide on rotation. |
 {: caption="Table 1. Describes how {{site.data.keyword.secrets-manager_short}} evaluates manual rotation by secret type" caption-side="top"}
@@ -187,6 +188,23 @@ If your {{site.data.keyword.secrets-manager_short}} service instance is enabled 
    You can check the issuance details of a public certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> Details**. If there was an issue with the request, the Status field provides information about why the rotation did not complete successfully.
 
 7. Redeploy the latest certificate version to your TLS termination point.
+
+   To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager#get-secret) API.
+
+
+
+### Rotating private certificates
+{: #manual-rotate-private-cert-ui}
+{: ui}
+
+If your {{site.data.keyword.secrets-manager_short}} service instance is enabled for [private certificates](/docs/secrets-manager?topic=secrets-manager-certificates#create-certificates), you can manually renew a certificate that was previously issued by a certificate authority that is configured for your service instance.
+
+1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
+3. In the {{site.data.keyword.secrets-manager_short}} UI, go to the **Secrets** list.
+4. In the row for the certificate that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
+5. Click **Rotate**.
+6. Redeploy the latest certificate version to your TLS termination point.
 
    To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager#get-secret) API.
 

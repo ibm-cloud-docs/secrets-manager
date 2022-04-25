@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-19"
+lastupdated: "2022-04-25"
 
 keywords: event notifications for {{site.data.keyword.secrets-manager_short}}, event notifications integration for {{site.data.keyword.secrets-manager_short}}, alerts for {{site.data.keyword.secrets-manager_short}}
 
@@ -119,6 +119,20 @@ The following table lists the {{site.data.keyword.secrets-manager_short}} events
 | Secret rotation failed | `com.ibm.cloud.secrets-manager.secret_rotation_failed` | One time | |![Checkmark icon](../../icons/checkmark-icon.svg) |
 | Secret about to expire | `com.ibm.cloud.secrets-manager.secret_about_to_expire` | 90, 60, 20, 10, 1, 0 days before the secret expires | ![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) |
 | Secret expired | `com.ibm.cloud.secrets-manager.secret_expired` | Daily | ![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) |
+{: caption="Table 2. Actions that generate events based on secret type" caption-side="bottom"}
+
+
+
+| Event name | Event type | Occurrence | Imported certificates | Private certificates | Public certificates |
+| --- | --- | --- | --- | --- | --- |
+| Secret created | `com.ibm.cloud.secrets-manager.secret_created` | One time | | |![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Secret creation failed | `com.ibm.cloud.secrets-manager.secret_creation_failed` | One time | | |![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Secret rotated | `com.ibm.cloud.secrets-manager.secret_rotated` | One time | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Secret rotation failed | `com.ibm.cloud.secrets-manager.secret_rotation_failed` | One time | | |![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Secret about to expire | `com.ibm.cloud.secrets-manager.secret_about_to_expire` | 90, 60, 20, 10, 1, 0 days before the secret expires | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Secret expired | `com.ibm.cloud.secrets-manager.secret_expired` | Daily | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Secret revoked | `com.ibm.cloud.secrets-manager.secret_revoked` | One time |  | ![Checkmark icon](../../icons/checkmark-icon.svg) | |
+| Secret deleted | `com.ibm.cloud.secrets-manager.secret_deleted` | One time |  | ![Checkmark icon](../../icons/checkmark-icon.svg) | |
 {: caption="Table 2. Actions that generate events based on secret type" caption-side="bottom"}
 
 
@@ -310,7 +324,7 @@ Review following table for more information about event notification properties.
 | ---- | ---- |
 | `event_sub_type` | The subtype that corresponds with the [type of event](#event-notifications-list) that triggered a notification. |
 | `event_type` | The [type of event](#event-notifications-list) that triggered a notification. |
-| `secret_type` | The type of secret that is associated with the event.  \n  \n Possible values include: imported_cert, public_cert|
+| `secret_type` | The type of secret that is associated with the event.  \n  \n Possible values include: imported_cert, private_cert, public_cert|
 | `secrets[]` | A list of objects that contain the metadata properties of a secret that is associated with the event. The properties that are listed vary depending on the secret type.  \n  \n Properties that are sent for all secret types include:  \n - `event_time`: The date and time the event was generated.  \n - `secret_group_id`: The ID of the secret group.  \n - `secret_id`: The ID that uniquely identifies the secret.  \n - `secret_name`: The name of the secret. |
 | `source_instance_api_private_url` | The [private endpoint URL](/docs/secrets-manager?topic=secrets-manager-endpoints#service-endpoints) that is assigned to your {{site.data.keyword.secrets-manager_short}} service instance.|
 | `source_instance_api_public_url` | The public endpoint URL that is assigned to your {{site.data.keyword.secrets-manager_short}} service instance.|

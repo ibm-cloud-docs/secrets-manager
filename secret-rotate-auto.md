@@ -73,10 +73,11 @@ Before you get started, be sure that you have the required level of access. To r
 ### Supported secret types
 {: #before-auto-rotate-supported-secret-types}
 
-Automatic rotation is supported for [public certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates) and [user credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials). Depending on the type of secret, automatic rotation takes place immediately on the date and time that you set, or it might need to complete a few extra steps before a new version of the secret can be created.
+Automatic rotation is supported for [private certificates](/docs/secrets-manager?topic=secrets-manager-certificates#create-certificates), [public certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates) and [user credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials). Depending on the type of secret, automatic rotation takes place immediately on the date and time that you set, or it might need to complete a few extra steps before a new version of the secret can be created.
 
 | Type | Rotation description |
 | --- | --- |
+| [Private certificates](/docs/secrets-manager?topic=secrets-manager-certificates#create-certificates) | The existing `certificate` value is replaced with new certificate content. The time-to-live (TTL) of the renewed certificate is set according to the [certificate template](/docs/secrets-manager?topic=secrets-manager-certificates#create-certificates) that was selected when the certificate was first created. <p class="note">After the time-to-live (TTL) or validity period of a private certificate exceeds the validity period of its issuing certificate authority, the certificate can no longer be rotated automatically.</p>|
 | [Public certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates) | Public certificates move to the **Active, Rotation pending** status to indicate that the request to renew the certificate is being processed. {{site.data.keyword.secrets-manager_short}} uses DNS validation to verify that you own the domains that are listed as part of the certificate. This process can take a few minutes to complete. If the validation completes successfully, a new certificate is issued and its status changes back to **Active**. If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**.|
 | [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | The existing `password` value is replaced with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols. The `username` value does not change.|
 {: caption="Table 1. Describes how {{site.data.keyword.secrets-manager_short}} evaluates manual rotation by secret type" caption-side="top"}
@@ -120,6 +121,26 @@ Certificates that expire in less than 31 days must also be [rotated manually](/d
    1. In the **Secrets** table, view a list of your existing Public certificates.
    2. In the row for the certificate that you want to edit, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Edit details**.
    3. Use the **Automatic rotation** option to add or remove a rotation policy for the secret.
+
+### Setting an automatic rotation policy for private certificates
+{: #schedule-auto-rotate-private-cert-ui}
+
+If you prefer to schedule your private SSL or TLS certificates to be automatically renewed, you can enable automatic rotation for certificates when you create them, or by editing the details of an existing certificate. The certificate must 
+
+1. If you're [creating a private certificate](/docs/secrets-manager?topic=secrets-manager-certificates#create-certificates), enable the rotation options.
+   
+   1. To rotate the certificate automatically, switch the rotation toggle to **On**.
+   2. Select an interval and unit that specifies the number of days between scheduled rotations.
+
+      Depending on the certificate template that is associated with your private certificate, some restrictions on the rotation interval for the certificate might apply. For example, the rotation interval can't exceed the time-to-live (TTL) that is defined in the template. For more information, see [Certificate templates](/docs/secrets-manager?topic=secrets-manager-certificate-templates).
+      {: note}
+
+2. If you're editing an existing private certificate, schedule automatic rotation by updating its details.
+   1. In the **Secrets** table, view a list of your existing Private certificates.
+   2. In the row for the certificate that you want to edit, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Edit details**.
+   3. Use the **Automatic rotation** option to add or remove a rotation policy for the secret.
+
+
 
 
 

@@ -97,7 +97,7 @@ The following limits apply to {{site.data.keyword.secrets-manager_short}} servic
 
 | Resource | Limit|
 | --- | --- |
-| Configurations for secrets engines | **Public certificates engine:**  \n - 10 third-party CA configurations \n - 10 DNS provider configurations  \n - 10 certificate templates |
+| Configurations for secrets engines | **Public certificates engine:**  \n - 10 third-party CA configurations \n - 10 DNS provider configurations  \n - 10 certificate templates  \n  \n **Private certificates engine:**  \n - 10 root certificate authorities  \n - 10 intermediate certificate authorities  \n - 10 certificate templates |
 | Secret groups | 200 per instance |
 | Total secrets | No limit per instance |
 {: caption="Table 2. {{site.data.keyword.secrets-manager_short}} limits per instance" caption-side="top"}
@@ -175,7 +175,7 @@ The following limits apply to key-value secrets.
 #### Limits for SSL/TLS certificates
 {: #certificates-limits}
 
-The following limits apply to imported or public certificates.
+The following limits apply to imported, private, or public certificates.
 
 | Attribute | Limit |
 | --- | --- |
