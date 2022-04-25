@@ -70,7 +70,8 @@ As of 10 February 2022, {{site.data.keyword.cloudcerts_long_notm}} is deprecated
 
 Both {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudcerts_short}} provide a secure repository for storing and managing certificates. All of the features that are available for the {{site.data.keyword.cloudcerts_short}} service are supported by {{site.data.keyword.secrets-manager_short}}. The following table compares and contrasts some common characteristics between the services.
 
-
+Unlike {{site.data.keyword.cloudcerts_short}}, {{site.data.keyword.secrets-manager_short}} is a paid service that requires a credit card-equipped account. [Review the {{site.data.keyword.secrets-manager_short}} pricing plans](/catalog/services/secrets-manager){: external} to understand how migrating to the service might impact your billing. For more information, contact your {{site.data.keyword.cloud_notm}} sales representative.
+{: important}
 
 | Characteristics | {{site.data.keyword.secrets-manager_short}} | {{site.data.keyword.cloudcerts_short}} |
 | --- | --- | --- |
