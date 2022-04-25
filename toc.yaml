@@ -83,10 +83,10 @@ toc:
       - topicgroup:
           label: Configuring secrets engines
           topics:
-          - engine-what-is.md
-          - engine-iam.md
+          - topic: engine-iam.md
+            navtitle: IAM credentials
           - topicgroup:
-              label: Configuring the public certificates engine
+              label: Public certificates
               topics:
               - engine-public.md
               - engine-public-ca.md

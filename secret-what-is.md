@@ -136,7 +136,7 @@ The following table compares and contrasts some common characteristics between t
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Automatic rotation](/docs/secrets-manager?topic=secrets-manager-automatic-rotation) | | ![Checkmark icon](../icons/checkmark-icon.svg)[^iam] | ![Checkmark icon](../icons/checkmark-icon.svg) |  | | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | [Manual rotation](/docs/secrets-manager?topic=secrets-manager-manual-rotation) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
-| [Notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications)[^notifications] |  |  | | | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| [Notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications)|  |  | | | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | [Version history](/docs/secrets-manager?topic=secrets-manager-version-history) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | [Restore to the previous version](/docs/secrets-manager?topic=secrets-manager-restore-secrets) |  | ![Checkmark icon](../icons/checkmark-icon.svg) |  |  | ![Checkmark icon](../icons/checkmark-icon.svg)  | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | SDK support | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
@@ -145,7 +145,6 @@ The following table compares and contrasts some common characteristics between t
 {: caption="Table 2. Feature comparison between secret types" caption-side="top"}
 
 [^iam]: Because IAM credentials are dynamic secrets, automatic rotation is a built-in feature. The API key that is associated with the secret is deleted automatically when the secret reaches the end of its lease. A new API key is created the next time the secret is read.
-[^notifications]: Currently, notifications are supported for certificates only. Support for all secret types is coming soon.
 
 
 
