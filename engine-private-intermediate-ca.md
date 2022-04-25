@@ -130,7 +130,7 @@ You can create an intermediate CA certificate that uses external signing in the 
 4. In the Certificate authorities table, click **Create certificate authority** to start the creation wizard.
 5. Specify the certificate authority type and options.
    1. Select **Intermediate certificate authority** as the authority type.
-   2. Select **Internal signing**.
+   2. Select **External signing**. From the list of configured root CAs, choose the root CA that you want to use as issuer of the intermediate CA certificate.
    3. Enter a name to easily identify your certificate authority.
    4. Select a maximum time-to-live (TTL) for the certificate to be generated for this CA. The TTL determines how long the CA certificate remains valid.
    5. To encode the issuing CA certificate URL into end-entity certificates, set the **Encode URL** option to **Enabled**.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-21"
+lastupdated: "2022-04-25"
 
 keywords: change log for Secrets Manager CLI, CLI changelog, updates to Secrets Manager CLI
 
@@ -63,6 +63,15 @@ In this change log, you can learn about the latest changes, improvements, and up
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
 
 
+
+## Version 0.1.18
+{: #0.1.18}
+
+Version 0.1.18 was released on 25 April 2022. This release includes the following updates:
+
+- Added support for the `private_cert` secret type.
+- Added the [secret-version-update](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-version-update-command) and [config-element-action](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-config-element-action-command) commands.
+- Added ARM64 builds for Apple silicon (M1) and Linux.
 
 ## Version 0.1.17
 {: #0.1.17}
