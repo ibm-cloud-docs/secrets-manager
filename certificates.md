@@ -57,9 +57,6 @@ subcollection: secrets-manager
 # Adding SSL/TLS certificates
 {: #certificates}
 
-You can use {{site.data.keyword.secrets-manager_full}} to store and request SSL/TLS certificates that you can use for your apps or services.
-{: shortdesc}
-
 You can use {{site.data.keyword.secrets-manager_full}} to store, request, aand generate SSL/TLS certificates that you can use for your apps or services.
 {: shortdesc}
 
