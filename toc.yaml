@@ -83,6 +83,7 @@ toc:
       - topicgroup:
           label: Configuring secrets engines
           topics:
+          - engine-what-is.md
           - topic: engine-iam.md
             navtitle: IAM credentials
           - topicgroup:
