@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-17"
+lastupdated: "2022-04-28"
 
 keywords: delete secret, remove secret, destroy secret
 
@@ -84,7 +84,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually delet
 {: #delete-secret-cli}
 {: cli}
 
-To delete a secret, run the [**`ibmcloud secrets-manager secret-delete`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-delete-command) command. You can specify the type of secret by using the `--secret-type SECRET-TYPE` option. The options for `SECRET_TYPE` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `public_cert`, and `username_password`.
+To delete a secret, run the [**`ibmcloud secrets-manager secret-delete`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-delete-command) command. You can specify the type of secret by using the `--secret-type SECRET-TYPE` option. The options for `SECRET_TYPE` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`.
 
 ```sh
 ibmcloud secrets-manager secret --secret-type SECRET_TYPE --id ID --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
@@ -101,7 +101,7 @@ For more information about the command options, see [**`ibmcloud secrets-manager
 
 You can delete secrets by calling the {{site.data.keyword.secrets-manager_short}} API.
 
-The following example request deletes a secret and its contents. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. The options for `{secret_type}` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `public_cert`, and `username_password`.
+The following example request deletes a secret and its contents. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. The options for `{secret_type}` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`.
 {: curl}
 
 
