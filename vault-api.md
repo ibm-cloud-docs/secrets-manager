@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-23"
+lastupdated: "2022-05-03"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -518,6 +518,7 @@ Creates or imports a secret by using the {{site.data.keyword.secrets-manager_sho
 - Key-value secrets (`kv`)
 - User credentials (`user_credentials`)
 - Imported certificates (`import_cert`)
+- Private certificates (`private_cert`)
 - Public certificates (`public_cert`)
 
 
@@ -585,6 +586,28 @@ Creates or imports a secret by using the {{site.data.keyword.secrets-manager_sho
 {: caption="Table 6. Create secret request parameters - Imported certificates" caption-side="top"}
 {: #vault-create-secret-params-imported-certs}
 {: tab-title="Imported certificates"}
+{: tab-group="vault-create-secret-params"}
+{: class="simple-tab-table"}
+
+| Request parameters           | Description                                                          |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `name`        | **Required.** The human-readable alias that you want to assign to the secret.       |
+| `description` | An extended description of the secret.                                              |
+| `certificate_template` | **Required.** The name of the certificate template.                        |
+| `common_name` | The fully qualified domain name or host domain name for the certificate.            |
+| `labels[]` | Labels that you can use to filter for secrets in your instance. Up to 30 labels can be added. |
+| `alt_names` | The Subject Alternative Names to define for the certificate, in a comma-delimited list.      |                        
+| `ip_sans` | The IP Subject Alternative Names to define for the certificate, in a comma-delimited list.     |                        
+| `uri_sans` | The URI Subject Alternative Names to define for the certificate, in a comma-delimited list.   |                        
+| `other_sans` | The custom Object Identifier (OID) or UTF8-string Subject Alternative Names to define for the certificate.  \n  \n The alternative names must match the values that are specified in the `allowed_other_san`s field in the associated certificate template. The format is the same as OpenSSL: `<oid>:<type>:<value>` where the current valid type is `UTF8`.|
+| `ttl` | The time-to-live (TTL) to assign to a private certificate.  \n  \n The value can be supplied as a string representation of a duration in hours, for example '12h'. The value can't exceed the `max_ttl` that is defined in the associated certificate template. |   
+| `format` | The format of the returned data. Allowable values are: `pem`, `pem_bundle`. Default: `pem` |
+| `auto_rotate` | Determines whether Secrets Manager rotates your certificate automatically. For private certificates, the certificate is rotated according to the time interval specified in the `interval` and `unit` fields.  |
+| `interval` | Used together with the `unit` field to specify the rotation interval. The minimum interval is one day, and the maximum interval is 3 years (1095 days). Required in case `auto_rotate` is set to `true`.  |
+| `unit` | The time unit of the rotation interval. Allowable values are: `day`, `month` |            
+{: caption="Table 6. Create secret request parameters - Private certificates" caption-side="top"}
+{: #vault-create-secret-params-private-certs}
+{: tab-title="Private certificates"}
 {: tab-group="vault-create-secret-params"}
 {: class="simple-tab-table"}
 
@@ -713,6 +736,8 @@ curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
     ]
 }'
 ```
+{: codeblock}
+
 Create a key-value secret in an existing secret group. 
 
 ```sh
@@ -732,6 +757,7 @@ curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
     ]
 }'
 ```
+{: codeblock}
 
 Create user credentials in the `default` secret group. 
 
@@ -742,14 +768,14 @@ curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
     -H 'Content-Type: application/json' \
     -d '{
         "name": "test-username-password",
-    "description": "Extended description for my secret.",
-    "username": "user123",
-    "password": "cloudy-rainy-coffee-book",
-    "expiration_date": "2020-12-31T00:00:00Z",
-    "labels": [
-        "dev",
-        "us-south"
-    ]
+        "description": "Extended description for my secret.",
+        "username": "user123",
+        "password": "cloudy-rainy-coffee-book",
+        "expiration_date": "2020-12-31T00:00:00Z",
+        "labels": [
+            "dev",
+            "us-south"
+        ]
     }'
 ```
 {: codeblock}
@@ -763,19 +789,19 @@ curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
     -H 'Content-Type: application/json' \
     -d '{
         "name": "test-username-password-in-group",
-    "description": "Extended description for my secret.",
-    "username": "user123",
-    "password": "cloudy-rainy-coffee-book",
-    "expiration_date": "2020-12-31T00:00:00Z",
-    "labels": [
-        "dev",
-        "us-south"
-    ]
+        "description": "Extended description for my secret.",
+        "username": "user123",
+        "password": "cloudy-rainy-coffee-book",
+        "expiration_date": "2020-12-31T00:00:00Z",
+        "labels": [
+            "dev",
+            "us-south"
+        ]
     }'
 ```
 {: codeblock}
 
-Import a TLS certificate and assign it to the `default` secret group.
+Import an SSL/TLS certificate and assign it to the `default` secret group.
 
 ```sh
 curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/imported_cert/secrets" \
@@ -784,19 +810,19 @@ curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
     -H 'Content-Type: application/json' \
     -d '{
         "name": "test-imported-certificate",
-    "description": "Extended description for my secret."
-    "certificate": "-----BEGIN CERTIFICATE-----\nMIICWzCCAcQCC...(redacted)",
-    "private_key": "-----BEGIN PRIVATE KEY-----\nMIICdgIBADANB...(redacted)",
-    "intermediate": "-----BEGIN CERTIFICATE-----\nMIICUzHHraOa...(redacted)",
-    "labels": [
-        "dev",
-        "us-south"
-    ]
+        "description": "Extended description for my secret."
+        "certificate": "-----BEGIN CERTIFICATE-----\nMIICWzCCAcQCC...(redacted)",
+        "private_key": "-----BEGIN PRIVATE KEY-----\nMIICdgIBADANB...(redacted)",
+        "intermediate": "-----BEGIN CERTIFICATE-----\nMIICUzHHraOa...(redacted)",
+        "labels": [
+            "dev",
+            "us-south"
+        ]
     }'
 ```
 {: codeblock}
 
-Import a TLS certificate and assign it to an existing secret group.
+Import an SSL/TLS certificate and assign it to an existing secret group.
 
 ```sh
 curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/imported_cert/secrets/groups/{group_id}" \
@@ -805,19 +831,19 @@ curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
     -H 'Content-Type: application/json' \
     -d '{
         "name": "test-imported-certificate-in-group",
-    "description": "Extended description for my secret."
-    "certificate": "-----BEGIN CERTIFICATE-----\nMIICWzCCAcQCC...(redacted)",
-    "private_key": "-----BEGIN PRIVATE KEY-----\nMIICdgIBADANB...(redacted)",
-    "intermediate": "-----BEGIN CERTIFICATE-----\nMIICUzHHraOa...(redacted)",
-    "labels": [
-        "dev",
-        "us-south"
-    ]
+        "description": "Extended description for my secret."
+        "certificate": "-----BEGIN CERTIFICATE-----\nMIICWzCCAcQCC...(redacted)",
+        "private_key": "-----BEGIN PRIVATE KEY-----\nMIICdgIBADANB...(redacted)",
+        "intermediate": "-----BEGIN CERTIFICATE-----\nMIICUzHHraOa...(redacted)",
+        "labels": [
+            "dev",
+            "us-south"
+        ]
     }'
 ```
 {: codeblock}
 
-Order a TLS certificate and assign it to the `default` secret group.
+Order a public SSL/TLS certificate and assign it to the `default` secret group.
 
 ```sh
 curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/public_cert/secrets" \
@@ -826,28 +852,28 @@ curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
     -H 'Content-Type: application/json' \
     -d '{
         "name": "test-public-certificate-in-group",
-    "description": "Extended description for my secret.",
-    "ca": "my-configured-certificate-authority",
-    "dns": "my-configured-dns-provider",
-    "common_name": "example.com",
-    "alt_names": [
-        "www.example.com"
-    ],
-    "labels": [
-        "dev",
-        "us-south"
-    ],
-    "bundle_certs": false, 
-    "key_algorithm": "RSA2048",
-    "rotation": {
-        "auto_rotate": false,
-        "rotate_keys": false
-    }
+        "description": "Extended description for my secret.",
+        "ca": "my-configured-certificate-authority",
+        "dns": "my-configured-dns-provider",
+        "common_name": "example.com",
+        "alt_names": [
+            "www.example.com"
+        ],
+        "labels": [
+            "dev",
+            "us-south"
+        ],
+        "bundle_certs": false, 
+        "key_algorithm": "RSA2048",
+        "rotation": {
+            "auto_rotate": false,
+            "rotate_keys": false
+        }
     }'
 ```
 {: codeblock}
 
-Order a TLS certificate and assign it to an existing secret group.
+Order a public SSL/TLS certificate and assign it to an existing secret group.
 
 ```sh
 curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/public_cert/secrets/groups/{group_id}" \
@@ -856,23 +882,79 @@ curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
     -H 'Content-Type: application/json' \
     -d '{
         "name": "test-public-certificate-in-group",
-    "description": "Extended description for my secret.",
-    "ca": "my-configured-certificate-authority",
-    "dns": "my-configured-dns-provider",
-    "common_name": "example.com",
-    "alt_names": [
-        "www.example.com"
-    ],
-    "labels": [
-        "dev",
-        "us-south"
-    ],
-    "bundle_certs": false, 
-    "key_algorithm": "RSA2048",
-    "rotation": {
-        "auto_rotate": false,
-        "rotate_keys": false
-    }
+        "description": "Extended description for my secret.",
+        "ca": "my-configured-certificate-authority",
+        "dns": "my-configured-dns-provider",
+        "common_name": "example.com",
+        "alt_names": [
+            "www.example.com"
+        ],
+        "labels": [
+            "dev",
+            "us-south"
+        ],
+        "bundle_certs": false, 
+        "key_algorithm": "RSA2048",
+        "rotation": {
+            "auto_rotate": false,
+            "rotate_keys": false
+        }
+    }'
+```
+{: codeblock}
+
+Create a private SSL/TLS certificate and assign it to the `default` secret group.
+
+```sh
+curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/private_cert/secrets" \
+    -H 'Accept: application/json' \
+    -H 'X-Vault-Token: {Vault-Token}' \
+    -H 'Content-Type: application/json' \
+    -d '{
+        "name": "test-private-certificate",
+        "description": "Extended description for my secret.",
+        "certificate_template": "my-configured-certificate-template",
+        "common_name": "example.com",
+        "alt_names": [
+            "www.example.com"
+        ],
+        "labels": [
+            "dev",
+            "us-south"
+        ],
+        "rotation": {
+            "auto_rotate": true,
+            "interval": 90,
+            "unit": day
+        }
+    }'
+```
+{: codeblock}
+
+Create a private SSL/TLS certificate and assign it to an existing secret group.
+
+```sh
+curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/private_cert/secrets/groups/{group_id}" \
+    -H 'Accept: application/json' \
+    -H 'X-Vault-Token: {Vault-Token}' \
+    -H 'Content-Type: application/json' \
+    -d '{
+        "name": "test-private-certificate",
+        "description": "Extended description for my secret.",
+        "certificate_template": "my-configured-certificate-template",
+        "common_name": "example.com",
+        "alt_names": [
+            "www.example.com"
+        ],
+        "labels": [
+            "dev",
+            "us-south"
+        ],
+        "rotation": {
+            "auto_rotate": true,
+            "interval": 90,
+            "unit": day
+        }
     }'
 ```
 {: codeblock}
@@ -2314,7 +2396,7 @@ Creates or updates an [automatic rotation policy](/docs/secrets-manager?topic=se
 | Request parameters            | Description                                                                         |
 | ------------- | ----------------------------------------------------------------------------------- |
 | `interval`     | The length of the secret rotation time interval. |
-| `unit`    | The units for the secret rotation time interval. Allowable values include: day, month|
+| `unit`    | The units for the secret rotation time interval. Allowable values are: day, month|
 {: caption="Table 9. Set secret policy request parameters" caption-side="top"}
 
 
@@ -2454,10 +2536,10 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 ## Config
 {: #vault-api-secrets-engines-config}
 
-### Configure secrets of a specific type
+### Set the configuration of a secret type
 {: #vault-configure-secret-type}
 
-Configures a secrets engine that serves as the backend for a specific type of secret. You can set the configuration for the following secret types: `iam_credentials`, `public_cert`
+Configures a secrets engine that serves as the backend for a specific type of secret. You can set the configuration for the following secret types: `iam_credentials`
 
 | Request parameters         | Description                                                                         |
 | ------------- | ----------------------------------------------------------------------------------- |
@@ -2468,16 +2550,6 @@ Configures a secrets engine that serves as the backend for a specific type of se
 {: tab-group="vault-configure-secret-type-params"}
 {: class="simple-tab-table"}
 
-| Request parameters           | Description                                                                         |
-| ------------- | ----------------------------------------------------------------------------------- |
-| `name`        | A human-readable name to assign to your certificate authority configuration.        |
-| `type`        | The environment type, for example the Let's Encrypt staging or production environment, that corresponds with the URL that you want to target to order certificates. Allowable values include: `letsencrypt-stage`, `letsencrypt` | 
-| `private_key` | The private key that is associated with your ACME account. |
-{: caption="Table 11. Public certificates engine request parameters" caption-side="top"}
-{: #public-cert-secrets-engine-request-params}
-{: tab-title="Public certificates"}
-{: tab-group="vault-configure-secret-type-params"}
-{: class="simple-tab-table"}
 
 #### Example request
 {: #vault-configure-secret-type-request}
@@ -2490,22 +2562,6 @@ curl -X PUT "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
     -H 'Content-Type: application/json' \
     -d '{ 
         "api_key": "<API_KEY>" 
-    }'
-```
-{: codeblock}
-
-Configure the `public_cert` secrets engine.
-
-```sh
-curl -X PUT "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/public_cert/config/certificate_authorities" \
-    -H 'X-Vault-Token: {Vault-Token}' \
-    -H 'Content-Type: application/json' \
-    -d '{ 
-        "name": "test-certificate-authority",
-        "type": "letsencrypt-stage",
-        "config": {
-          "private_key": "-----BEGIN PRIVATE KEY-----\nMIICdgIBADANB...(redacted)"
-        }
     }'
 ```
 {: codeblock}
@@ -2529,32 +2585,10 @@ A request to configure the `iam_credentials` secrets engine returns the followin
 ```
 {: screen}
 
-A request to configure the `public_cert` secrets engine returns the following response:
-
-```json
-{
-    "request_id": "af1a900d-3cec-7f6d-8878-fa43d1587d90",
-    "lease_id": "",
-    "renewable": false,
-    "lease_duration": 0,
-    "data": {
-        "config": {
-            "private_key": "-----BEGIN PRIVATE KEY-----\nMIICdgIBADANB...(redacted)"
-        },
-        "name": "test-certificate-authority",
-        "type": "letsencrypt-stage"
-    },
-    "wrap_info": null,
-    "warnings": null,
-    "auth": null
-}
-```
-{: screen}
-
-### Get the configuration for a secret type
+### Get the configuration of a secret type
 {: #vault-get-secrets-engines-config}
 
-Retrieves the configuration for a secrets engine.
+Retrieves the configuration of a  secrets engine.
 
 #### Example request
 {: #vault-get-secrets-engines-config-request}
@@ -2588,30 +2622,236 @@ A request to get the configuration of the `iam_credentials` secrets engine retur
 ```
 {: screen}
 
-### Update the configuration for a secret type
+### Add a configuration
+{: #vault-add-secrets-engines-config}
+
+Adds a configuration element to a secrets engine. This method is used for more complex engines, for example the `public_cert` and `private_cert` engines.
+
+You can add multiple configurations for your instance:
+
+- Up to 10 public certificate authority configurations
+- Up to 10 DNS provider configurations
+- Up to 10 private root certificate authority configurations
+- Up to 10 private intermediate certificate authority configurations
+- Up to 10 certificate templates
+
+| Request parameters           | Description                                                          |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `name`        | A human-readable name to assign to your certificate authority configuration.        |
+| `type`        | The environment type, for example the Let's Encrypt staging or production environment, that corresponds with the URL that you want to target to order public certificates. Allowable values are: `letsencrypt-stage`, `letsencrypt` | 
+| `private_key` | The private key that is associated with your registered ACME account.               |
+{: caption="Table 11. Public certificates engine request parameters" caption-side="top"}
+{: #public-cert-secrets-engine-ca-request-params}
+{: tab-title="Public CAs"}
+{: tab-group="vault-add-config-params"}
+{: class="simple-tab-table"}
+
+| Request parameters           | Description                                                          |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `name`     | A human-readable name to assign to your DNS provider configuration.                    |
+| `type` | The name of the DNS provider that you want to use. Allowable values are: `cis`             |
+| `cis_crn` | The CRN of the Cloud Internet Services (CIS) instance that you want to use.             |
+| `cis_apikey` | An API key that has access to both your CIS instance and {{site.data.keyword.secrets-manager_short}} instance. Alternatively, you can also create an authorization between both services by using IAM. |
+{: caption="Table 11. Public certificates engine request parameters" caption-side="top"}
+{: #public-cert-secrets-engine-dns-request-params}
+{: tab-title="DNS providers"}
+{: tab-group="vault-add-config-params"}
+{: class="simple-tab-table"}
+
+| Request parameters           | Description                                                          |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `name`        | A human-readable name to assign to your certificate authority configuration.        |
+| `type`        | The type of certificate authority that you want to create. Allowable values are: `root_certificate_authority`, `intermediate_certificate_authority`. | 
+| `[params..]`  | For a complete list of parameters, see [Add a configuration](/apidocs/secrets-manager#create-config-element){: external}. |
+{: caption="Table 11. Private certificates engine request parameters" caption-side="top"}
+{: #private-cert-secrets-engine-ca-request-params}
+{: tab-title="Private CAs"}
+{: tab-group="vault-add-config-params"}
+{: class="simple-tab-table"}
+
+| Request parameters           | Description                                                          |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `name`        | A human-readable name to assign to your certificate template.                       |
+| `type`        | The type of configuration that you want to add. For certificate templates, use `certificate_templates`. |
+| `[params..]`  | For a complete list of parameters, see [Add a configuration](/apidocs/secrets-manager#create-config-element){: external}. |
+{: caption="Table 11. Private certificates engine request parameters" caption-side="top"}
+{: #private-cert-secrets-engine-template-request-params}
+{: tab-title="Certificate templates"}
+{: tab-group="vault-add-config-params"}
+{: class="simple-tab-table"}
+
+#### Example requests
+{: #vault-add-secrets-engines-config-request}
+
+Add a public certificate authority configuration.
+
+```sh
+curl -X PUT "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/public_cert/config/certificate_authorities" \
+    -H 'X-Vault-Token: {Vault-Token}' \
+    -H 'Content-Type: application/json' \
+    -d '{ 
+        "name": "test-certificate-authority",
+        "type": "letsencrypt-stage",
+        "config": {
+          "private_key": "-----BEGIN PRIVATE KEY-----\nMIICdgIBADANB...(redacted)"
+        }
+    }'
+```
+{: codeblock}
+
+Add a private root certificate authority configuration.
+
+```sh
+curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/private_cert/config/root_certificate_authorities' \
+    -H 'X-Vault-Token: {Vault-Token}' \
+    -H 'Content-Type: application/json' \
+    -H '{
+        "name": "my-configured-root-ca",
+        "type": "root_certificate_authority",
+        "config": {
+            "max_ttl": "43830h",
+            "common_name": "example.com",
+            "crl_disable": false,
+            "crl_distribution_points_encoded": true,
+            "issuing_certificates_urls_encoded": true
+        }
+    }'
+```
+{: codeblock}
+
+Add an intermediate certificate authority configuration.
+
+```sh
+curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/private_cert/config/intermediate_certificate_authorities' \
+    -H 'X-Vault-Token: {Vault-Token}' \
+    -H 'Content-Type: application/json' \
+    -H '{
+        "name": "my-configured-intermediate-ca",
+        "type": "intermediate_certificate_authority",
+        "config": {
+            "max_ttl": "26300h",
+            "common_name": "example.com",
+            "signing_method": "internal|external",
+            "issuer": "my-configured-root-ca",
+            "crl_expiry": "72h",
+            "crl_disable": false,
+            "crl_distribution_points_encoded": true,
+            "issuing_certificates_urls_encoded": true
+        }
+    }
+```
+{: codeblock}
+
+Add a certificate template.
+
+```sh
+curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/private_cert/config/certificate_templates' \
+    -H 'X-Vault-Token: {Vault-Token}' \
+    -H 'Content-Type: application/json' \
+    -H '{
+        "name": "my-configured-certificate-template",
+        "type": "certificate_template",
+        "config": {
+            "certificate_authority": "my-configured-intermediate-ca",
+            "max_ttl": "8760h",
+            "allow_any_name": true,
+            "enforce_hostnames": false,
+            "allowed_uri_sans": [
+            "https://www.example.com/test"
+            ]
+        }
+    }'
+```
+{: codeblock}
+
+#### Example responses
+{: #vault-add-secrets-engines-config-response}
+
+A request to add a public certificate authority configuration returns the following response:
+
+```json
+{
+    "request_id": "af1a900d-3cec-7f6d-8878-fa43d1587d90",
+    "lease_id": "",
+    "renewable": false,
+    "lease_duration": 0,
+    "data": {
+        "config": {
+            "private_key": "-----BEGIN PRIVATE KEY-----\nMIICdgIBADANB...(redacted)"
+        },
+        "name": "test-certificate-authority",
+        "type": "letsencrypt-stage"
+    },
+    "wrap_info": null,
+    "warnings": null,
+    "auth": null
+}
+```
+{: screen}
+
+A request to add a private certificate authority configuration returns the following response:
+
+```json
+{
+    "request_id": "0b221b39-1cd8-fa92-62e5-361c5e1b5d92",
+    "lease_id": "",
+    "renewable": false,
+    "lease_duration": 0,
+    "data": {
+        "config": {
+            "common_name": "example.com",
+            "country": [],
+            "crl_disable": false,
+            "crl_distribution_points_encoded": true,
+            "crl_expiry": 259200,
+            "data": {
+                "certificate": "-----BEGIN CERTIFICATE-----\nMIIGZjCCBU6gAwIBAgIUFsqE2...(redacted",
+                "expiration": 1808862713,
+                "issuing_ca": "-----BEGIN CERTIFICATE-----\nMIIGZjCCBU6gAwIBAgIUFsqE2...(redacted)",
+                "serial_number": "16:ca:84:d8:4f:e5:b0:6c:5c:06:db:51:52:58:c1:3e:0b:96:ce:4f"
+            },
+            "exclude_cn_from_sans": false,
+            "expiration_date": "2027-04-27T21:51:53Z",
+            "format": "pem",
+            "issuing_certificates_urls_encoded": true,
+            "key_bits": 2048,
+            "key_type": "rsa",
+            "locality": [],
+            "max_path_length": -1,
+            "max_ttl": 157788000,
+            "organization": [],
+            "other_sans": [],
+            "ou": [],
+            "permitted_dns_domains": [],
+            "postal_code": [],
+            "private_key_format": "der",
+            "province": [],
+            "status": "configured",
+            "street_address": [],
+            "ttl": 157788000
+        },
+        "name": "my-configured-root-ca",
+        "type": "root_certificate_authority"
+    },
+    "wrap_info": null,
+    "warnings": null,
+    "auth": null
+}
+```
+{: screen}
+
+### Update a configuration
 {: #vault-update-secrets-engines-config}
 
-Updates the configuration of a secrets engine that serves as the backend for a specific type of secret. You can update the configuration for the following secret types: `iam_credentials`, `public_cert`
-
-| Request parameters            | Description                                                                         |
-| ------------- | ----------------------------------------------------------------------------------- |
-| `name`     | A human-readable name to assign to your certificate authority configuration. |
-| `type` | The name of the DNS provider that you want to use. Allowable values include: `cis`|
-| `cis_crn` | The CRN of the Cloud Internet Services (CIS) instance that you want to use. |
-| `cis_apikey` | An API key that has access to both your CIS instance and {{site.data.keyword.secrets-manager_short}} instance. Alternatively, you can also create an authorization between both services by using IAM. |
-{: caption="Table 12. Public certificates engine request parameters" caption-side="top"}
-{: #public-cert-config-update-request-params}
-{: tab-title="Public certificates"}
-{: tab-group="vault-update-secrets-engines-config-params"}
-{: class="simple-tab-table"}
+Updates the configuration of a secrets engine that serves as the backend for a specific type of secret. You can update the configuration for the following secret types: `iam_credentials`, `private_cert`, `public_cert`
 
 #### Example requests
 {: #vault-update-secrets-engines-config-request}
 
-Add a DNS provider configuration for the `public_cert` secrets engine.
+Update a DNS provider configuration for the `public_cert` secrets engine.
 
 ```sh
-curl-X POST 'https://https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/public_cert/config/dns_providers' \
+curl -X PUT 'https://https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/public_cert/config/dns_providers' \
     -H 'X-Vault-Token: {Vault-Token}' \
     -H 'Content-Type: application/json' \
     -d'{
@@ -2651,69 +2891,43 @@ A request to add a DNS provider configuration for the `public_cert` secrets engi
 ```
 {: screen}
 
-### Delete a configuration for a secret type
+### Delete a configuration
 {: #vault-delete-secrets-engines-config}
 
-Removes a configuration for a secrets engine that serves as the backend for a specific type of secret. You can delete configurations for the following secret types: `public_cert`
+Removes a configuration for a secrets engine that serves as the backend for a specific type of secret. You can delete configurations for the following secret types: `public_cert`, `private_cert`
 
-| Request parameters            | Description                                                                         |
-| ------------- | ----------------------------------------------------------------------------------- |
-| `name`     | A human-readable name to assign to your certificate authority configuration. |
-| `type` | The name of the DNS provider that you want to use. Allowable values include: `cis`|
-| `cis_crn` | The CRN of the Cloud Internet Services (CIS) instance that you want to use. |
-| `cis_apikey` | An API key that has access to both your CIS instance and {{site.data.keyword.secrets-manager_short}} instance. Alternatively, you can also create an authorization between both services by using IAM. |
-{: caption="Table 12. Public certificates engine request parameters" caption-side="top"}
-{: #public-cert-config-delete-request-params}
-{: tab-title="Public certificates"}
-{: tab-group="vault-delete-secrets-engines-config-params"}
-{: class="simple-tab-table"}
 
 #### Example requests
 {: #vault-delete-secrets-engines-config-request}
 
-Add a DNS provider configuration for the `public_cert` secrets engine.
+Delete a public certificate authority configuration.
 
 ```sh
-curl-X DELETE 'https://https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/public_cert/config/dns_providers' \
+curl -X DELETE 'https://https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/public_cert/config/certificate_authorities/my-lets-encrypt' \
     -H 'X-Vault-Token: {Vault-Token}' \
-    -H 'Content-Type: application/json' \
-    -d'{
-        "name": "my-cis-instance",
-        "type": "cis",
-        "config": {
-          "cis_crn": "crn:v1:bluemix:public:internet-svcs:global:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0::",
-          "cis_apikey": "<API_KEY>"
-        }
-    }'
 ```
 {: codeblock}
+
+Delete the DNS provider configuration.
+
+```sh
+curl -X DELETE 'https://https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/public_cert/config/dns_providers/my-cis-instance' \
+    -H 'X-Vault-Token: {Vault-Token}' \
+```
+{: codeblock}
+
+Delete a private certificate authority configuration.
+
+```sh
+curl -X DELETE 'https://https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/private_cert/config/root_certificate_authorities/my-root-ca' \
+    -H 'X-Vault-Token: {Vault-Token}' \
+```
+{: codeblock}
+
 
 #### Example response
 {: #vault-delete-secrets-engines-config-response}
 
-A request to add a DNS provider configuration for the `public_cert` secrets engine returns the following response:
-
-```json
-{
-    "request_id": "3c891ae8-18d3-f38e-5b98-dc1db2874f16",
-    "lease_id": "",
-    "renewable": false,
-    "lease_duration": 0,
-    "data": {
-        "config": {
-            "cis_apikey": "mGjiCelas...(redacted)",
-            "cis_crn": "crn:v1:bluemix:public:internet-svcs:global:a/a5ebf2570dcaedf18d7ed78e216c263a:0f4c764e-dc3d-44d1-bd60-a2f7cd91e0c0::"
-        },
-        "name": "my-cis-instance",
-        "type": "cis"
-    },
-    "wrap_info": null,
-    "warnings": null,
-    "auth": null
-}
-```
-{: screen}
-
-
+A successful request returns an `HTTP 204 No Content` response.
 
 
