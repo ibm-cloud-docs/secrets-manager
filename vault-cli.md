@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-07"
+lastupdated: "2022-05-03"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -428,7 +428,7 @@ Success! Data deleted (if it existed) at: auth/ibmcloud/manage/groups/9c6d20ad-7
 ### Create a secret
 {: #vault-cli-create-static-secret}
 
-Use the following commands to add a static secret, such as a user credential or an arbitrary secret, to your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`, `imported_cert`, and [`kv`](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv-cli).
+Use the following commands to add a static secret, such as a user credential or an arbitrary secret, to your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for **`SECRET_TYPE`** are: `arbitrary`,`imported_cert`, [`kv`](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv-cli), `private_cert`, `public_cert`, and `username_password`.
 
 
 Create a secret in the `default` secret group.
@@ -452,6 +452,7 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
 #### Command options
 {: #vault-cli-create-static-secret-options}
 
+
 name
 :   The human-readable alias that you want to assign to the secret. Required.
 
@@ -465,7 +466,7 @@ labels
 :   Labels that you can use to group and search for similar secrets in your instance.
 
 payload
-:   The data that you want to store for `arbitrary` or `kv`secrets. Only text-based payloads are supported for `arbitrary` secrets. The key-value secrets engine can store secrets in complex JSON format. With your key-value secret, you can integrate with tools that are compatible with the HashiCorp Vault KV (Version 2) CLI commands. Learn more about [managing key-value secrets](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv-cli) with the Vault CLI. 
+:   The data that you want to store for `arbitrary` or `kv` secrets. Only text-based payloads are supported for `arbitrary` secrets. The key-value secrets engine can store secrets in complex JSON format. With your key-value secret, you can integrate with tools that are compatible with the HashiCorp Vault KV (Version 2) CLI commands. Learn more about [managing key-value secrets](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv-cli) with the Vault CLI. 
 
 username
 :   The username that you want to assign to a `username_password` secret.
@@ -490,6 +491,12 @@ dns
 
 key_algorithm
 :   The key algorithm to be used for signing and issuing a `public_cert` secret. Allowable values include: `RSA2048`, `RSA4096`, `ECDSA256`, `ECDSA384`
+
+certificate_template
+:   The [certificate template](/docs/secrets-manager?topic=secrets-manager-certificate-templates) to be used for creating a `private_cert` secret. 
+
+common_name
+:   The common name to be used for creating a `private_cert` secret. Depending on the certificate template that you choose, some restrictions on the common name for your private certificate might apply. 
 
 -format
 :   Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
@@ -519,17 +526,24 @@ base64 -w0 <filename> | vault write ibmcloud/arbitrary/secrets name="my-test-arb
 ```
 {: pre}
 
-Import a TLS certificate with a matching private key.
+Import an SSL/TLS certificate with a matching private key.
 
 ```sh
 vault write -format=json ibmcloud/imported_cert/secrets name="my-test-imported-certificate" certificate=@cert.pem private_key=@key.pem
 ```
 {: pre}
 
-Order a TLS certificate by specifying a certificate authority and DNS provider configuration.
+Order a public SSL/TLS certificate by specifying a certificate authority and DNS provider configuration.
 
 ```sh
-vault write -format=json ibmcloud/public_cert/secrets name="my-test-public-certificate" "ca="my-configured-certificate-authority" dns="my-configured-dns-provider" common_name="example.com" key_algorithm=RSA2048
+vault write -format=json ibmcloud/public_cert/secrets name="my-test-public-certificate" ca="my-configured-certificate-authority" dns="my-configured-dns-provider" common_name="example.com" key_algorithm=RSA2048
+```
+{: pre}
+
+Create a private SSL/TLS certificate by specifying the certificate template to use.
+
+```sh
+vault write -format=json ibmcloud/private_cert/secrets name="my-test-private-certificate" certificate_template="my-configured-certificate-template" common_name="example.com"
 ```
 {: pre}
 
@@ -711,10 +725,81 @@ The command to order a `public_cert` secret returns the following output:
 ```
 {: screen}
 
+The command to create a `private_cert` secret returns the following output:
+
+```json
+{
+  "request_id": "7c72b7a6-0342-508a-1684-9625e11555db",
+  "lease_id": "",
+  "lease_duration": 0,
+  "renewable": false,
+  "data": {
+    "algorithm": "SHA256-RSA",
+    "alt_names": [
+      "example.com"
+    ],
+    "certificate_authority": "my-configured-intermediate-ca",
+    "certificate_template": "my-configured-template",
+    "common_name": "example.com",
+    "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
+    "creation_date": "2022-05-03T18:18:43Z",
+    "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/791f5fb10986423e97aa8512f18b7e65:e415e570-f073-423a-abdc-55de9b58f54e:secret:2ca56a3b-a6e8-d2e2-5377-b6559babfac0",
+    "downloaded": true,
+    "expiration_date": "2022-06-04T18:18:43Z",
+    "id": "2c08d55d-1854-4dbd-9c25-bcd26828fe77",
+    "issuer": "example.com",
+    "key_algorithm": "RSA2048",
+    "labels": [],
+    "last_update_date": "2022-05-03T18:18:43Z",
+    "name": "my-test-private-certificate",
+    "rotation": {
+      "auto_rotate": false
+    },
+    "secret_data": {
+      "ca_chain": [
+        "-----BEGIN CERTIFICATE-----\nMIIGZjCCBU6gAwIBAgIUHTgL...(truncated)"
+      ],
+      "certificate": "-----BEGIN CERTIFICATE-----\nMIIDJDCCAgygAwIBAgIUarx9...(truncated)",
+      "issuing_ca": "-----BEGIN CERTIFICATE-----\nMIIGZjCCBU6gAwIBAgIUHTgLW...(truncated)",
+      "private_key": "-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEAtirEhptl3...(truncated)"
+    },
+    "secret_type": "private_cert",
+    "serial_number": "6a:bc:7d:63:2a:7c:60:90:00:53:d9:ae:83:b2:1d:bc:97:ae:fb:f1",
+    "state": 1,
+    "state_description": "Active",
+    "validity": {
+      "not_after": "2022-06-04T18:18:43Z",
+      "not_before": "2022-05-03T18:18:14Z"
+    },
+    "versions": [
+      {
+        "auto_rotated": false,
+        "created_by": "iam-ServiceId-b7ebcf90-c7a9-495b-8ce8-bbf33cb95ca0",
+        "creation_date": "2022-05-03T18:18:14Z",
+        "downloaded": true,
+        "expiration_date": "2022-06-04T18:18:43Z",
+        "id": "2c08d55d-1854-4dbd-9c25-bcd26828fe77",
+        "payload_available": true,
+        "serial_number": "6a:bc:7d:63:2a:7c:60:90:00:53:d9:ae:83:b2:1d:bc:97:ae:fb:f1",
+        "state": 1,
+        "state_description": "Active",
+        "validity": {
+          "not_after": "2022-06-04T18:18:43Z",
+          "not_before": "2022-05-03T18:18:14Z"
+        }
+      }
+    ],
+    "versions_total": 1
+  },
+  "warnings": null
+}
+```
+{: screen}
+
 ### List secrets
 {: #vault-cli-list-static-secrets}
 
-Use the following commands to list the static secrets in your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`, `imported_cert`, and `kv`.
+Use the following commands to list the static secrets in your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for **`SECRET_TYPE`** are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`.
 
 List secrets by type.
 ```sh
@@ -808,7 +893,7 @@ If the secrets belong to a secret group, the `data.secrets.secret_group_id` valu
 ### Get a secret
 {: #vault-cli-get-static-secret}
 
-Use the following commands to retrieve a secret and its details. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`, `imported_cert`, and `kv`.
+Use the following commands to retrieve a secret and its details. Allowable values for **`SECRET_TYPE`** are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`.
 
 Get a secret that is in the `default` secret group.
 ```sh
@@ -881,7 +966,7 @@ The command returns the following output:
 ### Update a secret
 {: #vault-cli-update-static-secret}
 
-Use this command to update the metadata of a secret, such as its name or description. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`, `imported_cert`, and `kv`.
+Use this command to update the metadata of a secret, such as its name or description. Allowable values for **`SECRET_TYPE`** are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`.
 
 ```sh
 vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets/SECRET_ID/metadata name=NAME [description="DESCRIPTION"][expiration_date=EXPIRATION] [labels=LABEL,LABEL]
@@ -951,7 +1036,7 @@ The command returns the following output:
 ### Rotate a secret
 {: #vault-cli-rotate-static-secret}
 
-Use this command to rotate a secret. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`, `imported_cert`, and `kv`.
+Use this command to rotate a secret. Allowable values for **`SECRET_TYPE`** are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`.
 
 ```sh
 vault write [-format=FORMAT] [-force] ibmcloud/SECRET_TYPE/secrets/SECRET_ID/rotate [payload="SECRET_DATA"] [password=PASSWORD] [certificate=CERTIFICATE_DATA] [private_key=PRIVATE_KEY_DATA] [intermediate=INTERMEDIATE_CERTIFICATE_DATA]
@@ -1075,7 +1160,7 @@ The command to manually rotate a `username_password` secret with a service-gener
 ### Delete a secret
 {: #vault-cli-delete-static-secret}
 
-Use this command to delete a secret. Allowable values for **`SECRET_TYPE`** include: `arbitrary`, `username_password`, `imported_cert`, and `kv`.
+Use this command to delete a secret. Allowable values for **`SECRET_TYPE`** are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`.
 
 Delete a secret in the `default` secret group.
 
