@@ -2635,22 +2635,22 @@ You can add multiple configurations for your instance:
 - Up to 10 private intermediate certificate authority configurations
 - Up to 10 certificate templates
 
-| Request parameters           | Description                                                                         |
+| Request parameters           | Description                                                          |
 | ------------- | ----------------------------------------------------------------------------------- |
 | `name`        | A human-readable name to assign to your certificate authority configuration.        |
 | `type`        | The environment type, for example the Let's Encrypt staging or production environment, that corresponds with the URL that you want to target to order public certificates. Allowable values are: `letsencrypt-stage`, `letsencrypt` | 
-| `private_key` | The private key that is associated with your registered ACME account. |
+| `private_key` | The private key that is associated with your registered ACME account.               |
 {: caption="Table 11. Public certificates engine request parameters" caption-side="top"}
 {: #public-cert-secrets-engine-ca-request-params}
 {: tab-title="Public CAs"}
 {: tab-group="vault-add-config-params"}
 {: class="simple-tab-table"}
 
-| Request parameters           | Description                                                                         |
+| Request parameters           | Description                                                          |
 | ------------- | ----------------------------------------------------------------------------------- |
-| `name`     | A human-readable name to assign to your DNS provider configuration. |
-| `type` | The name of the DNS provider that you want to use. Allowable values are: `cis`|
-| `cis_crn` | The CRN of the Cloud Internet Services (CIS) instance that you want to use. |
+| `name`     | A human-readable name to assign to your DNS provider configuration.                    |
+| `type` | The name of the DNS provider that you want to use. Allowable values are: `cis`             |
+| `cis_crn` | The CRN of the Cloud Internet Services (CIS) instance that you want to use.             |
 | `cis_apikey` | An API key that has access to both your CIS instance and {{site.data.keyword.secrets-manager_short}} instance. Alternatively, you can also create an authorization between both services by using IAM. |
 {: caption="Table 11. Public certificates engine request parameters" caption-side="top"}
 {: #public-cert-secrets-engine-dns-request-params}
@@ -2658,7 +2658,7 @@ You can add multiple configurations for your instance:
 {: tab-group="vault-add-config-params"}
 {: class="simple-tab-table"}
 
-| Request parameters           | Description                                                                         |
+| Request parameters           | Description                                                          |
 | ------------- | ----------------------------------------------------------------------------------- |
 | `name`        | A human-readable name to assign to your certificate authority configuration.        |
 | `type`        | The type of certificate authority that you want to create. Allowable values are: `root_certificate_authority`, `intermediate_certificate_authority`. | 
@@ -2668,9 +2668,9 @@ You can add multiple configurations for your instance:
 {: tab-group="vault-add-config-params"}
 {: class="simple-tab-table"}
 
-| Request parameters           | Description                                                                         |
+| Request parameters           | Description                                                          |
 | ------------- | ----------------------------------------------------------------------------------- |
-| `name`        | A human-readable name to assign to your certificate template.        |
+| `name`        | A human-readable name to assign to your certificate template.                       |
 | `type`        | The type of configuration that you want to add. For certificate templates, use `certificate_templates`. | 
 {: caption="Table 11. Private certificates engine request parameters" caption-side="top"}
 {: #private-cert-secrets-engine-template-request-params}
