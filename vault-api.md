@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-28"
+lastupdated: "2022-05-03"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -2643,7 +2643,7 @@ You can add multiple configurations for your instance:
 {: caption="Table 11. Public certificates engine request parameters" caption-side="top"}
 {: #public-cert-secrets-engine-ca-request-params}
 {: tab-title="Public CAs"}
-{: tab-group="vault-configure-secret-type-params"}
+{: tab-group="vault-add-config-params"}
 {: class="simple-tab-table"}
 
 | Request parameters           | Description                                                                         |
@@ -2655,7 +2655,7 @@ You can add multiple configurations for your instance:
 {: caption="Table 11. Public certificates engine request parameters" caption-side="top"}
 {: #public-cert-secrets-engine-dns-request-params}
 {: tab-title="DNS providers"}
-{: tab-group="vault-configure-secret-type-params"}
+{: tab-group="vault-add-config-params"}
 {: class="simple-tab-table"}
 
 | Request parameters           | Description                                                                         |
@@ -2665,7 +2665,7 @@ You can add multiple configurations for your instance:
 {: caption="Table 11. Private certificates engine request parameters" caption-side="top"}
 {: #private-cert-secrets-engine-ca-request-params}
 {: tab-title="Private CAs"}
-{: tab-group="vault-configure-secret-type-params"}
+{: tab-group="vault-add-config-params"}
 {: class="simple-tab-table"}
 
 | Request parameters           | Description                                                                         |
@@ -2675,7 +2675,7 @@ You can add multiple configurations for your instance:
 {: caption="Table 11. Private certificates engine request parameters" caption-side="top"}
 {: #private-cert-secrets-engine-template-request-params}
 {: tab-title="Certificate templates"}
-{: tab-group="vault-configure-secret-type-params"}
+{: tab-group="vault-add-config-params"}
 {: class="simple-tab-table"}
 
 #### Example requests
