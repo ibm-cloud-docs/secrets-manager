@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-04"
+lastupdated: "2022-05-03"
 
 keywords: secrets management, manage secrets, manage credentials, store username and password, add secrets, add credentials, get started with Secrets Manager
 content-type: tutorial
@@ -67,9 +67,8 @@ subcollection: secrets-manager
 This tutorial focuses on storing and managing a username and password in {{site.data.keyword.secrets-manager_full}}. With {{site.data.keyword.secrets-manager_short}}, you can create, lease, and centrally manage secrets that are used in {{site.data.keyword.cloud_notm}} services or your custom-built applications. Secrets are stored in a dedicated {{site.data.keyword.secrets-manager_short}} instance, built on open source HashiCorp Vault.
 {: shortdesc}
 
-Looking for a different secret type? You can also create Identity and Access Management (IAM) credentials to access an {{site.data.keyword.cloud_notm}} resource, or you can add custom secrets that can hold structured or unstructured data.
-
-[![This image is a visual link to the instructions for creating IAM credentials](images/gs-iam-credentials.svg)](/docs/secrets-manager?topic=secrets-manager-iam-credentials)     [![This image is a visual link to the instructions on adding custom secrets.](images/gs-custom.svg)](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets)
+Looking for a different secret type? You can also [create Identity and Access Management (IAM) credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) to access an {{site.data.keyword.cloud_notm}} resource, or you can [add arbitrary secrets](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets) that can hold structured or unstructured data.
+{: tip}
 
 ## Before you begin
 {: #gs-prereqs}
