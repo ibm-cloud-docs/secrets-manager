@@ -123,41 +123,7 @@ The following table lists the {{site.data.keyword.secrets-manager_short}} events
 | Secret deleted | `com.ibm.cloud.secrets-manager.secret_deleted` | One time | ![Checkmark icon](../../icons/checkmark-icon.svg)  | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
 {: caption="Table 2. Actions that generate events based on secret type" caption-side="bottom"}
 
-</staging>
 
-| Event name | Event type | Occurrence | Arbitrary | IAM credentials | Key-value | User credentials |
-| --- | --- | --- | --- | --- | --- | --- |
-| Secret created | `com.ibm.cloud.secrets-manager.secret_created` | One time | | | | |
-| Secret creation failed | `com.ibm.cloud.secrets-manager.secret_creation_failed` | One time | | | | |
-| Secret rotated | `com.ibm.cloud.secrets-manager.secret_rotated` | One time | |  | | |
-| Secret rotation failed | `com.ibm.cloud.secrets-manager.secret_rotation_failed` | One time | | | | |
-| Secret about to expire | `com.ibm.cloud.secrets-manager.secret_about_to_expire` | 90, 60, 20, 10, 1, 0 days before the secret expires | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | | ![Checkmark icon](../../icons/checkmark-icon.svg) |
-| Secret expired | `com.ibm.cloud.secrets-manager.secret_expired` | Daily | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |  | ![Checkmark icon](../../icons/checkmark-icon.svg)|
-| Secret revoked | `com.ibm.cloud.secrets-manager.secret_revoked` | One time |  | | | |
-| Secret deleted | `com.ibm.cloud.secrets-manager.secret_deleted` | One time | | | | |
-{: caption="Table 2. Actions that generate events based on secret type - Secrets" caption-side="bottom"}
-{: class="simple-tab-table"}	
-{: tab-group="supported-event-types"}
-{: tab-title="Secrets"}	
-{: #support-types-certs}
-
-| Event name | Event type | Occurrence | Imported certificates | Private certificates | Public certificates |
-| --- | --- | --- | --- | --- | --- |
-| Secret created | `com.ibm.cloud.secrets-manager.secret_created` | One time | | |![Checkmark icon](../../icons/checkmark-icon.svg) |
-| Secret creation failed | `com.ibm.cloud.secrets-manager.secret_creation_failed` | One time | | |![Checkmark icon](../../icons/checkmark-icon.svg) |
-| Secret rotated | `com.ibm.cloud.secrets-manager.secret_rotated` | One time | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) |
-| Secret rotation failed | `com.ibm.cloud.secrets-manager.secret_rotation_failed` | One time | | |![Checkmark icon](../../icons/checkmark-icon.svg) |
-| Secret about to expire | `com.ibm.cloud.secrets-manager.secret_about_to_expire` | 90, 60, 20, 10, 1, 0 days before the secret expires | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) |
-| Secret expired | `com.ibm.cloud.secrets-manager.secret_expired` | Daily | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
-| Secret revoked | `com.ibm.cloud.secrets-manager.secret_revoked` | One time |  | ![Checkmark icon](../../icons/checkmark-icon.svg) | |
-| Secret deleted | `com.ibm.cloud.secrets-manager.secret_deleted` | One time | ![Checkmark icon](../../icons/checkmark-icon.svg)  | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
-{: caption="Table 2. Actions that generate events based on secret type - Certificates" caption-side="bottom"}
-{: class="simple-tab-table"}	
-{: tab-group="supported-event-types"}
-{: tab-title="Certificates"}	
-{: #support-types-certs}
-
-</staging>
 
 ## Enabling notifications
 {: #event-notifications-enable}
