@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-25"
+lastupdated: "2022-05-09"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -145,7 +145,6 @@ The following table compares and contrasts some common characteristics between t
 {: caption="Table 2. Feature comparison between secret types" caption-side="top"}
 
 [^iam]: Because IAM credentials are dynamic secrets, automatic rotation is a built-in feature. The API key that is associated with the secret is deleted automatically when the secret reaches the end of its lease. A new API key is created the next time the secret is read.
-
 
 
 ## What's in a secret?
