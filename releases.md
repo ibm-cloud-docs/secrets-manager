@@ -1,4 +1,76 @@
-CA) that you can use to issue SSL/TLS certificates to your internal applications. By configuring root and intermediate CAs for your instance, you can establish a valid chain of trust for your certificates. To find out more about this release, [check out the announcement blog](https://www.ibm.com/cloud/blog/announcements/create-private-tls-certificates-with-ibm-cloud-secrets-manager){: external}.
+---
+
+copyright:
+  years: 2020, 2022
+lastupdated: "2022-05-10"
+
+keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
+
+subcollection: secrets-manager
+content-type: release-note
+
+---
+
+{:codeblock: .codeblock}
+{:screen: .screen}
+{:download: .download}
+{:external: target="_blank" .external}
+{:faq: data-hd-content-type='faq'}
+{:gif: data-image-type='gif'}
+{:important: .important}
+{:note: .note}
+{:pre: .pre}
+{:tip: .tip}
+{:preview: .preview}
+{:deprecated: .deprecated}
+{:beta: .beta}
+{:term: .term}
+{:shortdesc: .shortdesc}
+{:script: data-hd-video='script'}
+{:support: data-reuse='support'}
+{:table: .aria-labeledby="caption"}
+{:troubleshoot: data-hd-content-type='troubleshoot'}
+{:help: data-hd-content-type='help'}
+{:tsCauses: .tsCauses}
+{:tsResolve: .tsResolve}
+{:tsSymptoms: .tsSymptoms}
+{:video: .video}
+{:step: data-tutorial-type='step'}
+{:tutorial: data-hd-content-type='tutorial'}
+{:api: .ph data-hd-interface='api'}
+{:cli: .ph data-hd-interface='cli'}
+{:ui: .ph data-hd-interface='ui'}
+{:curl: .ph data-hd-programlang='curl'}
+{:java: .ph data-hd-programlang='java'}
+{:ruby: .ph data-hd-programlang='ruby'}
+{:c#: .ph data-hd-programlang='c#'}
+{:objectc: .ph data-hd-programlang='Objective C'}
+{:python: .ph data-hd-programlang='python'}
+{:javascript: .ph data-hd-programlang='javascript'}
+{:php: .ph data-hd-programlang='PHP'}
+{:swift: .ph data-hd-programlang='swift'}
+{:curl: .ph data-hd-programlang='curl'}
+{:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
+{:go: .ph data-hd-programlang='go'}
+{:unity: .ph data-hd-programlang='unity'}
+{:release-note: data-hd-content-type='release-note'}
+
+# Release notes for {{site.data.keyword.secrets-manager_short}}
+{: #release-notes}
+
+Use these release notes to learn about the latest changes to {{site.data.keyword.secrets-manager_full}} that are grouped by date.
+{: shortdesc}
+
+For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
+
+
+
+## 25 April 2022
+{: #secrets-manager-apr2522}
+{: release-note}
+
+Create private SSL/TLS certificates for your applications
+:   You can now use {{site.data.keyword.secrets-manager_short}} to set up a private certificate authority (CA) that you can use to issue SSL/TLS certificates to your internal applications. By configuring root and intermediate CAs for your instance, you can establish a valid chain of trust for your certificates. To find out more about this release, [check out the announcement blog](https://www.ibm.com/cloud/blog/announcements/create-private-tls-certificates-with-ibm-cloud-secrets-manager){: external}.
 
   - [Preparing to create private certificates](/docs/secrets-manager?topic=secrets-manager-prepare-create-certificates)
   - [Creating root certificate authorities](/docs/secrets-manager?topic=secrets-manager-root-certificate-authorities)
@@ -326,4 +398,5 @@ Introducing {{site.data.keyword.secrets-manager_short}}
    - User credentials, such as usernames and passwords that you can use to log in to applications.
 
    To find out more about capabilities and use cases for {{site.data.keyword.secrets-manager_short}}, check out the [announcement blog](https://www.ibm.com/cloud/blog/announcements/introducing-ibm-cloud-secrets-manager-beta){: external}.
+
 
