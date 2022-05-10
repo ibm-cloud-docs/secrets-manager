@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-26"
+lastupdated: "2022-05-10"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -64,12 +64,13 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
 
+
 ## 25 April 2022
 {: #secrets-manager-apr2522}
 {: release-note}
 
 Create private SSL/TLS certificates for your applications
-:   You can now use {{site.data.keyword.secrets-manager_short}} to set up a private certificate authority (A) that you can use to issue SSL/TLS certificates to your internal applications. By configuring root and intermediate CAs for your instance, you can establish a valid chain of trust for your certificates. To find out more about this release, [check out the announcement blog](https://www.ibm.com/cloud/blog/announcements/create-private-tls-certificates-with-ibm-cloud-secrets-manager){: external}.
+:   You can now use {{site.data.keyword.secrets-manager_short}} to set up a private certificate authority (CA) that you can use to issue SSL/TLS certificates to your internal applications. By configuring root and intermediate CAs for your instance, you can establish a valid chain of trust for your certificates. To find out more about this release, [check out the announcement blog](https://www.ibm.com/cloud/blog/announcements/create-private-tls-certificates-with-ibm-cloud-secrets-manager){: external}.
 
   - [Preparing to create private certificates](/docs/secrets-manager?topic=secrets-manager-prepare-create-certificates)
   - [Creating root certificate authorities](/docs/secrets-manager?topic=secrets-manager-root-certificate-authorities)
@@ -397,4 +398,5 @@ Introducing {{site.data.keyword.secrets-manager_short}}
    - User credentials, such as usernames and passwords that you can use to log in to applications.
 
    To find out more about capabilities and use cases for {{site.data.keyword.secrets-manager_short}}, check out the [announcement blog](https://www.ibm.com/cloud/blog/announcements/introducing-ibm-cloud-secrets-manager-beta){: external}.
+
 
