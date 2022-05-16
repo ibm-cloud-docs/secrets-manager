@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-20"
+lastupdated: "2022-05-16"
 
 keywords: secret groups, assign secret access, iam roles, secrets policies, organize secrets
 
@@ -101,6 +101,9 @@ You can create secret groups by using the console. You can also create a secret 
 
 You can create secret groups by using the {{site.data.keyword.secrets-manager_short}} API.
 
+The following example request creates a secret group. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+{: curl}
+
 ```bash
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secret_groups" \
     -H "Authorization: Bearer {IAM_token}" \
@@ -167,3 +170,12 @@ curl -X DELETE "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/a
 {: codeblock}
 {: curl}
 
+
+
+## Next steps
+{: #secret-groups-next-steps}
+
+Already using secret groups? To learn more about assigning access and organizing your secrets, check out the following resources.
+
+- [Assigning access to a secret group](/docs/secrets-manager?topic=secrets-manager-assign-access#assign-access-secret-group)
+- [Best practices for organizing secrets and assigning access](/docs/secrets-manager?topic=secrets-manager-best-practices-organize-secrets)
