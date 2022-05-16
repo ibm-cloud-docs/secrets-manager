@@ -116,13 +116,14 @@ The following table lists the {{site.data.keyword.secrets-manager_short}} events
 | Secret creation failed | `com.ibm.cloud.secrets-manager.secret_creation_failed` | One time | | | | | | |![Checkmark icon](../../icons/checkmark-icon.svg) |
 | Secret rotated | `com.ibm.cloud.secrets-manager.secret_rotated` | One time | | | | | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) |
 | Secret rotation failed | `com.ibm.cloud.secrets-manager.secret_rotation_failed` | One time | | | | | | | ![Checkmark icon](../../icons/checkmark-icon.svg) |
-| Secret about to expire | `com.ibm.cloud.secrets-manager.secret_about_to_expire` | 90, 60, 30, 10, 1, 0 days before the secret expires | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | N/A[^na-1] | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
-| Secret expired | `com.ibm.cloud.secrets-manager.secret_expired` | Daily | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | N/A[^na-1]| ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Secret about to expire | `com.ibm.cloud.secrets-manager.secret_about_to_expire` | 90, 60, 30, 10, 1, 0 days before the secret expires | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | Not applicable[^na-1] | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Secret expired | `com.ibm.cloud.secrets-manager.secret_expired` | Daily | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | Not applicable[^na-2]| ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
 | Secret revoked | `com.ibm.cloud.secrets-manager.secret_revoked` | One time | | | | |  | ![Checkmark icon](../../icons/checkmark-icon.svg) | |
 | Secret deleted | `com.ibm.cloud.secrets-manager.secret_deleted` | One time | | | | | ![Checkmark icon](../../icons/checkmark-icon.svg)  | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
 {: caption="Table 2. Actions that generate events based on secret type" caption-side="bottom"}
 
 [^na-1]: Event is not applicable because there isn't a time-to-live (TTL) limit for this secret type.
+[^na-2]: Event is not applicable because there isn't a time-to-live (TTL) limit for this secret type.
 
 
 ## Enabling notifications
