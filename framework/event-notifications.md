@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-05-10"
+lastupdated: "2022-05-16"
 
 keywords: event notifications for {{site.data.keyword.secrets-manager_short}}, event notifications integration for {{site.data.keyword.secrets-manager_short}}, alerts for {{site.data.keyword.secrets-manager_short}}
 
@@ -62,8 +62,6 @@ As an administrator of {{site.data.keyword.secrets-manager_full}}, you might wan
 
 To send information to {{site.data.keyword.en_short}}, you must connect your {{site.data.keyword.secrets-manager_short}} service instance to {{site.data.keyword.en_short}}. For more information about working with {{site.data.keyword.en_short}}, see [Getting started with {{site.data.keyword.en_short}}](/docs/event-notifications).
 
-Currently, {{site.data.keyword.secrets-manager_short}} supports notifications for certificates only.
-{: note}
 
 ## How events are collected and sent by {{site.data.keyword.secrets-manager_short}}
 {: #event-notifications-how}
@@ -71,6 +69,8 @@ Currently, {{site.data.keyword.secrets-manager_short}} supports notifications fo
 When an event of interest takes place in your {{site.data.keyword.secrets-manager_short}} instance, {{site.data.keyword.secrets-manager_short}} communicates with a connected {{site.data.keyword.en_short}} instance to forward a notification to a [supported destination](/docs/event-notifications?topic=event-notifications-en-destination).
 
 {{site.data.keyword.secrets-manager_short}} aggregates a list of your pending notifications by [event type](#event-notifications-list), the type of secret, and expiry details if they apply. Every 1 - 2 minutes, the service checks for and dispatches any pending notifications to the connected {{site.data.keyword.en_short}} service. For example, you might receive notifications that are similar to the following messages:
+
+- You have 1 arbitrary secret that expires in 1 day.
 - You have 5 public certificate secrets that expire in 10 days.
 - You have 100 imported certificate secrets that expire in 30 days.
 

@@ -64,6 +64,18 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
 
+## 16 May 2022
+{: #secrets-manager-may1622}
+{: release-note}
+
+Updated {{site.data.keyword.secrets-manager_short}} event notifications
+:   Previously, notifications for {{site.data.keyword.secrets-manager_short}} were supported for certificates only. Now, you can be notified when other types of secrets in your instance are expired or soon to expire. 
+
+  - Notifications for secrets that are expiring soon (`secret_about_to_expire`): Now available for arbitrary secrets, IAM credentials, and user credentials.
+  - Notifications for secrets that expired (`secret_expired`): Now available for arbitrary secrets, IAM credentials, and user credentials.
+
+    For more information about using {{site.data.keyword.en_short}} to enable lifecycle notifications for your {{site.data.keyword.secrets-manager_short}} instance, see [Enabling event notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications).
+
 
 ## 25 April 2022
 {: #secrets-manager-apr2522}
