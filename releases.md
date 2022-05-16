@@ -71,8 +71,8 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 Updated {{site.data.keyword.secrets-manager_short}} event notifications
 :   Previously, notifications for {{site.data.keyword.secrets-manager_short}} were supported for certificates only. Now, you can be notified when other types of secrets in your instance are expired or soon to expire. 
 
-  - Notifications for secrets that are about to expire: Now available for arbitrary secrets, IAM credentials, and user credentials.
-  - Notifications for secrets that expired: Now available for arbitrary secrets, IAM credentials, and user credentials.
+  - `secret_about_to_expire`: Now available for arbitrary secrets, IAM credentials, and user credentials.
+  - `secret_expired`: Now available for arbitrary secrets, IAM credentials, and user credentials.
 
     For more information about using {{site.data.keyword.en_short}} to enable lifecycle notifications for your {{site.data.keyword.secrets-manager_short}} instance, see [Enabling event notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications).
 
