@@ -29,7 +29,8 @@ toc:
           label: Best practices
           topics:
           - best-practices/secret-organize.md
-      - integrations.md
+      - topic: integrations.md
+        navtitle: Integrations
       - topic: releases.md
         navtitle: Release notes
 
