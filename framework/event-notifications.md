@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-05-10"
+lastupdated: "2022-05-16"
 
 keywords: event notifications for {{site.data.keyword.secrets-manager_short}}, event notifications integration for {{site.data.keyword.secrets-manager_short}}, alerts for {{site.data.keyword.secrets-manager_short}}
 
@@ -62,8 +62,6 @@ As an administrator of {{site.data.keyword.secrets-manager_full}}, you might wan
 
 To send information to {{site.data.keyword.en_short}}, you must connect your {{site.data.keyword.secrets-manager_short}} service instance to {{site.data.keyword.en_short}}. For more information about working with {{site.data.keyword.en_short}}, see [Getting started with {{site.data.keyword.en_short}}](/docs/event-notifications).
 
-Currently, {{site.data.keyword.secrets-manager_short}} supports notifications for certificates only.
-{: note}
 
 ## How events are collected and sent by {{site.data.keyword.secrets-manager_short}}
 {: #event-notifications-how}
@@ -71,6 +69,8 @@ Currently, {{site.data.keyword.secrets-manager_short}} supports notifications fo
 When an event of interest takes place in your {{site.data.keyword.secrets-manager_short}} instance, {{site.data.keyword.secrets-manager_short}} communicates with a connected {{site.data.keyword.en_short}} instance to forward a notification to a [supported destination](/docs/event-notifications?topic=event-notifications-en-destination).
 
 {{site.data.keyword.secrets-manager_short}} aggregates a list of your pending notifications by [event type](#event-notifications-list), the type of secret, and expiry details if they apply. Every 1 - 2 minutes, the service checks for and dispatches any pending notifications to the connected {{site.data.keyword.en_short}} service. For example, you might receive notifications that are similar to the following messages:
+
+- You have 1 arbitrary secret that expires in 1 day.
 - You have 5 public certificate secrets that expire in 10 days.
 - You have 100 imported certificate secrets that expire in 30 days.
 
@@ -110,19 +110,17 @@ Depending on the type of secret that you're working with in the service, an even
 The following table lists the {{site.data.keyword.secrets-manager_short}} events that can be generated based on secret types that are supported in the service.
 
 
-
-| Event name | Event type | Occurrence | Imported certificates | Private certificates | Public certificates |
-| --- | --- | --- | --- | --- | --- |
-| Secret created | `com.ibm.cloud.secrets-manager.secret_created` | One time | | |![Checkmark icon](../../icons/checkmark-icon.svg) |
-| Secret creation failed | `com.ibm.cloud.secrets-manager.secret_creation_failed` | One time | | |![Checkmark icon](../../icons/checkmark-icon.svg) |
-| Secret rotated | `com.ibm.cloud.secrets-manager.secret_rotated` | One time | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) |
-| Secret rotation failed | `com.ibm.cloud.secrets-manager.secret_rotation_failed` | One time | | |![Checkmark icon](../../icons/checkmark-icon.svg) |
-| Secret about to expire | `com.ibm.cloud.secrets-manager.secret_about_to_expire` | 90, 60, 30, 10, 1, 0 days before the secret expires | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) |
-| Secret expired | `com.ibm.cloud.secrets-manager.secret_expired` | Daily | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
-| Secret revoked | `com.ibm.cloud.secrets-manager.secret_revoked` | One time |  | ![Checkmark icon](../../icons/checkmark-icon.svg) | |
-| Secret deleted | `com.ibm.cloud.secrets-manager.secret_deleted` | One time | ![Checkmark icon](../../icons/checkmark-icon.svg)  | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Event name | Event type | Occurrence | Arbitrary | IAM credentials | Key-value | User credentials | Imported certificates | Private certificates | Public certificates |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Secret created | `com.ibm.cloud.secrets-manager.secret_created` | One time | | | | | | |![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Secret creation failed | `com.ibm.cloud.secrets-manager.secret_creation_failed` | One time | | | | | | |![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Secret rotated | `com.ibm.cloud.secrets-manager.secret_rotated` | One time | | | | | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Secret rotation failed | `com.ibm.cloud.secrets-manager.secret_rotation_failed` | One time | | | | | | | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Secret about to expire | `com.ibm.cloud.secrets-manager.secret_about_to_expire` | 90, 60, 30, 10, 1, 0 days before the secret expires | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Secret expired | `com.ibm.cloud.secrets-manager.secret_expired` | Daily | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Secret revoked | `com.ibm.cloud.secrets-manager.secret_revoked` | One time | | | | |  | ![Checkmark icon](../../icons/checkmark-icon.svg) | |
+| Secret deleted | `com.ibm.cloud.secrets-manager.secret_deleted` | One time | | | | | ![Checkmark icon](../../icons/checkmark-icon.svg)  | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
 {: caption="Table 2. Actions that generate events based on secret type" caption-side="bottom"}
-
 
 
 ## Enabling notifications
