@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-04-25"
+lastupdated: "2022-05-16"
 
 subcollection: secrets-manager
 
@@ -61,7 +61,7 @@ keywords: Secrets Manager CLI, Secrets Manager command line, Secrets Manager ter
 You can use the {{site.data.keyword.secrets-manager_full}} command-line interface (CLI) to manage secrets in your {{site.data.keyword.secrets-manager_short}} instance.
 {: shortdesc}
 
-Current version: **`0.1.18`**
+Current version: **`0.1.19`**
 
 ## Prerequisites
 {: #secrets-manager-cli-prereq}
