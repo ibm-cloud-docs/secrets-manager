@@ -76,6 +76,9 @@ Updated {{site.data.keyword.secrets-manager_short}} event notifications
 
     For more information about using {{site.data.keyword.en_short}} to enable lifecycle notifications for your {{site.data.keyword.secrets-manager_short}} instance, see [Enabling event notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications).
 
+CLI plug-in version 0.1.19
+:   Version 1.1.19 of the {{site.data.keyword.secrets-manager_short}} CLI is now available for download. To learn about the latest updates, see the [CLI change log](/docs/secrets-manager?topic=secrets-manager-cli-change-log).
+
 
 ## 25 April 2022
 {: #secrets-manager-apr2522}
@@ -98,7 +101,7 @@ New {{site.data.keyword.secrets-manager_short}} event notifications
 
     For more information about using {{site.data.keyword.en_short}} to enable lifecycle notifications for your {{site.data.keyword.secrets-manager_short}} instance, see [Enabling event notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications).
 
-Now available: {{site.data.keyword.secrets-manager_short}} CLI plug-in version 1.1.18
+CLI plug-in version 1.1.18
 :   Version 1.1.18 of the {{site.data.keyword.secrets-manager_short}} CLI is now available for download. To learn about the latest updates, see the [CLI change log](/docs/secrets-manager?topic=secrets-manager-cli-change-log).
 
 

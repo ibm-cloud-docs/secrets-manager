@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-25"
+lastupdated: "2022-05-16"
 
 keywords: change log for Secrets Manager CLI, CLI changelog, updates to Secrets Manager CLI
 
@@ -63,6 +63,14 @@ In this change log, you can learn about the latest changes, improvements, and up
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
 
 
+
+## Version 0.1.19
+{: #0.1.19}
+
+Version 0.1.19 was released on 16 May 2022. This release includes the following updates:
+
+- Changed the [secret](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-command) and [secret-version](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-version-command) commands to output the secret value when using the default `--output table` format.
+- Fixed an issue where the default secret group was listed as `None`. If a secret belongs to the default secret group, the CLI output now displays `Default`.
 
 ## Version 0.1.18
 {: #0.1.18}
