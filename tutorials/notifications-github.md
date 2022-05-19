@@ -160,10 +160,8 @@ With webhook signing, you verify that the notification payload is sent by {{site
 
 Next, test that your notifications are now delivered as a signed JWT objects to your [Webhook.site](https://webhook.site){: external} page. You can use the **Settings > Event Notifications** section in the {{site.data.keyword.secrets-manager_short}} UI to [send a test event](/docs/secrets-manager?topic=secrets-manager-event-notifications#event-notifications-test-ui). The output of a signed notification payload looks similar to the following example.
 
-```json
-{
-  "data": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXQiOnsiYXV0aG9yIjp7...(truncated)"
-}
+```
+eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXQiOnsiYXV0aG9yIjp7...(truncated)
 ```
 {: screen}
 
@@ -219,21 +217,21 @@ Next, prepare the sample code for your Cloud Functions action.
    }
 
    // Build a GitHub issue description according to the event type
-   function createIssueBody(notificationData) {
-      if (notificationData.event_type === "test_event") // Remove this option later if you don't want to create issues for test events
-         return `This is a test notification from ${notificationData.source_service}.`; 
-      if (notificationData.event_type === "secret_about_to_expire")
-         return `The following certificate(s) expire on ${getDate(notificationData.secrets_expiration_date)}:
-      ${notificationData.secrets.reduce((accumulator, currentValue) => {
+   function createIssueBody(decodedNotification) {
+      if (decodedNotification.event_type === "test_event") // Remove this option later if you don't want to create issues for test events
+         return `This is a test notification from ${decodedNotification.source_service}.`; 
+      if (decodedNotification.event_type === "secret_about_to_expire")
+         return `The following certificate(s) expire on ${getDate(decodedNotification.secrets_expiration_date)}:
+      ${decodedNotification.secrets.reduce((accumulator, currentValue) => {
                return accumulator + `
       > Domain(s): ${currentValue.domains}
       Secret ID: ${currentValue.secret_id}
       Secret name: ${currentValue.secret_name}
       `;
          }, "")}`;
-      if (notificationData.event_type === "secret_expired")
+      if (decodedNotification.event_type === "secret_expired")
          return `The following certificate(s) have expired:
-      ${notificationData.secrets.reduce((accumulator, currentValue) => {
+      ${decodedNotification.secrets.reduce((accumulator, currentValue) => {
                return accumulator + `
       > Domain(s): ${currentValue.domains}
       Secret ID: ${currentValue.secret_id}
