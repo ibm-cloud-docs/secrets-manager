@@ -247,7 +247,7 @@ Next, prepare the sample code for your Cloud Functions action.
          const publicKey = await getPublicKey();
 
          // Verify the notification data using the retrieved public key
-         const decodedNotification = await jwtVerify(params.__ow_body, publicKey).data.data;;
+         const decodedNotification = await jwtVerify(params.__ow_body, publicKey).data.data;
          console.log(`\nReceived the following event notification from Secrets Manager:\n${JSON.stringify(decodedNotification)}`);
 
          const body = createIssueBody(decodedNotification);
