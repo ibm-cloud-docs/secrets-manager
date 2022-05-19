@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022
-lastupdated: "2022-03-28"
+lastupdated: "2022-05-19"
 
 keywords: create GitHub issue, open GitHub issue, send to GitHub, expiring secrets, expiring certificates
 
@@ -104,6 +104,7 @@ In part 1 of this tutorial series, you used [Webhook.site](https://webhook.site)
 
 1. From the Cloud Functions action menu, click **Endpoints**.
 2. Select **Enable as Web Action**.
+3. Select **Raw HTTP handling**.
 3. Click **Save**.
 4. Copy the URL. This URL will be your new webhook URL that you can add as an {{site.data.keyword.en_short}} destination in the next step.
 
@@ -246,7 +247,7 @@ Next, prepare the sample code for your Cloud Functions action.
          const publicKey = await getPublicKey();
 
          // Verify the notification data using the retrieved public key
-         const decodedNotification = await jwtVerify(params.data, publicKey).dat;
+         const decodedNotification = await jwtVerify(params.__ow_body, publicKey).data.data;;
          console.log(`\nReceived the following event notification from Secrets Manager:\n${JSON.stringify(decodedNotification)}`);
 
          const body = createIssueBody(decodedNotification);
