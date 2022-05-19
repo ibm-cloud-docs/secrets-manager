@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022
-lastupdated: "2022-03-28"
+lastupdated: "2022-05-19"
 
 keywords: create GitHub issue, open GitHub issue, send to GitHub, expiring secrets, expiring certificates
 
@@ -104,6 +104,7 @@ In part 1 of this tutorial series, you used [Webhook.site](https://webhook.site)
 
 1. From the Cloud Functions action menu, click **Endpoints**.
 2. Select **Enable as Web Action**.
+3. Select **Raw HTTP handling**.
 3. Click **Save**.
 4. Copy the URL. This URL will be your new webhook URL that you can add as an {{site.data.keyword.en_short}} destination in the next step.
 
@@ -159,10 +160,8 @@ With webhook signing, you verify that the notification payload is sent by {{site
 
 Next, test that your notifications are now delivered as a signed JWT objects to your [Webhook.site](https://webhook.site){: external} page. You can use the **Settings > Event Notifications** section in the {{site.data.keyword.secrets-manager_short}} UI to [send a test event](/docs/secrets-manager?topic=secrets-manager-event-notifications#event-notifications-test-ui). The output of a signed notification payload looks similar to the following example.
 
-```json
-{
-  "data": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXQiOnsiYXV0aG9yIjp7...(truncated)"
-}
+```
+eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXQiOnsiYXV0aG9yIjp7...(truncated)
 ```
 {: screen}
 
@@ -218,21 +217,21 @@ Next, prepare the sample code for your Cloud Functions action.
    }
 
    // Build a GitHub issue description according to the event type
-   function createIssueBody(notificationData) {
-      if (notificationData.event_type === "test_event") // Remove this option later if you don't want to create issues for test events
-         return `This is a test notification from ${notificationData.source_service}.`; 
-      if (notificationData.event_type === "secret_about_to_expire")
-         return `The following certificate(s) expire on ${getDate(notificationData.secrets_expiration_date)}:
-      ${notificationData.secrets.reduce((accumulator, currentValue) => {
+   function createIssueBody(decodedNotification) {
+      if (decodedNotification.event_type === "test_event") // Remove this option later if you don't want to create issues for test events
+         return `This is a test notification from ${decodedNotification.source_service}.`; 
+      if (decodedNotification.event_type === "secret_about_to_expire")
+         return `The following certificate(s) expire on ${getDate(decodedNotification.secrets_expiration_date)}:
+      ${decodedNotification.secrets.reduce((accumulator, currentValue) => {
                return accumulator + `
       > Domain(s): ${currentValue.domains}
       Secret ID: ${currentValue.secret_id}
       Secret name: ${currentValue.secret_name}
       `;
          }, "")}`;
-      if (notificationData.event_type === "secret_expired")
+      if (decodedNotification.event_type === "secret_expired")
          return `The following certificate(s) have expired:
-      ${notificationData.secrets.reduce((accumulator, currentValue) => {
+      ${decodedNotification.secrets.reduce((accumulator, currentValue) => {
                return accumulator + `
       > Domain(s): ${currentValue.domains}
       Secret ID: ${currentValue.secret_id}
@@ -246,7 +245,7 @@ Next, prepare the sample code for your Cloud Functions action.
          const publicKey = await getPublicKey();
 
          // Verify the notification data using the retrieved public key
-         const decodedNotification = await jwtVerify(params.data, publicKey).dat;
+         const decodedNotification = await jwtVerify(params.__ow_body, publicKey).data.data;
          console.log(`\nReceived the following event notification from Secrets Manager:\n${JSON.stringify(decodedNotification)}`);
 
          const body = createIssueBody(decodedNotification);
