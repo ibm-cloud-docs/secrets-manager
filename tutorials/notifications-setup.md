@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022
-lastupdated: "2022-03-28"
+lastupdated: "2022-05-20"
 
 keywords: set up alerts, set up notifications, expiring secrets, expiring certificates
 
@@ -133,7 +133,7 @@ After you connect the services and create a test webhook URL, update your {{site
    1. From the navigation, click **Topics > Create**.
    2. In the Topic details section, provide a name for your topic. For example, _Secrets about to expire_.
    3. In the Sources section, select your {{site.data.keyword.secrets-manager_short}} service instance.
-   4. From the list of event types, select the **Secrets about to expire** and **Test notification** event types.
+   4. From the list of event types, select the **Secrets about to expire** and **Test event** event types.
    5. Click **Create**.
 3. [Create a destination](/docs/event-notifications?topic=event-notifications-en-create-en-destination) so that your alerts can be forwarded to the webhook that you created the previous step.
    1. From the navigation, click **Destinations > Add**.
