@@ -63,6 +63,13 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
+## 26 May 2022
+{: #secrets-manager-may1622}
+{: release-note}
+
+Integration with [{{site.data.keyword.alb_full}}](/docs/vpc?topic=vpc-load-balancers)
+:   You can now use {{site.data.keyword.secrets-manager_short}} to centrally manage the SSL/TLS certificates that are required for load balancers to perform SSL offloading tasks. To learn more about this integration, check out the [{{site.data.keyword.alb_short}} documentation](https://test.cloud.ibm.com/docs/vpc?topic=vpc-load-balancers#ssl-offloading-and-required-authorizations).
+
 
 ## 16 May 2022
 {: #secrets-manager-may1622}
