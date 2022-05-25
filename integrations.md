@@ -74,7 +74,7 @@ By default, your {{site.data.keyword.secrets-manager_short}} service instance is
 | Identity and Access Management (IAM) | Assign access to {{site.data.keyword.secrets-manager_short}} service instances and resources. For more information, see [Managing IAM access](/docs/secrets-manager?topic=secrets-manager-iam).
 | {{site.data.keyword.keymanagementserviceshort}} | TBU |
 | {{site.data.keyword.la_short}} | Review log data, define alerts, and design custom views to monitor application and system logs for your {{site.data.keyword.secrets-manager_short}} instance. For more information, see [Logging for {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-service-logs). |
-{: caption="Table 1. Services that {{site.data.keyword.secrets-manager_short}} integrates with by default" caption-side="top"}</staging>
+{: caption="Table 1. Services that {{site.data.keyword.secrets-manager_short}} integrates with by default" caption-side="top"}
 
 <hidden>
 
@@ -85,6 +85,7 @@ The following table lists the services that can be authorized to work with {{sit
 
 | Service | Supports | Description |
 | ------------------ | ----------- | ----------- |
+| [{{site.data.keyword.alb_full}}](/docs/vpc?topic=vpc-load-balancers)  | Certificates | Centrally manage the SSL/TLS certificates that are required for load balancers to perform SSL offloading tasks. Create an authorization between **VPC Infrastructure Services** and {{site.data.keyword.secrets-manager_short}} to give a load balancer access to your certificates. [Learn more about this integration](/docs/vpc?topic=vpc-load-balancers#ssl-offloading-and-required-authorizations). |
 | [Catalog management](/docs/account?topic=account-create-private-catalog) | Arbitrary secrets | Centrally manage the credentials for software in your private catalogs. [Learn more about this integration](/docs/account?topic=account-create-private-catalog). |
 | [Continuous Delivery](/docs/ContinuousDelivery?topic=ContinuousDelivery-secretsmanager) | Arbitrary secrets | Centrally manage the credentials for your {{site.data.keyword.contdelivery_short}} toolchain. Create an authorization between **Toolchain** and {{site.data.keyword.secrets-manager_short}} to give a toolchain access to your secrets. [Learn more about this integration](/docs/ContinuousDelivery?topic=ContinuousDelivery-secretsmanager).  |
 | [{{site.data.keyword.en_short}}](/docs/event-notifications) | Arbitrary secrets  \n Certificates  \n IAM credentials  \nUser credentials| Send notifications of events in {{site.data.keyword.secrets-manager_short}} to other users, or human destinations, by using email, SMS, or other supported delivery channels. [Learn more about this integration](/docs/secrets-manager?topic=secrets-manager-event-notifications). |
