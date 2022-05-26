@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-05-25"
+lastupdated: "2022-05-26"
 
 keywords: Secrets Manager integrations, enable integration, create authorization, service to service, grant access between services, using Secrets Manager with other services, authorize Secrets Manager
 
@@ -60,23 +60,7 @@ subcollection: secrets-manager
 With {{site.data.keyword.secrets-manager_full}}, you can save time with platform integrations that help you to dynamically create and retrieve secrets while you work with supported {{site.data.keyword.cloud_notm}} services.
 {: shortdesc}
 
-<hidden>
 
-This page is currently being updated to include a more comprehensive list of integrations. Check back soon for the latest changes.
-{: important}
-
-By default, your {{site.data.keyword.secrets-manager_short}} service instance is provisioned with the following {{site.data.keyword.cloud_notm}} integrations. 
-
-| Service | Description |
-| ------------------ | ----------- |
-| Activity Tracker | Track how users and applications interact with {{site.data.keyword.secrets-manager_short}}. For more information, see [Auditing events for {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-at-events). |
-| {{site.data.keyword.hscrypto}} | TBU |
-| Identity and Access Management (IAM) | Assign access to {{site.data.keyword.secrets-manager_short}} service instances and resources. For more information, see [Managing IAM access](/docs/secrets-manager?topic=secrets-manager-iam).
-| {{site.data.keyword.keymanagementserviceshort}} | TBU |
-| {{site.data.keyword.la_short}} | Review log data, define alerts, and design custom views to monitor application and system logs for your {{site.data.keyword.secrets-manager_short}} instance. For more information, see [Logging for {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-service-logs). |
-{: caption="Table 1. Services that {{site.data.keyword.secrets-manager_short}} integrates with by default" caption-side="top"}
-
-<hidden>
 
 ## Available integrations
 {: #available-integrations}
