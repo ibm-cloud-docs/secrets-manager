@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-16"
+lastupdated: "2022-05-26"
 
 subcollection: secrets-manager
 
@@ -92,9 +92,6 @@ Current version: **`0.1.19`**
     {: pre}
 
     Replace `{instance_ID}` and `{region}` with the values that apply to your {{site.data.keyword.secrets-manager_short}} service instance. To find the endpoint URL that is specific to your instance, you can copy it from the **Endpoints** page in the {{site.data.keyword.secrets-manager_short}} UI. For more information, see [Viewing your endpoint URLs](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls)
-
-    If you copy your service endpoint URL from the {{site.data.keyword.secrets-manager_short}} UI, be sure to trim `/api` from the URL before you export it as variable to use with the CLI plug-in.
-    {: important}
 
     Need to override the URL? You can also specify the endpoint at the command-level by using the `--service-url INSTANCE` flag. For example, `ibmcloud secrets-manager secrets --service-url https://{instance_ID}.{region}.secrets-manager.appdomain.cloud`.
     {: tip}
