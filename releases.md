@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-05-16"
+lastupdated: "2022-05-27"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -62,6 +62,13 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 {: shortdesc}
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
+
+## 27 May 2022
+{: #secrets-manager-may2722}
+{: release-note}
+
+Integration with {{site.data.keyword.alb_full}}
+:   You can now use {{site.data.keyword.secrets-manager_short}} to centrally manage the SSL/TLS certificates that are required for load balancers to perform SSL offloading tasks. To learn more about this integration, check out the [{{site.data.keyword.alb_full}} documentation](/docs/vpc?topic=vpc-load-balancers#ssl-offloading-and-required-authorizations){: external}.
 
 
 ## 16 May 2022
@@ -135,9 +142,9 @@ Osaka and Toronto availability
 Tutorial series: Set up alerts for expiring certificates
 :   Looking for examples that can help you to send {{site.data.keyword.secrets-manager_short}} notifications to GitHub or Slack? Check out the new [tutorial series](/docs/secrets-manager?topic=secrets-manager-tutorial-expiring-secrets-part-1) that guides you through:
 
-- Enabling [{{site.data.keyword.en_short}}](/docs/event-notifications) for {{site.data.keyword.secrets-manager_short}}
-- Using [Cloud Functions](/docs/openwhisk) to create a GitHub issue when a secret is about to expire
-- Using Cloud functions to sending a notification to Slack
+   - Enabling [{{site.data.keyword.en_short}}](/docs/event-notifications) for {{site.data.keyword.secrets-manager_short}}
+   - Using [Cloud Functions](/docs/openwhisk) to create a GitHub issue when a secret is about to expire
+   - Using Cloud functions to sending a notification to Slack
 
 ## 28 Feburary 2022
 {: #secrets-manager-feb2822}

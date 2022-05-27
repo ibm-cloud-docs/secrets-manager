@@ -39,6 +39,11 @@
     "view_more": "/docs/secrets-manager?topic=secrets-manager-release-notes",
     "tiles": [
       {
+        "date": "27 May 2022",
+        "title": "Integration with Application Load Balancer for VPC",
+        "description": "You can now create an authorization between Application Load Balancer for VPC (ALB) and Secrets Manager to give a load balancer access to the certificates that you centrally manage in your instance."
+      },      
+      {
         "date": "16 May 2022",
         "title": "Updated Secrets Manager event notifications",
         "description": "Already working with Event Notifications to receive alerts for expired secrets? You can now be notified when your arbitrary secrets, IAM credentials, or user credentials are expired or soon to expire."
@@ -52,11 +57,6 @@
         "date": "11 April 2022",
         "title": "Integrations with Kubernetes Service and Red Hat OpenShift for IBM Cloud",
         "description": "You can now use Secrets Manager to centrally manage Ingress subdomain certificates and other secrets for your Kubernetes or Red Hat OpenShift on IBM Cloud clusters."
-      },
-      {
-        "date": "23 March 2022",
-        "title": "New pricing plans and regions now available",
-        "description": "Create an unlimited number of instances in your account by upgrading your Secrets Manager instance to the Standard plan. Additionally, you can now create an instance of the service in the Osaka and Toronto regions."
       }
     ]
   }
