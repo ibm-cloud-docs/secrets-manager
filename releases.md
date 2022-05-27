@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-05-26"
+lastupdated: "2022-05-27"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -68,7 +68,7 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 {: release-note}
 
 Integration with {{site.data.keyword.alb_full}}
-:   You can now use {{site.data.keyword.secrets-manager_short}} to centrally manage the SSL/TLS certificates that are required for load balancers to perform SSL offloading tasks. To learn more about this integration, check out the [{{site.data.keyword.alb_full}} documentation](https://test.cloud.ibm.com/docs/vpc?topic=vpc-load-balancers#ssl-offloading-and-required-authorizations){: external}.
+:   You can now use {{site.data.keyword.secrets-manager_short}} to centrally manage the SSL/TLS certificates that are required for load balancers to perform SSL offloading tasks. To learn more about this integration, check out the [{{site.data.keyword.alb_full}} documentation](/docs/vpc?topic=vpc-load-balancers#ssl-offloading-and-required-authorizations){: external}.
 
 
 ## 16 May 2022
