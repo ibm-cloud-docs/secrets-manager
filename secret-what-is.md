@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-05-19"
+lastupdated: "2022-06-03"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -158,16 +158,32 @@ Check out the following image to see how a secret is structured.
 
 1. The `name`, `id`, and `description`, and other common fields hold identifying information about a secret. These fields store the general attributes of your secret that you can use to understand its purpose and history.
 
-2. The `secret_data` object contains the actual value of your secret.
+2. For most secret types, the `secret_data` object contains the actual value of your secret.
 
     When you use the {{site.data.keyword.secrets-manager_short}} API to retrieve the value of a secret, the fields that you see in the `secret_data` object differ depending on the type of secret that you are inspecting. For example, the following truncated example shows how secret data is represented for an arbitrary secret.
 
     ```json
     {
+        "name": "my-arbitrary-secret",
         "secret_type": "arbitrary",
+        ...
         "secret_data": {
-        "payload": "The quick brown fox jumped over the lazy dog."
+          "payload": "The quick brown fox jumped over the lazy dog."
         }
+    }
+    ```
+    {: screen}
+
+    If you're working with IAM credentials, the secret data is listed alongside the other common fields that describe your secret. For example, the following truncated example shows how secret data is represented for an IAM credential.
+
+    ```json
+    {
+        "name": "my-iam-credentials",
+        "secret_type": "iam_credentials",
+        ...
+        "api_key": "RmnPBn6n1dzoo0v3kyznKEpg0WzdTpW9lW7FtKa017_u",
+        "api_key_id": "ApiKey-dcd0b857-b590-4507-8c64-ae89a23e8d76",
+        "service_id": "ServiceId-bb4ccc31-bd31-493a-bb58-52ec399800be",
     }
     ```
     {: screen}
