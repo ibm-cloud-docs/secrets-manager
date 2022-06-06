@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-04"
+lastupdated: "2022-06-06"
 
 keywords: set up public certificates, public certificates engine, set up CIS, set up CA, set up Let's Encrypt
 
@@ -223,6 +223,8 @@ To grant access to specific domains, you can use the [IAM Policy Management API]
 {: #authorize-cis-another-account}
 
 If the CIS instance that you'd like to access is located in another account, you can create an authorization between the services by providing an API key. You need the Cloud Resource Name (CRN) of the CIS instance that contains your domains, and an API key with the correct level of access to your instance. The API key must grant {{site.data.keyword.secrets-manager_short}} the ability to view the CIS instance, access its domains, and manage TXT records.
+
+
 
 To assign access, you can use the **Access (IAM)** section of the console.
 
