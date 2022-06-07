@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-06-03"
+lastupdated: "2022-06-07"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -187,6 +187,23 @@ Check out the following image to see how a secret is structured.
     }
     ```
     {: screen}
+
+## Secret states and transitions
+{: #secret-states-transitions}
+
+Secrets, in their lifetime, transition through several states that are a function of how long the secrets are in existence and whether its associated resources can be accessed.
+
+{{site.data.keyword.secrets-manager_short}} provides a graphical user interface and a REST API for tracking secrets as they move through several states in their lifecycle. The following diagram shows how a secret passes through states between its generation and its destruction.
+
+![The diagram shows the same components as described in the following definition table.](){: caption="Figure 2. Secret states and transitions" caption-side="bottom"}
+
+| State | Description |
+| --- | --- |
+| Pre-activation |  Secrets are initially created in the _Pre-activation_ state. Secrets in this state are displayed with a **Pre-activation** status in the UI to indicate that they aren't ready for use yet. |
+| Active | After a secret is ready for use, it moves to the **Active** state.  Secrets remain active until they expire or are destroyed. If a secret has automatic rotation enabled, the following status indicators also apply:  \n  \n - _Rotation pending._ Automatic rotation for the secret is being processed.  \n - _Rotation failed._ Automatic rotation for the secret was not completed. |
+| Deactivated | The secret was not created or processed. Secrets in this state are not recoverable and can only be deleted from the instance. |
+| Destroyed | When the data that is associated with a secret expires, it moves to the **Destroyed** state. Secrets in this state are not recoverable and can only be deleted from the instance. Metadata that is associated with a secret, such as the secret's transition history and name, is kept in the {{site.data.keyword.secrets-manager_short}} database. If a secret expires after an automatic rotation starts, the following status indicators also apply:  \n  \n - _Rotation pending._ Automatic rotation for the secret is being processed.  \n - _Rotation failed._ Automatic rotation for the secret was not completed. |
+{: caption="Table 2. Describes secret states and transitions" caption-side="top"}
 
 
 
