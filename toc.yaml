@@ -111,10 +111,10 @@ toc:
           label: Enhancing security
           topics:
           - topicgroup:
-              label: Managing IAM access for Secrets Manager
+              label: Managing IAM access
               topics:
               - topic: framework/iam.md
-                navtitle: IAM roles and actions for Secrets Manager
+                navtitle: Roles and actions for Secrets Manager
               - topic: ip-addresses.md
                 navtitle: IP addresses for Secrets Manager
           - framework/architecture-workload-isolation.md
