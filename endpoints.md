@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-05-26"
+lastupdated: "2022-06-07"
 
 keywords: Secrets Manager availability, regions, Secrets Manager endpoints, Vault endpoint
 
@@ -60,8 +60,8 @@ subcollection: secrets-manager
 Review region and connectivity options for interacting with {{site.data.keyword.secrets-manager_full}}.
 {: shortdesc}
 
-## Available regions
-{: #available-regions}
+## Supported regions
+{: #supported-regions}
 
 You can create {{site.data.keyword.secrets-manager_short}} resources in one of the supported {{site.data.keyword.cloud_notm}} regions, which represents the geographic area where your {{site.data.keyword.secrets-manager_short}} requests are handled and processed.
 
