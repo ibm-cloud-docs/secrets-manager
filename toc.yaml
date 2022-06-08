@@ -110,7 +110,13 @@ toc:
       - topicgroup:
           label: Enhancing security
           topics:
-          - framework/iam.md
+          - topicgroup:
+              label: Managing IAM access
+              topics:
+              - topic: framework/iam.md
+                navtitle: Roles and actions for Secrets Manager
+              - topic: framework/ip-addresses.md
+                navtitle: IP addresses for Secrets Manager
           - framework/architecture-workload-isolation.md
           - topicgroup:
               label: Privately connecting to Secrets Manager
@@ -177,7 +183,7 @@ toc:
           - troubleshooting/support.md
           - troubleshooting/troubleshoot-provision.md
           - troubleshooting/troubleshoot-iam-engine-access.md
-          - troubleshooting/troubleshoot-iam-engine-required.md
+          - troubleshooting/troubleshoot-ip-address.md
           - troubleshooting/troubleshoot-iam-restore.md
           - troubleshooting/troubleshoot-pem.md
           - troubleshooting/troubleshoot-delete-group.md

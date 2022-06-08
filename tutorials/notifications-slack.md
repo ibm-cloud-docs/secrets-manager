@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022
-lastupdated: "2022-05-19"
+lastupdated: "2022-06-08"
 
 keywords: Slack alerts, Slack notifications, expiring secrets, expiring certificates
 
@@ -67,7 +67,10 @@ completion-time: 15m
 This tutorial is part 3 of a 3-part tutorial series that guides you through setting up alerts for your expiring secrets.
 {: shortdesc}
 
-In part 2 of this tutorial series, you learned how to create a GitHub issue from an event notification that originated in your {{site.data.keyword.secrets-manager_full}} service instance. Part 3 shows you how to create another Function action that uses an incoming {{site.data.keyword.secrets-manager_short}} event to post a notification to Slack.
+In part 2 of this tutorial series, you learned how to create a GitHub issue from an event notification that originated in your {{site.data.keyword.secrets-manager_full}} service instance. Part 3 shows you how to create another Cloud Functions action that uses an incoming {{site.data.keyword.secrets-manager_short}} event to post a notification to Slack.
+
+As of 31 May 2022, the {{site.data.keyword.en_short}} service supports a built-in Slack integration! Instead of using a Cloud Functions action to forward your events to Slack, you can now select Slack as an {{site.data.keyword.en_short}} destination. To learn more about this feature, check out the [{{site.data.keyword.en_short}} documentation](/docs/event-notifications?topic=event-notifications-en-destination){: external}.
+{: note}
 
 ![The diagram shows the basic flow between the Secrets Manager, Event Notifications, and Cloud Functions that sends a notification to Slack.](../images/notifications-slack.svg){: caption="Figure 1. Posting a notification to Slack" caption-side="bottom"}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-03"
+lastupdated: "2022-06-07"
 
 keywords: IAM access for Secrets Manager, permissions for Secrets Manager, identity and access management for Secrets Manager, roles for Secrets Manager, actions for Secrets Manager, assigning access for Secrets Manager
 
@@ -57,9 +57,6 @@ subcollection: secrets-manager
 # Managing IAM access for {{site.data.keyword.secrets-manager_short}}
 {: #iam}
 
-
-
-
 Access to {{site.data.keyword.secrets-manager_full}} service instances for users in your account is controlled by {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM). Every user that accesses the {{site.data.keyword.secrets-manager_short}} service in your account must be assigned an access policy with an IAM role. The policy determines which actions a user can perform within the context of {{site.data.keyword.secrets-manager_short}}.
 {: shortdesc} 
 
@@ -67,7 +64,7 @@ IAM access policies enable access to be granted at different levels. Some of the
 
 - Access across all {{site.data.keyword.secrets-manager_short}} service instances in your account
 - Access to an individual {{site.data.keyword.secrets-manager_short}} instance in your account
-- Access to a specific resource within a {{site.data.keyword.secrets-manager_short}} instance, such as a secret group
+- Access to a specific resource within a {{site.data.keyword.secrets-manager_short}} instance, such resource type `secret-group`
 
 ## IAM roles and actions for {{site.data.keyword.secrets-manager_short}} 
 {: #iam-roles-actions}
@@ -138,7 +135,7 @@ If a specific role and its actions don't fit the use case that you're looking to
 {: class="simple-tab-table"}
 {: summary="Use the tab buttons to change the context of the table. This table provides the available actions for the service, descriptions of each, and the roles that each action are mapped to."}
 
-## Assigning IAM access to {{site.data.keyword.secrets-manager_short}}
+## Assigning access to {{site.data.keyword.secrets-manager_short}}
 {: #iam-assign-access}
 
 You can use the {{site.data.keyword.cloud_notm}} console, CLI, or APIs to assign different levels of access to {{site.data.keyword.secrets-manager_short}} resources in your account. You can assign access at the instance level, or you can narrow access to a secret group that contains one or more secrets. For more information, see [Assigning access to {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-assign-access).
