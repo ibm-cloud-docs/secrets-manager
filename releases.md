@@ -68,7 +68,7 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 {: release-note}
 
 Allow access to {{site.data.keyword.secrets-manager_short}} in a restricted account
-:   Working in an account that has [IP address access restrictions](/docs/account?topic=account-ips)? To use certain features in {{site.data.keyword.secrets-manager_short}}, for example generating IAM credentials, an extra step is required to ensure that your account is able to accept incoming requests from the service. If your account allows access to only specific IP addresses, you can can update your account settings to specify a required list of IP addresses for {{site.data.keyword.secrets-manager_short}}.
+:   Working in an account that has [IP address access restrictions](/docs/account?topic=account-ips)? To use certain features in {{site.data.keyword.secrets-manager_short}}, for example generating IAM credentials, an extra step is required to ensure that your account is able to accept incoming requests from the service. If your account allows access to only specific IP addresses, you can update your account settings to specify a required list of IP addresses for {{site.data.keyword.secrets-manager_short}}.
 
     For more information, check out [IP addresses for {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-ip-addresses).
 
