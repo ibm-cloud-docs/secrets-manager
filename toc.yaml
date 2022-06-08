@@ -115,7 +115,7 @@ toc:
               topics:
               - topic: framework/iam.md
                 navtitle: Roles and actions for Secrets Manager
-              - topic: ip-addresses.md
+              - topic: framework/ip-addresses.md
                 navtitle: IP addresses for Secrets Manager
           - framework/architecture-workload-isolation.md
           - topicgroup:
