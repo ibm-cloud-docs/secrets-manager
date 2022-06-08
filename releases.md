@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-05-27"
+lastupdated: "2022-06-08"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -62,6 +62,15 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 {: shortdesc}
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
+
+## 8 June 2022
+{: #secrets-manager-jun822}
+{: release-note}
+
+Allow access to {{site.data.keyword.secrets-manager_short}} on a restricted account
+:   Working in an account that has [IP address access restrictions](/docs/account?topic=account-ips)? To use certain features in {{site.data.keyword.secrets-manager_short}}, for example generating IAM credentials, an extra step is required to ensure that your account is able to accept incoming requests from the service. If your account allows access to only specific IP addresses, you can specify a required list of IP addresses for {{site.data.keyword.secrets-manager_short}} so that you can continue to take advantage of all service capabilities.
+
+    For more information, check out [IP addresses for {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-ip-addresses).
 
 ## 27 May 2022
 {: #secrets-manager-may2722}
