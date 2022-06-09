@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-04-07"
+lastupdated: "2022-06-09"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager, KV, key-value, KV APIs
 
@@ -94,8 +94,8 @@ curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
     -H 'X-Vault-Token: {Vault-Token}' \
     -H 'Content-Type: application/json' \
     -d '{
-            "payload": {
-                "key7":"value7"
+            "data": {
+                "key":"value"
             }
     }'
 ```
@@ -108,7 +108,7 @@ curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
 | `region` | The region in which the {{site.data.keyword.secrets-manager_short}} instance was created. |
 | `secret_name` | The name of the key-value secret. | 
 | `Vault-Token` | The authentication token that is retrieved from Vault. | 
-| `payload` | **Required.** The secret data in JSON format to assign to the secret. The maximum file size is 512 KB. |
+| `data` | **Required.** The secret data in JSON format to assign to the secret. The maximum file size is 512 KB. |
 {: caption="Table 1. Create or update a key-value secret request parameters" caption-side="top"}
 
 
@@ -336,42 +336,6 @@ curl -X POST 'https://{instance_id}.{region}.secrets-manager.test.appdomain.clou
 
 A request to permanently destroy versions of a key-value secret in the `default` secret group returns a blank response with a 204 status code to confirm that the secret's versions were destroyed.
 
-## Create or update key-value secret metadata
-{: #update-kv-metadata}
-
-Create or update the metadata of a key-value secret, such as the maximum number of versions or other custom values. To update the actual contents of the secret, use the [Create or update a secret](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv&interface=api#update-kv-secret) method.
-
-### Example request
-{: #kv-update-metadata-request}
-
-```sh
-curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/metadata/{secret_name}' \
-    -H 'Accept: application/json' \
-    -H 'X-Vault-Token: {Vault-Token}' \
-    -H 'Content-Type: application/json' \
-    -d '{
-            "max_versions": 5,
-            "delete_version_after": "3h25m19s",
-            "custom_metadata": {
-                "meta1": "data1",
-                "meta2": "data2"
-                }
-            }'
-```
-{: codeblock}
-
-| Request parameter | Description |
-| ------------- | ------------------------- |
-| `instance_id` | The ID of the Secrets Manager instance. |
-| `region` | The region in which the Secrets Manager instance was created. |
-| `secret_name` | The name of the key-value secret. | 
-| `Vault-Token` | The authentication token that is retrieved from Vault. |
-{: caption="Table 7. Update the metadata of a key-value secret request parameters" caption-side="top"}
-
-### Example response
-{: #kv-update-metadata-response}
-
-A request to update the metadata of a key-value secret in the `default` secret group returns a blank response with a 204 status code to confirm that the secret's metadata was updated.
 
 
 ## Read metadata of key-value secret
