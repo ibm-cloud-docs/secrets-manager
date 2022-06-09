@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-04"
+lastupdated: "2022-06-09"
 
 keywords: security and compliance for {{site.data.keyword.secrets-manager_short}}, security for {{site.data.keyword.secrets-manager_short}}, compliance for {{site.data.keyword.secrets-manager_short}},
 
@@ -80,7 +80,6 @@ The following goals are available in {{site.data.keyword.compliance_short}} for 
 
 * *Check whether {{site.data.keyword.secrets-manager_short}} arbitrary secrets are not expired*
 * *Check whether {{site.data.keyword.secrets-manager_short}} user credentials are not expired*
-* *Check whether {{site.data.keyword.secrets-manager_short}} IAM credentials are not expired*
 * *Check whether {{site.data.keyword.secrets-manager_short}} is provisioned in authorized regions only*
 * *Check whether {{site.data.keyword.secrets-manager_short}} default secret group contains no secrets*
 * *Check whether {{site.data.keyword.secrets-manager_short}} arbitrary secrets are rotated at least every # days*
@@ -88,7 +87,6 @@ The following goals are available in {{site.data.keyword.compliance_short}} for 
 * *Check whether {{site.data.keyword.secrets-manager_short}} IAM credentials are rotated at least every # days*
 * *Check whether {{site.data.keyword.secrets-manager_short}} instance contains no empty secret groups*
 * *Check whether {{site.data.keyword.secrets-manager_short}} has no more than # users with the IAM administrator role*
-* *Check whether {{site.data.keyword.secrets-manager_short}} has no more than # service IDs with the IAM manager role*
 * *Check whether {{site.data.keyword.secrets-manager_short}} has at least # users with the IAM manager role*
 * *Check whether {{site.data.keyword.secrets-manager_short}} has at least # service IDs with the IAM manager role*
 * *Check whether {{site.data.keyword.secrets-manager_short}} access is managed only by IAM access groups*
