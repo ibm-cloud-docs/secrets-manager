@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-04-04"
+lastupdated: "2022-06-09"
 
 keywords: Secrets Manager Vault, Vault CLI, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager, KV, key-value, KV CLI
 
@@ -70,7 +70,7 @@ To use the standard CLI for Secrets Manager, check out the [{{site.data.keyword.
 Create a version of a key-value secret. To update the metadata of the secret, such as its name or description, use the [Create or update the metadata of key-value secrets](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv-cli&interface=ui#update-kv-metadata) command.
 
 ```sh
-vault kv put [-format=FORMAT] ibmcloud/kv/SECRET_NAME [payload=KEY_VALUE_PAIR]
+vault kv put [-format=FORMAT] ibmcloud/kv/SECRET_NAME [KEY_VALUE_PAIRS]
 ```
 {: codeblock}
 
@@ -82,9 +82,6 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
 ### Command options
 {: #update-kv-secret-cli-options}
 
-payload
-:   The data that you want to store for a `kv` secret. 
-
 -format
 :   Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
 
@@ -94,7 +91,7 @@ payload
 Create or update the payload of a key-value secret. 
 
 ```sh
-vault kv put ibmcloud/kv/example-kv-secret payload={"key1":"value1"} 
+vault kv put ibmcloud/kv/example-kv-secret key1=value1 key2=value2 
 ```
 {: pre}
 
@@ -119,7 +116,7 @@ version          2
 Get a version of a key-value secret. A successful request returns the secret data that is associated with the specified version of your secret, along with other metadata.
 
 ```sh
-vault kv get [-version=VERSION] [-format=FORMAT] ibmcloud/kv/SECRET_NAME [payload=KEY_VALUE_PAIR]
+vault kv get [-version=VERSION] [-format=FORMAT] ibmcloud/kv/SECRET_NAME
 ```
 {: codeblock}
 
@@ -212,7 +209,7 @@ The command to delete the latest version of a `kv` secret returns no output.
 Delete the specified versions of a key-value secret. You can undo the deletion by calling the [undelete](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv-cli&interface=ui#kv-version-restore-cli) command.
 
 ```sh
-vault kv delete [-versions=VERSIONS] [-format=FORMAT] ibmcloud/kv/SECRET_NAME [payload=KEY_VALUE_PAIR]
+vault kv delete [-versions=VERSIONS] [-format=FORMAT] ibmcloud/kv/SECRET_NAME
 ```
 {: codeblock}
 

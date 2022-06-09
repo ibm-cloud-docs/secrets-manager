@@ -94,8 +94,8 @@ curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
     -H 'X-Vault-Token: {Vault-Token}' \
     -H 'Content-Type: application/json' \
     -d '{
-            "payload": {
-                "key7":"value7"
+            "data": {
+                "key":"value"
             }
     }'
 ```
@@ -108,7 +108,7 @@ curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
 | `region` | The region in which the {{site.data.keyword.secrets-manager_short}} instance was created. |
 | `secret_name` | The name of the key-value secret. | 
 | `Vault-Token` | The authentication token that is retrieved from Vault. | 
-| `payload` | **Required.** The secret data in JSON format to assign to the secret. The maximum file size is 512 KB. |
+| `data` | **Required.** The secret data in JSON format to assign to the secret. The maximum file size is 512 KB. |
 {: caption="Table 1. Create or update a key-value secret request parameters" caption-side="top"}
 
 
