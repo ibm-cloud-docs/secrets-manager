@@ -69,7 +69,7 @@ Ready to integrate {{site.data.keyword.secrets-manager_full}} into your existing
 {{site.data.keyword.secrets-manager_short}} offers software development kits (SDKs) that you can use to build with the service in various programming languages.For more information about getting started with {{site.data.keyword.secrets-manager_short}} SDKs, check out the following repositories on GitHub:
 
 - [Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}
-- [Node.js SDK](https://github.com/IBM/secrets-manager-node-sdk){: external}
+- [Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}
 - [Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}
 - [Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}
 
