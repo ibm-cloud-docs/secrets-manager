@@ -54,6 +54,7 @@ toc:
           topics:
           - provision.md
           - assign-access.md
+          - developer-tools.md
       - topicgroup:
           label: Working with secrets
           topics:

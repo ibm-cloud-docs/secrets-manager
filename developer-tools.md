@@ -63,22 +63,15 @@ Ready to integrate {{site.data.keyword.secrets-manager_full}} into your existing
 ## Supported developer tools
 {: #dev-tool-list}
 
-### {{site.data.keyword.secrets-manager_short}} APIs
-{: #dev-tool-api}
+### {{site.data.keyword.secrets-manager_short}} SDKs
+{: #dev-tool-sdks}
 
-{{site.data.keyword.secrets-manager_short}} offers a REST API that can be used to interact with the service programmatically. To build an API request, copy the service endpoint URL from the **Endpoints** page in your {{site.data.keyword.secrets-manager_short}} service dashboard. Then, [generate an {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) token](docs/account?topic=account-iamtoken_from_apikey). For example, after you store secrets in your service instance, the following API request can be used to obtain the list of secrets:
+{{site.data.keyword.secrets-manager_short}} offers software development kits (SDKs) that you can use to build with the service in various programming languages.For more information about getting started with {{site.data.keyword.secrets-manager_short}} SDKs, check out the following repositories on GitHub:
 
-```sh
-curl -X GET "{base_url}/api/v1/secrets" \
-  -H "Authorization: Bearer {access_token}" \
-  -H "Accept: application/json" 
-```
-{: codeblock}
-
-Replace `{base_url}` with your service endpoint URL, and `{access_token}` with your IAM token. To run the API request, you can paste it into your command line or preferred API testing tool. 
-
-For more information about using {{site.data.keyword.secrets-manager_short}} APIs, check out the [{{site.data.keyword.secrets-manager_short}} API reference](/apidocs/secrets-manager).
-{: note}
+- [Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}
+- [Node.js SDK](https://github.com/IBM/secrets-manager-node-sdk){: external}
+- [Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}
+- [Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}
 
 ### {{site.data.keyword.secrets-manager_short}} CLI plug-in
 {: #dev-tool-cli}
@@ -93,18 +86,22 @@ ibmcloud secrets-manager all-secrets
 To install {{site.data.keyword.secrets-manager_short}} commands, run `ibmcloud plugin install secrets-manager`. For more information, check out the [{{site.data.keyword.secrets-manager_short}} CLI reference](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli).
 {: note}
 
-### {{site.data.keyword.secrets-manager_short}} SDKs
-{: #dev-tool-sdks}
+### {{site.data.keyword.secrets-manager_short}} APIs
+{: #dev-tool-api}
 
-{{site.data.keyword.secrets-manager_short}} also offers software development kits (SDKs) in various programming languages. If you're already familiar with connecting applications to external REST APIs, you understand how burdensome it can be to handle the extra details, such as getting an access token from an API key or refreshing the access token when it expires. SDKs can simplify this process by handling the housekeeping items on your behalf. 
+If you're trying out the {{site.data.keyword.secrets-manager_short}} for the first time, you might want to use the {{site.data.keyword.secrets-manager_short}} APIs to evaluate the service and verify the response data that can be used by your applications. Start by copying the service endpoint URL from the **Endpoints** page in your {{site.data.keyword.secrets-manager_short}} service dashboard. Then, generate an [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) token](docs/account?topic=account-iamtoken_from_apikey) to include in your request. For example, after you store secrets in your service instance, the following API request can be used to obtain your list of secrets:
 
-For more information about getting started with {{site.data.keyword.secrets-manager_short}} SDKs, check out the following repositories on GitHub:
+```sh
+curl -X GET "{base_url}/api/v1/secrets" \
+  -H "Authorization: Bearer {access_token}" \
+  -H "Accept: application/json" 
+```
+{: codeblock}
 
-- [Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}
-- [Node.js SDK](https://github.com/IBM/secrets-manager-node-sdk){: external}
-- [Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}
-- [Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}
+Replace `{base_url}` with your service endpoint URL, and `{access_token}` with your IAM token. To run the API request, you can paste it into your command line or preferred API testing tool. 
 
+For more information about using {{site.data.keyword.secrets-manager_short}} APIs, check out the [{{site.data.keyword.secrets-manager_short}} API reference](/apidocs/secrets-manager).
+{: note}
 
 ### Vault
 {: #dev-tool-vault}
