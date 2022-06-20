@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-04"
+lastupdated: "2022-06-14"
 
 keywords: connect to {{site.data.keyword.secrets-manager_short}} on a VPC, virtual service endpoints, virtual private cloud, connect via VPC, connect through VPC, connect via VPE, connect through VPE
 
@@ -129,7 +129,7 @@ You can update your existing {{site.data.keyword.secrets-manager_short}} instanc
     ```
     {: codeblock}
 
-    Replace `<region>` with the region abbreviation that represents the location where your {{site.data.keyword.secrets-manager_short}} service instance resides. Supported values include: `us-south`, `us-east`, `eu-gb`, `eu-de`, `jp-tok`, `au-syd`. For more information, see [Available regions](/docs/secrets-manager?topic=secrets-manager-endpoints#available-regions).
+    Replace `<region>` with the region abbreviation that represents the location where your {{site.data.keyword.secrets-manager_short}} service instance resides. Supported values include: `us-south`, `us-east`, `eu-gb`, `eu-de`, `jp-tok`, `au-syd`. For more information, see [Available regions](/docs/secrets-manager?topic=secrets-manager-endpoints#supported-regions).
 
 4. Update your instance configuration by calling the [Resource Controller V2 API](/apidocs/resource-controller/resource-controller#update-resource-instance).
 

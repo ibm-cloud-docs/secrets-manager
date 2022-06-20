@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-04-04"
+lastupdated: "2022-06-13"
 
-keywords:
+keywords: Kuberetes secrets, External Kubernetes Operator, sync with Kubernetes, deploy to Kubernetes
 
 subcollection: secrets-manager
 

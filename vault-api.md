@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-05-03"
+lastupdated: "2022-06-16"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -2384,6 +2384,8 @@ curl -X DELETE "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v
 }
 ```
 {: screen}
+
+
 
 ## Policies
 {: #vault-api-secret-policies}
