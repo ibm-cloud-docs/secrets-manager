@@ -57,7 +57,7 @@ subcollection: secrets-manager
 # Integrating {{site.data.keyword.secrets-manager_short}} to your apps
 {: #integrate-with-apps}
 
-Ready to integrate {{site.data.keyword.secrets-manager_full}} into your existing apps or services? Take advantage of our supported developer tools. 
+Ready to integrate {{site.data.keyword.secrets-manager_full}} into your existing apps or services? Take advantage of our supported developer tools.
 {: shortdesc}
 
 ## Supported developer tools
@@ -66,7 +66,7 @@ Ready to integrate {{site.data.keyword.secrets-manager_full}} into your existing
 ### {{site.data.keyword.secrets-manager_short}} SDKs
 {: #dev-tool-sdks}
 
-{{site.data.keyword.secrets-manager_short}} offers software development kits (SDKs) that you can use to build with the service in various programming languages.For more information about getting started with {{site.data.keyword.secrets-manager_short}} SDKs, check out the following repositories on GitHub:
+{{site.data.keyword.secrets-manager_short}} offers software development kits (SDKs) that you can use to connect with the service in various programming languages. For more information about getting started with {{site.data.keyword.secrets-manager_short}} SDKs, check out the following repositories on GitHub:
 
 - [Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}
 - [Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}
@@ -86,10 +86,10 @@ ibmcloud secrets-manager all-secrets
 To install {{site.data.keyword.secrets-manager_short}} commands, run `ibmcloud plugin install secrets-manager`. For more information, check out the [{{site.data.keyword.secrets-manager_short}} CLI reference](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli).
 {: note}
 
-### {{site.data.keyword.secrets-manager_short}} APIs
+### {{site.data.keyword.secrets-manager_short}} API
 {: #dev-tool-api}
 
-If you're trying out the {{site.data.keyword.secrets-manager_short}} for the first time, you might want to use the {{site.data.keyword.secrets-manager_short}} APIs to evaluate the service and verify the response data that can be used by your applications. Start by copying the service endpoint URL from the **Endpoints** page in your {{site.data.keyword.secrets-manager_short}} service dashboard. Then, generate an [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) token](docs/account?topic=account-iamtoken_from_apikey) to include in your request. For example, after you store secrets in your service instance, the following API request can be used to obtain your list of secrets:
+If you're trying out the {{site.data.keyword.secrets-manager_short}} for the first time, you might want to use the {{site.data.keyword.secrets-manager_short}} API to evaluate the service and test out workflows for your applications. Start by copying the service endpoint URL from the **Endpoints** page in your {{site.data.keyword.secrets-manager_short}} service dashboard. Then, generate an [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) token](docs/account?topic=account-iamtoken_from_apikey) to include in your request. For example, after you store secrets in your service instance, the following API request can be used to obtain your list of secrets:
 
 ```sh
 curl -X GET "{base_url}/api/v1/secrets" \
