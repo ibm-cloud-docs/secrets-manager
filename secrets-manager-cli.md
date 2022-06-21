@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-26"
+lastupdated: "2022-06-21"
 
 subcollection: secrets-manager
 
@@ -79,15 +79,9 @@ Current version: **`0.1.19`**
 
 * Export an environment variable with your {{site.data.keyword.secrets-manager_short}} service endpoint URL.
 
-    If you're using plug-in version `0.0.8` or later, export the following variable.
+    To target an instance for operations, export the following variable.
     ```sh
     export SECRETS_MANAGER_URL=https://{instance_ID}.{region}.secrets-manager.appdomain.cloud
-    ```
-    {: pre}
-
-    If you're using plug-in version `0.0.6` or earlier, export the following variable.
-    ```sh
-    export IBM_CLOUD_SECRETS_MANAGER_API_URL=https://{instance_ID}.{region}.secrets-manager.appdomain.cloud
     ```
     {: pre}
 
