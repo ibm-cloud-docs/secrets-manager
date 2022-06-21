@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-06-09"
+lastupdated: "2022-06-21"
 
 keywords: Secrets Manager Vault, Vault CLI, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager, KV, key-value, KV CLI
 
@@ -74,6 +74,14 @@ vault kv put [-format=FORMAT] ibmcloud/kv/SECRET_NAME [KEY_VALUE_PAIRS]
 ```
 {: codeblock}
 
+
+Create a version of a key-value secret in a custom group.
+
+```sh
+vault kv put [-format=FORMAT] ibmcloud/kv/GROUP_ID/SECRET_NAME [KEY_VALUE_PAIRS]
+```
+{: codeblock}
+
 ### Prerequisites
 {: #update-kv-secret-cli-prereq}
 
@@ -92,6 +100,13 @@ Create or update the payload of a key-value secret.
 
 ```sh
 vault kv put ibmcloud/kv/example-kv-secret key1=value1 key2=value2 
+```
+{: pre}
+
+Create or update the payload of a key-value secret in a custom group.
+
+```sh
+vault kv put ibmcloud/kv/9426e546-83de-4da5-9631-d70c993186c8/example-kv-secret key1=value1 key2=value2 
 ```
 {: pre}
 
@@ -120,6 +135,13 @@ vault kv get [-version=VERSION] [-format=FORMAT] ibmcloud/kv/SECRET_NAME
 ```
 {: codeblock}
 
+Get a version of a key-value secret in a custom group.
+
+```sh
+vault kv get [-version=VERSION] [-format=FORMAT] ibmcloud/kv/GROUP_ID/SECRET_NAME
+```
+{: codeblock}
+
 ### Prerequisites
 {: #kv-version-cli-prereq}
 
@@ -129,7 +151,7 @@ You need the [**Reader** or **Writer** service role](/docs/secrets-manager?topic
 {: #kv-version-cli-option}
 
 -version
-:   The version that you want to read.
+:   The version that you want to read. If omitted, the latest version is returned.
 
 -format
 :   Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
@@ -141,6 +163,13 @@ Read a version of a key-value secret.
 
 ```sh
 vault kv get -version=1 ibmcloud/kv/my-test-kv-secret
+```
+{: pre}
+
+Read a version of a key-value secret in a custom group.
+
+```sh
+vault kv get -version=1 ibmcloud/kv/9426e546-83de-4da5-9631-d70c993186c8/my-test-kv-secret
 ```
 {: pre}
 
@@ -176,6 +205,13 @@ vault kv delete [-format=FORMAT] ibmcloud/kv/SECRET_NAME
 ```
 {: codeblock}
 
+Delete the latest version of a key-value secret in a custom group.
+
+```sh
+vault kv delete [-format=FORMAT] ibmcloud/kv/GROUP_ID/SECRET_NAME 
+```
+{: codeblock}
+
 ### Prerequisites
 {: #kv-delete-cli-prereq}
 
@@ -197,6 +233,13 @@ vault kv delete -format=json ibmcloud/kv/my-test-kv-secret
 ```
 {: pre}
 
+Delete the latest version of a key-value secret in a custom group.
+
+```sh
+vault kv delete -format=json ibmcloud/kv/9426e546-83de-4da5-9631-d70c993186c8/my-test-kv-secret
+```
+{: pre}
+
 ### Output
 {: #kv-version-delete-cli-output}
 
@@ -210,6 +253,13 @@ Delete the specified versions of a key-value secret. You can undo the deletion b
 
 ```sh
 vault kv delete [-versions=VERSIONS] [-format=FORMAT] ibmcloud/kv/SECRET_NAME
+```
+{: codeblock}
+
+Delete the specified versions of a key-value secret in a custom group.
+
+```sh
+vault kv delete [-versions=VERSIONS] [-format=FORMAT] ibmcloud/kv/GROUP_ID/SECRET_NAME
 ```
 {: codeblock}
 
@@ -238,6 +288,13 @@ vault kv delete -versions=2 ibmcloud/kv/my-test-kv-secret
 ```
 {: pre}
 
+Delete specified versions of a key-value secret in a custom group.
+
+```sh
+vault kv delete -versions=2 ibmcloud/kv/9426e546-83de-4da5-9631-d70c993186c8/my-test-kv-secret
+```
+{: pre}
+
 
 ### Output
 {: #kv-delete-versions-cli-output}
@@ -251,6 +308,13 @@ Restore a previously deleted version of a key-value secret.
 
 ```sh
 vault kv undelete [-versions=VERSIONS] [-format=FORMAT] ibmcloud/kv/SECRET_NAME 
+```
+{: codeblock}
+
+Restore a previously deleted version of a key-value secret in a custom group.
+
+```sh
+vault kv undelete [-versions=VERSIONS] [-format=FORMAT] ibmcloud/kv/GROUP_ID/SECRET_NAME 
 ```
 {: codeblock}
 
@@ -280,6 +344,13 @@ vault kv undelete -versions=2 ibmcloud/kv/my-test-kv-secret
 ```
 {: pre}
 
+Undelete specified versions of a key-value secret. 
+
+
+```sh
+vault kv undelete -versions=2 ibmcloud/kv/9426e546-83de-4da5-9631-d70c993186c8/my-test-kv-secret
+```
+{: pre}
 
 ### Output
 {: #kv-version-restore-cli-output}
@@ -296,6 +367,20 @@ Success! Data written to: ibmcloud/kv/undelete/my-test-kv-secret
 {: #kv-destroy-cli}
 
 Destroy specified versions of a key-value secret permanently. To soft delete versions of a secret instead, use the [delete specified versions](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv-cli&interface=ui#kv-delete-versions-cli) command.
+
+
+```sh
+vault kv destroy [-versions=VERSIONS] [-format=FORMAT] ibmcloud/kv/SECRET_NAME
+```
+{: codeblock}
+
+Destroy the specified versions of a key-value secret in a custom group.
+
+```sh
+vault kv destroy [-versions=VERSIONS] [-format=FORMAT] ibmcloud/kv/GROUP_ID/SECRET_NAME
+```
+{: codeblock}
+
 
 ### Prerequisites
 {: #kv-destroy-cli-prereq}
@@ -321,6 +406,12 @@ vault kv destroy -versions=2 ibmcloud/kv/my-test-kv-secret
 ```
 {: pre}
 
+Delete permanently specified versions of a key-value secret in a custom group. 
+```sh
+vault kv destroy -versions=2 ibmcloud/kv/9426e546-83de-4da5-9631-d70c993186c8/my-test-kv-secret
+```
+{: pre}
+
 ### Output
 {: #kv-destroy-cli-output}
 
@@ -332,82 +423,20 @@ Success! Data written to: ibmcloud/kv/undelete/my-test-kv-secret
 {: screen}
 
 
-## Create or update key-value secret metadata
-{: #update-kv-metadata}
-
-Create or update the metadata of a key-value secret, such as its name and description. To update the payload of the secret, use the [Create or update a secret](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv-cli&interface=ui#update-kv-secret-cli) command.
-
-```sh
-vault write [-format=FORMAT] ibmcloud/kv/secrets/{secret_ID}/metadata [name=NAME]
-```
-{: pre}
-
-### Prerequisites
-{: #update-kv-metadata-prereq}
-
-You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manager-iam) to create or update the metadata of a key-value secret.
-
-### Command options
-{: #update-kv-metadata-options}
-
-name
-:   The human-readable alias that you want to assign to the secret. Required.
-
-description
-:   An extended description to assign to the secret.
-
--format
-:   Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
-
-### Example
-{: #update-kv-metadata-example}
-
-Update the metadata of a key-value secret. 
-
-```sh
-vault write -format=json ibmcloud/kv/secrets/{secret_ID}/metadata name="my-updated-kv-secret"
-```
-{: pre}
-
-
-### Output
-{: #update-kv-metadata-output}
-
-The command to create or update the metadata of a `kv` secret returns the following output:
-
-```json
-{
-  "request_id": "36d555ce-5fd0-555d-c555-dde0555555",
-  "lease_id": "",
-  "lease_duration": 0,
-  "renewable": false,
-  "data": {
-    "created_by": "IBMid-6620YUGH",
-    "creation_date": "2022-03-04T17:08:33Z",
-    "crn": "crn:v1:staging:public:secrets-manager:eu-gb:a/55555ea6bbea555a6be5555f5f5555f5:dc85555-fdc155-4fah-9b55-c1c3555540:secret55a4a253-5555-455c-6555ce-46f4e336668a1",
-    "downloaded": false,
-    "id": "36d555ce-5fd0-555d-c555-dde0555555",
-    "labels": [],
-    "last_update_date": "2022-03-08T20:06:39Z",
-    "name": "updated-name-kv-secret",
-    "secret_type": "kv",
-    "state": 1,
-    "state_description": "Active",
-    "versions_total": 3
-  },
-  "warnings": null
-}
-```
-{: screen}
-
-
 ## Read metadata of key-value secret
 {: #kv-metadata-cli}
 
 Get a key-value secret's metadata. 
 
 ```sh
-vault kv metadata get ibmcloud/kv/[SECRET_NAME]
+vault kv metadata get ibmcloud/kv/SECRET_NAME
+```
+{: pre}
+
+Get a key-value secret's metadata in a custom group. 
+
+```sh
+vault kv metadata get ibmcloud/kv/GROUP_ID/SECRET_NAME
 ```
 {: pre}
 
@@ -430,6 +459,13 @@ Read the metadata of a key-value secret.
 
 ```sh
 vault kv metadata get ibmcloud/kv/my-test-kv-secret
+```
+{: pre}
+
+Read the metadata of a key-value secret in a custom group
+. 
+```sh
+vault kv metadata get ibmcloud/kv/9426e546-83de-4da5-9631-d70c993186c8/my-test-kv-secret
 ```
 {: pre}
 
@@ -485,6 +521,11 @@ vault kv metadata delete ibmcloud/kv/SECRET_NAME
 ```
 {: pre}
 
+```sh
+vault kv metadata delete ibmcloud/kv/GROUP_ID/SECRET_NAME
+```
+{: pre}
+
 ### Prerequisites
 {: #kv-delete-metadata-cli-prereq}
 
@@ -500,13 +541,19 @@ You need the [**Manager** service role](/docs/secrets-manager?topic=secrets-mana
 ### Example
 {: #kv-delete-metadata-cli-example}
 
-Delete permanently the metadata of a key-value secret. 
+Delete permanently the data and metadata of a key-value secret. 
 
 ```sh
 vault kv metadata delete ibmcloud/kv/my-test-kv-secret
 ```
 {: pre}
 
+Delete permanently the data and metadata of a key-value secret in a custom secret group.
+
+```sh
+vault kv metadata delete ibmcloud/kv/9426e546-83de-4da5-9631-d70c993186c8/my-test-kv-secret
+```
+{: pre}
 
 ### Output
 {: #kv-delete-metadata-cli-output}
@@ -560,7 +607,7 @@ vault kv list ibmcloud/kv
 List the key names of key-value secrets that are stored in a custom secret group. 
 
 ```sh
-vault kv list ibmcloud/kv/{secret_group_ID}
+vault kv list ibmcloud/kv/9426e546-83de-4da5-9631-d70c993186c8
 ```
 {: pre}
 
@@ -576,5 +623,4 @@ Keys
 my-updated-kv-secret
 ```
 {: screen}
-
 
