@@ -198,7 +198,7 @@ key1    value1
 ## Delete the latest version of a key-value secret
 {: #kv-delete-cli}
 
-Delete the latest version of a key-value secret. You can undo the deletion by calling the [undelete]/docs/secrets-manager?topic=secrets-manager-vault-manage-kv-cli&interface=ui#kv-version-restore-cli) command.
+Delete the latest version of a key-value secret. You can undo the deletion by calling the [undelete](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv-cli#kv-version-restore-cli) command.
 
 ```sh
 vault kv delete [-format=FORMAT] ibmcloud/kv/SECRET_NAME 
