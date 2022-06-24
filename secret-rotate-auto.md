@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-18"
+lastupdated: "2022-06-24"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -89,8 +89,6 @@ Automatic rotation is supported for [private certificates](/docs/secrets-manager
 
 You can schedule the automatic rotation of secrets by using the {{site.data.keyword.secrets-manager_short}} UI. 
 
-
-
 ### Setting an automatic rotation policy for user credentials
 {: #schedule-auto-rotate-password-ui}
 
@@ -143,7 +141,6 @@ If you prefer to schedule your private SSL or TLS certificates to be automatical
 
 
 
-
 ## Scheduling automatic rotation with the API
 {: #schedule-auto-rotate-api}
 {: api}
@@ -155,8 +152,6 @@ You can schedule the automatic rotation of secrets by using the {{site.data.keyw
 
 The following example request creates an automatic rotation policy for a user credentials (`username_password`) secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
-
-
 
 ```sh
 curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password/{id}/policies" \
@@ -181,8 +176,6 @@ curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/
 {: codeblock}
 {: curl}
 
-
-
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager#update-secret).
 
 ### Setting an automatic rotation policy for public certificates
@@ -195,8 +188,6 @@ If you prefer to schedule your certificates to be automatically renewed, you can
 
 The following example request orders a certificate with automatic rotation enabled. When you call the API, set the `auto_rotate` property to `true`. Optionally, you can set `rotate_keys` to `true` to request a new private key for the certificate on each rotation.
 {: curl}
-
-
 
 Certificates that expire in less than 31 days must also be rotated manually before rotation becomes automatic in the following cycles.
 {: note}
@@ -238,7 +229,5 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 ```
 {: codeblock}
 {: curl}
-
-
 
 A successful response returns the ID value for the certificate, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager#create-secret).
