@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-06-14"
+lastupdated: "2022-06-24"
 
 keywords: connect to {{site.data.keyword.secrets-manager_short}} on a VPC, virtual service endpoints, virtual private cloud, connect via VPC, connect through VPC, connect via VPE, connect through VPE
 
@@ -83,9 +83,9 @@ You can update your existing {{site.data.keyword.secrets-manager_short}} instanc
     ```
     {: codeblock}
 
-    Washington DC:
+    Frankfurt:
     ```sh
-    VPE_ENDPOINTS="[{\"ip_address\": \"166.9.22.61\", \"zone\": \"wdc06\"},{\"ip_address\": \"166.9.20.170\", \"zone\": \"wdc04\"},{\"ip_address\": \"166.9.24.62\", \"zone\": \"wdc07\"}]"
+    VPE_ENDPOINTS="[{\"ip_address\": \"166.9.30.75\", \"zone\": \"fra04\"},{\"ip_address\": \"166.9.32.95\", \"zone\": \"fra05\"},{\"ip_address\": \"166.9.28.77\", \"zone\": \"fra02\"}]"
     ```
     {: codeblock}
 
@@ -95,9 +95,21 @@ You can update your existing {{site.data.keyword.secrets-manager_short}} instanc
     ```
     {: codeblock}
 
-    Frankfurt:
+    Osaka:
     ```sh
-    VPE_ENDPOINTS="[{\"ip_address\": \"166.9.30.75\", \"zone\": \"fra04\"},{\"ip_address\": \"166.9.32.95\", \"zone\": \"fra05\"},{\"ip_address\": \"166.9.28.77\", \"zone\": \"fra02\"}]"
+    VPE_ENDPOINTS="[{\"ip_address\": \"166.9.70.57\", \"zone\": \"osa21\"},{\"ip_address\": \"166.9.71.53\", \"zone\": \"osa22\"},{\"ip_address\": \"166.9.72.55\", \"zone\": \"osa23\"}]"
+    ```
+    {: codeblock}
+
+    Sao Paulo:
+    ```sh
+    VPE_ENDPOINTS="[{\"ip_address\": \"166.9.84.65\", \"zone\": \"sao05\"},{\"ip_address\": \"166.9.83.66\", \"zone\": \"sao04\"},{\"ip_address\": \"166.9.82.71\", \"zone\": \"sao01\"}]"
+    ```
+    {: codeblock}
+
+    Sydney:
+    ```sh
+    VPE_ENDPOINTS="[{\"ip_address\": \"166.9.52.52\", \"zone\": \"syd01\"},{\"ip_address\": \"166.9.54.60\", \"zone\": \"syd04\"},{\"ip_address\": \"166.9.56.57\", \"zone\": \"syd05\"}]"
     ```
     {: codeblock}
 
@@ -107,9 +119,15 @@ You can update your existing {{site.data.keyword.secrets-manager_short}} instanc
     ```
     {: codeblock}
 
-    Sydney:
+    Toronto:
     ```sh
-    VPE_ENDPOINTS="[{\"ip_address\": \"166.9.52.52\", \"zone\": \"syd01\"},{\"ip_address\": \"166.9.54.60\", \"zone\": \"syd04\"},{\"ip_address\": \"166.9.56.57\", \"zone\": \"syd05\"}]"
+    VPE_ENDPOINTS="[{\"ip_address\": \"166.9.78.62\", \"zone\": \"tor05\"},{\"ip_address\": \"166.9.77.62\", \"zone\": \"tor04\"},{\"ip_address\": \"166.9.76.65\", \"zone\": \"tor01\"}]"
+    ```
+    {: codeblock}
+  
+    Washington DC:
+    ```sh
+    VPE_ENDPOINTS="[{\"ip_address\": \"166.9.22.61\", \"zone\": \"wdc06\"},{\"ip_address\": \"166.9.20.170\", \"zone\": \"wdc04\"},{\"ip_address\": \"166.9.24.62\", \"zone\": \"wdc07\"}]"
     ```
     {: codeblock}
 
