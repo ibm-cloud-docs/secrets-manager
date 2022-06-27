@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-06-21"
+lastupdated: "2022-06-27"
 
 subcollection: secrets-manager
 
@@ -61,7 +61,7 @@ keywords: Secrets Manager CLI, Secrets Manager command line, Secrets Manager ter
 You can use the {{site.data.keyword.secrets-manager_full}} command-line interface (CLI) to manage secrets in your {{site.data.keyword.secrets-manager_short}} instance.
 {: shortdesc}
 
-Current version: **`0.1.19`**
+Current version: **`0.1.20`**
 
 ## Prerequisites
 {: #secrets-manager-cli-prereq}
@@ -89,7 +89,6 @@ Current version: **`0.1.19`**
 
     Need to override the URL? You can also specify the endpoint at the command-level by using the `--service-url INSTANCE` flag. For example, `ibmcloud secrets-manager secrets --service-url https://{instance_ID}.{region}.secrets-manager.appdomain.cloud`.
     {: tip}
-
 
 
 
@@ -123,6 +122,7 @@ ibmcloud secrets-manager secret-group-create --resources RESOURCES
 ibmcloud secrets-manager secret-group-create \
     --resources='[{"name": "my-secret-group", "description": "Extended description for this group."}]'
 ```
+{: pre}
 
 ### ibmcloud secrets-manager secret-groups
 {: #secrets-manager-cli-secret-groups-command}
@@ -140,6 +140,7 @@ ibmcloud secrets-manager secret-groups
 ```sh
 ibmcloud secrets-manager secret-groups
 ```
+{: pre}
 
 ### ibmcloud secrets-manager secret-group
 {: #secrets-manager-cli-secret-group-command}
@@ -166,6 +167,7 @@ ibmcloud secrets-manager secret-group --id ID
 ibmcloud secrets-manager secret-group \
     --id=exampleString
 ```
+{: pre}
 
 ### ibmcloud secrets-manager secret-group-metadata-update
 {: #secrets-manager-cli-secret-group-metadata-update-command}
@@ -196,13 +198,15 @@ ibmcloud secrets-manager secret-group-metadata-update \
     --id=exampleString \
     --resources='[{"name": "updated-secret-group-name", "description": "Updated description for this group."}]'
 ```
+{: pre}
 
 ### ibmcloud secrets-manager secret-group-delete
 {: #secrets-manager-cli-secret-group-delete-command}
 
 Delete a secret group by specifying the ID of the secret group.
 
-**Note:** To delete a secret group, it must be empty. If you need to remove a secret group that contains secrets, you must first [delete the secrets](#secrets-manager-cli-secret-delete-command) that are associated with the group.
+To delete a secret group, it must be empty. If you need to remove a secret group that contains secrets, you must first [delete the secrets](#secrets-manager-cli-secret-delete-command) that are associated with the group.
+{: note}
 
 ```sh
 ibmcloud secrets-manager secret-group-delete --id ID [--force]
@@ -227,6 +231,7 @@ ibmcloud secrets-manager secret-group-delete --id ID [--force]
 ibmcloud secrets-manager secret-group-delete \
     --id=exampleString
 ```
+{: pre}
 
 ## Secrets
 {: #secrets-manager-secrets-cli}
@@ -264,8 +269,10 @@ ibmcloud secrets-manager secret-create --secret-type SECRET-TYPE --resources RES
 ```sh
 ibmcloud secrets-manager secret-create \
     --secret-type=arbitrary \
+    --metadata='{"collection_type": "application/vnd.ibm.secrets-manager.secret+json", "collection_total": 1}' \
     --resources='[{"name": "example-arbitrary-secret", "description": "Extended description for this secret.", "secret_group_id": "bc656587-8fda-4d05-9ad8-b1de1ec7e712", "labels": ["dev","us-south"], "expiration_date": "2030-01-01T00:00:00Z", "payload": "secret-data"}]'
 ```
+{: pre}
 
 ### ibmcloud secrets-manager secrets
 {: #secrets-manager-cli-secrets-command}
@@ -304,6 +311,7 @@ ibmcloud secrets-manager secrets \
     --limit=1 \
     --offset=0
 ```
+{: pre}
 
 ### ibmcloud secrets-manager all-secrets
 {: #secrets-manager-cli-all-secrets-command}
@@ -354,6 +362,7 @@ ibmcloud secrets-manager all-secrets \
     --sort-by=id \
     --groups=exampleString
 ```
+{: pre}
 
 ### ibmcloud secrets-manager secret
 {: #secrets-manager-cli-secret-command}
@@ -388,6 +397,7 @@ ibmcloud secrets-manager secret \
     --secret-type=arbitrary \
     --id=exampleString
 ```
+{: pre}
 
 ### ibmcloud secrets-manager secret-update
 {: #secrets-manager-cli-secret-update-command}
@@ -435,6 +445,7 @@ ibmcloud secrets-manager secret-update \
     --action=rotate \
     --body='{"payload": "exampleString"}'
 ```
+{: pre}
 
 ### ibmcloud secrets-manager secret-delete
 {: #secrets-manager-cli-secret-delete-command}
@@ -470,6 +481,7 @@ ibmcloud secrets-manager secret-delete \
     --secret-type=arbitrary \
     --id=exampleString
 ```
+{: pre}
 
 ### ibmcloud secrets-manager secret-versions
 {: #secrets-manager-cli-secret-versions-command}
@@ -504,6 +516,7 @@ ibmcloud secrets-manager secret-versions \
     --secret-type=arbitrary \
     --id=exampleString
 ```
+{: pre}
 
 ### ibmcloud secrets-manager secret-version
 {: #secrets-manager-cli-secret-version-command}
@@ -546,6 +559,7 @@ ibmcloud secrets-manager secret-version \
     --id=exampleString \
     --version-id=exampleString
 ```
+{: pre}
 
 ### ibmcloud secrets-manager secret-version-update
 {: #secrets-manager-cli-secret-version-update-command}
@@ -594,6 +608,7 @@ ibmcloud secrets-manager secret-version-update \
     --version-id=exampleString \
     --action=revoke
 ```
+{: pre}
 
 #### Example output
 {: #secrets-manager-secret-version-update-cli-output}
@@ -669,7 +684,8 @@ Example response for revoking a version of a `private_cert` secret.
         "not_after" : "2022-03-24T05:06:15Z",
         "not_before" : "2022-03-07T13:05:46Z"
       }
-    } ]
+    } ],
+    "locks_total" : 1
   } ]
 }
 ```
@@ -716,6 +732,7 @@ ibmcloud secrets-manager secret-version-metadata \
     --id=exampleString \
     --version-id=exampleString
 ```
+{: pre}
 
 ### ibmcloud secrets-manager secret-metadata
 {: #secrets-manager-cli-secret-metadata-command}
@@ -743,20 +760,21 @@ ibmcloud secrets-manager secret-metadata --secret-type SECRET-TYPE --id ID
     The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
 
 #### Examples
-{: #secrets-manager-cli-secret-metadata-command-examples}
+{: #secrets-manager-secret-metadata-cli-examples}
 
 ```sh
 ibmcloud secrets-manager secret-metadata \
     --secret-type=arbitrary \
     --id=exampleString
 ```
+{: pre}
 
 ### ibmcloud secrets-manager secret-metadata-update
 {: #secrets-manager-cli-secret-metadata-update-command}
 
 Update the metadata of a secret, such as its name or description.
 
-To update the actual contents of a secret, rotate the secret by using the [Invoke an action on a secret](#secrets-manager-cli-secret-update-command) method.
+To update the actual contents of a secret, rotate the secret by using the [Invoke an action on a secret](#update-secret) method.
 
 ```sh
 ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id ID --resources RESOURCES 
@@ -788,6 +806,459 @@ ibmcloud secrets-manager secret-metadata-update \
     --id=exampleString \
     --resources='[{"labels": ["dev","us-south"], "name": "updated-secret-name", "description": "Updated description for this secret.", "expiration_date": "2030-04-01T09:30:00Z"}]'
 ```
+{: pre}
+
+## Locks
+{: #secrets-manager-locks-cli}
+
+Secure your secret data by attaching a lock to a secret version and preventing any modification or deletion.
+
+### ibmcloud secrets-manager locks
+{: #secrets-manager-cli-locks-command}
+
+List the locks that are associated with a specified secret.
+
+```sh
+ibmcloud secrets-manager locks --secret-type SECRET-TYPE --id ID [--limit LIMIT] [--offset OFFSET] [--search SEARCH] 
+```
+
+#### Command options
+{: #secrets-manager-locks-cli-options}
+
+--secret-type (string)
+:   The secret type. Required.
+
+    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `private_cert`, `username_password`, `kv`.
+
+--id (string)
+:   The v4 UUID that uniquely identifies the secret. Required.
+
+    The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
+
+--limit (int64)
+:   The number of secrets with locks to retrieve. By default, list operations return the first 25 items. To retrieve a different set of items, use `limit` with `offset` to page through your available resources.
+
+    The maximum value is `100`. The minimum value is `1`.
+
+--offset (int64)
+:   The number of secrets to skip. By specifying `offset`, you retrieve a subset of items that starts with the `offset` value. Use `offset` with `limit` to page through your available resources.
+
+    The minimum value is `0`.
+
+--search (string)
+:   Filter locks that contain the specified string in the field "name".
+
+    The maximum length is `64` characters.
+
+#### Examples
+{: #secrets-manager-cli-locks-examples}
+
+```sh
+ibmcloud secrets-manager locks \
+    --secret-type=arbitrary \
+    --id=exampleString \
+    --limit=1 \
+    --offset=0 \
+    --search=exampleString
+```
+{: pre}
+
+#### Example output
+{: #secrets-manager-locks-cli-output}
+
+Example response for listing the locks that are assosiated with a specified secret.
+
+```json
+{
+  "metadata" : {
+    "collection_type" : "application/vnd.ibm.secrets-manager.secret.lock+json",
+    "collection_total" : 2
+  },
+  "resources" : [ {
+    "name" : "lock-1",
+    "description" : "lock for consumer-1",
+    "creation_date" : "2020-08-27T14:28:54Z",
+    "created_by" : "IBM-id-1",
+    "attributes" : {
+      "key" : "value"
+    },
+    "secret_version_id" : "5bf89b0c-df55-c8d5-7ad6-8816951c6784",
+    "secret_id" : "cb7a2502-8ede-47d6-b5b6-1b7af6b6f563",
+    "secret_group_id" : "bc656587-8fda-4d05-9ad8-b1de1ec7e712",
+    "last_update_date" : "2022-04-24T16:50:09.692573+03:00",
+    "secret_version_alias" : "current"
+  }, {
+    "name" : "lock-2",
+    "description" : "lock for consumer-2",
+    "creation_date" : "2020-08-27T14:29:01Z",
+    "created_by" : "IBM-id-1",
+    "attributes" : {
+      "key" : "value"
+    },
+    "secret_version_id" : "50277266-d706-4b3e-badb-f07257f8f581",
+    "secret_id" : "cb7a2502-8ede-47d6-b5b6-1b7af6b6f563",
+    "secret_group_id" : "bc656587-8fda-4d05-9ad8-b1de1ec7e712",
+    "last_update_date" : "2022-04-27T18:50:09.692573+03:00",
+    "secret_version_alias" : "previous"
+  } ]
+}
+```
+{: screen}
+
+### ibmcloud secrets-manager secret-lock
+{: #secrets-manager-cli-secret-lock-command}
+
+Create a lock on the current version of a secret.
+
+A lock can be used to prevent a secret from being deleted or modified while it's in use by your applications. A successful request attaches a new lock to your secret, or replaces a lock of the same name if it already exists. Additionally, you can use this method to clear any matching locks on a secret by using one of the following optional lock modes:
+
+- `exclusive`: Removes any other locks with matching names if they are found in the previous version of the secret.
+- `exclusive_delete`: Same as `exclusive`, but also permanently deletes the data of the previous secret version if it doesn't have any locks.
+
+For more information about locking secrets, check out the [docs](/docs/secrets-manager?topic=secrets-manager-secret-locks).
+
+```sh
+ibmcloud secrets-manager secret-lock --secret-type SECRET-TYPE --id ID [--locks LOCKS] [--mode MODE] 
+```
+
+
+#### Command options
+{: #secrets-manager-secret-lock-cli-options}
+
+--secret-type (string)
+:   The secret type. Required.
+
+    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `private_cert`, `username_password`, `kv`.
+
+--id (string)
+:   The v4 UUID that uniquely identifies the secret. Required.
+
+    The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
+
+--locks ([LockSecretBodyLocksItem[]](#cli-lock-secret-body-locks-item-example-schema))
+:   The lock data to be attached to a secret version.
+
+--mode (string)
+:   An optional lock mode. At lock creation, you can set one of the following modes to clear any matching locks on a secret version.
+
+- `exclusive`: Removes any other locks with matching names if they are found in the previous version of the secret.
+- `exclusive_delete`: Same as `exclusive`, but also permanently deletes the data of the previous secret version if it doesn't have any locks.
+
+    Allowable values are: `exclusive`, `exclusive_delete`.
+
+#### Examples
+{: #secrets-manager-secret-lock-cli-examples}
+
+```sh
+ibmcloud secrets-manager secret-lock \
+    --secret-type=arbitrary \
+    --id=exampleString \
+    --locks='[{"name": "lock-1", "description": "lock for consumer-1", "attributes": {"anyKey": "anyValue"}}]' \
+    --mode=exclusive
+```
+{: pre}
+
+### ibmcloud secrets-manager secret-unlock
+{: #secrets-manager-cli-secret-unlock-command}
+
+Delete one or more locks that are associated with the current version of a secret.
+
+A successful request deletes the locks that you specify. To remove all locks, you can pass `{"locks": ["*"]}` in in the request body. Otherwise, specify the names of the locks that you want to delete. For example, `{"locks": ["lock1", "lock2"]}`.
+
+A secret is considered unlocked and able to be revoked or deleted only after all of its locks are removed. To understand whether a secret contains locks, check the `locks_total` field that is returned as part of the metadata of your secret.
+{: note}
+
+```sh
+ibmcloud secrets-manager secret-unlock --secret-type SECRET-TYPE --id ID [--locks LOCKS] 
+```
+
+
+#### Command options
+{: #secrets-manager-secret-unlock-cli-options}
+
+--secret-type (string)
+:   The secret type. Required.
+
+    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `private_cert`, `username_password`, `kv`.
+
+--id (string)
+:   The v4 UUID that uniquely identifies the secret. Required.
+
+    The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
+
+--locks ([]string)
+:   A comma-separated list of locks to delete.
+
+    The list items must match regular expression `/^(\\w(([\\w-.]+)?\\w)?|[*])$/`.
+
+#### Examples
+{: #secrets-manager-secret-unlock-cli-examples}
+```sh
+ibmcloud secrets-manager secret-unlock \
+    --secret-type=arbitrary \
+    --id=exampleString \
+    --locks=exampleString
+```
+{: pre}
+
+### ibmcloud secrets-manager secret-version-locks
+{: #secrets-manager-cli-secret-version-locks-command}
+
+List the locks that are associated with a specified secret version.
+
+```sh
+ibmcloud secrets-manager secret-version-locks --secret-type SECRET-TYPE --id ID --version-id VERSION-ID [--limit LIMIT] [--offset OFFSET] [--search SEARCH] 
+```
+
+
+#### Command options
+{: #secrets-manager-secret-version-locks-cli-options}
+
+--secret-type (string)
+:   The secret type. Required.
+
+    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `private_cert`, `username_password`, `kv`.
+
+--id (string)
+:   The v4 UUID that uniquely identifies the secret. Required.
+
+    The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
+
+--version-id (string)
+:   The v4 UUID that uniquely identifies the secret version. You can also use `previous` to retrieve the previous version. Required.
+
+    **Note:** To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details.
+
+    The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
+
+--limit (int64)
+:   The number of secrets with locks to retrieve. By default, list operations return the first 25 items. To retrieve a different set of items, use `limit` with `offset` to page through your available resources.
+
+    The maximum value is `100`. The minimum value is `1`.
+
+--offset (int64)
+:   The number of secrets to skip. By specifying `offset`, you retrieve a subset of items that starts with the `offset` value. Use `offset` with `limit` to page through your available resources.
+
+    The minimum value is `0`.
+
+--search (string)
+:   Filter locks that contain the specified string in the field "name".
+
+    The maximum length is `64` characters.
+
+#### Examples
+{: #secrets-manager-secret-version-locks-cli-examples}
+
+```sh
+ibmcloud secrets-manager secret-version-locks \
+    --secret-type=arbitrary \
+    --id=exampleString \
+    --version-id=exampleString \
+    --limit=1 \
+    --offset=0 \
+    --search=exampleString
+```
+{: pre}
+
+#### Example output
+{: #secrets-manager-secret-version-locks-cli-output}
+
+Example response for listing the locks that  areassociated with a specified secret version.
+
+```json
+{
+  "metadata" : {
+    "collection_type" : "application/vnd.ibm.secrets-manager.secret.lock+json",
+    "collection_total" : 2
+  },
+  "resources" : [ {
+    "name" : "lock-1",
+    "description" : "lock for consumer-1",
+    "creation_date" : "2020-08-27T14:28:54Z",
+    "created_by" : "IBM-id-1",
+    "attributes" : {
+      "key" : "value"
+    },
+    "secret_version_id" : "5bf89b0c-df55-c8d5-7ad6-8816951c6784",
+    "secret_id" : "cb7a2502-8ede-47d6-b5b6-1b7af6b6f563",
+    "secret_group_id" : "bc656587-8fda-4d05-9ad8-b1de1ec7e712",
+    "last_update_date" : "2022-04-24T16:50:09.692573+03:00",
+    "secret_version_alias" : "current"
+  }, {
+    "name" : "lock-2",
+    "description" : "lock for consumer-2",
+    "creation_date" : "2020-08-27T14:29:01Z",
+    "created_by" : "IBM-id-1",
+    "attributes" : {
+      "key" : "value"
+    },
+    "secret_version_id" : "5bf89b0c-df55-c8d5-7ad6-8816951c6784",
+    "secret_id" : "cb7a2502-8ede-47d6-b5b6-1b7af6b6f563",
+    "secret_group_id" : "bc656587-8fda-4d05-9ad8-b1de1ec7e712",
+    "last_update_date" : "2022-04-24T16:50:09.692573+03:00",
+    "secret_version_alias" : "current"
+  } ]
+}
+```
+{: screen}
+
+### ibmcloud secrets-manager secret-version-lock
+{: #secrets-manager-cli-secret-version-lock-command}
+
+Create a lock on the specified version of a secret.
+
+A lock can be used to prevent a secret from being deleted or modified while it's in use by your applications. A successful request attaches a new lock to the specified version, or replaces a lock of the same name if it already exists. Additionally, you can use this method to clear any matching locks on a secret version by using one of the following optional lock modes:
+
+- `exclusive`: Removes any other locks with matching names if they are found in the previous version of the secret.
+- `exclusive_delete`: Same as `exclusive`, but also permanently deletes the data of the previous secret version if it doesn't have any locks.
+
+For more information about locking secrets, check out the [docs](/docs/secrets-manager?topic=secrets-manager-secret-locks).
+
+```sh
+ibmcloud secrets-manager secret-version-lock --secret-type SECRET-TYPE --id ID --version-id VERSION-ID [--locks LOCKS] [--mode MODE] 
+```
+
+
+#### Command options
+{: #secrets-manager-secret-version-lock-cli-options}
+
+--secret-type (string)
+:   The secret type. Required.
+
+    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `private_cert`, `username_password`, `kv`.
+
+--id (string)
+:   The v4 UUID that uniquely identifies the secret. Required.
+
+    The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
+
+--version-id (string)
+:   The v4 UUID that uniquely identifies the secret version. You can also use `previous` to retrieve the previous version. Required.
+
+    **Note:** To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details.
+
+    The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
+
+--locks ([LockSecretBodyLocksItem[]](#cli-lock-secret-body-locks-item-example-schema))
+:   The lock data to be attached to a secret version.
+
+--mode (string)
+:   An optional lock mode. At lock creation, you can set one of the following modes to clear any matching locks on a secret version.
+
+- `exclusive`: Removes any other locks with matching names if they are found in the previous version of the secret.
+- `exclusive_delete`: Same as `exclusive`, but also permanently deletes the data of the previous secret version if it doesn't have any locks.
+
+    Allowable values are: `exclusive`, `exclusive_delete`.
+
+#### Examples
+{: #secrets-manager-secret-version-lock-cli-examples}
+
+```sh
+ibmcloud secrets-manager secret-version-lock \
+    --secret-type=arbitrary \
+    --id=exampleString \
+    --version-id=exampleString \
+    --locks='[{"name": "lock-1", "description": "lock for consumer-1", "attributes": {"anyKey": "anyValue"}}]' \
+    --mode=exclusive
+```
+{: pre}
+
+### ibmcloud secrets-manager secret-version-unlock
+{: #secrets-manager-cli-secret-version-unlock-command}
+
+Delete one or more locks that are associated with the specified secret version.
+
+A successful request deletes the locks that you specify. To remove all locks, you can pass `{"locks": ["*"]}` in in the request body. Otherwise, specify the names of the locks that you want to delete. For example, `{"locks":["lock-1", "lock-2"]}`.
+
+A secret is considered unlocked and able to be revoked or deleted only after all of its locks are removed. To understand whether a secret contains locks, check the `locks_total` field that is returned as part of the metadata of your secret.
+{: note}
+
+```sh
+ibmcloud secrets-manager secret-version-unlock --secret-type SECRET-TYPE --id ID --version-id VERSION-ID [--locks LOCKS] 
+```
+
+
+#### Command options
+{: #secrets-manager-secret-version-unlock-cli-options}
+
+--secret-type (string)
+:   The secret type. Required.
+
+    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `private_cert`, `username_password`, `kv`.
+
+--id (string)
+:   The v4 UUID that uniquely identifies the secret. Required.
+
+    The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
+
+--version-id (string)
+:   The v4 UUID that uniquely identifies the secret version. You can also use `previous` to retrieve the previous version. Required
+
+    **Note:** To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details.
+
+    The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
+
+--locks ([]string)
+:   A comma-separated list of locks to delete.
+
+    The list items must match regular expression `/^(\\w(([\\w-.]+)?\\w)?|[*])$/`.
+
+#### Examples
+{: #secrets-manager-secret-version-unlock-cli-examples}
+
+```sh
+ibmcloud secrets-manager secret-version-unlock \
+    --secret-type=arbitrary \
+    --id=exampleString \
+    --version-id=exampleString \
+    --locks=exampleString
+```
+{: pre}
+
+### ibmcloud secrets-manager all-locks
+{: #secrets-manager-cli-all-locks-command}
+
+List the lock details that are associated with all secrets in your Secrets Manager instance.
+
+```sh
+ibmcloud secrets-manager all-locks [--limit LIMIT] [--offset OFFSET] [--search SEARCH] [--groups GROUPS] 
+```
+
+#### Command options
+{: #secrets-manager-all-locks-cli-options}
+
+--limit (int64)
+:   The number of secrets with locks to retrieve. By default, list operations return the first 25 items. To retrieve a different set of items, use `limit` with `offset` to page through your available resources.
+
+    The maximum value is `100`. The minimum value is `1`.
+
+--offset (int64)
+:   The number of secrets to skip. By specifying `offset`, you retrieve a subset of items that starts with the `offset` value. Use `offset` with `limit` to page through your available resources.
+
+    The minimum value is `0`.
+
+--search (string)
+:   Filter locks that contain the specified string in the field "name".
+
+    The maximum length is `64` characters.
+
+--groups ([]string)
+:   Filter secrets by groups.
+
+    You can apply multiple filters by using a comma-separated list of secret group IDs. If you need to filter secrets that are in the default secret group, use the `default` keyword.
+
+
+#### Examples
+{: #secrets-manager-all-locks-cli-examples}
+
+```sh
+ibmcloud secrets-manager all-locks \
+    --limit=1 \
+    --offset=0 \
+    --search=exampleString \
+    --groups=exampleString
+```
+{: pre}
 
 ## Policies
 {: #secrets-manager-policies-cli}
@@ -835,6 +1306,7 @@ ibmcloud secrets-manager policy-update \
     --resources='[{"type": "application/vnd.ibm.secrets-manager.secret.policy+json", "rotation": {"interval": 1, "unit": "day"}}]' \
     --policy=rotation
 ```
+{: pre}
 
 ### ibmcloud secrets-manager policy
 {: #secrets-manager-cli-policy-command}
@@ -873,6 +1345,7 @@ ibmcloud secrets-manager policy \
     --id=exampleString \
     --policy=rotation
 ```
+{: pre}
 
 ## Config
 {: #secrets-manager-config-cli}
@@ -910,6 +1383,7 @@ ibmcloud secrets-manager config-update \
     --secret-type=iam_credentials \
     --engine-config='{"api_key": "API_KEY"}'
 ```
+{: pre}
 
 ### ibmcloud secrets-manager config
 {: #secrets-manager-cli-config-command}
@@ -936,6 +1410,7 @@ ibmcloud secrets-manager config --secret-type SECRET-TYPE
 ibmcloud secrets-manager config \
     --secret-type=iam_credentials
 ```
+{: pre}
 
 ### ibmcloud secrets-manager config-element-create
 {: #secrets-manager-cli-config-element-create-command}
@@ -994,6 +1469,7 @@ ibmcloud secrets-manager config-element-create \
     --type=cis \
     --config='{"cis_crn": "crn:v1:bluemix:public:internet-svcs:global:a/<account-id>:<service-instance>::", "cis_apikey": "cis_apikey_value"}'
 ```
+{: pre}
 
 ### ibmcloud secrets-manager config-elements
 {: #secrets-manager-cli-config-elements-command}
@@ -1026,6 +1502,7 @@ ibmcloud secrets-manager config-elements \
     --secret-type=public_cert \
     --config-element=certificate_authorities
 ```
+{: pre}
 
 ### ibmcloud secrets-manager config-element
 {: #secrets-manager-cli-config-element-command}
@@ -1062,6 +1539,7 @@ ibmcloud secrets-manager config-element \
     --config-element=certificate_authorities \
     --config-name=exampleString
 ```
+{: pre}
 
 ### ibmcloud secrets-manager config-element-update
 {: #secrets-manager-cli-config-element-update-command}
@@ -1108,6 +1586,7 @@ ibmcloud secrets-manager config-element-update \
     --type=cis \
     --config='{"anyKey": "anyValue"}'
 ```
+{: pre}
 
 ### ibmcloud secrets-manager config-element-action
 {: #secrets-manager-cli-config-element-action-command}
@@ -1160,6 +1639,7 @@ ibmcloud secrets-manager config-element-action \
     --action=sign_intermediate \
     --config='{"common_name": "example.com", "alt_names": "exampleString", "ip_sans": "exampleString", "uri_sans": "exampleString", "other_sans": ["exampleString"], "ttl": "12h", "format": "pem", "max_path_length": 38, "exclude_cn_from_sans": false, "permitted_dns_domains": ["exampleString"], "use_csr_values": false, "ou": ["exampleString"], "organization": ["exampleString"], "country": ["exampleString"], "locality": ["exampleString"], "province": ["exampleString"], "street_address": ["exampleString"], "postal_code": ["exampleString"], "serial_number": "d9:be:fe:35:ba:09:42:b5", "csr": "exampleString"}'
 ```
+{: pre}
 
 ### ibmcloud secrets-manager config-element-delete
 {: #secrets-manager-cli-config-element-delete-command}
@@ -1167,7 +1647,7 @@ ibmcloud secrets-manager config-element-action \
 Delete a configuration element from the specified secret type.
 
 ```sh
-ibmcloud secrets-manager config-element-delete --secret-type SECRET-TYPE --config-element CONFIG-ELEMENT --config-name CONFIG-NAME
+ibmcloud secrets-manager config-element-delete --secret-type SECRET-TYPE --config-element CONFIG-ELEMENT --config-name CONFIG-NAME 
 ```
 
 
@@ -1196,6 +1676,7 @@ ibmcloud secrets-manager config-element-delete \
     --config-element=certificate_authorities \
     --config-name=exampleString
 ```
+{: pre}
 
 ## Notifications
 {: #secrets-manager-notifications-cli}
@@ -1235,6 +1716,7 @@ ibmcloud secrets-manager notifications-registration-create \
     --event-notifications-source-name='My Secrets Manager' \
     --event-notifications-source-description='Optional description of this source in an Event Notifications instance.'
 ```
+{: pre}
 
 ### ibmcloud secrets-manager notifications-registration
 {: #secrets-manager-cli-notifications-registration-command}
@@ -1252,6 +1734,7 @@ ibmcloud secrets-manager notifications-registration
 ```sh
 ibmcloud secrets-manager notifications-registration
 ```
+{: pre}
 
 ### ibmcloud secrets-manager notifications-registration-delete
 {: #secrets-manager-cli-notifications-registration-delete-command}
@@ -1261,7 +1744,7 @@ Delete a registration between a Secrets Manager instance and Event Notifications
 A successful request removes your Secrets Manager instance as a source in Event Notifications.
 
 ```sh
-ibmcloud secrets-manager notifications-registration-delete
+ibmcloud secrets-manager notifications-registration-delete 
 ```
 
 
@@ -1271,6 +1754,7 @@ ibmcloud secrets-manager notifications-registration-delete
 ```sh
 ibmcloud secrets-manager notifications-registration-delete
 ```
+{: pre}
 
 ### ibmcloud secrets-manager notifications-test
 {: #secrets-manager-cli-notifications-test-command}
@@ -1289,6 +1773,7 @@ ibmcloud secrets-manager notifications-test
 ```sh
 ibmcloud secrets-manager notifications-test
 ```
+{: pre}
 
 ## Schema examples
 {: #secrets-manager-schema-examples}
@@ -1351,6 +1836,22 @@ The following example shows the format of the EngineConfig object.
 ```
 {: codeblock}
 
+### LockSecretBodyLocksItem[]
+{: #cli-lock-secret-body-locks-item-example-schema}
+
+The following example shows the format of the LockSecretBodyLocksItem[] object.
+
+```json
+[ {
+  "name" : "lock-1",
+  "description" : "lock for consumer-1",
+  "attributes" : {
+    "anyKey" : "anyValue"
+  }
+} ]
+```
+{: codeblock}
+
 ### SecretAction
 {: #cli-secret-action-example-schema}
 
@@ -1382,7 +1883,6 @@ The following example shows the format of the SecretGroupMetadataUpdatable[] obj
 The following example shows the format of the SecretGroupResource[] object.
 
 ```json
-
 [ {
   "name" : "my-secret-group",
   "description" : "Extended description for this group."
