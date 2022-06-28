@@ -229,14 +229,15 @@ Next, create a bucket in your Cloud Object Storage instance and set up access.
 
     1. Go to **Manage > Access (IAM) > Access groups**.
     2. From your list of groups, select _test-storage-admin-group_.
-    3. Click the _Access policies_ tab.
+    3. Click the _Access_ tab.
     4. Click **Assign access**.
-    5. Select **IAM services**.
-    6. From the list of services, select **Cloud Object Storage**.
-    7. In the service instance field, select _test-cos-instance-tutorial_.
+    6. From the list of services, select **Cloud Object Storage** and click **Next**.
+    7. In the Resources section, select **Specific resources**.
+    8. In the Attribute type field, select **Service instance**.
+    9. From the list of service instances, select _test-cos-instance-tutorial_ and click **Next**.
     8. Assign the **Reader**, **Content Reader**, **Object Reader**, and **Object Writer** service access roles.
-    9. Click **Add**.
-    10. Review your selections and click **Assign**.
+    9. Review your sections and **Add**.
+    10. Click **Assign**.
 
 3. Upload an object to the storage bucket.
 
