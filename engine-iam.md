@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-06-08"
+lastupdated: "2022-06-30"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -176,18 +176,6 @@ For step-by-step instructions to create an {{site.data.keyword.cloud_notm}} API 
 The following example shows a query that you can use to configure a secrets engine for your instance. When you call the API, replace the API key variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
 
-If you're using the [{{site.data.keyword.secrets-manager_short}} Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}, you can call the `putConfig` method to configure a secrets engine. The following code shows an example call.
-{: java}
-
-If you're using the [{{site.data.keyword.secrets-manager_short}} Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}, you can call the `putConfig(params)` method to configure a secrets engine. The following code shows an example call.
-{: javascript}
-
-If you're using the [{{site.data.keyword.secrets-manager_short}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}, you can call the `put_config(params)` method to configure a secrets engine. The following code shows an example call.
-{: python}
-
-If you're using the [{{site.data.keyword.secrets-manager_short}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}, you can call the `PutConfig` method to configure a secrets engine. The following code shows an example call.
-{: go}
-
 ```sh
 curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/config/iam_credentials" \
     -H "Authorization: Bearer {IAM_token}"
@@ -199,58 +187,6 @@ curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/
 ```
 {: codeblock}
 {: curl}
-
-```java
-EngineConfigOneOfIAMSecretEngineRootConfig engineConfigOneOfModel = new EngineConfigOneOfIAMSecretEngineRootConfig.Builder()
-    .apiKey("API_KEY")
-    .build();
-PutConfigOptions putConfigOptions = new PutConfigOptions.Builder()
-    .secretType("iam_credentials")
-    .engineConfigOneOf(engineConfigOneOfModel)
-    .build();
-
-service.putConfig(putConfigOptions).execute();
-```
-{: codeblock}
-{: java}
-
-```javascript
-
-```
-{: codeblock}
-{: javascript}
-
-```python
-engine_config = {
-    'api_key': 'API_KEY'
-}
-
-response = secretsManager.put_config(
-    secret_type='iam_credentials',
-    engine_config=engine_config
-).get_result()
-
-print(json.dumps(response, indent=2))
-```
-{: codeblock}
-{: python}
-
-```go
-engineConfig := &sm.EngineConfigOneOfIAMSecretEngineRootConfig{
-    ApiKey: core.StringPtr("API_KEY"),
-}
-
-putConfigOptions := secretsManagerApi.NewPutConfigOptions(
-    "iam_credentials", engineConfig,
-)
-
-response, err := secretsManagerApi.PutConfig(putConfigOptions)
-if err != nil {
-    panic(err)
-}
-```
-{: codeblock}
-{: go}
 
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
 

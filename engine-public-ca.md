@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-19"
+lastupdated: "2022-06-30"
 
 keywords: certificate authority, connect certificate authority, set up certificate authority, connect CA, set up CA, connect Let's Encrypt, set up Let's Encrypt, add certificate authority configuration, add CA configuration
 
@@ -124,8 +124,6 @@ The following example shows a query that you can use to add a configuration for 
 Be sure to convert your private key file to single-line format so that it can be parsed correctly by the {{site.data.keyword.secrets-manager_short}} API. You can use the following UNIX command to format the file to a single-line string: `awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' <private_key_file>`
 {: tip}
 
-
-
 ```sh
 curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/config/public_cert/certificate_authorities' \
 -H 'Authorization: Bearer {IAM_token}' \
@@ -141,10 +139,7 @@ curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api
 {: codeblock}
 {: curl}
 
-
-
 A successful response adds the configuration to your service instance. For more information about the required and optional request parameters, see [Add a configuration](/apidocs/secrets-manager#create-config-element){: external}.
-
 
 
 ## Deleting a certificate authority configuration in the UI
@@ -179,8 +174,6 @@ The following example shows a query that you can use to remove a certificate aut
 After you delete a configuration, the certificates that are associated with the certificate authority can no longer be rotated automatically. Do not delete configurations that are associated with certificates in your production apps or services.
 {: important}
 
-
-
 ```sh
 curl -X DELETE 'https://{instance_id}.us-south.secrets-manager.appdomain.cloud/api/v1/config/public_cert/certificate_authorities/{config_name}' \
   -H 'Authorization: Bearer $IAM_token'
@@ -189,9 +182,7 @@ curl -X DELETE 'https://{instance_id}.us-south.secrets-manager.appdomain.cloud/a
 {: curl}
 
 
-
 A successful response removes the configuration from your service instance. For more information about the required and optional request parameters, see [Remove a configuration](/apidocs/secrets-manager#delete-config-element){: external}.
-
 
 
 ## Next steps
