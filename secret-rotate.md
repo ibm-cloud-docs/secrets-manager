@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-21"
+lastupdated: "2022-06-24"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -262,8 +262,6 @@ You can rotate arbitrary secrets by calling the {{site.data.keyword.secrets-mana
 The following example request creates a new version of your secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
 
-
-
 ```bash
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/arbitrary/{id}?action=rotate" \
     -H "Authorization: Bearer {IAM_token}" \
@@ -275,8 +273,6 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 ```
 {: codeblock}
 {: curl}
-
-
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager#update-secret).
 
@@ -294,11 +290,11 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
    -H "Authorization: Bearer {IAM_token}" 
    -H "Accept: application/json" 
    -H "Content-Type: application/json"
-   -d {
+   -d '{
          "payload": {
             "key1": "val2"
          }
-      } 
+      }' 
 ```
 {: codeblock}
 {: curl}
@@ -316,8 +312,6 @@ You can rotate secrets by calling the {{site.data.keyword.secrets-manager_short}
 The following example request creates a new version of your secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
 
-
-
 ```bash
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password/{id}?action=rotate" \
     -H "Authorization: Bearer {IAM_token}" \
@@ -329,8 +323,6 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 ```
 {: codeblock}
 {: curl}
-
-
 
 To have the service generate and assign a random password to your credential, you can pass an empty string on the `password` field. For example, `{ "password": ""}`. {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
 {: tip}

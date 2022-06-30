@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-17"
+lastupdated: "2022-06-24"
 
 keywords: arbitrary secrets, arbitrary text, custom secrets
 
@@ -64,10 +64,12 @@ An arbitrary secret is a type of application secret that can be used to hold str
 
 To learn more about the types of secrets that you can manage in {{site.data.keyword.secrets-manager_short}}, see [What is a secret?](/docs/secrets-manager?topic=secrets-manager-what-is-secret)
 
+
 ## Before you begin
 {: #before-arbitrary}
 
 Before you get started, be sure that you have the required level of access. To create or add secrets, you need the [**Writer** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam).
+
 
 ## Creating arbitrary secrets in the UI
 {: #arbitrary-ui}
@@ -93,6 +95,7 @@ To add an arbitrary secret by using the {{site.data.keyword.secrets-manager_shor
     1. To set an expiration date for the secret, switch the expiration toggle to **Yes**.
 10. Click **Add**.
 
+
 ## Creating arbitrary secrets from the CLI
 {: #arbitrary-cli}
 {: cli}
@@ -109,6 +112,7 @@ ibmcloud secrets-manager secret-create --secret-type arbitrary --resources '[{"n
 
 The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
 
+
 ## Creating arbitrary secrets with the API
 {: #arbitrary-api}
 {: api}
@@ -117,8 +121,6 @@ You can create arbitrary secrets programmatically by calling the {{site.data.key
 
 The following example shows a query that you can use to create and store an arbitrary secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
-
-
 
 {{site.data.keyword.secrets-manager_short}} supports text-based payloads only for arbitrary secrets. If you need to upload a binary file, you must base64 encode the data first so that you can pass it to the {{site.data.keyword.secrets-manager_short}} API in a single-line string. To access this secret later in its original form, you need to base64 decode it. Consider assigning a label on your secret with encoded data, such as `encode:base64`, so that you can keep track of secrets that require base64 decoding.
 {: note}
@@ -150,7 +152,5 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 ```
 {: codeblock}
 {: curl}
-
-
 
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager#create-secret)..

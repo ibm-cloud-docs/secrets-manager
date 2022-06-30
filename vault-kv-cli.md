@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-06-21"
+lastupdated: "2022-06-27"
 
 keywords: Secrets Manager Vault, Vault CLI, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager, KV, key-value, KV CLI
 
@@ -67,7 +67,7 @@ To use the standard CLI for Secrets Manager, check out the [{{site.data.keyword.
 ## Create or update a key-value secret
 {: #update-kv-secret-cli}
 
-Create a version of a key-value secret. To update the metadata of the secret, such as its name or description, use the [Create or update the metadata of key-value secrets](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv-cli&interface=ui#update-kv-metadata) command.
+Create a version of a key-value secret.
 
 ```sh
 vault kv put [-format=FORMAT] ibmcloud/kv/SECRET_NAME [KEY_VALUE_PAIRS]

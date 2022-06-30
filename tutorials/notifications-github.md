@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022
-lastupdated: "2022-05-19"
+lastupdated: "2022-06-30"
 
 keywords: create GitHub issue, open GitHub issue, send to GitHub, expiring secrets, expiring certificates
 
@@ -283,7 +283,7 @@ Next, prepare the sample code for your Cloud Functions action.
    | Variable | Description |
    | ---- | ---- |
    | `API_KEY` | An {{site.data.keyword.cloud_notm}} API key with **Manager** access on the {{site.data.keyword.en_short}} service. |
-   | `<event_notifications_endpoint_url>` | The base URL of your {{site.data.keyword.en_short}} service instance. For more information, see the [{{site.data.keyword.en_short}} API documentation](/apidocs/event-notifications/event-notifications#event-notifications-endpoint-url).|
+   | `<event_notifications_endpoint_url>` | The base URL of your {{site.data.keyword.en_short}} service instance. For more information, see the [{{site.data.keyword.en_short}} API documentation](/apidocs/event-notifications#event-notifications-endpoint-url).|
    | `<destination_id>` | The ID of the {{site.data.keyword.en_short}} destination that you created in [step 2](#tutorial-expiring-secrets-part-2-destination). |
    | `<github_org>`  \n`<github_repo>` | The values that are associated with the GitHub repository where you would like to open issues. Replace `<owner>` and `<repo>` with the values that apply to repository. |
    | `<github_token>` | Your GitHub personal access token, prefixed by the word _Token_. For example, `Token 35890433325cv...(truncated)`. |

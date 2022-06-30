@@ -85,11 +85,15 @@ To authorize a supported {{site.data.keyword.cloud_notm}} service to access your
 
 1. In the console, click **Manage > Access (IAM)**, and select **Authorizations**.
 2. Click **Create**.
-3. Select a source and target service for the authorization.
+3. Select a source account for the authorization. 
+4. Select a source and target service for the authorization.
 
     1. From the **Source service** list, select the service that you want to integrate with {{site.data.keyword.secrets-manager_short}}.
     2. From the **Target service** list, select {{site.data.keyword.secrets-manager_short}}.
-4. Select the **SecretsReader** role.
+5. Select the **SecretsReader** role.
 
     With SecretsReader permissions, the source service can browse and retrieve the secrets that are available in your {{site.data.keyword.secrets-manager_short}} instance. The source service can't create secrets on your behalf.
-5. Click **Authorize**.
+
+    Some integrations might require a service role that is higher than **SecretsReader**. To understand what service role is recommended, see the documentation for the service that you want to integrate with {{site.data.keyword.secrets-manager_short}}.
+    {: note}
+6. Click **Authorize**.

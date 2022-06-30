@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-06-09"
+lastupdated: "2022-06-24"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
 
@@ -67,11 +67,11 @@ In {{site.data.keyword.secrets-manager_short}}, certificates that you import to 
 
 To learn more about the types of secrets that you can manage in {{site.data.keyword.secrets-manager_short}}, see [What is a secret?](/docs/secrets-manager?topic=secrets-manager-what-is-secret)
 
+
 ## Before you begin
 {: #before-certificates}
 
 Before you get started, be sure that you have the required level of access. To create or add secrets, you need the [**Writer** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam).
-
 
 | Prerequisites |
 | :------------ |
@@ -134,11 +134,9 @@ You can import an existing certificate by using the {{site.data.keyword.secrets-
 11. Click **Import**.
 
 
-
 ### Importing certificates from the CLI
 {: #import-certificates-cli}
 {: cli}
-
 
 To import a certificate by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. You can specify the type of secret by using the `--secret-type imported_cert` option. For example, the following command imports a certificate along with its private key and intermediate certificate.
 
@@ -153,18 +151,14 @@ ibmcloud secrets-manager secret-create --secret-type imported_cert --resources '
 The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
 
 
-
 ### Importing certificates with the API
 {: #import-certificates-api}
 {: api}
-
 
 You can import certificates programmatically by calling the {{site.data.keyword.secrets-manager_short}} API.
 
 The following example shows a query that you can use to import an existing certificate. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
-
-
 
 You can import certificate files that are in the `.pem` format. Be sure to [convert your PEM files to single-line format](/docs/secrets-manager?topic=secrets-manager-troubleshoot-pem) so that they can be parsed correctly by the {{site.data.keyword.secrets-manager_short}} API.
 {: note}
@@ -197,8 +191,6 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 ```
 {: codeblock}
 {: curl}
-
-
 
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
 
@@ -286,8 +278,6 @@ You can order certificates programmatically by calling the {{site.data.keyword.s
 The following example shows a query that you can use to order a certificate. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
 
-
-
 When you order a certificate, domain validation takes place to verify the ownership of your selected domains. This process can take a few minutes to complete.
 {: note}
 
@@ -329,13 +319,10 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 {: codeblock}
 {: curl}
 
-
-
 When you submit your certificate details, {{site.data.keyword.secrets-manager_short}} sends your request to the selected certificate authority. After a certificate is issued, you can deploy it to your integrated apps, download it, or rotate it manually. Your private key for SSL/TLS is generated directly in {{site.data.keyword.secrets-manager_short}} and stored securely. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
 
 Need to check your order status? Use the [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
 {: tip} 
-
 
 
 ## Creating private certificates
@@ -387,7 +374,6 @@ You can create a private certificate by using the {{site.data.keyword.secrets-ma
 
 
 
-
 ### Creating private certificates with the API
 {: #create-certificates-api}
 {: api}
@@ -396,9 +382,6 @@ You can generate private certificates programmatically by calling the {{site.dat
 
 The following example shows a query that you can use to create a private certificate. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
-
-
-
 
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/private_cert" \
@@ -432,8 +415,6 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 ```
 {: codeblock}
 {: curl}
-
-
 
 Need to create a private certificate with advanced options? You can use optional request parameters to specify advanced attributes for your private certificate, such as Subject Alternative Names or a time-to-live (TTL). If you omit these optional parameters, the attributes that are defined for your selected certificate template are applied. For more information, see the [API reference](/apidocs/secrets-manager#create-secret).
 {: tip}

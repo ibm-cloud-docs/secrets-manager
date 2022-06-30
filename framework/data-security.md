@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-23"
+lastupdated: "2022-06-30"
 
 keywords: Data security for Secrets Manager, byok, kyok, data storage, data encryption in Secrets Manager, customer managed keys
 
@@ -85,9 +85,11 @@ The following table describes your options for managing the encryption of your {
 
 | Encryption | Description |
 | ---- | ---- |
-| Provider-managed encryption | The data that you store in {{site.data.keyword.secrets-manager_short}} is encrypted at rest by using an IBM-managed key. This is the default setting. |
+| Provider-managed encryption | The data that you store in {{site.data.keyword.secrets-manager_short}} is encrypted at rest by using an IBM-managed key. The encryption key is stored in [{{site.data.keyword.keymanagementserviceshort}}](/catalog/services/key-protect). This is the default setting. |
 | Customer-managed encryption | The data that is stored in {{site.data.keyword.secrets-manager_short}} is encrypted at rest by using an encryption key that you own and manage. You can use a root key that you manage in [{{site.data.keyword.keymanagementserviceshort}}](/catalog/services/key-protect) or [{{site.data.keyword.hscrypto}}](/catalog/services/hs-crypto). |
 {: caption="Table 1. Encryption options for {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
+
+
 
 ### About customer-managed keys
 {: #about-encryption}

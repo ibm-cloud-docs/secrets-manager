@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-06-08"
+lastupdated: "2022-06-28"
 
 keywords: set up public certificates, public certificates engine, set up CIS, set up CA, set up Let's Encrypt
 
@@ -120,18 +120,19 @@ To create a service authorization, you can use the **Access (IAM)** section of t
 
 1. In the console, click **Manage > Access (IAM)**, and select **Authorizations**.
 2. Click **Create**.
-3. Select a source and target service for the authorization.
+3. Select a source account for the authorization.
+4. Select a source and target service for the authorization.
    
     1. From the **Source service** list, select {{site.data.keyword.secrets-manager_short}}.
     2. From the **Target service** list, select Internet Services.
-4. Specify a service instance for both the source and the target.
-5. Select the **Reader** role. With these permissions, your {{site.data.keyword.secrets-manager_short}} instance can view the {{site.data.keyword.cis_short_notm}} instance and its domains.
+5. Specify a service instance for both the source and the target.
+6. Select the **Reader** role. With these permissions, your {{site.data.keyword.secrets-manager_short}} instance can view the {{site.data.keyword.cis_short_notm}} instance and its domains.
    
    For testing purposes, you can assign the **Manager** service access role to manage all of your domains. For production environments, it is recommended that you assign the **Reader** service access role and use the [IAM Policy Management API](#authorize-specific-domains) to grant the **Manager** role only to specific domains.
    {: note}
 
-6. Click **Authorize**.
-7. Complete the steps to [add a certificate authority configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority) to your {{site.data.keyword.secrets-manager_short}} instance. 
+7. Click **Authorize**.
+8. Complete the steps to [add a certificate authority configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority) to your {{site.data.keyword.secrets-manager_short}} instance. 
 
 #### Granting service access to specific domains
 {: #authorize-specific-domains}
@@ -229,19 +230,18 @@ If the CIS instance is located in an account that allows access to only specific
 
 To assign access, you can use the **Access (IAM)** section of the console.
 
-![The figure shows a simplified IAM dashboard with numbered steps for assigning access to a CIS instance. The steps are described in the following text.](images/assign-access-service-id.svg){: caption="Figure 2. Assigning CIS access to service ID" caption-side="bottom"}
-
 1. Log in to the account in which your CIS instance is located.
 2. Click **Manage > Access (IAM)**, and select **Service IDs**.
 3. [Create a service ID API key](/docs/account?topic=account-serviceidapikeys) or select an existing one.
 4. Assign the required access to view the CIS instance, access its domains, and manage TXT records.
    
    1. In the row of the service ID, click the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> Assign access**.
-   2. Click the **IAM services** tile.
-   3. From the list of services, select **Internet Services**.
+   2. Click the **Access policy** tile.
+   3. From the list of services, select **Internet Services** and click **Next**.
    4. Select **Resources based on selected attributes**.
    5. In the **Service instance** field, select your CIS instance.
-   6. In the Service access section, select the **Manager** role. If you want to grant the service ID the ability to access the CIS instance from the Resource list in the {{site.data.keyword.cloud_notm}} console, you can also assign the **Viewer** platform role. 
+   6. In the Roles and actions section, select the **Manager** role. If you want to grant the service ID the ability to access the CIS instance from the Resource list in the {{site.data.keyword.cloud_notm}} console, you can also assign the **Viewer** platform role.
+   7. Click **Review > Add > Assign** to complete the access assignment.
 5.  Complete the steps to [add a DNS configuration](/docs/secrets-manager?topic=secrets-manager-add-dns-provider) to your {{site.data.keyword.secrets-manager_short}} instance. 
 
 

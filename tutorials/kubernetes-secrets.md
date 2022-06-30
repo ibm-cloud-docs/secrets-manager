@@ -3,7 +3,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-16"
+lastupdated: "2022-06-27"
 
 keywords: tutorial, Secrets Manager
 
@@ -430,7 +430,7 @@ After you install External Secrets Operator in your cluster, you can define {{si
 
 Finally, you can deploy an application in your cluster that uses the {{site.data.keyword.secrets-manager_short}} secret that you defined in the `external-secret-example.yml` file. At application run time, the secret data that is fetched from {{site.data.keyword.secrets-manager_short}} is converted to a Kubernetes secret that can be used by your cluster.
 
-Looking for examples on how to deploy an app? Check out the [Kubernetes Service tutorial](/docs/containers?topic=containers-cs_cluster_tutorial#cs_cluster_tutorial_lesson3) to find out more about deploying a single instance of an app.
+Looking for examples on how to deploy an app? Check out [Deploying Kubernetes-native apps in clusters](/docs/containers?topic=containers-deploy_app) to find out more about deploying a single instance of an app.
 
 
 ## (Optional) Clean up resources
