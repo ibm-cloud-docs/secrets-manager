@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022
-lastupdated: "2022-06-08"
+lastupdated: "2022-06-30"
 
 keywords: Slack alerts, Slack notifications, expiring secrets, expiring certificates
 
@@ -210,7 +210,7 @@ Now you can prepare the sample code for your Cloud Functions action.
    | Variable | Description |
    | ---- | ---- |
    | `API_KEY` | An {{site.data.keyword.cloud_notm}} API key with **Manager** access on the {{site.data.keyword.en_short}} service. |
-   | `<event_notifications_endpoint_url>` | The base URL of your {{site.data.keyword.en_short}} service instance. For more information, see the [{{site.data.keyword.en_short}} API documentation](/apidocs/event-notifications/event-notifications#event-notifications-endpoint-url).|
+   | `<event_notifications_endpoint_url>` | The base URL of your {{site.data.keyword.en_short}} service instance. For more information, see the [{{site.data.keyword.en_short}} API documentation](/apidocs/event-notifications#event-notifications-endpoint-url).|
    | `<destination_id>` | The ID of the {{site.data.keyword.en_short}} destination that you created in [step 2](#tutorial-expiring-secrets-part-3-update-en). |
    | `<slack_webhook_url>` | The incoming webhook URL that is associated with your Slack app. For example, `https://hooks.slack.com/services/<id>` For more information, see the [Slack documentation](https://api.slack.com/messaging/webhooks){: external}.|
    {: caption="Table 1. Variables to replace in your Functions code" caption-side="top"}
