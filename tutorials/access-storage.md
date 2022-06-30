@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-06-28"
+lastupdated: "2022-06-30"
 content-type: tutorial
 services: secrets-manager, cloud-object-storage
 account-plan: paid
@@ -236,7 +236,7 @@ Next, create a bucket in your Cloud Object Storage instance and set up access.
     8. In the Attribute type field, select **Service instance**.
     9. From the list of service instances, select _test-cos-instance-tutorial_ and click **Next**.
     8. Assign the **Reader**, **Content Reader**, **Object Reader**, and **Object Writer** service access roles.
-    9. Review your selections and **Add**.
+    9. Review your selections and click **Add**.
     10. Click **Assign**.
 
 3. Upload an object to the storage bucket.
