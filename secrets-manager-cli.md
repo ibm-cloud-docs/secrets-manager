@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-06-28"
+lastupdated: "2022-07-01"
 
 subcollection: secrets-manager
 
@@ -269,7 +269,6 @@ ibmcloud secrets-manager secret-create --secret-type SECRET-TYPE --resources RES
 ```sh
 ibmcloud secrets-manager secret-create \
     --secret-type=arbitrary \
-    --metadata='{"collection_type": "application/vnd.ibm.secrets-manager.secret+json", "collection_total": 1}' \
     --resources='[{"name": "example-arbitrary-secret", "description": "Extended description for this secret.", "secret_group_id": "bc656587-8fda-4d05-9ad8-b1de1ec7e712", "labels": ["dev","us-south"], "expiration_date": "2030-01-01T00:00:00Z", "payload": "secret-data"}]'
 ```
 {: pre}
