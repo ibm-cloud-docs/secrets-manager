@@ -105,7 +105,7 @@ Depending on your use case and security requirements, the key management service
 
 If you choose to work with a key that you manage, you must ensure that valid IAM authorization is assigned to the instance of {{site.data.keyword.secrets-manager_short}} that you're working with. To create that authorization, you can use the following steps.
 
-1. Create an instance of [{{site.data.keyword.keymanagementserviceshort}}](/catalog/services/key-protect) or [{{site.data.keyword.hscrypto}}](/catalog/services/hs-crypto)
+1. Create an instance of [{{site.data.keyword.keymanagementserviceshort}}](/catalog/services/key-protect) or [{{site.data.keyword.hscrypto}}](/catalog/services/hs-crypto).
 2. [Generate or import a root key](/docs/key-protect?topic=key-protect-create-root-keys) to your key management service instance.
 
     When you use {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} to create a root key, the service generates cryptographic key material that is rooted in cloud-based HSMs. Be sure that the name of your key does not contain any personal information such as your name or location.
