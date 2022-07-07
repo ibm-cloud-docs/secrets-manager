@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-06-07"
+lastupdated: "2022-07-07"
 
 keywords: IAM access for Secrets Manager, permissions for Secrets Manager, identity and access management for Secrets Manager, roles for Secrets Manager, actions for Secrets Manager, assigning access for Secrets Manager
 
@@ -116,6 +116,10 @@ If a specific role and its actions don't fit the use case that you're looking to
 | `secrets-manager.secret.delete` | Delete a secret. | Manager |
 | `secrets-manager.secrets.list` | List the secrets in your instance. | Reader, SecretsReader, Writer, Manager |
 | `secrets-manager.secret.rotate` | Rotate a secret. | Writer, Manager |
+| `secrets-manager.secret-lock.create` | Create a secret lock.   | Writer, Manager |
+| `secrets-manager.secret-lock.delete` | Delete a secret lock.  | Manager         |
+| `secrets-manager.secret-locks.list`  | List secret locks.     | Reader, SecretsReader, Writer, Manager |
+| `secrets-manager.locks.list`         | List service instance locks. | List the locks that are exist in your service instance. | Manager, Reader, Writer, SecretsReader |
 | `secrets-manager.secret-metadata.update` | Update a secret. | Writer, Manager |
 | `secrets-manager.secret-metadata.read` | View the metadata of a secret. | Reader, SecretsReader, Writer, Manager |
 | `secrets-manager.secret-policies.set` | Set secret policies. | Manager |

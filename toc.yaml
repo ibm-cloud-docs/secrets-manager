@@ -29,6 +29,7 @@ toc:
           label: Best practices
           topics:
           - best-practices/secret-organize.md
+          - best-practices/secret-rotation.md
       - topic: integrations.md
         navtitle: Integrations
       - topic: releases.md
@@ -73,6 +74,7 @@ toc:
               - topic: user-credentials.md
                 navtitle: User credentials
           - secret-access.md
+          - secret-locks.md
           - topicgroup:
               label: Rotating secrets
               topics:
@@ -187,5 +189,7 @@ toc:
           - troubleshooting/troubleshoot-ip-address.md
           - troubleshooting/troubleshoot-iam-restore.md
           - troubleshooting/troubleshoot-pem.md
+          - troubleshooting/troubleshoot-locked-iam.md
+          - troubleshooting/troubleshoot-locked-certificate.md
           - troubleshooting/troubleshoot-delete-group.md
           - troubleshooting/troubleshoot-instance-delete.md
