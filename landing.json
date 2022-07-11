@@ -39,6 +39,11 @@
     "view_more": "/docs/secrets-manager?topic=secrets-manager-release-notes",
     "tiles": [
       {
+        "date": "10 July 2022",
+        "title": "Lock secrets to prevent them from being deleted",
+        "description": "You can now attack locks to secrets to indicate that they're in use by one or more consumers."
+      },
+      {
         "date": "27 May 2022",
         "title": "Integration with Application Load Balancer for VPC",
         "description": "You can now create an authorization between Application Load Balancer for VPC (ALB) and Secrets Manager to give a load balancer access to the certificates that you centrally manage in your instance."

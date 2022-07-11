@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-07-01"
+lastupdated: "2022-07-07"
 
 keywords: change log for Secrets Manager APIs, API changelog, updates to Secrets Manager APIs
 
@@ -63,6 +63,18 @@ In this change log, you can learn about the latest changes, improvements, and up
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
 
 
+
+
+
+## 10 July 2022
+{: #2022-07-10-api}
+
+This release includes the following updates: 
+
+- Added the [Lock a secret](/apidocs/secrets-manager#lock-secret) and [Lock a secret version](/apidocs/secrets-manager#lock-secret-version) methods that can be used to create locks on a secret in your instance. For more information, see [Locking secrets](/docs/secrets-manager?topic=secrets-manager-secret-locks).
+- Added the [Unlock a secret](/apidocs/secrets-manager#unlock-secret) and [Unlock a secret version](/apidocs/secrets-manager#unlock-secret-version) methods that can be used to remove locks on a secret or specific secret version.
+- Added the [List secret locks](/apidocs/secrets-manager#get-locks), [List secret version locks](/apidocs/secrets-manager#get-secret-version-locks), and [List all secrets and locks](#list-instance-secrets-locks).
+- Updated all secrets operations to return a `locks_total` field as part of the metadata of a secret.
 
 
 

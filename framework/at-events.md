@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-05-31"
+lastupdated: "2022-07-07"
 
 keywords: activity tracker events for Secrets Manager, events, Secrets Manager actions
 
@@ -100,6 +100,21 @@ The following table lists the secret group actions that generate an event.
 | `secrets-manager.secret-group.update` | Update a secret group.              |
 | `secrets-manager.secret-group.delete` | Delete a secret group.              |
 {: caption="Table 2. List of secret group events" caption-side="top"}
+
+
+
+## Events for secret locks
+{: #at-actions-secret-locks}
+
+The following table lists the secret lock actions that generate an event.
+
+| Action                                | Description                         |
+| ------------------------------------- | ----------------------------------- |
+| `secrets-manager.secret-lock.create`  | Create a secret lock.               |
+| `secrets-manager.secret-locks.list`   | List secret locks.                  | 
+| `secrets-manager.secret-lock.delete`  | Delete a secret lock.               |
+| `secrets-manager.locks.list`          | List locks that exist in a service instance. | 
+{: caption="Table 2. List of secret lock events" caption-side="top"}
 
 
 

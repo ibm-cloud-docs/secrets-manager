@@ -63,6 +63,20 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
+## 10 July 2022
+{: #secrets-manager-jul1022}
+{: release-note}
+
+Lock secrets to prevent them from being deleted
+:   You can now attach locks to secrets to indicate that they're in use by one or more consumers. When a secret is locked, it can't be modified or deleted. For more information, check out the following resources:
+
+    - [Locking secrets](/docs/secrets-manager?topic=secrets-manager-secret-locks)
+    - [Best practices for rotating and locking secrets](/docs/secrets-manager?topic=secrets-manager-best-practices-rotate-secrets)
+
+CLI plug-in version 0.1.20
+:   Version 0.1.20 of the {{site.data.keyword.secrets-manager_short}} CLI is now available for download. To learn about the latest updates, see the [CLI change log](/docs/secrets-manager?topic=secrets-manager-cli-change-log).
+
+
 ## 8 June 2022
 {: #secrets-manager-jun822}
 {: release-note}
