@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-26"
+lastupdated: "2022-07-19"
 
 keywords: migrate from Certificate Manager, migrate to Secrets Manager, migrate certificates
 
@@ -157,3 +157,10 @@ If you're ready to start your transition to {{site.data.keyword.secrets-manager_
    {: note}
 
 4. Migrate your certificates by using the [{{site.data.keyword.cloudcerts_short}} to {{site.data.keyword.secrets-manager_short}} migration scripts](https://github.com/ibm-cloud-security/certificate-manager-to-secrets-manager){: external}.
+
+5. If you're working with {[iks]} set a default instance and secret group to ensure full feature parity.
+
+   ```
+   ibmcloud ks ingress instance register --is-default --secret-group
+   ```
+   {: codeblock}
