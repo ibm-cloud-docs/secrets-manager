@@ -158,7 +158,7 @@ If you're ready to start your transition to {{site.data.keyword.secrets-manager_
 
 4. Migrate your certificates by using the [{{site.data.keyword.cloudcerts_short}} to {{site.data.keyword.secrets-manager_short}} migration scripts](https://github.com/ibm-cloud-security/certificate-manager-to-secrets-manager){: external}.
 
-5. If you're working with {[iks]} set a default instance and secret group to ensure full feature parity.
+5. If you're working with {{site.data.keyword.containershort}} set a default instance and secret group to ensure full feature parity.
 
    ```
    ibmcloud ks ingress instance register --is-default --secret-group
