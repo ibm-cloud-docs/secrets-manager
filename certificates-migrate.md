@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-26"
+lastupdated: "2022-07-22"
 
 keywords: migrate from Certificate Manager, migrate to Secrets Manager, migrate certificates
 
@@ -141,6 +141,9 @@ Before you begin, consider the following items and service limitations that migh
 
 If you're ready to start your transition to {{site.data.keyword.secrets-manager_short}}, you can use automation tools to begin your migration. Start by setting up your {{site.data.keyword.secrets-manager_short}} service instance.
 
+If you have a cluster that is integrated with {{site.data.keyword.cloudcerts_short}}, ensure that you read through the [migration steps in the {{site.data.keyword.containershort}} docs](/docs/containers?topic=containers-ingress-types#migrate-secrets-mgr) to ensure that you have full feature parity. 
+{: note}
+
 1. [Create a {{site.data.keyword.secrets-manager_short}} service instance](/docs/secrets-manager?topic=secrets-manager-create-instance).
 2. Determine an access hierarchy for your certificates within {{site.data.keyword.secrets-manager_short}}.
 
@@ -157,3 +160,5 @@ If you're ready to start your transition to {{site.data.keyword.secrets-manager_
    {: note}
 
 4. Migrate your certificates by using the [{{site.data.keyword.cloudcerts_short}} to {{site.data.keyword.secrets-manager_short}} migration scripts](https://github.com/ibm-cloud-security/certificate-manager-to-secrets-manager){: external}.
+
+
