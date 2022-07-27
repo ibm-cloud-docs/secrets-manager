@@ -205,7 +205,7 @@ ibmcloud secrets-manager secret-group-metadata-update \
 
 Delete a secret group by specifying the ID of the secret group.
 
-To delete a secret group, it must be empty. If you need to remove a secret group that contains secrets, you must first [delete the secrets](#delete-secret) that are associated with the group.
+To delete a secret group, it must be empty. If you need to remove a secret group that contains secrets, you must first [delete the secrets](#secrets-manager-cli-secret-delete-command) that are associated with the group.
 {: note}
 
 
@@ -548,8 +548,8 @@ ibmcloud secrets-manager secret-version --secret-type SECRET-TYPE --id ID --vers
 
     The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
 
-To find the version ID of a secret, use the [Get secret metadata](#get-secret-metadata) method and check the response details. Required.
-{: note}
+    To find the version ID of a secret, use the [Get secret metadata](#get-secret-metadata) method and check the response details. Required.
+    {: note}
 
 #### Examples
 {: #secrets-manager-cli-secret-version-command-examples}
@@ -592,7 +592,7 @@ ibmcloud secrets-manager secret-version-update --secret-type SECRET-TYPE --id ID
 
     The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
 
-    To find the version ID of a secret, use the [Get secret metadata](#get-secret-metadata) method and check the response details. Required.
+    To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-delete-command) method and check the response details. Required.
     {: note}
 
 --action (string)
@@ -723,7 +723,7 @@ ibmcloud secrets-manager secret-version-metadata --secret-type SECRET-TYPE --id 
 
     The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
 
-To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details. Required.
+To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details.
 {: note}
 
 #### Examples
@@ -968,10 +968,11 @@ ibmcloud secrets-manager secret-lock \
 
 Delete one or more locks that are associated with the current version of a secret.
 
-A successful request deletes the locks that you specify. To remove all locks, you can pass `{"locks": ["*"]}` in in the request body. Otherwise, specify the names of the locks that you want to delete. For example, `{"locks":
+A successful request deletes the locks that you specify. To remove all locks, you can pass `{"locks": ["*"]}` in the request body. Otherwise, specify the names of the locks that you want to delete. For example, `{"locks":
 ["lock1", "lock2"]}`.
 
-**Note:** A secret is considered unlocked and able to be revoked or deleted only after all of its locks are removed. To understand whether a secret contains locks, check the `locks_total` field that is returned as part of the metadata of your secret.
+A secret is considered unlocked and able to be revoked or deleted only after all of its locks are removed. To understand whether a secret contains locks, check the `locks_total` field that is returned as part of the metadata of your secret.
+{: note}
 
 ```sh
 ibmcloud secrets-manager secret-unlock --secret-type SECRET-TYPE --id ID [--locks LOCKS] 
@@ -1041,12 +1042,17 @@ ibmcloud secrets-manager secret-version-locks --secret-type SECRET-TYPE --id ID 
 --limit (int64)
 :   The number of secrets with locks to retrieve. By default, list operations return the first 25 items. To retrieve a different set of items, use `limit` with `offset` to page through your available resources.
 
+    The maximum value is `100`. The minimum value is `1`.
+
 --offset (int64)
 :   The number of secrets to skip. By specifying `offset`, you retrieve a subset of items that starts with the `offset` value. Use `offset` with `limit` to page through your available resources.
+
+    The minimum value is `0`.
 
 --search (string)
 :   Filter locks that contain the specified string in the field "name".
 
+    The maximum length is `64` characters.
 
 #### Examples
 {: #secrets-manager-secret-version-locks-cli-examples}
@@ -1135,11 +1141,12 @@ ibmcloud secrets-manager secret-version-lock --secret-type SECRET-TYPE --id ID -
     The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
 
 --version-id (string)
-:   The v4 UUID that uniquely identifies the secret version. You can also use `previous` to retrieve the previous version.
-
-**Note:** To find the version ID of a secret, use the [Get secret metadata](#get-secret-metadata) method and check the response details. Required.
+:   The v4 UUID that uniquely identifies the secret version. You can also use `previous` to retrieve the previous version. Required.
 
     The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
+
+    To find the version ID of a secret, use the [Get secret metadata](#get-secret-metadata) method and check the response details.
+    {: note} 
 
 --locks ([LockSecretBodyLocksItem[]](#cli-lock-secret-body-locks-item-example-schema))
 :   The lock data to be attached to a secret version.
@@ -1755,7 +1762,7 @@ ibmcloud secrets-manager notifications-registration-delete
 
 
 #### Examples
-{: {: #secrets-manager-cli-notifications-registration-delete-command-examples}
+{: #secrets-manager-cli-notifications-registration-delete-command-examples}
 
 ```sh
 ibmcloud secrets-manager notifications-registration-delete
