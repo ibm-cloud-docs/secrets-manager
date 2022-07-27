@@ -70,7 +70,7 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 
 Version 0.1.21 was released on 27 July 2022. This release includes the following updates:
 
-- Fixed an issue where the CLI response was returned as empty when labels are added through the UI.
+- Fixed an issue where the [Get secret command](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-command) returns empty if labels are present.
 
 ## Version 0.1.20
 {: #0.1.20}
