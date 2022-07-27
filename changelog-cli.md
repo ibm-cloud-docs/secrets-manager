@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-07-07"
+lastupdated: "2022-07-27"
 
 keywords: change log for Secrets Manager CLI, CLI changelog, updates to Secrets Manager CLI
 
@@ -65,6 +65,12 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 
 
 
+## Version 0.1.21
+{: #0.1.21}
+
+Version 0.1.21 was released on 27 July 2022. This release includes the following updates:
+
+- Fixed an issue where the CLI response was returned as empty when labels are added through the UI.
 
 ## Version 0.1.20
 {: #0.1.20}
