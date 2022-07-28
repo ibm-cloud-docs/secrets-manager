@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-07-27"
+lastupdated: "2022-07-28"
 
 subcollection: secrets-manager
 
@@ -723,8 +723,8 @@ ibmcloud secrets-manager secret-version-metadata --secret-type SECRET-TYPE --id 
 
     The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
 
-To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details.
-{: note}
+    To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details.
+    {: note}
 
 #### Examples
 {: #secrets-manager-cli-secret-version-metadata-command-examples}
@@ -968,8 +968,7 @@ ibmcloud secrets-manager secret-lock \
 
 Delete one or more locks that are associated with the current version of a secret.
 
-A successful request deletes the locks that you specify. To remove all locks, you can pass `{"locks": ["*"]}` in the request body. Otherwise, specify the names of the locks that you want to delete. For example, `{"locks":
-["lock1", "lock2"]}`.
+A successful request deletes the locks that you specify. To remove all locks, you can pass `{"locks": ["*"]}` in the request body. Otherwise, specify the names of the locks that you want to delete. For example, `{"locks": ["lock1", "lock2"]}`.
 
 A secret is considered unlocked and able to be revoked or deleted only after all of its locks are removed. To understand whether a secret contains locks, check the `locks_total` field that is returned as part of the metadata of your secret.
 {: note}
@@ -1206,7 +1205,7 @@ ibmcloud secrets-manager secret-version-unlock --secret-type SECRET-TYPE --id ID
 
     The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
 
-    To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details. Required.
+    To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details.
     {: note}
 
 --locks ([]string)
