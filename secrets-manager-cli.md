@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-07-01"
+lastupdated: "2022-07-28"
 
 subcollection: secrets-manager
 
@@ -208,10 +208,10 @@ Delete a secret group by specifying the ID of the secret group.
 To delete a secret group, it must be empty. If you need to remove a secret group that contains secrets, you must first [delete the secrets](#secrets-manager-cli-secret-delete-command) that are associated with the group.
 {: note}
 
+
 ```sh
 ibmcloud secrets-manager secret-group-delete --id ID [--force]
 ```
-
 
 #### Command options
 {: #secrets-manager-secret-group-delete-cli-options}
@@ -348,7 +348,8 @@ ibmcloud secrets-manager all-secrets [--limit LIMIT] [--offset OFFSET] [--search
 --groups ([]string)
 :   Filter secrets by groups.
 
-    You can apply multiple filters by using a comma-separated list of secret group IDs. If you need to filter secrets that are in the default secret group, use the `default` keyword.
+- You can apply multiple filters by using a comma-separated list of secret group IDs. If you need to filter secrets that are in the default secret group, use the `default` keyword.
+
 
 #### Examples
 {: #secrets-manager-cli-all-secrets-command-examples}
@@ -547,7 +548,8 @@ ibmcloud secrets-manager secret-version --secret-type SECRET-TYPE --id ID --vers
 
     The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
 
-    **Note:** To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details.
+    To find the version ID of a secret, use the [Get secret metadata](#get-secret-metadata) method and check the response details. Required.
+    {: note}
 
 #### Examples
 {: #secrets-manager-cli-secret-version-command-examples}
@@ -586,11 +588,12 @@ ibmcloud secrets-manager secret-version-update --secret-type SECRET-TYPE --id ID
     The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
 
 --version-id (string)
-:   The v4 UUID that uniquely identifies the secret version. You can also use `previous` to retrieve the previous version. Required.
+:   The v4 UUID that uniquely identifies the secret version. You can also use `previous` to retrieve the previous version.Required.
 
     The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
 
-    **Note:** To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details.
+    To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-delete-command) method and check the response details. Required.
+    {: note}
 
 --action (string)
 :   The action to perform on the specified secret version. Required.
@@ -720,7 +723,8 @@ ibmcloud secrets-manager secret-version-metadata --secret-type SECRET-TYPE --id 
 
     The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
 
-    **Note:** To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details.
+    To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details.
+    {: note}
 
 #### Examples
 {: #secrets-manager-cli-secret-version-metadata-command-examples}
@@ -821,6 +825,7 @@ List the locks that are associated with a specified secret.
 ibmcloud secrets-manager locks --secret-type SECRET-TYPE --id ID [--limit LIMIT] [--offset OFFSET] [--search SEARCH] 
 ```
 
+
 #### Command options
 {: #secrets-manager-locks-cli-options}
 
@@ -848,6 +853,7 @@ ibmcloud secrets-manager locks --secret-type SECRET-TYPE --id ID [--limit LIMIT]
 :   Filter locks that contain the specified string in the field "name".
 
     The maximum length is `64` characters.
+
 
 #### Examples
 {: #secrets-manager-cli-locks-examples}
@@ -962,7 +968,7 @@ ibmcloud secrets-manager secret-lock \
 
 Delete one or more locks that are associated with the current version of a secret.
 
-A successful request deletes the locks that you specify. To remove all locks, you can pass `{"locks": ["*"]}` in in the request body. Otherwise, specify the names of the locks that you want to delete. For example, `{"locks": ["lock1", "lock2"]}`.
+A successful request deletes the locks that you specify. To remove all locks, you can pass `{"locks": ["*"]}` in the request body. Otherwise, specify the names of the locks that you want to delete. For example, `{"locks": ["lock1", "lock2"]}`.
 
 A secret is considered unlocked and able to be revoked or deleted only after all of its locks are removed. To understand whether a secret contains locks, check the `locks_total` field that is returned as part of the metadata of your secret.
 {: note}
@@ -992,6 +998,7 @@ ibmcloud secrets-manager secret-unlock --secret-type SECRET-TYPE --id ID [--lock
 
 #### Examples
 {: #secrets-manager-secret-unlock-cli-examples}
+
 ```sh
 ibmcloud secrets-manager secret-unlock \
     --secret-type=arbitrary \
@@ -1026,9 +1033,10 @@ ibmcloud secrets-manager secret-version-locks --secret-type SECRET-TYPE --id ID 
 --version-id (string)
 :   The v4 UUID that uniquely identifies the secret version. You can also use `previous` to retrieve the previous version. Required.
 
-    **Note:** To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details.
-
     The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
+
+    To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details.
+    {: note}
 
 --limit (int64)
 :   The number of secrets with locks to retrieve. By default, list operations return the first 25 items. To retrieve a different set of items, use `limit` with `offset` to page through your available resources.
@@ -1134,9 +1142,10 @@ ibmcloud secrets-manager secret-version-lock --secret-type SECRET-TYPE --id ID -
 --version-id (string)
 :   The v4 UUID that uniquely identifies the secret version. You can also use `previous` to retrieve the previous version. Required.
 
-    **Note:** To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details.
-
     The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
+
+    To find the version ID of a secret, use the [Get secret metadata](#get-secret-metadata) method and check the response details.
+    {: note} 
 
 --locks ([LockSecretBodyLocksItem[]](#cli-lock-secret-body-locks-item-example-schema))
 :   The lock data to be attached to a secret version.
@@ -1167,7 +1176,8 @@ ibmcloud secrets-manager secret-version-lock \
 
 Delete one or more locks that are associated with the specified secret version.
 
-A successful request deletes the locks that you specify. To remove all locks, you can pass `{"locks": ["*"]}` in in the request body. Otherwise, specify the names of the locks that you want to delete. For example, `{"locks":["lock-1", "lock-2"]}`.
+A successful request deletes the locks that you specify. To remove all locks, you can pass `{"locks": ["*"]}` in in the request body. Otherwise, specify the names of the locks that you want to delete. For example, `{"locks":
+["lock-1", "lock-2"]}`.
 
 A secret is considered unlocked and able to be revoked or deleted only after all of its locks are removed. To understand whether a secret contains locks, check the `locks_total` field that is returned as part of the metadata of your secret.
 {: note}
@@ -1191,11 +1201,12 @@ ibmcloud secrets-manager secret-version-unlock --secret-type SECRET-TYPE --id ID
     The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
 
 --version-id (string)
-:   The v4 UUID that uniquely identifies the secret version. You can also use `previous` to retrieve the previous version. Required
-
-    **Note:** To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details.
+:   The v4 UUID that uniquely identifies the secret version. You can also use `previous` to retrieve the previous version. Required.
 
     The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
+
+    To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details.
+    {: note}
 
 --locks ([]string)
 :   A comma-separated list of locks to delete.
@@ -1222,6 +1233,7 @@ List the lock details that are associated with all secrets in your Secrets Manag
 ```sh
 ibmcloud secrets-manager all-locks [--limit LIMIT] [--offset OFFSET] [--search SEARCH] [--groups GROUPS] 
 ```
+
 
 #### Command options
 {: #secrets-manager-all-locks-cli-options}
@@ -1666,6 +1678,7 @@ ibmcloud secrets-manager config-element-delete --secret-type SECRET-TYPE --confi
 --config-name (string)
 :   The name of your configuration. Required.
 
+
 #### Examples
 {: #secrets-manager-cli-config-element-delete-command-examples}
 
@@ -1766,6 +1779,7 @@ A successful request sends a test event to the Event Notifications instance. For
 ibmcloud secrets-manager notifications-test 
 ```
 
+
 #### Examples
 {: #secrets-manager-cli-notifications-test-command-examples}
 
@@ -1779,12 +1793,27 @@ ibmcloud secrets-manager notifications-test
 
 The following schema examples represent the data that you need to specify for a command option. These examples model the data structure and include placeholder values for the expected value type. When you run a command, replace these values with the values that apply to your environment as appropriate.
 
+### CollectionMetadata
+{: #cli-collection-metadata-example-schema}
+
+The following example shows the format of the CollectionMetadata object.
+
+```json
+
+{
+  "collection_type" : "application/vnd.ibm.secrets-manager.secret.group+json",
+  "collection_total" : 1
+}
+```
+{: codeblock}
+
 ### ConfigAction
 {: #cli-config-action-example-schema}
 
 The following example shows the format of the ConfigAction object.
 
 ```json
+
 {
   "common_name" : "example.com",
   "alt_names" : "exampleString",
@@ -1816,6 +1845,7 @@ The following example shows the format of the ConfigAction object.
 The following example shows the format of the ConfigElementDefConfig object.
 
 ```json
+
 {
   "cis_crn" : "crn:v1:bluemix:public:internet-svcs:global:a/<account-id>:<service-instance>::",
   "cis_apikey" : "cis_apikey_value"
@@ -1829,6 +1859,7 @@ The following example shows the format of the ConfigElementDefConfig object.
 The following example shows the format of the EngineConfig object.
 
 ```json
+
 {
   "api_key" : "API_KEY"
 }
@@ -1841,6 +1872,7 @@ The following example shows the format of the EngineConfig object.
 The following example shows the format of the LockSecretBodyLocksItem[] object.
 
 ```json
+
 [ {
   "name" : "lock-1",
   "description" : "lock for consumer-1",
@@ -1857,6 +1889,7 @@ The following example shows the format of the LockSecretBodyLocksItem[] object.
 The following example shows the format of the SecretAction object.
 
 ```json
+
 {
   "payload" : "exampleString"
 }
@@ -1869,6 +1902,7 @@ The following example shows the format of the SecretAction object.
 The following example shows the format of the SecretGroupMetadataUpdatable[] object.
 
 ```json
+
 [ {
   "name" : "updated-secret-group-name",
   "description" : "Updated description for this group."
@@ -1882,6 +1916,7 @@ The following example shows the format of the SecretGroupMetadataUpdatable[] obj
 The following example shows the format of the SecretGroupResource[] object.
 
 ```json
+
 [ {
   "name" : "my-secret-group",
   "description" : "Extended description for this group."
@@ -1895,6 +1930,7 @@ The following example shows the format of the SecretGroupResource[] object.
 The following example shows the format of the SecretMetadata[] object.
 
 ```json
+
 [ {
   "labels" : [ "dev", "us-south" ],
   "name" : "updated-secret-name",
@@ -1910,6 +1946,7 @@ The following example shows the format of the SecretMetadata[] object.
 The following example shows the format of the SecretPolicyRotation[] object.
 
 ```json
+
 [ {
   "type" : "application/vnd.ibm.secrets-manager.secret.policy+json",
   "rotation" : {
@@ -1926,6 +1963,7 @@ The following example shows the format of the SecretPolicyRotation[] object.
 The following example shows the format of the SecretResource[] object.
 
 ```json
+
 [ {
   "name" : "example-arbitrary-secret",
   "description" : "Extended description for this secret.",
