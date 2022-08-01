@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-06-28"
+lastupdated: "2022-08-01"
 
 keywords: set up public certificates, public certificates engine, set up CIS, set up CA, set up Let's Encrypt
 
@@ -104,13 +104,14 @@ A DNS provider is the service that is used to manage the domains that you own. Y
 ### Granting service access to CIS
 {: #authorize-cis}
 
-If you manage your domains in {{site.data.keyword.cis_short}}, you must assign access to {{site.data.keyword.secrets-manager_short}} so that it can validate the ownership. To authorize {{site.data.keyword.secrets-manager_short}} to view a {{site.data.keyword.cis_short_notm}} instance and its domains, you can [create an authorization between the services](/docs/account?topic=account-serviceauth) if your instances are located in the same account.
+If you manage your domains in {{site.data.keyword.cis_short}}, you must assign access to {{site.data.keyword.secrets-manager_short}} so that it can validate the ownership. To authorize {{site.data.keyword.secrets-manager_short}} to manage a {{site.data.keyword.cis_short_notm}} instance and its domains, you can [create an authorization between the services](/docs/account?topic=account-serviceauth) if your instances are located in the same account.
 
 If you're working with a CIS instance that is located in another account, you can use an API key to manage access. For more information, see [Granting service access by using an API key](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#authorize-cis-another-account).
 {: note}
 
-#### Granting service access to all domains
-{: #authorize-all-domains}
+#### Granting service access to CIS in the UI
+{: #authorize-domains}
+{: ui}
 
 You can grant {{site.data.keyword.secrets-manager_short}} the ability to access your CIS instance and all of its domains by creating a service authorization between the services. Both your {{site.data.keyword.secrets-manager_short}} and CIS instance must be in the same account.
 
@@ -126,102 +127,19 @@ To create a service authorization, you can use the **Access (IAM)** section of t
     1. From the **Source service** list, select {{site.data.keyword.secrets-manager_short}}.
     2. From the **Target service** list, select Internet Services.
 5. Specify a service instance for both the source and the target.
-6. Select the **Reader** role. With these permissions, your {{site.data.keyword.secrets-manager_short}} instance can view the {{site.data.keyword.cis_short_notm}} instance and its domains.
-   
-   For testing purposes, you can assign the **Manager** service access role to manage all of your domains. For production environments, it is recommended that you assign the **Reader** service access role and use the [IAM Policy Management API](#authorize-specific-domains) to grant the **Manager** role only to specific domains.
+6. Select the **Manager** role. With these permissions, your {{site.data.keyword.secrets-manager_short}} instance can manage the {{site.data.keyword.cis_short_notm}} instance and its domains.
+7. Optional: To grant access to a specific domain, select **Resources based on selected attributes** and provide the **Domain ID** for the CIS instance.
+
+   For production environments, it is recommended that you assign access only to the specific domain(s).
    {: note}
+   
+8. Click **Authorize**
+9. Complete the steps to [add a certificate authority configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority) to your {{site.data.keyword.secrets-manager_short}} instance. 
 
-7. Click **Authorize**.
-8. Complete the steps to [add a certificate authority configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority) to your {{site.data.keyword.secrets-manager_short}} instance. 
-
-#### Granting service access to specific domains
-{: #authorize-specific-domains}
-
-To grant access to specific domains, you can use the [IAM Policy Management API](/apidocs/iam-policy-management#create-a-policy) to assign the **Manager** service role. With **Manager** access, {{site.data.keyword.secrets-manager_short}} can manage the DNS records for the individual domains that exist in your {{site.data.keyword.cis_short_notm}} instance.
-
-1. Create a service authorization with **Reader** access between your {{site.data.keyword.secrets-manager_short}} and CIS instances.
-
-    You can follow the steps in the [previous section](#authorize-all-domains) to create an authorization. With these permissions, your {{site.data.keyword.secrets-manager_short}} instance can access the CIS instance and its domains.
-
-2. Create another authorization with **Manager** access to a specific domain.
-
-    The following example shows a query that you can use to assign access between {{site.data.keyword.secrets-manager_short}} and your selected domains.
-
-    ```sh
-    curl -X POST https://iam.cloud.ibm.com/v1/policies \
-    -H 'Accept: application/json' \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer {IAM_token}' \
-    -d '{ 
-        "type": "authorization", 
-        "subjects": [ 
-            { 
-                "attributes": [ 
-                    { 
-                        "name": "serviceName", 
-                        "value": "secrets-manager" 
-                    },
-                    {
-                        "name": "accountId", 
-                        "value": "<account_id>" 
-                    }, 
-                    { 
-                        "name": "serviceInstance", 
-                        "value": "<secrets_manager_instance_id>" 
-                    } 
-                ] 
-            } 
-        ], 
-        "roles": [
-            { 
-                "role_id": "crn:v1:bluemix:public:iam::::serviceRole:Manager" 
-            }
-        ], 
-        "resources": [ 
-            { 
-                "attributes": [ 
-                    { 
-                        "name": "serviceName", 
-                        "value": "internet-svcs" 
-                    }, 
-                    { 
-                        "name": "accountId",
-                        "value": "<account_id>"
-                    }, 
-                    {
-                        "name": "serviceInstance",
-                        "value": "<cis_instance_id>"
-                    }, 
-                    {
-                        "name": "domainId", 
-                        "value": "<domain_id>" 
-                    },
-                    { 
-                        "name": "cfgType", 
-                        "value": "reliability" 
-                    }, 
-                    { 
-                        "name": "subScope", 
-                        "value": "dnsRecord" 
-                    } 
-                ] 
-            }
-        ]
-    }'
-    ```
-    {: codeblock}
-
-    | Variable | Descriptions |
-    | -------- | ------------ |
-    | `IAM_token` | A valid IAM token. You can find the value by using the {{site.data.keyword.cloud_notm}} CLI: `ibmcloud iam oauth-tokens`. |
-    | `account_id` | The ID for the account where the {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cis_short_notm}} instances exist. You can find the value by navigating to **{{site.data.keyword.cloud_notm}} > Manage > Account > Account Settings** or by using the {{site.data.keyword.cloud_notm}} CLI: `ibmcloud account show`. |
-    | `secrets_manager_instance_id` | The ID of your {{site.data.keyword.secrets-manager_short}} instance. To find the value, use the {{site.data.keyword.cloud_notm}} CLI: `ibmcloud resource service-instance "Instance name"`. |
-    | `cis_instance_id` | The ID of your {{site.data.keyword.cis_short_notm}} instance. To find the value, use the {{site.data.keyword.cloud_notm}} CLI: `ibmcloud resource service-instance "Instance name"`. |
-    | `domain_id` | The ID of your domain as it is found in {{site.data.keyword.cis_short_notm}}. To find the value, use the {{site.data.keyword.cloud_notm}} CLI to run `ibmcloud cis domains`. To manage multiple domains, modify the `resources` array. |
-    {: caption="Table 3. Parameter descriptions" caption-side="top"}
 
 #### Granting service access by using an API key
 {: #authorize-cis-another-account}
+{: api}
 
 If the CIS instance that you'd like to access is located in another account, you can create an authorization between the services by providing an API key. You need the Cloud Resource Name (CRN) of the CIS instance that contains your domains, and an API key with the correct level of access to your instance. The API key must grant {{site.data.keyword.secrets-manager_short}} the ability to view the CIS instance, access its domains, and manage TXT records.
 

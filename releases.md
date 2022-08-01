@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-07-27"
+lastupdated: "2022-08-01"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -62,6 +62,16 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 {: shortdesc}
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
+
+
+## 1 August 2022
+{: #secrets-manager-aug0122}
+{: release-note}
+
+Improved authorization flow
+:   The documentation for granting service access to domains is now updated to simplify the required flow. To try out the latest updates, see [Granting service access to CIS](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#authorize-domains).
+
+
 
 ## 27 July 2022
 {: #secrets-manager-jul2722}
