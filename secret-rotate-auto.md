@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-06-24"
+lastupdated: "2022-08-03"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -106,7 +106,7 @@ If you need more control over the rotation frequency of a secret, you can use th
 ### Setting an automatic rotation policy for public certificates
 {: #schedule-auto-rotate-public-cert-ui}
 
-If you prefer to schedule your public SSL/TLS certificates to be automatically renewed, you can enable automatic rotation for certificates when you order them, or by editing the details of an existing certificate. In the certificate's next rotation cycle, {{site.data.keyword.secrets-manager_short}} reorders the certificate 31 days before its expiry date. 
+If you prefer to schedule your public SSL/TLS certificates to be automatically renewed, you can enable automatic rotation for certificates when you order them, or by editing the details of an existing certificate. In the certificate's next rotation cycle, {{site.data.keyword.secrets-manager_short}} begins attempting to reorder the certificate 31 days before its expiry date. The service continues to attempt to renew the certificate daily until it is successful.
 
 Certificates that expire in less than 31 days must also be [rotated manually](/docs/secrets-manager?topic=secrets-manager-manual-rotation) before rotation becomes automatic in the following cycles.
 {: note}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-06-20"
+lastupdated: "2022-08-02"
 
 keywords: Secrets Manager integrations, enable integration, create authorization, service to service, grant access between services, using Secrets Manager with other services, authorize Secrets Manager
 
@@ -90,10 +90,8 @@ To authorize a supported {{site.data.keyword.cloud_notm}} service to access your
 
     1. From the **Source service** list, select the service that you want to integrate with {{site.data.keyword.secrets-manager_short}}.
     2. From the **Target service** list, select {{site.data.keyword.secrets-manager_short}}.
-5. Select the **SecretsReader** role.
-
-    With SecretsReader permissions, the source service can browse and retrieve the secrets that are available in your {{site.data.keyword.secrets-manager_short}} instance. The source service can't create secrets on your behalf.
-
-    Some integrations might require a service role that is higher than **SecretsReader**. To understand what service role is recommended, see the documentation for the service that you want to integrate with {{site.data.keyword.secrets-manager_short}}.
+5. Select the required service access role.
+    
+    Some integrations might require a specific role. To understand which service role is needed, see the documentation for the service that you want to integrate with {{site.data.keyword.secrets-manager_short}}.
     {: note}
 6. Click **Authorize**.

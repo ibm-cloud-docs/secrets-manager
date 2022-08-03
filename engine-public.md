@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-08-01"
+lastupdated: "2022-08-03"
 
 keywords: set up public certificates, public certificates engine, set up CIS, set up CA, set up Let's Encrypt
 
@@ -109,9 +109,9 @@ If you manage your domains in {{site.data.keyword.cis_short}}, you must assign a
 If you're working with a CIS instance that is located in another account, you can use an API key to manage access. For more information, see [Granting service access by using an API key](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#authorize-cis-another-account).
 {: note}
 
-#### Granting service access to CIS in the UI
+#### Granting service access to CIS
 {: #authorize-domains}
-{: ui}
+
 
 You can grant {{site.data.keyword.secrets-manager_short}} the ability to access your CIS instance and all of its domains by creating a service authorization between the services. Both your {{site.data.keyword.secrets-manager_short}} and CIS instance must be in the same account.
 
@@ -137,9 +137,8 @@ To create a service authorization, you can use the **Access (IAM)** section of t
 9. Complete the steps to [add a certificate authority configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority) to your {{site.data.keyword.secrets-manager_short}} instance. 
 
 
-#### Granting service access by using an API key
+#### Granting service access for another account
 {: #authorize-cis-another-account}
-{: api}
 
 If the CIS instance that you'd like to access is located in another account, you can create an authorization between the services by providing an API key. You need the Cloud Resource Name (CRN) of the CIS instance that contains your domains, and an API key with the correct level of access to your instance. The API key must grant {{site.data.keyword.secrets-manager_short}} the ability to view the CIS instance, access its domains, and manage TXT records.
 
