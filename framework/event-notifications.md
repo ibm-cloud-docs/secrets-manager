@@ -124,7 +124,6 @@ The following table lists the {{site.data.keyword.secrets-manager_short}} events
 
 [^na-1]: Event is not applicable because there isn't a time-to-live (TTL) limit for this secret type.
 [^na-2]: Event is not applicable because there isn't a time-to-live (TTL) limit for this secret type.
-[^na-3]: Event is not applicable because there isn't a time-to-live (TTL) limit for this secret type.
 
 
 ## Enabling notifications
