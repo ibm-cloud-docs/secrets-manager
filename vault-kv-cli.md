@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-06-27"
+lastupdated: "2022-08-09"
 
 keywords: Secrets Manager Vault, Vault CLI, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager, KV, key-value, KV CLI
 
@@ -423,6 +423,68 @@ Success! Data written to: ibmcloud/kv/undelete/my-test-kv-secret
 {: screen}
 
 
+## Create or update metadata key-value secret
+{: #update-kv-secret-cli}
+
+Create or update metadata of a key-value secret.
+
+```sh
+vault kv metadata put [-format=FORMAT] [METADATA_KEY_VALUE_PAIRS] ibmcloud/kv/SECRET_NAME 
+```
+{: codeblock}
+
+
+Create or update metadata of a key-value secret in a custom group.
+
+```sh
+vault kv metadata put [-format=FORMAT] [METADATA_KEY_VALUE_PAIRS] ibmcloud/kv/GROUP_ID/SECRET_NAME 
+```
+{: codeblock}
+
+### Prerequisites
+{: #update-kv-secret-cli-prereq}
+
+You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manager-iam) to create a key-value secret.
+
+### Command options
+{: #update-kv-secret-cli-options}
+
+-format
+:   Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
+
+### Example
+{: #update-kv-secret-cli-example}
+
+Create or update the payload of a key-value secret. 
+
+```sh
+vault kv metadata put -custom-metadata=key1=value1 -custom-metadata=key2=value2 ibmcloud/kv/mysecret
+```
+{: pre}
+
+Create or update the payload of a key-value secret in a custom group.
+
+```sh
+vault kv metadata put -custom-metadata=key1=value1 -custom-metadata=key2=value2 ibmcloud/kv/9426e546-83de-4da5-9631-d70c993186c8/mysecret 
+```
+{: pre}
+
+### Output
+{: #update-kv-secret-cli-output}
+
+The command to create a new version of a `kv` secret returns the following output:
+
+```plaintext
+Key              Value
+---              -----
+created_time     2022-03-08T18:32:43.610242127Z
+deletion_time    n/a
+destroyed        false
+version          2
+```
+{: screen}
+
+
 ## Read metadata of key-value secret
 {: #kv-metadata-cli}
 
@@ -482,6 +544,7 @@ Key                     Value
 cas_required            false
 created_time            2022-03-04T17:08:34.406336489Z
 current_version         3
+custom_metadata         map[key1:value1 key2:value2]
 delete_version_after    0s
 max_versions            10
 oldest_version          0
@@ -624,3 +687,66 @@ my-updated-kv-secret
 ```
 {: screen}
 
+
+
+
+## Patch a key-value secret
+{: #patch-kv-secret-cli}
+
+Patch a version of a key-value secret.
+
+```sh
+vault kv patch [-format=FORMAT] ibmcloud/kv/SECRET_NAME [KEY_VALUE_PAIRS]
+```
+{: codeblock}
+
+
+Create a version of a key-value secret in a custom group.
+
+```sh
+vault kv patch [-format=FORMAT] ibmcloud/kv/GROUP_ID/SECRET_NAME [KEY_VALUE_PAIRS]
+```
+{: codeblock}
+
+### Prerequisites
+{: #patch-kv-secret-cli-prereq}
+
+You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manager-iam) to create a key-value secret.
+
+### Command options
+{: #patch-kv-secret-cli-options}
+
+-format
+:   Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
+
+### Example
+{: #patch-kv-secret-cli-example}
+
+Create or update the payload of a key-value secret. 
+
+```sh
+vault kv patch ibmcloud/kv/example-kv-secret key1=value1 key2=value2 
+```
+{: pre}
+
+Create or update the payload of a key-value secret in a custom group.
+
+```sh
+vault kv patch ibmcloud/kv/9426e546-83de-4da5-9631-d70c993186c8/example-kv-secret key1=value1 key2=value2 
+```
+{: pre}
+
+### Output
+{: #patch-kv-secret-cli-output}
+
+The command to create a new version of a `kv` secret returns the following output:
+
+```plaintext
+Key              Value
+---              -----
+created_time     2022-03-08T18:32:43.610242127Z
+deletion_time    n/a
+destroyed        false
+version          2
+```
+{: screen}
