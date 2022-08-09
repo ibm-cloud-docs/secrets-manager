@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-03-07"
+lastupdated: "2022-08-09"
 
 keywords: key:value, key/value, key-value, storing key:value secrets
 
@@ -136,7 +136,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
           "labels": [
             "dev",
             "us-south"
-          ]
+          ],
         }
         ]
     }'
