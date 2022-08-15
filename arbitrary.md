@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-08-09"
+lastupdated: "2022-08-15"
 
 keywords: arbitrary secrets, arbitrary text, custom secrets
 
@@ -145,7 +145,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
           "labels": [
             "dev",
             "us-south"
-          ],          
+          ]          
         }
         ]
     }'
