@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-08-09"
+lastupdated: "2022-08-16"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
 
@@ -184,7 +184,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
           "labels": [
             "dev",
             "us-south"
-          ],   
+          ]     
         }
         ]
     }'
@@ -301,7 +301,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
           "labels": [
             "dev",
             "us-south"
-          ],            
+          ]              
           "common_name": "example.com",
           "alt_names": [
             "www.example.com"
@@ -403,7 +403,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
           "labels": [
             "dev",
             "us-south"
-          ],            
+          ]              
           "rotation": {
             "auto_rotate": true,
             "interval": 1,

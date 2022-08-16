@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-08-15"
+lastupdated: "2022-08-16"
 
 keywords: username, password, user credentials, store password
 
@@ -113,6 +113,7 @@ You can store a username and password programmatically by calling the {{site.dat
 
 The following example shows a query that you can use to create a username and password secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 
+
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password" \
     -H "Authorization: Bearer {IAM_token}" \
@@ -135,6 +136,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
             "dev",
             "us-south"
           ]
+          }
         }
         ]
     }'
