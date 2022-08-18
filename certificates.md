@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-08-16"
+lastupdated: "2022-08-18"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
 
@@ -492,7 +492,7 @@ A successful request returns the contents of your private certificate, along wit
                     }
                 }
             ],
-            "versions_total": 1,
+            "versions_total": 1
         }
     ]
 }
