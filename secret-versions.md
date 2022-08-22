@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-08-18"
+lastupdated: "2022-08-22"
 
 keywords: secret version history, view versions, secret versions
 
@@ -152,6 +152,5 @@ A successful response returns metadata details about each secret version.
     ]
 }
 ```
-{: screen}
+{: screen} For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager).
 
-The `downloaded` property indicates whether the data for each secret version was already read or accessed. If the `payload_available` field has a value of `true`, it means that you're able to access or [restore the secret data of that version](/docs/secrets-manager?topic=secrets-manager-restore-secrets&interface=api#restore-secret-api). For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager).
