@@ -126,14 +126,14 @@ To allow your {{site.data.keyword.cloud_notm}} API key to create and manage othe
     Assign the service ID permissions to create and manage other service IDs.
 
     ```sh
-    ibmcloud iam service-policy-create $SERVICE_ID --roles Operator --service-name "IAM Identity Service"
+    ibmcloud iam service-policy-create $SERVICE_ID --roles Operator --service-name "iam-identity"
     ```
     {: pre}
 
     Assign the service ID permissions to view and update access groups in your account.
 
     ```sh
-    ibmcloud iam access-group-policy-create $SERVICE_ID --roles Editor --service-name "IAM Access Groups"
+    ibmcloud iam access-group-policy-create $SERVICE_ID --roles Editor --service-name "iam-groups"
     ```
     {: pre}
 
