@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-03-07"
+lastupdated: "2022-08-15"
 
 keywords: key:value, key/value, key-value, storing key:value secrets
 

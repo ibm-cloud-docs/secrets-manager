@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-06-09"
+lastupdated: "2022-08-09"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager, KV, key-value, KV APIs
 
@@ -337,6 +337,41 @@ curl -X POST 'https://{instance_id}.{region}.secrets-manager.test.appdomain.clou
 A request to permanently destroy versions of a key-value secret in the `default` secret group returns a blank response with a 204 status code to confirm that the secret's versions were destroyed.
 
 
+## Create or update key-value secret metadata
+{: #update-kv-metadata}
+
+Create or update the metadata of a key-value secret, such as the maximum number of versions or other custom values. To update the actual contents of the secret, use the [Create or update a secret](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv&interface=api#update-kv-secret) method.
+
+### Example request
+{: #kv-update-metadata-request}
+
+```sh
+curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/metadata/{secret_name}' \
+    -H 'Accept: application/json' \
+    -H 'X-Vault-Token: {Vault-Token}' \
+    -H 'Content-Type: application/json' \
+    -d '{
+            "custom_metadata": {
+                "meta1": "data1",
+                "meta2": "data2"
+                }
+            }'
+```
+{: codeblock}
+
+| Request parameter | Description |
+| ------------- | ------------------------- |
+| `instance_id` | The ID of the Secrets Manager instance. |
+| `region` | The region in which the Secrets Manager instance was created. |
+| `secret_name` | The name of the key-value secret. | 
+| `Vault-Token` | The authentication token that is retrieved from Vault. |
+{: caption="Table 7. Update the metadata of a key-value secret request parameters" caption-side="top"}
+
+### Example response
+{: #kv-update-metadata-response}
+
+A request to update the metadata of a key-value secret in the `default` secret group returns a blank response with a 204 status code to confirm that the secret's metadata was updated.
+
 
 ## Read metadata of key-value secret
 {: #kv-metadata}
@@ -376,8 +411,12 @@ A request to get the metadata of a key-value secret in the `default` secret grou
         "cas_required": false,
         "created_time": "2022-01-13T21:31:49.893962888Z",
         "current_version": 3,
-        "delete_version_after": "3h25m19s",
-        "max_versions": 5,
+        "custom_metadata" : {
+              "meta1": "data1",
+              "meta2": "data2"    
+        },
+        "delete_version_after": "0s",
+        "max_versions": 0,
         "oldest_version": 0,
         "updated_time": "2022-02-09T23:54:16.313286558Z",
         "versions": {
@@ -496,3 +535,60 @@ A request to list the key names of a key-value secret in the `default` secret gr
 ```
 {: screen}
 
+
+
+## Patch a key-value secret
+{: #patch-kv-secret}
+
+Update an existing key-value secret by providing only the details that you want to change. When you patch a secret, a new version is created. Any data that you don't change remains exactly as it is in the previous version of the secret.
+
+### Example request
+{: #patch-kv-request}
+
+```sh
+curl -X PATCH 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/data/{secret_name}' \
+    -H 'Accept: application/json' \
+    -H 'X-Vault-Token: {Vault-Token}' \
+    -H 'Content-Type: application/merge-patch+json' \
+    -d '{
+            "data": {
+                "key":"value"
+            }
+    }'
+```
+{: codeblock}
+
+
+| Request parameter | Description |
+| ------------- | ------------------------- |
+| `instance_id` | The ID of the {{site.data.keyword.secrets-manager_short}} instance. |
+| `region` | The region in which the {{site.data.keyword.secrets-manager_short}} instance was created. |
+| `secret_name` | The name of the key-value secret. | 
+| `Vault-Token` | The authentication token that is retrieved from Vault. | 
+| `data` | **Required.** The secret data in JSON format to patch the secret with. The maximum file size is 512 KB. |
+{: caption="Table 11. Create or update a key-value secret request parameters" caption-side="top"}
+
+
+### Example response
+{: #patch-kv-response}
+
+A request to update a key-value secret in the `default` secret group returns the following response: 
+
+```json
+{
+    "request_id": "9000000d4-f0000-4c000-000000-800000000f",
+    "lease_id": "",
+    "renewable": false,
+    "lease_duration": 0,
+    "data": {
+        "created_time": "2022-02-09T23:41:58.888138788Z",
+        "deletion_time": "",
+        "destroyed": false,
+        "version": 2
+    },
+    "wrap_info": null,
+    "warnings": null,
+    "auth": null
+}
+```
+{: screen}

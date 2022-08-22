@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-28"
+lastupdated: "2022-08-18"
 
 keywords: secret version history, view versions, secret versions
 
@@ -142,7 +142,6 @@ A successful response returns metadata details about each secret version.
             "downloaded": true,
             "id": "78c3dba8-cb34-7868-fbf5-8c608dc10d5a",
             "payload_available": false
-        },
         {
             "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
             "creation_date": "2021-12-14T17:29:16Z",
