@@ -57,7 +57,7 @@ subcollection: secrets-manager
 ## Before you begin
 {: #before-manage-secret-version}
 
-Before you get started, be sure that you have the required level of access. To view version history, restore a secret to its previous version, and update the metadata of a secret version, you need the [**Writer** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam).
+Before you get started, be sure that you have the required level of access. To view the version history of a secret, update the metadata of a secret version, and restore a secret to its previous version, you need the [**Writer** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam).
 
 ## Viewing the version history of secrets
 {: #version-history}
@@ -99,7 +99,7 @@ ibmcloud secrets-manager secret-versions --secret-type SECRET-TYPE --id ID --ser
 ```
 {: pre}
 
-The command outputs a information about the current and previous versions, for example the date that each version was created. Up to 50 versions can be listed for a secret. For more information about the command options, see [**`ibmcloud secrets-manager secret-versions`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-versions-command).
+The command outputs information about the current and previous versions. For example, the date that each version was created. Up to 50 versions can be listed for a secret. For more information about the command options, see [**`ibmcloud secrets-manager secret-versions`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-versions-command).
 
 ## Listing secret versions with the API
 {: #versions-api}
