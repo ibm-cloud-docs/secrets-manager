@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-08-22"
+lastupdated: "2022-08-23"
 
 keywords: secret version history, view versions, secret versions
 
@@ -54,7 +54,12 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
-# Viewing the version history of secrets
+## Before you begin
+{: #before-manage-secret-version}
+
+Before you get started, be sure that you have the required level of access. To view version history, restore a secret to its previous version, and update the metadata of a secret version, you need the [**Writer** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam).
+
+## Viewing the version history of secrets
 {: #version-history}
 
 When you rotate a secret in {{site.data.keyword.secrets-manager_full}}, you create a new version of its value. You can quickly examine the version history of your secrets by using the UI or API.
