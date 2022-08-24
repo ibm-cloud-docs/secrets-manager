@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-07-22"
+lastupdated: "2022-08-24"
 
-keywords: migrate from Certificate Manager, migrate to Secrets Manager, migrate certificates
+keywords: migrate from {{site.data.keyword.cloudcerts_short}}, migrate to Secrets Manager, migrate certificates
 
 subcollection: secrets-manager
 
@@ -63,6 +63,33 @@ With {{site.data.keyword.secrets-manager_full}}, you can centralize your applica
 
 As of 10 February 2022, {{site.data.keyword.cloudcerts_long_notm}} is deprecated. The strategic alternative for managing certificates in {{site.data.keyword.cloud_notm}} is {{site.data.keyword.secrets-manager_short}}. For more information, see the [deprecation announcement](/docs/certificate-manager?topic=certificate-manager-release-notes#certificate-manager-feb1022).
 {: note}
+
+## Migration timeline
+{: #migrate-time}
+
+If you're are still actively working with {{site.data.keyword.cloudcerts_short}}, please be sure to start your migration as soon as possible. As you're evaluating what migration entails, please keep the following dates in mind.
+
+
+### 23 September 2022: Auto-provisioning ends for Kubernetes Service
+{: #migrate-end-auto-provision}
+
+{{site.data.keyword.cloudcerts_short}} will no longer be provisioned automatically for each new cluster, but all managed default Ingress secrets will continue to be written directly to the cluster.
+
+
+### 30 September 2022: Manual provisioning is disabled
+{: #migrate-end-provision}
+
+{{site.data.keyword.cloudcerts_short}} will be removed from the catalog and you will be unable to provision new instances of the service. If you have an existing instance of the service, it will continue to operate as normal.
+
+If you're working with the VPC Load Balancer integration, you must update your listener configuration prior to this date to ensure that your traffic flow is not stopped.
+
+
+### 31 December 2022: End of support
+{: #migrate-end-support}
+
+Any remaining instances of {{site.data.keyword.cloudcerts_short}} will be automatically deleted.
+If you have any user-provided Ingress secrets stored in {{site.data.keyword.cloudcerts_short}}, they will no longer be valid. 
+
 
 
 ## Comparison between {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudcerts_short}}
