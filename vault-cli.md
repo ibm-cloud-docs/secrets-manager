@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-05-03"
+lastupdated: "2022-08-25"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -1761,6 +1761,4 @@ The command returns the following output:
 Success! Data deleted (if it existed) at: ibmcloud/iam_credentials/roles/091ca93f-5c99-4078-9d7e-4801143030fd
 ```
 {: screen}
-
-
 
