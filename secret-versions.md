@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-08-23"
+lastupdated: "2022-08-30"
 
 keywords: secret version history, view versions, secret versions
 
@@ -10,56 +10,9 @@ subcollection: secrets-manager
 
 ---
 
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:download: .download}
-{:external: target="_blank" .external}
-{:faq: data-hd-content-type='faq'}
-{:gif: data-image-type='gif'}
-{:important: .important}
-{:note: .note}
-{:pre: .pre}
-{:tip: .tip}
-{:preview: .preview}
-{:deprecated: .deprecated}
-{:beta: .beta}
-{:term: .term}
-{:shortdesc: .shortdesc}
-{:script: data-hd-video='script'}
-{:support: data-reuse='support'}
-{:table: .aria-labeledby="caption"}
-{:troubleshoot: data-hd-content-type='troubleshoot'}
-{:help: data-hd-content-type='help'}
-{:tsCauses: .tsCauses}
-{:tsResolve: .tsResolve}
-{:tsSymptoms: .tsSymptoms}
-{:video: .video}
-{:step: data-tutorial-type='step'}
-{:tutorial: data-hd-content-type='tutorial'}
-{:api: .ph data-hd-interface='api'}
-{:cli: .ph data-hd-interface='cli'}
-{:ui: .ph data-hd-interface='ui'}
-{:curl: .ph data-hd-programlang='curl'}
-{:java: .ph data-hd-programlang='java'}
-{:ruby: .ph data-hd-programlang='ruby'}
-{:c#: .ph data-hd-programlang='c#'}
-{:objectc: .ph data-hd-programlang='Objective C'}
-{:python: .ph data-hd-programlang='python'}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:php: .ph data-hd-programlang='PHP'}
-{:swift: .ph data-hd-programlang='swift'}
-{:curl: .ph data-hd-programlang='curl'}
-{:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
-{:go: .ph data-hd-programlang='go'}
-{:unity: .ph data-hd-programlang='unity'}
-{:release-note: data-hd-content-type='release-note'}
+{[metadata-attributes.md]
 
-## Before you begin
-{: #before-manage-secret-version}
-
-Before you get started, be sure that you have the required level of access. To view the version history of a secret, update the metadata of a secret version, and restore a secret to its previous version, you need the [**Writer** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam).
-
-## Viewing the version history of secrets
+# Viewing the version history of secrets
 {: #version-history}
 
 When you rotate a secret in {{site.data.keyword.secrets-manager_full}}, you create a new version of its value. You can quickly examine the version history of your secrets by using the UI or API.
@@ -99,7 +52,7 @@ ibmcloud secrets-manager secret-versions --secret-type SECRET-TYPE --id ID --ser
 ```
 {: pre}
 
-The command outputs information about the current and previous versions. For example, the date that each version was created. Up to 50 versions can be listed for a secret. For more information about the command options, see [**`ibmcloud secrets-manager secret-versions`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-versions-command).
+The command outputs a information about the current and previous versions, for example the date that each version was created. Up to 50 versions can be listed for a secret. For more information about the command options, see [**`ibmcloud secrets-manager secret-versions`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-versions-command).
 
 ## Listing secret versions with the API
 {: #versions-api}
@@ -157,5 +110,6 @@ A successful response returns metadata details about each secret version.
     ]
 }
 ```
-{: screen} For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager).
+{: screen}
 
+The `downloaded` property indicates whether the data for each secret version was already read or accessed. If the `payload_available` field has a value of `true`, it means that you're able to access or [restore the secret data of that version](/docs/secrets-manager?topic=secrets-manager-restore-secrets&interface=api#restore-secret-api). For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager).
