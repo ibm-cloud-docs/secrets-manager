@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-08-03"
+lastupdated: "2022-09-06"
 
 keywords: set up public certificates, public certificates engine, set up CIS, set up CA, set up Let's Encrypt
 
@@ -84,9 +84,9 @@ A certificate authority (CA) is an entity that issues digital certificates. You 
 
 To connect with Let's Encrypt, {{site.data.keyword.secrets-manager_short}} uses the [Automatic Certificate Management Environment (ACME)](https://datatracker.ietf.org/doc/html/rfc8555){: external} protocol. The ACME protocol makes it possible to automatically obtain browser trusted certificates from a certificate authority without human intervention.
 
-You can grant service access to Let's Encrypt by registering an ACME account and providing your account credentials. If you have an working ACME client or account for Let's Encrypt, you can use your existing private key. If you don't have an account yet, you can create one by using the [ACME account creation tool](https://github.com/ibm-cloud-security/acme-account-creation-tool){: external}.
+You can grant service access to Let's Encrypt by registering an ACME account and providing your account credentials. If you have a working ACME client or account for Let's Encrypt, you can use your existing private key. If you don't have an account yet, you can create one by using the [ACME account creation tool](https://github.com/ibm-cloud-security/acme-account-creation-tool){: external}.
 
-Certificate authorities may apply a charge when ordering or renewing a certificate. Additionally, various rate limits apply. {{site.data.keyword.secrets-manager_short}} does not control costs or rate limits that are associated with ordering certificates. For more information about rate limits to keep in mind as you order Let's Encrypt certificates, check out the [Let's Encrypt documentation](https://letsencrypt.org/docs/rate-limits/){: external}.
+Certificate authorities can apply a charge when you are ordering or renewing a certificate. Additionally, various rate limits apply. {{site.data.keyword.secrets-manager_short}} does not control costs or rate limits that are associated with ordering certificates. For more information about rate limits to keep in mind as you order Let's Encrypt certificates, check out the [Let's Encrypt documentation](https://letsencrypt.org/docs/rate-limits/){: external}.
 {: note} 
 
 
@@ -97,7 +97,7 @@ A DNS provider is the service that is used to manage the domains that you own. Y
 
 | DNS provider | Description |
 | --------- | ----------- | 
-| [{{site.data.keyword.cis_full_notm}}](https://{DomainName}/catalog/services/internet-services) | {{site.data.keyword.cis_full}} (CIS), powered by Cloudflare, provides a fast, highly performant, reliable, and secure internet service for customers running their business on {{site.data.keyword.cloud_notm}}. |
+| [{{site.data.keyword.cis_full_notm}}](https://{DomainName}/catalog/services/internet-services) | {{site.data.keyword.cis_full}} (CIS), powered by Cloudflare, provides a fast, highly performant, reliable, and secure internet service for customers who are running their business on {{site.data.keyword.cloud_notm}}. |
 | [{{site.data.keyword.cloud_notm}} classic infrastructure](https://{DomainName}/catalog/infrastructure/domain_registration)  | [{{site.data.keyword.cloud}} Domain Name Registration](/docs/dns), available as part of {{site.data.keyword.cloud_notm}} classic infrastructure (SoftLayer), offers a central location from which to view and manage domains. |
 {: caption="Table 2. DNS provider options" caption-side="top"}
 
@@ -130,7 +130,7 @@ To create a service authorization, you can use the **Access (IAM)** section of t
 6. Select the **Manager** role. With these permissions, your {{site.data.keyword.secrets-manager_short}} instance can manage the {{site.data.keyword.cis_short_notm}} instance and its domains.
 7. Optional: To grant access to a specific domain, select **Resources based on selected attributes** and provide the **Domain ID** for the CIS instance.
 
-   For production environments, it is recommended that you assign access only to the specific domain(s).
+   For production environments, it is recommended that you assign access only to the specific domains.
    {: note}
    
 8. Click **Authorize**
@@ -165,7 +165,7 @@ To assign access, you can use the **Access (IAM)** section of the console.
 ### Granting service access to classic infrastructure
 {: #authorize-classic-infrastructure}
 
-If you manage domains by using classic infrastructure, you must grant service access to its DNS service so that {{site.data.keyword.secrets-manager_short}} can validate the ownership of your domains. You'll need your classic infrastructure account credentials before you can grant access.
+If you manage domains by using classic infrastructure, you must grant service access to its DNS service so that {{site.data.keyword.secrets-manager_short}} can validate the ownership of your domains. You need your classic infrastructure account credentials before you can grant access.
 
 To obtain your classic infrastructure username and API key, you can use the **Access (IAM)** section of the console.
 
@@ -188,7 +188,6 @@ You can view and access your classic infrastructure credentials from the **Acces
    1. Click the **Classic infrastructure** tab to manage your classic infrastructure permissions.
    2. In the Services section, ensure that the **Manage DNS** permission is selected.
 6. Complete the steps to [add a DNS configuration](/docs/secrets-manager?topic=secrets-manager-add-dns-provider) to your {{site.data.keyword.secrets-manager_short}} instance.
-
 
 ## Next steps
 {: #prepare-order-certificates-next-steps}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-08-25"
+lastupdated: "2022-09-06"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -199,3 +199,4 @@ Now you can use {{site.data.keyword.secrets-manager_short}} to dynamically gener
 - [Creating IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials)
 
 
+The metadata update operation uses a secret ID as part of the path.
