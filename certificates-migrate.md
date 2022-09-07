@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-08-24"
+lastupdated: "2022-09-07"
 
 keywords: migrate from {{site.data.keyword.cloudcerts_short}}, migrate to Secrets Manager, migrate certificates
 
@@ -67,13 +67,13 @@ As of 10 February 2022, {{site.data.keyword.cloudcerts_long_notm}} is deprecated
 ## Migration timeline
 {: #migrate-time}
 
-If you're are still actively working with {{site.data.keyword.cloudcerts_short}}, please be sure to start your migration as soon as possible. As you're evaluating what migration entails, please keep the following dates in mind.
+If you are still actively working with {{site.data.keyword.cloudcerts_short}}, be sure to start your migration as soon as possible. As you're evaluating what migration entails, keep the following dates in mind.
 
 
 ### 23 September 2022: Auto-provisioning ends for Kubernetes Service
 {: #migrate-end-auto-provision}
 
-{{site.data.keyword.cloudcerts_short}} will no longer be provisioned automatically for each new cluster, but all managed default Ingress secrets will continue to be written directly to the cluster.
+{{site.data.keyword.cloudcerts_short}} is no longer to be provisioned automatically for each new cluster, but all managed default Ingress secrets continue to be written directly to the cluster.
 
 
 ### 30 September 2022: Manual provisioning is disabled
@@ -88,7 +88,7 @@ If you're working with the VPC Load Balancer integration, you must update your l
 {: #migrate-end-support}
 
 Any remaining instances of {{site.data.keyword.cloudcerts_short}} will be automatically deleted.
-If you have any user-provided Ingress secrets stored in {{site.data.keyword.cloudcerts_short}}, they will no longer be valid. 
+If you have any user-provided Ingress secrets that are stored in {{site.data.keyword.cloudcerts_short}}, they will no longer be valid. 
 
 
 
@@ -122,7 +122,7 @@ Unlike {{site.data.keyword.cloudcerts_short}}, {{site.data.keyword.secrets-manag
 
 [^instance-limit]: As of 23 March 2022, you can create an unlimited number of {{site.data.keyword.secrets-manager_short}} instances per account with the Standard pricing plan.
 
-[^dns-providers]: The DNS providers that are supported with {{site.data.keyword.secrets-manager_short}} include {{site.data.keyword.cis_full_notm}} (CIS) and the Domain Name Registration service, which is available as part of {{site.data.keyword.cloud_notm}} classic infrastructure. [Learn more](#migrate-prepare).
+[^dns-providers]: The DNS providers that are supported by {{site.data.keyword.secrets-manager_short}} include {{site.data.keyword.cis_full_notm}} (CIS) and the Domain Name Registration service, which is available as part of {{site.data.keyword.cloud_notm}} classic infrastructure. [Learn more](#migrate-prepare).
 
 
 ## Migrating {{site.data.keyword.cloudcerts_short}} resources to {{site.data.keyword.secrets-manager_short}}
@@ -161,7 +161,7 @@ Before you begin, consider the following items and service limitations that migh
 
 - **{{site.data.keyword.secrets-manager_short}} supports {{site.data.keyword.cis_full_notm}} (CIS) and classic infrastructure as DNS providers.**
 
-  In {{site.data.keyword.cloudcerts_short}}, you might be working with either {{site.data.keyword.cis_full_notm}} (CIS) or a [third-party DNS provider](/docs/certificate-manager?topic=certificate-manager-ordering-certificates#other_provider) to order domain-validated certificates. The DNS providers that are currently supported with {{site.data.keyword.secrets-manager_short}} are CIS and the Domain Name Registration service, which is available as part of {{site.data.keyword.cloud_notm}} classic infrastructure. If you're working with another DNS provider, stay tuned as support for additional third-party providers in {{site.data.keyword.secrets-manager_short}} becomes available. For an updated listed of providers, see [Supported DNS providers](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#connect-dns-provider).
+  In {{site.data.keyword.cloudcerts_short}}, you might be working with either {{site.data.keyword.cis_full_notm}} (CIS) or a [third-party DNS provider](/docs/certificate-manager?topic=certificate-manager-ordering-certificates#other_provider) to order domain-validated certificates. The DNS providers that are currently supported by {{site.data.keyword.secrets-manager_short}} are CIS and the Domain Name Registration service, which is available as part of {{site.data.keyword.cloud_notm}} classic infrastructure. If you're working with another DNS provider, stay tuned as support for additional third-party providers in {{site.data.keyword.secrets-manager_short}} becomes available. For an updated listed of providers, see [Supported DNS providers](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#connect-dns-provider).
 
 ### Migration guidelines
 {: #migrate-guidelines}

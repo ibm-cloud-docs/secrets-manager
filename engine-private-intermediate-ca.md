@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-25"
+lastupdated: "2022-09-07"
 
 keywords: intermediate certificate authority, intermediate CA, internal signing, external signing
 
@@ -103,9 +103,9 @@ An intermediate CA with internal signing uses a parent CA that was previously cr
 7. [Select the key algorithm](/docs/secrets-manager?topic=secrets-manager-prepare-create-certificates#choose-key-algorithm) that you want to use to generate the public and private key for your CA certificate.
 8. Determine whether to enable certificate revocation list (CRL) building and distribution points for your CA certificate.
 
-   A CRL is a list of certificates that have been revoked by the issuing certificate authority before their scheduled expiration date. A certificate that is listed as part of a CRL can no longer be trusted by applications. 
+   A CRL is a list of certificates that are revoked by the issuing certificate authority before their scheduled expiration date. A certificate that is listed as part of a CRL can no longer be trusted by applications. 
     
-   1. To build a CRL for your intermediate CA with each certificate request, set thte **CRL building** option to **Enabled**.
+   1. To build a CRL for your intermediate CA with each certificate request, set the **CRL building** option to **Enabled**.
    2. To encode the URL of the revocation list in the intermediate CA certificate, set the **CRL distribution points** option to **Enabled**.
    3. Select a time-to-live (TTL) of the generated CRL. The TTL determines how long the CRL remains valid.
 
@@ -141,7 +141,7 @@ You can create an intermediate CA certificate that uses external signing in the 
 
    A CRL is a list of certificates that have been revoked by the issuing certificate authority before their scheduled expiration date. A certificate that is listed as part of a CRL can no longer be trusted by applications. 
     
-   1. To build a CRL for your intermediate CA with each certificate request, set thte **CRL building** option to **Enabled**.
+   1. To build a CRL for your intermediate CA with each certificate request, set the **CRL building** option to **Enabled**.
    2. To encode the URL of the revocation list in the intermediate CA certificate, set the **CRL distribution points** option to **Enabled**.
    3. Select a time-to-live (TTL) of the generated CRL. The TTL determines how long the CRL remains valid.
 

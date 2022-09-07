@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-25"
+lastupdated: "2022-09-07"
 
 keywords: root certificate authority, root CA, internal signing, external signing
 
@@ -60,7 +60,7 @@ subcollection: secrets-manager
 With {{site.data.keyword.secrets-manager_full}}, you can build and manage your own public key infrastructure (PKI) system by creating root and intermediate certificate authorities (CA).
 {: shortdesc}
 
-A certificate authority (CA) is the entity that signs and issues your SSL/TLS certificates. If you're looking for the ability to quickly generate a self-signed certificate, you can use {{site.data.keyword.secrets-manager_short}} to create an internally signed root CA that you can as the trust anchor for a certificates chain. After you create a root CA for your instance, you can use it to sign a lower-level or subordinate CA, for example other intermediate CAs that you create in the service.
+A certificate authority (CA) is the entity that signs and issues your SSL/TLS certificates. If you're looking for the ability to quickly generate a self-signed certificate, you can use {{site.data.keyword.secrets-manager_short}} to create an internally signed root CA. You can use this CA as the trust anchor for a certificates chain. After you create a root CA for your instance, you can use it to sign a lower-level or subordinate CA, for example other intermediate CAs that you create in the service.
 
 You can create up to 10 root certificate authorities per instance. To view a list of the configurations that are available for your instance, go to the **Secrets engines > Private certificates** page in the {{site.data.keyword.secrets-manager_short}} UI.
 {: note}
@@ -74,7 +74,7 @@ Before you get started, be sure that you have the required level of access. To m
 {: #root-ca-ui}
 {: ui}
 
-You can create an internally-signed root certificate authority for your service instance by using the {{site.data.keyword.secrets-manager_short}} UI.
+You can create an internally signed root certificate authority for your service instance by using the {{site.data.keyword.secrets-manager_short}} UI.
 
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
@@ -91,9 +91,9 @@ You can create an internally-signed root certificate authority for your service 
 7. [Select the key algorithm](/docs/secrets-manager?topic=secrets-manager-prepare-create-certificates#choose-key-algorithm) that you want to use to generate the public and private key for your CA certificate.
 8.  Determine whether to enable certificate revocation list (CRL) building and distribution points for your CA certificate.
 
-    A CRL is a list of certificates that have been revoked by the issuing certificate authority before their scheduled expiration date. A certificate that is listed as part of a CRL can no longer be trusted by applications. 
+    A CRL is a list of certificates that are revoked by the issuing certificate authority before their scheduled expiration date. A certificate that is listed as part of a CRL can no longer be trusted by applications. 
     
-    1. To build a CRL for your root CA with each certificate request, set thte **CRL building** option to **Enabled**.
+    1. To build a CRL for your root CA with each certificate request, set the **CRL building** option to **Enabled**.
     2. To encode the URL of the revocation list in the root CA certificate, set the **CRL distribution points** option to **Enabled**.
     3. Select a time-to-live (TTL) of the generated CRL. The TTL determines how long the CRL remains valid.
 9.  Review your selections. To create the root CA, click **Create**.
@@ -104,7 +104,7 @@ You can create an internally-signed root certificate authority for your service 
 {: #root-ca-api}
 {: api}
 
-You can create an internally-signed root certificate authority for your service instance by calling the {{site.data.keyword.secrets-manager_short}} API.
+You can create an internally signed root certificate authority for your service instance by calling the {{site.data.keyword.secrets-manager_short}} API.
 
 The following example shows a query that you can use to create a root certificate authority.
 {: curl}

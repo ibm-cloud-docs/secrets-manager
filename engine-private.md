@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-25"
+lastupdated: "2022-09-07"
 
 keywords: create certificate authority, create root CA, create intermediate CA, set up PKI, set up private certificates, private certificates engine
 
@@ -86,7 +86,7 @@ With {{site.data.keyword.secrets-manager_short}}, you can create up to 10 root C
 
 | Authority type | Description |
 | --- | --- |
-| [Root certificate authority](/docs/secrets-manager?topic=secrets-manager-root-certificate-authorities) | A trust anchor for your certificates chain. In a hierarchy of certificates, a root CA resides at the top of a certificates chain, and is used to sign the certificates of CAs that are subordinate to them, for example intermediate CAs.  |
+| [Root certificate authority](/docs/secrets-manager?topic=secrets-manager-root-certificate-authorities) | A trust anchor for your certificates chain. In a hierarchy of certificates, a root CA is at the top of a certificates chain. This CA is used to sign the certificates of CAs that are subordinate to them, for example intermediate CAs.  |
 | [Intermediate certificate authority](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities) | A subordinate or lower-level certificate authority that signs and issues other intermediate CA certificates. An intermediate CA is also used to issue leaf certificates to end-entities, for example a client or server application. In {{site.data.keyword.secrets-manager_short}}, you can create intermediate CAs that are [signed internally or externally](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities#intermediate-ca-signing).|
 {: caption="Table 1. Certificate authority options" caption-side="top"}
 
@@ -94,7 +94,7 @@ With {{site.data.keyword.secrets-manager_short}}, you can create up to 10 root C
 ### Planning the structure of a CA hierarchy
 {: #plan-ca-structure}
 
-As a best practice, plan a hierachy of certificate authorities that corresponds with the structure of your organization. In most cases, you can implement one of the following common CA structures.
+As a best practice, plan a hierarchy of certificate authorities that corresponds with the structure of your organization. In most cases, you can implement one of the following common CA structures.
 
 #### Two levels: Root CA and subordinate CA
 {: #two-level-ca}
@@ -128,19 +128,19 @@ The maximum path length that you define does not include leaf certificates. In t
 
 The validity period of an X.509 certificate is a required field that determines how long the certificate is trusted and remains valid. When you plan your CA hierarchy, work backwards from your preferred lifespan for the leaf certificates that you want to issue to your applications. Then, determine the validity period of the CA certificates.
 
-A certificate must have a validity period that is shorter than or equal to the validity period fo the CA that issued it. For example, if you create a root CA with a time-to-live (TTL) of 10 years, any intermediate CAs that are subordinate to it must have a TTL that is equal to or less than 10 years. Likewise, if an intermediate CA has TTL of 3 years, any leaf certificates must have a TTL that is equal to or less than 3 years.
+A certificate must have a validity period that is shorter than or equal to the validity period for the CA that issued it. For example, if you create a root CA with a time-to-live (TTL) of 10 years, any intermediate CAs that are subordinate to it must have a TTL that is equal to or less than 10 years. Likewise, if an intermediate CA has TTL of 3 years, any leaf certificates must have a TTL that is equal to or less than 3 years.
 {: important}
 
 1. Choose a validity period for your leaf certificates that is appropriate for your use case.
 
-   The private certificates that you can create with {{site.data.keyword.secrets-manager_short}} are considered leaf certificates that can be issued to an end-entity, such as a client or server app. With {{site.data.keyword.secrets-manager_short}}, you can create certificates with a maximum validity period of three years or 36 months. After you determine a TTL or validity period for leaf certificates, you set the value using a [certificate template](/docs/secrets-manager?topic=secrets-manager-certificate-templates) so that your preferred TTL is applied each time a new leaf certificate is generated.
+   The private certificates that you can create with {{site.data.keyword.secrets-manager_short}} are considered leaf certificates that can be issued to an end-entity, such as a client or server app. With {{site.data.keyword.secrets-manager_short}}, you can create certificates with a maximum validity period of three years or 36 months. After you determine a TTL or validity period for leaf certificates, you set the value by using a [certificate template](/docs/secrets-manager?topic=secrets-manager-certificate-templates) so that your preferred TTL is applied each time a new leaf certificate is generated.
 
-   The shorter the TTL of your leaf certificates, the more protected you are against inadventent exposure or compromise of your certificate and its private key. A shorter validity period for your certificates means that you reduce the likelihood of compromise, but it also requires that you rotate the certificate more frequently to ensure that it stays valid. To avoid an inadvertent outage, you can schedule [automatic rotation](/docs/secrets-manager?topic=secrets-manager-automatic-rotation) of your private certificates.
+   The shorter the TTL of your leaf certificates, the more protected you are against inadvertent exposure or compromise of your certificate and its private key. A shorter validity period for your certificates means that you reduce the likelihood of compromise, but it also requires that you rotate the certificate more frequently to ensure that it stays valid. To avoid an inadvertent outage, you can schedule [automatic rotation](/docs/secrets-manager?topic=secrets-manager-automatic-rotation) of your private certificates.
    {: note}
 
 2. Choose a validity period for the subordinate CA.
 
-   As a best practice, set a validity period for a subordinate CA certificate that is signitificantly longer than the validity periods of the certificates that they issue. Define a validity period of a parent CA that is two to five times the period of any child CA certificate or leaf certificate that it issues. For example, if you have a [two-level CA hierarchy](#two-level-ca) and you want to issue leaf certificates with a TTL of one year, configure the subordinate issuing CA with a TTL of three years. You can always update subordinate CA certificates without replacing the root CA certificate.
+   As a best practice, set a validity period for a subordinate CA certificate that is significantly longer than the validity periods of the certificates that they issue. Define a validity period of a parent CA that is two to five times the period of any child CA certificate or leaf certificate that it issues. For example, if you have a [two-level CA hierarchy](#two-level-ca) and you want to issue leaf certificates with a TTL of one year, configure the subordinate issuing CA with a TTL of three years. You can always update subordinate CA certificates without replacing the root CA certificate.
 
 3. Choose a validity period for your root CA.
 
@@ -166,7 +166,7 @@ Before you create a certificate authority in {{site.data.keyword.secrets-manager
 
    The key size or length that you select determines the encryption strength. The larger the key size for an algorithm family, the more difficult it is to break. Keep in mind that longer key lengths results in more data to store and transmit, which can impact the performance of your certificate. As a best practice, choose a key size that is appropriate for the TTL or validity period of your certificate.
    
-   For longer living certificates it is recommended to use longer key lengths to provide more encryption protection.
+   For longer living certificates, it is recommended to use longer key lengths to provide more encryption protection.
    {: tip}
 
 ## Next steps
