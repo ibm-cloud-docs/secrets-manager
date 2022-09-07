@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-08-02"
+lastupdated: "2022-09-07"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -268,7 +268,7 @@ Create IAM credentials by using a service ID in your account
 Restore secrets to a previous version
 :   Need to roll back a secret to its previous version? If you need to revert a secret, you can now restore select secret types to a previous version.
 
-   Currently, you can restore 1 version back for IAM credentials and public certificate secrets only. For more information, see [Restoring to a previous version](/docs/secrets-manager?topic=secrets-manager-restore-secrets).
+   Currently, you can restore 1 version back for IAM credentials and public certificate secrets only. For more information, see [Restoring secrets to a previous version](/docs/secrets-manager?topic=secrets-manager-version-history&interface=ui#restore-secrets).
    {: note}
 
 Rotate IAM credentials on-demand

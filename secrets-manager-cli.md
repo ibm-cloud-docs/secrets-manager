@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-07-28"
+lastupdated: "2022-09-07"
 
 subcollection: secrets-manager
 
@@ -548,7 +548,7 @@ ibmcloud secrets-manager secret-version --secret-type SECRET-TYPE --id ID --vers
 
     The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
 
-    To find the version ID of a secret, use the [Get secret metadata](#get-secret-metadata) method and check the response details. Required.
+    To find the version ID of a secret, use the [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) method and check the response details. Required.
     {: note}
 
 #### Examples
@@ -1144,7 +1144,7 @@ ibmcloud secrets-manager secret-version-lock --secret-type SECRET-TYPE --id ID -
 
     The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
 
-    To find the version ID of a secret, use the [Get secret metadata](#get-secret-metadata) method and check the response details.
+    To find the version ID of a secret, use the [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) method and check the response details.
     {: note} 
 
 --locks ([LockSecretBodyLocksItem[]](#cli-lock-secret-body-locks-item-example-schema))
