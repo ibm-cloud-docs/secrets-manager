@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-07"
+lastupdated: "2022-09-08"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -101,7 +101,7 @@ CLI plug-in version 0.1.20
 {: release-note}
 
 Allow access to {{site.data.keyword.secrets-manager_short}} in a restricted account
-:   Working in an account that has [IP address access restrictions](/docs/account?topic=account-ips)? To use certain features in {{site.data.keyword.secrets-manager_short}}, for example generating IAM credentials, an extra step is required to ensure that your account is able to accept incoming requests from the service. If your account allows access to only specific IP addresses, you can update your account settings to specify a required list of IP addresses for {{site.data.keyword.secrets-manager_short}}.
+:   Working in an account that has [IP address access restrictions](/docs/account?topic=account-ips)? To use certain features in {{site.data.keyword.secrets-manager_short}}, for example, to generate IAM credentials, an extra step is required to ensure that your account is able to accept incoming requests from the service. If your account allows access to only specific IP addresses, you can update your account settings to specify a required list of IP addresses for {{site.data.keyword.secrets-manager_short}}.
 
     For more information, check out [IP addresses for {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-ip-addresses).
 
@@ -188,7 +188,7 @@ Tutorial series: Set up alerts for expiring certificates
    - Using [Cloud Functions](/docs/openwhisk) to create a GitHub issue when a secret is about to expire
    - Using Cloud functions to sending a notification to Slack
 
-## 28 Feburary 2022
+## 28 February 2022
 {: #secrets-manager-feb2822}
 {: release-note}
 
@@ -197,7 +197,7 @@ Sao Paulo availability
 
    For more information, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
 
-## 23 Feburary 2022
+## 23 February 2022
 {: #secrets-manager-feb2322}
 {: release-note}
 
@@ -209,12 +209,12 @@ Pricing plan updates coming soon in {{site.data.keyword.secrets-manager_short}}
    When you provision an instance of the service after the 23 March, you can choose either a Trial or Standard plan.
 
 
-   * **Trial**: To try out the service, you can provision an instance of the service that allows you to access all of the features that {{site.data.keyword.secrets-manager_short}} has to offer for a limited time. After the trial period, all functionality is disabled but the instance remains in your account for an additional 30 days, during which you can choose to upgrade your plan. If you choose not to, the instance and its data are automatically removed from your account without any action on your part.
+   * **Trial**: To try out the service, you can provision an instance of the service to access all of the features that {{site.data.keyword.secrets-manager_short}} offers for a limited time. After the trial period, all functionality is disabled but the instance remains in your account for an additional 30 days, during which you can choose to upgrade your plan. If you choose not to, the instance and its data are automatically removed from your account without any action on your part.
 
-   You can have one instance of the service on the trial plan provisioned in your account at any time.
+   You can have one instance of the service on the trial plan that is provisioned in your account at any time.
    {: note}
 
-   * **Standard**: When you're ready to upgrade, you get unlimited access to all of the features that the service has to offer without any limit on the number of instances that your teams can provision. With the Standard plan, you are charged per secret and per instance that is provisioned. To view the most current pricing information, see the {{site.data.keyword.secrets-manager_short}} UI.
+   * **Standard**: When you're ready to upgrade, you get unlimited access to all of the features that the service has to offer. The number of instances that your teams can provision is unlimited. With the Standard plan, you are charged per secret and per instance that is provisioned. To view the most current pricing information, see the {{site.data.keyword.secrets-manager_short}} UI.
 
 
    **Important dates:**
@@ -235,7 +235,7 @@ Pricing plan updates coming soon in {{site.data.keyword.secrets-manager_short}}
    {: important}
 
 
-## 3 Feburary 2022
+## 3 February 2022
 {: #secrets-manager-feb0322}
 {: release-note}
 
@@ -258,10 +258,10 @@ Store key-value secrets
 {: release-note}
 
 View the version history of your secrets
-:   With the {{site.data.keyword.secrets-manager_short}} UI, you can now check the version history of your secrets, so that you can quickly understand when a secret was last rotated. For more information, see [Viewing your verison history](/docs/secrets-manager?topic=secrets-manager-version-history).
+:   With the {{site.data.keyword.secrets-manager_short}} UI, you can now check the version history of your secrets so that you can quickly understand when a secret was last rotated. For more information, see [Viewing your version history](/docs/secrets-manager?topic=secrets-manager-version-history).
 
 Create IAM credentials by using a service ID in your account
-:   In addition to using access groups to determine the access capabilities of an IAM credentials secret, you can now create a secret by using an existing service ID in your account. You can choose this option if you need {{site.data.keyword.secrets-manager_short}} to dynamically generate and manage an API key only.
+:   In addition to using access groups to determine the access capabilities of an IAM credential, you can now create a secret by using an existing service ID in your account. You can choose this option if you need {{site.data.keyword.secrets-manager_short}} to dynamically generate and manage an API key only.
 
    For more information, see [Creating IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials).
 
@@ -458,7 +458,7 @@ Introducing {{site.data.keyword.secrets-manager_short}}
    In this release, {{site.data.keyword.secrets-manager_short}} offers support for the following types of secrets:
 
    - IAM credentials, which consist of a service ID and API key that are generated dynamically on your behalf.
-   - Arbitrary secrets, such as custom credentials that can be used to store any type of structured or  unstructured data.
+   - Arbitrary secrets, such as custom credentials that can be used to store any type of structured or unstructured data.
    - User credentials, such as usernames and passwords that you can use to log in to applications.
 
    To find out more about capabilities and use cases for {{site.data.keyword.secrets-manager_short}}, check out the [announcement blog](https://www.ibm.com/cloud/blog/announcements/introducing-ibm-cloud-secrets-manager-beta){: external}.

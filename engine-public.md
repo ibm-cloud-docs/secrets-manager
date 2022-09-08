@@ -227,7 +227,7 @@ To rotate your public certificate with a manual DNS provider, complete the follo
 
 If your domains are configured in a DNS provider that offers a public API, you can automate the creation of manual public certificates. You can add the challenges TXT records by creating a script that uses the TXT challenge records from your {{site.data.keyword.secrets-manager_short}} instance to make API calls to your DNS provider account. 
 
-Some DNS providers offer an API for checking whether the new TXT records are fully transmitted. If your DNS provider doesn't offer this option, you can configure your client to wait for a specified amount of time, often as long as an hour. The duration must be sufficient to ensure that the TXT records are transmitted before the client can trigger validation in {{site.data.keyword.secrets-manager_short}}. 
+Some DNS providers offer an API for checking whether the new TXT records are fully transmitted. If your DNS provider doesn't offer this option, you can configure your client to wait for a specified amount of time, sometimes up to an hour. The duration must be sufficient to ensure that the TXT records are transmitted before the client can trigger validation in {{site.data.keyword.secrets-manager_short}}. 
 
 In {{site.data.keyword.secrets-manager_short}}, you can check the status of the certificate issuance by obtaining your certificate secret metadata `IssuanceInfo.State` field. When the certificate is issued, the state field's value changes to `active`. The value changes to `deactivated` if the issuance fails. After your public certificate is issued, you can clean up and remove the challenges TXT records from your domains in your DNS provider account.<staging>
 

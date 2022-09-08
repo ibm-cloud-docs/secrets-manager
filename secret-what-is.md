@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-07"
+lastupdated: "2022-09-08"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -71,19 +71,19 @@ To learn more about the general characteristics of a secret, check out the follo
 {: #secrets-mgmt-video-transcript}
 {: notoc}
 
-How are you making sure that your secrets are securely stored so that you can avoid data breaches as well as chaos in your DevOps workflows?
+How are you making sure that your secrets are securely stored so that you can avoid data breaches and chaos in your DevOps workflows?
 
 Hi, I'm Alex Greer with the IBM Cloud team, and before I get started make sure to like and subscribe now.
 
 What is a secret?
 
-A secret is a digital credential that is going to allow entities to communicate and perform actions on a service. This discrete piece of information keeps that access point secure. So let's take a look at the way in which this paradigm exists.
+A secret is a digital credential that is going to allow entities to communicate and perform actions on a service. This discrete piece of information keeps that access point secure. So let's look at how this paradigm exists.
 
-Let's start with an entity here that needs to access some sort of service. We'll leave it little ambiguous for now, but some sort of service. To properly communicate with the service and be able to take the action that it needs to get its job done, this entity is going to need to communicate to the service two things: One, who it is, so that service can understand what or who is interacting with it. Two, it's going to have to know the set of permissions that it should grant in the context of its service. With these, the service can now properly allow that entity to interact with them. How we enable this is with something we call a "secret."
+Let's start with an entity here that needs to access some sort of service. We'll leave it little ambiguous for now, but some sort of service. To properly communicate with the service and be able to take the action that it needs to get its job done, this entity is going to need to communicate to the service two things: One, who it is, so that service can understand what or who is interacting with it. Two, it's going to have to know the set of permissions that it should grant in the context of its service. With these, the service can now properly allow that entity to interact with them. How we enable this interaction is with something we call a "secret."
 
-Now, with this dynamic established, let's move into an example with users. For users, we'll say this user here is our entity, and we'll say our service here – let's just say that it's a developer,  and they happen to need read or write access. They're interacting with the development repo in order to do that. To gain that access again, again coming back to the need, we have authorization and permission. How it's going to communicate, specifically in this circumstance, is by giving it user credentials. Now, that user can interact with the development repo in the way that they need to get their job done.
+Now, with this dynamic established, let's move into an example with users. For users, we'll say that this user here is our entity, and we'll say our service here – let's say that it's a developer, and they happen to need read or write access. They're interacting with the development repo to do that. To gain that access again, coming back to the need, we have authorization and permission. How it's going to communicate, specifically in this circumstance, is by giving it user credentials. Now, that user can interact with the development repo in the way that they need to get their job done.
 
-Now, looking at a cloud native application story, we have a lot of microservices that have to talk to each other. So, let's look at that. Let's just call it service "A," that needs to interact with a database called "DB" and grab a piece of specific information that it needs to get its job done. What it needs, in the form of the secret here, is what we call "DB configs." Again, this DB config is going to allow it to have the correct communication with the service saying, this is who I am and this is what I came here to accomplish.
+Now, looking at a cloud native application story, we have many microservices that must talk to each other. So, let's look at that. Let's call it service "A," that needs to interact with a database called "DB" and grab a piece of specific information that it needs to get its job done. What it needs, in the form of the secret here, is what we call "DB configs." Again, this DB config is going to allow it to have the correct communication with the service by saying, this is who I am and this is what I came here to accomplish.
 
 But now that we have our user credentials in our DB configs as examples of secrets, we realize the vulnerability that can be created here if these were to fall into the wrong hands. And this is why it's so important to establish a centralized place to manage all these things as we build out more and more applications and microservices. As we have more of these, the problem becomes more complex. If it falls into the wrong hands, how is protected? How do we block it from getting to that point? How was that data isolated?
 
