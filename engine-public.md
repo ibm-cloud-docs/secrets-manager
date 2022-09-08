@@ -187,49 +187,7 @@ You can view and access your classic infrastructure credentials from the **Acces
 
    1. Click the **Classic infrastructure** tab to manage your classic infrastructure permissions.
    2. In the Services section, ensure that the **Manage DNS** permission is selected.
-6. Complete the steps to [add a DNS configuration](/docs/secrets-manager?topic=secrets-manager-add-dns-provider) to your {{site.data.keyword.secrets-manager_short}} instance.<staging>
-
-
-## Creating public certificates with manual DNS providers
-{: #manual-dns-provider-create}
-
-You can order a certificate by using the manual DNS provider option if your DNS provider is not one of the providers that {{site.data.keyword.secrets-manager_short}} supports. To create a public certificate by using a manual DNS provider, complete the following steps.
-
-1. Create a certificate authority (CA) configuration by following the steps that are defined in [Adding a CA configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority&interface=ui).
-2. Create a new public certificate and specify `manual` as the DNS configuration. 
-3. Submit the request to create a public certificate. 
-4. In the output, you can find challenges with DNS TXT records that match the domains that are specified in your certificate order. 
-5. Every challenge displays a `pending` or `valid` state, and expiration details. You must complete all the `pending` challenges before the nearest expiration time.
-5. Add the `pending` state TXT records that are specified in the challenges to your domains in your DNS provider account.
-
-   If you order a certificate for subdomains, for example, `sub1.sub2.domain.com`, you need to add the TXT records to your registered domain `domain.com`.
-   {: note}
-
-
-6. Check that your newly added DNS records are transmitted to the global DNS network. Depending on your DNS provider, propagation can take a significant time to complete. 
-7. Call the {{site.data.keyword.secrets-manager_short}} [Invoke an action on a secret](/apidocs/secrets-manager#update-secret) API with the action `validate_dns_challenge`. This call starts the order process. Then, the challenges are validated and the certificate is issued.
-8. After your public certificate is issued, clean up and remove the challenges TXT records from your domains in your DNS provider account.
-
-
-## Updating public certificates with manual DNS providers
-{: #manual-dns-provider-rotate}
-
-To rotate your public certificate with a manual DNS provider, complete the following steps.
-
-1. Call the [Invoke an action on a secret](/apidocs/secrets-manager#update-secret) API with the action `rotate`.
-2. Follow steps 4 - 8 that are contained in the [Creating public certificates with manual DNS providers](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates&interface=ui#manual-dns-provider-create) section.
-
-   You can't automatically rotate manual DNS provider certificates in {{site.data.keyword.secrets-manager_short}}.
-   {: note}
-
-## Automating the creation of public certificates with manual DNS providers
-{: #manual-dns-provider-automate}
-
-If your domains are configured in a DNS provider that offers a public API, you can automate the creation of manual public certificates. You can add the challenges TXT records by creating a script that uses the TXT challenge records from your {{site.data.keyword.secrets-manager_short}} instance to make API calls to your DNS provider account. 
-
-Some DNS providers offer an API for checking whether the new TXT records are fully transmitted. If your DNS provider doesn't offer this option, you can configure your client to wait for a specified amount of time, sometimes up to an hour. The duration must be sufficient to ensure that the TXT records are transmitted before the client can trigger validation in {{site.data.keyword.secrets-manager_short}}. 
-
-In {{site.data.keyword.secrets-manager_short}}, you can check the status of the certificate issuance by obtaining your certificate secret metadata `IssuanceInfo.State` field. When the certificate is issued, the state field's value changes to `active`. The value changes to `deactivated` if the issuance fails. After your public certificate is issued, you can clean up and remove the challenges TXT records from your domains in your DNS provider account.<staging>
+6. Complete the steps to [add a DNS configuration](/docs/secrets-manager?topic=secrets-manager-add-dns-provider) to your {{site.data.keyword.secrets-manager_short}} instance.
 
 ## Next steps
 {: #prepare-order-certificates-next-steps}
