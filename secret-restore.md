@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-21"
+lastupdated: "2022-09-08"
 
 keywords: restore previous version, revert, roll back
 
@@ -62,7 +62,7 @@ Accidentally replace or overwrite an existing secret? You can use {{site.data.ke
 
 When you restore a secret to its previous version, a new version of the secret is created. For example, if the current version of your secret is 3, and you roll back to version 2, the data that was restored from version 2 becomes version 4.
 
-You can restore 1 version back on [supported secret types](#before-restore-secret-supported-secret-types). For auditing purposes, the service retains the metadata of up to 50 versions for each secret, which you can review as part of a secret's [version history](/docs/secrets-manager?topic=secrets-manager-version-history).
+You can restore 1 version back on [supported secret types](/docs/secrets-manager?topic=secrets-manager-automatic-rotation&interface=ui#before-auto-rotate-supported-secret-types). For auditing purposes, the service retains the metadata of up to 50 versions for each secret, which you can review as part of a secret's [version history](/docs/secrets-manager?topic=secrets-manager-version-history).
 {: note}
 
 ## Before you begin
