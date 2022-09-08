@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-07"
+lastupdated: "2022-09-08"
 
 subcollection: secrets-manager
 
@@ -315,7 +315,7 @@ ibmcloud secrets-manager secrets \
 ### ibmcloud secrets-manager all-secrets
 {: #secrets-manager-cli-all-secrets-command}
 
-List all of the secrets in your Secrets Manager instance.
+List all the secrets in your Secrets Manager instance.
 
 ```sh
 ibmcloud secrets-manager all-secrets [--limit LIMIT] [--offset OFFSET] [--search SEARCH] [--sort-by SORT-BY] [--groups GROUPS] 
@@ -871,7 +871,7 @@ ibmcloud secrets-manager locks \
 #### Example output
 {: #secrets-manager-locks-cli-output}
 
-Example response for listing the locks that are assosiated with a specified secret.
+Example response for listing the locks that are associated with a specified secret.
 
 ```json
 {
@@ -915,7 +915,7 @@ Example response for listing the locks that are assosiated with a specified secr
 
 Create a lock on the current version of a secret.
 
-A lock can be used to prevent a secret from being deleted or modified while it's in use by your applications. A successful request attaches a new lock to your secret, or replaces a lock of the same name if it already exists. Additionally, you can use this method to clear any matching locks on a secret by using one of the following optional lock modes:
+A lock can be used to prevent a secret from being deleted or modified while it's in use by your applications. A successful request attaches a new lock to your secret, or replaces a lock of the same name if it exists. Additionally, you can use this method to clear any matching locks on a secret by using one of the following optional lock modes:
 
 - `exclusive`: Removes any other locks with matching names if they are found in the previous version of the secret.
 - `exclusive_delete`: Same as `exclusive`, but also permanently deletes the data of the previous secret version if it doesn't have any locks.
@@ -1070,7 +1070,7 @@ ibmcloud secrets-manager secret-version-locks \
 #### Example output
 {: #secrets-manager-secret-version-locks-cli-output}
 
-Example response for listing the locks that  areassociated with a specified secret version.
+Example response for listing the locks that are associated with a specified secret version.
 
 ```json
 {
@@ -1114,7 +1114,7 @@ Example response for listing the locks that  areassociated with a specified secr
 
 Create a lock on the specified version of a secret.
 
-A lock can be used to prevent a secret from being deleted or modified while it's in use by your applications. A successful request attaches a new lock to the specified version, or replaces a lock of the same name if it already exists. Additionally, you can use this method to clear any matching locks on a secret version by using one of the following optional lock modes:
+A lock can be used to prevent a secret from being deleted or modified while it's in use by your applications. A successful request attaches a new lock to the specified version, or replaces a lock of the same name if it exists. Additionally, you can use this method to clear any matching locks on a secret version by using one of the following optional lock modes:
 
 - `exclusive`: Removes any other locks with matching names if they are found in the previous version of the secret.
 - `exclusive_delete`: Same as `exclusive`, but also permanently deletes the data of the previous secret version if it doesn't have any locks.
@@ -1176,7 +1176,7 @@ ibmcloud secrets-manager secret-version-lock \
 
 Delete one or more locks that are associated with the specified secret version.
 
-A successful request deletes the locks that you specify. To remove all locks, you can pass `{"locks": ["*"]}` in in the request body. Otherwise, specify the names of the locks that you want to delete. For example, `{"locks":
+A successful request deletes the locks that you specify. To remove all locks, you can pass `{"locks": ["*"]}` in the request body. Otherwise, specify the names of the locks that you want to delete. For example, `{"locks":
 ["lock-1", "lock-2"]}`.
 
 A secret is considered unlocked and able to be revoked or deleted only after all of its locks are removed. To understand whether a secret contains locks, check the `locks_total` field that is returned as part of the metadata of your secret.
@@ -1368,7 +1368,7 @@ Configure secrets engines for your instance so that you can work with specific t
 
 Set the configuration for the specified secret type.
 
-Use this method to configure the IAM credentials (`iam_credentials`) engine for your service instance. Looking to order or generate certificates? To configure the public certificates (`public_cert`) or  private certificates (`private_cert`) engines, use the [Add a configuration](#secrets-manager-cli-config-element-create-command) method.
+Use this method to configure the IAM credentials (`iam_credentials`) engine for your service instance. Looking to order or generate certificates? To configure the public certificates (`public_cert`) or private certificates (`private_cert`) engines, use the [Add a configuration](#secrets-manager-cli-config-element-create-command) method.
 
 ```sh
 ibmcloud secrets-manager config-update --secret-type SECRET-TYPE --engine-config ENGINE-CONFIG 
@@ -1791,7 +1791,7 @@ ibmcloud secrets-manager notifications-test
 ## Schema examples
 {: #secrets-manager-schema-examples}
 
-The following schema examples represent the data that you need to specify for a command option. These examples model the data structure and include placeholder values for the expected value type. When you run a command, replace these values with the values that apply to your environment as appropriate.
+The following schema examples represent the data that you need to specify for a command option. These examples model the data structure and include placeholder values for the expected value type. When you run a command, replace these values with the values that apply to your environment.
 
 ### CollectionMetadata
 {: #cli-collection-metadata-example-schema}

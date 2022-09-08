@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-07"
+lastupdated: "2022-09-08"
 
 keywords: migrate from {{site.data.keyword.cloudcerts_short}}, migrate to Secrets Manager, migrate certificates
 
@@ -95,7 +95,7 @@ If you have any user-provided Ingress secrets that are stored in {{site.data.key
 ## Comparison between {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudcerts_short}}
 {: #migrate-differences}
 
-Both {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudcerts_short}} provide a secure repository for storing and managing certificates. All of the features that are available for the {{site.data.keyword.cloudcerts_short}} service are supported by {{site.data.keyword.secrets-manager_short}}. The following table compares and contrasts some common characteristics between the services.
+Both {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.cloudcerts_short}} provide a secure repository for storing and managing certificates. All the features that are available for the {{site.data.keyword.cloudcerts_short}} service are supported by {{site.data.keyword.secrets-manager_short}}. The following table compares and contrasts some common characteristics between the services.
 
 Unlike {{site.data.keyword.cloudcerts_short}}, {{site.data.keyword.secrets-manager_short}} is a paid service that requires a credit card-equipped account. [Review the {{site.data.keyword.secrets-manager_short}} pricing plans](/catalog/services/secrets-manager){: external} to understand how migrating to the service might impact your billing. For more information, contact your {{site.data.keyword.cloud_notm}} sales representative.
 {: important}

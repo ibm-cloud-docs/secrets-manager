@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-04"
+lastupdated: "2022-09-08"
 
 keywords: can't delete secret group, unable to delete secret group
 
@@ -74,10 +74,10 @@ An error occurred and the secret group couldn't be deleted.
 ```
 {: screen}
 
-Secret groups are a way to organize and assign access policies to your secrets. By deleting a secret group, you render all of the secrets in that group useless. For that reason, you cannot delete a secret group that contains secrets.
+Secret groups are a way to organize and assign access policies to your secrets. By deleting a secret group, you render all the secrets in that group useless. For that reason, you cannot delete a secret group that contains secrets.
 {: tsCauses}
 
-To delete a secret group, delete all of the secrets that are associated with it and then delete the group itself.
+To delete a secret group, delete all the secrets that are associated with it and then delete the group itself.
 {: tsResolve}
 
 To learn more about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).

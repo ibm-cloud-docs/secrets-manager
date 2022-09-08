@@ -209,12 +209,12 @@ Pricing plan updates coming soon in {{site.data.keyword.secrets-manager_short}}
    When you provision an instance of the service after the 23 March, you can choose either a Trial or Standard plan.
 
 
-   * **Trial**: To try out the service, you can provision an instance of the service to access all of the features that {{site.data.keyword.secrets-manager_short}} offers for a limited time. After the trial period, all functionality is disabled but the instance remains in your account for an additional 30 days, during which you can choose to upgrade your plan. If you choose not to, the instance and its data are automatically removed from your account without any action on your part.
+   * **Trial**: To try out the service, you can provision an instance of the service to access all the features that {{site.data.keyword.secrets-manager_short}} offers for a limited time. After the trial period, all functionality is disabled but the instance remains in your account for an additional 30 days, during which you can choose to upgrade your plan. If you choose not to, the instance and its data are automatically removed from your account without any action on your part.
 
    You can have one instance of the service on the trial plan that is provisioned in your account at any time.
    {: note}
 
-   * **Standard**: When you're ready to upgrade, you get unlimited access to all of the features that the service has to offer. The number of instances that your teams can provision is unlimited. With the Standard plan, you are charged per secret and per instance that is provisioned. To view the most current pricing information, see the {{site.data.keyword.secrets-manager_short}} UI.
+   * **Standard**: When you're ready to upgrade, you get unlimited access to all the features that the service has to offer. The number of instances that your teams can provision is unlimited. With the Standard plan, you are charged per secret and per instance that is provisioned. To view the most current pricing information, see the {{site.data.keyword.secrets-manager_short}} UI.
 
 
    **Important dates:**

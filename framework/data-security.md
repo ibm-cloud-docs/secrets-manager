@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-07"
+lastupdated: "2022-09-08"
 
 keywords: Data security for Secrets Manager, byok, kyok, data storage, data encryption in Secrets Manager, customer managed keys
 
@@ -135,7 +135,7 @@ If you choose to work with a key that you manage, you must ensure that valid IAM
 ## Deleting your data in {{site.data.keyword.secrets-manager_short}}
 {: #data-delete}
 
-When you delete your instance of {{site.data.keyword.secrets-manager_short}}, all of the user data that is associated with it is also deleted. When the service instance is deleted, a 7-day reclamation period begins. During that time, you're able to restore the instance and all of its associated user data. However, if the instance and data are permanently deleted, it can no longer be restored. {{site.data.keyword.secrets-manager_short}} does not store any data from permanently deleted instances.
+When you delete your instance of {{site.data.keyword.secrets-manager_short}}, all the user data that is associated with it is also deleted. When the service instance is deleted, a 7-day reclamation period begins. During that time, you're able to restore the instance and all of its associated user data. However, if the instance and data are permanently deleted, it can no longer be restored. {{site.data.keyword.secrets-manager_short}} does not store any data from permanently deleted instances.
 
 If your instance was automatically deleted as part of the release of new pricing plans, you can use the reclamation process to restore it. After it is restored, you must upgrade your plan within 1 hour or it will be deleted again.
 {: note}
