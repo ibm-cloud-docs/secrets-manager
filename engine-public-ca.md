@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-06-30"
+lastupdated: "2022-09-08"
 
 keywords: certificate authority, connect certificate authority, set up certificate authority, connect CA, set up CA, connect Let's Encrypt, set up Let's Encrypt, add certificate authority configuration, add CA configuration
 
@@ -82,14 +82,14 @@ You can integrate the following certificate authorities with your {{site.data.ke
 
 | Prerequisites |
 | :------------ |
-| Before you connect Let's Encrypt, be sure that you:  \n  \n - Obtain the private key that's associated with your Automatic Certificate Management Environment (ACME) account.  \n The ACME protocol makes it possible to automatically obtain browser trusted certificates without human intervention. Before you can request Let's Encrypt certificates through {{site.data.keyword.secrets-manager_short}}, you must have an ACME account registered. If you already have a working ACME account, you'll need the private key that was generated when the account was initially created.  \n  \n - Optional: Create an ACME account.  \n If you don't have an existing ACME client or account, you can create one by using the [ACME account creation tool](https://github.com/ibm-cloud-security/acme-account-creation-tool){: external}. |
+| Before you connect Let's Encrypt, be sure that you:  \n  \n - Obtain the private key that's associated with your Automatic Certificate Management Environment (ACME) account.  \n The ACME protocol makes it possible to automatically obtain browser trusted certificates without human intervention. Before you can request Let's Encrypt certificates through {{site.data.keyword.secrets-manager_short}}, you must have an ACME account. If you already have a working ACME account, you need the private key that was generated when the account was initially created.  \n  \n - Optional: Create an ACME account.  \n If you don't have an existing ACME client or account, you can create one by using the [ACME account creation tool](https://github.com/ibm-cloud-security/acme-account-creation-tool){: external}. |
 {: caption="Table 1. Prerequisites - Let's Encrypt" caption-side="top"}
 {: #add-certificate-authority-prereqs}
 {: tab-title="Let's Encrypt"}
 {: tab-group="ca-prereqs"}
 {: class="simple-tab-table"}
 
-Certificate authorities may apply a charge when ordering or renewing a certificate. Additionally, various rate limits apply. {{site.data.keyword.secrets-manager_short}} does not control costs or rate limits that are associated with ordering certificates. For more information about rate limits to keep in mind as you order Let's Encrypt certificates, check out the [Let's Encrypt documentation](https://letsencrypt.org/docs/rate-limits/){: external}.
+Certificate authorities might apply a charge when you order or renew a certificate. Additionally, various rate limits apply. {{site.data.keyword.secrets-manager_short}} does not control costs or rate limits that are associated with ordering certificates. For more information about rate limits to keep in mind as you order Let's Encrypt certificates, check out the [Let's Encrypt documentation](https://letsencrypt.org/docs/rate-limits/){: external}.
 {: note} 
 
 ## Adding a certificate authority configuration in the UI
@@ -118,7 +118,7 @@ You can add certificate authority configurations to your service instance by usi
 
 You can add certificate authority configurations to your service instance by calling the {{site.data.keyword.secrets-manager_short}} API. 
 
-The following example shows a query that you can use to add a configuration for Let's Encrypt. When you call the API, replace the `private_key` value with the private key in that is associated with your [ACME account](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#create-acme-account).
+The following example shows a query that you can use to add a configuration for Let's Encrypt. When you call the API, replace the `private_key` value with the private key that is associated with your [ACME account](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#create-acme-account).
 {: curl}
 
 Be sure to convert your private key file to single-line format so that it can be parsed correctly by the {{site.data.keyword.secrets-manager_short}} API. You can use the following UNIX command to format the file to a single-line string: `awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' <private_key_file>`

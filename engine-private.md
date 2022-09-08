@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-07"
+lastupdated: "2022-09-08"
 
 keywords: create certificate authority, create root CA, create intermediate CA, set up PKI, set up private certificates, private certificates engine
 
@@ -159,7 +159,7 @@ Before you create a certificate authority in {{site.data.keyword.secrets-manager
     | Algorithm family | Description | Supported key sizes |
     | --- | --- | --- | 
     | RSA | Widely used and compatible with most browsers and servers, RSA is the industry standard for public-key cryptography. | 2048 bits  \n4096 bits|
-    | Elliptic curve (EC) | Generates stronger keys and smaller certificates. For example, a 256-bit EC key is equilavent in encryption strength to a 3072-bit RSA key. |  224 bits  \n256 bits  \n384 bits  \n521 bits|
+    | Elliptic curve (EC) | Generates stronger keys and smaller certificates. For example, a 256-bit EC key is equivalent in encryption strength to a 3072-bit RSA key. |  224 bits  \n256 bits  \n384 bits  \n521 bits|
     {: caption="Table 2. Supported algorithm families and key sizes" caption-side="top"}
 
 2. Choose a key size.
