@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-06-30"
+lastupdated: "2022-09-12"
 
 keywords: DNS provider, connect DNS provider, set up DNS provider, connect DNS, set up DNS, connect CIS, set up CIS, add DNS provider configuration
 
@@ -98,6 +98,8 @@ You can connect the following DNS providers with your {{site.data.keyword.secret
 {: tab-group="dns-provider-prereqs"}
 {: class="simple-tab-table"}
 
+
+
 ## Adding a DNS provider configuration in the UI
 {: #add-dns-provider-ui}
 {: ui}
@@ -178,6 +180,8 @@ curl -X POST 'https://{instance_id}.us-south.secrets-manager.appdomain.cloud/api
 
 A successful response adds the configuration to your service instance. For more information about the required and optional request parameters, see [Add a configuration](/apidocs/secrets-manager#create-config-element){: external}.
 
+
+
 ## Deleting a DNS provider configuration in the UI
 {: #delete-dns-provider-ui}
 {: ui}
@@ -223,7 +227,6 @@ A successful response removes the configuration from your service instance. For 
 ## Next steps
 {: #manage-dns-config-next-steps}
 
-- [Add a certificate authority configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority)
 - [Order a certificate](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates)
 
 
