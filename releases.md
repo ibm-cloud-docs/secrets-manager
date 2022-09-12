@@ -61,13 +61,14 @@ content-type: release-note
 Use these release notes to learn about the latest changes to {{site.data.keyword.secrets-manager_full}} that are grouped by date.
 {: shortdesc}
 
-For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
-
-<staging>
+For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).<staging>
 
 ## 12 September 2022
 {: #secrets-manager-sept1222}
 {: release-note}
+
+New custom metadata fields
+:   The documentation for creating secrets and managing versions of a secret is now updated to include `custom_metadata` and `version_custom_metadata` fields. To learn more about the latest updates, see [Creating secrets](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets&interface=ui) and [Managing secret versions](/docs/secrets-manager?topic=secrets-manager-version-history&interface=ui).
 
 New {{site.data.keyword.secrets-manager_short}} event notifications
 :   The following notifications for events related to Secret Locks are now available.
