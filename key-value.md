@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-08-15"
+lastupdated: "2022-09-12"
 
 keywords: key:value, key/value, key-value, storing key:value secrets
 
@@ -111,6 +111,8 @@ The command outputs the ID value of the secret, along with other metadata. For m
 You can create key-value secrets programmatically by using the {{site.data.keyword.secrets-manager_short}} API.
 
 The following example shows a query that you can use to create and store a key-value secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+
+You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
 {: curl}
 
 
@@ -136,7 +138,15 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
           "labels": [
             "dev",
             "us-south"
-          ]
+          ],
+          "expiration_date": "2030-01-01T00:00:00Z",
+          "custom_metadata": {
+            "collection_nickname" : "test_collection"
+            "collection_special_id" : "test12345"
+          },
+          "version_custom_metadata": {
+            "version_special_id" : "test6789"
+          }
         }
         ]
     }'

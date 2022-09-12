@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-07"
+lastupdated: "2022-09-12"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
 
@@ -158,6 +158,8 @@ The command outputs the ID value of the secret, along with other metadata. For m
 You can import certificates programmatically by calling the {{site.data.keyword.secrets-manager_short}} API.
 
 The following example shows a query that you can use to import an existing certificate. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+
+You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
 {: curl}
 
 You can import certificate files that are in the `.pem` format. Be sure to [convert your PEM files to single-line format](/docs/secrets-manager?topic=secrets-manager-troubleshoot-pem) so that they can be parsed correctly by the {{site.data.keyword.secrets-manager_short}} API.
@@ -184,7 +186,15 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
           "labels": [
             "dev",
             "us-south"
-          ]     
+          ],
+          "expiration_date": "2030-01-01T00:00:00Z",
+          "custom_metadata": {
+            "collection_nickname" : "test_collection"
+            "collection_special_id" : "test12345"
+          },
+          "version_custom_metadata": {
+            "version_special_id" : "test6789"
+          }    
         }
         ]
     }'
@@ -276,6 +286,8 @@ Currently, ordering certificates is available by using the UI or API only. To se
 You can order certificates programmatically by calling the {{site.data.keyword.secrets-manager_short}} API.
 
 The following example shows a query that you can use to order a certificate. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+
+You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
 {: curl}
 
 When you order a certificate, domain validation takes place to verify the ownership of your selected domains. This process can take a few minutes to complete.
@@ -301,7 +313,15 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
           "labels": [
             "dev",
             "us-south"
-          ]              
+          ],
+          "expiration_date": "2030-01-01T00:00:00Z",
+          "custom_metadata": {
+            "collection_nickname" : "test_collection"
+            "collection_special_id" : "test12345"
+          },
+          "version_custom_metadata": {
+            "version_special_id" : "test6789"
+          },             
           "common_name": "example.com",
           "alt_names": [
             "www.example.com"
@@ -381,6 +401,8 @@ You can create a private certificate by using the {{site.data.keyword.secrets-ma
 You can generate private certificates programmatically by calling the {{site.data.keyword.secrets-manager_short}} API.
 
 The following example shows a query that you can use to create a private certificate. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+
+You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
 {: curl}
 
 
@@ -404,7 +426,15 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
           "labels": [
             "dev",
             "us-south"
-          ]              
+          ],
+          "expiration_date": "2030-01-01T00:00:00Z",
+          "custom_metadata": {
+            "collection_nickname" : "test_collection"
+            "collection_special_id" : "test12345"
+          },
+          "version_custom_metadata": {
+            "version_special_id" : "test6789"
+          }              
           "rotation": {
             "auto_rotate": true,
             "interval": 1,
@@ -484,6 +514,7 @@ A successful request returns the contents of your private certificate, along wit
                     "expiration_date": "2023-04-01T00:00:00Z",
                     "id": "73db8437-dd9e-4712-5e9a-95838357301f",
                     "payload_available": true,
+                    "version_custom_metadata": {},
                     "serial_number": "56:ec:da:1e:3b:8d:44:41:bf:7e:b6:7b:fb:34:f9:fc:c6:fa:d8:cd",
                     "state": 1,
                     "state_description": "Active",
@@ -493,7 +524,10 @@ A successful request returns the contents of your private certificate, along wit
                     }
                 }
             ],
-            "versions_total": 1
+            "versions_total": 1,
+            "version_custom_metadata": {
+              "version_special_id" : "test6789"
+            }
         }
     ]
 }

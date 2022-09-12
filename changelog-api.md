@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-07"
+lastupdated: "2022-09-12"
 
 keywords: change log for Secrets Manager APIs, API changelog, updates to Secrets Manager APIs
 
@@ -64,9 +64,13 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 
 
 
+## 12 September 2022
+{: #2022-09-12-api}
 
+This release includes the following updates:
 
-
+- Added the [Update the metadata of a secret version](/apidocs/secrets-manager#update-secret-version-metadata) method that can be used to store version custom metadata that is relevant to the needs of your organization.
+- Updated the [Create a secret](/apidocs/secrets-manager#create-secret), [Invoke an action on a secret](/apidocs/secrets-manager#update-secret), [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata), [Get secret version metadata](/apidocs/secrets-manager#get-secret-version-metadata), and [Update secret metadata](/apidocs/secrets-manager#update-secret-metadata) methods to include `custom_metadata` and `version_custom_metadata` fields.
 
 ## 10 July 2022
 {: #2022-07-10-api}
@@ -77,8 +81,6 @@ This release includes the following updates:
 - Added the [Unlock a secret](/apidocs/secrets-manager#unlock-secret) and [Unlock a secret version](/apidocs/secrets-manager#unlock-secret-version) methods that can be used to remove locks on a secret or specific secret version.
 - Added the [List secret locks](/apidocs/secrets-manager#get-locks), [List secret version locks](/apidocs/secrets-manager#get-secret-version-locks), and [List all secrets and locks](/apidocs/secrets-manager#list-instance-secrets-locks).
 - Updated all secrets operations to return a `locks_total` field as part of the metadata of a secret.
-
-
 
 ## 25 April 2022
 {: #2022-04-25-api}

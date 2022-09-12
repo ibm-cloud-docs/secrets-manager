@@ -113,6 +113,8 @@ You can store a username and password programmatically by calling the {{site.dat
 
 The following example shows a query that you can use to create a username and password secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 
+You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
+
 
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password" \
@@ -135,7 +137,14 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
           "labels": [
             "dev",
             "us-south"
-          ]
+          ],
+          "expiration_date": "2030-01-01T00:00:00Z",
+          "custom_metadata": {
+            "collection_nickname" : "test_collection"
+            "collection_special_id" : "test12345"
+          },
+          "version_custom_metadata": {
+            "version_special_id" : "test6789"
           }
         }
         ]

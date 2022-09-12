@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-07-06"
+lastupdated: "2022-09-12"
 
 keywords: known issues for Secrets Manager, known limitations for Secrets Manager
 
@@ -145,6 +145,8 @@ The following limits apply to arbitrary secrets.
 | Labels | 2 - 30 characters  \n  \n 30 labels per secret |
 | Versions | For auditing purposes, the service retains the metadata of up to 50 versions for each secret, which you can review as part of a secret's [version history](/docs/secrets-manager?topic=secrets-manager-version-history). |
 | Locks | 1000 |
+| Custom metadata | 10 KB |
+| Version custom metadata | 10 KB |
 {: caption="Table 5. Arbitrary secret limits" caption-side="top"}
 
 #### Limits for IAM credentials
@@ -161,6 +163,8 @@ The following limits apply to IAM credentials.
 | Time-to-live (TTL) / lease duration | Minimum duration is 1 minute. Maximum is 90 days. |
 | Versions | 2 versions per secret (current and previous)  \n  \n A secret version can be retrieved, rotated, or restored only if the defined time-to-live (TTL) or lease duration hasn't been reached. For auditing purposes, the service retains the metadata of up to 50 versions for each secret, which you can review as part of a secret's [version history](/docs/secrets-manager?topic=secrets-manager-version-history). |
 | Locks | 1000 |
+| Custom metadata | 10 KB |
+| Version custom metadata | 10 KB |
 {: caption="Table 6. IAM credential limits" caption-side="top"}
 
 #### Limits for key-value secrets
@@ -175,6 +179,8 @@ The following limits apply to key-value secrets.
 | Secret value / payload | 512 KB |
 | Labels | 2 - 30 characters  \n  \n 30 labels per secret |
 | Locks | 1000 |
+| Custom metadata | 10 KB |
+| Version custom metadata | 10 KB |
 {: caption="Table 7. Key-value limits" caption-side="top"}
 
 #### Limits for SSL/TLS certificates
@@ -192,6 +198,8 @@ The following limits apply to imported, private, or public certificates.
 | Labels | 2 - 30 characters  \n  \n 30 labels per secret |
 | Versions | 2 versions per certificate (current and previous)  \n  \nFor auditing purposes, the service retains the metadata of up to 50 versions for each secret, which you can review as part of a secret's [version history](/docs/secrets-manager?topic=secrets-manager-version-history). |
 | Locks | 1000 |
+| Custom metadata | 10 KB |
+| Version custom metadata | 10 KB |
 {: caption="Table 8. TLS certificate limits" caption-side="top"}
 
 #### Limits for user credentials
@@ -208,6 +216,8 @@ The following limits apply to user credentials.
 | Labels | 2 - 30 characters  \n  \n 30 labels per secret |
 | Versions | For auditing purposes, the service retains the metadata of up to 50 versions for each secret, which you can review as part of a secret's [version history](/docs/secrets-manager?topic=secrets-manager-version-history). |
 | Locks | 1000 |
+| Custom metadata | 10 KB |
+| Version custom metadata | 10 KB |
 {: caption="Table 9. User credential limits" caption-side="top"}
 
 
