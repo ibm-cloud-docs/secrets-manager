@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-06-30"
+lastupdated: "2022-09-07"
 content-type: tutorial
 services: secrets-manager, cloud-object-storage
 account-plan: paid
@@ -241,7 +241,7 @@ Next, create a bucket in your Cloud Object Storage instance and set up access.
 
 3. Upload an object to the storage bucket.
 
-    You can drag and drop any file or folder from your local system. For example, you can create and upload a file called `sample.txt` with the following sample text.
+    You can drag and drop any file or folder from your local system. For example, you can create and upload a file that is named `sample.txt` with the following sample text.
 
     ```plaintext
     A quick brown fox jumped over the lazy dog.
@@ -260,7 +260,7 @@ Finally, configure your {{site.data.keyword.secrets-manager_short}} instance to 
     ```
     {: pre}
 
-    Don't have the plug-in installed? To install the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run `ibmcloud plugin install secrets-manager`.
+    Don't have the plug-in? To install the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run `ibmcloud plugin install secrets-manager`.
     {: tip}
 
 2. Export an environment variable with your unique {{site.data.keyword.secrets-manager_short}} API endpoint URL.
@@ -383,7 +383,7 @@ To retrieve an IAM credential from the {{site.data.keyword.cloud_notm}} CLI, you
 {: #access-cos-generate-access-token}
 {: step}
 
-By using the API key that you retrieved in the previous step, you can generate an IAM access token that is valid only for duration that you initially defined for the IAM credential.
+By using the API key that you retrieved in the previous step, you can generate an IAM access token. The token is valid only for the duration that you initially defined for the IAM credential.
 
 You can exchange the API key for an IAM access token by calling [IAM Identity Services API](/apidocs/iam-identity-token-api){: external}. To generate an IAM token, run the following cURL command from your command line.
 
@@ -470,7 +470,7 @@ The following XML snippet shows an example response.
 ```
 {: screen}
 
-And finally, to read the object in the bucket, you can run the following command.
+Finally, to read the object in the bucket, you can run the following command.
 
 ```sh
 curl -X GET \

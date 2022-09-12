@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-06-24"
+lastupdated: "2022-09-08"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -71,7 +71,7 @@ Before you get started, be sure that you have the required level of access. To r
 ### Supported secret types
 {: #manual-rotate-by-type}
 
-All of the secrets that you store in {{site.data.keyword.secrets-manager_short}} can be rotated and replaced on-demand. How {{site.data.keyword.secrets-manager_short}} evaluates a request to rotate a secret depends on the secret type.
+All the secrets that you store in {{site.data.keyword.secrets-manager_short}} can be rotated and replaced on-demand. How {{site.data.keyword.secrets-manager_short}} evaluates a request to rotate a secret depends on the secret type.
 
 | Type | Rotation description |
 | --- | --- |

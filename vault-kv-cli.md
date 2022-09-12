@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-08-09"
+lastupdated: "2022-08-24"
 
 keywords: Secrets Manager Vault, Vault CLI, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager, KV, key-value, KV CLI
 
@@ -424,7 +424,7 @@ Success! Data written to: ibmcloud/kv/undelete/my-test-kv-secret
 
 
 ## Create or update metadata key-value secret
-{: #update-kv-secret-cli}
+{: #update-kv-secret-metadata-cli}
 
 Create or update metadata of a key-value secret.
 
@@ -442,18 +442,18 @@ vault kv metadata put [-format=FORMAT] [METADATA_KEY_VALUE_PAIRS] ibmcloud/kv/GR
 {: codeblock}
 
 ### Prerequisites
-{: #update-kv-secret-cli-prereq}
+{: #update-kv-secret-metadata-cli-prereq}
 
 You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manager-iam) to create a key-value secret.
 
 ### Command options
-{: #update-kv-secret-cli-options}
+{: #update-kv-secret-metadata-cli-options}
 
 -format
 :   Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
 
 ### Example
-{: #update-kv-secret-cli-example}
+{: #update-kv-secret-metadata-cli-example}
 
 Create or update the payload of a key-value secret. 
 
@@ -470,7 +470,7 @@ vault kv metadata put -custom-metadata=key1=value1 -custom-metadata=key2=value2 
 {: pre}
 
 ### Output
-{: #update-kv-secret-cli-output}
+{: #update-kv-secret-metadata-cli-output}
 
 The command to create a new version of a `kv` secret returns the following output:
 

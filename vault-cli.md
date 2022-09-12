@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-05-03"
+lastupdated: "2022-09-12"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -1762,5 +1762,285 @@ Success! Data deleted (if it existed) at: ibmcloud/iam_credentials/roles/091ca93
 ```
 {: screen}
 
+## Locks
+{: #vault-cli-secret-locks}
 
+### Lock a secret
+{: #vault-cli-create-secret-locks}
+
+Use the following commands to [create one or more locks](/docs/secrets-manager?topic=secrets-manager-secret-locks) on the current version of a secret.
+
+Create a lock on a secret in the default secret group.
+
+```sh
+vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/locks/SECRET_ID/lock @FILE
+```
+{: codeblock}
+
+Create a lock on a secret in a custom secret group.
+
+```sh
+vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/locks/groups/SECRET_GROUP_ID/SECRET_ID/lock @FILE
+```
+{: codeblock}
+
+Lock a secret exclusively.
+
+```sh
+vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/locks/groups/SECRET_GROUP_ID/SECRET_ID/lock_exclusive @FILE
+```
+{: codeblock}
+
+Lock a secret exclusively and delete previous version data.
+
+```sh
+vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/locks/groups/SECRET_GROUP_ID/SECRET_ID/lock_exclusive_delete @FILE
+```
+{: codeblock}
+
+#### Prerequisites
+{: #vault-cli-create-secret-locks-prereqs}
+
+You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manager-iam) or higher to create secret locks.
+
+#### Command options
+{: #vault-cli-create-secret-locks-options}
+
+SECRET_TYPE
+:   The type of secret that you want to lock. 
+
+SECRET_GROUP_ID
+:   The ID of the secret group. 
+
+FILE
+:   The JSON file that contains the details of the lock.
+
+name
+:   The human-readable alias that you want to assign to the secret group. Required.
+
+description
+:   An extended description of the secret group.
+
+-format
+:   Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
+
+#### Examples
+{: #vault-cli-create-secret-locks-examples}
+
+Create a lock on a secret in the default secret group.
+
+```sh
+vault write -format=json ibmcloud/arbitrary/locks/fe874c2b-e8fd-bbb6-9f19-e91bbe744735/lock @locks.json
+```
+{: pre}
+
+Create a lock on a secret in a custom secret group.
+
+```sh
+vault write -format=json ibmcloud/arbitrary/locks/groups/bb6-9f19-e91bbe744735/fe874c2b-e8fd-bbb6-9f19/lock @locks.json
+```
+{: pre}
+
+You can format the JSON file that contains the secret lock details based on the following example. 
+
+```json
+{
+  "locks": [
+    {
+      "name": "lockX",
+      "description": "blabla",
+      "attributes": {"key": "value"}
+    },
+    {
+      "name": "lockY",
+      "description": "blabla",
+      "attributes": {"key": "value"}
+    }
+  ]
+}
+```json
+
+#### Output
+{: #vault-cli-create-secret-locks-output}
+
+The command to create a lock on a secret in the default group returns the following output:
+```json
+{
+  "request_id": "df85bbe9-4a0a04-06b123",
+  "lease_id": "",
+  "lease_duration": 0,
+  "renewable": false,
+  "data": {
+    "secret_group_id": "default",
+    "secret_id": "65e44d42-cf24f4-490fa9",
+    "versions": [
+      {
+        "alias": "current",
+        "id": "6df7edfe-e5f-0b66c-aaba832",
+        "locks": [
+          "lock4",
+          "lock5"
+        ],
+        "payload_available": true
+      }
+    ]
+  },
+  "warnings": null
+}
+```
+{: screen}
+
+### List secret locks
+{: #vault-cli-list-secret-locks}
+
+Use the following commands to list the locks that are associated with the current version of a secret.
+
+List the locks on a secret that is in the default secret group.
+
+```sh
+vault read [-format=FORMAT] ibmcloud/SECRET_TYPE/locks/SECRET_ID
+```
+{: codeblock}
+
+```sh
+vault read [-format=FORMAT] ibmcloud/SECRET_TYPE/locks/groups/SECRET_GROUP_ID/SECRET_ID
+```
+{: codeblock}
+
+#### Prerequisites
+{: #vault-cli-list-secret-locks-prereqs}
+
+You need the [**Reader** service role](/docs/secrets-manager?topic=secrets-manager-iam) or higher to list secret locks.
+
+#### Command options
+{: #vault-cli-list-secret-locks-options}
+
+-format
+:   Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
+
+#### Examples
+{: #vault-cli-list-secret-locks-examples}
+
+List the locks that are associated with an arbitrary secret in the default secret group.
+
+```sh
+vault read -format=json ibmcloud/arbitrary/locks/184408d6-8264-5ff3-c308-6922ed04ad88
+```
+{: pre}
+
+List the locks that are associated with a user credentials secret in a custom secret group.
+
+```sh
+vault read -format=json ibmcloud/username_password/locks/groups/d2e98a96-18ed-f13c-8dee-db955fb94122/c86946e6-b392-2613-159d-aff5a3f095b3
+```
+{: pre}
+
+#### Output
+{: #vault-cli-list-secret-locks-output}
+
+The command returns the following output:
+```json
+{
+  "request_id": "7a09ca14-6a7d-9ea2-2515-f7c22890f148",
+  "lease_id": "",
+  "lease_duration": 0,
+  "renewable": false,
+  "data": {
+    "locks": [
+      {
+        "attributes": {
+          "key": "value"
+        },
+        "created_by": "iam-ServiceId-222b47ab-b08e-42c3acb8",
+        "creation_date": "2022-06-30T21:04:15.143896Z",
+        "description": "Test lock for secret in the custom secret group.",
+        "last_update_date": "2022-06-30T21:31:19.343086Z",
+        "name": "lock-for-app-1",
+        "secret_group_id": "d2e98a96-18ed-fb22",
+        "secret_id": "c86946e6-b392-2613-15095b3",
+        "secret_version_alias": "current",
+        "secret_version_id": "ad6aa6d9-b43c-4bc3-52e64"
+      }
+    ],
+    "locks_total": 1
+  },
+  "warnings": null
+}
+```
+{: screen}
+
+### Unlock a secret
+{: #vault-cli-delete-secret-locks}
+
+Use the following commands to remove one or more locks on the current version of a secret.
+
+Remove locks on a secret in the default secret group.
+
+```sh
+vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/locks/SECRET_ID/unlock locks=LOCK_NAME locks=LOCK_NAME
+```
+{: codeblock}
+
+Remove locks on a secret in a custom secret group.
+
+```sh
+vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/locks/groups/SECRET_GROUP_ID/SECRET_ID/unlock locks=LOCK_NAME locks=LOCK_NAME
+```
+{: codeblock}
+
+#### Prerequisites
+{: #vault-cli-delete-secret-locks-prereqs}
+
+You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manager-iam) or higher to create secret locks.
+
+#### Command options
+{: #vault-cli-delete-secret-locks-options}
+
+-format
+:   Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
+
+#### Examples
+{: #vault-cli-delete-secret-locks-examples}
+
+Remove locks on a secret in the default secret group.
+
+```sh
+vault write -format=json ibmcloud/username_password/locks/65e44d42-cfb6-a24f4490fa9/unlock locks=test-lock-1 locks=test-lock-2
+```
+{: pre}
+
+Remove locks on a secret in a custom secret group.
+
+```sh
+vault write -format=json ibmcloud/arbitrary/locks/groups/7a09ca14-6a7d-9ea2-2515-f7c22890f148/9ea2-2515-f7c22890f148/unlock locks=test-lock-1 locks=test-lock-2
+```
+{: pre}
+
+
+#### Output
+{: #vault-cli-delete-secret-locks-output}
+
+The command returns the following output:
+```json
+{
+  "request_id": "0ec52cf2-59867-184a9c977",
+  "lease_id": "",
+  "lease_duration": 0,
+  "renewable": false,
+  "data": {
+    "secret_group_id": "default",
+    "secret_id": "65e44d42-cfb6-abe2-637d-2824f4490fa9",
+    "versions": [
+      {
+        "alias": "current",
+        "id": "6df7edfe-ea85-3d34-565f-0b66caaba832",
+        "locks": [],
+        "payload_available": true
+      }
+    ]
+  },
+  "warnings": null
+}
+```
+{: screen}
 

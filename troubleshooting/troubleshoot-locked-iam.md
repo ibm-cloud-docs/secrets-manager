@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-07-07"
+lastupdated: "2022-09-08"
 
 keywords: 412 Precondition Failed, IAM credentials, locked IAM credentials
 
@@ -75,7 +75,7 @@ The requested action can't be completed because the secret version is locked.
 A lock on a secret prevents it from being modified or deleted from your instance. IAM credentials are [dynamic secrets](#x9968958){: term}. By default, each request to read an IAM credential (for example, a `GET` request) generates a new service ID API key, deletes the old credentials, and returns the new credentials. Locking the secret overrides this default behavior and returns a `412 Precondition Failed` error to indicate that the secret data is locked. A locked IAM credential can't be read, because doing so modifies its secret data.
 {: tsCauses}
 
-To regenerate your IAM credentials, you can remove all of the locks that are associated with your secret, and try again. To delete locks from the {{site.data.keyword.secrets-manager_short}} UI, go to **Secrets > _secret name_ > Locks > Delete**. 
+To regenerate your IAM credentials, you can remove all the locks that are associated with your secret, and try again. To delete locks from the {{site.data.keyword.secrets-manager_short}} UI, go to **Secrets > _secret name_ > Locks > Delete**. 
 {: tsResolve}
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-23"
+lastupdated: "2022-09-08"
 
 keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, lite plan
 
@@ -84,7 +84,7 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} from the {{
     To further protect your connection to {{site.data.keyword.secrets-manager_short}}, you can choose to provision an instance that uses a private service endpoint. For more information about setting up your account to support the private connectivity option, see [Enabling VRF and service endpoints](/docs/account?topic=account-vrf-service-endpoint).
 9. Click **Create** to create an instance of {{site.data.keyword.secrets-manager_short}} in the account, region, and resource group that you selected.
 
-To update your service plan after you've created an instance, see [Updating your service plan](/docs/billing-usage?topic=billing-usage-changing).
+To update your service plan after you create an instance, see [Updating your service plan](/docs/billing-usage?topic=billing-usage-changing).
 {: tip}
 
 
@@ -133,5 +133,5 @@ You can also create an instance of {{site.data.keyword.secrets-manager_short}} b
     ```
     {: pre}
 
-To update your service plan after you've created an instance, see [Updating your service plan](/docs/billing-usage?topic=billing-usage-changing).
+To update your service plan after you create an instance, see [Updating your service plan](/docs/billing-usage?topic=billing-usage-changing).
 {: tip}

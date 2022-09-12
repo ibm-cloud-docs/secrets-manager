@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-08-18"
+lastupdated: "2022-09-08"
 
 keywords: secret version history, view versions, secret versions
 
@@ -10,49 +10,7 @@ subcollection: secrets-manager
 
 ---
 
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:download: .download}
-{:external: target="_blank" .external}
-{:faq: data-hd-content-type='faq'}
-{:gif: data-image-type='gif'}
-{:important: .important}
-{:note: .note}
-{:pre: .pre}
-{:tip: .tip}
-{:preview: .preview}
-{:deprecated: .deprecated}
-{:beta: .beta}
-{:term: .term}
-{:shortdesc: .shortdesc}
-{:script: data-hd-video='script'}
-{:support: data-reuse='support'}
-{:table: .aria-labeledby="caption"}
-{:troubleshoot: data-hd-content-type='troubleshoot'}
-{:help: data-hd-content-type='help'}
-{:tsCauses: .tsCauses}
-{:tsResolve: .tsResolve}
-{:tsSymptoms: .tsSymptoms}
-{:video: .video}
-{:step: data-tutorial-type='step'}
-{:tutorial: data-hd-content-type='tutorial'}
-{:api: .ph data-hd-interface='api'}
-{:cli: .ph data-hd-interface='cli'}
-{:ui: .ph data-hd-interface='ui'}
-{:curl: .ph data-hd-programlang='curl'}
-{:java: .ph data-hd-programlang='java'}
-{:ruby: .ph data-hd-programlang='ruby'}
-{:c#: .ph data-hd-programlang='c#'}
-{:objectc: .ph data-hd-programlang='Objective C'}
-{:python: .ph data-hd-programlang='python'}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:php: .ph data-hd-programlang='PHP'}
-{:swift: .ph data-hd-programlang='swift'}
-{:curl: .ph data-hd-programlang='curl'}
-{:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
-{:go: .ph data-hd-programlang='go'}
-{:unity: .ph data-hd-programlang='unity'}
-{:release-note: data-hd-content-type='release-note'}
+{[metadata-attributes.md]
 
 # Viewing the version history of secrets
 {: #version-history}
@@ -87,7 +45,7 @@ If you're auditing the version history of a secret, you can use the {{site.data.
 
 If you're auditing the version history of a secret, you can use the {{site.data.keyword.secrets-manager_short}} CLI plug-in to view the general characteristics of each rotation.
 
-To list all of the versions that are associated with a secret, run the [**`ibmcloud secrets-manager secret-versions`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-versions-command) command. You can specify the type of secret by using the `--secret-type SECRET-TYPE` option. The options for `SECRET_TYPE` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`.
+To list all the versions that are associated with a secret, run the [**`ibmcloud secrets-manager secret-versions`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-versions-command) command. You can specify the type of secret by using the `--secret-type SECRET-TYPE` option. The options for `SECRET_TYPE` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`.
 
 ```sh
 ibmcloud secrets-manager secret-versions --secret-type SECRET-TYPE --id ID --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-14"
+lastupdated: "2022-09-08"
 
 keywords: HA for {{site.data.keyword.secrets-manager_short}}, DR for {{site.data.keyword.secrets-manager_short}}, high availability for {{site.data.keyword.secrets-manager_short}}, disaster recovery for {{site.data.keyword.secrets-manager_short}}, failover for {{site.data.keyword.secrets-manager_short}}
 
@@ -60,9 +60,9 @@ subcollection: secrets-manager
 {{site.data.keyword.secrets-manager_full}} is a highly available, regional service that runs in the Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Osaka (`jp-osa`), Sydney (`au-syd`), Sao Paulo (`br-sao`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington DC (`us-east`) regions.
 {: shortdesc}
 
-In each supported region, the service exists in multiple availability zones with no single point of failure. All of the data that is associated with your instance of the service, including your secrets, is backed up across regions.
+In each supported region, the service exists in multiple availability zones with no single point of failure. All the data that is associated with your instance of the service, including your secrets, is backed up across regions.
 
-However, because {{site.data.keyword.secrets-manager_short}} is a regional service, there is no automatic cross-regional failover or cross-regional disaster recovery. If all of the availability zones in a region fail, {{site.data.keyword.secrets-manager_short}} becomes unavailable in that location. When the region is available again, data and traffic is restored without any need for action from you.
+However, because {{site.data.keyword.secrets-manager_short}} is a regional service, cross-regional failover and cross-regional disaster recovery are not automatic. If all the availability zones in a region fail, {{site.data.keyword.secrets-manager_short}} becomes unavailable in that location. When the region is available again, data and traffic is restored without any need for action from you.
 
 See [How do I ensure zero downtime?](/docs/overview?topic=overview-zero-downtime) to learn more about the high availability and disaster recovery standards in {{site.data.keyword.cloud_notm}}. You can also find information about [Service Level Agreements](/docs/overview?topic=overview-slas).
 
@@ -73,7 +73,7 @@ To manually back up your secrets across regions, you must first have an instance
 
 1. List and download secrets from your instance by using the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager) or CLI.
 
-   If you have existing configurations on secrets engines in your instance, you can also retrieve the information programmatically so that it can be recreated in a new instance. For more information, see the [Get the configuration of a secret type](/apidocs/secrets-manager#get-config) API.
+   If you have existing configurations on secrets engines in your instance, you can also retrieve the information programmatically so that it can be re-created in a new instance. For more information, see the [Get the configuration of a secret type](/apidocs/secrets-manager#get-config) API.
 
 2. Add your downloaded secrets to the newly created instance.
 

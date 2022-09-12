@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-08-16"
+lastupdated: "2022-09-12"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -182,6 +182,8 @@ The command outputs the ID value of the secret, along with other metadata. For m
 You can create IAM credentials programmatically by calling the {{site.data.keyword.secrets-manager_short}} API.
 
 The following example shows a query that you can use to create a dynamic service ID and API key. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+
+You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
 {: curl}
 
 ```sh
@@ -207,7 +209,15 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
           "labels": [
             "dev",
             "us-south"
-          ]              
+          ],
+          "expiration_date": "2030-01-01T00:00:00Z",
+          "custom_metadata": {
+            "collection_nickname" : "test_collection"
+            "collection_special_id" : "test12345"
+          },
+          "version_custom_metadata": {
+            "version_special_id" : "test6789"
+          }            
         }
         ]
     }'
@@ -224,6 +234,8 @@ A successful response returns the ID value of the secret, along with other metad
 IAM credentials consist of a service ID and an API key. By default, the service ID and API key are single-use, ephemeral values that are generated and deleted each time that an IAM credentials secret is read or accessed.
 
 If you'd like to use those credentials through the end of the lease of your secret, you can use the `reuse_api_key` field. If set to `true`, your secret retains its current service ID and API key values and reuses them on each read while the secret remains valid. For example, the following example command create IAM credentials that can be reused until they expire.
+
+You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
 
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/iam_credentials" \
@@ -248,7 +260,15 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
           "labels": [
             "dev",
             "us-south"
-          ]               
+          ],
+          "expiration_date": "2030-01-01T00:00:00Z",
+          "custom_metadata": {
+            "collection_nickname" : "test_collection"
+            "collection_special_id" : "test12345"
+          },
+          "version_custom_metadata": {
+            "version_special_id" : "test6789"
+          }            
         }
         ]
     }'
@@ -266,6 +286,8 @@ If `reuse_api_key` is `false` for IAM credentials, manual rotation for the secre
 {: api}
 
 You might already have a service ID in your account that you want to use to dynamically generate an API key. In this scenario, you can choose to create an IAM credentials secret by bringing your own service ID. For example, the following command creates an IAM credential by using the `service_id` field.
+
+You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
 
 You can find the ID value of a service ID in the IAM section of the console. Go to **Manage > Access (IAM) > Service IDs > _name_**. Click **Details** to view the ID.
 {: note}
@@ -290,7 +312,15 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
           "labels": [
             "dev",
             "us-south"
-          ]             
+          ],
+          "expiration_date": "2030-01-01T00:00:00Z",
+          "custom_metadata": {
+            "collection_nickname" : "test_collection"
+            "collection_special_id" : "test12345"
+          },
+          "version_custom_metadata": {
+            "version_special_id" : "test6789"
+          }           
         }
         ]
     }'

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-07-11"
+lastupdated: "2022-09-08"
 
 keywords: Data security for Secrets Manager, byok, kyok, data storage, data encryption in Secrets Manager, customer managed keys
 
@@ -85,7 +85,7 @@ The following table describes your options for managing the encryption of your {
 
 | Encryption | Description |
 | ---- | ---- |
-| Provider-managed encryption | The data that you store in {{site.data.keyword.secrets-manager_short}} is encrypted at rest by using an IBM-managed key. The encryption key is stored in [{{site.data.keyword.keymanagementserviceshort}}](/catalog/services/key-protect). This is the default setting. |
+| Provider-managed encryption | The data that you store in {{site.data.keyword.secrets-manager_short}} is encrypted at rest by using an IBM-managed key. The encryption key is stored in [{{site.data.keyword.keymanagementserviceshort}}](/catalog/services/key-protect). This setting is by default. |
 | Customer-managed encryption | The data that is stored in {{site.data.keyword.secrets-manager_short}} is encrypted at rest by using an encryption key that you own and manage. You can use a root key that you manage in [{{site.data.keyword.keymanagementserviceshort}}](/catalog/services/key-protect) or [{{site.data.keyword.hscrypto}}](/catalog/services/hs-crypto). |
 {: caption="Table 1. Encryption options for {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
 
@@ -135,7 +135,7 @@ If you choose to work with a key that you manage, you must ensure that valid IAM
 ## Deleting your data in {{site.data.keyword.secrets-manager_short}}
 {: #data-delete}
 
-When you delete your instance of {{site.data.keyword.secrets-manager_short}}, all of the user data that is associated with it is also deleted. When the service instance is deleted, a 7-day reclamation period begins. During that time, you're able to restore the instance and all of its associated user data. However, if the instance and data are permanently deleted, it can no longer be restored. {{site.data.keyword.secrets-manager_short}} does not store any data from permanently deleted instances.
+When you delete your instance of {{site.data.keyword.secrets-manager_short}}, all the user data that is associated with it is also deleted. When the service instance is deleted, a 7-day reclamation period begins. During that time, you're able to restore the instance and all of its associated user data. However, if the instance and data are permanently deleted, it can no longer be restored. {{site.data.keyword.secrets-manager_short}} does not store any data from permanently deleted instances.
 
 If your instance was automatically deleted as part of the release of new pricing plans, you can use the reclamation process to restore it. After it is restored, you must upgrade your plan within 1 hour or it will be deleted again.
 {: note}
