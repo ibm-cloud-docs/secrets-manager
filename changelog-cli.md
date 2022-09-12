@@ -62,15 +62,7 @@ In this change log, you can learn about the latest changes, improvements, and up
 
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
 
-<staging>
 
-
-## Version 0.1.22
-{: #0.1.22}
-
-Version 0.1.22 was released on 12 September 2022. This release includes the following updates:
-
-- Added the `SecretMetadata[]` object to the [Update the metadata of a secret command](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-metadata-update-command) to store custom metadata that is relevant to the needs of your organization.<staging>
 
 ## Version 0.1.21
 {: #0.1.21}
