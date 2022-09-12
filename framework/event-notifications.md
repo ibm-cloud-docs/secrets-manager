@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-08-03"
+lastupdated: "2022-09-12"
 
 keywords: event notifications for {{site.data.keyword.secrets-manager_short}}, event notifications integration for {{site.data.keyword.secrets-manager_short}}, alerts for {{site.data.keyword.secrets-manager_short}}
 
@@ -100,6 +100,11 @@ Depending on the type of secret that you're working with in the service, an even
 | Secret expired | `com.ibm.cloud.secrets-manager.secret_expired` | | An event is sent when a secret reaches its expiration date and time. |
 | Secret revoked | `com.ibm.cloud.secrets-manager.secret_revoked` | | An event is sent when a version of a secret is revoked before it is scheduled to expire. |
 | Secret deleted | `com.ibm.cloud.secrets-manager.secret_deleted` |  | An event is sent when a secret is deleted from a {{site.data.keyword.secrets-manager_short}} instance. |
+| Secret deletion blocked | `com.ibm.cloud.secrets-manager.secret_deletion_blocked` | | An event is sent when a secret is unable to be deleted because it is locked. |
+| Secret revocation blocked | `com.ibm.cloud.secrets-manager.secret_revocation_blocked` | | An event is sent when a secret is unable to be revoked because it is locked. |
+| Secret rotation blocked | `com.ibm.cloud.secrets-manager.secret_rotation_blocked` | | An event is sent when a secret is unable to be rotated because it is locked. |
+| Secret expiration blocked | `com.ibm.cloud.secrets-manager.secret_expiration_blocked` | | An event is sent when a secret is unable to expire because it is locked. |
+| Secret version data deleted | `com.ibm.cloud.secrets-manager.secret_version_data_deleted` | | An event is sent when a secret version's data is deleted. |
 | Test event | `com.ibm.cloud.secrets-manager.test_event` | | An event is sent when a test notification is forwarded to {{site.data.keyword.en_short}}. |
 {: caption="Table 1. Actions that generate event notifications" caption-side="bottom"}
 
@@ -120,10 +125,25 @@ The following table lists the {{site.data.keyword.secrets-manager_short}} events
 | Secret expired | `com.ibm.cloud.secrets-manager.secret_expired` | Daily | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | Not applicable[^na-2]| ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
 | Secret revoked | `com.ibm.cloud.secrets-manager.secret_revoked` | One time | | | | |  | ![Checkmark icon](../../icons/checkmark-icon.svg) | |
 | Secret deleted | `com.ibm.cloud.secrets-manager.secret_deleted` | One time | | | | | ![Checkmark icon](../../icons/checkmark-icon.svg)  | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Secret deletion blocked | `com.ibm.cloud.secrets-manager.secret_deletion_blocked` | One time |![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Secret rotation blocked | `com.ibm.cloud.secrets-manager.secret_rotation_blocked` | One time[^man]  \n Daily[^auto] |![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Secret revocation blocked | `com.ibm.cloud.secrets-manager.secret_revocation_blocked` | One time | Not applicable[^na-4] | Not applicable[^na-5] | Not applicable[^na-6] | Not applicable[^na-7] | Not applicable[^na-8] |![Checkmark icon](../../icons/checkmark-icon.svg) | Not applicable[^na-9] |
+| Secret expiration blocked | `com.ibm.cloud.secrets-manager.secret_expiration_blocked` | One time  \n Daily |![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | Not applicable[^na-3]| ![Checkmark icon](../../icons/checkmark-icon.svg) | | | |
+| Secret version data deleted | `com.ibm.cloud.secrets-manager.secret_version_data_deleted` | One time |![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) |
 {: caption="Table 2. Actions that generate events based on secret type" caption-side="bottom"}
 
 [^na-1]: Event is not applicable because there isn't a time-to-live (TTL) limit for this secret type.
 [^na-2]: Event is not applicable because there isn't a time-to-live (TTL) limit for this secret type.
+[^na-3]: Event is not applicable because there isn't a time-to-live (TTL) limit for this secret type.
+[^na-4]: Event is not applicable because this notification type applies to private certificates only.
+[^na-5]: Event is not applicable because this notification type applies to private certificates only.
+[^na-6]: Event is not applicable because this notification type applies to private certificates only.
+[^na-7]: Event is not applicable because this notification type applies to private certificates only.
+[^na-8]: Event is not applicable because this notification type applies to private certificates only.
+[^na-9]: Event is not applicable because this notification type applies to private certificates only.
+[^man]: You receive a notification that informs you that your manual rotation was not successful.
+[^auto]: When an automatic rotation fails, you are notified daily until it is successful.
+
 
 
 ## Enabling notifications

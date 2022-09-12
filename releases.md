@@ -65,6 +65,22 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 
 
 
+## 12 September 2022
+{: #secrets-manager-sept1222}
+{: release-note}
+
+New {{site.data.keyword.secrets-manager_short}} event notifications
+:   The following notifications for events related to Secret Locks are now available.
+
+   - `secret_deletion_blocked`: Now available for arbitrary secrets, IAM credentials, user credentials, key value, imported certificates, private certificates, and public certificates.
+   - `secret_revocation_blocked`: Now available for private certificates. 
+   - `secret_rotation_blocked`:  Now available for arbitrary secrets, IAM credentials, user credentials, key value, imported certificates, private certificates, and public certificates.
+   - `secret_expiration_blocked`:  Now available for arbitrary secrets, IAM credentials, and user credentials.
+   - `secret_version_data_deleted`:  Now available for arbitrary secrets, IAM credentials, user credentials, key value, imported certificates, private certificates, and public certificates.
+
+   For more information about using {{site.data.keyword.en_short}} to enable lifecycle notifications for your {{site.data.keyword.secrets-manager_short}} instance, see [Enabling event notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications).
+
+
 ## 1 August 2022
 {: #secrets-manager-aug0122}
 {: release-note}
