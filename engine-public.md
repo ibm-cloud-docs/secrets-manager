@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-12"
+lastupdated: "2022-09-13"
 
 keywords: set up public certificates, public certificates engine, set up CIS, set up CA, set up Let's Encrypt
 
@@ -195,6 +195,6 @@ You can view and access your classic infrastructure credentials from the **Acces
 
 Now you're ready to add engine configurations to your instance.
 
-- [Add a certificate authority configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority)
-- [Add a DNS provider configuration](/docs/secrets-manager?topic=secrets-manager-add-dns-provider)
+
+First, [add a certificate authority configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority) then, [add a DNS provider configuration](/docs/secrets-manager?topic=secrets-manager-add-dns-provider).
 
