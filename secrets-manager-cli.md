@@ -97,7 +97,7 @@ Current version: **`0.1.22`**
 
 Control who on your team has access to secrets by creating and managing groups.
 
-### ibmcloud secrets-manager secret-group-create
+### `ibmcloud secrets-manager secret-group-create`
 {: #secrets-manager-cli-secret-group-create-command}
 
 Create a secret group that you can use to organize secrets and control who on your team has access to them.
@@ -124,7 +124,7 @@ ibmcloud secrets-manager secret-group-create \
 ```
 {: pre}
 
-### ibmcloud secrets-manager secret-groups
+### `ibmcloud secrets-manager secret-groups`
 {: #secrets-manager-cli-secret-groups-command}
 
 List the secret groups that are available in your Secrets Manager instance.
@@ -169,7 +169,7 @@ ibmcloud secrets-manager secret-group \
 ```
 {: pre}
 
-### ibmcloud secrets-manager secret-group-metadata-update
+### `ibmcloud secrets-manager secret-group-metadata-update`
 {: #secrets-manager-cli-secret-group-metadata-update-command}
 
 Update the metadata of an existing secret group, such as its name or description.
@@ -200,7 +200,7 @@ ibmcloud secrets-manager secret-group-metadata-update \
 ```
 {: pre}
 
-### ibmcloud secrets-manager secret-group-delete
+### `ibmcloud secrets-manager secret-group-delete`
 {: #secrets-manager-cli-secret-group-delete-command}
 
 Delete a secret group by specifying the ID of the secret group.
