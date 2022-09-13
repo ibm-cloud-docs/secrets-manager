@@ -187,7 +187,7 @@ ibmcloud secrets-manager secret-group-metadata-update --id ID --metadata METADAT
 
     The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
 
-`--resources` ([SecretGroupMetadataUpdatable[]](#cli-secret-group-metadata-updatable-example-schema))
+`--resources` ([`SecretGroupMetadataUpdatable[]`](#cli-secret-group-metadata-updatable-example-schema))
 :   A collection of resources. Required.
 
 #### Examples
