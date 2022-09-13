@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-12"
+lastupdated: "2022-09-13"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -66,6 +66,9 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 ## 12 September 2022
 {: #secrets-manager-sept1222}
 {: release-note}
+
+CLI plug-in version 0.1.22
+:   Version 0.1.22 of the {{site.data.keyword.secrets-manager_short}} CLI is now available for download. To learn about the latest updates, see the [CLI change log](/docs/secrets-manager?topic=secrets-manager-cli-change-log).
 
 New custom metadata fields
 :   The documentation for creating secrets and managing versions of a secret is now updated to include `custom_metadata` and `version_custom_metadata` fields. To learn more about the latest updates, see [Creating secrets](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets&interface=ui) and [Managing secret versions](/docs/secrets-manager?topic=secrets-manager-version-history&interface=ui).
