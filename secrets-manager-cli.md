@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-12"
+lastupdated: "2022-09-13"
 
 subcollection: secrets-manager
 
@@ -158,7 +158,7 @@ ibmcloud secrets-manager secret-group --id ID
 `--id` (string)
 :   The v4 UUID that uniquely identifies the secret group. Required.
 
-    The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
+The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
 
 #### Examples
 {: #secrets-manager-cli-secret-group-command-examples}
