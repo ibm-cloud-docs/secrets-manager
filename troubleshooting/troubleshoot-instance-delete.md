@@ -2,11 +2,11 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-23"
-
-keywords: {{site.data.keyword.secrets-manager_short}} instance deleted, lite plan, deprecated
+lastupdated: "2022-09-13"
 
 subcollection: secrets-manager
+
+keywords: {{site.data.keyword.secrets-manager_short}} instance deleted, lite plan, deprecated
 
 content-type: troubleshoot
 
