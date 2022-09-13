@@ -158,7 +158,7 @@ ibmcloud secrets-manager secret-group --id ID
 `--id` (string)
 :   The v4 UUID that uniquely identifies the secret group. Required.
 
-The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
+    The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
 
 #### Examples
 {: #secrets-manager-cli-secret-group-command-examples}
@@ -554,9 +554,10 @@ ibmcloud secrets-manager secret-version --secret-type SECRET-TYPE --id ID --vers
 `--version-id` (string)
 :   The v4 UUID that uniquely identifies the secret version. You can also use `previous` to retrieve the previous version.
 
-**Note:** To find the version ID of a secret, use the [Get secret metadata](#get-secret-metadata) method and check the response details. Required.
+To find the version ID of a secret, use the [Get secret metadata](#get-secret-metadata) method and check the response details. Required.
+{: note}
 
-    The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
+The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
 
 #### Examples
 {: #secrets-manager-cli-secret-version-command-examples}
@@ -597,9 +598,10 @@ ibmcloud secrets-manager secret-version-update --secret-type SECRET-TYPE --id ID
 `--version-id` (string)
 :   The v4 UUID that uniquely identifies the secret version. You can also use `previous` to retrieve the previous version.
 
-**Note:** To find the version ID of a secret, use the [Get secret metadata](#get-secret-metadata) method and check the response details. Required.
+To find the version ID of a secret, use the [Get secret metadata](#get-secret-metadata) method and check the response details. Required.
+{: note}
 
-    The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
+The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
 
 `--action` (string)
 :   The action to perform on the specified secret version. Required.
@@ -736,12 +738,10 @@ ibmcloud secrets-manager secret-version-metadata --secret-type SECRET-TYPE --id 
 `--version-id` (string)
 :   The v4 UUID that uniquely identifies the secret version. You can also use `previous` to retrieve the previous version.
 
-**Note:** To find the version ID of a secret, use the [Get secret metadata](#get-secret-metadata) method and check the response details. Required.
+The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
 
-    The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
-
-    To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details.
-    {: note}
+To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details.
+{: note}
 
 #### Examples
 {: #secrets-manager-cli-secret-version-metadata-command-examples}
@@ -780,9 +780,10 @@ ibmcloud secrets-manager secret-version-metadata-update --secret-type SECRET-TYP
 `--version-id` (string)
 :   The v4 UUID that uniquely identifies the secret version. You can also use `previous` to retrieve the previous version.
 
-**Note:** To find the version ID of a secret, use the [Get secret metadata](#get-secret-metadata) method and check the response details. Required.
+To find the version ID of a secret, use the [Get secret metadata](#get-secret-metadata) method and check the response details. Required.
+{: note}
 
-    The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
+The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
 
 `--metadata` ([`CollectionMetadata`](#cli-collection-metadata-example-schema))
 :   The metadata that describes the resource array. Required.
@@ -1098,10 +1099,11 @@ ibmcloud secrets-manager secret-version-locks --secret-type SECRET-TYPE --id ID 
 
 `--version-id` (string)
 :   The v4 UUID that uniquely identifies the secret version. You can also use `previous` to retrieve the previous version.
+    
     The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
 
-    To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details.
-    {: note}
+To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details.
+{: note}
 
 --limit (int64)
 :   The number of secrets with locks to retrieve. By default, list operations return the first 25 items. To retrieve a different set of items, use `limit` with `offset` to page through your available resources.
@@ -1276,8 +1278,8 @@ ibmcloud secrets-manager secret-version-unlock --secret-type SECRET-TYPE --id ID
 
     The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
 
-    To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details.
-    {: note}
+To find the version ID of a secret, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) method and check the response details.
+{: note}
 
 `--locks` ([]string)
 :   A comma-separated list of locks to delete.
