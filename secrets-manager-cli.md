@@ -804,6 +804,7 @@ ibmcloud secrets-manager secret-version-metadata-update \
 ```
 {: pre}
 
+
 ### `ibmcloud secrets-manager secret-metadata`
 {: #secrets-manager-cli-secret-metadata-command}
 
