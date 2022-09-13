@@ -1407,7 +1407,7 @@ ibmcloud secrets-manager policy --secret-type SECRET-TYPE --id ID [--policy POLI
 #### Command options
 {: #secrets-manager-policy-cli-options}
 
-`--secret-type (string)
+`--secret-type` (string)
 :   The secret type. Required.
 
     Allowable values are: `username_password`, `public_cert`, `private_cert`.
@@ -1852,6 +1852,7 @@ A successful request sends a test event to the Event Notifications instance. For
 ```sh
 ibmcloud secrets-manager notifications-test 
 ```
+{: pre}
 
 
 #### Examples
