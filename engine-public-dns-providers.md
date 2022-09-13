@@ -73,7 +73,7 @@ You can define up to 10 DNS configurations per instance. To obtain a list of con
 ## Before you begin
 {: #before-add-dns-provider}
 
-Before you get started, be sure that you have the required level of access. To manage engine configurations for your instance, you need the [**Manager** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam). To configure your DNS provider manually, be sure that you: \n  \n 1. [Create a certificate authority configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority&interface=ui).
+Before you get started, be sure that you have the required level of access. To manage engine configurations for your instance, you need the [**Manager** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam). 
 
 ### Supported DNS providers
 {: #add-dns-provider-supported}
@@ -227,6 +227,8 @@ A successful response removes the configuration from your service instance. For 
 ## Next steps
 {: #manage-dns-config-next-steps}
 
+
+- [Add a certificate authority configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority)
 - [Order a certificate](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates)
 
 

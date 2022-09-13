@@ -194,7 +194,6 @@ You can view and access your classic infrastructure credentials from the **Acces
 {: #prepare-order-certificates-next-steps}
 
 Now you're ready to add engine configurations to your instance.
-
-
-First, [add a certificate authority configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority) then, [add a DNS provider configuration](/docs/secrets-manager?topic=secrets-manager-add-dns-provider).
+- [Add a certificate authority configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority)
+- [Add a DNS provider configuration](/docs/secrets-manager?topic=secrets-manager-add-dns-provider)
 
