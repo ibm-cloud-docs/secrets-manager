@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-08-24"
+lastupdated: "2022-09-14"
 
 keywords: Secrets Manager Vault, Vault CLI, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager, KV, key-value, KV CLI
 
@@ -524,8 +524,7 @@ vault kv metadata get ibmcloud/kv/my-test-kv-secret
 ```
 {: pre}
 
-Read the metadata of a key-value secret in a custom group
-. 
+Read the metadata of a key-value secret in a custom group. 
 ```sh
 vault kv metadata get ibmcloud/kv/9426e546-83de-4da5-9631-d70c993186c8/my-test-kv-secret
 ```
