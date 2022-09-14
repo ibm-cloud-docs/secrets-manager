@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-13"
+lastupdated: "2022-09-14"
 
 keywords: change log for Secrets Manager CLI, CLI changelog, updates to Secrets Manager CLI
 
@@ -71,7 +71,7 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 Version 0.1.22 was released on 12 September 2022. This release includes the following updates:
 
 - Added the [update the version metadata of a secret](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli&interface=api#secrets-manager-cli-secret-version-metadata-update-command) command to store custom metadata that is relevant to the needs of your organization.
-- Added the `version_custom_metadata` and `custom_metadata` options to the [create a secret](https://test.cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli&interface=api#secrets-manager-cli-secret-create-command), [update a secret](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli&interface=api#secrets-manager-cli-secret-update-command), [update a secret version](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli&interface=api#secrets-manager-cli-secret-version-update-command), and [update the metadata of a secret](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli&interface=api#secrets-manager-cli-secret-metadata-update-command).
+- Added the `version_custom_metadata` and `custom_metadata` options to the [create a secret](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli&interface=api#secrets-manager-cli-secret-create-command), [update a secret](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli&interface=api#secrets-manager-cli-secret-update-command), [update a secret version](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli&interface=api#secrets-manager-cli-secret-version-update-command), and [update the metadata of a secret](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli&interface=api#secrets-manager-cli-secret-metadata-update-command).
 
 ## Version 0.1.21
 {: #0.1.21}
