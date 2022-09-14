@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-13"
+lastupdated: "2022-09-14"
 
 subcollection: secrets-manager
 
@@ -77,9 +77,9 @@ Your instance of the service might have been deleted for one of two reasons.
 
 On 23 March 2022, {{site.data.keyword.secrets-manager_short}} introduced Standard and Trial pricing plans. As part of that release, the current Lite plan was deprecated. For more information about the deprecation timeline, see the [release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
 
-Instances on the Trial plan are only available for 30 days. If, when the trial period ends, you choose not to upgrade your plan, the instance is removed from your account.
+Instances on the Trial plan are only available for 30 days. If when the trial period ends, you choose not to upgrade your plan, the instance is removed from your account.
 
 
-If you were working with an instance of the service on the Lite plan that was deleted, you can restore your instance for 7 days through the [reclamation process](/docs/secrets-manager?topic=secrets-manager-mng-data#restore-instance). However, to continue working with the reclaimed instance you must upgrade the instance to the Standard plan within 1 hour.
+If you were working with an instance of the service on the Lite plan that was deleted, you can restore your instance for 7 days through the [reclamation process](/docs/secrets-manager?topic=secrets-manager-mng-data#restore-instance). However, to continue working with the reclaimed instance, you must upgrade the instance to the Standard plan within 1 hour.
 {: tsResolve}
 
