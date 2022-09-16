@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-08"
+lastupdated: "2022-09-16"
 
 keywords: migrate from {{site.data.keyword.cloudcerts_short}}, migrate to Secrets Manager, migrate certificates
 
@@ -73,7 +73,7 @@ If you are still actively working with {{site.data.keyword.cloudcerts_short}}, b
 ### 23 September 2022: Auto-provisioning ends for Kubernetes Service
 {: #migrate-end-auto-provision}
 
-{{site.data.keyword.cloudcerts_short}} is no longer to be provisioned automatically for each new cluster, but all managed default Ingress secrets continue to be written directly to the cluster.
+{{site.data.keyword.cloudcerts_short}} is no longer to be provisioned automatically for each new cluster, but all managed default Ingress secrets continue to be written directly to the cluster. Note: if you are working with Kubernetes Service, check out the [How to migrate certificates](https://www.ibm.com/cloud/blog/how-to-migrate-certificates-from-ibm-certificate-manager-to-ibm-cloud-secrets-manager){: external} blog.
 
 
 ### 30 September 2022: Manual provisioning is disabled
@@ -159,16 +159,16 @@ Before you begin, consider the following items and service limitations that migh
 
   Before you can order Let's Encrypt certificates through {{site.data.keyword.secrets-manager_short}}, you must configure the [public certificates secrets engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates) for your instance. This process involves granting access to Let's Encrypt by registering an Automatic Certificate Management Environment (ACME) account and providing your ACME account credentials. Be sure to review the documentation to understand how to enable your instance to order public certificates.
 
-- **{{site.data.keyword.secrets-manager_short}} supports {{site.data.keyword.cis_full_notm}} (CIS) and classic infrastructure as DNS providers.**
+- **{{site.data.keyword.secrets-manager_short}} supports {{site.data.keyword.cis_full_notm}} (CIS) and classic infrastructure as integrated DNS providers, but also offers the ability to configure your own.**
 
-  In {{site.data.keyword.cloudcerts_short}}, you might be working with either {{site.data.keyword.cis_full_notm}} (CIS) or a [third-party DNS provider](/docs/certificate-manager?topic=certificate-manager-ordering-certificates#other_provider) to order domain-validated certificates. The DNS providers that are currently supported by {{site.data.keyword.secrets-manager_short}} are CIS and the Domain Name Registration service, which is available as part of {{site.data.keyword.cloud_notm}} classic infrastructure. If you're working with another DNS provider, stay tuned as support for additional third-party providers in {{site.data.keyword.secrets-manager_short}} becomes available. For an updated listed of providers, see [Supported DNS providers](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#connect-dns-provider).
+  In {{site.data.keyword.cloudcerts_short}}, you might be working with either {{site.data.keyword.cis_full_notm}} (CIS) or a [third-party DNS provider](/docs/certificate-manager?topic=certificate-manager-ordering-certificates#other_provider) to order domain-validated certificates.
 
 ### Migration guidelines
 {: #migrate-guidelines}
 
 If you're ready to start your transition to {{site.data.keyword.secrets-manager_short}}, you can use automation tools to begin your migration. Start by setting up your {{site.data.keyword.secrets-manager_short}} service instance.
 
-If you have a cluster that is integrated with {{site.data.keyword.cloudcerts_short}}, ensure that you read through the [migration steps in the {{site.data.keyword.containershort}} docs](/docs/containers?topic=containers-ingress-types#migrate-secrets-mgr) to ensure that you have full feature parity. 
+If you have a cluster that is integrated with {{site.data.keyword.cloudcerts_short}}, ensure that you read through the [migration steps in the {{site.data.keyword.containershort}} docs](/docs/containers?topic=containers-ingress-types#migrate-secrets-mgr) to ensure that you have full feature parity. For a step-by-step guide, see the [How to migrate certificates](https://www.ibm.com/cloud/blog/how-to-migrate-certificates-from-ibm-certificate-manager-to-ibm-cloud-secrets-manager){: external} blog.
 {: note}
 
 1. [Create a {{site.data.keyword.secrets-manager_short}} service instance](/docs/secrets-manager?topic=secrets-manager-create-instance).
