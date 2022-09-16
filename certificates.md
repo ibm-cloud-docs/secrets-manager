@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-12"
+lastupdated: "2022-09-16"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
 
@@ -231,8 +231,9 @@ After you [configure the public certificates engine](/docs/secrets-manager?topic
 
 You can order a certificate by using the {{site.data.keyword.secrets-manager_short}} UI.
 
-When you order a certificate, domain validation takes place to verify the ownership of your selected domains. This process can take a few minutes to complete.
+To integrate your own DNS provider, you must use the {{site.data.keyword.secrets-manager_short}} API. [Learn more](#order-certificates-manual-api).
 {: note}
+
 
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
@@ -265,7 +266,7 @@ When you order a certificate, domain validation takes place to verify the owners
     2. From your list of domains, select the Common Name of the certificate.
 14. Click **Order**.
 
-    After you submit your certificate details, {{site.data.keyword.secrets-manager_short}} sends your request to the selected certificate authority. After a certificate is issued, you can deploy it to your integrated apps, download it, or rotate it manually. Your private key for SSL/TLS is generated directly in {{site.data.keyword.secrets-manager_short}} and stored securely.
+    When you order a certificate, domain validation takes place to verify the ownership of your selected domains. This process can take a few minutes to complete.After you submit your certificate details, {{site.data.keyword.secrets-manager_short}} sends your request to the selected certificate authority. After a certificate is issued, you can deploy it to your integrated apps, download it, or rotate it manually. Your private key for SSL/TLS is generated directly in {{site.data.keyword.secrets-manager_short}} and stored securely.
     
     Need to check your order status? From your Secrets table, you can check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.
     {: tip} 
@@ -343,6 +344,8 @@ When you submit your certificate details, {{site.data.keyword.secrets-manager_sh
 
 Need to check your order status? Use the [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
 {: tip} 
+
+
 
 
 ## Creating private certificates
