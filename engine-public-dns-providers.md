@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-13"
+lastupdated: "2022-09-16"
 
 keywords: DNS provider, connect DNS provider, set up DNS provider, connect DNS, set up DNS, connect CIS, set up CIS, add DNS provider configuration
 
@@ -73,7 +73,7 @@ You can define up to 10 DNS configurations per instance. To obtain a list of con
 ## Before you begin
 {: #before-add-dns-provider}
 
-Before you get started, be sure that you have the required level of access. To manage engine configurations for your instance, you need the [**Manager** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam). 
+Before you get started, be sure that you have the required level of access. To manage engine configurations for your instance, you need the [**Manager** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam).
 
 ### Supported DNS providers
 {: #add-dns-provider-supported}
@@ -99,12 +99,21 @@ You can connect the following DNS providers with your {{site.data.keyword.secret
 {: class="simple-tab-table"}
 
 
+| Prerequisites |
+| :------------ |
+| To use your own DNS provider, you must [create a certificate authority configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority&interface=ui) before you can [order a your certificate](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates-manual-api). |
+{: caption="Table 1. Prerequisites - Manual DNS providers" caption-side="top"}
+{: #manual-prereqs}
+{: tab-title="Custom"}
+{: tab-group="dns-provider-prereqs"}
+{: class="simple-tab-table"}
+
 
 ## Adding a DNS provider configuration in the UI
 {: #add-dns-provider-ui}
 {: ui}
 
-You can add DNS provider configurations to your service instance by using the {{site.data.keyword.secrets-manager_short}} UI. 
+You can add DNS provider configurations to your service instance by using the {{site.data.keyword.secrets-manager_short}} UI.
 
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.

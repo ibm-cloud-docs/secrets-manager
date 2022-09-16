@@ -205,10 +205,10 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
 
 
-## Ordering public certificates from third-parties
+## Ordering public certificates
 {: #order-certificates}
 
-After you [configure the public certificates engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates) for your instance, you can use {{site.data.keyword.secrets-manager_short}} to request public SSL/TLS certificates from your trusted third-party certificate authorities. Before a certificate can be issued to you, {{site.data.keyword.secrets-manager_short}} uses domain validation to verify the ownership of your domains. When you order a certificate:
+After you [configure the public certificates engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates) for your instance, you can use {{site.data.keyword.secrets-manager_short}} to request public SSL/TLS certificates from Let's Encrypt. Before a certificate can be issued to you, {{site.data.keyword.secrets-manager_short}} uses domain validation to verify the ownership of your domains. When you order a certificate:
 
 - {{site.data.keyword.secrets-manager_short}} sends your request to the selected certificate authority. The status of the certificate changes to **Pre-activation** to indicate that your request is being processed.
 - If the validation completes successfully, your certificate is issued and its status changes to **Active**.
@@ -231,9 +231,8 @@ After you [configure the public certificates engine](/docs/secrets-manager?topic
 
 You can order a certificate by using the {{site.data.keyword.secrets-manager_short}} UI.
 
-To integrate your own DNS provider, you must use the {{site.data.keyword.secrets-manager_short}} API. [Learn more](#order-certificates-manual-api).
+To order a public certificate with your own DNS provider, you must use the {{site.data.keyword.secrets-manager_short}} API. [Learn more](#order-certificates-manual-api).
 {: note}
-
 
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
@@ -280,7 +279,7 @@ Currently, ordering certificates is available by using the UI or API only. To se
 
 
 
-### Ordering public certificates with the API
+### Ordering public certificates with integrated DNS providers by using the API
 {: #order-certificates-api}
 {: api}
 
@@ -345,6 +344,145 @@ When you submit your certificate details, {{site.data.keyword.secrets-manager_sh
 Need to check your order status? Use the [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
 {: tip} 
 
+
+### Ordering public certificates with your own DNS provider by using the API
+{: #order-certificates-manual-api}
+{: api}
+
+To create a public certificate by using a manual DNS provider, complete the following steps.
+
+1. Create a certificate authority (CA) configuration by following the steps that are defined in [Adding a CA configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority&interface=ui).
+2. Create a new public certificate by specifying `manual` as your DNS configuration.
+
+   ```sh
+   curl -X POST 'https://{instance_id}.us-south.secrets-manager.appdomain.cloud/api/v1/secrets/public_cert' \
+   -H 'accept: application/json' \
+   -H 'Authorization: Bearer $IAM_token' \
+   -H 'Content-Type: application/json' \
+   -d '{
+   "metadata": {
+      "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
+      "collection_total": 1
+   },
+   "resources": [
+      {
+         "name": "my-public-certificate",
+         "description": "Description for ordered certificate.",
+         "ca": "ca_config_name",
+         "dns": "manual",
+         "common_name": "domain1.com",
+         "alt_names": [
+         "domain2.com",
+         "domain3.com"
+         ],
+         "bundle_certs": false,
+         "key_algorithm": "RSA2048",
+         "rotation": {
+         "auto_rotate": false,
+         "rotate_keys": false
+         }
+      }
+   ]
+   }'
+   ```
+   {: codeblock}
+   {: curl}
+
+   Example response:
+
+   ```json
+   "metadata": {
+   "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
+   "collection_total": 1
+   },
+   "resources": [
+      {
+         "alt_names": [
+         "domain2",
+         "domain3"
+         ],
+         "common_name": "domain1",
+         "created_by": "User",
+         "creation_date": "2022-09-13T06:21:33Z",
+         "crn": "secret crn",
+         "description": "Description for ordered certificate.",
+         "downloaded": false,
+         "id": "38747ae6-8c69-d745-5276-cdf3157b9021",
+         "issuance_info": {
+         "auto_rotated": false,
+         "bundle_certs": false,
+         "ca": "ca_config_name",
+         "challenges": [
+            {
+               "domain": "domain1",
+               "expiration": "2022-09-20T06:21:36Z",
+               "status": "pending",
+               "txt_record_name": "_acme-challenge.domain1.",
+               "txt_record_value": "TA6J7fFYrwP3Jg-S_IAQSj2Ydqfw4Ycm4sMwlzuCcxk"
+            },
+            {
+               "domain": "domain2",
+               "expiration": "2022-09-20T06:21:36Z",
+               "status": "pending",
+               "txt_record_name": "_acme-challenge.domain2.",
+               "txt_record_value": "qSDrCkFAViX4xANKuEPcMNairWm1PUtROm6kp9bmSS0"
+            },
+            {
+               "domain": "domain3",
+               "expiration": "2022-09-20T06:21:36Z",
+               "status": "pending",
+               "txt_record_name": "_acme-challenge.domain3.",
+               "txt_record_value": "8dcgan91fW6aK3aIhPAVZRkHpbYEoMcCNPpVh1n4tSA"
+            }
+         ],
+         "dns": "manual",
+         "ordered_on": "2022-09-13T06:21:33Z",
+         "state": 0,
+         "state_description": "Pre-activation"
+         },
+         "key_algorithm": "RSA2048",
+         "labels": [],
+         "last_update_date": "2022-09-13T06:21:33Z",
+         "locks_total": 0,
+         "name": "my-public-certificate",
+         "rotation": {
+         "auto_rotate": false,
+         "rotate_keys": false
+         },
+         "secret_type": "public_cert",
+         "state": 0,
+         "state_description": "Pre-activation",
+         "versions": [],
+         "versions_total": 1
+      }
+   ]
+   }
+   ```
+   {: codeblock}
+
+3. Complete the challenges that are marked as `pending` before they expire by adding the TXT records that are specified in the challenge to your domain in your DNS provider account to verify your ownership of the domain.
+
+   If you order a certificate for subdomains, for example, `sub1.sub2.domain.com`, you need to add the TXT records to your registered domain `domain.com`.
+   {: note}
+
+4. Validate that the TXT records that you added are propagated. Depending on your DNS provider, it can take some time to complete.
+
+5. After the records are propagated, call the {{site.data.keyword.secrets-manager_short}} [Invoke an action on a secret](/apidocs/secrets-manager#update-secret) API to request Let's Encrypt to validate the challenges to your domain and create a public certificate. 
+
+   ```sh
+   curl -X POST --location --header "Authorization: Bearer {iam_token}"   --header "Accept: application/json"   --header "Content-Type: application/json"   "{base_url}/api/v1/secrets/{secret_type}/{id}?action=validate_dns_challenge"
+   ```
+   {: codeblock}
+   {: curl}
+
+   If you need to update your certificate later, you can use the same [Invoke an action on a secret](/apidocs/secrets-manager#update-secret) API but with the action `rotate`. However, you can't automatically rotate manual DNS provider certificates in {{site.data.keyword.secrets-manager_short}}.
+   {: note}
+
+6. When your certificate is issued, clean up and remove the TXT records from the domains in your DNS provider account.
+
+
+Want to automate the creation of your public certificates? If your domains are configured through a DNS provider, you can create a script to complete the challenges. Some DNS providers offer an API that checks whether the new records are fully transmitted. If your DNS provider doesn't offer this option, you can configure your client to wait for a specified amount of time, sometimes up to an hour. In {{site.data.keyword.secrets-manager_short}}, you can check the status of the certificate issuance by obtaining your certificate metadata. When the `IssuanceInfo.State` field that is returned changes to `active`, the certificate is issued. 
+{: tip}
 
 
 
