@@ -409,6 +409,7 @@ You can store metadata that are relevant to the needs of your organization with 
 {: curl}
 
 
+
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/private_cert" \
     -H "Authorization: Bearer {IAM_token}" \
