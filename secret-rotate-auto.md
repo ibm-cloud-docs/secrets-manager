@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-16"
+lastupdated: "2022-09-19"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -90,6 +90,7 @@ Automatic rotation is supported for [private certificates](/docs/secrets-manager
 
 You can schedule the automatic rotation of secrets by using the {{site.data.keyword.secrets-manager_short}} UI. 
 
+
 ### Setting an automatic rotation policy for user credentials
 {: #schedule-auto-rotate-password-ui}
 
@@ -103,6 +104,7 @@ If you need more control over the rotation frequency of a secret, you can use th
     1. In the **Secrets** table, view a list of your existing secrets.
     2. In the row for the secret that you want to edit, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Edit details**.
     3. Use the **Automatic rotation** option to enable or disable automatic rotation for the secret.
+  
 
 ### Setting an automatic rotation policy for public certificates
 {: #schedule-auto-rotate-public-cert-ui}
@@ -140,25 +142,7 @@ If you prefer to schedule your private SSL or TLS certificates to be automatical
    3. Use the **Automatic rotation** option to add or remove a rotation policy for the secret.
 
 
-### Setting an automatic rotation policy for IAM credentials
-{: #schedule-auto-rotate-iam-credentials-ui}
 
-If you prefer to schedule your API key to be automatically rotated at regular intervals, you can enable automatic rotation for your IAM credentials at their creation, or by editing the details of an existing secret. Choose between a 30, 60, or 90-day rotation interval.
-
-If you need more control over the rotation frequency of a secret, you can use the {{site.data.keyword.secrets-manager_short}} API to set a custom interval by using `day` or `month` units of time. For more information, see the [API reference](/apidocs/secrets-manager#put-policy).
-{: tip}
-
-1. If you're [adding a secret](/docs/secrets-manager?topic=secrets-manager-iam-credentials#iam-credentials-ui), enable the rotation option by selecting a 30, 60, or 90-day rotation interval.
-2. If you're editing an existing secret, enable automatic rotation by updating its details.
-    1. In the **Secrets** table, view a list of your existing secrets.
-    2. In the row for the secret that you want to edit, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Edit details**.
-    3. Use the **Automatic rotation** option to enable or disable automatic rotation for the secret.
-
-The defined rotation interval cannot be higher than the defined time-to-live.
-{: note}
-
-Rotation is available only for IAM credentials where the Re-use key is set to `true`.
-{: note}
 
 
 
