@@ -106,7 +106,7 @@ Before you get started, be sure that you have [**Administrator** platform access
 
 To work with {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.containershort}}, you need to create a cluster and a {{site.data.keyword.secrets-manager_short}} instance in your {{site.data.keyword.cloud_notm}} account. You also need to configure permissions so that you can run operations against both services.
 
-In this step, you set up an access environment by creating a service ID and an {{site.data.keyword.cloud_notm}} API key. At the end of the tutorial, you can easily remove your resources if you no longer need them. Alternatively, you can use a [Trusted Profile](#tutorial-kubernetes-secrets-trusted-profile) to authorise the External Secrets operator.
+In this step, you set up an access environment by creating a service ID and an {{site.data.keyword.cloud_notm}} API key. At the end of the tutorial, you can easily remove your resources if you no longer need them. Alternatively, you can use a [trusted profile](#tutorial-kubernetes-secrets-trusted-profile) to authorize the External Secrets operator.
 
 
 ### Create a service ID and API key
@@ -154,7 +154,7 @@ Start by creating the account credentials that you need to be able to run operat
 ### Create a Kubernetes cluster and {{site.data.keyword.secrets-manager_short}} instance
 {: #tutorial-kubernetes-secrets-prepare-cluster}
 
-Next, create a test Kubernetes cluster and an instance of {{site.data.keyword.secrets-manager_short}} in your {{site.data.keyword.cloud_notm}} account.
+Create a Kubernetes cluster and an instance of {{site.data.keyword.secrets-manager_short}} in your {{site.data.keyword.cloud_notm}} account.
 
 You can create one free Kubernetes cluster and {{site.data.keyword.secrets-manager_short}} service instance per {{site.data.keyword.cloud_notm}} account. If you already have both resources in your account, you can use your existing free cluster and {{site.data.keyword.secrets-manager_short}} instance to complete the tutorial.
 {: note}
@@ -248,10 +248,10 @@ You can create one free Kubernetes cluster and {{site.data.keyword.secrets-manag
     ```
     {: screen}
 
-### Create a Trusted Profile
+### Create a trusted profile
 {: #tutorial-external-kubernetes-trusted-profile}
 
-A Trusted Profile enables the External Secrets operator to read from {{site.data.keyword.secrets-manager_short}}, without having to create a service ID or manage an API key.
+A trusted profile enables the External Secrets operator to read from {{site.data.keyword.secrets-manager_short}}, without having to create a service ID or manage an API key.
 
 1. Get the CRNs for your {{site.data.keyword.secrets-manager_short}} instance and Kubernetes cluster.
 
@@ -261,21 +261,21 @@ A Trusted Profile enables the External Secrets operator to read from {{site.data
     ```
     {: pre}
 
-2. Create a Trusted Profile.
+2. Create the profile.
 
     ```sh
     ibmcloud iam trusted-profile-create 'External Secrets'
     ```
     {: pre}
 
-3. Authorize the Kubernetes cluster to use the Trusted Profile.
+3. Authorize the Kubernetes cluster to use the trusted profile.
 
     ```sh
     ibmcloud iam trusted-profile-rule-create 'External Secrets' --name kubernetes --type Profile-CR --conditions claim:namespace,operator:EQUALS,value:external-secrets --conditions claim:name,operator:EQUALS,value:external-secrets --conditions claim:crn,operator:EQUALS,value:$CLUSTER_CRN --cr-type IKS_SA
     ```
     {: pre}
 
-4. Create an access policy that allows the Trusted Profile to read secrets from your {{site.data.keyword.secrets-manager_short}} instance.
+4. Create an access policy that allows the trusted profile to read secrets from your {{site.data.keyword.secrets-manager_short}} instance.
 
     ```sh
     ibmcloud iam trusted-profile-policy-create 'External Secrets' --roles SecretsReader --service-instance $SECRETS_MANAGER_CRN --service-name secrets-manager
@@ -371,14 +371,14 @@ First, add `external-secrets` resources to your cluster by installing the offici
     ```
     {: pre}
 
-    If authenticating with a service ID:
+    If you're using a service ID to authenticate:
 
     ```sh
     helm install external-secrets external-secrets/external-secrets -n external-secrets --create-namespace --set installCRDs=true
     ```
     {: pre}
 
-    If authenticating with a Trusted Profile:
+    If you're using a trusted profile to authenticate:
 
     ```sh
     echo '
@@ -466,7 +466,7 @@ After you install External Secrets Operator in your cluster, you can define {{si
 
     Replace `<endpoint_url>` with the {{site.data.keyword.secrets-manager_short}} endpoint URL that you retrieved [earlier](#tutorial-kubernetes-secrets-prepare-sm). Replace `<SECRET_ID>` with the unique ID of the secret that you created in the previous step.
 
-    If authenticating with a Trusted Profile, replace the `auth` block above with
+    If you're using a trusted profile to authenticate, replace the `auth` block with the following snippet.
     ```yaml
           auth:
             containerAuth:
@@ -532,14 +532,16 @@ If you no longer need the resources that you created in this tutorial, you can c
     ```
     {: pre}
 
-3. Delete your test service ID.
+3. Delete your authorization.
+
+    If you're using a service ID.
 
     ```sh
     ibmcloud iam service-id-delete $SERVICE_ID
     ```
     {: pre}
 
-3. Delete your Trusted Profile.
+    If you're working with a trusted profile.
 
     ```sh
     ibmcloud iam trusted-profile-delete 'External Secrets'
