@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-14"
+lastupdated: "2022-09-19"
 
 keywords: change log for Secrets Manager CLI, CLI changelog, updates to Secrets Manager CLI
 
@@ -63,6 +63,14 @@ In this change log, you can learn about the latest changes, improvements, and up
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
 
 
+
+
+## Version 0.1.23
+{: #0.1.23}
+
+Version 0.1.23 was released on 19 September 2022. This release includes the following update:
+
+- Added the `validate_dns_challenge` field to the [`ibmcloud secrets-manager secret-update`](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli&interface=api#secrets-manager-cli-secret-update-command) command to validate challenges for public certificates that are ordered with a manual dns provider.
 
 
 ## Version 0.1.22

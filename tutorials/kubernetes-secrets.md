@@ -249,7 +249,7 @@ You can create one free Kubernetes cluster and {{site.data.keyword.secrets-manag
     {: screen}
 
 ### Create a trusted profile
-{: #tutorial-external-kubernetes-trusted-profile}
+{: #tutorial-kubernetes-secrets-trusted-profile}
 
 A trusted profile enables the External Secrets operator to read from {{site.data.keyword.secrets-manager_short}}, without having to create a service ID or manage an API key.
 

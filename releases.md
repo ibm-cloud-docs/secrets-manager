@@ -68,6 +68,9 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 {: #secrets-manager-sept1922}
 {: release-note}
 
+CLI plug-in version 0.1.23
+:   Version 0.1.23 of the {{site.data.keyword.secrets-manager_short}} CLI is now available for download. To learn about the latest updates, see the [CLI change log](/docs/secrets-manager?topic=secrets-manager-cli-change-log).
+
 Automatic rotation for IAM credentials
 :   The ability to schedule an automatic rotation policy is now available for IAM credentials that are configured for reuse. For more information, see [Automatically rotating secrets](/docs/secrets-manager?topic=secrets-manager-automatic-rotation).
 
