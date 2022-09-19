@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-16"
+lastupdated: "2022-09-19"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
 
@@ -84,7 +84,7 @@ Before you get started, be sure that you have the required level of access. To c
 
 | Prerequisites |
 | :------------ |
-| Before you order a certificate, be sure that you:  \n  \n - [Prepare your instance to order certificates](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates).  \n - Review the certificate authority and DNS provider configurations that are available. To view the configurations that are defined for your instance, go to the **Secrets engines > Public certificates** page in the {{site.data.keyword.secrets-manager_short}} UI. |
+| Before you order a certificate, be sure that you:  \n  \n - [Prepare your instance to order certificates](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates).  \n - Review the certificate authority and DNS provider configurations that are available. To view the configurations that are defined for your instance, go to the **Secrets engines > Public certificates** page in the {{site.data.keyword.secrets-manager_short}} UI.  \n  \n To work with a DNS provider that is not currently integrated with the service, you can manually add the configuration when you order your public certificate.  |
 {: caption="Table 1. Prerequisites - Ordering public certificates" caption-side="top"}
 {: #order-certificates-prereqs}
 {: tab-title="Ordering public certificates"}
@@ -225,7 +225,7 @@ After you [configure the public certificates engine](/docs/secrets-manager?topic
 - After the certificate is issued, you can deploy it to your integrated apps, download it, or modify its rotation options. 
 
 
-### Ordering public certificates in the UI
+### Ordering public certificates with integrated DNS providers in the UI
 {: #order-certificates-ui}
 {: ui}
 
@@ -271,7 +271,7 @@ To order a public certificate with your own DNS provider, you must use the {{sit
     {: tip} 
 
 
-### Ordering public certificates from the CLI
+### Ordering public certificates with integrated DNS providers from the CLI
 {: #order-certificates-cli}
 {: cli}
 
