@@ -3,7 +3,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-07"
+lastupdated: "2022-09-19"
 
 keywords: tutorial, Secrets Manager
 
@@ -106,7 +106,7 @@ Before you get started, be sure that you have [**Administrator** platform access
 
 To work with {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.containershort}}, you need to create a cluster and a {{site.data.keyword.secrets-manager_short}} instance in your {{site.data.keyword.cloud_notm}} account. You also need to configure permissions so that you can run operations against both services.
 
-In this step, you set up an access environment by creating a service ID and an {{site.data.keyword.cloud_notm}} API key. At the end of the tutorial, you can easily remove your resources if you no longer need them.
+In this step, you set up an access environment by creating a service ID and an {{site.data.keyword.cloud_notm}} API key. At the end of the tutorial, you can easily remove your resources if you no longer need them. Alternatively, you can use a [Trusted Profile](#tutorial-kubernetes-secrets-trusted-profile) to authorise the External Secrets operator.
 
 
 ### Create a service ID and API key
@@ -248,6 +248,39 @@ You can create one free Kubernetes cluster and {{site.data.keyword.secrets-manag
     ```
     {: screen}
 
+### Create a Trusted Profile
+{: #tutorial-external-kubernetes-trusted-profile}
+
+A Trusted Profile enables the External Secrets operator to read from {{site.data.keyword.secrets-manager_short}}, without having to create a service ID or manage an API key.
+
+1. Get the CRNs for your {{site.data.keyword.secrets-manager_short}} instance and Kubernetes cluster.
+
+    ```sh
+    CLUSTER_CRN=$(ibmcloud ks cluster get --cluster my-test-cluster --output json | jq -r '.crn')
+    SECRETS_MANAGER_CRN=$(ibmcloud resource service-instance my-secrets-manager --output JSON | jq -r '.[0].crn')
+    ```
+    {: pre}
+
+2. Create a Trusted Profile.
+
+    ```sh
+    ibmcloud iam trusted-profile-create 'External Secrets'
+    ```
+    {: pre}
+
+3. Authorize the Kubernetes cluster to use the Trusted Profile.
+
+    ```sh
+    ibmcloud iam trusted-profile-rule-create 'External Secrets' --name kubernetes --type Profile-CR --conditions claim:namespace,operator:EQUALS,value:external-secrets --conditions claim:name,operator:EQUALS,value:external-secrets --conditions claim:crn,operator:EQUALS,value:$CLUSTER_CRN --cr-type IKS_SA
+    ```
+    {: pre}
+
+4. Create an access policy that allows the Trusted Profile to read secrets from your {{site.data.keyword.secrets-manager_short}} instance.
+
+    ```sh
+    ibmcloud iam trusted-profile-policy-create 'External Secrets' --roles SecretsReader --service-instance $SECRETS_MANAGER_CRN --service-name secrets-manager
+    ```
+    {: pre}
 
 ### Prepare your {{site.data.keyword.secrets-manager_short}} instance
 {: #tutorial-kubernetes-secrets-prepare-sm}
@@ -338,8 +371,44 @@ First, add `external-secrets` resources to your cluster by installing the offici
     ```
     {: pre}
 
+    If authenticating with a service ID:
+
     ```sh
     helm install external-secrets external-secrets/external-secrets -n external-secrets --create-namespace --set installCRDs=true
+    ```
+    {: pre}
+
+    If authenticating with a Trusted Profile:
+
+    ```sh
+    echo '
+    installCRDs: true
+    extraVolumes:
+    - name: sa-token
+    projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            path: sa-token
+            expirationSeconds: 3600
+            audience: iam
+    extraVolumeMounts:
+    - mountPath: /var/run/secrets/tokens
+    name: sa-token
+    webhook:
+    extraVolumes:
+    - name: sa-token
+        projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            path: sa-token
+            expirationSeconds: 3600
+            audience: iam
+    extraVolumeMounts:
+    - mountPath: /var/run/secrets/tokens
+        name: sa-token' >values.yml
+    helm install external-secrets external-secrets/external-secrets -n external-secrets --create-namespace -f values.yml
     ```
     {: pre}
 
@@ -396,6 +465,16 @@ After you install External Secrets Operator in your cluster, you can define {{si
     {: codeblock}
 
     Replace `<endpoint_url>` with the {{site.data.keyword.secrets-manager_short}} endpoint URL that you retrieved [earlier](#tutorial-kubernetes-secrets-prepare-sm). Replace `<SECRET_ID>` with the unique ID of the secret that you created in the previous step.
+
+    If authenticating with a Trusted Profile, replace the `auth` block above with
+    ```yaml
+          auth:
+            containerAuth:
+              profile: "External Secrets"
+              iamEndpoint: https://iam.cloud.ibm.com
+              tokenLocation: /var/run/secrets/tokens/sa-token
+    ```
+    {: codeblock}
 
 3. Apply the configuration to your cluster.
 
@@ -460,6 +539,13 @@ If you no longer need the resources that you created in this tutorial, you can c
     ```
     {: pre}
 
+3. Delete your Trusted Profile.
+
+    ```sh
+    ibmcloud iam trusted-profile-delete 'External Secrets'
+    ```
+    {: pre}
+
 ## Best practices for using External Secrets Operator with {{site.data.keyword.secrets-manager_short}} 
 {: #kubernetes-secrets-best-practices}
 
@@ -479,7 +565,3 @@ Great job! In this tutorial, you learned how to set up {{site.data.keyword.secre
 
 - Review the [secret types in {{site.data.keyword.secrets-manager_short}}](https://external-secrets.io/v0.5.9/provider-ibm-secrets-manager/#secret-types){: external} that are supported with External Secrets Operator.
 - Learn more about the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager).
-
-
-
-
