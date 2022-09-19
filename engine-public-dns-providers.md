@@ -73,7 +73,7 @@ You can define up to 10 DNS configurations per instance. To obtain a list of con
 ## Before you begin
 {: #before-add-dns-provider}
 
-Before you get started, be sure that you have the required level of access. To manage engine configurations for your instance, you need the [**Manager** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam). To configure your DNS provider manually, be sure that you [Create a certificate authority configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority&interface=ui).
+Before you get started, be sure that you have the required level of access. To manage engine configurations for your instance, you need the [**Manager** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam).
 
 ### Supported DNS providers
 {: #add-dns-provider-supported}
@@ -103,7 +103,7 @@ You can connect the following DNS providers with your {{site.data.keyword.secret
 | To use your own DNS provider, you must [create a certificate authority configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority&interface=ui) before you can [order a your certificate](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates-manual-api). |
 {: caption="Table 1. Prerequisites - Manual DNS providers" caption-side="top"}
 {: #manual-prereqs}
-{: tab-title="Custom"}
+{: tab-title="Manual"}
 {: tab-group="dns-provider-prereqs"}
 {: class="simple-tab-table"}
 
@@ -186,6 +186,28 @@ curl -X POST 'https://{instance_id}.us-south.secrets-manager.appdomain.cloud/api
 {: curl}
 
 A successful response adds the configuration to your service instance. For more information about the required and optional request parameters, see [Add a configuration](/apidocs/secrets-manager#create-config-element){: external}.
+
+
+
+
+## Deleting a DNS provider configuration in the UI
+{: #delete-dns-provider-ui}
+{: ui}
+
+If you no longer need a configuration, you can delete it by using the {{site.data.keyword.secrets-manager_short}} UI.
+
+After you delete a configuration, the certificates that are associated with the DNS provider can no longer be rotated automatically. Do not delete configurations that are associated with certificates in your production apps or services.
+{: important}
+
+1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+   
+2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}. 
+3. In the **Secrets engines** page, click the **Public certificates** tab.
+4. Use the **DNS providers section** table to view the configurations in your instance. 
+5. In the row for the configuration that you want to delete, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Delete**.  
+6. Enter the name of the configuration to confirm its deletion.
+7. Click **Delete**.
+
 
 
 ## Deleting a DNS provider configuration with the API
