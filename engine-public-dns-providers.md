@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-16"
+lastupdated: "2022-09-19"
 
 keywords: DNS provider, connect DNS provider, set up DNS provider, connect DNS, set up DNS, connect CIS, set up CIS, add DNS provider configuration
 
@@ -98,16 +98,14 @@ You can connect the following DNS providers with your {{site.data.keyword.secret
 {: tab-group="dns-provider-prereqs"}
 {: class="simple-tab-table"}
 
-
 | Prerequisites |
 | :------------ |
 | To use your own DNS provider, you must [create a certificate authority configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority&interface=ui) before you can [order a your certificate](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates-manual-api). |
 {: caption="Table 1. Prerequisites - Manual DNS providers" caption-side="top"}
 {: #manual-prereqs}
-{: tab-title="Custom"}
+{: tab-title="Manual"}
 {: tab-group="dns-provider-prereqs"}
 {: class="simple-tab-table"}
-
 
 ## Adding a DNS provider configuration in the UI
 {: #add-dns-provider-ui}
@@ -191,6 +189,7 @@ A successful response adds the configuration to your service instance. For more 
 
 
 
+
 ## Deleting a DNS provider configuration in the UI
 {: #delete-dns-provider-ui}
 {: ui}
@@ -236,8 +235,6 @@ A successful response removes the configuration from your service instance. For 
 ## Next steps
 {: #manage-dns-config-next-steps}
 
-
-- [Add a certificate authority configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority)
 - [Order a certificate](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates)
 
 
