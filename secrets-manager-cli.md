@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-13"
+lastupdated: "2022-09-19"
 
 subcollection: secrets-manager
 
@@ -61,7 +61,7 @@ keywords: Secrets Manager CLI, Secrets Manager command line, Secrets Manager ter
 You can use the {{site.data.keyword.secrets-manager_full}} command-line interface (CLI) to manage secrets in your {{site.data.keyword.secrets-manager_short}} instance.
 {: shortdesc}
 
-Current version: **`0.1.22`**
+Current version: **`0.1.23`**
 
 ## Prerequisites
 {: #secrets-manager-cli-prereq}
@@ -417,6 +417,7 @@ Invoke an action on a specified secret. This method supports the following actio
 - `restore`: Restore a previous version of an `iam_credentials` secret.
 - `revoke`: Revoke a private certificate.
 - `delete_credentials`: Delete the API key that is associated with an `iam_credentials` secret.
+- `validate_dns_challenge`: Validate challenges for public certificates that are ordered with a manual dns provider.
 ```sh
 ibmcloud secrets-manager secret-update --secret-type SECRET-TYPE --id ID --action ACTION [--body BODY] 
 ```
@@ -438,7 +439,7 @@ ibmcloud secrets-manager secret-update --secret-type SECRET-TYPE --id ID --actio
 `--action` (string)
 :   The action to perform on the specified secret. Required.
 
-    Allowable values are: `rotate`, `restore`, `revoke`, `delete_credentials`.
+    Allowable values are: `rotate`, `restore`, `revoke`, `delete_credentials`, `validate_dns_challenge`.
 
 `--body` ([`SecretAction`](#cli-secret-action-example-schema))
 :   The properties to update for the secret.
