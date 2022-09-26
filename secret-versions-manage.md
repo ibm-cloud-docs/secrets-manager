@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-20"
+lastupdated: "2022-09-26"
 
 keywords: secret version history, view versions, secret versions
 
@@ -91,6 +91,10 @@ If you're auditing the version history of a secret, you can use the {{site.data.
 
     If you're inspecting the version history of a public or imported certificate, you can also [download the certificate contents](/docs/secrets-manager?topic=secrets-manager-access-secrets#download-certificate-ui).
     {: tip}
+
+5. Optional: Update the metadata of the specific version of the secret that you are viewing.
+    1. To update the metadata of your secret version, upload a file or enter the metadata and the version metadata in JSON format. The maximum file size is 10 KB. 
+    1. Click **Update**.
 
 ## Listing secret versions from the CLI
 {: #versions-cli}

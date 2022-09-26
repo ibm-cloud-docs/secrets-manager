@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-12"
+lastupdated: "2022-09-26"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -96,8 +96,12 @@ To create IAM credentials by using the {{site.data.keyword.secrets-manager_short
     {: note}
 
 9. Optional: [Determine whether IAM credentials can be reused](#iam-credentials-reuse-ui) for your secret. Then, click **Next**.
-10. In the **Assign access** step, [determine the scope of access](#iam-credentials-service-id-ui) to assign for your IAM credential.
-11. To confirm your selections, click **Add**.
+10. Optional: Add metadata to your secret or to a specific version of your secret.
+    1. To include metadata with your secret, switch the metadata toggle to **Yes**.
+    2. Upload a file or enter the metadata and the version metadata in JSON format. The maximum file size is 10 KB. 
+11. Click **Next**.
+12. [Determine the scope of access](#iam-credentials-service-id-ui) to assign for your IAM credential.
+13. To confirm your selections, click **Create**.
 
 
 ### Reusing the same API key until the lease expires
@@ -106,7 +110,7 @@ To create IAM credentials by using the {{site.data.keyword.secrets-manager_short
 
 IAM credentials consist of a service ID and an API key. By default, the service ID and API key are single-use, ephemeral values that are generated and deleted each time that an IAM credentials secret is read or accessed. 
 
-If you'd like to continue to use those credentials through the end of the lease of your secret, you can set **Reuse IAM credentials until lease expires** to **On**. When you enable this option, your secret retains its current service ID and API key values and reuses them on each read while the secret remains valid. After the secret reaches the end of its lease, the credentials are revoked automatically.
+If you'd like to continue to use those credentials through the end of the lease of your secret, you can set **Reuse IAM credentials until lease expires** to **On**. When you enable this option, your secret retains its current service ID, and API key values and reuses them on each read while the secret remains valid. After the secret reaches the end of its lease, the credentials are revoked automatically.
 
 If **Reuse IAM credentials until lease expires** for IAM credentials is set to **Off**, manual rotation for the secret isn't supported. For more information, see [Manually rotating secrets](/docs/secrets-manager?topic=secrets-manager-manual-rotation).
 {: important}
@@ -125,7 +129,7 @@ In the **Assign access** step of the Create IAM credentials wizard, choose a sco
 
 2. To generate both a new service ID and API key for the secret, select an access group.
 
-   By selecting an access group from your {{site.data.keyword.cloud_notm}} account, you determine the scope of access to assign to the service ID API key that is dynamically generated and associated with your new IAM credential. This step ensures that your IAM credentials are scoped with the preferred level of permissions in your {{site.data.keyword.cloud_notm}} account. You can assign up to 10 access groups.
+   By selecting an access group from your {{site.data.keyword.cloud_notm}} account, you determine the scope of access to assign to the service ID API key. The API key is dynamically generated and associated with your new IAM credential. This step ensures that your IAM credentials are scoped with the preferred level of permissions in your {{site.data.keyword.cloud_notm}} account. You can assign up to 10 access groups.
 
 ## Creating IAM credentials from the CLI
 {: #iam-credentials-cli}
