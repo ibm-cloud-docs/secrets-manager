@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-12"
+lastupdated: "2022-09-26"
 
 keywords: arbitrary secrets, arbitrary text, custom secrets
 
@@ -85,15 +85,17 @@ To add an arbitrary secret by using the {{site.data.keyword.secrets-manager_shor
 6. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
 
     Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
-7. Select a file or enter the secret value that you want to associate with the secret.
+7. Optional: Add labels to help you to search for similar secrets in your instance.
+8. Select a file or enter the secret value that you want to associate with the secret.
 
     {{site.data.keyword.secrets-manager_short}} supports text-based payloads only for arbitrary secrets. If you select a file to assign to an arbitrary secret, the service uses base64 encoding to store the data in your instance. To access this secret later, you need to base64 decode it. Consider assigning a label on your secret with encoded data, such as `encode:base64`, so that you can keep track of secrets that require base64 decoding.
     {: note}
-
-8. Optional: Add labels to help you to search for similar secrets in your instance.
 9. Optional: Enable expiration and rotation options to control the lifespan of the secret.
     1. To set an expiration date for the secret, switch the expiration toggle to **Yes**.
-10. Click **Add**.
+10. Optional: Add metadata to your secret or to a specific version of your secret.
+    1. To include metadata with your secret, switch the metadata toggle to **Yes**.
+    2. Upload a file or enter the metadata and the version metadata in JSON format. The maximum file size is 10 KB. 
+11. Click **Add**.
 
 
 ## Creating arbitrary secrets from the CLI
