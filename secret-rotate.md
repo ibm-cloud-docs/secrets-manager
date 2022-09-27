@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-08"
+lastupdated: "2022-09-27"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -101,8 +101,10 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 3. In the {{site.data.keyword.secrets-manager_short}} UI, go to the **Secrets** list.
 4. In the row for the secret that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
 5. Select a new file or enter a new secret value.
-6. To rotate the secret immediately, click **Rotate**.
-7. Optional: Check the version history to view the latest updates.
+6. Optional: Add metadata to your secret or to a specific version of your secret. 
+   1. Upload a file or enter the metadata and the version metadata in JSON format. 
+7. To rotate the secret immediately, click **Rotate**.
+8. Optional: Check the version history to view the latest updates.
 
    In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
 
@@ -118,8 +120,10 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 3. In the {{site.data.keyword.secrets-manager_short}} UI, go to the **Secrets** list.
 4. In the row for the secret that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
 5. Select a file or enter a new secret value in JSON format.
-6. To rotate the secret immediately, click **Rotate**.
-7. Optional: Check the version history to view the latest updates.
+6. Optional: Add metadata to your secret or to a specific version of your secret. 
+   1. Upload a file or enter the metadata and the version metadata in JSON format. 
+7. To rotate the secret immediately, click **Rotate**.
+8. Optional: Check the version history to view the latest updates.
 
    In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
 
@@ -139,8 +143,11 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 
     If you choose to generate a new password, {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
 
-6. To rotate the secret immediately, click **Rotate**.  
-7. Optional: Check the version history to view the latest updates.
+6. Optional: Add metadata to your secret or to a specific version of your secret. 
+   1. Upload a file or enter the metadata and the version metadata in JSON format. 
+
+7. To rotate the secret immediately, click **Rotate**.  
+8. Optional: Check the version history to view the latest updates.
 
    In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
 
@@ -160,12 +167,15 @@ If the certificate that you are rotating was previously imported with an interme
 4. In the row for the certificate that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
 5. Select or enter the new certificate data.
 
-   Keep in mind that manually rotating a certificate replaces the content of the certificate with the new data that you provide only. Private keys and intermediate certificates from previous versions are not retained. 
-6. To rotate the certificate immediately, click **Rotate**.
-7. Optional: Check the version history to view the latest updates.
+   Keep in mind that manually rotating a certificate replaces the content of the certificate with the new data that you provide only. Private keys and intermediate certificates from previous versions are not retained.
+
+6. Optional: Add metadata to your secret or to a specific version of your secret. 
+   1. Upload a file or enter the metadata and the version metadata in JSON format.  
+7. To rotate the certificate immediately, click **Rotate**.
+8. Optional: Check the version history to view the latest updates.
 
    In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
-8. Redeploy the latest certificate version to your TLS termination point.
+9. Redeploy the latest certificate version to your TLS termination point.
 
    To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager#get-secret) API.
 
@@ -179,15 +189,17 @@ If your {{site.data.keyword.secrets-manager_short}} service instance is enabled 
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the {{site.data.keyword.secrets-manager_short}} UI, go to the **Secrets** list.
 4. In the row for the certificate that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
-5. Click **Rotate**.
+5. Optional: Add metadata to your secret or to a specific version of your secret. 
+   1. Upload a file or enter the metadata and the version metadata in JSON format. 
+6. Click **Rotate**.
 
    A success message is displayed to indicate that your order is being processed. If the validation completes successfully, a new certificate is issued and the status of the certificate changes from **Active, Rotation pending** back to **Active**. If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**.
 
-6. Optional: Check the issuance details of a certificate.
+7. Optional: Check the issuance details of a certificate.
 
    You can check the issuance details of a public certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> Details**. If there was an issue with the request, the Status field provides information about why the rotation did not complete successfully.
 
-7. Redeploy the latest certificate version to your TLS termination point.
+8. Redeploy the latest certificate version to your TLS termination point.
 
    To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager#get-secret) API.
 
@@ -203,8 +215,10 @@ If your {{site.data.keyword.secrets-manager_short}} service instance is enabled 
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the {{site.data.keyword.secrets-manager_short}} UI, go to the **Secrets** list.
 4. In the row for the certificate that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
-5. Click **Rotate**.
-6. Redeploy the latest certificate version to your TLS termination point.
+5. Optional: Add metadata to your secret or to a specific version of your secret. 
+   1. Upload a file or enter the metadata and the version metadata in JSON format. 
+6. Click **Rotate**.
+7. Redeploy the latest certificate version to your TLS termination point.
 
    To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager#get-secret) API.
 
@@ -262,13 +276,19 @@ You can rotate arbitrary secrets by calling the {{site.data.keyword.secrets-mana
 The following example request creates a new version of your secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
 
-```bash
+```json
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/arbitrary/{id}?action=rotate" \
     -H "Authorization: Bearer {IAM_token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d '{
-        "payload": "new-secret-data"
+        "payload": "new-secret-data",
+        "custom_metadata":{
+            "custom_key": "custom_value"
+        },
+        "version_custom_metadata":{
+            "version_custom_key": "version_custom_value"
+        }
     }'
 ```
 {: codeblock}
@@ -285,7 +305,7 @@ You can rotate key-value secrets by calling the {{site.data.keyword.secrets-mana
 The following example request creates a new version of your secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
 
-```bash
+```json
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/kv/{secret_id}?action=rotate"
    -H "Authorization: Bearer {IAM_token}" 
    -H "Accept: application/json" 
@@ -293,7 +313,13 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
    -d '{
          "payload": {
             "key1": "val2"
-         }
+         },
+        "custom_metadata":{
+            "custom_key": "custom_value"
+        },
+        "version_custom_metadata":{
+            "version_custom_key": "version_custom_value"
+        }
       }' 
 ```
 {: codeblock}
@@ -312,13 +338,19 @@ You can rotate secrets by calling the {{site.data.keyword.secrets-manager_short}
 The following example request creates a new version of your secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
 
-```bash
+```json
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password/{id}?action=rotate" \
     -H "Authorization: Bearer {IAM_token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d '{
-        "password": "new-password"
+        "password": "new-password",
+        "custom_metadata":{
+            "custom_key": "custom_value"
+        },
+        "version_custom_metadata":{
+            "version_custom_key": "version_custom_value"
+        }
     }'
 ```
 {: codeblock}
