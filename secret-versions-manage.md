@@ -94,7 +94,7 @@ If you're auditing the version history of a secret, you can use the {{site.data.
 
 5. Optional: Update the metadata of the specific version of the secret that you are viewing.
     1. To update the metadata of your secret version, upload a file or enter the metadata and the version metadata in JSON format. 
-    1. Click **Update**.
+    2. Click **Update**.
 
 ## Listing secret versions from the CLI
 {: #versions-cli}

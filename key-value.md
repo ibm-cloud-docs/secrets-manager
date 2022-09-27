@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-26"
+lastupdated: "2022-09-27"
 
 keywords: key:value, key/value, key-value, storing key:value secrets
 
@@ -120,7 +120,7 @@ You can store metadata that are relevant to the needs of your organization with 
 
 
 
-```sh
+```json
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/kv" \
     -H "Authorization: Bearer $IAM_TOKEN" \
     -H "Accept: application/json" \

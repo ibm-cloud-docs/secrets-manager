@@ -274,6 +274,8 @@ You can manually rotate your secrets and certificates by using the {{site.data.k
 You can rotate arbitrary secrets by calling the {{site.data.keyword.secrets-manager_short}} API.
 
 The following example request creates a new version of your secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+
+You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
 {: curl}
 
 ```json
@@ -303,6 +305,8 @@ A successful response returns the ID value for the secret, along with other meta
 You can rotate key-value secrets by calling the {{site.data.keyword.secrets-manager_short}} API.
 
 The following example request creates a new version of your secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+
+You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
 {: curl}
 
 ```json
@@ -336,6 +340,8 @@ A successful response returns the ID value for the secret, along with other meta
 You can rotate secrets by calling the {{site.data.keyword.secrets-manager_short}} API.
 
 The following example request creates a new version of your secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+
+You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
 {: curl}
 
 ```json
