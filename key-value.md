@@ -90,7 +90,7 @@ To add a key-value secret by using the {{site.data.keyword.secrets-manager_short
 
 9. Optional: Add metadata to your secret or to a specific version of your secret.
     1. To include metadata with your secret, switch the metadata toggle to **Yes**.
-    2. Upload a file or enter the metadata and the version metadata in JSON format. The maximum file size is 10 KB.      
+    2. Upload a file or enter the metadata and the version metadata in JSON format.       
 10. Click **Add**.
 
 

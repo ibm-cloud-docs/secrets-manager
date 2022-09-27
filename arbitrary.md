@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-26"
+lastupdated: "2022-09-27"
 
 keywords: arbitrary secrets, arbitrary text, custom secrets
 
@@ -94,7 +94,7 @@ To add an arbitrary secret by using the {{site.data.keyword.secrets-manager_shor
     1. To set an expiration date for the secret, switch the expiration toggle to **Yes**.
 10. Optional: Add metadata to your secret or to a specific version of your secret.
     1. To include metadata with your secret, switch the metadata toggle to **Yes**.
-    2. Upload a file or enter the metadata and the version metadata in JSON format. The maximum file size is 10 KB. 
+    2. Upload a file or enter the metadata and the version metadata in JSON format.  
 11. Click **Add**.
 
 

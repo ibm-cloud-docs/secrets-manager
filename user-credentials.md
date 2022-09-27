@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-26"
+lastupdated: "2022-09-27"
 
 keywords: username, password, user credentials, store password
 
@@ -90,7 +90,7 @@ To store a username and password by using the {{site.data.keyword.secrets-manage
     2. To rotate your secret at a 30, 60, or 90-day interval, switch the rotate toggle to **Yes**.
 9. Optional: Add metadata to your secret or to a specific version of your secret.
     1. To include metadata with your secret, switch the metadata toggle to **Yes**.
-    2. Upload a file or enter the metadata and the version metadata in JSON format. The maximum file size is 10 KB.   
+    2. Upload a file or enter the metadata and the version metadata in JSON format.   
 10. Click **Add**.
 
 ## Adding user credentials from the CLI
