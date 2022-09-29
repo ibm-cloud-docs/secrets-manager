@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-27"
+lastupdated: "2022-09-29"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -95,13 +95,14 @@ To create IAM credentials by using the {{site.data.keyword.secrets-manager_short
     Minimum duration is 1 minute. Maximum is 90 days.
     {: note}
 
-9. Optional: [Determine whether IAM credentials can be reused](#iam-credentials-reuse-ui) for your secret. Then, click **Next**.
-10. Optional: Add metadata to your secret or to a specific version of your secret.
+9. Optional: [Determine whether IAM credentials can be reused](#iam-credentials-reuse-ui) for your secret.
+10. Optional: Enable automatic rotation of your secret. Secrets can be automatically rotated only if the reuse IAM credentials option is selected.
+11. Optional: Add metadata to your secret or to a specific version of your secret.
     1. To include metadata with your secret, switch the metadata toggle to **Yes**.
     2. Upload a file or enter the metadata and the version metadata in JSON format.  
-11. Click **Next**.
-12. [Determine the scope of access](#iam-credentials-service-id-ui) to assign for your IAM credential.
-13. To confirm your selections, click **Create**.
+12. Click **Next**.
+13. [Determine the scope of access](#iam-credentials-service-id-ui) to assign for your IAM credential.
+14. To confirm your selections, click **Create**.
 
 
 ### Reusing the same API key until the lease expires
