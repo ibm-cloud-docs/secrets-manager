@@ -181,23 +181,6 @@ The `downloaded` property indicates whether the data for each secret version was
 
 You can store metadata that is relevant to the needs of your organization with the `version_custom_metadata` request parameter. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager).
 
-## Updating secret versions metadata in the UI
-{: #versions-metadata-ui}
-{: ui}
-
-You can update the metadata of a specific version of a secret by using the {{site.data.keyword.secrets-manager_short}} UI.
-
-To update the metadata of a secret version, complete the following steps. 
-1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
-2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
-3. In the {{site.data.keyword.secrets-manager_short}} UI, go to your **Secrets** list.
-4. In the row for the secret that you want to inspect, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history**.
-
-    If the secret was rotated previously, the page displays information about the current and previous versions, for example the date that each version was created. Up to 50 versions can be listed for a secret.
-    {: tip}
-
-5. Click **Update**.
-
 
 ## Updating secret versions metadata from the CLI
 {: #versions-metadata-cli}
@@ -298,8 +281,6 @@ You can restore one version back on [supported secret types](/docs/secrets-manag
 {: #supported-secret-types}
 
 Restoring to a previous version is supported for [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) and [public certificates](/docs/secrets-manager?topic=secrets-manager-certificates).
-
-
 
 ## Restoring a previous version with the API
 {: #restore-secret-api}
