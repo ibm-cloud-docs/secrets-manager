@@ -60,6 +60,7 @@ content-type: troubleshoot
 # Why was my instance of {{site.data.keyword.secrets-manager_short}} deleted?
 {: #troubleshoot-instance-delete}
 {: troubleshoot}
+{: support}
 
 
 You try to access your instance of {{site.data.keyword.secrets-manager_full}}, but it was removed from your account.
