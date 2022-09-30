@@ -299,24 +299,6 @@ You can restore one version back on [supported secret types](/docs/secrets-manag
 
 Restoring to a previous version is supported for [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) and [public certificates](/docs/secrets-manager?topic=secrets-manager-certificates).
 
-## Restoring a previous version in the UI
-{: #restore-secret-ui}
-{: ui}
-
-You can use the {{site.data.keyword.secrets-manager_short}} UI to restore a secret to its previous version.
-
-1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
-2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
-3. In the {{site.data.keyword.secrets-manager_short}} UI, go to your **Secrets** list.
-4. In the row for the secret that you want to inspect, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history**.
-
-    If the secret was rotated previously, the page displays information about the current and previous versions.
-
-5. Click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Restore** next to the version of the secret that you want to restore.
-
-   Currently, you can restore only one version back for IAM credentials and public certificate secrets. A secret version can be restored only if the defined time-to-live (TTL) or lease duration was not reached. If you don't see an option available, restoring a version isn't supported.
-   {: note}
-
 
 
 ## Restoring a previous version with the API
