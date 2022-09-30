@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-12"
+lastupdated: "2022-09-30"
 
 keywords: secret version history, view versions, secret versions
 
@@ -101,7 +101,7 @@ If you're auditing the version history of a secret, you can use the {{site.data.
 To list all the versions that are associated with a secret, run the [**`ibmcloud secrets-manager secret-versions`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-versions-command) command. You can specify the type of secret by using the `--secret-type SECRET-TYPE` option. The options for `SECRET_TYPE` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`.
 
 ```sh
-ibmcloud secrets-manager secret-versions --secret-type SECRET-TYPE --id ID --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
+ibmcloud secrets-manager secret-versions --secret-type SECRET-TYPE --id SECRET_ID --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
 ```
 {: pre}
 
@@ -180,7 +180,6 @@ A successful response returns metadata details about each secret version.
 The `downloaded` property indicates whether the data for each secret version was already read or accessed. If the `payload_available` field has a value of `true`, it means that you're able to access or [restore the secret data of that version](#restore-secret-api). For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager).
 
 You can store metadata that is relevant to the needs of your organization with the `version_custom_metadata` request parameter. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager).
-
 
 
 ## Updating secret versions metadata from the CLI
@@ -282,26 +281,6 @@ You can restore one version back on [supported secret types](/docs/secrets-manag
 {: #supported-secret-types}
 
 Restoring to a previous version is supported for [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) and [public certificates](/docs/secrets-manager?topic=secrets-manager-certificates).
-
-## Restoring a previous version in the UI
-{: #restore-secret-ui}
-{: ui}
-
-You can use the {{site.data.keyword.secrets-manager_short}} UI to restore a secret to its previous version.
-
-1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
-2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
-3. In the {{site.data.keyword.secrets-manager_short}} UI, go to your **Secrets** list.
-4. In the row for the secret that you want to inspect, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history**.
-
-    If the secret was rotated previously, the page displays information about the current and previous versions.
-
-5. Click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Restore** next to the version of the secret that you want to restore.
-
-   Currently, you can restore only one version back for IAM credentials and public certificate secrets. A secret version can be restored only if the defined time-to-live (TTL) or lease duration was not reached. If you don't see an option available, restoring a version isn't supported.
-   {: note}
-
-
 
 ## Restoring a previous version with the API
 {: #restore-secret-api}

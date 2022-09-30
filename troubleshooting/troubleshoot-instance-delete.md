@@ -2,16 +2,15 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-14"
+lastupdated: "2022-09-30"
+
+keywords: instance deleted, lite plan, deprecated
 
 subcollection: secrets-manager
-
-keywords: {{site.data.keyword.secrets-manager_short}} instance deleted, lite plan, deprecated
 
 content-type: troubleshoot
 
 ---
-
 
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -61,6 +60,7 @@ content-type: troubleshoot
 # Why was my instance of {{site.data.keyword.secrets-manager_short}} deleted?
 {: #troubleshoot-instance-delete}
 {: troubleshoot}
+{: support}
 
 
 You try to access your instance of {{site.data.keyword.secrets-manager_full}}, but it was removed from your account.

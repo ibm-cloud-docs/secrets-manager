@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-08-16"
+lastupdated: "2022-09-30"
 
 keywords: username, password, user credentials, store password
 
@@ -76,7 +76,7 @@ Before you get started, be sure that you have the required level of access. To c
 
 To store a username and password by using the {{site.data.keyword.secrets-manager_short}} UI, complete the following steps.
 
-1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**. 
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
 4. From the list of secret types, click the **User credentials** tile.
@@ -88,8 +88,7 @@ To store a username and password by using the {{site.data.keyword.secrets-manage
 8. Optional: Add labels to help you to search for similar secrets in your instance.
 9. Optional: Enable expiration and rotation options to control the lifespan of the secret.
     1. To set an expiration date for the secret, switch the expiration toggle to **Yes**.
-    2. To rotate your secret at a 30, 60, or 90-day interval, switch the rotate toggle to **Yes**.
-
+    2. To rotate your secret at a 30, 60, or 90-day interval, switch the rotate toggle to **Yes**.   
 10. Click **Add**.
 
 ## Adding user credentials from the CLI

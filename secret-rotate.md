@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-08"
+lastupdated: "2022-09-30"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -106,7 +106,6 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 
    In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
 
-
 ### Rotating key-value secrets
 {: #manual-rotate-key-value-ui}
 {: ui}
@@ -160,7 +159,8 @@ If the certificate that you are rotating was previously imported with an interme
 4. In the row for the certificate that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
 5. Select or enter the new certificate data.
 
-   Keep in mind that manually rotating a certificate replaces the content of the certificate with the new data that you provide only. Private keys and intermediate certificates from previous versions are not retained. 
+   Keep in mind that manually rotating a certificate replaces the content of the certificate with the new data that you provide only. Private keys and intermediate certificates from previous versions are not retained.
+
 6. To rotate the certificate immediately, click **Rotate**.
 7. Optional: Check the version history to view the latest updates.
 
@@ -190,6 +190,7 @@ If your {{site.data.keyword.secrets-manager_short}} service instance is enabled 
 7. Redeploy the latest certificate version to your TLS termination point.
 
    To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager#get-secret) API.
+
 
 
 
@@ -260,15 +261,23 @@ You can manually rotate your secrets and certificates by using the {{site.data.k
 You can rotate arbitrary secrets by calling the {{site.data.keyword.secrets-manager_short}} API.
 
 The following example request creates a new version of your secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+
+You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
 {: curl}
 
-```bash
+```json
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/arbitrary/{id}?action=rotate" \
     -H "Authorization: Bearer {IAM_token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d '{
-        "payload": "new-secret-data"
+        "payload": "new-secret-data",
+        "custom_metadata":{
+            "custom_key": "custom_value"
+        },
+        "version_custom_metadata":{
+            "version_custom_key": "version_custom_value"
+        }
     }'
 ```
 {: codeblock}
@@ -283,9 +292,11 @@ A successful response returns the ID value for the secret, along with other meta
 You can rotate key-value secrets by calling the {{site.data.keyword.secrets-manager_short}} API.
 
 The following example request creates a new version of your secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+
+You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
 {: curl}
 
-```bash
+```json
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/kv/{secret_id}?action=rotate"
    -H "Authorization: Bearer {IAM_token}" 
    -H "Accept: application/json" 
@@ -293,7 +304,13 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
    -d '{
          "payload": {
             "key1": "val2"
-         }
+         },
+        "custom_metadata":{
+            "custom_key": "custom_value"
+        },
+        "version_custom_metadata":{
+            "version_custom_key": "version_custom_value"
+        }
       }' 
 ```
 {: codeblock}
@@ -310,15 +327,23 @@ A successful response returns the ID value for the secret, along with other meta
 You can rotate secrets by calling the {{site.data.keyword.secrets-manager_short}} API.
 
 The following example request creates a new version of your secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+
+You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
 {: curl}
 
-```bash
+```json
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password/{id}?action=rotate" \
     -H "Authorization: Bearer {IAM_token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d '{
-        "password": "new-password"
+        "password": "new-password",
+        "custom_metadata":{
+            "custom_key": "custom_value"
+        },
+        "version_custom_metadata":{
+            "version_custom_key": "version_custom_value"
+        }
     }'
 ```
 {: codeblock}

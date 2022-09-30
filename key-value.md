@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-12"
+lastupdated: "2022-09-30"
 
 keywords: key:value, key/value, key-value, storing key:value secrets
 
@@ -87,9 +87,8 @@ To add a key-value secret by using the {{site.data.keyword.secrets-manager_short
 
    You must enter the key-value data as a JSON object. The maximum file size is 512 KB.
    {: note}
-     
+    
 9. Click **Add**.
-
 
 ## Creating key-value secrets from the CLI
 {: #key-value-cli}
@@ -117,7 +116,7 @@ You can store metadata that are relevant to the needs of your organization with 
 
 
 
-```sh
+```json
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/kv" \
     -H "Authorization: Bearer $IAM_TOKEN" \
     -H "Accept: application/json" \

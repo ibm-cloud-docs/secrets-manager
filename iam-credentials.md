@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-12"
+lastupdated: "2022-09-30"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -95,7 +95,7 @@ To create IAM credentials by using the {{site.data.keyword.secrets-manager_short
     Minimum duration is 1 minute. Maximum is 90 days.
     {: note}
 
-9. Optional: [Determine whether IAM credentials can be reused](#iam-credentials-reuse-ui) for your secret. Then, click **Next**.
+9. Optional: [Determine whether IAM credentials can be reused](#iam-credentials-reuse-ui) for your secret.
 10. In the **Assign access** step, [determine the scope of access](#iam-credentials-service-id-ui) to assign for your IAM credential.
 11. To confirm your selections, click **Add**.
 
@@ -106,7 +106,7 @@ To create IAM credentials by using the {{site.data.keyword.secrets-manager_short
 
 IAM credentials consist of a service ID and an API key. By default, the service ID and API key are single-use, ephemeral values that are generated and deleted each time that an IAM credentials secret is read or accessed. 
 
-If you'd like to continue to use those credentials through the end of the lease of your secret, you can set **Reuse IAM credentials until lease expires** to **On**. When you enable this option, your secret retains its current service ID and API key values and reuses them on each read while the secret remains valid. After the secret reaches the end of its lease, the credentials are revoked automatically.
+If you'd like to continue to use those credentials through the end of the lease of your secret, you can set **Reuse IAM credentials until lease expires** to **On**. When you enable this option, your secret retains its current service ID, and API key values and reuses them on each read while the secret remains valid. After the secret reaches the end of its lease, the credentials are revoked automatically.
 
 If **Reuse IAM credentials until lease expires** for IAM credentials is set to **Off**, manual rotation for the secret isn't supported. For more information, see [Manually rotating secrets](/docs/secrets-manager?topic=secrets-manager-manual-rotation).
 {: important}
@@ -125,7 +125,7 @@ In the **Assign access** step of the Create IAM credentials wizard, choose a sco
 
 2. To generate both a new service ID and API key for the secret, select an access group.
 
-   By selecting an access group from your {{site.data.keyword.cloud_notm}} account, you determine the scope of access to assign to the service ID API key that is dynamically generated and associated with your new IAM credential. This step ensures that your IAM credentials are scoped with the preferred level of permissions in your {{site.data.keyword.cloud_notm}} account. You can assign up to 10 access groups.
+   By selecting an access group from your {{site.data.keyword.cloud_notm}} account, you determine the scope of access to assign to the service ID API key. The API key is dynamically generated and associated with your new IAM credential. This step ensures that your IAM credentials are scoped with the preferred level of permissions in your {{site.data.keyword.cloud_notm}} account. You can assign up to 10 access groups.
 
 ## Creating IAM credentials from the CLI
 {: #iam-credentials-cli}
@@ -146,7 +146,7 @@ The command outputs the ID value of the secret, along with other metadata. For m
 
 IAM credentials consist of a service ID and an API key. By default, the service ID and API key are single-use, ephemeral values that are generated and deleted each time that an IAM credentials secret is read or accessed. 
 
-If you'd like to continue to use those credentials through the end of the lease of your secret, you can use the `reuse_api_key` field. If set to `true`, your secret retains its current service ID and API key values and reuses them on each read while the secret remains valid. For example, the following example command create IAM credentials that can be reused until they expire.
+If you'd like to continue to use those credentials through the end of the lease of your secret, you can use the `reuse_api_key` field. If set to `true`, your secret retains its current service ID and API key values and reuses them on each read while the secret remains valid. For example, the following example command creates IAM credentials that can be reused until they expire.
 
 ```sh
 ibmcloud secrets-manager secret-create --secret-type iam_credentials --resources '[{"name":"example-reuse-credentials","description":"Uses the same service ID API key on each read until the lease expires.","reuse_api_key": true,"secret_group_id":"<secret_group_id>","ttl":"30m","labels":["reusable"]}]' --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
@@ -233,7 +233,7 @@ A successful response returns the ID value of the secret, along with other metad
 
 IAM credentials consist of a service ID and an API key. By default, the service ID and API key are single-use, ephemeral values that are generated and deleted each time that an IAM credentials secret is read or accessed.
 
-If you'd like to use those credentials through the end of the lease of your secret, you can use the `reuse_api_key` field. If set to `true`, your secret retains its current service ID and API key values and reuses them on each read while the secret remains valid. For example, the following example command create IAM credentials that can be reused until they expire.
+If you'd like to use those credentials through the end of the lease of your secret, you can use the `reuse_api_key` field. If set to `true`, your secret retains its current service ID and API key values and reuses them on each read while the secret remains valid. For example, the following example command creates IAM credentials that can be reused until they expire.
 
 You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
 
