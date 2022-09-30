@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-29"
+lastupdated: "2022-09-30"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -96,13 +96,8 @@ To create IAM credentials by using the {{site.data.keyword.secrets-manager_short
     {: note}
 
 9. Optional: [Determine whether IAM credentials can be reused](#iam-credentials-reuse-ui) for your secret.
-10. Optional: Enable automatic rotation of your secret. Secrets can be automatically rotated only if the reuse IAM credentials option is selected.
-11. Optional: Add metadata to your secret or to a specific version of your secret.
-    1. To include metadata with your secret, switch the metadata toggle to **Yes**.
-    2. Upload a file or enter the metadata and the version metadata in JSON format.  
-12. Click **Next**.
-13. [Determine the scope of access](#iam-credentials-service-id-ui) to assign for your IAM credential.
-14. To confirm your selections, click **Create**.
+10. In the **Assign access** step, [determine the scope of access](#iam-credentials-service-id-ui) to assign for your IAM credential.
+11. To confirm your selections, click **Add**.
 
 
 ### Reusing the same API key until the lease expires

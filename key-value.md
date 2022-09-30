@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-27"
+lastupdated: "2022-09-30"
 
 keywords: key:value, key/value, key-value, storing key:value secrets
 
@@ -87,12 +87,8 @@ To add a key-value secret by using the {{site.data.keyword.secrets-manager_short
 
    You must enter the key-value data as a JSON object. The maximum file size is 512 KB.
    {: note}
-
-9. Optional: Add metadata to your secret or to a specific version of your secret.
-    1. To include metadata with your secret, switch the metadata toggle to **Yes**.
-    2. Upload a file or enter the metadata and the version metadata in JSON format.       
-10. Click **Add**.
-
+    
+9. Click **Add**.
 
 ## Creating key-value secrets from the CLI
 {: #key-value-cli}

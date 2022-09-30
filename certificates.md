@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-27"
+lastupdated: "2022-09-30"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
 
@@ -131,11 +131,7 @@ You can import an existing certificate by using the {{site.data.keyword.secrets-
 
 9. Optional: Select an intermediate certificate file or enter its value.
 10. Optional: Add labels to help you to search for similar secrets in your instance.
-11. Optional: Add metadata to your secret or to a specific version of your secret.
-    1. To include metadata with your secret, switch the metadata toggle to **Yes**.
-    2. Upload a file or enter the metadata and the version metadata in JSON format. 
-12. Click **Import**.
-
+11. Click **Import**.
 
 ### Importing certificates from the CLI
 {: #import-certificates-cli}
@@ -253,28 +249,25 @@ To order a public certificate with your own DNS provider, you must use the {{sit
 
    The key algorithm that you select determines the encryption algorithm (`RSA` or `ECDSA`) and key size to use to generate keys and sign certificates. For longer living certificates, it is recommended to use longer key lengths to provide more encryption protection. Options include `RSA2048`, `RSA4096`, `ECDSA256`, and `ECDSA384`.
 10. Optional: Add labels to help you to search for similar secrets in your instance.
-11. Optional: Add metadata to your secret or to a specific version of your secret.
-    1. To include metadata with your secret, switch the metadata toggle to **Yes**.
-    2. Upload a file or enter the metadata and the version metadata in JSON format. 
-12. Optional: Enable advanced options for the certificate.
+11. Optional: Enable advanced options for the certificate.
     1. To bundle your issued certificate with intermediate certificates, switch the bundle toggle to **On**. After your certificates are bundled, they can no longer be unbundled.
     2. To enable automatic rotation for the certificate, switch the rotation toggle to **On**. Your certificate is rotated 31 days before it expires.
     3. To request a new private key with the certificate on each rotation, switch the rekey toggle to **On**.
-13. Select a DNS provider configuration.
+12. Select a DNS provider configuration.
 
     The configuration that you select determines the DNS provider to validate the ownership of your domains. To view the configurations that are defined for your instance, you can go to **Secrets engines > Public certificates**.  
-14. Add the domains to include in your request.
+13. Add the domains to include in your request.
 
     You can include up to 100 domains, subdomains, or wildcards. The Common Name, or fully qualified domain name of the certificate, can't exceed 64 characters in length. A wildcard can be selected as the Common Name.
 
     1. Click **Select domains**.
     2. From your list of domains, select the Common Name of the certificate.
-15. Click **Order**.
+14. Click **Order**.
 
     When you order a certificate, domain validation takes place to verify the ownership of your selected domains. This process can take a few minutes to complete. After you submit your certificate details, {{site.data.keyword.secrets-manager_short}} sends your request to the selected certificate authority. After a certificate is issued, you can deploy it to your integrated apps, download it, or rotate it manually. Your private key for SSL/TLS is generated directly in {{site.data.keyword.secrets-manager_short}} and stored securely.
     
     Need to check your order status? From your Secrets table, you can check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.
-    {: tip} 
+    {: tip}
 
 
 ### Ordering public certificates with integrated DNS providers from the CLI
@@ -533,11 +526,8 @@ You can create a private certificate by using the {{site.data.keyword.secrets-ma
 
 12. Optional: Specify a common name for your certificate.
 
-    Depending on the certificate template that you choose, some restrictions on the common name might apply. To view the details of your selected certificate template, you can go to **Secrets engines > Private certificates**. From the list of certificate authorities, expand the row of the CA that you want to use as the issuing authority for your private certificate, and click **Templates**.
-13. Optional: Add metadata to your secret or to a specific version of your secret.
-    1. To include metadata with your secret, switch the metadata toggle to **Yes**.
-    2. Upload a file or enter the metadata and the version metadata in JSON format.    
-14. Click **Create**.
+    Depending on the certificate template that you choose, some restrictions on the common name might apply. To view the details of your selected certificate template, you can go to **Secrets engines > Private certificates**. From the list of certificate authorities, expand the row of the CA that you want to use as the issuing authority for your private certificate, and click **Templates**.  
+13. Click **Create**.
 
     After a certificate is issued, you can deploy it to your integrated apps, download it, revoke it, or rotate it manually. Your private key for SSL/TLS is generated directly in {{site.data.keyword.secrets-manager_short}} and stored securely.
 
