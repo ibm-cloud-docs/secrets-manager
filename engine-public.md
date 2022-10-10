@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-10-05"
+lastupdated: "2022-10-10"
 
 keywords: set up public certificates, public certificates engine, set up CIS, set up CA, set up Let's Encrypt
 
@@ -172,7 +172,7 @@ To obtain your classic infrastructure username and API key, you can use the **Ac
 You can view and access your classic infrastructure credentials from the **Access (IAM)** section of the console only if you are a classic infrastructure user. If you do not have classic infrastructure access, the VPN username and classic infrastructure API key fields do not display on the page. For more information, see [Managing classic infrastructure access](/docs/account?topic=account-mngclassicinfra).
 {: important}
 
-![The figure shows a simplified IAM dashboard with numbered steps for viewing your classic infrastructure username and API key. The steps are described in the following text.](images/classic-infra-creds.svg){: caption="Figure 3. Viewing your classic infrastructure username and API key" caption-side="bottom"}
+![The figure shows a simplified IAM dashboard with numbered steps for viewing your classic infrastructure username and API key. The steps are described in the following text.](images/classic-infra-creds.svg){: caption="Figure 2. Viewing your classic infrastructure username and API key" caption-side="bottom"}
 
 1. In the console, go to **Manage > Access (IAM) > Users**, then select the user's name.
 2. In the VPN password section, copy the **Username** value.
