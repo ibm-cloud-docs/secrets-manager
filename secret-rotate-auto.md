@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-28"
+lastupdated: "2022-10-10"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -244,6 +244,10 @@ curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/
 ```
 {: codeblock}
 {: curl}
+
+ You can set the TTL for a secret by using `minute` units of time but rotation is not available for those secrets.
+ {: note}
+ 
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager#update-secret).
 
