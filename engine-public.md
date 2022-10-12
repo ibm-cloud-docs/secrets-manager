@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-10-10"
+lastupdated: "2022-10-12"
 
 keywords: set up public certificates, public certificates engine, set up CIS, set up CA, set up Let's Encrypt
 
@@ -107,7 +107,7 @@ A DNS provider is the service that is used to manage the domains that you own. Y
 
 If you manage your domains in {{site.data.keyword.cis_short}}, you must assign access to {{site.data.keyword.secrets-manager_short}} so that it can validate the ownership. To authorize {{site.data.keyword.secrets-manager_short}} to manage a {{site.data.keyword.cis_short_notm}} instance and its domains, you can [create an authorization between the services](/docs/account?topic=account-serviceauth)if your instances are located in the same account.
 
-If you're working with a CIS instance that is located in another account, you canuse an API key to manage access. For more information, see [Granting service access by using an API key](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#authorize-cis-another-account).
+If you're working with a CIS instance that is located in another account, you can use an API key to manage access. For more information, see [Granting service access by using an API key](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#authorize-cis-another-account).
 {: note}
 
 #### Granting service access to CIS
