@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-10-10"
+lastupdated: "2022-10-12"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -152,63 +152,63 @@ You can schedule the automatic rotation of secrets by using the {{site.data.keyw
 ### Setting an automatic rotation policy for user credentials
 {: #schedule-auto-rotate-password-cli}
 
-  ```sh
-  ibmcloud sm policy-update \
-  --secret-type username_password \
-  --id SECRET_ID
-  --policy rotation
-  --resources '{
-      "interval": 1,
-      "unit": "month"
+```sh
+ibmcloud sm policy-update \
+--secret-type username_password \
+--id SECRET_ID
+--policy rotation
+--resources '{
+    "interval": 1,
+    "unit": "month"
   }'
   ```
-  {: codeblock}
+{: codeblock}
 
 ### Setting an automatic rotation policy for public certificates
 {: #schedule-auto-rotate-public-cert-cli}
 
-  ```sh
-  ibmcloud sm policy-update \
-  --secret-type public_cert \
-  --id SECRET_ID
-  --policy rotation
-  --resources '{
-      "auto_rotate": true,
-      "rotate_keys": true
-   }'
+```sh
+ibmcloud sm policy-update \
+--secret-type public_cert \
+--id SECRET_ID
+--policy rotation
+--resources '{
+  "auto_rotate": true,
+  "rotate_keys": true
+}'
    ```
-  {: codeblock}
+{: codeblock}
 
 ### Setting an automatic rotation policy for private certificates
 {: #schedule-auto-rotate-private-cert-cli}
 
-  ```sh
-  ibmcloud sm policy-update \
-  --secret-type private_cert \
-  --id SECRET_ID
-  --policy rotation
-  --resources '{
-      "auto_rotate": true,
-      "interval": 1,
-      "unit": "month"
-   }'
+```sh
+ibmcloud sm policy-update \
+--secret-type private_cert \
+--id SECRET_ID
+--policy rotation
+--resources '{
+    "auto_rotate": true,
+    "interval": 1,
+    "unit": "month"
+  }'
    ```
   {: codeblock}
 
 ### Setting an automatic rotation policy for IAM credentials
 {: #schedule-auto-rotate-iam-credentials-cli}
 
-  ```sh
-  ibmcloud sm policy-update \
-  --secret-type iam_credentials \
-  --id SECRET_ID
-  --policy rotation
-  --resources '{
-      "interval": 1,
-      "unit": "month"
-  }'
-  ```
-  {: codeblock}
+```sh
+ibmcloud sm policy-update \
+--secret-type iam_credentials \
+--id SECRET_ID
+--policy rotation
+--resources '{
+    "interval": 1,
+    "unit": "month"
+}'
+```
+{: codeblock}
 
 ## Scheduling automatic rotation with the API
 {: #schedule-auto-rotate-api}
