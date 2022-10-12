@@ -152,6 +152,8 @@ You can schedule the automatic rotation of secrets by using the {{site.data.keyw
 ### Setting an automatic rotation policy for user credentials
 {: #schedule-auto-rotate-password-cli}
 
+Schedule the automatic rotation of user credentials by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in. 
+
 ```sh
 ibmcloud sm policy-update \
 --secret-type username_password \
@@ -162,10 +164,13 @@ ibmcloud sm policy-update \
     "unit": "month"
   }'
   ```
-{: codeblock}
+{: pre}
+
 
 ### Setting an automatic rotation policy for public certificates
 {: #schedule-auto-rotate-public-cert-cli}
+
+Schedule the automatic rotation of public certificates by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in. 
 
 ```sh
 ibmcloud sm policy-update \
@@ -177,10 +182,13 @@ ibmcloud sm policy-update \
   "rotate_keys": true
 }'
    ```
-{: codeblock}
+{: pre}
+
 
 ### Setting an automatic rotation policy for private certificates
 {: #schedule-auto-rotate-private-cert-cli}
+
+Schedule the automatic rotation of private certificates by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in. 
 
 ```sh
 ibmcloud sm policy-update \
@@ -193,10 +201,12 @@ ibmcloud sm policy-update \
     "unit": "month"
   }'
    ```
-  {: codeblock}
+  {: pre}
 
 ### Setting an automatic rotation policy for IAM credentials
 {: #schedule-auto-rotate-iam-credentials-cli}
+
+Schedule the automatic rotation of IAM credentials by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in. 
 
 ```sh
 ibmcloud sm policy-update \
@@ -208,7 +218,7 @@ ibmcloud sm policy-update \
     "unit": "month"
 }'
 ```
-{: codeblock}
+{: pre}
 
 ## Scheduling automatic rotation with the API
 {: #schedule-auto-rotate-api}
