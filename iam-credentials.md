@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-30"
+lastupdated: "2022-10-05"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -126,6 +126,8 @@ In the **Assign access** step of the Create IAM credentials wizard, choose a sco
 2. To generate both a new service ID and API key for the secret, select an access group.
 
    By selecting an access group from your {{site.data.keyword.cloud_notm}} account, you determine the scope of access to assign to the service ID API key. The API key is dynamically generated and associated with your new IAM credential. This step ensures that your IAM credentials are scoped with the preferred level of permissions in your {{site.data.keyword.cloud_notm}} account. You can assign up to 10 access groups.
+
+
 
 ## Creating IAM credentials from the CLI
 {: #iam-credentials-cli}

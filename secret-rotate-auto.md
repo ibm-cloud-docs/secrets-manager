@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-28"
+lastupdated: "2022-10-12"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -152,63 +152,73 @@ You can schedule the automatic rotation of secrets by using the {{site.data.keyw
 ### Setting an automatic rotation policy for user credentials
 {: #schedule-auto-rotate-password-cli}
 
-  ```sh
-  ibmcloud sm policy-update \
-  --secret-type username_password \
-  --id SECRET_ID
-  --policy rotation
-  --resources '{
-      "interval": 1,
-      "unit": "month"
+Schedule the automatic rotation for user credentials by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in. 
+
+```sh
+ibmcloud sm policy-update \
+--secret-type username_password \
+--id SECRET_ID
+--policy rotation
+--resources '{
+    "interval": 1,
+    "unit": "month"
   }'
   ```
-  {: codeblock}
+{: pre}
+
 
 ### Setting an automatic rotation policy for public certificates
 {: #schedule-auto-rotate-public-cert-cli}
 
-  ```sh
-  ibmcloud sm policy-update \
-  --secret-type public_cert \
-  --id SECRET_ID
-  --policy rotation
-  --resources '{
-      "auto_rotate": true,
-      "rotate_keys": true
-   }'
+Schedule the automatic rotation for public certificates by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in. 
+
+```sh
+ibmcloud sm policy-update \
+--secret-type public_cert \
+--id SECRET_ID
+--policy rotation
+--resources '{
+  "auto_rotate": true,
+  "rotate_keys": true
+}'
    ```
-  {: codeblock}
+{: pre}
+
 
 ### Setting an automatic rotation policy for private certificates
 {: #schedule-auto-rotate-private-cert-cli}
 
-  ```sh
-  ibmcloud sm policy-update \
-  --secret-type private_cert \
-  --id SECRET_ID
-  --policy rotation
-  --resources '{
-      "auto_rotate": true,
-      "interval": 1,
-      "unit": "month"
-   }'
+Schedule the automatic rotation for private certificates by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in. 
+
+```sh
+ibmcloud sm policy-update \
+--secret-type private_cert \
+--id SECRET_ID
+--policy rotation
+--resources '{
+    "auto_rotate": true,
+    "interval": 1,
+    "unit": "month"
+  }'
    ```
-  {: codeblock}
+  {: pre}
 
 ### Setting an automatic rotation policy for IAM credentials
 {: #schedule-auto-rotate-iam-credentials-cli}
 
-  ```sh
-  ibmcloud sm policy-update \
-  --secret-type iam_credentials \
-  --id SECRET_ID
-  --policy rotation
-  --resources '{
-      "interval": 1,
-      "unit": "month"
-  }'
-  ```
-  {: codeblock}
+Schedule the automatic rotation for IAM credentials by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in. 
+
+```sh
+ibmcloud sm policy-update \
+--secret-type iam_credentials \
+--id SECRET_ID
+--policy rotation
+--resources '{
+    "interval": 1,
+    "unit": "month"
+}'
+```
+{: pre}
 
 ## Scheduling automatic rotation with the API
 {: #schedule-auto-rotate-api}
@@ -244,6 +254,7 @@ curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/
 ```
 {: codeblock}
 {: curl}
+ 
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager#update-secret).
 

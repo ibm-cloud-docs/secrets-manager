@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-20"
+lastupdated: "2022-10-12"
 
 keywords: Secrets Manager integrations, enable integration, create authorization, service to service, grant access between services, using Secrets Manager with other services, authorize Secrets Manager
 
@@ -70,7 +70,7 @@ The following table lists the services that can be authorized to work with {{sit
 | Service | Supports | Description |
 | ------------------ | ----------- | ----------- |
 | [{{site.data.keyword.alb_full}}](/docs/vpc?topic=vpc-load-balancers)  | Certificates | Centrally manage the SSL/TLS certificates that are required for load balancers to perform SSL offloading tasks. Create an authorization between **VPC Infrastructure Services** and {{site.data.keyword.secrets-manager_short}} to give a load balancer access to your certificates. [Learn more about this integration](/docs/vpc?topic=vpc-load-balancers#ssl-offloading-and-required-authorizations). |
-| [App Configuration](/docs/app-configuration) | All secret types | A property value can be imported from Secrets Manager into the App Configuration service. [Learn more](/docs/app-configuration?topic=app-configuration-ac-properties#property-type-secret-reference). |
+| [App Configuration](/docs/app-configuration) | All secret types | A property value can be imported from {{site.data.keyword.secrets-manager_short}} into the App Configuration service. [Learn more](/docs/app-configuration?topic=app-configuration-ac-properties#property-type-secret-reference). |     
 | [Catalog management](/docs/account?topic=account-create-private-catalog) | Arbitrary secrets | Centrally manage the credentials for software in your private catalogs. [Learn more about this integration](/docs/account?topic=account-create-private-catalog). |
 | [Continuous Delivery](/docs/ContinuousDelivery?topic=ContinuousDelivery-secretsmanager) | Arbitrary secrets  \n IAM credentials | Centrally manage the credentials for your {{site.data.keyword.contdelivery_short}} toolchain. Create an authorization between **Toolchain** and {{site.data.keyword.secrets-manager_short}} to give a toolchain access to your secrets. [Learn more about this integration](/docs/ContinuousDelivery?topic=ContinuousDelivery-secretsmanager).  |
 | [{{site.data.keyword.en_short}}](/docs/event-notifications) | Arbitrary secrets  \n Certificates  \n IAM credentials  \nUser credentials| Send notifications of events in {{site.data.keyword.secrets-manager_short}} to other users, or human destinations, by using email, SMS, or other supported delivery channels. [Learn more about this integration](/docs/secrets-manager?topic=secrets-manager-event-notifications). |
@@ -87,12 +87,13 @@ To authorize a supported {{site.data.keyword.cloud_notm}} service to access your
 1. In the console, click **Manage > Access (IAM)**, and select **Authorizations**.
 2. Click **Create**.
 3. Select a source account for the authorization. 
-4. Select a source and target service for the authorization.
-
-    1. From the **Source service** list, select the service that you want to integrate with {{site.data.keyword.secrets-manager_short}}.
-    2. From the **Target service** list, select {{site.data.keyword.secrets-manager_short}}.
-5. Select the required service access role.
+4. From the **Source service** list, select the service that you want to integrate with {{site.data.keyword.secrets-manager_short}}.
+5. Specify whether you want the authorization for the source service to apply to all the instances that are associated with the account, only a specific instance, or instances that are only in a specific resource group.
+2. From the **Target service** list, select {{site.data.keyword.secrets-manager_short}}.
+5. Specify whether you want the authorization for the target service to apply to all the instances that are associated with the account, only a specific instance, or instances that are only in a specific resource group.
+6. Select the required service access role.
     
     Some integrations might require a specific role. To understand which service role is needed, see the documentation for the service that you want to integrate with {{site.data.keyword.secrets-manager_short}}.
     {: note}
-6. Click **Authorize**.
+    
+7. Click **Authorize**.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-30"
+lastupdated: "2022-10-06"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
 
@@ -342,6 +342,7 @@ When you submit your certificate details, {{site.data.keyword.secrets-manager_sh
 
 Need to check your order status? Use the [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
 {: tip} 
+
 
 
 ### Ordering public certificates with your own DNS provider by using the API
