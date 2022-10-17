@@ -253,8 +253,7 @@ curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/
       }'
 ```
 {: codeblock}
-{: curl}
- 
+{: curl} 
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager#update-secret).
 
@@ -344,7 +343,6 @@ curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager#update-secret).
 
 The defined rotation interval cannot be higher than the defined time-to-live.
+Rotation is available only for IAM credentials where the Re-use key is set to `true`. You can set the TTL for a secret by using `minute` units of time but rotation is not available for those secrets.
 {: note}
 
-Rotation is available only for IAM credentials where the Re-use key is set to `true`.
-{: note}
