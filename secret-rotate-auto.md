@@ -156,7 +156,7 @@ If you need more control over the rotation frequency of a secret, you can use th
     2. In the row for the secret that you want to edit, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Edit details**.
     3. Use the **Automatic rotation** option to enable or disable automatic rotation for the secret.
 
-Rotation is available only for IAM credentials where the reuse key is set to `true`. The defined rotation interval cannot be higher than the defined time-to-live (TTL). You can set the TTL for a secret by using `minute` units of time but rotation is not available for those secrets.
+Rotation is available only for IAM credentials where the reuse key is set to `true`. The defined rotation interval cannot be higher than the defined time-to-live (TTL). You can set the TTL for secrets by using `minute` units of time but rotation is not available for those secrets.
 {: note}
 
 
@@ -360,6 +360,6 @@ curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager#update-secret).
 
 The defined rotation interval cannot be higher than the defined time-to-live.
-Rotation is available only for IAM credentials where the Re-use key is set to `true`. You can set the TTL for a secret by using `minute` units of time but rotation is not available for those secrets.
+Rotation is available only for IAM credentials where the Re-use key is set to `true`. You can set the TTL for secrets by using `minute` units of time but rotation is not available for those secrets.
 {: note}
 
