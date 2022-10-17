@@ -200,7 +200,6 @@ To update the metadata of a secret version, complete the following steps.
     If the secret was rotated previously, the page displays information about the current and previous versions, for example the date that each version was created. Up to 50 versions can be listed for a secret.
     {: tip}
 
-5. Click **Update**.
 5. Upload a file or enter the metadata and the version metadata in JSON format. 
 6. Click **Update**.
 
