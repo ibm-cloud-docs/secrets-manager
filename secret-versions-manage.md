@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-30"
+lastupdated: "2022-10-17"
 
 keywords: secret version history, view versions, secret versions
 
@@ -92,6 +92,10 @@ If you're auditing the version history of a secret, you can use the {{site.data.
     If you're inspecting the version history of a public or imported certificate, you can also [download the certificate contents](/docs/secrets-manager?topic=secrets-manager-access-secrets#download-certificate-ui).
     {: tip}
 
+5. Optional: Update the metadata of the specific version of the secret that you are viewing.
+    1. To update the metadata of your secret version, upload a file or enter the metadata and the version metadata in JSON format. 
+    2. Click **Update**.
+
 ## Listing secret versions from the CLI
 {: #versions-cli}
 {: cli}
@@ -180,6 +184,25 @@ A successful response returns metadata details about each secret version.
 The `downloaded` property indicates whether the data for each secret version was already read or accessed. If the `payload_available` field has a value of `true`, it means that you're able to access or [restore the secret data of that version](#restore-secret-api). For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager).
 
 You can store metadata that is relevant to the needs of your organization with the `version_custom_metadata` request parameter. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager).
+
+## Updating secret versions metadata in the UI
+{: #versions-metadata-ui}
+{: ui}
+
+You can update the metadata of a specific version of a secret by using the {{site.data.keyword.secrets-manager_short}} UI.
+
+To update the metadata of a secret version, complete the following steps. 
+1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
+3. In the {{site.data.keyword.secrets-manager_short}} UI, go to your **Secrets** list.
+4. In the row for the secret that you want to inspect, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history**.
+
+    If the secret was rotated previously, the page displays information about the current and previous versions, for example the date that each version was created. Up to 50 versions can be listed for a secret.
+    {: tip}
+
+5. Click **Update**.
+5. Upload a file or enter the metadata and the version metadata in JSON format. 
+6. Click **Update**.
 
 
 ## Updating secret versions metadata from the CLI
