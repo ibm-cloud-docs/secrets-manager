@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-10-12"
+lastupdated: "2022-10-17"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -141,6 +141,23 @@ If you prefer to schedule your private SSL or TLS certificates to be automatical
    2. In the row for the certificate that you want to edit, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Edit details**.
    3. Use the **Automatic rotation** option to add or remove a rotation policy for the secret.
 
+
+### Setting an automatic rotation policy for IAM credentials
+{: #schedule-auto-rotate-iam-credentials-ui}
+
+If you prefer to schedule your API key to be automatically rotated at regular intervals, you can enable automatic rotation for your IAM credentials at their creation, or by editing the details of an existing secret. Choose between a 30, 60, or 90-day rotation interval.
+
+If you need more control over the rotation frequency of a secret, you can use the {{site.data.keyword.secrets-manager_short}} API to set a custom interval by using `day` or `month` units of time. For more information, see the [API reference](/apidocs/secrets-manager#put-policy).
+{: tip}
+
+1. If you're [adding a secret](/docs/secrets-manager?topic=secrets-manager-iam-credentials#iam-credentials-ui), enable the rotation option by selecting a 30, 60, or 90-day rotation interval.
+2. If you're editing an existing secret, enable automatic rotation by updating its details.
+    1. In the **Secrets** table, view a list of your existing secrets.
+    2. In the row for the secret that you want to edit, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Edit details**.
+    3. Use the **Automatic rotation** option to enable or disable automatic rotation for the secret.
+
+Rotation is available only for IAM credentials where the reuse key is set to `true`. The defined rotation interval cannot be higher than the defined time-to-live (TTL). You can set the TTL for a secret by using `minute` units of time but rotation is not available for those secrets.
+{: note}
 
 
 ## Scheduling automatic rotation from the CLI
