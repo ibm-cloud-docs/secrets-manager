@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-21"
+lastupdated: "2022-10-18"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -64,6 +64,13 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
 
+
+## 18 October 2022
+{: #secrets-manager-oct1822}
+{: release-note}
+
+Automatic rotation for IAM credentials
+:   The ability to schedule an automatic rotation policy is now available for IAM credentials that are configured for reuse in the UI. For more information, see [Automatically rotating secrets](/docs/secrets-manager?topic=secrets-manager-automatic-rotation).
 
 ## 19 September 2022
 {: #secrets-manager-sept1922}
