@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-10-17"
+lastupdated: "2022-10-19"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -183,6 +183,8 @@ ibmcloud sm policy-update \
   ```
 {: pre}
 
+To remove a policy, keep the resources block empty.
+{: note}
 
 ### Setting an automatic rotation policy for public certificates
 {: #schedule-auto-rotate-public-cert-cli}
@@ -237,6 +239,9 @@ ibmcloud sm policy-update \
 ```
 {: pre}
 
+To remove a policy, keep the resources block empty.
+{: note}
+
 ## Scheduling automatic rotation with the API
 {: #schedule-auto-rotate-api}
 {: api}
@@ -273,6 +278,9 @@ curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/
 {: curl} 
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager#update-secret).
+
+To remove a policy, keep the resources block empty.
+{: note}
 
 ### Setting an automatic rotation policy for public certificates
 {: #schedule-auto-rotate-public-cert-api}
@@ -356,6 +364,9 @@ curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/
 ```
 {: codeblock}
 {: curl}
+
+To remove a policy, keep the resources block empty.
+{: note}
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager#update-secret).
 
