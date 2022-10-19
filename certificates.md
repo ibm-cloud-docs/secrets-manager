@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-10-17"
+lastupdated: "2022-10-19"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
 
@@ -177,27 +177,27 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
           "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
           "collection_total": 1
         },
-        "resources": [
-        {
-          "name": "example-certificate",
-          "description": "Extended description for my secret.",
-          "secret_group_id": "432b91f1-ff6d-4b47-9f06-82debc236d90",
-          "certificate": "-----BEGIN CERTIFICATE-----\nMIICWzCCAcQCC...(redacted)",
-          "private_key": "-----BEGIN PRIVATE KEY-----\nMIICdgIBADANB...(redacted)",
-          "intermediate": "-----BEGIN CERTIFICATE-----\nMIICUzHHraOa...(redacted)",
-          "labels": [
-            "dev",
-            "us-south"
-          ],
-          "expiration_date": "2030-01-01T00:00:00Z",
-          "custom_metadata": {
-            "collection_nickname" : "test_collection"
-            "collection_special_id" : "test12345"
-          },
-          "version_custom_metadata": {
-            "version_special_id" : "test6789"
-          }    
-        }
+          "resources": [
+            {
+              "name": "example-certificate",
+              "description": "Extended description for my secret.",
+              "secret_group_id": "432b91f1-ff6d-4b47-9f06-82debc236d90",
+              "certificate": "-----BEGIN CERTIFICATE-----\nMIICWzCCAcQCC...(redacted)",
+              "private_key": "-----BEGIN PRIVATE KEY-----\nMIICdgIBADANB...(redacted)",
+              "intermediate": "-----BEGIN CERTIFICATE-----\nMIICUzHHraOa...(redacted)",
+              "labels": [
+                  "dev",
+                  "us-south"
+                ],
+              "expiration_date": "2030-01-01T00:00:00Z",
+              "custom_metadata": {
+                  "collection_nickname" : "test_collection"
+                  "collection_special_id" : "test12345"
+              },
+              "version_custom_metadata": {
+                  "version_special_id" : "test6789"
+              }    
+          }
         ]
     }'
 ```
@@ -299,46 +299,46 @@ When you order a certificate, domain validation takes place to verify the owners
 
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/public_cert" \
-    -H "Authorization: Bearer {IAM_token}" \
-    -H "Accept: application/json" \
-    -H "Content-Type: application/json" \
-    -d '{
-      "metadata": {
-        "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
-        "collection_total": 1
-      },
-      "resources": [
-        {
-          "name": "example-certificate",
-          "description": "Extended description for my secret.",
-          "secret_group_id": "432b91f1-ff6d-4b47-9f06-82debc236d90",
-          "ca": "my-ca-configuration-name",
-          "dns": "my-dns-configuration-name",
+     -H "Authorization: Bearer {IAM_token}" \
+     -H "Accept: application/json" \
+     -H "Content-Type: application/json" \
+     -d '{
+          "metadata": {
+            "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
+            "collection_total": 1
+            },
+          "resources": [
+            {
+              "name": "example-certificate",
+              "description": "Extended description for my secret.",
+              "secret_group_id": "432b91f1-ff6d-4b47-9f06-82debc236d90",
+              "ca": "my-ca-configuration-name",
+              "dns": "my-dns-configuration-name",
           "labels": [
-            "dev",
-            "us-south"
-          ],
+              "dev",
+              "us-south"
+            ],
           "expiration_date": "2030-01-01T00:00:00Z",
           "custom_metadata": {
-            "collection_nickname" : "test_collection"
-            "collection_special_id" : "test12345"
-          },
+              "collection_nickname" : "test_collection"
+              "collection_special_id" : "test12345"
+            },
           "version_custom_metadata": {
-            "version_special_id" : "test6789"
-          },             
+              "version_special_id" : "test6789"
+            },             
           "common_name": "example.com",
           "alt_names": [
-            "www.example.com"
-          ],
+              "www.example.com"
+            ],
           "bundle_certs": false,
           "key_algorithm": "RSA2048",
           "rotation": {
-            "auto_rotate": false,
-            "rotate_keys": false
+              "auto_rotate": false,
+              "rotate_keys": false
+            }
           }
-        }
-      ]
-    }'
+        ]
+      }'
 ```
 {: codeblock}
 {: curl}
@@ -361,34 +361,34 @@ To create a public certificate by using a manual DNS provider, complete the foll
 
    ```sh
    curl -X POST 'https://{instance_id}.us-south.secrets-manager.appdomain.cloud/api/v1/secrets/public_cert' \
-   -H 'accept: application/json' \
-   -H 'Authorization: Bearer $IAM_token' \
-   -H 'Content-Type: application/json' \
-   -d '{
-   "metadata": {
-      "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
-      "collection_total": 1
-   },
-   "resources": [
-      {
-         "name": "my-public-certificate",
-         "description": "Description for ordered certificate.",
-         "ca": "ca_config_name",
-         "dns": "manual",
-         "common_name": "domain1.com",
-         "alt_names": [
-         "domain2.com",
-         "domain3.com"
-         ],
-         "bundle_certs": false,
-         "key_algorithm": "RSA2048",
-         "rotation": {
-         "auto_rotate": false,
-         "rotate_keys": false
-         }
-      }
-   ]
-   }'
+        -H 'accept: application/json' \
+        -H 'Authorization: Bearer $IAM_token' \
+        -H 'Content-Type: application/json' \
+        -d '{
+              "metadata": {
+                  "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
+                  "collection_total": 1
+                },
+              "resources": [
+                {
+                  "name": "my-public-certificate",
+                  "description": "Description for ordered certificate.",
+                  "ca": "ca_config_name",
+                  "dns": "manual",
+                  "common_name": "domain1.com",
+                  "alt_names": [
+                  "domain2.com",
+                  "domain3.com"
+                ],
+                  "bundle_certs": false,
+                  "key_algorithm": "RSA2048",
+                  "rotation": {
+                  "auto_rotate": false,
+                  "rotate_keys": false
+                    }
+                }
+            ]
+        }'
    ```
    {: codeblock}
    {: curl}
@@ -397,34 +397,34 @@ To create a public certificate by using a manual DNS provider, complete the foll
 
    ```json
    "metadata": {
-   "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
-   "collection_total": 1
-   },
+      "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
+      "collection_total": 1
+    },
    "resources": [
-      {
-         "alt_names": [
-         "domain2",
-         "domain3"
-         ],
-         "common_name": "domain1",
-         "created_by": "User",
-         "creation_date": "2022-09-13T06:21:33Z",
-         "crn": "secret crn",
-         "description": "Description for ordered certificate.",
-         "downloaded": false,
-         "id": "38747ae6-8c69-d745-5276-cdf3157b9021",
-         "issuance_info": {
-         "auto_rotated": false,
-         "bundle_certs": false,
-         "ca": "ca_config_name",
-         "challenges": [
-            {
-               "domain": "domain1",
-               "expiration": "2022-09-20T06:21:36Z",
-               "status": "pending",
-               "txt_record_name": "_acme-challenge.domain1.",
-               "txt_record_value": "TA6J7fFYrwP3Jg-S_IAQSj2Ydqfw4Ycm4sMwlzuCcxk"
-            },
+    {
+      "alt_names": [
+        "domain2",
+        "domain3"
+      ],
+      "common_name": "domain1",
+      "created_by": "User",
+      "creation_date": "2022-09-13T06:21:33Z",
+      "crn": "secret crn",
+      "description": "Description for ordered certificate.",
+      "downloaded": false,
+      "id": "38747ae6-8c69-d745-5276-cdf3157b9021",
+      "issuance_info": {
+      "auto_rotated": false,
+      "bundle_certs": false,
+      "ca": "ca_config_name",
+      "challenges": [
+        {
+            "domain": "domain1",
+            "expiration": "2022-09-20T06:21:36Z",
+            "status": "pending",
+            "txt_record_name": "_acme-challenge.domain1.",
+            "txt_record_value": "TA6J7fFYrwP3Jg-S_IAQSj2Ydqfw4Ycm4sMwlzuCcxk"
+        },
             {
                "domain": "domain2",
                "expiration": "2022-09-20T06:21:36Z",
@@ -440,28 +440,28 @@ To create a public certificate by using a manual DNS provider, complete the foll
                "txt_record_value": "8dcgan91fW6aK3aIhPAVZRkHpbYEoMcCNPpVh1n4tSA"
             }
          ],
-         "dns": "manual",
-         "ordered_on": "2022-09-13T06:21:33Z",
-         "state": 0,
-         "state_description": "Pre-activation"
-         },
-         "key_algorithm": "RSA2048",
-         "labels": [],
-         "last_update_date": "2022-09-13T06:21:33Z",
-         "locks_total": 0,
-         "name": "my-public-certificate",
-         "rotation": {
-         "auto_rotate": false,
-         "rotate_keys": false
-         },
-         "secret_type": "public_cert",
-         "state": 0,
-         "state_description": "Pre-activation",
-         "versions": [],
-         "versions_total": 1
+      "dns": "manual",
+      "ordered_on": "2022-09-13T06:21:33Z",
+      "state": 0,
+      "state_description": "Pre-activation"
+      },
+      "key_algorithm": "RSA2048",
+      "labels": [],
+      "last_update_date": "2022-09-13T06:21:33Z",
+      "locks_total": 0,
+      "name": "my-public-certificate",
+      "rotation": {
+      "auto_rotate": false,
+      "rotate_keys": false
+      },
+      "secret_type": "public_cert",
+      "state": 0,
+      "state_description": "Pre-activation",
+      "versions": [],
+      "versions_total": 1
       }
    ]
-   }
+  }
    ```
    {: codeblock}
 
@@ -556,42 +556,42 @@ You can store metadata that are relevant to the needs of your organization with 
 
 
 ```sh
-curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/private_cert" \
-    -H "Authorization: Bearer {IAM_token}" \
-    -H "Accept: application/json" \
-    -H "Content-Type: application/json" \
-    -d '{
-      "metadata": {
-        "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
-        "collection_total": 1
-      },
-      "resources": [
-        {
-          "name": "example-certificate",
-          "description": "Extended description for my secret.",
-          "secret_group_id": "432b91f1-ff6d-4b47-9f06-82debc236d90",
-          "certificate_template": "example-certificate-template",
-          "common_name": "example.com",
-          "labels": [
-            "dev",
-            "us-south"
-          ],
-          "expiration_date": "2030-01-01T00:00:00Z",
-          "custom_metadata": {
-            "collection_nickname" : "test_collection"
-            "collection_special_id" : "test12345"
-          },
-          "version_custom_metadata": {
-            "version_special_id" : "test6789"
-          }              
-          "rotation": {
-            "auto_rotate": true,
-            "interval": 1,
-            "unit": "month"
-          }
-        }
-      ]
-    }'
+curl  -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/private_cert" \
+      -H "Authorization: Bearer {IAM_token}" \
+      -H "Accept: application/json" \
+      -H "Content-Type: application/json" \
+      -d '{
+            "metadata": {
+              "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
+              "collection_total": 1
+            },
+            "resources": [
+              {
+                "name": "example-certificate",
+                "description": "Extended description for my secret.",
+                "secret_group_id": "432b91f1-ff6d-4b47-9f06-82debc236d90",
+                "certificate_template": "example-certificate-template",
+                "common_name": "example.com",
+                "labels": [
+                    "dev",
+                    "us-south"
+                ],
+                "expiration_date": "2030-01-01T00:00:00Z",
+                "custom_metadata": {
+                    "collection_nickname" : "test_collection"
+                    "collection_special_id" : "test12345"
+                },
+                "version_custom_metadata": {
+                    "version_special_id" : "test6789"
+                }              
+                "rotation": {
+                    "auto_rotate": true,
+                    "interval": 1,
+                    "unit": "month"
+                }
+              }
+            ]
+          }'
 ```
 {: codeblock}
 {: curl}
