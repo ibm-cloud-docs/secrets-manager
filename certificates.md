@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-10-19"
+lastupdated: "2022-10-26"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
 
@@ -240,7 +240,7 @@ To order a public certificate with your own DNS provider, you must use the {{sit
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
 4. From the list of secret types, click the **TLS certificates** tile.
-5. Click the **Order certificate** tile.
+5. Click the **Order a public certificate** tile.
 6. Add a name and description to easily identify your certificate.
 7. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
 
