@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-10-17"
+lastupdated: "2022-10-31"
 
 keywords: username, password, user credentials, store password
 
@@ -60,7 +60,7 @@ subcollection: secrets-manager
 You can use {{site.data.keyword.secrets-manager_full}} to store a username and password that you can use to log in to and access a protected service inside or outside of {{site.data.keyword.cloud_notm}}.
 {: shortdesc}
 
-User credentials consist of username and password values that you can use to log in to or access an external service or application. Your secret is stored securely in your dedicated {{site.data.keyword.secrets-manager_short}} service instance, where you can centrally manage its lifecycle, control the secret's lifespan by setting an expiration date, automatic rotation policies, and more.
+User credentials consist of username and password values that you can use to log in to or access an external service or application. Your secret is stored securely in your dedicated {{site.data.keyword.secrets-manager_short}} service instance. In the instance, you can centrally manage its lifecycle, and control the secret's lifespan by setting an expiration date, automatic rotation policies, and more.
 
 To learn more about the types of secrets that you can manage in {{site.data.keyword.secrets-manager_short}}, see [What is a secret?](/docs/secrets-manager?topic=secrets-manager-what-is-secret)
 
