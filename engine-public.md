@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-10-17"
+lastupdated: "2022-10-31"
 
 keywords: set up public certificates, public certificates engine, set up CIS, set up CA, set up Let's Encrypt
 
@@ -99,7 +99,7 @@ A DNS provider is the service that is used to manage the domains that you own. Y
 | --------- | ----------- | 
 | [{{site.data.keyword.cis_full_notm}}](https://{DomainName}/catalog/services/internet-services) | {{site.data.keyword.cis_full}} (CIS), powered by Cloudflare, provides a fast, highly performant, reliable, and secure internet service for customers who are running their business on {{site.data.keyword.cloud_notm}}. |
 | [{{site.data.keyword.cloud_notm}} classic infrastructure](https://{DomainName}/catalog/infrastructure/domain_registration)  | [{{site.data.keyword.cloud}} Domain Name Registration](/docs/dns), available as part of {{site.data.keyword.cloud_notm}} classic infrastructure (SoftLayer), offers a central location from which to view and manage domains. |
-| [Manual DNS providers](/docs/secrets-manager?topic=secrets-manager-add-dns-provider&interface=api#manual-dns-provider-create-api) | If your DNS provier is not IBM Cloud Internet Services or IBM Cloud Domain Name Registration, you can connect your {{site.data.keyword.secrets-manager_short}} to your DNS provider manually.|
+| [Manual DNS providers](/docs/secrets-manager?topic=secrets-manager-certificates&interface=ui#order-certificates-manual-ui) | If your DNS provier is not IBM Cloud Internet Services or IBM Cloud Domain Name Registration, you can connect your {{site.data.keyword.secrets-manager_short}} to your DNS provider manually.|
 {: caption="Table 2. DNS provider options" caption-side="top"}
 
 ### Granting service access to CIS

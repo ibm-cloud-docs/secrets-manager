@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-08-09"
+lastupdated: "2022-10-31"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager, KV, key-value, KV APIs
 
@@ -63,7 +63,7 @@ With {{site.data.keyword.secrets-manager_full}}, you can manage multiple version
 ## Overview
 {: #overview-kv}
 
-If you already use the Vault API, you can use its API format and guidelines to interact with {{site.data.keyword.secrets-manager_short}}. {{site.data.keyword.secrets-manager_short}} supports KV version 2 only. The endpoints for the key-value secrets engine that are defined in the [Vault documentation](https://www.vaultproject.io/api-docs/secret/kv/kv-v2#kv-secrets-engine-version-2-api){: external} are compatible with the CLI and other applicable tools. 
+If you already use the Vault API, you can use its API format and guidelines to interact with {{site.data.keyword.secrets-manager_short}}. {{site.data.keyword.secrets-manager_short}} supports KV version 2 only. The endpoints for the key-value secrets engine that are defined in the [Vault documentation](https://developer.hashicorp.com/vault/api-docs/secret/kv/kv-v2#kv-secrets-engine-version-2-api){: external} are compatible with the CLI and other applicable tools. 
 
 For more information about authentication and the custom version of open source HashiCorp Vault that {{site.data.keyword.secrets-manager_short}} uses, see [Vault API](/docs/secrets-manager?topic=secrets-manager-vault-api).
 
@@ -78,7 +78,7 @@ The key-value secrets engine that {{site.data.keyword.secrets-manager_short}} us
 * You cannot fully customize the path. The path to a key-value secret must be: 
     * `{secret_group_id}/{secret_name}` for secrets that are located in a custom secret group. 
     * `/{secret_name}` for secrets that are in the default group.
-* The methods that are used on Vault to [configure the key-value engine](https://www.vaultproject.io/api-docs/secret/kv/kv-v2#configure-the-kv-engine){: external} and [read the configuration](https://www.vaultproject.io/api-docs/secret/kv/kv-v2#read-kv-engine-configuration){: external} are not supported. 
+* The methods that are used on Vault to [configure the key-value engine](https://www.vaultproject.io/api-docs/secret/kv/kv-v2#configure-the-kv-engine){: external} and [read the configuration](https://developer.hashicorp.com/vault/api-docs/secret/kv/kv-v2#read-kv-engine-configuration){: external} are not supported. 
 
 ## Create or update a key-value secret
 {: #update-kv-secret}
