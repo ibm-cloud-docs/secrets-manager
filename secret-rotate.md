@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-30"
+lastupdated: "2022-11-03"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -190,6 +190,9 @@ If your {{site.data.keyword.secrets-manager_short}} service instance is enabled 
 7. Redeploy the latest certificate version to your TLS termination point.
 
    To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager#get-secret) API.
+
+
+
 
 
 
