@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-10-31"
+lastupdated: "2022-11-13"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -292,9 +292,6 @@ If you prefer to schedule your certificates to be automatically renewed, you can
 
 The following example request orders a certificate with automatic rotation enabled. When you call the API, set the `auto_rotate` property to `true`. Optionally, you can set `rotate_keys` to `true` to request a new private key for the certificate on each rotation.
 {: curl}
-
-Certificates that expire in less than 31 days must also be rotated manually before rotation becomes automatic in the following cycles.
-{: note}
 
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/public_cert" \
