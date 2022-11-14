@@ -384,14 +384,14 @@ To create a public certificate by using a manual DNS provider in the UI, complet
 16. Click **Challenges** to access the TXT record name and value that are associated with each of your domains. You need them to complete the challenges.
 17. To validate the ownership of your domains, manually add the TXT records that are provided for each of your domains to your DNS provider account. You must address only the challenges that are not validated, before the expiration date. 
 
-   If you order a certificate for subdomains, for example, `sub1.sub2.domain.com`, you need to add the TXT records to your registered domain `domain.com`.
-   {: note}
+    If you order a certificate for subdomains, for example, `sub1.sub2.domain.com`, you need to add the TXT records to your registered domain `domain.com`.
+    {: note}
 
 18. Verify that the TXT records that you added to your domains are propagated. Depending on your DNS provider, it can take some time to complete.
 19. After you confirm that the records are propagated, click **Validate** to request Let's Encrypt to validate the challenges to your domains and create a public certificate. 
 
-  If the order fails because the TXT records were not successfully propagated, you must start a new order to proceed. 
-  {: note}
+    If the order fails because the TXT records were not successfully propagated, you must start a new order to proceed. 
+    {: note}
 
 20. When your certificate is issued, clean up and remove the TXT records from the domains in your DNS provider account.
 
