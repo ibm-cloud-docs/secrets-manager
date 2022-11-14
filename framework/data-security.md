@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-08"
+lastupdated: "2022-10-31"
 
 keywords: Data security for Secrets Manager, byok, kyok, data storage, data encryption in Secrets Manager, customer managed keys
 
@@ -63,9 +63,9 @@ To ensure that you can securely manage your data when you use {{site.data.keywor
 ## How your data is stored and encrypted in {{site.data.keyword.secrets-manager_short}}
 {: #data-storage}
 
-When you work with {{site.data.keyword.secrets-manager_short}}, the service communicates with HashiCorp Vault to process operations on secrets of different types. By design, [Vault uses a security barrier](https://www.vaultproject.io/docs/internals/security#external-threat-overview) for all requests that are made to its back end. Data that leaves Vault is automatically encrypted by using a 256-bit Advanced Encryption Standard (AES) cipher in the Galois Counter Mode (GCM) with 96-bit nonces. 
+When you work with {{site.data.keyword.secrets-manager_short}}, the service communicates with HashiCorp Vault to process operations on secrets of different types. By design, [Vault uses a security barrier](https://developer.hashicorp.com/vault/docs/internals/security#external-threat-overview){: external} for all requests that are made to its back end. Data that leaves Vault is automatically encrypted by using a 256-bit Advanced Encryption Standard (AES) cipher in the Galois Counter Mode (GCM) with 96-bit nonces. 
 
-{{site.data.keyword.secrets-manager_short}} encrypts all secrets at rest with [envelope encryption](#x9860393){: term}. Your encrypted secrets are stored in a dedicated Cloud Object Storage bucket that is unique to your instance. To protect secrets at rest, {{site.data.keyword.secrets-manager_short}} integrates with a key management service, such as {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}}. Each version of every secret is encrypted by a data encryption key (DEK) that is protected by a [root key](#x6946961){: term}, which is used by {{site.data.keyword.secrets-manager_short}} to [seal and unseal access to Vault](https://www.vaultproject.io/docs/concepts/seal). This integration protects your secrets by using encryption keys that are rooted in FIPS-validated [hardware security modules](#x6704988){: term}. At no time are your credentials available in clear text while they are stored by the service.
+{{site.data.keyword.secrets-manager_short}} encrypts all secrets at rest with [envelope encryption](#x9860393){: term}. Your encrypted secrets are stored in a dedicated Cloud Object Storage bucket that is unique to your instance. To protect secrets at rest, {{site.data.keyword.secrets-manager_short}} integrates with a key management service, such as {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}}. Each version of every secret is encrypted by a data encryption key (DEK) that is protected by a [root key](#x6946961){: term}, which is used by {{site.data.keyword.secrets-manager_short}} to [seal and unseal access to Vault](https://developer.hashicorp.com/vault/docs/concepts/seal). This integration protects your secrets by using encryption keys that are rooted in FIPS-validated [hardware security modules](#x6704988){: term}. At no time are your credentials available in clear text while they are stored by the service.
 
 {{site.data.keyword.secrets-manager_short}} also uses the following security mechanisms to protect your data in transit.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-10-19"
+lastupdated: "2022-11-14"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -63,17 +63,19 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
+## 14 November 2022
+{: #secrets-manager-nov1422}
+{: release-note}
+
+Manually configure your own DNS provider
+:   If you work with a DNS provider that is not currently integrated with the service, you can manually configure it when you use the {{site.data.keyword.secrets-manager_short}} UI to order new certificates. If you choose to manually configure a provider, you must complete a challenge to prove ownership over your domain. For more information, see [Ordering public certificates with your own DNS provider in the UI](/docs/secrets-manager?topic=secrets-manager-certificates&interface=ui#order-certificates-manual-ui).
+
 ## 18 October 2022
 {: #secrets-manager-oct1822}
 {: release-note}
 
 Version custom metadata
 :   The ability to provide metadata for a specific version of a secret is now available in the UI, in addition to providing metadata for all versions. To learn more about the latest updates, see [Creating secrets](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets&interface=ui) and [Managing secret versions](/docs/secrets-manager?topic=secrets-manager-version-history&interface=ui).
-
-
-## 18 October 2022
-{: #secrets-manager-oct1822}
-{: release-note}
 
 Automatic rotation for IAM credentials
 :   The ability to schedule an automatic rotation policy is now available for IAM credentials that are configured for reuse in the UI. For more information, see [Automatically rotating secrets](/docs/secrets-manager?topic=secrets-manager-automatic-rotation).
@@ -209,7 +211,7 @@ CLI plug-in version 1.1.18
 {: release-note}
 
 Integrations with {{site.data.keyword.containershort}} and {{site.data.keyword.openshiftshort}}
-:   You can now use {{site.data.keyword.secrets-manager_short}} to centrally manage Ingress subdomain certificates and other secrets for your Kubernetes or {{site.data.keyword.openshiftshort}} clusters. To learn more about this integration, check out the [{{site.data.keyword.containershort}}](/docs/containers?topic=containers-ingress-types#manage_certs_secrets_mgr){: external} or [{{site.data.keyword.openshiftshort}} documentation](/docs/openshift?topic=openshift-ingress-roks4#manage_certs_secrets_mgr){: external}.
+:   You can now use {{site.data.keyword.secrets-manager_short}} to centrally manage Ingress subdomain certificates and other secrets for your Kubernetes or {{site.data.keyword.openshiftshort}} clusters. To learn more about this integration, check out the [{{site.data.keyword.containershort}}](/docs/containers?topic=containers-ingress-types#manage_certs_secrets_mgr){: external} or [{{site.data.keyword.openshiftshort}} documentation](/docs/openshift?topic=openshift-ingress-roks4#manage_certs){: external}.
 
 ## 23 March 2022
 {: #secrets-manager-mar2322}
@@ -218,7 +220,7 @@ Integrations with {{site.data.keyword.containershort}} and {{site.data.keyword.o
 Standard and Trial pricing plans
 :   You can now create an unlimited number of {{site.data.keyword.secrets-manager_short}} service instances by choosing the Standard pricing plan. For more information about pricing in {{site.data.keyword.secrets-manager_short}}, check out the [announcement blog](https://www.ibm.com/cloud/blog/announcements/ibm-cloud-secrets-manager-new-pricing-model){: external}.
 
-   If you're an existing {{site.data.keyword.secrets-manager_short}} Lite plan user, be sure to upgrade your instance to the Standard plan prior to 22 May 2022 if you'd like to maintain access. For more information, see the previous [release note](#secrets-manager-feb2322).
+   If you're an existing {{site.data.keyword.secrets-manager_short}} Lite plan user, be sure to upgrade your instance to the Standard plan before 22 May 2022 if you'd like to maintain access. For more information, see the previous [release note](#secrets-manager-feb2322).
    {: important}
 
 Osaka and Toronto availability
@@ -252,7 +254,7 @@ Sao Paulo availability
 {: release-note}
 
 Pricing plan updates coming soon in {{site.data.keyword.secrets-manager_short}}
-:   On 23 March 2022, {{site.data.keyword.secrets-manager_short}} will introduce Standard and Trial pricing plans. With the introduction of the new plans, the current Lite plan option will be deprecated. 
+:   On 23 March 2022, {{site.data.keyword.secrets-manager_short}} will introduce Standard and Trial pricing plans. With the introduction of the new plans, the current Lite plan option is deprecated. 
 
    **Types of plans:**
 
@@ -264,7 +266,7 @@ Pricing plan updates coming soon in {{site.data.keyword.secrets-manager_short}}
    You can have one instance of the service on the trial plan that is provisioned in your account at any time.
    {: note}
 
-   * **Standard**: When you're ready to upgrade, you get unlimited access to all the features that the service has to offer. The number of instances that your teams can provision is unlimited. With the Standard plan, you are charged per secret and per instance that is provisioned. To view the most current pricing information, see the {{site.data.keyword.secrets-manager_short}} UI.
+   * **Standard**: When you're ready to upgrade, you get unlimited access to all the features that the service offers. The number of instances that your teams can provision is unlimited. With the Standard plan, you are charged per secret and per instance that is provisioned. To view the most current pricing information, see the {{site.data.keyword.secrets-manager_short}} UI.
 
 
    **Important dates:**
@@ -281,7 +283,7 @@ Pricing plan updates coming soon in {{site.data.keyword.secrets-manager_short}}
    * **21 June 2022**: If you have chosen not to upgrade your plan, the instances of the service and their data will be removed from your account.
 
 
-   Users will have the option to upgrade their service starting 23 March 2022. To ensure that your service functionality is not disrupted, be sure to upgrade to a Standard plan prior to 22 May 2022.
+   Users will have the option to upgrade their service starting 23 March 2022. To ensure that your service functionality is not disrupted, be sure to upgrade to a Standard plan before 22 May 2022.
    {: important}
 
 
@@ -289,8 +291,8 @@ Pricing plan updates coming soon in {{site.data.keyword.secrets-manager_short}}
 {: #secrets-manager-feb0322}
 {: release-note}
 
-Enable lifecyle notifications for your certificates
-:   You can now integrate with the [{{site.data.keyword.en_short}}](/catalog/services/event-notifications){: external} service so that you can manage and route all of your {{site.data.keyword.secrets-manager_short}} alerts to your preferred destinations.
+Enable lifecycle notifications for your certificates
+:   You can now integrate with the [ß[en-short]}](/catalog/services/event-notifications){: external} service so that you can manage and route all of your {{site.data.keyword.secrets-manager_short}} alerts to your preferred destinations.
 
    Currently, {{site.data.keyword.secrets-manager_short}} supports notifications for certificates only. For more information, see [Enabling event notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications).
    {: note}
@@ -381,7 +383,7 @@ Upcoming updates to supported cipher suites
       - `ECDHE-RSA-CHACHA20-POLY1305`
       - `ECDHE-RSA-AES256-GCM-SHA384`
 
-   - **How will this change impact my environment?** This change will impact clients that are configured to use ciphers that are not included on this list. To avoid connectivity issues with {{site.data.keyword.secrets-manager_short}}, make sure that your client is configured to use only the allowed list of ciphers in TLS connections to the service. Reach out to [IBM Cloud support](https://cloud.ibm.com/unifiedsupport/cases/form) with any questions.
+   - **How will this change impact my environment?** This change impacts clients that are configured to use ciphers that are not included on this list. To avoid connectivity issues with {{site.data.keyword.secrets-manager_short}}, make sure that your client is configured to use only the allowed list of ciphers in TLS connections to the service. Reach out to [IBM Cloud support](https://cloud.ibm.com/unifiedsupport/cases/form) with any questions.
 
 Manage secrets in your {{site.data.keyword.contdelivery_short}} toolchain
 :   You can now configure {{site.data.keyword.secrets-manager_short}} to securely manage secrets that are part of your {{site.data.keyword.contdelivery_short}} toolchain.

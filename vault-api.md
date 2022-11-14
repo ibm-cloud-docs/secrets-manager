@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-06-16"
+lastupdated: "2022-10-31"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -2414,7 +2414,7 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 ```
 {: codeblock}
 
-List locks for an user credentials secret in an existing secret group.
+List locks for a user credentials secret in an existing secret group.
 
 ```sh
 curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/username_password/locks/groups/{group_id}/{secret_id}" \
@@ -2661,7 +2661,7 @@ A request to lock the current version of a secret that is a custom secret group 
 
 Delete one or more locks that are associated with the current version of a secret.
 
-A successful request deletes the locks that you specify. To remove all locks, you can pass `{"locks": ["*"]}` in in the request body. Otherwise, specify the names of the locks that you want to delete. For example, `{"locks": ["lock1", "lock2"]}`.
+A successful request deletes the locks that you specify. To remove all locks, you can pass `{"locks": ["*"]}` in the request body. Otherwise, specify the names of the locks that you want to delete. For example, `{"locks": ["lock1", "lock2"]}`.
 
 A secret is considered unlocked and able to be revoked or deleted only after all of its locks are removed. To understand whether a secret contains locks, check the `locks_total` field that is returned as part of the metadata of your secret.
 {: note}
@@ -2778,7 +2778,7 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 ```
 {: codeblock}
 
-List locks for the current version of an user credentials secret in an existing secret group.
+List locks for the current version of a user credentials secret in an existing secret group.
 
 ```sh
 curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/username_password/locks/groups/{group_id}/{secret_id}/versions/current" \
@@ -2948,7 +2948,7 @@ curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
 #### Example response
 {: #vault-create-version-locks-response}
 
-A request to lock the previous verison of a secret in a custom secret group 
+A request to lock the previous version of a secret in a custom secret group 
 ```json
 {
     "request_id": "97a3d1fb-c137-9c1c-16fb-7aebf05a0eae",
@@ -3241,7 +3241,7 @@ Configures a secrets engine that serves as the backend for a specific type of se
 
 | Request parameters         | Description                                                                         |
 | ------------- | ----------------------------------------------------------------------------------- |
-| `api_key`     | An {{site.data.keyword.cloud_notm}} API key that has the capability to create and manage service IDs. The API key must be assigned the Editor platform role on the Access Groups Service and the Operator platform role on the IAM Identity Service. |
+| `api_key`     | An {{site.data.keyword.cloud_notm}} API key that can create and manage service IDs. The API key must be assigned the Editor platform role on the Access Groups Service and the Operator platform role on the IAM Identity Service. |
 {: caption="Table 10. IAM secrets engine request parameters" caption-side="top"}
 {: #iam-secrets-engine-request-params}
 {: tab-title="IAM credentials"}
@@ -3286,7 +3286,7 @@ A request to configure the `iam_credentials` secrets engine returns the followin
 ### Get the configuration of a secret type
 {: #vault-get-secrets-engines-config}
 
-Retrieves the configuration of a  secrets engine.
+Retrieves the configuration of a secrets engine.
 
 #### Example request
 {: #vault-get-secrets-engines-config-request}
@@ -3336,7 +3336,7 @@ You can add multiple configurations for your instance:
 | Request parameters           | Description                                                          |
 | ------------- | ----------------------------------------------------------------------------------- |
 | `name`        | A human-readable name to assign to your certificate authority configuration.        |
-| `type`        | The environment type, for example the Let's Encrypt staging or production environment, that corresponds with the URL that you want to target to order public certificates. Allowable values are: `letsencrypt-stage`, `letsencrypt` | 
+| `type`        | The environment type, for example the Let's Encrypt staging or production environment that corresponds with the URL that you want to target to order public certificates. Allowable values are: `letsencrypt-stage`, `letsencrypt` | 
 | `private_key` | The private key that is associated with your registered ACME account.               |
 {: caption="Table 11. Public certificates engine request parameters" caption-side="top"}
 {: #public-cert-secrets-engine-ca-request-params}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-12"
+lastupdated: "2022-10-31"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -62,7 +62,7 @@ You can use the HashiCorp Vault command-line interface (CLI) to interact with {{
 
 {{site.data.keyword.secrets-manager_short}} uses a custom version of open source HashiCorp Vault. This custom version adds the IBM Cloud IAM `auth` method and a set of secret engines to support operations in {{site.data.keyword.secrets-manager_short}} for various secret types.
 
-Before you get started, [configure the Vault CLI](/docs/secrets-manager?topic=secrets-manager-configure-vault-cli) so that you're able to access your {{site.data.keyword.secrets-manager_short}} instance by using Vault commands. To learn more about using the Vault CLI, check out the [Vault documentation](https://www.vaultproject.io/docs/commands){: external}.
+Before you get started, [configure the Vault CLI](/docs/secrets-manager?topic=secrets-manager-configure-vault-cli) so that you're able to access your {{site.data.keyword.secrets-manager_short}} instance by using Vault commands. To learn more about using the Vault CLI, check out the [Vault documentation](https://developer.hashicorp.com/vault/docs/commands){: external}.
 {: note}
 
 ## Log in
@@ -1253,7 +1253,7 @@ access_groups
 :   The ID of the access group that determines the scope of access to assign to the role and its credentials.
 
 ttl
-:   The time-to-live (TTL) that determines how long a role's generated credentials can exist. Use a duration string such as `300s` or `1h30m`. Valid time units are `s`, `m`, and `h`.
+:   The time-to-live (TTL) that determines how long a role's generated-credentials can exist. Use a duration string such as `300s` or `1h30m`. Valid time units are `s`, `m`, and `h`.
 
 description
 :   An extended description to assign to the role and its credentials.
@@ -1928,7 +1928,7 @@ vault read -format=json ibmcloud/arbitrary/locks/184408d6-8264-5ff3-c308-6922ed0
 ```
 {: pre}
 
-List the locks that are associated with a user credentials secret in a custom secret group.
+List the locks that are associated with a user's credentials secret in a custom secret group.
 
 ```sh
 vault read -format=json ibmcloud/username_password/locks/groups/d2e98a96-18ed-f13c-8dee-db955fb94122/c86946e6-b392-2613-159d-aff5a3f095b3

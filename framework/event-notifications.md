@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-10-06"
+lastupdated: "2022-10-26"
 
 keywords: event notifications for {{site.data.keyword.secrets-manager_short}}, event notifications integration for {{site.data.keyword.secrets-manager_short}}, alerts for {{site.data.keyword.secrets-manager_short}}
 
@@ -302,6 +302,7 @@ The properties that are sent to {{site.data.keyword.en_short}} vary depending on
       {
          "domains": "domain1.com",
          "event_time": "2022-01-04T00:00:00Z",
+         "event_triggered_by": "SecretsManager",
          "secret_expiration": "2022-01-14T00:00:00Z",
          "secret_group_id": "default",
          "secret_id": "crn:v1:bluemix:public:secrets-manager:<region>:a/<account_id>:<instance_id>:secret:<secret_id>",
@@ -311,6 +312,7 @@ The properties that are sent to {{site.data.keyword.en_short}} vary depending on
       {
          "domains": "domain2.com, domain3.com",
          "event_time": "2022-01-04T00:00:00Z",
+         "event_triggered_by": "SecretsManager",
          "secret_expiration": "2022-01-14T00:00:00Z",
          "secret_group_id": "default",
          "secret_id": "crn:v1:bluemix:public:secrets-manager:<region>:a/<account_id>:<instance_id>:secret:<secret_id>",
@@ -334,7 +336,7 @@ Review following table for more information about event notification properties.
 | `event_sub_type` | The subtype that corresponds with the [type of event](#event-notifications-list) that triggered a notification. |
 | `event_type` | The [type of event](#event-notifications-list) that triggered a notification. |
 | `secret_type` | The type of secret that is associated with the event.  \n  \n Possible values include: imported_cert, private_cert, public_cert|
-| `secrets[]` | A list of objects that contain the metadata properties of a secret that is associated with the event. The properties that are listed vary depending on the secret type.  \n  \n Properties that are sent for all secret types include:  \n - `event_time`: The date and time the event was generated.  \n - `secret_group_id`: The ID of the secret group.  \n - `secret_id`: The ID that uniquely identifies the secret.  \n - `secret_name`: The name of the secret.  \n  \n Events for `imported_cert`, `private_cert`, and `public_cert` secrets also contain:  \n - `domains`: The domains that are associated with the certificate.  \n - `serial_number`: The serial number that is associated with the certificate. |
+| `secrets[]` | A list of objects that contain the metadata properties of a secret that is associated with the event. The properties that are listed vary depending on the secret type.  \n  \n Properties that are sent for all secret types include:  \n - `event_time`: The date and time the event was generated.  \n - `event_triggered_by`: The entity that triggered the event. This can be the {{site.data.keyword.secrets-manager_short}} service or an IBM ID.  \n - `secret_group_id`: The ID of the secret group.  \n - `secret_id`: The ID that uniquely identifies the secret.  \n - `secret_name`: The name of the secret.  \n  \n Events for `imported_cert`, `private_cert`, and `public_cert` secrets also contain:  \n - `domains`: The domains that are associated with the certificate.  \n - `serial_number`: The serial number that is associated with the certificate. |
 | `source_instance_api_private_url` | The [private endpoint URL](/docs/secrets-manager?topic=secrets-manager-endpoints#service-endpoints) that is assigned to your {{site.data.keyword.secrets-manager_short}} service instance.|
 | `source_instance_api_public_url` | The public endpoint URL that is assigned to your {{site.data.keyword.secrets-manager_short}} service instance.|
 | `source_instance_crn` | The Cloud Resource Name (CRN) that uniquely identifies your {{site.data.keyword.secrets-manager_short}} service instance. |

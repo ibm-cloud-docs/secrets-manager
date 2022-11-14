@@ -3,7 +3,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-19"
+lastupdated: "2022-11-08"
 
 keywords: tutorial, Secrets Manager
 
@@ -83,7 +83,7 @@ With {{site.data.keyword.secrets-manager_short}}, you can centralize and secure 
 3. The External Secrets controller fetches the `ExternalSecrets` objects in the configuration file that you defined by using the Kubernetes API. 
 4. At application run time, the controller retrieves the secret data from {{site.data.keyword.secrets-manager_short}}, and converts the `ExternalSecrets` objects to Kubernetes secrets for your cluster.
 
-This scenario features a third-party tool that can impact the compliance readiness of workloads that run in your Kubernetes cluster. If you add a community or third-party tool, keep in mind that you are responsible for maintaining the compliance of your apps and working with the appropriate provider to troubleshoot any issues. For more information, see [Your responsibilities with using {{site.data.keyword.containerfull_notm}}](/docs/containers?topic=containers-responsibilities_iks).
+This scenario features a third-party tool that can impact the compliance readiness of workloads that run in your Kubernetes cluster. If you add a community or third-party tool, keep in mind that you are responsible for maintaining the compliance of your apps, and working with the appropriate provider to troubleshoot any issues. For more information, see [Your responsibilities with using {{site.data.keyword.containerfull_notm}}](/docs/containers?topic=containers-responsibilities_iks).
 {: note}
 
 ## Before you begin
@@ -184,7 +184,7 @@ You can create one free Kubernetes cluster and {{site.data.keyword.secrets-manag
 
     Provisioning for both {{site.data.keyword.secrets-manager_short}} and your Kubernetes cluster takes 5 - 15 minutes to complete.
 
-4. Before you continue to the next step, verify that your cluster and {{site.data.keyword.secrets-manager_short}} instance provisioned successfully.
+4. Before you continue to the next step, verify that your cluster and {{site.data.keyword.secrets-manager_short}} instance are provisioned successfully.
 
     1. Verify that the deployment of your worker node is complete.
 
@@ -294,7 +294,7 @@ Finally, configure your {{site.data.keyword.secrets-manager_short}} instance to 
     ```
     {: pre}
 
-    Don't have the plug-in installed? To install the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run `ibmcloud plugin install secrets-manager`.
+    Don't have the plug-in yet? To install the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run `ibmcloud plugin install secrets-manager`.
     {: tip}
 
 2. Export an environment variable with your unique {{site.data.keyword.secrets-manager_short}} API endpoint URL.
@@ -396,18 +396,18 @@ First, add `external-secrets` resources to your cluster by installing the offici
     - mountPath: /var/run/secrets/tokens
     name: sa-token
     webhook:
-    extraVolumes:
-    - name: sa-token
-        projected:
-        defaultMode: 420
-        sources:
-        - serviceAccountToken:
-            path: sa-token
-            expirationSeconds: 3600
-            audience: iam
-    extraVolumeMounts:
-    - mountPath: /var/run/secrets/tokens
-        name: sa-token' >values.yml
+      extraVolumes:
+      - name: sa-token
+          projected:
+          defaultMode: 420
+          sources:
+          - serviceAccountToken:
+              path: sa-token
+              expirationSeconds: 3600
+              audience: iam
+      extraVolumeMounts:
+      - mountPath: /var/run/secrets/tokens
+          name: sa-token' >values.yml
     helm install external-secrets external-secrets/external-secrets -n external-secrets --create-namespace -f values.yml
     ```
     {: pre}
@@ -551,12 +551,12 @@ If you no longer need the resources that you created in this tutorial, you can c
 ## Best practices for using External Secrets Operator with {{site.data.keyword.secrets-manager_short}} 
 {: #kubernetes-secrets-best-practices}
 
-Note that {{site.data.keyword.secrets-manager_short}} sets a limit on the rate in which a client can send API requests to it. The limit is 20 calls per second for all API methods. For more information, see [API rate limits](/docs/secrets-manager?topic=secrets-manager-known-issues-and-limits#api-rate-limits). 
+{{site.data.keyword.secrets-manager_short}} sets a limit on the rate in which a client can send API requests to it. The limit is 20 calls per second for all API methods. For more information, see [API rate limits](/docs/secrets-manager?topic=secrets-manager-known-issues-and-limits#api-rate-limits). 
 
-As you construct your [YAML document](#tutorial-kubernetes-secrets-update-deployment), keep in mind that each key in the data section is polled periodically via REST from the {{site.data.keyword.secrets-manager_short}} instance. Be aware that:
+As you construct your [YAML document](#tutorial-kubernetes-secrets-update-deployment), keep in mind that each key in the data section is polled periodically by using REST from the {{site.data.keyword.secrets-manager_short}} instance. Be aware that:
 
 1. By default, the polling interval is set to 1 hour. For best results with {{site.data.keyword.secrets-manager_short}}, the polling interval must be greater than 1000 * number of Kubernetes secrets. You can set this value by using `spec.refreshInterval` in the External Secrets template.
-2. While multiple Kubernetes secrets (represented by multiple YAML documents) are polled evenly over the interval time, multiple data entries (represented by the keys inside the YAML data section) are fetched consistently without delays from {{site.data.keyword.secrets-manager_short}}. Having many data entries that are aggregated inside of a Kubernetes secret can make your {{site.data.keyword.secrets-manager_short}} instance reach the rate limit and return HTTP `429 Too Many Request` errors back to the tool. Make sure that you do not create more data entries than needed in each Kubernetes secret. 
+2. While multiple Kubernetes secrets (represented by multiple YAML documents) are polled evenly over the interval time, multiple data entries (represented by the keys that are inside the YAML data section) are fetched consistently without delays from {{site.data.keyword.secrets-manager_short}}. Having many data entries that are aggregated inside of a Kubernetes secret can make your {{site.data.keyword.secrets-manager_short}} instance reach the rate limit and return HTTP `429 Too Many Request` errors back to the tool. Make sure that you do not create more data entries than needed in each Kubernetes secret. 
 3. If you set the YAML to fetch a {{site.data.keyword.secrets-manager_short}} secret by name rather than ID (`keyByName: true`), each data entry generates two API calls rather than one. Be extra careful with the number of data entries in the YAML configuration file if you select this option. For more information, see the [External Secrets documentation](https://external-secrets.io/v0.5.9/provider-ibm-secrets-manager/).
 
 
@@ -565,5 +565,5 @@ As you construct your [YAML document](#tutorial-kubernetes-secrets-update-deploy
 
 Great job! In this tutorial, you learned how to set up {{site.data.keyword.secrets-manager_short}} to securely populate application secrets to your cluster. Check out more resources to help you get started with {{site.data.keyword.secrets-manager_short}}.
 
-- Review the [secret types in {{site.data.keyword.secrets-manager_short}}](https://external-secrets.io/v0.5.9/provider-ibm-secrets-manager/#secret-types){: external} that are supported with External Secrets Operator.
+- Review the [secret types in {{site.data.keyword.secrets-manager_short}}](https://external-secrets.io/v0.5.9/provider-ibm-secrets-manager/#secret-types){: external} that are supported by External Secrets Operator.
 - Learn more about the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager).

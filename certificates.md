@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-10-19"
+lastupdated: "2022-11-14"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
 
@@ -84,7 +84,7 @@ Before you get started, be sure that you have the required level of access. To c
 
 | Prerequisites |
 | :------------ |
-| Before you order a certificate, be sure that you:  \n  \n - [Prepare your instance to order certificates](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates).  \n - Review the certificate authority and DNS provider configurations that are available. To view the configurations that are defined for your instance, go to the **Secrets engines > Public certificates** page in the {{site.data.keyword.secrets-manager_short}} UI.  \n  \n To work with a DNS provider that is not currently integrated with the service, you can manually add the configuration when you order your public certificate.  |
+| Before you order a certificate, be sure that you:  \n  \n - [Prepare your instance to order certificates](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates).  \n - Review the certificate authority and DNS provider configurations that are available. To view the configurations that are defined for your instance, go to the **Secrets engines > Public certificates** page in the {{site.data.keyword.secrets-manager_short}} UI.  \n  \n To work with a DNS provider that is not currently integrated with the service, you do not need to add a configuration to order your public certificate.  |
 {: caption="Table 1. Prerequisites - Ordering public certificates" caption-side="top"}
 {: #order-certificates-prereqs}
 {: tab-title="Ordering public certificates"}
@@ -240,7 +240,7 @@ To order a public certificate with your own DNS provider, you must use the {{sit
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
 4. From the list of secret types, click the **TLS certificates** tile.
-5. Click the **Order certificate** tile.
+5. Click the **Order a public certificate** tile.
 6. Add a name and description to easily identify your certificate.
 7. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
 
@@ -348,6 +348,52 @@ When you submit your certificate details, {{site.data.keyword.secrets-manager_sh
 Need to check your order status? Use the [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
 {: tip} 
 
+
+### Ordering public certificates with your own DNS provider in the UI
+{: #order-certificates-manual-ui}
+{: ui}
+
+To create a public certificate by using a manual DNS provider in the UI, complete the following steps.
+
+1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
+3. In the **Secrets** table, click **Add**.
+4. From the list of secret types, click the **TLS certificates** tile.
+5. Click the **Order a public certificate** tile.
+6. Add a name and description to easily identify your certificate.
+7. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
+
+   Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
+8. Select a certificate authority.
+
+   The configuration that you select determines the certificate authority to use for signing and issuing the certificate. To view the configurations that are defined for your instance, you can go to **Secrets engines > Public certificates**.
+9. Select the key algorithm to be used to generate the public key for your certificate.
+
+   The key algorithm that you select determines the encryption algorithm (`RSA` or `ECDSA`) and key size to use to generate keys and sign certificates. For longer living certificates, it is recommended to use longer key lengths to provide more encryption protection. Options include `RSA2048`, `RSA4096`, `ECDSA256`, and `ECDSA384`.
+10. Optional: Add labels to help you to search for similar secrets in your instance.
+11. Optional: Enable advanced options for the certificate.
+    1. To bundle your issued certificate with intermediate certificates, switch the bundle toggle to **On**. After your certificates are bundled, they can no longer be unbundled.
+12. Select **Manual** as your DNS provider.
+13. Add the domains to include in your request.
+
+    You can include up to 100 domains, subdomains, or wildcards. The Common Name, or fully qualified domain name of the certificate, can't exceed 64 characters in length. A wildcard can be selected as the Common Name.
+
+    1. In the **Common name** section, from your list of domains, select the Common Name of the certificate.
+14. Click **Order**.
+15. Check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**. 
+16. Click **Challenges** to access the TXT record name and value that are associated with each of your domains. You need them to complete the challenges.
+17. To validate the ownership of your domains, manually add the TXT records that are provided for each of your domains to your DNS provider account. You must address only the challenges that are not validated, before the expiration date. 
+
+   If you order a certificate for subdomains, for example, `sub1.sub2.domain.com`, you need to add the TXT records to your registered domain `domain.com`.
+   {: note}
+
+18. Verify that the TXT records that you added to your domains are propagated. Depending on your DNS provider, it can take some time to complete.
+19. After you confirm that the records are propagated, click **Validate** to request Let's Encrypt to validate the challenges to your domains and create a public certificate. 
+
+  If the order fails because the TXT records were not successfully propagated, you must start a new order to proceed. 
+  {: note}
+
+20. When your certificate is issued, clean up and remove the TXT records from the domains in your DNS provider account.
 
 
 ### Ordering public certificates with your own DNS provider by using the API
@@ -486,7 +532,7 @@ To create a public certificate by using a manual DNS provider, complete the foll
 6. When your certificate is issued, clean up and remove the TXT records from the domains in your DNS provider account.
 
 
-Want to automate the creation of your public certificates? If your domains are configured through a DNS provider, you can create a script to complete the challenges. Some DNS providers offer an API that checks whether the new records are fully transmitted. If your DNS provider doesn't offer this option, you can configure your client to wait for a specified amount of time, sometimes up to an hour. In {{site.data.keyword.secrets-manager_short}}, you can check the status of the certificate issuance by obtaining your certificate metadata. When the `IssuanceInfo.State` field that is returned changes to `active`, the certificate is issued. 
+Want to automate the creation of your public certificates? If your domains are configured through a DNS provider, you can create a script to complete the challenges. Some DNS providers offer an API that checks whether the new records are fully transmitted. If your DNS provider doesn't offer this option, you can configure your client to wait for a specified amount of time, sometimes up to an hour. In {{site.data.keyword.secrets-manager_short}}, after calling `validate-dns-challenges`, you can check the status of the certificate issuance by obtaining your certificate metadata. When the `IssuanceInfo.State` field that is returned changes to `active`, the certificate is issued. 
 {: tip}
 
 

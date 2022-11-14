@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-07-07"
+lastupdated: "2022-10-31"
 
 keywords: activity tracker events for Secrets Manager, events, Secrets Manager actions
 
@@ -64,7 +64,7 @@ As a security officer, auditor, or manager, you can use the Activity Tracker ser
 
 For more information, see the [getting started tutorial for {{site.data.keyword.at_full_notm}}](/docs/activity-tracker?topic=activity-tracker-getting-started).
 
-Audit devices that you can enable with Vault, such as the [`syslog` audit device](https://www.vaultproject.io/docs/audit/syslog){: external}, are not supported by {{site.data.keyword.secrets-manager_short}}.
+Audit devices that you can enable with Vault, such as the [`syslog` audit device](https://developer.hashicorp.com/vault/docs/audit/syslog){: external}, are not supported by {{site.data.keyword.secrets-manager_short}}.
 {: note}
 
 ## Events for secrets
