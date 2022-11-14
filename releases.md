@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-10-31"
+lastupdated: "2022-11-14"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -62,6 +62,13 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 {: shortdesc}
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
+
+## 14 November 2022
+{: #secrets-manager-nov1422}
+{: release-note}
+
+Manually configure your own DNS provider
+:   If you work with a DNS provider that is not currently integrated with the service, you can manually configure it when you use the {{site.data.keyword.secrets-manager_short}} UI to order new certificates. If you choose to manually configure a provider, you must complete a challenge to prove ownership over your domain. For more information, see [Ordering public certificates with your own DNS provider in the UI](/docs/secrets-manager?topic=secrets-manager-certificates&interface=ui#order-certificates-manual-ui).
 
 ## 18 October 2022
 {: #secrets-manager-oct1822}
