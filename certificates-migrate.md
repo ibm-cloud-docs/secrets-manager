@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-10-31"
+lastupdated: "2022-11-24"
 
 keywords: migrate from {{site.data.keyword.cloudcerts_short}}, migrate to Secrets Manager, migrate certificates
 
@@ -53,6 +53,7 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
+
 
 # Migrating certificates from {{site.data.keyword.cloudcerts_short}}
 {: #migrate-from-certificate-manager}
