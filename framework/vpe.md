@@ -54,6 +54,7 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
+
 # Using virtual private endpoints for VPC to privately connect to {{site.data.keyword.secrets-manager_short}}
 {: #virtual-private-endpoint}
 
