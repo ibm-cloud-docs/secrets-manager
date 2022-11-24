@@ -132,6 +132,7 @@ Unlike {{site.data.keyword.cloudcerts_short}}, {{site.data.keyword.secrets-manag
 
 You can take advantage of the data isolation benefits of a single-tenant secrets management service by migrating your existing certificates in {{site.data.keyword.cloudcerts_short}} to {{site.data.keyword.secrets-manager_short}}.
 
+
 ### {{site.data.keyword.secrets-manager_short}} limits and considerations
 {: #migrate-prepare}
 
