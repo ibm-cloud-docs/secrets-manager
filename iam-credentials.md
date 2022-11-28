@@ -229,7 +229,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
           }            
         }
         ]
-    }'
+    }' 
 ```
 {: codeblock}
 {: curl}

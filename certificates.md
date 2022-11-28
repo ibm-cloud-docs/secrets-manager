@@ -508,7 +508,7 @@ To create a public certificate by using a manual DNS provider, complete the foll
       "versions_total": 1
       }
    ]
-  }
+  } 
    ```
    {: codeblock}
 
