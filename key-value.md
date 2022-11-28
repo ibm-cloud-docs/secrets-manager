@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-10-17"
+lastupdated: "2022-11-28"
 
 keywords: key:value, key/value, key-value, storing key:value secrets
 
@@ -116,6 +116,7 @@ The following example shows a query that you can use to create and store a key-v
 
 You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
 {: curl}
+
 
 
 
