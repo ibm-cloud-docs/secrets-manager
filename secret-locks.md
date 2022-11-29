@@ -185,6 +185,8 @@ To use an optional lock mode, include it as a query parameter on the URI path in
 
 The following request creates two locks on the current version of a secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for `{secret_type}` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`.
 
+
+
 ```bash
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}/lock" \
     -H "Authorization: Bearer {IAM_token}" \
@@ -210,6 +212,8 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 ```
 {: codeblock}
 {: curl}
+
+
 
 
 If you're building an automated flow, you can use the `attributes` object to specify key-value data with each lock on your secret. For example, you can include a resource identifier, such as an ID or Cloud Resource Name (CRN).
@@ -257,6 +261,8 @@ For more information about the required and optional request parameters, see the
 
 The following request creates two locks on the previous version of a secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for `{secret_type}` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`.
 
+
+
 ```bash
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}/versions/previous/lock" \
     -H "Authorization: Bearer {IAM_token}" \
@@ -282,6 +288,8 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 ```
 {: codeblock}
 {: curl}
+
+
 
 A successful response returns details about the new locks, along with other metadata.
 
@@ -356,6 +364,8 @@ A successful request deletes the locks that you specify. To remove all locks, yo
 To understand whether a secret contains locks, check the `locks_total` field that is returned as part of the metadata of your secret.
 {: note}
 
+
+
 ```bash
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}/versions/{id}/unlock" \
     -H "Authorization: Bearer {IAM_token}" \
@@ -369,6 +379,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 ```
 {: codeblock}
 {: curl}
+
 
 
 For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager#unlock-secret).

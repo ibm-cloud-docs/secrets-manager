@@ -84,13 +84,13 @@ All the secrets that you store in {{site.data.keyword.secrets-manager_short}} ca
 | [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | Passwords that are associated with user credentials secrets are immediately replaced with the data that you provide on rotation. |
 {: caption="Table 1. Describes how {{site.data.keyword.secrets-manager_short}} evaluates manual rotation by secret type" caption-side="top"}
 
-## Manually rotating secrets in the UI
+## Creating new secret versions in the UI
 {: #manual-rotate-ui}
 {: ui}
 
 You can manually rotate your secrets and certificates by using the {{site.data.keyword.secrets-manager_short}} UI.
 
-### Rotating arbitrary secrets
+### Creating new versions of arbitrary secrets
 {: #manual-rotate-arbitrary-ui}
 {: ui}
 
@@ -106,7 +106,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 
    In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
 
-### Rotating key-value secrets
+### reating new versions of key-value secrets
 {: #manual-rotate-key-value-ui}
 {: ui}
 
@@ -123,7 +123,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
    In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
 
 
-### Rotating user credentials
+### Creating new versions of user credentials
 {: #manual-rotate-user-credentials-ui}
 {: ui}
 
@@ -144,7 +144,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
    In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
 
 
-### Rotating imported certificates
+### reating new versions of imported certificates
 {: #manual-rotate-imported-cert-ui}
 {: ui}
 
@@ -169,7 +169,7 @@ If the certificate that you are rotating was previously imported with an interme
 
    To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager#get-secret) API.
 
-### Rotating public certificates
+### reating new versions of public certificates
 {: #manual-rotate-public-cert-ui}
 {: ui}
 
@@ -297,7 +297,6 @@ You can store metadata that are relevant to the needs of your organization with 
 
 
 
-
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/arbitrary/{id}?action=rotate" \
     -H "Authorization: Bearer {IAM_token}" \
@@ -318,10 +317,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 
 
 
-
-
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager#update-secret).
-
 
 ### Rotating key-value secrets
 {: #manual-rotate-key-value-api}
@@ -336,7 +332,7 @@ You can store metadata that are relevant to the needs of your organization with 
 
 
 
-```json
+```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/kv/{secret_id}?action=rotate"
    -H "Authorization: Bearer {IAM_token}" 
    -H "Accept: application/json" 
@@ -355,7 +351,6 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 ```
 {: codeblock}
 {: curl}
-
 
 
 

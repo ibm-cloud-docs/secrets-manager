@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-11-13"
+lastupdated: "2022-11-29"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -261,7 +261,8 @@ curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/
     -H "Content-Type: application/json" \
     -d '{ 
         "metadata": { 
-          "collection_type": "application/vnd.ibm.secrets-manager.secret.policy+json", "collection_total": 1 
+          "collection_type": "application/vnd.ibm.secrets-manager.secret.policy+json", 
+          "collection_total": 1 
         }, 
         "resources": [ 
           { 

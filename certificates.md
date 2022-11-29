@@ -167,6 +167,8 @@ You can store metadata that are relevant to the needs of your organization with 
 You can import certificate files that are in the `.pem` format. Be sure to [convert your PEM files to single-line format](/docs/secrets-manager?topic=secrets-manager-troubleshoot-pem) so that they can be parsed correctly by the {{site.data.keyword.secrets-manager_short}} API.
 {: note}
 
+
+
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/imported_cert" \
     -H "Authorization: Bearer {IAM_token}" \
@@ -203,6 +205,8 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 ```
 {: codeblock}
 {: curl}
+
+
 
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
 
@@ -297,6 +301,8 @@ You can store metadata that are relevant to the needs of your organization with 
 When you order a certificate, domain validation takes place to verify the ownership of your selected domains. This process can take a few minutes to complete.
 {: note}
 
+
+
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/public_cert" \
      -H "Authorization: Bearer {IAM_token}" \
@@ -342,6 +348,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 ```
 {: codeblock}
 {: curl}
+
 
 
 When you submit your certificate details, {{site.data.keyword.secrets-manager_short}} sends your request to the selected certificate authority. After a certificate is issued, you can deploy it to your integrated apps, download it, or rotate it manually. Your private key for SSL/TLS is generated directly in {{site.data.keyword.secrets-manager_short}} and stored securely. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
@@ -406,6 +413,8 @@ To create a public certificate by using a manual DNS provider, complete the foll
 1. Create a certificate authority (CA) configuration by following the steps that are defined in [Adding a CA configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority&interface=ui).
 2. Create a new public certificate by specifying `manual` as your DNS configuration.
 
+
+
    ```sh
    curl -X POST 'https://{instance_id}.us-south.secrets-manager.appdomain.cloud/api/v1/secrets/public_cert' \
         -H 'accept: application/json' \
@@ -439,6 +448,8 @@ To create a public certificate by using a manual DNS provider, complete the foll
    ```
    {: codeblock}
    {: curl}
+   
+   
 
    Example response:
 
@@ -522,7 +533,14 @@ To create a public certificate by using a manual DNS provider, complete the foll
 5. After the records are propagated, call the {{site.data.keyword.secrets-manager_short}} [Invoke an action on a secret](/apidocs/secrets-manager#update-secret) API to request Let's Encrypt to validate the challenges to your domain and create a public certificate. 
 
    ```sh
-   curl -X POST --location --header "Authorization: Bearer {iam_token}"   --header "Accept: application/json"   --header "Content-Type: application/json"   "{base_url}/api/v1/secrets/{secret_type}/{id}?action=validate_dns_challenge"
+    curl -X POST 
+    --header "Authorization: Bearer {iam_token}" 
+    --header "Accept: application/json" 
+    --header "Content-Type: application/json" 
+    --data '{ 
+        "action_type": "public_cert_action_validate_dns_challenge"
+    }'\ 
+    "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secrets/{id}/actions"
    ```
    {: codeblock}
    {: curl}

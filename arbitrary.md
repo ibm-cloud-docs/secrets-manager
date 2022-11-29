@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-11-28"
+lastupdated: "2022-11-29"
 
 keywords: arbitrary secrets, arbitrary text, custom secrets
 
