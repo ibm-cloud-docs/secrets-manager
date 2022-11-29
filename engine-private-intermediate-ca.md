@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-07"
+lastupdated: "2022-11-29"
 
 keywords: intermediate certificate authority, intermediate CA, internal signing, external signing
 
@@ -112,6 +112,8 @@ An intermediate CA with internal signing uses a parent CA that was previously cr
 9. Review your selections. To create the intermediate CA, click **Create**.
 
    You can now select this intermediate CA to [generate a private certificate](/docs/secrets-manager?topic=secrets-manager-certificates#create-certificates). To modify or remove an existing configuration, click **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) in the row of the certificate authority that you want to update.
+
+
 
 ## Creating an intermediate CA with external signing in the UI
 {: #intermediate-ca-external-signing-ui}

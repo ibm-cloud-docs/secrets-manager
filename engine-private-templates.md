@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-25"
+lastupdated: "2022-11-29"
 
 keywords: certificate parameters, certificate templates
 
@@ -117,6 +117,8 @@ You can create a certificate template for your service instance by calling the {
 The following example shows a query that you can use to create a certificate template and associate it with an existing intermediate certificate authority that is configured for your instance.
 {: curl}
 
+
+
 ```sh
 curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/config/private_cert/certificate_templates' \
 -H 'Authorization: Bearer {IAM_token}' \
@@ -137,6 +139,8 @@ curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api
 ```
 {: codeblock}
 {: curl}
+
+
 
 A successful response adds the template configuration to your service instance. 
 
