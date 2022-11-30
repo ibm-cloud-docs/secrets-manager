@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-11-29"
+lastupdated: "2022-11-30"
 
 keywords: secret locks, lock secret, prevent deletion, prevent rotation, unlock secret, create lock, delete lock
 
@@ -221,6 +221,8 @@ If you're building an automated flow, you can use the `attributes` object to spe
 
 A successful response returns details about the new locks, along with other metadata.
 
+
+
 ```json
 {
   "metadata": {
@@ -253,6 +255,9 @@ A successful response returns details about the new locks, along with other meta
 }
 ```
 {: screen}
+
+
+
 
 For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager#lock-secret).
 
@@ -293,6 +298,8 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 
 A successful response returns details about the new locks, along with other metadata.
 
+
+
 ```json
 {
   "metadata": {
@@ -328,6 +335,10 @@ A successful response returns details about the new locks, along with other meta
 }
 ```
 {: screen}
+
+
+
+
 
 For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager#lock-secret).
 
