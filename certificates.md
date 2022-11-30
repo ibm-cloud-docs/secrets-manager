@@ -351,6 +351,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 
 
 
+
 When you submit your certificate details, {{site.data.keyword.secrets-manager_short}} sends your request to the selected certificate authority. After a certificate is issued, you can deploy it to your integrated apps, download it, or rotate it manually. Your private key for SSL/TLS is generated directly in {{site.data.keyword.secrets-manager_short}} and stored securely. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
 
 Need to check your order status? Use the [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
@@ -521,7 +522,7 @@ To create a public certificate by using a manual DNS provider, complete the foll
       }
    ] 
    ```
-   {: codeblock}
+   {: screen}
 
 
 3. Complete the challenges that are marked as `pending` before they expire by adding the TXT records that are specified in the challenge to your domain in your DNS provider account to verify your ownership of the domain.
@@ -665,6 +666,8 @@ curl  -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/ap
 ```
 {: codeblock}
 {: curl}
+
+
 
 Need to create a private certificate with advanced options? You can use optional request parameters to specify advanced attributes for your private certificate, such as Subject Alternative Names or a time-to-live (TTL). If you omit these optional parameters, the attributes that are defined for your selected certificate template are applied. For more information, see the [API reference](/apidocs/secrets-manager#create-secret).
 {: tip}
