@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-29"
+lastupdated: "2022-11-30"
 
 keywords: secret version history, view versions, secret versions
 
