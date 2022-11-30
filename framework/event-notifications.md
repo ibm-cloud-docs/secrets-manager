@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-11-29"
+lastupdated: "2022-11-30"
 
 keywords: event notifications for {{site.data.keyword.secrets-manager_short}}, event notifications integration for {{site.data.keyword.secrets-manager_short}}, alerts for {{site.data.keyword.secrets-manager_short}}
 
@@ -301,6 +301,8 @@ Event notifications from {{site.data.keyword.secrets-manager_short}} contain onl
 
 The properties that are sent to {{site.data.keyword.en_short}} vary depending on the event type and type of secret. For example, if an `secret_about_to_expire:in_10_days` event takes place in an instance for one or more `public_cert` secrets, {{site.data.keyword.secrets-manager_short}} sends a notification payload to {{site.data.keyword.en_short}} that is similar to the following example.
 
+
+
 ```json
 {
    "event_sub_type": "in_10_days",
@@ -333,6 +335,16 @@ The properties that are sent to {{site.data.keyword.en_short}} vary depending on
    "source_instance_crn": "crn:v1:bluemix:public:secrets-manager:<region>:a/<account_id>:<instance_id>::",
    "source_instance_dashboard_url": "https://cloud.ibm.com/services/secrets-manager/crn%3Av1%3Abluemix%3Apublic%3Asecrets-manager%3A<region>%3Aa%2Fa6cc9f5f21f34323a4175c1117638b40%3A<instance_id>%3A%3A",
    "source_service": "SecretsManager"
+}
+```
+{: screen}
+
+
+<apiv2>
+
+```json
+{
+  "event_notifications_instance_crn": "crn:v1:bluemix:public:event-notifications:us-south:a/22018f3c34ff4ff193698d15ca316946:578ad1a4-2fd8-4e66-95d5-79a842ba91f8::"
 }
 ```
 {: screen}

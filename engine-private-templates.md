@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-11-29"
+lastupdated: "2022-11-30"
 
 keywords: certificate parameters, certificate templates
 
@@ -144,6 +144,8 @@ curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api
 
 A successful response adds the template configuration to your service instance. 
 
+
+
 ```json
 {
     "metadata": {
@@ -203,6 +205,64 @@ A successful response adds the template configuration to your service instance.
 }
 ```
 {: screen}
+
+
+<apiv2>
+
+```json
+{
+  "allow_any_name": true,
+  "allow_bare_domains": false,
+  "allow_glob_domains": false,
+  "allow_ip_sans": true,
+  "allow_localhost": true,
+  "allow_subdomains": false,
+  "allowed_domains": [],
+  "allowed_domains_template": false,
+  "allowed_other_sans": [],
+  "allowed_uri_sans": [
+    "https://www.example.com/test"
+  ],
+  "basic_constraints_valid_for_non_ca": false,
+  "certificate_authority": "test-intermediate-CA",
+  "client_flag": true,
+  "code_signing_flag": false,
+  "config_type": "private_cert_configuration_template",
+  "created_at": "2022-06-27T11:58:15Z",
+  "created_by": "iam-ServiceId-e4a2f0a4-3c76-4bef-b1f2-fbeae11c0f21",
+  "country": [],
+  "email_protection_flag": false,
+  "enforce_hostnames": false,
+  "ext_key_usage": [],
+  "ext_key_usage_oids": [],
+  "key_bits": 2048,
+  "key_type": "rsa",
+  "key_usage": [
+    "DigitalSignature",
+    "KeyAgreement",
+    "KeyEncipherment"
+  ],
+  "locality": [],
+  "max_ttl_seconds": 31536000,
+  "name": "test-certificate-template",
+  "not_before_duration_seconds": 30,
+  "organization": [],
+  "ou": [],
+  "policy_identifiers": [],
+  "postal_code": [],
+  "province": [],
+  "require_cn": true,
+  "secret_type": "private_cert",
+  "server_flag": true,
+  "street_address": [],
+  "ttl_seconds": 43200,
+  "updated_at": "2022-10-05T21:33:11Z",
+  "use_csr_common_name": true,
+  "use_csr_sans": true
+}
+```
+{: screen}
+
 
 For more information about the required and optional request parameters, see [Add a configuration](/apidocs/secrets-manager#create-config-element){: external}.
 

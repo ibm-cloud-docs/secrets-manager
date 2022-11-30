@@ -134,6 +134,8 @@ curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/
 
 A successful response returns metadata details about each secret version.
 
+
+
 ```json
 {
     "metadata": {
@@ -184,6 +186,11 @@ A successful response returns metadata details about each secret version.
 }
 ```
 {: screen}
+
+
+
+
+
 
 The `downloaded` property indicates whether the data for each secret version was already read or accessed. If the `payload_available` field has a value of `true`, it means that you're able to access or [restore the secret data of that version](#restore-secret-api). For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager).
 
@@ -268,6 +275,8 @@ curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/
 
 A successful response returns metadata details about each secret version.
 
+
+
 ```json
 {
   "metadata": {
@@ -291,6 +300,11 @@ A successful response returns metadata details about each secret version.
   ]
 }
 ```
+{: screen}
+
+
+
+
 
 The `downloaded` property indicates whether the data for each secret version was already read or accessed. If the `payload_available` field has a value of `true`, it means that you're able to access or [restore the secret data of that version](#restore-secret-api). 
 
