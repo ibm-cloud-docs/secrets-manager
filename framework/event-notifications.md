@@ -340,14 +340,7 @@ The properties that are sent to {{site.data.keyword.en_short}} vary depending on
 {: screen}
 
 
-<apiv2>
 
-```json
-{
-  "event_notifications_instance_crn": "crn:v1:bluemix:public:event-notifications:us-south:a/22018f3c34ff4ff193698d15ca316946:578ad1a4-2fd8-4e66-95d5-79a842ba91f8::"
-}
-```
-{: screen}
 
 Review following table for more information about event notification properties.
 
