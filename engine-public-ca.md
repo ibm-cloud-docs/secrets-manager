@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-11-29"
+lastupdated: "2022-12-01"
 
 keywords: certificate authority, connect certificate authority, set up certificate authority, connect CA, set up CA, connect Let's Encrypt, set up Let's Encrypt, add certificate authority configuration, add CA configuration
 
