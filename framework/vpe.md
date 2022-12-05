@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-11-24"
+lastupdated: "2022-12-05"
 
 keywords: connect to {{site.data.keyword.secrets-manager_short}} on a VPC, virtual service endpoints, virtual private cloud, connect via VPC, connect through VPC, connect via VPE, connect through VPE
 
