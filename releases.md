@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-11-14"
+lastupdated: "2022-12-05"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -62,6 +62,8 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 {: shortdesc}
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
+
+
 
 ## 14 November 2022
 {: #secrets-manager-nov1422}
