@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-11-29"
+lastupdated: "2022-12-06"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -332,6 +332,7 @@ You can store metadata that are relevant to the needs of your organization with 
 
 
 
+
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/kv/{secret_id}?action=rotate"
    -H "Authorization: Bearer {IAM_token}" 
@@ -351,6 +352,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 ```
 {: codeblock}
 {: curl}
+
 
 
 

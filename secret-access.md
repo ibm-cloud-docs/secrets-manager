@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-11-29"
+lastupdated: "2022-12-06"
 
 keywords: access secret, retrieve secret, read secret, get secret value, get secrets, view secrets, search secrets, read secrets, get secret value
 
@@ -151,9 +151,10 @@ If you created an arbitrary secret by using a binary file, such as an image, the
 First, retrieve the secret by calling the {{site.data.keyword.secrets-manager_short}} API. The following example uses cURL and  `jq` to collect the `payload` value of a secret.
 
 ```bash
-export ARBITRARY_SECRET=`curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/arbitrary/{id}" \
+export ARBITRARY_SECRET=`curl -X GET  
     -H "Authorization: Bearer $IAM_TOKEN" \
     -H "Accept: application/json" | jq --raw-output '.resources[].secret_data.payload | sub(".*,"; "")'`
+"https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/arbitrary/{id}"
 ```
 {: pre}
 
@@ -187,9 +188,10 @@ The following example request retrieves a secret and its contents. When you call
 
 
 ```bash
-curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/import_cert/{id}/versions/previous" \
+curl -X GET  
     -H "Authorization: Bearer $IAM_TOKEN" \
     -H "Accept: application/json"
+"https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/import_cert/{id}/versions/previous"
 ```
 {: codeblock}
 {: curl}

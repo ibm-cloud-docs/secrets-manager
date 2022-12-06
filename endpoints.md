@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-06-07"
+lastupdated: "2022-12-06"
 
 keywords: Secrets Manager availability, regions, Secrets Manager endpoints, Vault endpoint
 
@@ -133,12 +133,17 @@ To learn how to configure your {{site.data.keyword.secrets-manager_short}} insta
 
 You can find your service endpoint URLs in the **Endpoints** page of the {{site.data.keyword.secrets-manager_short}} UI. If you need to retrieve your service endpoint URLs programmatically, you can also call the following API to retrieve the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 
+
+
 ```sh
 curl -X GET "https://{region}.secrets-manager.cloud.ibm.com/api/v1/instances/{url_encoded_instance_CRN}/endpoints" \
     -H "Accept: application/json" \
     -H "Authorization: Bearer {IAM_token}"
 ```
 {: pre}
+
+
+
 
 Replace the variables in the example request according to the following table.
 
