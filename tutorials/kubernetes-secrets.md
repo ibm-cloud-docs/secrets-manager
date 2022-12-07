@@ -72,7 +72,7 @@ Alternatively, you can use the {{site.data.keyword.containershort}} CLI plug-in 
 
 {: note}
 
-This tutorial is for the Classic flavor of IBM Cloud Kubernetes clusters. External Secrets is also available as an [OpenShift operator](https://operatorhub.io/operator/external-secrets-operator).
+This tutorial is for the Classic flavor of {{site.data.keyword.containershort}} clusters. External Secrets is also available as an [OpenShift operator](https://operatorhub.io/operator/external-secrets-operator).
 
 {: shortdesc}
 
