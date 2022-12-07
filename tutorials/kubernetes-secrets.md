@@ -3,7 +3,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-30"
+lastupdated: "2022-12-07"
 
 keywords: tutorial, Secrets Manager
 
@@ -69,7 +69,10 @@ completion-time: 45m
 In this tutorial, you learn how to use {{site.data.keyword.secrets-manager_full}} to manage secrets for applications that run your {{site.data.keyword.containerfull_notm}} cluster by using the [External Secrets Operator](external-secrets.io/){: external} open-source tool. 
 
 Alternatively, you can use the {{site.data.keyword.containershort}} CLI plug-in to manage TLS and non-TLS secrets. To learn more about this approach, see [Setting up Kubernetes Ingress](/docs/containers?topic=containers-ingress-types#non-tls).
+
 {: note}
+
+This tutorial is for the Classic flavor of IBM Cloud Kubernetes clusters. External Secrets is also available as an [OpenShift operator](https://operatorhub.io/operator/external-secrets-operator).
 
 {: shortdesc}
 
