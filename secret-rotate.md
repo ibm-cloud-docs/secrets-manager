@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-12-06"
+lastupdated: "2022-12-08"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -314,6 +314,9 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 ```
 {: codeblock}
 {: curl}
+
+
+
 
 
 
