@@ -65,6 +65,13 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 
 
 
+## 11 December 2022
+{: #secrets-manager-dec1122}
+{: release-note}
+
+Support for context-based restrictions (CBR)
+:   Manage user and service access to your {{site.data.keyword.secrets-manager_short}} resources by using context-based restrictions, based on defined criteria. For more information, see [Managing access with context-based restrictions](/docs/secrets-manager?topic=secrets-manager-access-control-cbr).
+
 ## 14 November 2022
 {: #secrets-manager-nov1422}
 {: release-note}
