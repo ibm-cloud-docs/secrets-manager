@@ -56,7 +56,6 @@ toc:
           - provision.md
           - assign-access.md
           - developer-tools.md
-          - cbr-control-access.md
       - topicgroup:
           label: Working with secrets
           topics:
