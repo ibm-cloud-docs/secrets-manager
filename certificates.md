@@ -237,9 +237,6 @@ After you [configure the public certificates engine](/docs/secrets-manager?topic
 
 You can order a certificate by using the {{site.data.keyword.secrets-manager_short}} UI.
 
-To order a public certificate with your own DNS provider, you must use the {{site.data.keyword.secrets-manager_short}} API. [Learn more](#order-certificates-manual-api).
-{: note}
-
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
@@ -546,21 +543,7 @@ To create a public certificate by using a manual DNS provider, complete the foll
     }'\ 
    ```
    {: codeblock}
-   {: curl}</apiv2>
-
-   ```sh
-    curl -X POST 
-    --header "Authorization: Bearer {iam_token}" 
-    --header "Accept: application/json" 
-    --header "Content-Type: application/json" 
-    --data '{ 
-        "action_type": "public_cert_action_validate_dns_challenge"
-    }'\ 
-    "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secrets/{id}/actions"
-   ```
-   {: codeblock}
    {: curl}
-   </apiv2>
 
    If you need to update your certificate later, you can use the same [Invoke an action on a secret](/apidocs/secrets-manager#update-secret) API but with the action `rotate`. However, you can't automatically rotate manual DNS provider certificates in {{site.data.keyword.secrets-manager_short}}.
    {: note}

@@ -134,8 +134,10 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 3. In the {{site.data.keyword.secrets-manager_short}} UI, go to the **Secrets** list.
 4. In the row for the secret that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
 5. Select a file or enter a new secret value in JSON format.
-6. To rotate the secret immediately, click **Rotate**.
-7. Optional: Check the version history to view the latest updates.
+6. Optional: Add metadata to your secret or to a specific version of your secret. 
+   1. Upload a file or enter the metadata and the version metadata in JSON format. 
+7. To rotate the secret immediately, click **Rotate**.
+8. Optional: Check the version history to view the latest updates.
 
    In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
 
@@ -158,8 +160,11 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 
     If you choose to generate a new password, {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
 
-6. To rotate the secret immediately, click **Rotate**.  
-7. Optional: Check the version history to view the latest updates.
+6. Optional: Add metadata to your secret or to a specific version of your secret. 
+   1. Upload a file or enter the metadata and the version metadata in JSON format. 
+
+7. To rotate the secret immediately, click **Rotate**.  
+8. Optional: Check the version history to view the latest updates.
 
    In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
 
@@ -224,7 +229,7 @@ If your {{site.data.keyword.secrets-manager_short}} service instance is enabled 
 
 
 
-<apiv2prod
+
 
 ### Rotating public certificates with your own DNS provider in the UI
 {: #rotate-certificates-manual-ui}
