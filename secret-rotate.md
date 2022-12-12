@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-12-08"
+lastupdated: "2022-12-12"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -84,15 +84,24 @@ All the secrets that you store in {{site.data.keyword.secrets-manager_short}} ca
 | [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | Passwords that are associated with user credentials secrets are immediately replaced with the data that you provide on rotation. |
 {: caption="Table 1. Describes how {{site.data.keyword.secrets-manager_short}} evaluates manual rotation by secret type" caption-side="top"}
 
-## Creating new secret versions in the UI
+
+
+
+## Manually rotating secrets in the UI
 {: #manual-rotate-ui}
 {: ui}
 
+
+
 You can manually rotate your secrets and certificates by using the {{site.data.keyword.secrets-manager_short}} UI.
+
+
 
 ### Creating new versions of arbitrary secrets
 {: #manual-rotate-arbitrary-ui}
 {: ui}
+
+
 
 You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotate your arbitrary secrets.
 
@@ -101,14 +110,22 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 3. In the {{site.data.keyword.secrets-manager_short}} UI, go to the **Secrets** list.
 4. In the row for the secret that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
 5. Select a new file or enter a new secret value.
-6. To rotate the secret immediately, click **Rotate**.
-7. Optional: Check the version history to view the latest updates.
+6. Optional: Add metadata to your secret or to a specific version of your secret. 
+   1. Upload a file or enter the metadata and the version metadata in JSON format. 
+7. To rotate the secret immediately, click **Rotate**.
+8. Optional: Check the version history to view the latest updates.
 
    In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
 
-### reating new versions of key-value secrets
+
+
+
+### Rotating key-value secrets
 {: #manual-rotate-key-value-ui}
 {: ui}
+
+
+
 
 You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotate your key-value secrets.
 
@@ -123,9 +140,12 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
    In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
 
 
-### Creating new versions of user credentials
+
+### Rotating user credentials
 {: #manual-rotate-user-credentials-ui}
 {: ui}
+
+
 
 You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotate the password values that are associated with a user credentials secret.
 
@@ -144,9 +164,13 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
    In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
 
 
-### reating new versions of imported certificates
+
+
+### Rotating imported certificates
 {: #manual-rotate-imported-cert-ui}
 {: ui}
+
+
 
 When it's time to renew a certificate that was initially imported to the service, you can use the {{site.data.keyword.secrets-manager_short}} UI to manually reimport it. After a certificate is rotated, the previous version is retained in case you need it.
 
@@ -169,9 +193,13 @@ If the certificate that you are rotating was previously imported with an interme
 
    To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager#get-secret) API.
 
-### reating new versions of public certificates
+
+
+### Rotating public certificates
 {: #manual-rotate-public-cert-ui}
 {: ui}
+
+
 
 If your {{site.data.keyword.secrets-manager_short}} service instance is enabled for [public certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates), you can manually renew a certificate that was previously ordered from a third-party certificate authority.
 
@@ -196,10 +224,13 @@ If your {{site.data.keyword.secrets-manager_short}} service instance is enabled 
 
 
 
+<apiv2prod
 
 ### Rotating public certificates with your own DNS provider in the UI
 {: #rotate-certificates-manual-ui}
 {: ui}
+
+
 
 To rotate a public certificate that was created by using a manual DNS provider in the UI, complete the following steps.
 
@@ -222,9 +253,14 @@ To rotate a public certificate that was created by using a manual DNS provider i
 
 10. When your certificate is issued, clean up and remove the TXT records from the domains in your DNS provider account.
 
+
+
 ### Rotating private certificates
 {: #manual-rotate-private-cert-ui}
 {: ui}
+
+
+
 
 If your {{site.data.keyword.secrets-manager_short}} service instance is enabled for [private certificates](/docs/secrets-manager?topic=secrets-manager-certificates#create-certificates), you can manually renew a certificate that was previously issued by a certificate authority that is configured for your service instance.
 
@@ -244,6 +280,8 @@ If your {{site.data.keyword.secrets-manager_short}} service instance is enabled 
 ## Manually rotating secrets from the CLI
 {: #manual-rotate-cli}
 {: cli}
+
+
 
 You can manually rotate your secrets and certificates by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in.
 

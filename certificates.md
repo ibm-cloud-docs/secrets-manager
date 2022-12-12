@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-11-30"
+lastupdated: "2022-12-12"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
 
@@ -537,6 +537,18 @@ To create a public certificate by using a manual DNS provider, complete the foll
 5. After the records are propagated, call the {{site.data.keyword.secrets-manager_short}} [Invoke an action on a secret](/apidocs/secrets-manager#update-secret) API to request Let's Encrypt to validate the challenges to your domain and create a public certificate. 
 
    ```sh
+    curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/secrets/{id}/actions"
+    --header "Authorization: Bearer {iam_token}" 
+    --header "Accept: application/json" 
+    --header "Content-Type: application/json" 
+    --data '{ 
+        "action_type": "public_cert_action_validate_dns_challenge"
+    }'\ 
+   ```
+   {: codeblock}
+   {: curl}</apiv2>
+
+   ```sh
     curl -X POST 
     --header "Authorization: Bearer {iam_token}" 
     --header "Accept: application/json" 
@@ -548,6 +560,7 @@ To create a public certificate by using a manual DNS provider, complete the foll
    ```
    {: codeblock}
    {: curl}
+   </apiv2>
 
    If you need to update your certificate later, you can use the same [Invoke an action on a secret](/apidocs/secrets-manager#update-secret) API but with the action `rotate`. However, you can't automatically rotate manual DNS provider certificates in {{site.data.keyword.secrets-manager_short}}.
    {: note}
