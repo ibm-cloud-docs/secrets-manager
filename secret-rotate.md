@@ -95,13 +95,9 @@ All the secrets that you store in {{site.data.keyword.secrets-manager_short}} ca
 
 You can manually rotate your secrets and certificates by using the {{site.data.keyword.secrets-manager_short}} UI.
 
-
-
-### Creating new versions of arbitrary secrets
+### Rotating arbitrary secrets
 {: #manual-rotate-arbitrary-ui}
 {: ui}
-
-
 
 You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotate your arbitrary secrets.
 
