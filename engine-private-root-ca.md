@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-07"
+lastupdated: "2022-11-30"
 
 keywords: root certificate authority, root CA, internal signing, external signing
 
@@ -109,6 +109,8 @@ You can create an internally signed root certificate authority for your service 
 The following example shows a query that you can use to create a root certificate authority.
 {: curl}
 
+
+
 ```sh
 curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/config/public_cert/certificate_authorities' \
 -H 'Authorization: Bearer {IAM_token}' \
@@ -128,7 +130,11 @@ curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api
 {: codeblock}
 {: curl}
 
+
+
 A successful response adds the configuration to your service instance. 
+
+
 
 ```json
 {
@@ -177,6 +183,9 @@ A successful response adds the configuration to your service instance.
 }
 ```
 {: screen}
+
+
+
 
 For more information about the required and optional request parameters, see [Add a configuration](/apidocs/secrets-manager#create-config-element){: external}.
 

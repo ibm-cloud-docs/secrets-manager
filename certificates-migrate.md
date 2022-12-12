@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-10-31"
+lastupdated: "2022-11-24"
 
 keywords: migrate from {{site.data.keyword.cloudcerts_short}}, migrate to Secrets Manager, migrate certificates
 
@@ -54,6 +54,7 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
+
 # Migrating certificates from {{site.data.keyword.cloudcerts_short}}
 {: #migrate-from-certificate-manager}
 
@@ -63,6 +64,7 @@ With {{site.data.keyword.secrets-manager_full}}, you can centralize your applica
 
 As of 10 February 2022, {{site.data.keyword.cloudcerts_long_notm}} is deprecated. The strategic alternative for managing certificates in {{site.data.keyword.cloud_notm}} is {{site.data.keyword.secrets-manager_short}}. For more information, see the [deprecation announcement](/docs/certificate-manager?topic=certificate-manager-release-notes#certificate-manager-feb1022).
 {: note}
+
 
 ## Migration timeline
 {: #migrate-time}
@@ -129,6 +131,7 @@ Unlike {{site.data.keyword.cloudcerts_short}}, {{site.data.keyword.secrets-manag
 {: #migrate-process}
 
 You can take advantage of the data isolation benefits of a single-tenant secrets management service by migrating your existing certificates in {{site.data.keyword.cloudcerts_short}} to {{site.data.keyword.secrets-manager_short}}.
+
 
 ### {{site.data.keyword.secrets-manager_short}} limits and considerations
 {: #migrate-prepare}

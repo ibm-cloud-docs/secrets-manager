@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-10-17"
+lastupdated: "2022-11-30"
 
 keywords: secret version history, view versions, secret versions
 
@@ -120,6 +120,8 @@ If you're auditing the version history of a secret, you can use the {{site.data.
 The following example request lists metadata properties for each version. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. The options for `{secret_type}` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`.
 {: curl}
 
+
+
 ```sh
 curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}/versions" \
   --H "Authorization: Bearer {IAM_token}" \
@@ -128,7 +130,11 @@ curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/
 {: codeblock}
 {: curl}
 
+
+
 A successful response returns metadata details about each secret version.
+
+
 
 ```json
 {
@@ -180,6 +186,11 @@ A successful response returns metadata details about each secret version.
 }
 ```
 {: screen}
+
+
+
+
+
 
 The `downloaded` property indicates whether the data for each secret version was already read or accessed. If the `payload_available` field has a value of `true`, it means that you're able to access or [restore the secret data of that version](#restore-secret-api). For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager).
 
@@ -237,6 +248,8 @@ If you're updating the metadata of a secret version, you can use the {{site.data
 The following example request updates metadata properties for each version. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. The options for `{secret_type}` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`.
 {: curl}
 
+
+
 ```sh
 curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{secret_id}/versions/{version_id}/metadata" \
   --H "Authorization: Bearer {IAM_token}" \
@@ -258,7 +271,11 @@ curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/
 {: codeblock}
 {: curl}
 
+
+
 A successful response returns metadata details about each secret version.
+
+
 
 ```json
 {
@@ -283,6 +300,11 @@ A successful response returns metadata details about each secret version.
   ]
 }
 ```
+{: screen}
+
+
+
+
 
 The `downloaded` property indicates whether the data for each secret version was already read or accessed. If the `payload_available` field has a value of `true`, it means that you're able to access or [restore the secret data of that version](#restore-secret-api). 
 
@@ -315,6 +337,8 @@ The following example request restores the previous version of a secret. When yo
 To list the versions of a secret and obtain the ID of each version, use the [List versions API](/docs/secrets-manager?topic=secrets-manager-version-history&interface=api#versions-api).
 {: tip}
 
+
+
 ```bash
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}" \
     -H "Authorization: Bearer {IAM_token}" \
@@ -325,6 +349,8 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 ```
 {: codeblock}
 {: curl}
+
+
 
 Currently, you can restore only one version back for IAM credentials and public certificate secrets. A secret version can be restored only if the defined time-to-live (TTL) or lease duration was not reached.
 {: note}

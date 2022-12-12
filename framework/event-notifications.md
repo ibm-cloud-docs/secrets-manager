@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-10-26"
+lastupdated: "2022-11-30"
 
 keywords: event notifications for {{site.data.keyword.secrets-manager_short}}, event notifications integration for {{site.data.keyword.secrets-manager_short}}, alerts for {{site.data.keyword.secrets-manager_short}}
 
@@ -198,6 +198,8 @@ The following example shows a query that you can use to register your {{site.dat
 You can find the `event_notifications_instance_crn` value in the console by going to the Resource list and clicking the {{site.data.keyword.en_short}} instance row.
 {: tip}
 
+
+
 ```sh
 curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/notifications/registration" \
     -H "Authorization: Bearer $IAM_TOKEN" \
@@ -211,6 +213,8 @@ curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api
 ```
 {: codeblock}
 {: curl}
+
+
 
 A successful request returns the CRN value of your connected {{site.data.keyword.en_short}} service instance. For more information about the required and optional request parameters, see the [API docs](/apidocs/secrets-manager).
 
@@ -243,12 +247,16 @@ Before you can send a test {{site.data.keyword.secrets-manager_short}} event, yo
 The following example shows a query that you can use to send a test event from the {{site.data.keyword.secrets-manager_short}} to {{site.data.keyword.en_short}}. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
 
+
+
 ```sh
 curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/notifications/test" \
   -H "Authorization: Bearer $IAM_TOKEN"
 ```
 {: codeblock}
 {: curl}
+
+
 
 A successful request returns an HTTP `200 OK` response to indicate that a test event was forwarded successfully to your connected {{site.data.keyword.en_short}} service instance. For more information, see the [API docs](/apidocs/secrets-manager).
 
@@ -293,6 +301,8 @@ Event notifications from {{site.data.keyword.secrets-manager_short}} contain onl
 
 The properties that are sent to {{site.data.keyword.en_short}} vary depending on the event type and type of secret. For example, if an `secret_about_to_expire:in_10_days` event takes place in an instance for one or more `public_cert` secrets, {{site.data.keyword.secrets-manager_short}} sends a notification payload to {{site.data.keyword.en_short}} that is similar to the following example.
 
+
+
 ```json
 {
    "event_sub_type": "in_10_days",
@@ -328,6 +338,9 @@ The properties that are sent to {{site.data.keyword.en_short}} vary depending on
 }
 ```
 {: screen}
+
+
+
 
 Review following table for more information about event notification properties.
 

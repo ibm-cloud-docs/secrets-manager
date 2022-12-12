@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-11-14"
+lastupdated: "2022-12-12"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
 
@@ -167,6 +167,8 @@ You can store metadata that are relevant to the needs of your organization with 
 You can import certificate files that are in the `.pem` format. Be sure to [convert your PEM files to single-line format](/docs/secrets-manager?topic=secrets-manager-troubleshoot-pem) so that they can be parsed correctly by the {{site.data.keyword.secrets-manager_short}} API.
 {: note}
 
+
+
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/imported_cert" \
     -H "Authorization: Bearer {IAM_token}" \
@@ -204,6 +206,8 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 {: codeblock}
 {: curl}
 
+
+
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
 
 
@@ -232,9 +236,6 @@ After you [configure the public certificates engine](/docs/secrets-manager?topic
 {: ui}
 
 You can order a certificate by using the {{site.data.keyword.secrets-manager_short}} UI.
-
-To order a public certificate with your own DNS provider, you must use the {{site.data.keyword.secrets-manager_short}} API. [Learn more](#order-certificates-manual-api).
-{: note}
 
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
@@ -297,6 +298,8 @@ You can store metadata that are relevant to the needs of your organization with 
 When you order a certificate, domain validation takes place to verify the ownership of your selected domains. This process can take a few minutes to complete.
 {: note}
 
+
+
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/public_cert" \
      -H "Authorization: Bearer {IAM_token}" \
@@ -342,6 +345,9 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 ```
 {: codeblock}
 {: curl}
+
+
+
 
 When you submit your certificate details, {{site.data.keyword.secrets-manager_short}} sends your request to the selected certificate authority. After a certificate is issued, you can deploy it to your integrated apps, download it, or rotate it manually. Your private key for SSL/TLS is generated directly in {{site.data.keyword.secrets-manager_short}} and stored securely. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
 
@@ -405,6 +411,8 @@ To create a public certificate by using a manual DNS provider, complete the foll
 1. Create a certificate authority (CA) configuration by following the steps that are defined in [Adding a CA configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority&interface=ui).
 2. Create a new public certificate by specifying `manual` as your DNS configuration.
 
+
+
    ```sh
    curl -X POST 'https://{instance_id}.us-south.secrets-manager.appdomain.cloud/api/v1/secrets/public_cert' \
         -H 'accept: application/json' \
@@ -438,6 +446,9 @@ To create a public certificate by using a manual DNS provider, complete the foll
    ```
    {: codeblock}
    {: curl}
+   
+   
+
 
    Example response:
 
@@ -506,28 +517,37 @@ To create a public certificate by using a manual DNS provider, complete the foll
       "versions": [],
       "versions_total": 1
       }
-   ]
-  }
+   ] 
    ```
-   {: codeblock}
+   {: screen}
+
 
 3. Complete the challenges that are marked as `pending` before they expire by adding the TXT records that are specified in the challenge to your domain in your DNS provider account to verify your ownership of the domain.
 
    If you order a certificate for subdomains, for example, `sub1.sub2.domain.com`, you need to add the TXT records to your registered domain `domain.com`.
    {: note}
 
+
 4. Validate that the TXT records that you added are propagated. Depending on your DNS provider, it can take some time to complete.
+
 
 5. After the records are propagated, call the {{site.data.keyword.secrets-manager_short}} [Invoke an action on a secret](/apidocs/secrets-manager#update-secret) API to request Let's Encrypt to validate the challenges to your domain and create a public certificate. 
 
    ```sh
-   curl -X POST --location --header "Authorization: Bearer {iam_token}"   --header "Accept: application/json"   --header "Content-Type: application/json"   "{base_url}/api/v1/secrets/{secret_type}/{id}?action=validate_dns_challenge"
+    curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/secrets/{id}/actions"
+    --header "Authorization: Bearer {iam_token}" 
+    --header "Accept: application/json" 
+    --header "Content-Type: application/json" 
+    --data '{ 
+        "action_type": "public_cert_action_validate_dns_challenge"
+    }'\ 
    ```
    {: codeblock}
    {: curl}
 
    If you need to update your certificate later, you can use the same [Invoke an action on a secret](/apidocs/secrets-manager#update-secret) API but with the action `rotate`. However, you can't automatically rotate manual DNS provider certificates in {{site.data.keyword.secrets-manager_short}}.
    {: note}
+
 
 6. When your certificate is issued, clean up and remove the TXT records from the domains in your DNS provider account.
 
@@ -601,6 +621,7 @@ You can store metadata that are relevant to the needs of your organization with 
 
 
 
+
 ```sh
 curl  -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/private_cert" \
       -H "Authorization: Bearer {IAM_token}" \
@@ -642,10 +663,14 @@ curl  -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/ap
 {: codeblock}
 {: curl}
 
+
+
 Need to create a private certificate with advanced options? You can use optional request parameters to specify advanced attributes for your private certificate, such as Subject Alternative Names or a time-to-live (TTL). If you omit these optional parameters, the attributes that are defined for your selected certificate template are applied. For more information, see the [API reference](/apidocs/secrets-manager#create-secret).
 {: tip}
 
 A successful request returns the contents of your private certificate, along with other metadata that is determined by the certificate template and issuing certificate authority.
+
+
 
 ```json
 {
@@ -728,6 +753,9 @@ A successful request returns the contents of your private certificate, along wit
 }
 ```
 {: screen}
+
+
+
 
 After a certificate is issued, you can deploy it to your integrated apps, download it, or rotate it manually. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager#create-secret){: external}.
 

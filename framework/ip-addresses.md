@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-07-25"
+lastupdated: "2022-12-08"
 
 keywords: IP addresses for Secrets Manager, IP ranges for Secrets Manager, allowlist Secrets Manager
 
@@ -102,4 +102,5 @@ If you connect to your {{site.data.keyword.secrets-manager_short}} instance thro
 | Toronto       | `10.11.57.0/26`, `10.166.179.192/26`, `10.243.75.64/26`   |
 | Washington DC | `10.183.18.128/26`, `10.188.107.0/26`, `10.191.218.64/26`  |
 {: caption="Table 2. Private IP addresses in CIDR format that correspond with {{site.data.keyword.secrets-manager_short}} regions" caption-side="top"}
+
 

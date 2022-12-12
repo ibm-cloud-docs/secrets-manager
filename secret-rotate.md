@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-11-03"
+lastupdated: "2022-12-12"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -84,9 +84,14 @@ All the secrets that you store in {{site.data.keyword.secrets-manager_short}} ca
 | [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | Passwords that are associated with user credentials secrets are immediately replaced with the data that you provide on rotation. |
 {: caption="Table 1. Describes how {{site.data.keyword.secrets-manager_short}} evaluates manual rotation by secret type" caption-side="top"}
 
+
+
+
 ## Manually rotating secrets in the UI
 {: #manual-rotate-ui}
 {: ui}
+
+
 
 You can manually rotate your secrets and certificates by using the {{site.data.keyword.secrets-manager_short}} UI.
 
@@ -101,14 +106,22 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 3. In the {{site.data.keyword.secrets-manager_short}} UI, go to the **Secrets** list.
 4. In the row for the secret that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
 5. Select a new file or enter a new secret value.
-6. To rotate the secret immediately, click **Rotate**.
-7. Optional: Check the version history to view the latest updates.
+6. Optional: Add metadata to your secret or to a specific version of your secret. 
+   1. Upload a file or enter the metadata and the version metadata in JSON format. 
+7. To rotate the secret immediately, click **Rotate**.
+8. Optional: Check the version history to view the latest updates.
 
    In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
+
+
+
 
 ### Rotating key-value secrets
 {: #manual-rotate-key-value-ui}
 {: ui}
+
+
+
 
 You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotate your key-value secrets.
 
@@ -117,15 +130,20 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 3. In the {{site.data.keyword.secrets-manager_short}} UI, go to the **Secrets** list.
 4. In the row for the secret that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
 5. Select a file or enter a new secret value in JSON format.
-6. To rotate the secret immediately, click **Rotate**.
-7. Optional: Check the version history to view the latest updates.
+6. Optional: Add metadata to your secret or to a specific version of your secret. 
+   1. Upload a file or enter the metadata and the version metadata in JSON format. 
+7. To rotate the secret immediately, click **Rotate**.
+8. Optional: Check the version history to view the latest updates.
 
    In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
+
 
 
 ### Rotating user credentials
 {: #manual-rotate-user-credentials-ui}
 {: ui}
+
+
 
 You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotate the password values that are associated with a user credentials secret.
 
@@ -138,15 +156,22 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 
     If you choose to generate a new password, {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
 
-6. To rotate the secret immediately, click **Rotate**.  
-7. Optional: Check the version history to view the latest updates.
+6. Optional: Add metadata to your secret or to a specific version of your secret. 
+   1. Upload a file or enter the metadata and the version metadata in JSON format. 
+
+7. To rotate the secret immediately, click **Rotate**.  
+8. Optional: Check the version history to view the latest updates.
 
    In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
+
+
 
 
 ### Rotating imported certificates
 {: #manual-rotate-imported-cert-ui}
 {: ui}
+
+
 
 When it's time to renew a certificate that was initially imported to the service, you can use the {{site.data.keyword.secrets-manager_short}} UI to manually reimport it. After a certificate is rotated, the previous version is retained in case you need it.
 
@@ -169,9 +194,13 @@ If the certificate that you are rotating was previously imported with an interme
 
    To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager#get-secret) API.
 
+
+
 ### Rotating public certificates
 {: #manual-rotate-public-cert-ui}
 {: ui}
+
+
 
 If your {{site.data.keyword.secrets-manager_short}} service instance is enabled for [public certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates), you can manually renew a certificate that was previously ordered from a third-party certificate authority.
 
@@ -179,15 +208,17 @@ If your {{site.data.keyword.secrets-manager_short}} service instance is enabled 
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the {{site.data.keyword.secrets-manager_short}} UI, go to the **Secrets** list.
 4. In the row for the certificate that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
-5. Click **Rotate**.
+5. Optional: Add metadata to your secret or to a specific version of your secret. 
+   1. Upload a file or enter the metadata and the version metadata in JSON format. 
+6. Click **Rotate**.
 
    A success message is displayed to indicate that your order is being processed. If the validation completes successfully, a new certificate is issued and the status of the certificate changes from **Active, Rotation pending** back to **Active**. If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**.
 
-6. Optional: Check the issuance details of a certificate.
+7. Optional: Check the issuance details of a certificate.
 
    You can check the issuance details of a public certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> Details**. If there was an issue with the request, the Status field provides information about why the rotation did not complete successfully.
 
-7. Redeploy the latest certificate version to your TLS termination point.
+8. Redeploy the latest certificate version to your TLS termination point.
 
    To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager#get-secret) API.
 
@@ -196,10 +227,41 @@ If your {{site.data.keyword.secrets-manager_short}} service instance is enabled 
 
 
 
+### Rotating public certificates with your own DNS provider in the UI
+{: #rotate-certificates-manual-ui}
+{: ui}
+
+
+
+To rotate a public certificate that was created by using a manual DNS provider in the UI, complete the following steps.
+
+1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
+3. In the row for the certificate that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
+4. Optional: Add a name and description to easily identify your certificate.
+5. Optional: Click **Update**.
+6. Click **Challenges** to access the TXT record name and value that are associated with each of your domains. You need them to complete the challenges.
+7. To validate the ownership of your domains, manually add the TXT records that are provided for each of your domains to your DNS provider account. You must address only the challenges that are not validated, before the expiration date. 
+
+   If you order a certificate for subdomains, for example, `sub1.sub2.domain.com`, you need to add the TXT records to your registered domain `domain.com`.
+   {: note}
+
+8. Verify that the TXT records that you added to your domains are propagated. Depending on your DNS provider, it can take some time to complete.
+9. After you confirm that the records are propagated, click **Validate** to request Let's Encrypt to validate the challenges to your domains and create a public certificate. 
+
+  If the order fails, for example, if the TXT records were not successfully propagated, you must start a new order to proceed. 
+  {: note}
+
+10. When your certificate is issued, clean up and remove the TXT records from the domains in your DNS provider account.
+
+
 
 ### Rotating private certificates
 {: #manual-rotate-private-cert-ui}
 {: ui}
+
+
+
 
 If your {{site.data.keyword.secrets-manager_short}} service instance is enabled for [private certificates](/docs/secrets-manager?topic=secrets-manager-certificates#create-certificates), you can manually renew a certificate that was previously issued by a certificate authority that is configured for your service instance.
 
@@ -207,8 +269,10 @@ If your {{site.data.keyword.secrets-manager_short}} service instance is enabled 
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the {{site.data.keyword.secrets-manager_short}} UI, go to the **Secrets** list.
 4. In the row for the certificate that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
-5. Click **Rotate**.
-6. Redeploy the latest certificate version to your TLS termination point.
+5. Optional: Add metadata to your secret or to a specific version of your secret. 
+   1. Upload a file or enter the metadata and the version metadata in JSON format. 
+6. Click **Rotate**.
+7. Redeploy the latest certificate version to your TLS termination point.
 
    To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager#get-secret) API.
 
@@ -217,6 +281,8 @@ If your {{site.data.keyword.secrets-manager_short}} service instance is enabled 
 ## Manually rotating secrets from the CLI
 {: #manual-rotate-cli}
 {: cli}
+
+
 
 You can manually rotate your secrets and certificates by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in.
 
@@ -268,7 +334,9 @@ The following example request creates a new version of your secret. When you cal
 You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
 {: curl}
 
-```json
+
+
+```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/arbitrary/{id}?action=rotate" \
     -H "Authorization: Bearer {IAM_token}" \
     -H "Accept: application/json" \
@@ -286,6 +354,11 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 {: codeblock}
 {: curl}
 
+
+
+
+
+
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager#update-secret).
 
 ### Rotating key-value secrets
@@ -299,7 +372,10 @@ The following example request creates a new version of your secret. When you cal
 You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
 {: curl}
 
-```json
+
+
+
+```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/kv/{secret_id}?action=rotate"
    -H "Authorization: Bearer {IAM_token}" 
    -H "Accept: application/json" 
@@ -320,6 +396,9 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 {: curl}
 
 
+
+
+
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager#update-secret).
 
 
@@ -333,6 +412,9 @@ The following example request creates a new version of your secret. When you cal
 
 You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
 {: curl}
+
+
+
 
 ```json
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password/{id}?action=rotate" \
@@ -351,6 +433,10 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 ```
 {: codeblock}
 {: curl}
+
+
+
+
 
 To have the service generate and assign a random password to your credential, you can pass an empty string on the `password` field. For example, `{ "password": ""}`. {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
 {: tip}

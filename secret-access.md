@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-20"
+lastupdated: "2022-12-12"
 
 keywords: access secret, retrieve secret, read secret, get secret value, get secrets, view secrets, search secrets, read secrets, get secret value
 
@@ -150,12 +150,16 @@ If you created an arbitrary secret by using a binary file, such as an image, the
 
 First, retrieve the secret by calling the {{site.data.keyword.secrets-manager_short}} API. The following example uses cURL and  `jq` to collect the `payload` value of a secret.
 
+
+
 ```bash
-export ARBITRARY_SECRET=`curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/arbitrary/{id}" \
+export ARBITRARY_SECRET=`curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/arbitrary/{id}"
     -H "Authorization: Bearer $IAM_TOKEN" \
     -H "Accept: application/json" | jq --raw-output '.resources[].secret_data.payload | sub(".*,"; "")'`
 ```
 {: pre}
+
+
 
 If you inspect the contents of `$ARBITRARY_SECRET`, you see base64 encoded data. The following snippet shows an example output.
 
@@ -184,8 +188,10 @@ After you rotate a certificate, you can programmatically access its previous ver
 The following example request retrieves a secret and its contents. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
 
+
+
 ```bash
-curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/import_cert/{id}/versions/previous" \
+curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/import_cert/{id}/versions/previous"
     -H "Authorization: Bearer $IAM_TOKEN" \
     -H "Accept: application/json"
 ```

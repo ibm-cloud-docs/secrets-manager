@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-09-16"
+lastupdated: "2022-12-05"
 
 keywords: connect to {{site.data.keyword.secrets-manager_short}} on a VPC, virtual service endpoints, virtual private cloud, connect via VPC, connect through VPC, connect via VPE, connect through VPE
 
@@ -53,6 +53,7 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
+
 
 # Using virtual private endpoints for VPC to privately connect to {{site.data.keyword.secrets-manager_short}}
 {: #virtual-private-endpoint}
@@ -154,7 +155,7 @@ You can update your existing {{site.data.keyword.secrets-manager_short}} instanc
     Before you run the command, be sure to [generate an IAM token](/docs/account?topic=account-iamtoken_from_apikey).
 
     ```sh
-    curl -X PATCH https://resource-controller.cloud.ibm.com/v2/resource_instances/"$INSTANCE_ID" -H "Authorization: Bearer <IAM_token>" -H 'Content-Type: application/json' -d "{\"extensions\": {\"virtual_private_endpoints\": {\"dns_domain\": \"private.$REGION.secrets-manager.appdomain.cloud\",\"dns_hosts\": [$INSTANCE_ID],\"endpoints\": $VPE_ENDPOINT,\"origin_type\": \"cse\",\"ports\": [{\"port_max\": 443 \"port_min\": 443}]}}}"
+    curl -X PATCH https://resource-controller.cloud.ibm.com/v2/resource_instances/"$INSTANCE_ID" -H "Authorization: Bearer <IAM_token>" -H 'Content-Type: application/json' -d "{\"extensions\": {\"virtual_private_endpoints\": {\"dns_domain\": \"private.$REGION.secrets-manager.appdomain.cloud\",\"dns_hosts\": [\"$INSTANCE_ID\"],\"endpoints\": $VPE_ENDPOINTS,\"origin_type\": \"cse\",\"ports\": [{\"port_max\": 443, \"port_min\": 443}]}}}"
     ```
     {: pre}
 

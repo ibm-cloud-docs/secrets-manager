@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-11-13"
+lastupdated: "2022-11-30"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -254,6 +254,8 @@ You can schedule the automatic rotation of secrets by using the {{site.data.keyw
 The following example request creates an automatic rotation policy for a user credentials (`username_password`) secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
 
+
+
 ```sh
 curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password/{id}/policies" \
     -H "Authorization: Bearer {IAM_token}" \
@@ -261,7 +263,8 @@ curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/
     -H "Content-Type: application/json" \
     -d '{ 
         "metadata": { 
-          "collection_type": "application/vnd.ibm.secrets-manager.secret.policy+json", "collection_total": 1 
+          "collection_type": "application/vnd.ibm.secrets-manager.secret.policy+json", 
+          "collection_total": 1 
         }, 
         "resources": [ 
           { 
@@ -276,6 +279,9 @@ curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/
 ```
 {: codeblock}
 {: curl} 
+
+
+
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager#update-secret).
 
@@ -292,6 +298,8 @@ If you prefer to schedule your certificates to be automatically renewed, you can
 
 The following example request orders a certificate with automatic rotation enabled. When you call the API, set the `auto_rotate` property to `true`. Optionally, you can set `rotate_keys` to `true` to request a new private key for the certificate on each rotation.
 {: curl}
+
+
 
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/public_cert" \
@@ -331,6 +339,8 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 {: codeblock}
 {: curl}
 
+
+
 A successful response returns the ID value for the certificate, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager#create-secret).
 
 ### Setting an automatic rotation policy for IAM credentials
@@ -338,6 +348,8 @@ A successful response returns the ID value for the certificate, along with other
 
 The following example request creates an automatic rotation policy for a IAM credentials (`iam_credentials`) secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
+
+
 
 ```sh
 curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/iam_credentials/{id}/policies" \
@@ -361,6 +373,9 @@ curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/
 ```
 {: codeblock}
 {: curl}
+
+
+
 
 To remove a policy, keep the resources block empty.
 {: note}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-10-17"
+lastupdated: "2022-11-29"
 
 keywords: arbitrary secrets, arbitrary text, custom secrets
 
@@ -131,6 +131,7 @@ You can store metadata that are relevant to the needs of your organization with 
 {: note}
 
 
+
 ```sh
 curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/arbitrary" \
     -H "Authorization: Bearer {IAM_token}" \
@@ -166,5 +167,6 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 ```
 {: codeblock}
 {: curl}
+
 
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager#create-secret).
