@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-10-31"
+lastupdated: "2022-12-22"
 
 keywords: set up public certificates, public certificates engine, set up CIS, set up CA, set up Let's Encrypt
 
@@ -142,7 +142,7 @@ To create a service authorization, you can use the **Access (IAM)** section of t
 
 If the CIS instance that you'd like to access is located in another account, you can create an authorization between the services by providing an API key. You need the Cloud Resource Name (CRN) of the CIS instance that contains your domains, and an API key with the correct level of access to your instance. The API key must grant {{site.data.keyword.secrets-manager_short}} the ability to view the CIS instance, access its domains, and manage TXT records.
 
-If the CIS instance is located in an account that allows access to only specific IP addresses, you must also update the IP address restrictions in the account to allow incoming requests from {{site.data.keyword.secrets-manager_short}}. For more information, see [IP addresses for {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-ip-addresses).
+If the CIS instance is located in an account that allows access to only specific IP addresses, you must also update the IP address restrictions in the account to allow incoming requests from {{site.data.keyword.secrets-manager_short}}. For more information, see [Managing access with context-based restrictions](/docs/secrets-manager?topic=secrets-manager-access-control-cbr).
 {: important}
 
 To assign access, you can use the **Access (IAM)** section of the console.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-11-30"
+lastupdated: "2022-12-20"
 
 keywords: secret locks, lock secret, prevent deletion, prevent rotation, unlock secret, create lock, delete lock
 
@@ -158,7 +158,9 @@ You can lock the previous version of a secret by using the {{site.data.keyword.s
 
 8. Click **Create**.
 
-    A new lock is created for your selected secret version. 
+    A new lock is created for your selected secret version.
+
+
 
 ### Creating locks with the API
 {: #create-lock-api}

@@ -113,11 +113,7 @@ toc:
       - topicgroup:
           label: Enhancing security
           topics:
-          - topicgroup:
-              label: Managing IAM access
-              topics:
-              - topic: framework/iam.md
-                navtitle: Roles and actions for Secrets Manager
+          - framework/iam.md
           - framework/architecture-workload-isolation.md
           - topicgroup:
               label: Privately connecting to Secrets Manager

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-11-29"
+lastupdated: "2022-12-20"
 
 keywords: arbitrary secrets, arbitrary text, custom secrets
 
@@ -108,10 +108,14 @@ To create an arbitrary secret by using the {{site.data.keyword.secrets-manager_s
 {{site.data.keyword.secrets-manager_short}} supports text-based payloads only for arbitrary secrets. If you need to upload a binary file, you must base64 encode the data first so that you can pass it to the {{site.data.keyword.secrets-manager_short}} CLI in a single-line string. To access this secret later in its original form, you need to base64 decode it. Consider assigning a label on your secret with encoded data, such as `encode:base64`, so that you can track secrets that require base64 decoding.
 {: note}
 
+
+
 ```sh
 ibmcloud secrets-manager secret-create --secret-type arbitrary --resources '[{"name": "example-arbitrary-secret","description": "Extended description for my secret.","payload": "secret-data"}]' --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
 ```
 {: pre}
+
+
 
 The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
 
