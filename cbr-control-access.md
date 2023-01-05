@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-12-12"
+  years: 2023
+lastupdated: "2023-01-05"
 
 keywords: context-based restrictions, access allowlist, network security
 
@@ -74,7 +74,7 @@ To restrict access, you must be the account owner or have an access policy with 
 
 To restrict access, you must create [zones](/docs/account?topic=account-context-restrictions-create&interface=ui#network-zones-create) and [rules](/docs/account?topic=account-context-restrictions-create&interface=ui#context-restrictions-create-rules). 
 
-First, create a zone with the appropriate details for network or resource definitions. Then, attach that zone to the specified resource to restrict access. You can create zones and rules by using a RESTful [API](/apidocs/context-based-restrictions#create-zone) or with [context-based restrictions](https://cloud.ibm.com/context-based-restrictions/overview){: external}. After you create or update a zone or a rule, it might take a few minutes for the change to take effect.
+First, create a zone with the appropriate details for network or resource definitions. Then, attach that zone to the specified resource to restrict access. You can create zones and rules by using a RESTful [API](/apidocs/context-based-restrictions#introduction) or with [context-based restrictions](https://cloud.ibm.com/context-based-restrictions/overview){: external}. After you create or update a zone or a rule, it might take a few minutes for the change to take effect.
 
 CBR rules do not apply to provisioning or deprovision processes. 
 {: note}
@@ -91,7 +91,7 @@ After you create a network zone, you can add it to a rule.
 {: #cbr-create-zones-api}
 
 
-The API supports defining [network zones](apidocs/context-based-restrictions#create-zone) by connecting to public (https://cbr.cloud.ibm.com) and private endpoints (https://private.cbr.cloud.ibm.com).
+The API supports defining [network zones](/apidocs/context-based-restrictions#introduction) by connecting to public (for example, https://cbr.cloud.ibm.com) and private endpoints (for example, https://private.cbr.cloud.ibm.com).
 
 Use `GET /v1/zones` to list the zones. By using `POST /v1/zones`, you can create a new zone with the appropriate information. For more information, including a request body example, see [Creating network zones by using the API](/docs/account?topic=account-context-restrictions-create&interface=api#network-zones-create-api).
 
@@ -133,7 +133,7 @@ After you create rules, you can [update](/apidocs/context-based-restrictions#rep
 After you set the prerequisites and requirements, you can create zones in the UI. For more information about the steps to follow, see [Creating context-based restrictions](/docs/account?topic=account-context-restrictions-create&interface=ui#network-zones-create).
 
 
-You can use the CBR UI to [add resources and contexts](docs/account?topic=account-context-restrictions-create&interface=ui#context-restrictions-create-rules) to your network rules. Keep in mind the limitations.
+You can use the CBR UI to [add resources and contexts](/docs/account?topic=account-context-restrictions-create&interface=ui#context-restrictions-create-rules) to your network rules. Keep in mind the limitations.
 
 For example, when you create context-based restrictions for the IAM Access Groups service, users who don't satisfy the rule can't view any groups in the account, including the public access group. 
 
