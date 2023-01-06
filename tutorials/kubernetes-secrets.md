@@ -66,7 +66,7 @@ completion-time: 45m
 {: toc-services="secrets-manager,containers"}
 {: toc-completion-time="45m"}
 
-In this tutorial, you learn how to use {{site.data.keyword.secrets-manager_full}} to manage secrets for applications that run your {{site.data.keyword.containerfull_notm}} cluster by using the [External Secrets Operator](https://v0.7.1/){: external} open-source tool. 
+In this tutorial, you learn how to use {{site.data.keyword.secrets-manager_full}} to manage secrets for applications that run your {{site.data.keyword.containerfull_notm}} cluster by using the [External Secrets Operator](https://external-secrets.io/v0.7.1/){: external} open-source tool. 
 
 Alternatively, you can use the {{site.data.keyword.containershort}} CLI plug-in to manage TLS and non-TLS secrets. To learn more about this approach, see [Setting up Kubernetes Ingress](/docs/containers?topic=containers-ingress-types#non-tls).
 {: note}
