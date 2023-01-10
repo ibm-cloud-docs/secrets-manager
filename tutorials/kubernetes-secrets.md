@@ -2,8 +2,8 @@
 
 
 copyright:
-  years: 2022
-lastupdated: "2022-12-20"
+  years: 2023
+lastupdated: "2023-01-10"
 
 keywords: tutorial, Secrets Manager
 
@@ -66,7 +66,7 @@ completion-time: 45m
 {: toc-services="secrets-manager,containers"}
 {: toc-completion-time="45m"}
 
-In this tutorial, you learn how to use {{site.data.keyword.secrets-manager_full}} to manage secrets for applications that run your {{site.data.keyword.containerfull_notm}} cluster by using the [External Secrets Operator](external-secrets.io/){: external} open-source tool. 
+In this tutorial, you learn how to use {{site.data.keyword.secrets-manager_full}} to manage secrets for applications that run your {{site.data.keyword.containerfull_notm}} cluster by using the [External Secrets Operator](https://external-secrets.io/latest/){: external} open-source tool. 
 
 Alternatively, you can use the {{site.data.keyword.containershort}} CLI plug-in to manage TLS and non-TLS secrets. To learn more about this approach, see [Setting up Kubernetes Ingress](/docs/containers?topic=containers-ingress-types#non-tls).
 {: note}
@@ -351,10 +351,9 @@ e0246cea-d668-aba7-eef2-58ca11ad3707
 {: #tutorial-kubernetes-secrets-configure-external}
 {: step}
 
-Now that you have a secret for your application, you can set up the [External Secrets Operator](https://external-secrets.io/){: external} tool for your cluster. This package configures the connection between {{site.data.keyword.secrets-manager_short}} and your cluster by creating `ExternalSecrets` objects that are converted to Kubernetes secrets for your application.
+Now that you have a secret for your application, you can set up the [External Secrets Operator](https://external-secrets.io/latest/){: external} tool for your cluster. This package configures the connection between {{site.data.keyword.secrets-manager_short}} and your cluster by creating `ExternalSecrets` objects that are converted to Kubernetes secrets for your application.
 
-External Secrets Operator is an open source tool that is not maintained by IBM. For more information about this tool or to troubleshoot any issues, refer to the [project documentation](https://external-secrets.io/
-){: external}.
+External Secrets Operator is an open source tool that is not maintained by IBM. For more information about this tool or to troubleshoot any issues, refer to the [project documentation](https://external-secrets.io/latest/){: external}.
 {: note}
 
 ### Configure External Secrets Operator for your cluster

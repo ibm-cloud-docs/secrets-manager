@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-12-07"
+  years: 2020, 2023
+lastupdated: "2023-01-10"
 
 keywords: known issues for Secrets Manager, known limitations for Secrets Manager
 
@@ -104,15 +104,6 @@ The following limits apply to {{site.data.keyword.secrets-manager_short}} servic
 | Total secrets | No limit per instance |
 {: caption="Table 2. {{site.data.keyword.secrets-manager_short}} limits per instance" caption-side="top"}
 
-### API rate limits
-{: #api-rate-limits}
-
-The following rate limits apply to {{site.data.keyword.secrets-manager_short}} APIs.
-
-| APIs | Limit |
-| --- | --- |
-| [All service APIs](/apidocs/secrets-manager#rate-limits) | 20 requests per second on a per-service-instance basis |
-{: caption="Table 3. Rate limits that apply to {{site.data.keyword.secrets-manager_short}} service APIs" caption-side="top"}
 
 ### Resource limits
 {: #secret-limits}
