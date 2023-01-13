@@ -121,7 +121,6 @@ toc:
               - topic: framework/cse.md
                 navtitle: Using service endpoints
           - framework/data-security.md
-          - framework/manage-scc.md 
 
   - navgroup:
       id: reference
