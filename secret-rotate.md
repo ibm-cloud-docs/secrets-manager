@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-12-12"
+  years: 2020, 2023
+lastupdated: "2023-01-23"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -357,9 +357,8 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 
 
 
-
-
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager#update-secret).
+
 
 ### Rotating key-value secrets
 {: #manual-rotate-key-value-api}
