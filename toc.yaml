@@ -22,10 +22,6 @@ toc:
           - use-cases/kubernetes-secrets.md
           - use-cases/service-comparison.md
       - topicgroup:
-          label: Migration guides
-          topics:
-          - certificates-migrate.md
-      - topicgroup:
           label: Best practices
           topics:
           - best-practices/secret-organize.md

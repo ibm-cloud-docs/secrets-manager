@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-11-30"
+  years: 2020, 2023
+lastupdated: "2023-01-23"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -171,6 +171,8 @@ You can schedule the automatic rotation of secrets by using the {{site.data.keyw
 
 Schedule the automatic rotation for user credentials by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in. 
 
+
+
 ```sh
 ibmcloud sm policy-update \
 --secret-type username_password \
@@ -183,6 +185,8 @@ ibmcloud sm policy-update \
   ```
 {: pre}
 
+
+
 To remove a policy, keep the resources block empty.
 {: note}
 
@@ -190,6 +194,8 @@ To remove a policy, keep the resources block empty.
 {: #schedule-auto-rotate-public-cert-cli}
 
 Schedule the automatic rotation for public certificates by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in. 
+
+
 
 ```sh
 ibmcloud sm policy-update \
@@ -204,10 +210,15 @@ ibmcloud sm policy-update \
 {: pre}
 
 
+
+
+
 ### Setting an automatic rotation policy for private certificates
 {: #schedule-auto-rotate-private-cert-cli}
 
 Schedule the automatic rotation for private certificates by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in. 
+
+
 
 ```sh
 ibmcloud sm policy-update \
@@ -222,10 +233,14 @@ ibmcloud sm policy-update \
    ```
   {: pre}
 
+
+
 ### Setting an automatic rotation policy for IAM credentials
 {: #schedule-auto-rotate-iam-credentials-cli}
 
 Schedule the automatic rotation for IAM credentials by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in. 
+
+
 
 ```sh
 ibmcloud sm policy-update \
@@ -238,6 +253,10 @@ ibmcloud sm policy-update \
 }'
 ```
 {: pre}
+
+
+
+
 
 To remove a policy, keep the resources block empty.
 {: note}

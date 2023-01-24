@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-11-29"
+  years: 2020, 2023
+lastupdated: "2023-01-23"
 
 keywords: delete secret, remove secret, destroy secret
 
@@ -89,10 +89,15 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually delet
 
 To delete a secret, run the [**`ibmcloud secrets-manager secret-delete`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-delete-command) command. You can specify the type of secret by using the `--secret-type SECRET-TYPE` option. The options for `SECRET_TYPE` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`.
 
+
+
 ```sh
 ibmcloud secrets-manager secret --secret-type SECRET_TYPE --id SECRET_ID --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
 ```
 {: pre}
+
+
+
 
 After you delete a secret, the secret transitions to the _Destroyed_ state. Secrets in this state are no longer recoverable. Metadata that is associated with the secret, such as the secret's deletion date, is kept in the {{site.data.keyword.secrets-manager_short}} database.
 

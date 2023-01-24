@@ -3,7 +3,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-01-10"
+lastupdated: "2023-01-24"
 
 keywords: tutorial, Secrets Manager
 
@@ -556,13 +556,10 @@ If you no longer need the resources that you created in this tutorial, you can c
 ## Best practices for using External Secrets Operator with {{site.data.keyword.secrets-manager_short}} 
 {: #kubernetes-secrets-best-practices}
 
-{{site.data.keyword.secrets-manager_short}} sets a limit on the rate in which a client can send API requests to it. The limit is 20 calls per second for all API methods. For more information, see [API rate limits](/docs/secrets-manager?topic=secrets-manager-known-issues-and-limits#api-rate-limits). 
-
 As you construct your [YAML document](#tutorial-kubernetes-secrets-update-deployment), keep in mind that each key in the data section is polled periodically by using REST from the {{site.data.keyword.secrets-manager_short}} instance. Be aware that:
 
-1. By default, the polling interval is set to 1 hour. For best results with {{site.data.keyword.secrets-manager_short}}, the polling interval must be greater than 1000 * number of Kubernetes secrets. You can set this value by using `spec.refreshInterval` in the External Secrets template.
-2. While multiple Kubernetes secrets (represented by multiple YAML documents) are polled evenly over the interval time, multiple data entries (represented by the keys that are inside the YAML data section) are fetched consistently without delays from {{site.data.keyword.secrets-manager_short}}. Having many data entries that are aggregated inside of a Kubernetes secret can make your {{site.data.keyword.secrets-manager_short}} instance reach the rate limit and return HTTP `429 Too Many Request` errors back to the tool. Make sure that you do not create more data entries than needed in each Kubernetes secret. 
-3. If you set the YAML to fetch a {{site.data.keyword.secrets-manager_short}} secret by name rather than ID (`keyByName: true`), each data entry generates two API calls rather than one. Be extra careful with the number of data entries in the YAML configuration file if you select this option. For more information, see the [External Secrets documentation](https://external-secrets.io/v0.5.9/provider-ibm-secrets-manager/).
+1. By default, the polling interval is set to 1 hour. For best results with {{site.data.keyword.secrets-manager_short}}, the polling interval must be greater than 1000 * number of Kubernetes secrets. You can set this value by using `spec.refreshInterval` in the External Secrets template. 
+2. If you set the YAML to fetch a {{site.data.keyword.secrets-manager_short}} secret by name rather than ID (`keyByName: true`), each data entry generates two API calls rather than one. Be extra careful with the number of data entries in the YAML configuration file if you select this option. For more information, see the [External Secrets documentation](https://external-secrets.io/v0.5.9/provider-ibm-secrets-manager/).
 
 
 ## Next steps
