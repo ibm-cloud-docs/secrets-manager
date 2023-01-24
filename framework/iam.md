@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-07-07"
+  years: 2020, 2023
+lastupdated: "2023-01-24"
 
 keywords: IAM access for Secrets Manager, permissions for Secrets Manager, identity and access management for Secrets Manager, roles for Secrets Manager, actions for Secrets Manager, assigning access for Secrets Manager
 
@@ -102,6 +102,8 @@ If a specific role and its actions don't fit the use case that you're looking to
 {: class="simple-tab-table"}
 {: row-headers}
 
+
+
 | Action | Description | Roles |
 | ----- | :----- | :----- |
 | `secrets-manager.dashboard.view` | View the {{site.data.keyword.secrets-manager_short}} dashboard. | Viewer, Operator, Editor, Administrator |
@@ -138,6 +140,8 @@ If a specific role and its actions don't fit the use case that you're looking to
 {: tab-group="secrets-manager"}
 {: class="simple-tab-table"}
 {: summary="Use the tab buttons to change the context of the table. This table provides the available actions for the service, descriptions of each, and the roles that each action are mapped to."}
+
+
 
 ## Assigning access to {{site.data.keyword.secrets-manager_short}}
 {: #iam-assign-access}
