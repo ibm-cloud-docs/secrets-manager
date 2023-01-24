@@ -556,8 +556,6 @@ If you no longer need the resources that you created in this tutorial, you can c
 ## Best practices for using External Secrets Operator with {{site.data.keyword.secrets-manager_short}} 
 {: #kubernetes-secrets-best-practices}
 
-{{site.data.keyword.secrets-manager_short}} sets a limit on the rate in which a client can send API requests to it. The limit is 20 calls per second for all API methods.
-
 As you construct your [YAML document](#tutorial-kubernetes-secrets-update-deployment), keep in mind that each key in the data section is polled periodically by using REST from the {{site.data.keyword.secrets-manager_short}} instance. Be aware that:
 
 1. By default, the polling interval is set to 1 hour. For best results with {{site.data.keyword.secrets-manager_short}}, the polling interval must be greater than 1000 * number of Kubernetes secrets. You can set this value by using `spec.refreshInterval` in the External Secrets template. 
