@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-02-06"
+lastupdated: "2023-02-07"
 
 keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, lite plan
 
@@ -74,7 +74,7 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} from the {{
 2. In the **Create** tab, select the region that represents the geographic area where you want provision your instance.
 3. Review and select a pricing plan.
 
-    You can create only one trial instance of {{site.data.keyword.secrets-manager_short}} per account. Before you can create a new trial instance, you must delete the existing trial instance and its reclamation. 
+    You can create only one Trial instance of {{site.data.keyword.secrets-manager_short}} per account. Before you can create a new Trial instance, you must delete the existing Trial instance and its reclamation. 
     {: note}
 
 4. Provide a name for your instance.
@@ -130,7 +130,7 @@ You can also create an instance of {{site.data.keyword.secrets-manager_short}} b
     | Encryption | To provision an instance of {{site.data.keyword.secrets-manager_short}} that uses [customer-managed encryption](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption), append `-p '{"kms_key": "<root_key_crn>"}'`. Replace `<root_key_crn>` with the CRN value for the root key that you want to integrate. |
     {: caption="Table 1. Descripition of the information that is required to provision the  {{site.data.keyword.secrets-manager_short}} service" caption-side="top"}
 
-    You can create only one trial instance of {{site.data.keyword.secrets-manager_short}} per account. Before you can create a new trial instance, you must delete the existing trial instance and its reclamation. 
+    You can create only one Trial instance of {{site.data.keyword.secrets-manager_short}} per account. Before you can create a new Trial instance, you must delete the existing Trial instance and its reclamation. 
     {: note}
 
 
