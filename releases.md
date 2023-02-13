@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-02-02"
+lastupdated: "2023-02-13"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -170,9 +170,7 @@ CLI plug-in version 0.1.20
 {: release-note}
 
 Allow access to {{site.data.keyword.secrets-manager_short}} in a restricted account
-:   Working in an account that has [IP address access restrictions](/docs/account?topic=account-ips)? To use certain features in {{site.data.keyword.secrets-manager_short}}, for example, to generate IAM credentials, an extra step is required to ensure that your account is able to accept incoming requests from the service. If your account allows access to only specific IP addresses, you can update your account settings to specify a required list of IP addresses for {{site.data.keyword.secrets-manager_short}}.
-
-    For more information, check out [IP addresses for {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-ip-addresses).
+:   Working in an account that has [IP address access restrictions](/docs/account?topic=account-ips&interface=ui)? To use certain features in {{site.data.keyword.secrets-manager_short}}, for example, to generate IAM credentials, an extra step is required to ensure that your account is able to accept incoming requests from the service. If your account allows access to only specific IP addresses, you can update your account settings to specify a required list of IP addresses for {{site.data.keyword.secrets-manager_short}}.
 
 ## 27 May 2022
 {: #secrets-manager-may2722}
@@ -382,7 +380,7 @@ Import and manage your existing TLS certificates
 Connect to {{site.data.keyword.secrets-manager_short}} from your VPC network
 :   You can now connect to a {{site.data.keyword.secrets-manager_short}} service instance by using Virtual Private Endpoints (VPE) for VPC. 
 
-   To learn how to connect your existing {{site.data.keyword.secrets-manager_short}} instance, see [Securing your connection to {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-virtual-private-endpoint). For more information about setting up a virtual private endpoint gateway, check out [About virtual private endpoint gateways](/docs/vpc?topic=vpc-about-vpe).
+   To learn how to connect your existing {{site.data.keyword.secrets-manager_short}} instance, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints). For more information about setting up a virtual private endpoint gateway, check out [About virtual private endpoint gateways](/docs/vpc?topic=vpc-about-vpe).
 
 ## 19 May 2021
 {: #secrets-manager-may1921}
