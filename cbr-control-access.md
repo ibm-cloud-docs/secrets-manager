@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-01-05"
+lastupdated: "2023-02-13"
 
 keywords: context-based restrictions, access allowlist, network security
 
@@ -91,7 +91,7 @@ After you create a network zone, you can add it to a rule.
 {: #cbr-create-zones-api}
 
 
-The API supports defining [network zones](/apidocs/context-based-restrictions#introduction) by connecting to public (for example, https://cbr.cloud.ibm.com) and private endpoints (for example, https://private.cbr.cloud.ibm.com).
+The API supports defining [network zones](/apidocs/context-based-restrictions#introduction) by connecting to public (for example, cbr.cloud.ibm.com) and private endpoints (for example, private.cbr.cloud.ibm.com).
 
 Use `GET /v1/zones` to list the zones. By using `POST /v1/zones`, you can create a new zone with the appropriate information. For more information, including a request body example, see [Creating network zones by using the API](/docs/account?topic=account-context-restrictions-create&interface=api#network-zones-create-api).
 
