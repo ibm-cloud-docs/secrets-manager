@@ -288,10 +288,15 @@ To order a public certificate with an integrated DNS provider by using the {{sit
 When you order a certificate, domain validation takes place to verify the ownership of your selected domains. This process can take a few minutes to complete.
 {: note}
 
+
+
+
 ```sh
 ibmcloud secrets-manager secret-create --secret-type public_cert --resources '[{"name": "example-certificate","description": "Extended description for my secret.","ca": "certificate-authority-name", "dns": "dns_provider", "common_name": "cert_common_name","alt_names": ["alt_name1", "alt_name2"],"algorithm": "sha256WithRSAEncryption","key_algorithm": "rsaEncryption 2048 bit","rotation": {"enabled": false,"rotate_keys":false}}]' --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
 ```
 {: pre}
+
+
 
 The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
 
@@ -577,10 +582,15 @@ To order a public certificate with your own DNS provider by using the {{site.dat
 When you order a certificate, domain validation takes place to verify the ownership of your selected domains. This process can take a few minutes to complete.
 {: note}
 
+
+
 ```sh
 ibmcloud secrets-manager secret-create --secret-type public_cert --resources '[{"name": "example-certificate","description": "Extended description for my secret.","ca": "certificate-authority-name", "dns": "manual", "common_name": "cert_common_name","alt_names": ["alt_name1", "alt_name2"],"algorithm": "sha256WithRSAEncryption","key_algorithm": "rsaEncryption 2048 bit","rotation": {"enabled": false,"rotate_keys":false}}]' --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
 ```
 {: pre}
+
+
+
 
 The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
 
@@ -644,10 +654,15 @@ To create a private certificate by using the {{site.data.keyword.secrets-manager
 When you order a certificate, domain validation takes place to verify the ownership of your selected domains. This process can take a few minutes to complete.
 {: note}
 
+
+
 ```sh
 ibmcloud secrets-manager secret-create --secret-type private_cert --resources '[{"name": "example-certificate","description": "Extended description for my secret.","certificate_template": "example-certificate-template", "secret_group_id": "432b91f1-ff6d-4b47-9f06-82debc236d90", "common_name": "cert_common_name","rotation": {"enabled": false,"rotate_keys":false}}]' --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
 ```
 {: pre}
+
+
+
 
 
 The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
