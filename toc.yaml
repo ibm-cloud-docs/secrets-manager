@@ -132,7 +132,7 @@ toc:
           label: CLI reference
           topics:
           - /secrets-manager-cli-plugin/secrets-manager-cli-plugin-secrets-manager-cli
-          - changelog-cli.md   
+          - changelog-cli.md          
       - topicgroup:
           label: Vault reference
           topics:
