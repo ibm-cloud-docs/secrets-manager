@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-12-20"
+  years: 2020, 2023
+lastupdated: "2023-02-15"
 
 keywords: access secret, retrieve secret, read secret, get secret value, get secrets, view secrets, search secrets, read secrets, get secret value
 
@@ -117,7 +117,7 @@ When you're working with certificates, you might need the ability to download th
 To store the certificate into a `pem` file, run the [**`ibmcloud secrets-manager secret`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-command) command.
 
 ```sh
-ibmcloud secrets-manager secret --secret-type <imported_cert|public_cert> --id SECRET_ID --output json | jq -r '.resources[0].secret_data.certificate' | sed 's/\\n/\n/g' > my-cert-file.pem --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
+ibmcloud secrets-manager secret --secret-type <imported_cert|public_cert> --id SECRET_ID --output json --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud | jq -r '.resources[0].secret_data.certificate' | sed 's/\\n/\n/g' > my-cert-file.pem 
 ```
 {: pre}
 
