@@ -102,4 +102,5 @@ You must enable service-to-service authorization between your backup {{site.data
 {: important}
 
 
+For more information, see {{site.data.keyword.keymanagementserviceshort}}'s procedures for [high availability and disaster recovery](/docs/key-protect?topic=key-protect-ha-dr&interface=ui).
 
