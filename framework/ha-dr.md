@@ -88,7 +88,7 @@ Creating an automatic backup of your secrets is possible by automating the manua
    Currently, {{site.data.keyword.secrets-manager_short}} supports notifications for certificates only. To learn about the various available lifecycle event types, see [Enabling event notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications).
    {: note}
 
-## Recovering data from {{site.data.keyword.keymanagementserviceshort}} backup instance
+## Recovering data from a {{site.data.keyword.keymanagementserviceshort}} backup instance
 {: #byok-backup}
 
 Did you experience a failure with your {{site.data.keyword.keymanagementservicelong_notm}} instance? If you backed up your data to a new {{site.data.keyword.keymanagementserviceshort}} instance by using the same root keys, you can update your Secrets Manager instance with data from your backup {{site.data.keyword.keymanagementserviceshort}} instance. To do so, open a case and include the following information.
