@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-07-07"
+  years: 2020, 2023
+lastupdated: "2023-02-20"
 
 keywords: secrets management best practice, rotating secrets, secret rotation, locking secrets, automatic rotation
 
@@ -117,7 +117,7 @@ Use locks to plan for periodic rotation of secrets. When you create and remove l
 
 2. Build an automated flow that can help you to safely delete old or expired secrets from your instance only after your applications have picked up the latest secret versions. For example, consider the following scenario:
 
-    You create a secret that expires in 92 days and is scheduled to be automatically rotated in 90 days.
+    You create a secret that expires in 89 days and is scheduled to be automatically rotated in 90 days.
 
     | | Description of action |
     | --- | --- |
