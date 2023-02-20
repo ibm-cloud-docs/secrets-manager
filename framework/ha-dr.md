@@ -88,17 +88,17 @@ Creating an automatic backup of your secrets is possible by automating the manua
    Currently, {{site.data.keyword.secrets-manager_short}} supports notifications for certificates only. To learn about the various available lifecycle event types, see [Enabling event notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications).
    {: note}
 
-## Recovering data from Key Protect backup instance
+## Recovering data from {{site.data.keyword.keymanagementserviceshort}} backup instance
 {: #byok-backup}
 
-Did you experience a failure with your Key Protect instance? If you backed up your data to a new Key Protect instance by using the same root keys, you can update your Secrets Manager instance with data from your backup Key Protect instance. To do so, open a case and include the following information.
+Did you experience a failure with your {{site.data.keyword.keymanagementservicelong_notm}} instance? If you backed up your data to a new {{site.data.keyword.keymanagementserviceshort}} instance by using the same root keys, you can update your Secrets Manager instance with data from your backup {{site.data.keyword.keymanagementserviceshort}} instance. To do so, open a case and include the following information.
 
 * Your Secrets Manager instance's CRN
-* Your backup Key Protect instance's CRN
+* Your backup {{site.data.keyword.keymanagementserviceshort}} instance's CRN
 * The key ID
-* The original Key Protect instance's CRN and key ID, if available
+* The original {{site.data.keyword.keymanagementserviceshort}} instance's CRN and key ID, if available
 
-You must enable service-to-service authorization between your backup Key Protect instance and your Secrets Manager instance.
+You must enable service-to-service authorization between your backup {{site.data.keyword.keymanagementserviceshort}} instance and your Secrets Manager instance.
 {: important}
 
 
