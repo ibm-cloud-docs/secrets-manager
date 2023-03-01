@@ -173,7 +173,7 @@ To allow your {{site.data.keyword.cloud_notm}} API key to create and manage othe
 
 
 
-Before you can create dynamic IAM credentials, you must configure the IAM secrets engine for your service instance. You can configure a secrets engines programmatically by calling the {{site.data.keyword.secrets-manager_short}} API.
+Before you can create dynamic IAM credentials, you must configure the IAM secrets engine for your service instance. You can configure a secrets engine programmatically by calling the {{site.data.keyword.secrets-manager_short}} API.
 
 First, you need an [{{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-serviceidapikeys) that is associated with a service ID in your {{site.data.keyword.cloud_notm}} account. To allow your {{site.data.keyword.cloud_notm}} API key to create and manage other API keys dynamically, its associated service ID must have _Editor_ platform access for the IAM Access Groups Service, and _Operator_ platform access for the IAM Identity Service.
 
