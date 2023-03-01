@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-12-20"
+  years: 2020, 2023
+lastupdated: "2023-03-01"
 
 keywords: username, password, user credentials, store password
 
@@ -105,14 +105,6 @@ ibmcloud secrets-manager secret-create --secret-type username_password --resourc
 ```
 {: pre}
 
-<apiv2>
-
-```sh 
-ibmcloud secrets-manager secret-create \    
-  --secret-type=username_password \    
-  --resources='[{"name": "example-username-password-secret", "description": "Extended description for my secret.", "username": "user123","password": "cloudy-rainy-coffee-book", "custom_metadata": {"anyKey": "anyValue"}, "version_custom_metadata": {"anyKey": "anyValue"}}]'
-```
-{: pre}
 
 
 The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
