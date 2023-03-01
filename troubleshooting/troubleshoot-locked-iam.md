@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-09-08"
+  years: 2020, 2023
+lastupdated: "2023-03-01"
 
 keywords: 412 Precondition Failed, IAM credentials, locked IAM credentials
 
@@ -41,6 +41,7 @@ content-type: troubleshoot
 {:api: .ph data-hd-interface='api'}
 {:cli: .ph data-hd-interface='cli'}
 {:ui: .ph data-hd-interface='ui'}
+{:terraform: .ph data-hd-interface="terraform"}
 {:curl: .ph data-hd-programlang='curl'}
 {:java: .ph data-hd-programlang='java'}
 {:ruby: .ph data-hd-programlang='ruby'}

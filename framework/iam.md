@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-01-26"
+lastupdated: "2023-03-01"
 
 keywords: IAM access for Secrets Manager, permissions for Secrets Manager, identity and access management for Secrets Manager, roles for Secrets Manager, actions for Secrets Manager, assigning access for Secrets Manager
 
@@ -39,6 +39,7 @@ subcollection: secrets-manager
 {:api: .ph data-hd-interface='api'}
 {:cli: .ph data-hd-interface='cli'}
 {:ui: .ph data-hd-interface='ui'}
+{:terraform: .ph data-hd-interface="terraform"}
 {:curl: .ph data-hd-programlang='curl'}
 {:java: .ph data-hd-programlang='java'}
 {:ruby: .ph data-hd-programlang='ruby'}
@@ -121,7 +122,7 @@ If a specific role and its actions don't fit the use case that you're looking to
 | `secrets-manager.secret-lock.create` | Create a secret lock.   | Writer, Manager |
 | `secrets-manager.secret-lock.delete` | Delete a secret lock.  | Manager         |
 | `secrets-manager.secret-locks.list`  | List secret locks.     | Reader, SecretsReader, Writer, Manager |
-| `secrets-manager.locks.list`         |  List the locks that exist in your service instance. | Manager, Reader, Writer, SecretsReader |
+| `secrets-manager.locks.list`         |  List the locks that are exist in your service instance. | Manager, Reader, Writer, SecretsReader |
 | `secrets-manager.secret-metadata.update` | Update a secret. | Writer, Manager |
 | `secrets-manager.secret-metadata.read` | View the metadata of a secret. | Reader, SecretsReader, Writer, Manager |
 | `secrets-manager.secret-policies.set` | Set secret policies. | Manager |
