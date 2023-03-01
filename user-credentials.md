@@ -107,6 +107,7 @@ ibmcloud secrets-manager secret-create --secret-type username_password --resourc
 
 
 
+
 The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
 
 ## Adding user credentials with the API
