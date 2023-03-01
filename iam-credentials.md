@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-12-20"
+  years: 2020, 2023
+lastupdated: "2023-03-01"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -354,7 +354,6 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 {: curl}
 
 A successful request returns the ID value of the secret, along with other metadata. For more information, check out the [API reference](/apidocs/secrets-manager).
-
 
 ## Deleting IAM credentials
 {: #iam-credentials-delete}

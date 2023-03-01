@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-11-30"
+  years: 2020, 2023
+lastupdated: "2023-03-01"
 
 keywords: certificate parameters, certificate templates
 
@@ -115,7 +115,7 @@ Before you get started, be sure that you have the required level of access. To m
 You can create a certificate template for your service instance by calling the {{site.data.keyword.secrets-manager_short}} API.
 
 The following example shows a query that you can use to create a certificate template and associate it with an existing intermediate certificate authority that is configured for your instance.
-{: curl}
+{: note}
 
 
 

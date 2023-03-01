@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-02-14"
+lastupdated: "2023-03-01"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
 
@@ -213,6 +213,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 
 
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
+
 
 
 ## Ordering public certificates
@@ -814,7 +815,6 @@ A successful request returns the contents of your private certificate, along wit
 }
 ```
 {: screen}
-
 
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-01-23"
+lastupdated: "2023-03-01"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -181,7 +181,7 @@ For step-by-step instructions to create an {{site.data.keyword.cloud_notm}} API 
 {: tip}
 
 The following example shows a query that you can use to configure a secrets engine for your instance. When you call the API, replace the API key variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
-{: curl}
+{: note}
 
 
 
@@ -196,8 +196,6 @@ curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/
 ```
 {: codeblock}
 {: curl}
-
-
 
 
 
