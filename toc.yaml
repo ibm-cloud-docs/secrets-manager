@@ -132,7 +132,13 @@ toc:
           label: CLI reference
           topics:
           - /secrets-manager-cli-plugin/secrets-manager-cli-plugin-secrets-manager-cli
-          - changelog-cli.md          
+          - changelog-cli.md
+      - topicgroup:
+          label: Terraform reference
+          topics:
+          - link:
+              label: Secrets Manager Terraform
+              href: https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/secrets_manager_secret         
       - topicgroup:
           label: Vault reference
           topics:
