@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-10-31"
+  years: 2020, 2023
+lastupdated: "2023-03-01"
 
 keywords: Data security for Secrets Manager, byok, kyok, data storage, data encryption in Secrets Manager, customer managed keys
 
@@ -39,6 +39,7 @@ subcollection: secrets-manager
 {:api: .ph data-hd-interface='api'}
 {:cli: .ph data-hd-interface='cli'}
 {:ui: .ph data-hd-interface='ui'}
+{:terraform: .ph data-hd-interface="terraform"}
 {:curl: .ph data-hd-programlang='curl'}
 {:java: .ph data-hd-programlang='java'}
 {:ruby: .ph data-hd-programlang='ruby'}

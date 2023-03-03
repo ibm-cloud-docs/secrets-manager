@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-03-15"
+  years: 2020, 2023
+lastupdated: "2023-03-01"
 
 keywords: isolation for {{site.data.keyword.secrets-manager_short}}, service endpoints for {{site.data.keyword.secrets-manager_short}}, private network for {{site.data.keyword.secrets-manager_short}}, network isolation in {{site.data.keyword.secrets-manager_short}}, non-public routes for {{site.data.keyword.secrets-manager_short}}, private connection for {{site.data.keyword.secrets-manager_short}}
 
@@ -39,6 +39,7 @@ subcollection: secrets-manager
 {:api: .ph data-hd-interface='api'}
 {:cli: .ph data-hd-interface='cli'}
 {:ui: .ph data-hd-interface='ui'}
+{:terraform: .ph data-hd-interface="terraform"}
 {:curl: .ph data-hd-programlang='curl'}
 {:java: .ph data-hd-programlang='java'}
 {:ruby: .ph data-hd-programlang='ruby'}

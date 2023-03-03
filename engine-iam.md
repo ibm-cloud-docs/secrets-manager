@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-01-23"
+lastupdated: "2023-03-01"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -39,6 +39,7 @@ subcollection: secrets-manager
 {:api: .ph data-hd-interface='api'}
 {:cli: .ph data-hd-interface='cli'}
 {:ui: .ph data-hd-interface='ui'}
+{:terraform: .ph data-hd-interface="terraform"}
 {:curl: .ph data-hd-programlang='curl'}
 {:java: .ph data-hd-programlang='java'}
 {:ruby: .ph data-hd-programlang='ruby'}
@@ -173,7 +174,7 @@ To allow your {{site.data.keyword.cloud_notm}} API key to create and manage othe
 
 
 
-Before you can create dynamic IAM credentials, you must configure the IAM secrets engine for your service instance. You can configure a secrets engines programmatically by calling the {{site.data.keyword.secrets-manager_short}} API.
+Before you can create dynamic IAM credentials, you must configure the IAM secrets engine for your service instance. You can configure a secrets engine programmatically by calling the {{site.data.keyword.secrets-manager_short}} API.
 
 First, you need an [{{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-serviceidapikeys) that is associated with a service ID in your {{site.data.keyword.cloud_notm}} account. To allow your {{site.data.keyword.cloud_notm}} API key to create and manage other API keys dynamically, its associated service ID must have _Editor_ platform access for the IAM Access Groups Service, and _Operator_ platform access for the IAM Identity Service.
 
@@ -181,7 +182,7 @@ For step-by-step instructions to create an {{site.data.keyword.cloud_notm}} API 
 {: tip}
 
 The following example shows a query that you can use to configure a secrets engine for your instance. When you call the API, replace the API key variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
-{: curl}
+{: note}
 
 
 
@@ -196,8 +197,6 @@ curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/
 ```
 {: codeblock}
 {: curl}
-
-
 
 
 

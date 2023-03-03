@@ -3,7 +3,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-01-24"
+lastupdated: "2023-03-01"
 
 keywords: tutorial, Secrets Manager
 
@@ -44,6 +44,7 @@ completion-time: 45m
 {:api: .ph data-hd-interface='api'}
 {:cli: .ph data-hd-interface='cli'}
 {:ui: .ph data-hd-interface='ui'}
+{:terraform: .ph data-hd-interface="terraform"}
 {:curl: .ph data-hd-programlang='curl'}
 {:java: .ph data-hd-programlang='java'}
 {:ruby: .ph data-hd-programlang='ruby'}
@@ -556,10 +557,12 @@ If you no longer need the resources that you created in this tutorial, you can c
 ## Best practices for using External Secrets Operator with {{site.data.keyword.secrets-manager_short}} 
 {: #kubernetes-secrets-best-practices}
 
+{{site.data.keyword.secrets-manager_short}} sets a limit on the rate in which a client can send API requests to it. The limit is 20 calls per second for all API methods.
+
 As you construct your [YAML document](#tutorial-kubernetes-secrets-update-deployment), keep in mind that each key in the data section is polled periodically by using REST from the {{site.data.keyword.secrets-manager_short}} instance. Be aware that:
 
 1. By default, the polling interval is set to 1 hour. For best results with {{site.data.keyword.secrets-manager_short}}, the polling interval must be greater than 1000 * number of Kubernetes secrets. You can set this value by using `spec.refreshInterval` in the External Secrets template. 
-2. If you set the YAML to fetch a {{site.data.keyword.secrets-manager_short}} secret by name rather than ID (`keyByName: true`), each data entry generates two API calls rather than one. Be extra careful with the number of data entries in the YAML configuration file if you select this option. For more information, see the [External Secrets documentation](https://external-secrets.io/v0.5.9/provider-ibm-secrets-manager/).
+2. If you set the YAML to fetch a {{site.data.keyword.secrets-manager_short}} secret by name rather than ID (`keyByName: true`), each data entry generates two API calls rather than one. Be extra careful with the number of data entries in the YAML configuration file if you select this option. For more information, see the [External Secrets documentation](https://external-secrets.io/latest/){: external}.
 
 
 ## Next steps
@@ -567,5 +570,5 @@ As you construct your [YAML document](#tutorial-kubernetes-secrets-update-deploy
 
 Great job! In this tutorial, you learned how to set up {{site.data.keyword.secrets-manager_short}} to securely populate application secrets to your cluster. Check out more resources to help you get started with {{site.data.keyword.secrets-manager_short}}.
 
-- Review the [secret types in {{site.data.keyword.secrets-manager_short}}](https://external-secrets.io/v0.5.9/provider-ibm-secrets-manager/#secret-types){: external} that are supported by External Secrets Operator.
+- Review the [secret types in {{site.data.keyword.secrets-manager_short}}](https://external-secrets.io/latest/provider/ibm-secrets-manager/){: external} that are supported by External Secrets Operator.
 - Learn more about the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager).

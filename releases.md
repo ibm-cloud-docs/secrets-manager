@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-12-22"
+  years: 2020, 2023
+lastupdated: "2023-03-03"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -40,6 +40,7 @@ content-type: release-note
 {:api: .ph data-hd-interface='api'}
 {:cli: .ph data-hd-interface='cli'}
 {:ui: .ph data-hd-interface='ui'}
+{:terraform: .ph data-hd-interface="terraform"}
 {:curl: .ph data-hd-programlang='curl'}
 {:java: .ph data-hd-programlang='java'}
 {:ruby: .ph data-hd-programlang='ruby'}
@@ -65,6 +66,13 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 
 
 
+
+## 3 March 2023
+{: #secrets-manager-mar0323}
+
+Now available: Terraform support
+:  {{site.data.keyword.secrets-manager_short}}  now supports Terraform on {{site.data.keyword.cloud_notm}}. For more information, see [Setting up Terraform for {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-terraform-setup) and the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/secrets_manager_secret){: external}.
+
 ## 11 December 2022
 {: #secrets-manager-dec1122}
 {: release-note}
@@ -82,6 +90,10 @@ Support for context-based restrictions (CBR)
 
 Manually configure your own DNS provider
 :   If you work with a DNS provider that is not currently integrated with the service, you can manually configure it when you use the {{site.data.keyword.secrets-manager_short}} UI to order new certificates. If you choose to manually configure a provider, you must complete a challenge to prove ownership over your domain. For more information, see [Ordering public certificates with your own DNS provider in the UI](/docs/secrets-manager?topic=secrets-manager-certificates&interface=ui#order-certificates-manual-ui).
+
+Create a leaf certificate with a certificate signing request
+:   You can create private leaf certificates through your public key infrastructure (PKI) by using a certificate signing request (CSR). [Learn more](/apidocs/secrets-manager/secrets-manager-v2#create-configuration-action).
+
 
 ## 18 October 2022
 {: #secrets-manager-oct1822}
@@ -166,9 +178,7 @@ CLI plug-in version 0.1.20
 {: release-note}
 
 Allow access to {{site.data.keyword.secrets-manager_short}} in a restricted account
-:   Working in an account that has [IP address access restrictions](/docs/account?topic=account-ips)? To use certain features in {{site.data.keyword.secrets-manager_short}}, for example, to generate IAM credentials, an extra step is required to ensure that your account is able to accept incoming requests from the service. If your account allows access to only specific IP addresses, you can update your account settings to specify a required list of IP addresses for {{site.data.keyword.secrets-manager_short}}.
-
-    For more information, check out [IP addresses for {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-ip-addresses).
+:   Working in an account that has [IP address access restrictions](/docs/account?topic=account-ips&interface=ui)? To use certain features in {{site.data.keyword.secrets-manager_short}}, for example, to generate IAM credentials, an extra step is required to ensure that your account is able to accept incoming requests from the service. If your account allows access to only specific IP addresses, you can update your account settings to specify a required list of IP addresses for {{site.data.keyword.secrets-manager_short}}.
 
 ## 27 May 2022
 {: #secrets-manager-may2722}
@@ -378,7 +388,7 @@ Import and manage your existing TLS certificates
 Connect to {{site.data.keyword.secrets-manager_short}} from your VPC network
 :   You can now connect to a {{site.data.keyword.secrets-manager_short}} service instance by using Virtual Private Endpoints (VPE) for VPC. 
 
-   To learn how to connect your existing {{site.data.keyword.secrets-manager_short}} instance, see [Securing your connection to {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-virtual-private-endpoint). For more information about setting up a virtual private endpoint gateway, check out [About virtual private endpoint gateways](/docs/vpc?topic=vpc-about-vpe).
+   To learn how to connect your existing {{site.data.keyword.secrets-manager_short}} instance, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints). For more information about setting up a virtual private endpoint gateway, check out [About virtual private endpoint gateways](/docs/vpc?topic=vpc-about-vpe).
 
 ## 19 May 2021
 {: #secrets-manager-may1921}

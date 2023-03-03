@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-09-08"
+  years: 2020, 2023
+lastupdated: "2023-03-01"
 
 keywords: HA for {{site.data.keyword.secrets-manager_short}}, DR for {{site.data.keyword.secrets-manager_short}}, high availability for {{site.data.keyword.secrets-manager_short}}, disaster recovery for {{site.data.keyword.secrets-manager_short}}, failover for {{site.data.keyword.secrets-manager_short}}
 
@@ -39,6 +39,7 @@ subcollection: secrets-manager
 {:api: .ph data-hd-interface='api'}
 {:cli: .ph data-hd-interface='cli'}
 {:ui: .ph data-hd-interface='ui'}
+{:terraform: .ph data-hd-interface="terraform"}
 {:curl: .ph data-hd-programlang='curl'}
 {:java: .ph data-hd-programlang='java'}
 {:ruby: .ph data-hd-programlang='ruby'}
@@ -62,7 +63,7 @@ subcollection: secrets-manager
 
 In each supported region, the service exists in multiple availability zones with no single point of failure. All the data that is associated with your instance of the service, including your secrets, is backed up across regions.
 
-However, because {{site.data.keyword.secrets-manager_short}} is a regional service, cross-regional failover and cross-regional disaster recovery are not automatic. If all the availability zones in a region fail, {{site.data.keyword.secrets-manager_short}} becomes unavailable in that location. When the region is available again, data and traffic is restored without any need for action from you.
+However, because {{site.data.keyword.secrets-manager_short}} is a regional service, cross-regional failover, and cross-regional disaster recovery are not automatic. If all the availability zones in a region fail, {{site.data.keyword.secrets-manager_short}} becomes unavailable in that location. When the region is available again, data and traffic is restored without any need for action from you.
 
 See [How do I ensure zero downtime?](/docs/overview?topic=overview-zero-downtime) to learn more about the high availability and disaster recovery standards in {{site.data.keyword.cloud_notm}}. You can also find information about [Service Level Agreements](/docs/overview?topic=overview-slas).
 
@@ -87,3 +88,20 @@ Creating an automatic backup of your secrets is possible by automating the manua
 
    Currently, {{site.data.keyword.secrets-manager_short}} supports notifications for certificates only. To learn about the various available lifecycle event types, see [Enabling event notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications).
    {: note}
+
+## Recovering data from a {{site.data.keyword.keymanagementserviceshort}} backup instance
+{: #byok-backup}
+
+Did you experience a failure with your {{site.data.keyword.keymanagementservicelong_notm}} instance? If you backed up your data to a new {{site.data.keyword.keymanagementserviceshort}} instance by using the same root keys, you can update your Secrets Manager instance with data from your backup {{site.data.keyword.keymanagementserviceshort}} instance. To do so, open a case and include the following information.
+
+* Your Secrets Manager instance's CRN
+* Your backup {{site.data.keyword.keymanagementserviceshort}} instance's CRN
+* The key ID
+* The original {{site.data.keyword.keymanagementserviceshort}} instance's CRN and key ID, if available
+
+You must enable service-to-service authorization between your backup {{site.data.keyword.keymanagementserviceshort}} instance and your Secrets Manager instance.
+{: important}
+
+
+For more information, see {{site.data.keyword.keymanagementserviceshort}}'s procedures for [high availability and disaster recovery](/docs/key-protect?topic=key-protect-ha-dr&interface=ui).
+

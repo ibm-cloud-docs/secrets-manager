@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-07-07"
+  years: 2020, 2023
+lastupdated: "2023-03-01"
 
 keywords: IAM access for Secrets Manager, permissions for Secrets Manager, identity and access management for Secrets Manager, roles for Secrets Manager, actions for Secrets Manager, assigning access for Secrets Manager
 
@@ -39,6 +39,7 @@ subcollection: secrets-manager
 {:api: .ph data-hd-interface='api'}
 {:cli: .ph data-hd-interface='cli'}
 {:ui: .ph data-hd-interface='ui'}
+{:terraform: .ph data-hd-interface="terraform"}
 {:curl: .ph data-hd-programlang='curl'}
 {:java: .ph data-hd-programlang='java'}
 {:ruby: .ph data-hd-programlang='ruby'}
@@ -102,6 +103,8 @@ If a specific role and its actions don't fit the use case that you're looking to
 {: class="simple-tab-table"}
 {: row-headers}
 
+
+
 | Action | Description | Roles |
 | ----- | :----- | :----- |
 | `secrets-manager.dashboard.view` | View the {{site.data.keyword.secrets-manager_short}} dashboard. | Viewer, Operator, Editor, Administrator |
@@ -119,7 +122,7 @@ If a specific role and its actions don't fit the use case that you're looking to
 | `secrets-manager.secret-lock.create` | Create a secret lock.   | Writer, Manager |
 | `secrets-manager.secret-lock.delete` | Delete a secret lock.  | Manager         |
 | `secrets-manager.secret-locks.list`  | List secret locks.     | Reader, SecretsReader, Writer, Manager |
-| `secrets-manager.locks.list`         | List service instance locks. | List the locks that are exist in your service instance. | Manager, Reader, Writer, SecretsReader |
+| `secrets-manager.locks.list`         |  List the locks that exist in your service instance. | Manager, Reader, Writer, SecretsReader |
 | `secrets-manager.secret-metadata.update` | Update a secret. | Writer, Manager |
 | `secrets-manager.secret-metadata.read` | View the metadata of a secret. | Reader, SecretsReader, Writer, Manager |
 | `secrets-manager.secret-policies.set` | Set secret policies. | Manager |
@@ -138,6 +141,8 @@ If a specific role and its actions don't fit the use case that you're looking to
 {: tab-group="secrets-manager"}
 {: class="simple-tab-table"}
 {: summary="Use the tab buttons to change the context of the table. This table provides the available actions for the service, descriptions of each, and the roles that each action are mapped to."}
+
+
 
 ## Assigning access to {{site.data.keyword.secrets-manager_short}}
 {: #iam-assign-access}

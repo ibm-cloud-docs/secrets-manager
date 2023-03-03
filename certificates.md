@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-12-20"
+  years: 2020, 2023
+lastupdated: "2023-03-01"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
 
@@ -39,6 +39,7 @@ subcollection: secrets-manager
 {:api: .ph data-hd-interface='api'}
 {:cli: .ph data-hd-interface='cli'}
 {:ui: .ph data-hd-interface='ui'}
+{:terraform: .ph data-hd-interface="terraform"}
 {:curl: .ph data-hd-programlang='curl'}
 {:java: .ph data-hd-programlang='java'}
 {:ruby: .ph data-hd-programlang='ruby'}
@@ -123,7 +124,7 @@ You can import an existing certificate by using the {{site.data.keyword.secrets-
     Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 7. Select a certificate file or enter its value.
 
-    You can store unexpired X.509 certificate files that are in PEM format. If you're working with certificates that are in a different format, you can use command line utilities to convert your certificates to `.pem`. For more information, see [Why can't I import my certificate?](/docs/secrets-manager?topic=secrets-manager-troubleshoot-pem)
+    You can store unexpired X.509 certificate files that are in PEM format. If you're working with certificates that are in a different format, you can use command-line utilities to convert your certificates to `.pem`. For more information, see [Why can't I import my certificate?](/docs/secrets-manager?topic=secrets-manager-troubleshoot-pem)
 
 8. Optional: Select a private key file or enter its value.
 
@@ -215,6 +216,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
 
 
+
 ## Ordering public certificates
 {: #order-certificates}
 
@@ -222,14 +224,13 @@ After you [configure the public certificates engine](/docs/secrets-manager?topic
 
 - {{site.data.keyword.secrets-manager_short}} sends your request to the selected certificate authority. The status of the certificate changes to **Pre-activation** to indicate that your request is being processed.
 - If the validation completes successfully, your certificate is issued and its status changes to **Active**.
-  
-    If the validation doesn't complete successfully, the status of your certificate changes to **Deactivated**. From your Secrets table, you can check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.
+- If the validation doesn't complete successfully, the status of your certificate changes to **Deactivated**. From your Secrets table, you can check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.
     {: ui}
 
-    If the validation doesn't complete successfully, the status of your certificate changes to **Deactivated**. From your Secrets table, you can check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.
+- If the validation doesn't complete successfully, the status of your certificate changes to **Deactivated**. From your Secrets table, you can check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.
     {: cli}
 
-    If the validation doesn't complete successfully, the status of your certificate changes to **Deactivated**. You can use the [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
+- If the validation doesn't complete successfully, the status of your certificate changes to **Deactivated**. You can use the [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
     {: api}
 
 - After the certificate is issued, you can deploy it to your integrated apps, download it, or modify its rotation options. 
@@ -284,8 +285,22 @@ You can order a certificate by using the {{site.data.keyword.secrets-manager_sho
 {: #order-certificates-cli}
 {: cli}
 
-Currently, ordering certificates is available by using the UI or API only. To see the steps, switch to the [UI](#order-certificates-ui) or [API](#order-certificates-api) instructions.
+To order a public certificate with an integrated DNS provider by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. You can specify the type of secret by using the `--secret-type public_cert` option. For example, the following command requests a public certificate secret from the certificate authority that you specify.
 
+When you order a certificate, domain validation takes place to verify the ownership of your selected domains. This process can take a few minutes to complete.
+{: note}
+
+
+
+
+```sh
+ibmcloud secrets-manager secret-create --secret-type public_cert --resources '[{"name": "example-certificate","description": "Extended description for my secret.","ca": "certificate-authority-name", "dns": "dns_provider", "common_name": "cert_common_name","alt_names": ["alt_name1", "alt_name2"],"algorithm": "sha256WithRSAEncryption","key_algorithm": "rsaEncryption 2048 bit","rotation": {"enabled": false,"rotate_keys":false}}]' --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
+```
+{: pre}
+
+
+
+The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
 
 
 ### Ordering public certificates with integrated DNS providers by using the API
@@ -392,7 +407,7 @@ To create a public certificate by using a manual DNS provider in the UI, complet
 14. Click **Order**.
 15. Check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**. 
 16. Click **Challenges** to access the TXT record name and value that are associated with each of your domains. You need them to complete the challenges.
-17. To validate the ownership of your domains, manually add the TXT records that are provided for each of your domains to your DNS provider account. You must address only the challenges that are not validated, before the expiration date. 
+17. To validate the ownership of your domains, manually add the TXT records that are provided for each of your domains to your DNS provider account. You must address only the challenges that are not validated before the expiration date. 
 
     If you order a certificate for subdomains, for example, `sub1.sub2.domain.com`, you need to add the TXT records to your registered domain `domain.com`.
     {: note}
@@ -549,16 +564,37 @@ To create a public certificate by using a manual DNS provider, complete the foll
    {: codeblock}
    {: curl}
 
-   If you need to update your certificate later, you can use the same [Invoke an action on a secret](/apidocs/secrets-manager#update-secret) API but with the action `rotate`. However, you can't automatically rotate manual DNS provider certificates in {{site.data.keyword.secrets-manager_short}}.
+   If you need to update your certificate later, you can use the [Invoke an action on a secret](/apidocs/secrets-manager#update-secret) API but with the action `rotate`. However, you can't automatically rotate manual DNS provider certificates in {{site.data.keyword.secrets-manager_short}}.
    {: note}
 
 
 6. When your certificate is issued, clean up and remove the TXT records from the domains in your DNS provider account.
 
 
-Want to automate the creation of your public certificates? If your domains are configured through a DNS provider, you can create a script to complete the challenges. Some DNS providers offer an API that checks whether the new records are fully transmitted. If your DNS provider doesn't offer this option, you can configure your client to wait for a specified amount of time, sometimes up to an hour. In {{site.data.keyword.secrets-manager_short}}, after calling `validate-dns-challenges`, you can check the status of the certificate issuance by obtaining your certificate metadata. When the `IssuanceInfo.State` field that is returned changes to `active`, the certificate is issued. 
+Want to automate the creation of your public certificates? If your domains are configured through a DNS provider, you can create a script to complete the challenges. Some DNS providers offer an API that checks whether the new records are fully transmitted. If your DNS provider doesn't offer this option, you can configure your client to wait for a specified amount of time, sometimes up to an hour. In {{site.data.keyword.secrets-manager_short}}, after you call `validate-dns-challenges`, you can check the status of the certificate issuance by obtaining your certificate metadata. When the `IssuanceInfo.State` field that is returned changes to `active`, the certificate is issued. 
 {: tip}
 
+
+### Ordering public certificates with your own DNS provider by using the CLI
+{: #order-certificates-manual-cli}
+{: cli}
+
+To order a public certificate with your own DNS provider by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. You can specify the type of secret by using the `--secret-type public_cert` option. For example, the following command requests a public certificate secret from the certificate authority that you specify.
+
+When you order a certificate, domain validation takes place to verify the ownership of your selected domains. This process can take a few minutes to complete.
+{: note}
+
+
+
+```sh
+ibmcloud secrets-manager secret-create --secret-type public_cert --resources '[{"name": "example-certificate","description": "Extended description for my secret.","ca": "certificate-authority-name", "dns": "manual", "common_name": "cert_common_name","alt_names": ["alt_name1", "alt_name2"],"algorithm": "sha256WithRSAEncryption","key_algorithm": "rsaEncryption 2048 bit","rotation": {"enabled": false,"rotate_keys":false}}]' --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
+```
+{: pre}
+
+
+
+
+The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
 
 
 ## Creating private certificates
@@ -609,6 +645,29 @@ You can create a private certificate by using the {{site.data.keyword.secrets-ma
 14. Click **Create**.
 
     After a certificate is issued, you can deploy it to your integrated apps, download it, revoke it, or rotate it manually. Your private key for SSL/TLS is generated directly in {{site.data.keyword.secrets-manager_short}} and stored securely.
+
+
+### Creating private certificates from the CLI
+{: #generate-certificates-cli}
+{: cli}
+
+To create a private certificate by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. You can specify the type of secret by using the `--secret-type private_cert` option. For example, the following command creates a private certificate secret from the certificate template that you specify.
+
+When you order a certificate, domain validation takes place to verify the ownership of your selected domains. This process can take a few minutes to complete.
+{: note}
+
+
+
+```sh
+ibmcloud secrets-manager secret-create --secret-type private_cert --resources '[{"name": "example-certificate","description": "Extended description for my secret.","certificate_template": "example-certificate-template", "secret_group_id": "432b91f1-ff6d-4b47-9f06-82debc236d90", "common_name": "cert_common_name","rotation": {"enabled": false,"rotate_keys":false}}]' --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
+```
+{: pre}
+
+
+
+
+
+The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
 
 
 
@@ -757,7 +816,6 @@ A successful request returns the contents of your private certificate, along wit
 }
 ```
 {: screen}
-
 
 
 

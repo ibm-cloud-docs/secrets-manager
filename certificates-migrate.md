@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-01-23"
+lastupdated: "2023-03-01"
 
 keywords: migrate from {{site.data.keyword.cloudcerts_short}}, migrate to Secrets Manager, migrate certificates
 
@@ -39,6 +39,7 @@ subcollection: secrets-manager
 {:api: .ph data-hd-interface='api'}
 {:cli: .ph data-hd-interface='cli'}
 {:ui: .ph data-hd-interface='ui'}
+{:terraform: .ph data-hd-interface="terraform"}
 {:curl: .ph data-hd-programlang='curl'}
 {:java: .ph data-hd-programlang='java'}
 {:ruby: .ph data-hd-programlang='ruby'}
@@ -62,7 +63,7 @@ With {{site.data.keyword.secrets-manager_full}}, you can centralize your applica
 {: shortdesc}
 
 
-As of 10 February 2022, {{site.data.keyword.cloudcerts_long_notm}} is deprecated. The strategic alternative for managing certificates in {{site.data.keyword.cloud_notm}} is {{site.data.keyword.secrets-manager_short}}. For more information, see the [deprecation announcement](/docs/certificate-manager?topic=certificate-manager-release-notes#certificate-manager-feb1022).
+As of 10 February 2022, {{site.data.keyword.cloudcerts_long_notm}} is deprecated. The strategic alternative for managing certificates in {{site.data.keyword.cloud_notm}} is {{site.data.keyword.secrets-manager_short}}. 
 {: note}
 
 
