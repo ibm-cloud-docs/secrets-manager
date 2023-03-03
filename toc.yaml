@@ -106,6 +106,8 @@ toc:
           topics:
           - framework/at-events.md
           - framework/logging.md
+      - topic: terraform-setup.md
+        navtitle: Setting up Terraform
       - topicgroup:
           label: Enhancing security
           topics:
