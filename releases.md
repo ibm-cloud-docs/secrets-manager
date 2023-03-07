@@ -496,7 +496,7 @@ Now available: {{site.data.keyword.secrets-manager_short}} CLI plug-in
 Now available: {{site.data.keyword.secrets-manager_short}} Node.js SDK
 :   You can now use the {{site.data.keyword.secrets-manager_full_notm}} Node.js SDK to connect to your {{site.data.keyword.secrets-manager_short}} service instance.
 
-   For more information, check out the [{{site.data.keyword.secrets-manager_full_notm}} Node.js SDK repository in GitHub](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}.
+   For more information, check out the [{{site.data.keyword.secrets-manager_full_notm}} Node.js SDK repository in GitHub](https://github.com/IBM/secrets-manager-node-sdk){: external}.
 
 ## 13 November 2020
 {: #secrets-manager-nov1320}
