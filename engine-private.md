@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-03-07"
 
 keywords: create certificate authority, create root CA, create intermediate CA, set up PKI, set up private certificates, private certificates engine
 
@@ -121,7 +121,7 @@ Generally, you can configure a root CA that doesn't limit the number of subordin
 
 ![The diagram shows a four-level hierarchy of certificates that begins with a root certificate authority in the first level.](images/max-path-length.svg){: caption="Figure 3. Three-level certificate authority hierarchy" caption-side="bottom"}
 
-The maximum path length that you define does not include leaf certificates. In the example above, the subordinate CA in level 4 can issue leaf certificates but is unable to have more CA certificates in its path. 
+The maximum path length that you define does not include leaf certificates. In the previous example, the subordinate CA in level 4 can issue leaf certificates but is unable to have more CA certificates in its path. 
 {: note}
 
 ### Choosing a validity period for your certificates
