@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-03"
+lastupdated: "2023-03-07"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -185,7 +185,7 @@ Allow access to {{site.data.keyword.secrets-manager_short}} in a restricted acco
 {: release-note}
 
 Integration with {{site.data.keyword.alb_full}}
-:   You can now use {{site.data.keyword.secrets-manager_short}} to centrally manage the SSL/TLS certificates that are required for load balancers to perform SSL offloading tasks. To learn more about this integration, check out the [{{site.data.keyword.alb_full}} documentation](/docs/vpc?topic=vpc-load-balancers#ssl-offloading-and-required-authorizations){: external}.
+:   You can now use {{site.data.keyword.secrets-manager_short}} to centrally manage the SSL/TLS certificates that are required for load balancers to perform SSL offloading tasks. To learn more about this integration, check out the [{{site.data.keyword.alb_full}} documentation](/docs/vpc?topic=vpc-load-balancers){: external}.
 
 
 ## 16 May 2022
@@ -234,7 +234,7 @@ CLI plug-in version 1.1.18
 {: release-note}
 
 Integrations with {{site.data.keyword.containershort}} and {{site.data.keyword.openshiftshort}}
-:   You can now use {{site.data.keyword.secrets-manager_short}} to centrally manage Ingress subdomain certificates and other secrets for your Kubernetes or {{site.data.keyword.openshiftshort}} clusters. To learn more about this integration, check out the [{{site.data.keyword.containershort}}](/docs/containers?topic=containers-ingress-types#manage_certs_secrets_mgr){: external} or [{{site.data.keyword.openshiftshort}} documentation](/docs/openshift?topic=openshift-ingress-roks4#manage_certs){: external}.
+:   You can now use {{site.data.keyword.secrets-manager_short}} to centrally manage Ingress subdomain certificates and other secrets for your Kubernetes or {{site.data.keyword.openshiftshort}} clusters. To learn more about this integration, check out the [{{site.data.keyword.containershort}}](/docs/containers?topic=containers-ingress-types){: external} or [{{site.data.keyword.openshiftshort}} documentation](/docs/openshift?topic=openshift-ingress-roks4#manage_certs){: external}.
 
 ## 23 March 2022
 {: #secrets-manager-mar2322}
