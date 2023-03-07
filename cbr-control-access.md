@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-03-07"
 
 keywords: context-based restrictions, access allowlist, network security
 
@@ -84,7 +84,7 @@ CBR rules do not apply to provisioning or deprovision processes.
 ## Understanding network zones
 {: #cbr-network-zones}
 
-By creating network zones, you can define an allowlist of network locations where access requests originate, to determine when a rule can be applied. The list of network locations can be specified by using IP addresses, such as individual addresses, ranges or subnets, and Virtual Private Cloud (VPC) IDs. 
+By creating network zones, you can define an allowlist of network locations where access requests originate to determine when a rule can be applied. The list of network locations can be specified by using IP addresses, such as individual addresses, ranges or subnets, and Virtual Private Cloud (VPC) IDs. 
 
 After you create a network zone, you can add it to a rule.
 
@@ -94,7 +94,7 @@ After you create a network zone, you can add it to a rule.
 
 The API supports defining [network zones](/apidocs/context-based-restrictions#introduction) by connecting to public (for example, cbr.cloud.ibm.com) and private endpoints (for example, private.cbr.cloud.ibm.com).
 
-Use `GET /v1/zones` to list the zones. By using `POST /v1/zones`, you can create a new zone with the appropriate information. For more information, including a request body example, see [Creating network zones by using the API](/docs/account?topic=account-context-restrictions-create&interface=api#network-zones-create-api).
+Use `GET /v1/zones` to list the zones. By using `POST /v1/zones`, you can create a new zone with the appropriate information. For more information, see [Creating network zones by using the API](/docs/account?topic=account-context-restrictions-create&interface=api#network-zones-create-api).
 
 You can determine which services are available by checking for [reference targets](/apidocs/context-based-restrictions#list-available-serviceref-targets). 
 {: note}
@@ -124,7 +124,7 @@ After you create your zones, you can attach the zones to your network resources 
 
 You can define network rules with the API by using the information that you collected from creating network zones.
 
-By using `GET /v1/rules` with the endpoints that you chose, you can view a list of current rules. Use `POST /v1/rules` to create new rules. For more information, including a request body example, see [Creating rules by using the API](/docs/account?topic=account-context-restrictions-create&interface=api#context-restrictions-create-rules-api).
+By using `GET /v1/rules` with the endpoints that you chose, you can view a list of current rules. Use `POST /v1/rules` to create new rules. For more information, see [Creating rules by using the API](/docs/account?topic=account-context-restrictions-create&interface=api#context-restrictions-create-rules-api).
 
 After you create rules, you can [update](/apidocs/context-based-restrictions#replace-rule) and [delete](/apidocs/context-based-restrictions#delete-rule) them.
 
@@ -142,6 +142,9 @@ Unlike IAM policies, context-based restrictions don't assign access. Context-bas
 {: important}
 
 After you create rules, you can [update](/apidocs/context-based-restrictions#replace-rule) and [delete](/apidocs/context-based-restrictions#delete-rule) them.
+
+
+
 
 
 ## Next steps
