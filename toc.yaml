@@ -52,7 +52,6 @@ toc:
           - provision.md
           - assign-access.md
           - developer-tools.md
-          - cbr-control-access.md
       - topicgroup:
           label: Working with secrets
           topics:
@@ -119,6 +118,7 @@ toc:
               - topic: framework/cse.md
                 navtitle: Using service endpoints
           - framework/data-security.md
+          - cbr-control-access.md
 
   - navgroup:
       id: reference
