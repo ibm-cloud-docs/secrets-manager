@@ -149,12 +149,8 @@ After you create zones, you can [update](/apidocs/context-based-restrictions#rep
 
 After you set the prerequisites and requirements, you can create zones in the UI. For more information, see [Creating context-based restrictions](/docs/account?topic=account-context-restrictions-create&interface=ui#network-zones-create).
 
-Instead of creating a zone by using UI inputs, you can use the JSON code form to create a zone by clicking **Enter as JSON code**. 
-{: note}
-
-***Insert your examples here.***
-
-
+1. Determine the resources that you want add to your allowlist.
+2. Follow the steps to [create context-based restrictions](/docs/account?topic=account-context-restrictions-create&interface=ui#network-zones-create) in the console. Add the {{site.data.keyword.secrets-manager_short}} service to your network zones to allow {{site.data.keyword.secrets-manager_full}} to access services and resources in your account.
 
 After you create zones, you can also [update](/apidocs/context-based-restrictions#replace-zone) and [delete](/docs/account?topic=account-context-restrictions-remove&interface=ui) them.
 
@@ -196,11 +192,10 @@ After you create rules, you can [update](/apidocs/context-based-restrictions#rep
 {: #cbr-create-rules-ui}
 {: ui}
 
-After you set the prerequisites and requirements, you can create rules in the UI. For more information, see [Creating context-based restrictions](/docs/account?topic=account-context-restrictions-create&interface=ui#network-zones-create).
+After you set the prerequisites and requirements, you can create rules in the UI. 
 
-
-
-***Insert your examples here.***
+1. Determine the resources that you want add to your allowlist.
+2. Follow the steps to [create context-based restrictions](/docs/account?topic=account-context-restrictions-create&interface=ui#context-restrictions-create-rules) in the console. Add the {{site.data.keyword.secrets-manager_short}} service to your network zones to allow {{site.data.keyword.secrets-manager_full}} to access services and resources in your account.
 
 After you create rules, you can [update](/apidocs/context-based-restrictions#replace-rule) and [delete](/apidocs/context-based-restrictions#delete-rule) them.
 
