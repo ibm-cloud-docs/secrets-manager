@@ -110,7 +110,7 @@ Context-based restrictions protect only the actions that are associated with the
 
 
 
-## Understanding network zones
+## Creating network zones
 {: #cbr-network-zones}
 
 By creating network zones, you can define an allowlist of network locations where access requests originate to determine when a rule can be applied. The list of network locations can be specified by the following attributes:
@@ -128,7 +128,10 @@ Make sure to add {{site.data.keyword.secrets-manager_short}} to network zones fo
 {: #cbr-create-zones-api}
 {: api}
 
-The API supports defining [network zones](/apidocs/context-based-restrictions#introduction) by connecting to public (for example, cbr.cloud.ibm.com) and private endpoints (for example, private.cbr.cloud.ibm.com).
+You can create network zones by using the create-zone command. For more information, see the [API docs](/apidocs/context-based-restrictions#create-zone). You can add {{site.data.keyword.secrets-manager_short}} to network zones as a service reference to allow {{site.data.keyword.secrets-manager_short}} to access resources and services in your account that are the subject of a rule.
+
+The serviceRef attribute for {{site.data.keyword.secrets-manager_short}} is `secrets-manager`. {: tip} 
+
 
 Use `GET /v1/zones` to list the zones. By using `POST /v1/zones`, you can create a new zone with the appropriate information. For more information, see [Creating network zones by using the API](/docs/account?topic=account-context-restrictions-create&interface=api#network-zones-create-api).
 
@@ -160,9 +163,9 @@ After you create zones, you can also [update](/apidocs/context-based-restriction
 {: #cbr-create-zone-cli}
 {: cli}
 
-You can use the cbr-zone-create command to add network locations, VPCs, and service references to network zones. For more information, see the CBR CLI reference. Add {{site.data.keyword.secrets-manager_short}} to network zones as a service reference to allow {{site.data.keyword.secrets-manager_short}} to access resources and services in your account that are the subject of a rule.
+You can use the `cbr-zone-create` command to add network locations, VPCs, and service references to network zones. For more information, see the CBR [CLI reference](/docs/account?topic=account-cbr-plugin#cbr-zones-cli). Add {{site.data.keyword.secrets-manager_short}} to network zones as a service reference to allow {{site.data.keyword.secrets-manager_short}} to access resources and services in your account that are the subject of a rule.
 
-To find a list of available service references, run the `ibmcloud cbr service-ref-targets` [command](/docs/account?topic=cli-cbr-plugin#cbr-cli-service-ref-targets-command). The `service_name` for {{site.data.keyword.secrets-manager_short}} is `_secretsManager_`.
+To find a list of available service references, run the `ibmcloud cbr service-ref-targets` [command](/docs/account?topic=account-cbr-plugin#cbr-cli-service-ref-targets-command). The `service_name` for {{site.data.keyword.secrets-manager_short}} is `secrets-manager`.
 {: tip}
 
 
@@ -193,13 +196,9 @@ After you create rules, you can [update](/apidocs/context-based-restrictions#rep
 {: #cbr-create-rules-ui}
 {: ui}
 
-After you set the prerequisites and requirements, you can create zones in the UI. For more information, see [Creating context-based restrictions](/docs/account?topic=account-context-restrictions-create&interface=ui#network-zones-create).
+After you set the prerequisites and requirements, you can create rules in the UI. For more information, see [Creating context-based restrictions](/docs/account?topic=account-context-restrictions-create&interface=ui#network-zones-create).
 
 
-You can use the CBR UI to [add resources and contexts](/docs/account?topic=account-context-restrictions-create&interface=ui#context-restrictions-create-rules) to your rules. Keep in mind that, when you create context-based restrictions for the IAM Access Groups service, users who don't satisfy the rule can't view any groups in the account, including the public access group. 
-
-Unlike IAM policies, context-based restrictions don't assign access. Context-based restrictions check that an access request comes from an allowed context that you configure. Also, the rules might not take effect immediately due to synchronization and resource availability.  
-{: important}
 
 ***Insert your examples here.***
 
