@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-03-13"
+lastupdated: "2023-03-14"
 
 keywords: context-based restrictions, access allowlist, network security
 
@@ -59,12 +59,15 @@ subcollection: secrets-manager
 {: #access-control-cbr}
 
 After you set up your {{site.data.keyword.secrets-manager_full}} service instance, you can manage access by using [context-based restrictions (CBR)](https://cloud.ibm.com/context-based-restrictions/overview){: external}. 
-{: shortdesc}
+
 
 ## Managing CBR settings
 {: #manage-cbr-settings}
 
-With [context-based restrictions](/docs/account?topic=account-context-restrictions-whatis), you can define and enforce user and service access restrictions to {{site.data.keyword.secrets-manager_short}} resources based on specified criteria. You can control {{site.data.keyword.secrets-manager_short}} resources with context-based restrictions and identity and access management (IAM) policies. These resources include Virtual Private Cloud (VPC) references and Internet Protocol (IP) addresses that are linked to your {{site.data.keyword.secrets-manager_short}} instance.
+With [context-based restrictions](/docs/account?topic=account-context-restrictions-whatis), you can define and enforce user and service access restrictions to {{site.data.keyword.secrets-manager_short}} resources based on specified criteria.
+{: shortdesc} 
+
+You can control {{site.data.keyword.secrets-manager_short}} resources with context-based restrictions and identity and access management (IAM) policies. These resources include Virtual Private Cloud (VPC) references and Internet Protocol (IP) addresses that are linked to your {{site.data.keyword.secrets-manager_short}} instance.
 
 These restrictions work with traditional IAM policies, which are based on identity, to provide an extra layer of protection. Unlike IAM policies, context-based restrictions don't assign access. Context-based restrictions check that an access request comes from an allowed context that you configure. Since both IAM access and context-based restrictions enforce access, context-based restrictions offer protection even in the face of compromised or mismanaged credentials. For more information, see [What are context-based restrictions](/docs/account?topic=account-context-restrictions-whatis).
 
