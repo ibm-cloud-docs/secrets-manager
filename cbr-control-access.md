@@ -132,14 +132,88 @@ You can create network zones by using the create-zone command. For more informat
 
 The serviceRef attribute for {{site.data.keyword.secrets-manager_short}} is `secrets-manager`. {: tip} 
 
-
-Use `GET /v1/zones` to list the zones. By using `POST /v1/zones`, you can create a new zone with the appropriate information. For more information, see [Creating network zones by using the API](/docs/account?topic=account-context-restrictions-create&interface=api#network-zones-create-api).
-
 You can determine which services are available by checking for [reference targets](/apidocs/context-based-restrictions#list-available-serviceref-targets). 
 {: note}
 
-***Insert your examples here.***
+Example payload to add {{site.data.keyword.secrets-manager_short}} to a network zone. 
 
+```json
+{
+  "name": "Example zone 1",
+  "description": "",
+  "addresses": [
+    {
+      "type": "serviceRef",
+      "ref": {
+        "service_name": "secrets-manager",
+        "account_id": "ACCOUNT-ID"
+      }
+    }
+  ]
+}
+```
+{: codeblock}
+
+
+Example payload to add multiple services, IP addresses, and VPCs to a network zone.
+
+```json
+{
+  "name": "zone",
+  "description": "",
+  "addresses": [
+    {
+      "type": "ipAddress",
+      "value": "192.168.0.0"
+    },
+    {
+      "type": "vpc",
+      "value": "crn:v1:bluemix:public:is:us-east:a/CRN"
+    },
+    {
+      "type": "vpc",
+      "value": "crn:v1:bluemix:public:is:us-south:a/CRN"
+    },
+    {
+      "type": "serviceRef",
+      "ref": {
+        "service_name": "cloud-object-storage",
+        "account_id": "ACCOUNT-ID"
+      }
+    },
+    {
+      "type": "serviceRef",
+      "ref": {
+        "service_name": "codeengine",
+        "account_id": "ACCOUNT-ID"
+      }
+    },
+    {
+      "type": "serviceRef",
+      "ref": {
+        "service_name": "containers-kubernetes",
+        "account_id": "ACCOUNT-ID"
+      }
+    },
+    {
+      "type": "serviceRef",
+      "ref": {
+        "service_type": "platform_service",
+        "account_id": "ACCOUNT-ID"
+      }
+    },
+    {
+      "type": "serviceRef",
+      "ref": {
+        "service_name": "iam-groups",
+        "account_id": "ACCOUNT-ID"
+      }
+    }
+  ],
+  "excluded": []
+}
+```
+{: codeblock}
 
 After you create zones, you can [update](/apidocs/context-based-restrictions#replace-zone) or [delete](/docs/account?topic=account-context-restrictions-remove&interface=ui) them.
 
@@ -161,11 +235,20 @@ After you create zones, you can also [update](/apidocs/context-based-restriction
 
 You can use the `cbr-zone-create` command to add network locations, VPCs, and service references to network zones. For more information, see the CBR [CLI reference](/docs/account?topic=account-cbr-plugin#cbr-zones-cli). Add {{site.data.keyword.secrets-manager_short}} to network zones as a service reference to allow {{site.data.keyword.secrets-manager_short}} to access resources and services in your account that are the subject of a rule.
 
-To find a list of available service references, run the `ibmcloud cbr service-ref-targets` [command](/docs/account?topic=account-cbr-plugin#cbr-cli-service-ref-targets-command). The `service_name` for {{site.data.keyword.secrets-manager_short}} is `secrets-manager`.
+1. To create network zones from the CLI, [install the CBR CLI plug-in](/docs/cli?topic=cli-cbr-plugin#install-cbr-plugin). 
+1. Use the `cbr-zone-create` command to add resources to network zones. For more information, see the CBR [CLI reference](/docs/cli?topic=cli-cbr-plugin#cbr-zones-cli). Note that the `service_name` for {{site.data.keyword.secrets-manager_short}} is `secrets-manager`.
+
+
+To find a list of available service references, run the `ibmcloud cbr service-ref-targets` [command](/docs/account?topic=account-cbr-plugin#cbr-cli-service-ref-targets-command).
 {: tip}
 
 
-***Insert your examples here.***
+Example command to add the `secrets-manager` service to a network zone.
+
+```sh
+ibmcloud cbr zone-create --name example-zone-1 --description "Example zone 1" --service-ref service_name=secrets-manager
+```
+{: pre}
 
 
 ## Understanding rules
@@ -179,12 +262,49 @@ After you create your zones, you can attach the zones to your network resources 
 
 You can define rules with the API by using the information that you collected from creating network zones.
 
-By using `GET /v1/rules` with the endpoints that you chose, you can view a list of current rules. Use `POST /v1/rules` to create new rules. For more information, see [Creating rules by using the API](/docs/account?topic=account-context-restrictions-create&interface=api#context-restrictions-create-rules-api).
+Review the following example to learn how to create rules for {{site.data.keyword.secrets-manager_short}}. For more information, see the [API docs](/apidocs/context-based-restrictions#create-rule).
 
+The following example payload creates a rule that protects the `CLUSTER-ID` cluster. Only resources in the `NETWORK-ZONE-ID` zone can access the cluster. Given that no `operations` are specified, resources in the `NETWORK-ZONE-ID` zone can access both the `cluster` and `management` APIs.
 
-Review the following examples to learn how to create rules for {{site.data.keyword.secrets-manager_short}}. For more information, see the [API docs](/apidocs/context-based-restrictions#create-rule).
+```sh
+{
+  "description": "Example rule 1",
+  "resources": [
+    {
+      "attributes": [
+        {
+          "name": "accountId",
+          "value": "ACCOUNT-ID"
+        },
+        {
+          "name": "serviceName",
+          "value": "secrets-manager"
+        },
+        {
+          "name": "serviceInstance",
+          "value": "CLUSTER-ID"
+        }
+      ]
+    }
+  ],
+  "contexts": [
+    {
+      "attributes": [
+        {
+          "name": "networkZoneId",
+          "value": "NETWORK-ZONE-ID"
+        },
+        {
+          "name": "endpointType",
+          "value": "private"
+        }
+      ]
+    }
+  ]
+}
+```
+{: codeblock}
 
-***Insert your examples here. Include more complex use cases, like scoping a rule to protect specific APIs.***
 
 After you create rules, you can [update](/apidocs/context-based-restrictions#replace-rule) and [delete](/apidocs/context-based-restrictions#delete-rule) them.
 
@@ -205,7 +325,22 @@ After you create rules, you can [update](/apidocs/context-based-restrictions#rep
 
 Review the following examples to learn how to create rules for {{site.data.keyword.secrets-manager_short}}. For more information, see the CBR [CLI reference](/docs/account?topic=cli-cbr-plugin).
 
-***Insert your examples here. Include more complex use cases, like scoping a rule to protect specific APIs.***
+1. To create rules from the CLI, [install the CBR CLI plug-in](/docs/cli?topic=cli-cbr-plugin#install-cbr-plugin). 
+1. You can use the `ibmcloud cbr rule-create` [command](/docs/cli?topic=cli-cbr-plugin#cbr-cli-rule-create-command) to create CBR rules. For more information, see the CBR [CLI reference](/docs/cli?topic=cli-cbr-plugin#cbr-zones-cli). Note that the `service_name` for {{site.data.keyword.secrets-manager_short}} is `secrets-manager`. To find a list of service names, run the `ibmcloud cbr service-ref-targets` command. To find a list of API types for a service, run the `ibmcloud cbr api-types --service-name SERVICE` command.
+
+Example command to create a rule that uses the `addresses` key and the `cluster` API type and the `ipAddress` type.
+
+```sh
+ibmcloud cbr rule-create my-rule-1 --service-name secrets-manager --api-type crn:v1:bluemix:public:secrets-manager::::api-type:cluster --zone-id ZONE-ID
+```
+{: pre}
+
+The following command creates a rule that protects the `CLUSTER-ID` cluster. Only resources in the `NETWORK-ZONE-ID` network zone can access the cluster. This rule includes both the `cluster` and `management` API types.
+
+```sh
+ibmcloud cbr rule-create my-rule-2 --service-name secrets-manager --service-instance CLUSTER-ID --zone-id NETWORK-ZONE-ID 
+```
+{: pre}
 
 
 
