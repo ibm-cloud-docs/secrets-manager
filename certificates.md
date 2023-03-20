@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-03-20"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
 
@@ -636,7 +636,7 @@ You can create a private certificate by using the {{site.data.keyword.secrets-ma
 
     If your selected certificate template allows certificates to be added to specific secret groups, only those allowed groups are listed. If the template has no restrictions, you can create a secret group if you don't already have one. Your certificate is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 
-12. Optional: Specify a common name for your certificate.
+12. Required: Specify a common name for your certificate.
 
     Depending on the certificate template that you choose, some restrictions on the common name might apply. To view the details of your selected certificate template, you can go to **Secrets engines > Private certificates**. From the list of certificate authorities, expand the row of the CA that you want to use as the issuing authority for your private certificate, and click **Templates**.
 13. Optional: Add metadata to your secret or to a specific version of your secret.
