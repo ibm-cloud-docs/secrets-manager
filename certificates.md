@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-20"
+lastupdated: "2023-03-21"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
 
@@ -219,6 +219,7 @@ A successful response returns the ID value of the secret, along with other metad
 
 ## Ordering public certificates
 {: #order-certificates}
+{: ui}
 
 After you [configure the public certificates engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates) for your instance, you can use {{site.data.keyword.secrets-manager_short}} to request public SSL/TLS certificates from Let's Encrypt. Before a certificate can be issued to you, {{site.data.keyword.secrets-manager_short}} uses domain validation to verify the ownership of your domains. When you order a certificate:
 
