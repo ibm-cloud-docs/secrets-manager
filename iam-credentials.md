@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-08"
+lastupdated: "2023-03-21"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -332,7 +332,7 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
         {
           "name": "example-IAM-credentials",
           "description": "Extended description for my secret.",
-          "service_id": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0,
+          "service_id": "ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0,
           "secret_group_id": "339c026a-ac0f-1ea1-3d43-99adf871b49a",
           "ttl": "12h",
           "labels": [
