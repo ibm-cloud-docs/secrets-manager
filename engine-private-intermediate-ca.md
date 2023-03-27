@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-03-27"
 
 keywords: intermediate certificate authority, intermediate CA, internal signing, external signing
 
@@ -183,6 +183,8 @@ After you sign an intermediate CA certificate by using an external parent CA, yo
 4. Click **Sign** to complete the external signing process.
    
    The signed intermediate CA is added to your list of configurations for your instance with an **Active** status. You can now use this intermediate CA to [create private certificates](/docs/secrets-manager?topic=secrets-manager-certificates#create-certificates) for your applications. To modify or remove an existing configuration, click **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) in the row of the certificate authority that you want to update.
+
+
 
 
 

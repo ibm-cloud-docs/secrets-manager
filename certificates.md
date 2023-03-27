@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-21"
+lastupdated: "2023-03-27"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
 
@@ -374,6 +374,28 @@ When you submit your certificate details, {{site.data.keyword.secrets-manager_sh
 Need to check your order status? Use the [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
 {: tip} 
 
+### Ordering public certificates with integrated DNS providers by using Terraform
+{: #order-certificates-terraform}
+{: terraform}
+
+The following example shows a configuration that you can use to order a public certificate.
+
+```terraform
+    resource "ibm_sm_public_certificate" "sm_public_certificate" {
+        instance_id = local.instance_id
+        region = local.region
+        name = "test-public-certificate"
+        secret_group_id = "default"
+        ca = ibm_sm_public_certificate_configuration_ca_lets_encrypt.my_lets_encrypt_config.name
+        dns = ibm_sm_public_certificate_configuration_dns_cis.my_cis_dns_config.name
+        rotation {
+            auto_rotate = true
+            rotate_keys = false
+        }
+    }
+```
+
+{: codeblock}
 
 ### Ordering public certificates with your own DNS provider in the UI
 {: #order-certificates-manual-ui}
@@ -817,6 +839,27 @@ A successful request returns the contents of your private certificate, along wit
 }
 ```
 {: screen}
+
+
+
+### Creating private certificates with Terraform
+{: #create-certificates-terraform}
+{: terraform}
+
+The following example shows a configuration that you can use to create a private certificate.
+
+```terraform
+    resource "ibm_sm_private_certificate" "test_private_certificate" {  
+        instance_id = local.instance_id
+        region = local.region
+        name = "test-private-certificate"
+        common_name = "my.example.com"
+        certificate_template = ibm_sm_private_certificate_configuration_template.test_ca_template.name
+        ttl = "90d"
+    }
+```
+{: codeblock}
+
 
 
 

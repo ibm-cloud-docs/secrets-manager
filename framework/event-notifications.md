@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-03-27"
 
 keywords: event notifications for {{site.data.keyword.secrets-manager_short}}, event notifications integration for {{site.data.keyword.secrets-manager_short}}, alerts for {{site.data.keyword.secrets-manager_short}}
 
@@ -218,6 +218,8 @@ curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api
 
 
 A successful request returns the CRN value of your connected {{site.data.keyword.en_short}} service instance. For more information about the required and optional request parameters, see the [API docs](/apidocs/secrets-manager).
+
+
 
 
 ### Sending a test event to {{site.data.keyword.en_short}} in the UI
