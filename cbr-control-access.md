@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-03-14"
+lastupdated: "2023-03-27"
 
 keywords: context-based restrictions, access allowlist, network security
 
@@ -92,6 +92,8 @@ CBR rules do not apply to provisioning or deprovision processes.
 ## Limitations
 {: #cbr-limitations}
 
+When a user has instance level IAM access, CBR rules that are applied to specific secret groups do not take effect. To work around this limitation, set the user's IAM access policies to only secret groups. 
+
 Context-based restrictions protect only the actions that are associated with the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager/secrets-manager-v2). Actions that are associated with the following platform APIs are not protected by context-based restrictions. Refer to the API docs for the specific action IDs.
 
 - [Resource Instance APIs](/apidocs/resource-controller/resource-controller#list-resource-instances)
@@ -103,11 +105,6 @@ Context-based restrictions protect only the actions that are associated with the
 - Global Tagging [Attach](/apidocs/tagging#attach-tag) and [Detach](/apidocs/tagging#detach-tag) APIs
 - [Context-based Restriction Rule APIs](/apidocs/context-based-restrictions#create-rule)
 - [Secrets Manager APIs](/apidocs/secrets-manager)
-
-
-
-***If your service has other limitations, list them here_***
-
 
 
 ## Creating network zones
@@ -341,9 +338,6 @@ The following command creates a rule that protects the `CLUSTER-ID` cluster. Onl
 ibmcloud cbr rule-create my-rule-2 --service-name secrets-manager --service-instance CLUSTER-ID --zone-id NETWORK-ZONE-ID 
 ```
 {: pre}
-
-
-
 
 
 ## Next steps
