@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-03-27"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
 
@@ -219,6 +219,7 @@ A successful response returns the ID value of the secret, along with other metad
 
 ## Ordering public certificates
 {: #order-certificates}
+{: ui}
 
 After you [configure the public certificates engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates) for your instance, you can use {{site.data.keyword.secrets-manager_short}} to request public SSL/TLS certificates from Let's Encrypt. Before a certificate can be issued to you, {{site.data.keyword.secrets-manager_short}} uses domain validation to verify the ownership of your domains. When you order a certificate:
 
@@ -373,6 +374,28 @@ When you submit your certificate details, {{site.data.keyword.secrets-manager_sh
 Need to check your order status? Use the [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
 {: tip} 
 
+### Ordering public certificates with integrated DNS providers by using Terraform
+{: #order-certificates-terraform}
+{: terraform}
+
+The following example shows a configuration that you can use to order a public certificate.
+
+```terraform
+    resource "ibm_sm_public_certificate" "sm_public_certificate" {
+        instance_id = local.instance_id
+        region = local.region
+        name = "test-public-certificate"
+        secret_group_id = "default"
+        ca = ibm_sm_public_certificate_configuration_ca_lets_encrypt.my_lets_encrypt_config.name
+        dns = ibm_sm_public_certificate_configuration_dns_cis.my_cis_dns_config.name
+        rotation {
+            auto_rotate = true
+            rotate_keys = false
+        }
+    }
+```
+
+{: codeblock}
 
 ### Ordering public certificates with your own DNS provider in the UI
 {: #order-certificates-manual-ui}
@@ -636,7 +659,7 @@ You can create a private certificate by using the {{site.data.keyword.secrets-ma
 
     If your selected certificate template allows certificates to be added to specific secret groups, only those allowed groups are listed. If the template has no restrictions, you can create a secret group if you don't already have one. Your certificate is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 
-12. Optional: Specify a common name for your certificate.
+12. Required: Specify a common name for your certificate.
 
     Depending on the certificate template that you choose, some restrictions on the common name might apply. To view the details of your selected certificate template, you can go to **Secrets engines > Private certificates**. From the list of certificate authorities, expand the row of the CA that you want to use as the issuing authority for your private certificate, and click **Templates**.
 13. Optional: Add metadata to your secret or to a specific version of your secret.
@@ -816,6 +839,27 @@ A successful request returns the contents of your private certificate, along wit
 }
 ```
 {: screen}
+
+
+
+### Creating private certificates with Terraform
+{: #create-certificates-terraform}
+{: terraform}
+
+The following example shows a configuration that you can use to create a private certificate.
+
+```terraform
+    resource "ibm_sm_private_certificate" "test_private_certificate" {  
+        instance_id = local.instance_id
+        region = local.region
+        name = "test-private-certificate"
+        common_name = "my.example.com"
+        certificate_template = ibm_sm_private_certificate_configuration_template.test_ca_template.name
+        ttl = "90d"
+    }
+```
+{: codeblock}
+
 
 
 

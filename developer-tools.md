@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-03-07"
 
 keywords: Secrets Manager developer tools, integrate with application, API, SDK, CLI
 
@@ -70,7 +70,7 @@ Ready to integrate {{site.data.keyword.secrets-manager_full}} into your existing
 {{site.data.keyword.secrets-manager_short}} offers software development kits (SDKs) that you can use to connect with the service in various programming languages. For more information about getting started with {{site.data.keyword.secrets-manager_short}} SDKs, check out the following repositories on GitHub:
 
 - [Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}
-- [Node.js SDK](https://github.com/IBM/secrets-manager-nodejs-sdk){: external}
+- [Node.js SDK](https://github.com/IBM/secrets-manager-node-sdk){: external}
 - [Java SDK](https://github.com/IBM/secrets-manager-java-sdk){: external}
 - [Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}
 
