@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-03-30"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -1428,7 +1428,7 @@ Get the value of a secret.
 #### Example requests
 {: #vault-get-secret-request}
 
-Get an arbitrary secret in the `default` secret group.
+Get an arbitrary secret.
 
 ```sh
 curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/{secret_id}" \
@@ -1446,7 +1446,7 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 ```
 {: codeblock}
 
-Get IAM credentials in the `default` secret group.
+Get IAM credentials.
 
 ```sh
 curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/iam_credentials/creds/{secret_id}" \
@@ -1464,7 +1464,7 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 ```
 {: codeblock}
 
-Get key-value secrets in the `default` secret group. [Learn more](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv&interface=api#overview-kv).
+Get key-value secrets. [Learn more](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv&interface=api#overview-kv).
 
 ```sh
 curl -L -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/secrets/{secret_id}' \
@@ -1482,7 +1482,7 @@ curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 ```
 {: codeblock}
 
-Get user credentials in the `default` secret group.
+Get user credentials.
 
 ```sh
 curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/username_password/secrets/{secret_id}" \
@@ -1500,7 +1500,7 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 ```
 {: codeblock}
 
-Get an imported certificate in the `default` secret group.
+Get an imported certificate.
 
 ```sh
 curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/imported_cert/secrets/{secret_id}" \
@@ -1521,7 +1521,7 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 #### Example responses
 {: #vault-get-secret-response}
 
-A request to retrieve an arbitrary secret in the `default` secret group returns the following response:
+A request to retrieve an arbitrary secret returns the following response:
 
 ```json
 {
@@ -1606,7 +1606,7 @@ A request to retrieve an arbitrary secret in an existing secret group returns th
 ```
 {: screen}
 
-A request to generate IAM credentials in the `default` secret group returns the following response:
+A request to generate IAM credentials returns the following response:
 
 ```json
 {
@@ -1681,7 +1681,7 @@ A request to generate IAM credentials in an existing secret group returns the fo
 ```
 {: screen}
 
-A request to retrieve a key-value secret in the `default` secret group returns the following response:
+A request to retrieve a key-value secret returns the following response:
 
 ```json
 {
@@ -1770,7 +1770,7 @@ A request to retrieve a key-value secret in an existing secret group returns the
 ```
 {: screen}
 
-A request to retrieve an imported certificate in the `default` secret group returns the following response:
+A request to retrieve an imported certificate returns the following response:
 
 ```json
 {
@@ -1924,7 +1924,7 @@ Retrieve the metadata of a secret, such as its name, description. To retrieve th
 #### Example requests
 {: #vault-get-secret-metadata-request}
 
-Get metadata for an `arbitrary` secret in the `default` secret group.
+Get metadata for an `arbitrary` secret.
 
 ```sh
 curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/{secret_id}/metadata" \
@@ -1942,7 +1942,7 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 ```
 {: codeblock}
 
-Get metadata for a `kv` secret in the `default` secret group. [Learn more](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv).
+Get metadata for a `kv` secret. [Learn more](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv).
 
 ```sh
 curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/secrets/{secret_id}/metadata' \
@@ -1964,7 +1964,7 @@ curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 #### Example responses
 {: #vault-get-secret-metadata-response}
 
-A request to retrieve the metadata of an `arbitrary` secret in the `default` secret group returns the following response:
+A request to retrieve the metadata of an `arbitrary` secret returns the following response:
 
 ```json
 {
@@ -1996,7 +1996,7 @@ A request to retrieve the metadata of an `arbitrary` secret in the `default` sec
 ```
 {: screen}
 
-A request to retrieve the metadata of a `kv` secret in the `default` secret group returns the following response:
+A request to retrieve the metadata of a `kv` secret returns the following response:
 
 ```json
 {
@@ -2406,7 +2406,7 @@ List the locks that are associated with a specified secret.
 #### Example request
 {: #vault-list-locks-request}
 
-List locks for an arbitrary secret in the `default` secret group.
+List locks for an arbitrary secret.
 
 ```sh
 curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/locks/{secret_id}" \
@@ -2770,7 +2770,7 @@ Use `{version_id}` in the URL path to specify the version. The aliases `current`
 #### Example request
 {: #vault-list-version-locks-request}
 
-List locks for a specific version of an arbitrary secret in the `default` secret group.
+List locks for a specific version of an arbitrary secret.
 
 ```sh
 curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/locks/{secret_id}/versions/{version_id}" \
@@ -2809,7 +2809,7 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 #### Example response
 {: #vault-list-verison-locks-response}
 
-A request to get the lock details on the current version of a secret in the default secret group returns the following response:
+A request to get the lock details on the current version of a secret returns the following response:
 ```json
 {
     "request_id": "ba51140d-31a8-0a51-dd5b-1ca59838e881",
@@ -3183,7 +3183,7 @@ Retrieves a list of policies that are associated with a secret.
 #### Example request
 {: #vault-list-secret-policies-request}
 
-List the policies for an `username_password` secret in the `default` secret group.
+List the policies for an `username_password` secret.
 
 ```sh
 curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/username_password/secrets/{secret_id}/policies" \
