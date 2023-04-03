@@ -58,7 +58,7 @@ subcollection: secrets-manager
 # Importing SSL/TLS certificates
 {: #certificates}
 
-You can use {{site.data.keyword.secrets-manager_full}} to store, request, and generate SSL/TLS certificates that you can use for your apps or services.
+You can use {{site.data.keyword.secrets-manager_full}} to import SSL/TLS certificates that you can use for your apps or services.
 {: shortdesc}
 
 An SSL/TLS certificate is a type of digital certificate that is used to establish communication privacy between a server and a client. Certificates are issued by [certificate authorities (CA)](#x2016383){: term} and contain information that is used to create trusted and secure connections between endpoints. After you add a certificate to your {{site.data.keyword.secrets-manager_short}} instance, you can use it to secure network communications for your cloud or on-premises deployments. Your certificate is stored securely in your dedicated {{site.data.keyword.secrets-manager_short}} service instance, where you can centrally manage its lifecycle.
