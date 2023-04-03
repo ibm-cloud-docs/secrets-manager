@@ -3,7 +3,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-03-29"
 
 keywords: tutorial, Secrets Manager
 
@@ -387,6 +387,7 @@ First, add `external-secrets` resources to your cluster by installing the offici
 
     ```sh
     echo '
+    [root@vpc-bastion-6miaq40s-jumphost secret_testing]# cat values.yml
     installCRDs: true
     extraVolumes:
     - name: sa-token
@@ -401,19 +402,18 @@ First, add `external-secrets` resources to your cluster by installing the offici
     - mountPath: /var/run/secrets/tokens
     name: sa-token
     webhook:
-      extraVolumes:
-      - name: sa-token
-          projected:
-          defaultMode: 420
-          sources:
-          - serviceAccountToken:
-              path: sa-token
-              expirationSeconds: 3600
-              audience: iam
-      extraVolumeMounts:
-      - mountPath: /var/run/secrets/tokens
-          name: sa-token' >values.yml
-    helm install external-secrets external-secrets/external-secrets -n external-secrets --create-namespace -f values.yml
+    extraVolumes:
+    - name: sa-token
+    projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            path: sa-token
+            expirationSeconds: 3600
+            audience: iam
+    extraVolumeMounts:
+    - mountPath: /var/run/secrets/tokens
+    name: sa-token
     ```
     {: pre}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-03-07"
+lastupdated: "2023-04-03"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager, KV, key-value, KV APIs
 
@@ -493,6 +493,11 @@ A request to delete the metadata and all versions of a key-value secret in the `
 {: #list-kv}
 
 Get a list of key names of a key-value secret. Do not encode sensitive information in key names. The values of the keys are not accessible by using this command.
+
+In {sm-short}, you can't use the LIST HTTP verb to get the list of key names. You can do so only in Vault's KV API.
+{: note}
+
+
 
 ### Example request
 {: #list-kv-request}

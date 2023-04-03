@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-03-30"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -896,7 +896,7 @@ If the secrets belong to a secret group, the `data.secrets.secret_group_id` valu
 
 Use the following commands to retrieve a secret and its details. Allowable values for **`SECRET_TYPE`** are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`.
 
-Get a secret that is in the `default` secret group.
+Get a secret.
 ```sh
 vault read [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets/SECRET_ID
 ```
@@ -920,7 +920,7 @@ You need the [**SecretsReader** or **Writer** service role](/docs/secrets-manage
 #### Examples
 {: #vault-cli-get-static-secret-examples}
 
-Retrieve an arbitrary secret, including its payload, that is assigned to the `default` secret group.
+Retrieve an arbitrary secret, including its payload.
 
 ```sh
 vault read -format=json ibmcloud/arbitrary/secrets/71539dff-9e84-804a-debb-ab3eb3d8afce
@@ -1453,7 +1453,7 @@ SECRET_GROUP_ID
 #### Examples
 {: #vault-cli-list-roles-examples}
 
-Retrieve a list of IAM credentials that are assigned to the `default` secret group.
+Retrieve a list of IAM credentials.
 
 ```sh
 vault read -format=json ibmcloud/iam_credentials/roles
@@ -1529,7 +1529,7 @@ If the role belongs to a secret group, the `roles.data.secret_group_id` value is
 
 Use the following commands to view details about a registered role or secret, such as its name and history.
 
-View the details of a role in the `default` secret group.
+View the details of a role.
 
 ```sh
 vault read [-format=FORMAT] ibmcloud/SECRET_TYPE/roles/ROLE_ID/metadata
