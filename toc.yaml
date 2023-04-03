@@ -66,7 +66,7 @@ toc:
               - topic: key-value.md
                 navtitle: Key-value secrets
               - topic: certificates.md
-                navtitle: SSL/TLS certificates
+                navtitle: Imported certificates                                
               - topic: user-credentials.md
                 navtitle: User credentials
           - secret-access.md
