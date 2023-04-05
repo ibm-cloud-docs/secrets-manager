@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-04-05"
 
 keywords: secret locks, lock secret, prevent deletion, prevent rotation, unlock secret, create lock, delete lock
 
@@ -117,6 +117,8 @@ To help you to create a new lock and remove older locks in a single operation, y
 | Lock a secret exclusively and delete previous version data  | Same as the previous option, but also permanently deletes the data of the previous secret version if it doesn't have any locks that are associated with it.  \n  \n Suppose that the previous version of your secret contains a lock `lock-z`. Creating a lock on the current version of your secret with both the **Make this lock exclusive** and **Delete previous version data** options results in removing `lock-z` from the previous version. Additionally, because the previous version doesn't have any other locks that are attached to it, the secret data that is associated with the previous version is also deleted. |
 {: caption="Table 1. Optional lock modes and their descriptions" caption-side="top"}
 
+
+
 #### Creating a lock on the current secret version
 {: #create-lock-current-version-ui}
 
@@ -182,6 +184,8 @@ To help you to create a new lock and remove older locks in a single operation, y
 
 To use an optional lock mode, include it as a query parameter on the URI path in your API request. For example, `https://{base_url}/api/v1/secrets/{secret_type}/{id}/lock?mode=exclusive`. For more information, see the [API reference](/apidocs/secrets-manager#lock-secret).
 {: tip}
+
+
 
 #### Creating locks on the current secret version
 {: #create-lock-current-version-api}
