@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-04-05"
 
 keywords: secrets management best practice, rotating secrets, secret rotation, locking secrets, automatic rotation
 
@@ -101,7 +101,8 @@ Simplify the process of rotating secrets in your instance by enabling automatic 
 
 2. Schedule automatic rotation to take place before your secrets are set to expire.
 
-   To avoid interruptions to your applications, it's important that you rotate your secrets and deploy the newest versions to your applications before the secrets pass their defined expiration date. Monitor your secrets by setting up notifications that alert you when your secrets are about to expire.
+   To avoid interruptions to your applications, it's recommended that you set the minimum interval between automatic rotation and expiration date to 30 days.
+
     
 
 ## Avoid application outages by locking your secrets

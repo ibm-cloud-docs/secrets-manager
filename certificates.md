@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-27"
+lastupdated: "2023-04-05"
 
-keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates
+keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, imported certificates
 
 subcollection: secrets-manager
 
@@ -55,8 +55,12 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
+
+
 # Adding SSL/TLS certificates
 {: #certificates}
+
+
 
 You can use {{site.data.keyword.secrets-manager_full}} to store, request, and generate SSL/TLS certificates that you can use for your apps or services.
 {: shortdesc}
