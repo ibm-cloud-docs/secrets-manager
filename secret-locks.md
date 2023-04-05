@@ -61,10 +61,10 @@ subcollection: secrets-manager
 When you work with {{site.data.keyword.secrets-manager_full}}, you can create locks on your secrets to prevent them from being deleted or modified while they're in use by your applications.
 {: shortdesc}
 
-By default, the secrets that you manage in {{site.data.keyword.secrets-manager_short}} can be modified at any time by an authorized user or application. In some cases, for example during a security audit, you might want to prevent a secret from being accidentally deleted by someone on your team. Or, if you plan to rotate your secrets regularly, you might be looking for a way to safely deploy the newest version of a secret after a rotation takes place. With locks, you can build automated workflows that help you to:
+By default, an authorized user or application can modify the secrets that you manage in {{site.data.keyword.secrets-manager_short}} at any time. Sometimes, for example during a security audit, you might want to prevent someone on your team from accidentally deleting a secret. Or, if you plan to rotate your secrets regularly, you might be looking for a way to safely deploy the newest version of a secret after a rotation takes place. With locks, you can build automated workflows that help you to:
 
 - Indicate that a secret is in use by one or more applications or services.
-- Prevent secret data from being deleted, even after a secret expires.
+- Prevent secret data from being deleted even after a secret expires.
 - Safely delete older versions of secrets after the newest version is fully deployed to your applications.
 - Avoid inadvertent downtime in your applications.
 
@@ -104,7 +104,7 @@ Locking a secret prevents any operation that can result in modifying or deleting
 {: #create-lock-ui}
 {: ui}
 
-You can create up to 1000 locks on a secret in your instance by using the {{site.data.keyword.secrets-manager_short}} UI. Each lock can be used to represent a single application or service that uses your secret.
+You can create up to 1000 locks on a secret by using the {{site.data.keyword.secrets-manager_short}} UI. Each lock can be used to represent a single application or service that uses your secret.
 
 A secret is considered locked after you attach one or more locks to it. A lock can be applied only on a secret version that contains active payload, or secret data.
 {: note}
@@ -113,7 +113,7 @@ To help you to create a new lock and remove older locks in a single operation, y
 
 | Mode | Description |
 | --- | --- |
-| Lock a secret exclusively | Removes any other locks that match the name that you specify. If any matching locks are found in the previous version of the secret, those locks are deleted when your new lock is created.  \n  \n For example, suppose that the previous version of your secret contains a lock `lock-x`. Creating a lock on the current version of your secret with the **Make this lock exclusive** option enabled results in removing `lock-x` from the previous version. |
+| Lock a secret exclusively | Removes any other locks that match the name that you specify. If any matching locks are found in the previous version of the secret, those locks are deleted when your new lock is created.  \n  \n For example, suppose that the previous version of your secret contains a lock `lock-x`. Creating a lock on the current version of your secret and enabling the **Make this lock exclusive** option results in removing `lock-x` from the previous version. |
 | Lock a secret exclusively and delete previous version data  | Same as the previous option, but also permanently deletes the data of the previous secret version if it doesn't have any locks that are associated with it.  \n  \n Suppose that the previous version of your secret contains a lock `lock-z`. Creating a lock on the current version of your secret with both the **Make this lock exclusive** and **Delete previous version data** options results in removing `lock-z` from the previous version. Additionally, because the previous version doesn't have any other locks that are attached to it, the secret data that is associated with the previous version is also deleted. |
 {: caption="Table 1. Optional lock modes and their descriptions" caption-side="top"}
 
@@ -169,7 +169,7 @@ You can lock the previous version of a secret by using the {{site.data.keyword.s
 {: #create-lock-api}
 {: api}
 
-You can create up to 1000 locks on a secret in your instance by using the {{site.data.keyword.secrets-manager_short}} API. Each lock can be used to represent a single application or consumer that uses your secret. A successful request attaches a new lock to your secret, or replaces a lock of the same name if it already exists.
+You can create up to 1000 locks on a secret by using the {{site.data.keyword.secrets-manager_short}} API. Each lock can be used to represent a single application or consumer that uses your secret. A successful request attaches a new lock to your secret, or replaces a lock of the same name if it already exists.
 
 A secret is considered locked after you attach one or more locks to it. A lock can be applied only on a secret version that contains active payload, or secret data.
 {: note}
