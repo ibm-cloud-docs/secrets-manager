@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-04-11"
 
 keywords: access secret, retrieve secret, read secret, get secret value, get secrets, view secrets, search secrets, read secrets, get secret value
 
@@ -202,4 +202,5 @@ curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/
 ```
 {: codeblock}
 {: curl}
+
 

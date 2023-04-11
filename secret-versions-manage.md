@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-04-11"
 
 keywords: secret version history, view versions, secret versions
 
@@ -227,6 +227,7 @@ To update the metadata of a secret version, complete the following steps.
 
 You can use the {{site.data.keyword.secrets-manager_short}} CLI plug-in to update the metadata of a specific version of a secret.
 
+  
 To update the metadata of a secret, run the [**`ibmcloud secrets-manager secret-metadata-update`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-metadata-update-command) command. You can specify the type of secret by using the `--secret-type SECRET-TYPE` option. The options for `SECRET_TYPE` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`. You can format the `resources RESOURCES` option by including the `SecretMetadata[]` object as shown in the following example. 
 
 ```sh

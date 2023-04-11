@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-05"
+lastupdated: "2023-04-11"
 
 keywords: secret locks, lock secret, prevent deletion, prevent rotation, unlock secret, create lock, delete lock
 
@@ -401,5 +401,6 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 
 
 For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager#unlock-secret).
+
 
 
