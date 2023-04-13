@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-04-11"
+lastupdated: "2023-04-13"
 
 keywords: secret version history, view versions, secret versions
 
@@ -108,7 +108,7 @@ To list all the versions that are associated with a secret, run the [**`ibmcloud
 
 
 ```sh
-ibmcloud secrets-manager secret-versions --secret-type SECRET-TYPE --id SECRET_ID --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
+ibmcloud secrets-manager secret-versions --secret-id SECRET-ID
 ```
 {: pre}
 
@@ -129,9 +129,10 @@ The following example request lists metadata properties for each version. When y
 
 
 ```sh
-curl -X GET "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}/versions" \
-  --H "Authorization: Bearer {IAM_token}" \
-  --H "Accept: application/json"
+curl -X GET 
+  --H "Authorization: Bearer {iam_token}" \
+  --H "Accept: application/json" \
+  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secrets/{id}/versions"
 ```
 {: codeblock}
 {: curl}
@@ -144,55 +145,31 @@ A successful response returns metadata details about each secret version.
 
 ```json
 {
-    "metadata": {
-        "collection_type": "application/vnd.ibm.secrets-manager.secret.version+json",
-        "collection_total": 4
-    },
-    "resources": [
-        {
-            "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
-            "creation_date": "2021-12-14T17:27:32Z",
-            "downloaded": false,
-            "id": "88fe8ddd-caf9-45c7-59c4-35c9954045db",
-            "payload_available": false,
-            "version_custom_metadata": {
-              "version_special_id" : "test6789"
-            }
-        },
-        {
-            "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
-            "creation_date": "2021-12-14T17:28:27Z",
-            "downloaded": true,
-            "id": "c73845b2-4a3f-7a59-a691-1e678680a970",
-            "payload_available": false,
-            "version_custom_metadata": {
-              "version_special_id" : "test6789"
-            }
-        },
-        {
-            "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
-            "creation_date": "2021-12-14T17:29:02Z",
-            "downloaded": true,
-            "id": "78c3dba8-cb34-7868-fbf5-8c608dc10d5a",
-            "payload_available": false,
-            "version_custom_metadata": {
-              "version_special_id" : "test6789"
-            }
-        {
-            "created_by": "iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
-            "creation_date": "2021-12-14T17:29:16Z",
-            "downloaded": true,
-            "id": "b46092a0-af37-eb51-0ce5-d3ddfb369b9f",
-            "payload_available": false,
-            "version_custom_metadata": {
-              "version_special_id" : "test6789"
-            }
-        }
-    ]
+  "versions": [
+    {
+      "created_at": "2022-06-27T11:58:15Z",
+      "created_by": "iam-ServiceId-e4a2f0a4-3c76-4bef-b1f2-fbeae11c0f21",
+      "expiration_date": "2023-10-05T11:49:42Z",
+      "id": "bc656587-8fda-4d05-9ad8-b1de1ec7e712",
+      "payload_available": true,
+      "secret_group_id": "67d025e1-0248-418f-83ba-deb0ebfb9b4a",
+      "secret_id": "67d025e1-0248-418f-83ba-deb0ebfb9b4a",
+      "secret_name": "example-imported-certificate",
+      "secret_type": "imported_cert",
+      "serial_number": "38:eb:01:a3:22:e9:de:55:24:56:9b:14:cb:e2:f3:e3:e2:fb:f5:18",
+      "validity": {
+        "not_after": "2023-10-05T11:49:42Z",
+        "not_before": "2022-06-27T11:58:15Z"
+      },
+      "version_custom_metadata": {
+        "custom_version_key": "custom_version_value"
+      }
+    }
+  ],
+  "total_count": 1
 }
 ```
 {: screen}
-
 
 
 
@@ -228,24 +205,15 @@ To update the metadata of a secret version, complete the following steps.
 You can use the {{site.data.keyword.secrets-manager_short}} CLI plug-in to update the metadata of a specific version of a secret.
 
   
-To update the metadata of a secret, run the [**`ibmcloud secrets-manager secret-metadata-update`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-metadata-update-command) command. You can specify the type of secret by using the `--secret-type SECRET-TYPE` option. The options for `SECRET_TYPE` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`. You can format the `resources RESOURCES` option by including the `SecretMetadata[]` object as shown in the following example. 
-
-```sh
-[ {
-  "labels" : [ "dev", "us-south" ],
-  "name" : "updated-secret-name",
-  "description" : "Updated description for this secret.",
-  "expiration_date" : "2030-04-01T09:30:00Z"
-} ]
-```
+To update the metadata of a secret, run the [**`ibmcloud secrets-manager secret-metadata-update`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-metadata-update-command) command. 
+  
 The following example shows the format of the `ibmcloud secrets-manager secret-metadata-update` command.
-
-
-
+  
 ```sh
-ibmcloud secrets-manager secret-metadata-update     --secret-type=arbitrary     --id=exampleString     --resources='[{"labels": ["dev","us-south"], "name": "updated-secret-name", "description": "Updated description for this secret.", "expiration_date": "2030-04-01T09:30:00Z"}]'
+ibmcloud secrets-manager secret-version-metadata-update --secret-id SECRET-ID --id VERSION-ID --version-custom-metadata='{"anyKey": "anyValue"}'
 ```
 {: pre}
+
 
 
 
@@ -262,22 +230,12 @@ The following example request updates metadata properties for each version. When
 
 
 ```sh
-curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{secret_id}/versions/{version_id}/metadata" \
-  --H "Authorization: Bearer {IAM_token}" \
-  --H "Accept: application/json"
-  --d '{
-            "metadata": {
-            "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
-            "collection_total": 1
-            },
-            "resources": [
-            {
-            "version_custom_metadata": {
-                "version_special_id" : "test6789"
-            }
-        }
-    ]
-}'
+curl -X PATCH  
+  -H "Authorization: Bearer {iam_token}" \
+  -H "Accept: application/json" \
+  --H "Content-Type: application/merge-patch+json" \
+  -d '{ "version_custom_metadata": { "version_special_id" : "someString" } }' \
+  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secrets/{id}/versions/{version_id}/metadata"
 ```
 {: codeblock}
 {: curl}
@@ -290,29 +248,22 @@ A successful response returns metadata details about each secret version.
 
 ```json
 {
-  "metadata": {
-    "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
-    "collection_total": 1
-  },
-  "resources": [
-    {
-      "id": "24ec2c34-38ee-4038-9f1d-9a629423158d",
-      "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:f1bc94a6-64aa-4c55-b00f-f6cd70e4b2ce:secret:24ec2c34-38ee-4038-9f1d-9a629423158d",
-      "version_id": "7bf3814d-58f8-4df8-9cbd-f6860e4ca973",
-      "created_by": "iam-ServiceId-e4a2f0a4-3c76-4bef-b1f2-fbeae11c0f21",
-      "creation_date": "2020-10-05T21:33:11Z",
-      "downloaded": true,
-      "payload_available": true,
-      "locks_total": 1,
-      "version_custom_metadata": {
-        "version_special_id" : "test6789"
-      } 
-    }
-  ]
+  "alias": "current",
+  "created_at": "2022-06-27T11:58:15Z",
+  "created_by": "iam-ServiceId-e4a2f0a4-3c76-4bef-b1f2-fbeae11c0f21",
+  "expiration_date": "2023-10-05T11:49:42Z",
+  "id": "bc656587-8fda-4d05-9ad8-b1de1ec7e712",
+  "payload_available": true,
+  "secret_group_id": "67d025e1-0248-418f-83ba-deb0ebfb9b4a",
+  "secret_id": "67d025e1-0248-418f-83ba-deb0ebfb9b4a",
+  "secret_name": "example-arbitrary-secret",
+  "secret_type": "arbitrary",
+  "version_custom_metadata": {
+    "custom_version_key": "custom_version_value"
+  }
 }
 ```
 {: screen}
-
 
 
 
@@ -351,12 +302,21 @@ To list the versions of a secret and obtain the ID of each version, use the [Lis
 
 
 ```bash
-curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}" \
-    -H "Authorization: Bearer {IAM_token}" \
-    -H "Accept: application/json" \
-    -d '{
-      "version_id": <version_id|previous>
-    }'
+curl -X POST 
+  --H "Authorization: Bearer {iam_token}" \
+  --H "Accept: application/json" \
+  --H "Content-Type: application/json" \
+  --d '{
+         "restore_from_version": "previous",
+         "custom_metadata": {
+            "metadata_custom_key": "metadata_custom_value"
+         },
+         "version_custom_metadata": {
+            "custom_version_key": "custom_version_value"
+         }
+      }' \ 
+   "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secrets/{id}/versions"
+
 ```
 {: codeblock}
 {: curl}

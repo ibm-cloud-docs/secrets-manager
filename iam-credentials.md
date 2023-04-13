@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-21"
+lastupdated: "2023-04-13"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -146,7 +146,9 @@ To create a dynamic service ID and API key by using the {{site.data.keyword.secr
 
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-type iam_credentials --resources '[{"name":"example-IAM-credentials","description":"Extended description for my secret.","access_groups":["<access_group_id>"],"secret_group_id":"<secret_group_id>","ttl":"12h","labels":["dev","us-south"]}]' --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
+ibmcloud secrets-manager secret-create  \   
+    --secret-prototype='{"name": "example-iam-credentials-secret","description": "Description of my IAM credentials secret","secret_type": "iam_credentials","secret_group_id": "<secret_group_id>","labels": ["dev","us-south"],"ttl": "30m","access_groups": ["<access_group_id>"],"reuse_api_key": false, "custom_metadata": {"metadata_custom_key": "metadata_custom_value"},"version_custom_metadata": { "custom_version_key": "custom_version_value"}}'
+
 ```
 {: pre}
 
@@ -165,7 +167,8 @@ If you'd like to continue to use those credentials through the end of the lease 
 
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-type iam_credentials --resources '[{"name":"example-reuse-credentials","description":"Uses the same service ID API key on each read until the lease expires.","reuse_api_key": true,"secret_group_id":"<secret_group_id>","ttl":"30m","labels":["reusable"]}]' --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
+ibmcloud secrets-manager secret-create  \   
+    --secret-prototype='{"name": "example-iam-credentials-secret","description": "Description of my IAM credentials secret","secret_type": "iam_credentials","secret_group_id": "<secret_group_id>","labels": ["dev","us-south"],"ttl": "30m","access_groups": ["<access_group_id>"],"reuse_api_key": true, "custom_metadata": {"metadata_custom_key": "metadata_custom_value"},"version_custom_metadata": { "custom_version_key": "custom_version_value"}}'
 ```
 {: pre}
 
@@ -188,7 +191,8 @@ You can find the ID value of a service ID in the IAM section of the console. Go 
 
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-type iam_credentials --resources '[{"name":"example-api-key-only","description":"Generates only an API key on each read.","service_id":"<service_id>","secret_group_id":"<secret_group_id>","ttl":"12h","labels":["api-key-only"]}]'  --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
+ibmcloud secrets-manager secret-create  \   
+    --secret-prototype='{"name": "example-iam-credentials-secret","description": "Description of my IAM credentials secret","secret_type": "iam_credentials","secret_group_id": "<secret_group_id>","labels": ["dev","us-south"],"ttl": "30m","service_id":"<service_id>","reuse_api_key": false, "custom_metadata": {"metadata_custom_key": "metadata_custom_value"},"version_custom_metadata": { "custom_version_key": "custom_version_value"}}'
 ```
 {: pre}
 
@@ -211,40 +215,33 @@ You can store metadata that are relevant to the needs of your organization with 
 
 
 ```sh
-curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/iam_credentials" \
-    -H "Authorization: Bearer {IAM_token}" \
+curl -X POST  
+    -H "Authorization: Bearer {iam_token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{
-        "metadata": {
-        "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
-        "collection_total": 1
+    -d '{ 
+      {
+        "name": "example-iam-credentials-secret",
+        "description": "Description of my IAM Credentials secret",
+        "secret_type": "iam_credentials",
+        "secret_group_id": "bfc0a4a9-3d58-4fda-945b-76756af516aa",
+        "labels": [
+          "dev",
+          "us-south"
+        ],
+        "ttl": "30m",
+        "access_groups": [
+          "AccessGroupId-45884031-54be-4dd7-86ff-112511e92699",
+          "AccessGroupId-8c0ed733-dfee-4a94-992b-e2247b86e2a2"
+        ],
+        "reuse_api_key": false,
+        "custom_metadata": {
+          "metadata_custom_key": "metadata_custom_value"
         },
-        "resources": [
-        {
-          "name": "example-IAM-credentials",
-          "description": "Extended description for my secret.",
-          "access_groups": [
-            "AccessGroupId-0529f490-129c-4877-a2a0-b57f50d3e53b"
-          ],
-          "secret_group_id": "339c026a-ac0f-1ea1-3d43-99adf871b49a",
-          "reuse_api_key": <true|false>,
-          "ttl": "12h",
-          "labels": [
-            "dev",
-            "us-south"
-          ],
-          "expiration_date": "2030-01-01T00:00:00Z",
-          "custom_metadata": {
-            "collection_nickname" : "test_collection"
-            "collection_special_id" : "test12345"
-          },
-          "version_custom_metadata": {
-            "version_special_id" : "test6789"
-          }            
+        "version_custom_metadata": {
+          "custom_version_key": "custom_version_value"
         }
-        ]
-    }' 
+      }' \ "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets"
 ```
 {: codeblock}
 {: curl}
@@ -264,40 +261,34 @@ If you'd like to use those credentials through the end of the lease of your secr
 You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
 
 ```sh
-curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/iam_credentials" \
-    -H "Authorization: Bearer {IAM_token}" \
+curl -X POST  
+    -H "Authorization: Bearer {iam_token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{
-        "metadata": {
-        "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
-        "collection_total": 1
+    -d '{ 
+      {
+        "name": "example-iam-credentials-secret",
+        "description": "Description of my IAM Credentials secret",
+        "secret_type": "iam_credentials",
+        "secret_group_id": "bfc0a4a9-3d58-4fda-945b-76756af516aa",
+        "labels": [
+          "dev",
+          "us-south"
+        ],
+        "ttl": "30m",
+        "access_groups": [
+          "AccessGroupId-45884031-54be-4dd7-86ff-112511e92699",
+          "AccessGroupId-8c0ed733-dfee-4a94-992b-e2247b86e2a2"
+        ],
+        "reuse_api_key": true,
+        "custom_metadata": {
+          "metadata_custom_key": "metadata_custom_value"
         },
-        "resources": [
-        {
-          "name": "example-IAM-credentials",
-          "description": "Extended description for my secret.",
-          "access_groups": [
-            "AccessGroupId-0529f490-129c-4877-a2a0-b57f50d3e53b"
-          ],
-          "secret_group_id": "339c026a-ac0f-1ea1-3d43-99adf871b49a",
-          "reuse_api_key": true,
-          "ttl": "12h",
-          "labels": [
-            "dev",
-            "us-south"
-          ],
-          "expiration_date": "2030-01-01T00:00:00Z",
-          "custom_metadata": {
-            "collection_nickname" : "test_collection"
-            "collection_special_id" : "test12345"
-          },
-          "version_custom_metadata": {
-            "version_special_id" : "test6789"
-          }            
+        "version_custom_metadata": {
+          "custom_version_key": "custom_version_value"
         }
-        ]
-    }'
+      }' \ 
+    "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets"
 ```
 {: codeblock}
 {: curl}
@@ -319,42 +310,64 @@ You can find the ID value of a service ID in the IAM section of the console. Go 
 {: note}
 
 ```sh
-curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/iam_credentials" \
-    -H "Authorization: Bearer {IAM_token}" \
+curl -X POST  
+    -H "Authorization: Bearer {iam_token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{
-        "metadata": {
-        "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
-        "collection_total": 1
-        },
-        "resources": [
-        {
-          "name": "example-IAM-credentials",
-          "description": "Extended description for my secret.",
-          "service_id": "ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0,
-          "secret_group_id": "339c026a-ac0f-1ea1-3d43-99adf871b49a",
-          "ttl": "12h",
+    -d '{ 
+          "name": "example-iam-credentials-secret",
+          "description": "Description of my IAM Credentials secret",
+          "service_id":"iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
+          "secret_type": "iam_credentials",
+          "secret_group_id": "bfc0a4a9-3d58-4fda-945b-76756af516aa",
           "labels": [
             "dev",
             "us-south"
           ],
-          "expiration_date": "2030-01-01T00:00:00Z",
+          "ttl": "30m",
+          "service_id": "ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0,
+          "reuse_api_key": false,
           "custom_metadata": {
-            "collection_nickname" : "test_collection"
-            "collection_special_id" : "test12345"
+            "metadata_custom_key": "metadata_custom_value"
           },
           "version_custom_metadata": {
-            "version_special_id" : "test6789"
-          }           
-        }
-        ]
-    }'
+            "custom_version_key": "custom_version_value"
+          }
+        }' \
+  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets"
 ```
 {: codeblock}
 {: curl}
 
 A successful request returns the ID value of the secret, along with other metadata. For more information, check out the [API reference](/apidocs/secrets-manager).
+
+## Creating IAM credentials with Terraform
+{: #iam-credentials-terraform}
+{: terraform}
+
+You can create IAM credentials programmatically by using Terraform for {{site.data.keyword.secrets-manager_short}}.
+
+You must add a `depends_on` Terraform meta-argument and refer it to your IAM configuration resource. The `depends_on` meta-argument instructs Terraform to complete all actions on the IAM configuration before you perform actions on the IAM credentials secrets.
+
+The following example shows a configuration that you can use to create IAM credentials.
+
+```terraform
+    resource "ibm_sm_iam_credentials_secret" "test_iam_credentials_secret" {
+        instance_id = local.instance_id
+        region = local.region
+        service_id = "ServiceId-f4b2deac-fbb5-4bf7-85de-88426701db97"
+        ttl = "1800"
+        name = "test-iam-credentials-secret"
+        reuse_api_key = true
+        secret_group_id = ibm_sm_secret_group.sm_secret_group_test.secret_group_id
+        depends_on = [
+            ibm_sm_iam_credentials_configuration.iam_credentials_configuration
+        ]
+    }
+```
+{: codeblock}
+
+
 
 ## Deleting IAM credentials
 {: #iam-credentials-delete}

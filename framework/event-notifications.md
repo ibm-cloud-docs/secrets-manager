@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-11"
+lastupdated: "2023-04-13"
 
 keywords: event notifications for {{site.data.keyword.secrets-manager_short}}, event notifications integration for {{site.data.keyword.secrets-manager_short}}, alerts for {{site.data.keyword.secrets-manager_short}}
 
@@ -202,15 +202,16 @@ You can find the `event_notifications_instance_crn` value in the console by goin
 
 
 ```sh
-curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/notifications/registration" \
-    -H "Authorization: Bearer $IAM_TOKEN" \
-    -H "Accept: application/json" \
-    -H "Content-Type: application/json" \
-    -d '{
-          "event_notifications_instance_crn": "crn:v1:bluemix:public:event-notifications:<region>:a/<account-id>:<service-instance>::",
-          "event_notifications_source_name": "my-secrets-manager",
-          "event_notifications_source_description": "Optional description of this source in Event Notifications."
-        }'
+curl -X POST 
+   --H "Authorization: Bearer {iam_token}" \
+   --H "Accept: application/json" \
+   --H "Content-Type: application/json" \
+   --d'{
+      "event_notifications_instance_crn": "crn:v1:bluemix:public:event-notifications:us-south:a/22018f3c34ff4ff193698d15ca316946:578ad1a4-2fd8-4e66-95d5-79a842ba91f8::",
+      "event_notifications_source_description": "Optional description of this source in an Event Notifications instance.",
+      "event_notifications_source_name": "My Secrets Manager"
+   }' \
+"https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/notifications/registration"
 ```
 {: codeblock}
 {: curl}
@@ -253,8 +254,9 @@ The following example shows a query that you can use to send a test event from t
 
 
 ```sh
-curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/notifications/test" \
-  -H "Authorization: Bearer $IAM_TOKEN"
+curl -X GET 
+   --H "Authorization: Bearer {iam_token}" \
+   "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/notifications/registration/test"
 ```
 {: codeblock}
 {: curl}

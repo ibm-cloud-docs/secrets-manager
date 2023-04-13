@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-27"
+lastupdated: "2023-04-13"
 
 keywords: intermediate certificate authority, intermediate CA, internal signing, external signing
 
@@ -116,6 +116,36 @@ An intermediate CA with internal signing uses a parent CA that was previously cr
 
 
 
+## Creating an intermediate CA with internal signing with the API
+{: #intermediate-ca-internal-signing-api}
+{: api}
+
+An intermediate CA with internal signing uses a parent CA that was previously created in your {{site.data.keyword.secrets-manager_short}} instance as its trust anchor. You can create an intermediate CA with internal signing by using the {{site.data.keyword.secrets-manager_short}} API. 
+
+```sh
+curl -X POST 
+  --H "Authorization: Bearer {iam_token}" \
+  --H "Accept: application/json" \
+  --H "Content-Type: application/json" \
+  --d '{
+  "config_type": "private_cert_configuration_intermediate_ca",
+  "name": "test-intermediate-CA",
+  "common_name": "example.com",
+  "crl_disable": false,
+  "crl_distribution_points_encoded": true,
+  "crl_expiry": "72h",
+  "issuer": "test-root-CA",
+  "issuing_certificates_urls_encoded": true,
+  "max_ttl": "26300h",
+  "signing_method": "internal"
+}' \  
+  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/configurations"
+```
+{: codeblock}
+{: curl}
+
+
+
 ## Creating an intermediate CA with external signing in the UI
 {: #intermediate-ca-external-signing-ui}
 {: ui}
@@ -183,6 +213,36 @@ After you sign an intermediate CA certificate by using an external parent CA, yo
 4. Click **Sign** to complete the external signing process.
    
    The signed intermediate CA is added to your list of configurations for your instance with an **Active** status. You can now use this intermediate CA to [create private certificates](/docs/secrets-manager?topic=secrets-manager-certificates#create-certificates) for your applications. To modify or remove an existing configuration, click **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) in the row of the certificate authority that you want to update.
+
+
+
+## Creating an intermediate CA with external signing with the API
+{: #intermediate-ca-external-signing-api}
+{: api}
+
+An intermediate CA with external signing uses a parent CA from an external PKI system, or even another {{site.data.keyword.secrets-manager_short}} instance, as its trust anchor. The parent CA can be a root CA or an intermediate CA.You can create an intermediate CA with external signing by using the {{site.data.keyword.secrets-manager_short}} API. 
+
+```sh
+curl -X POST 
+  --H "Authorization: Bearer {iam_token}" \
+  --H "Accept: application/json" \
+  --H "Content-Type: application/json" \
+  --d '{
+  "config_type": "private_cert_configuration_intermediate_ca",
+  "name": "test-intermediate-CA",
+  "common_name": "example.com",
+  "crl_disable": false,
+  "crl_distribution_points_encoded": true,
+  "crl_expiry": "72h",
+  "issuer": "test-root-CA",
+  "issuing_certificates_urls_encoded": true,
+  "max_ttl": "26300h",
+  "signing_method": "external"
+}' \  
+  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/configurations"
+```
+{: codeblock}
+{: curl}
 
 
 

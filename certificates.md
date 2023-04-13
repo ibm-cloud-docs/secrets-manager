@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-05"
+lastupdated: "2023-04-13"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, imported certificates
 
@@ -67,7 +67,7 @@ You can use {{site.data.keyword.secrets-manager_full}} to store, request, and ge
 
 An SSL/TLS certificate is a type of digital certificate that is used to establish communication privacy between a server and a client. Certificates are issued by [certificate authorities (CA)](#x2016383){: term} and contain information that is used to create trusted and secure connections between endpoints. After you add a certificate to your {{site.data.keyword.secrets-manager_short}} instance, you can use it to secure network communications for your cloud or on-premises deployments. Your certificate is stored securely in your dedicated {{site.data.keyword.secrets-manager_short}} service instance, where you can centrally manage its lifecycle.
 
-In {{site.data.keyword.secrets-manager_short}}, certificates that you import to the service are imported certificates (`imported_cert`). Certificates that you order through {{site.data.keyword.secrets-manager_short}} from a third-party certificate authority are public certificates (`public_cert`). Certificates that you create by using a private certificate authority are private certificates (`private_cert`).
+In {{site.data.keyword.secrets-manager_short}}, certificates that you import to the service are imported certificates (`imported_cert`). Certificates that you order through {{site.data.keyword.secrets-manager_short}} from a third-party certificate authority arepublic certificates (`public_cert`). Certificates that you create by using a private certificate authority areprivate certificates (`private_cert`).
 {: note}
 
 To learn more about the types of secrets that you can manage in {{site.data.keyword.secrets-manager_short}}, see [What is a secret?](/docs/secrets-manager?topic=secrets-manager-what-is-secret)
@@ -153,7 +153,22 @@ You can import certificate files that are in the `.pem` format. Be sure to [conv
 
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-type imported_cert --resources '[{"name": "example-imported-certificate","description": "Extended description for my secret.","certificate": "-----BEGIN CERTIFICATE-----\nMIICWzCCAcQCC...(redacted)","private_key": "-----BEGIN PRIVATE KEY-----\nMIICdgIBADANB...(redacted)","intermediate": "-----BEGIN CERTIFICATE-----\nMIICUzHHraOa...(redacted)"}]' --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
+ibmcloud secrets-manager secret-create \   
+    --secret-type=imported_cert  \  
+    --resources='[
+        {
+            "name": "example-imported-certificate", 
+            "description": "Extended description for my secret.", 
+            "certificate": "-----BEGIN CERTIFICATE-----\nMIICWzCCAcQCC...(redacted)",
+            "private_key": "-----BEGIN PRIVATE KEY-----\nMIICdgIBADANB...(redacted)","intermediate": "-----BEGIN CERTIFICATE-----\nMIICUzHHraOa...", 
+            "custom_metadata": {
+                "anyKey": "anyValue"
+                }, 
+            "version_custom_metadata": {
+                "anyKey": "anyValue"
+                }
+            }
+        ]'
 ```
 {: pre}
 
@@ -179,38 +194,30 @@ You can import certificate files that are in the `.pem` format. Be sure to [conv
 
 
 ```sh
-curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/imported_cert" \
-    -H "Authorization: Bearer {IAM_token}" \
+curl -X POST  
+    -H "Authorization: Bearer {iam_token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{
-        "metadata": {
-          "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
-          "collection_total": 1
-        },
-          "resources": [
-            {
-              "name": "example-certificate",
-              "description": "Extended description for my secret.",
-              "secret_group_id": "432b91f1-ff6d-4b47-9f06-82debc236d90",
-              "certificate": "-----BEGIN CERTIFICATE-----\nMIICWzCCAcQCC...(redacted)",
-              "private_key": "-----BEGIN PRIVATE KEY-----\nMIICdgIBADANB...(redacted)",
-              "intermediate": "-----BEGIN CERTIFICATE-----\nMIICUzHHraOa...(redacted)",
-              "labels": [
-                  "dev",
-                  "us-south"
-                ],
-              "expiration_date": "2030-01-01T00:00:00Z",
-              "custom_metadata": {
-                  "collection_nickname" : "test_collection"
-                  "collection_special_id" : "test12345"
-              },
-              "version_custom_metadata": {
-                  "version_special_id" : "test6789"
-              }    
-          }
-        ]
-    }'
+    -d '{ 
+            "name": "example-imported-certificate",
+            "description": "description of my imported certificate.",
+            "secret_type": "imported_cert",
+            "secret_group_id": "67d025e1-0248-418f-83ba-deb0ebfb9b4a",
+            "labels": [
+                "dev",
+                "us-south"
+            ],
+            "certificate": "-----BEGIN CERTIFICATE-----\nMIIE3jCCBGSgAwIBAgIUZfTbf3adn87l5J2Q2Aw+6Vk/qhowCgYIKoZIzj0EAwIw\n-----END CERTIFICATE-----",
+            "intermediate": "-----BEGIN CERTIFICATE-----\nMIIE3DCCBGKgAwIBAgIUKncnp6BdSUKAFGBcP4YVp/gTb7gwCgYIKoZIzj0EAwIw\n-----END CERTIFICATE-----",
+            "private_key": "-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEAqcRbzV1wp0nVrPtEpMtnWMO6Js1q3rhREZluKZfu0Q8SY4H3\n-----END RSA PRIVATE KEY-----",
+            "custom_metadata": {
+                "metadata_custom_key": "metadata_custom_value"
+            },
+            "version_custom_metadata": {
+                "custom_version_key": "custom_version_value"
+            }
+        }' \ 
+    "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets"
 ```
 {: codeblock}
 {: curl}
@@ -218,6 +225,29 @@ curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api
 
 
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
+
+
+
+### Importing certificates with Terraform
+{: #import-certificates-terraform}
+{: terraform}
+
+You can import certificates programmatically by using Terraform for {{site.data.keyword.secrets-manager_short}}.
+
+The following example shows a query that you can use to import an existing certificate.
+
+```terraform
+    resource "ibm_sm_imported_certificate" "sm_imported_certificate" {
+        instance_id = local.instance_id
+        region = local.region
+        name = "test-imported-certificate"
+        secret_group_id = "default"
+        certificate  = file("path_to_certificate_file")
+        intermediate = file("path_to_intermediate_certificate_file")
+        private_key  = file("path_to_private_key_file")
+    }
+```
+{: codeblock}
 
 
 
@@ -297,11 +327,38 @@ When you order a certificate, domain validation takes place to verify the owners
 
 
 
-
 ```sh
-ibmcloud secrets-manager secret-create --secret-type public_cert --resources '[{"name": "example-certificate","description": "Extended description for my secret.","ca": "certificate-authority-name", "dns": "dns_provider", "common_name": "cert_common_name","alt_names": ["alt_name1", "alt_name2"],"algorithm": "sha256WithRSAEncryption","key_algorithm": "rsaEncryption 2048 bit","rotation": {"enabled": false,"rotate_keys":false}}]' --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
+ibmcloud secrets-manager secret-create --secret-type=public_cert --resources=
+'[{
+    "name": "example-public-certificate", 
+    "description": "Extended description for this secret.", 
+    "secret_group_id": "bc656587-8fda-4d05-9ad8-b1de1ec7e712", 
+    "labels": [
+        "dev","us-south"
+    ], 
+    "dns": "dns_provider",
+    "common_name": "cert_common_name"
+    "alt_names": [
+        "alt_name1", "alt_name2"
+    ],
+    "algorithm": "sha256WithRSAEncryption",
+    "key_algorithm": "rsaEncryption 2048 bit",
+    "rotation": {
+        "enabled": false,
+        "rotate_keys":false
+        },
+    "custom_metadata" : {
+        "anyKey" : "anyValue"
+    },
+    "version_custom_metadata" : {
+        "anyKey" : "anyValue"
+    },
+    "expiration_date" : "2030-01-01T00:00:00Z",
+        }
+]
 ```
 {: pre}
+
 
 
 
@@ -325,48 +382,41 @@ When you order a certificate, domain validation takes place to verify the owners
 
 
 ```sh
-curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/public_cert" \
-     -H "Authorization: Bearer {IAM_token}" \
-     -H "Accept: application/json" \
-     -H "Content-Type: application/json" \
-     -d '{
-          "metadata": {
-            "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
-            "collection_total": 1
-            },
-          "resources": [
-            {
-              "name": "example-certificate",
-              "description": "Extended description for my secret.",
-              "secret_group_id": "432b91f1-ff6d-4b47-9f06-82debc236d90",
-              "ca": "my-ca-configuration-name",
-              "dns": "my-dns-configuration-name",
-          "labels": [
-              "dev",
-              "us-south"
+curl -X POST  
+    -H "Authorization: Bearer {iam_token}" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{ 
+            "name": "example-public-certificate",
+            "description": "Description of my public certificate",
+            "secret_type": "public_cert",
+            "secret_group_id": "bfc0a4a9-3d58-4fda-945b-76756af516aa",
+            "labels": [
+                "dev",
+                "us-south"
             ],
-          "expiration_date": "2030-01-01T00:00:00Z",
-          "custom_metadata": {
-              "collection_nickname" : "test_collection"
-              "collection_special_id" : "test12345"
-            },
-          "version_custom_metadata": {
-              "version_special_id" : "test6789"
-            },             
-          "common_name": "example.com",
-          "alt_names": [
-              "www.example.com"
+            "common_name": "example.com",
+            "alt_names": [
+                "s1.example.com",
+                "*.s2.example.com"
             ],
-          "bundle_certs": false,
-          "key_algorithm": "RSA2048",
-          "rotation": {
-              "auto_rotate": false,
-              "rotate_keys": false
+            "ca": "lets-encrypt-config",
+            "dns": "cloud-internet-services-config",
+            "rotation": {
+                "auto_rotate": true,
+                "rotate_keys": true
+            },
+            "bundle_certs": true,
+            "custom_metadata": {
+                "metadata_custom_key": "metadata_custom_value"
+            },
+            "version_custom_metadata": {
+                "custom_version_key": "custom_version_value"
             }
-          }
-        ]
-      }'
-```
+        }' \ 
+    "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets"
+
+```        
 {: codeblock}
 {: curl}
 
@@ -459,41 +509,45 @@ To create a public certificate by using a manual DNS provider, complete the foll
 
 
 
-   ```sh
-   curl -X POST 'https://{instance_id}.us-south.secrets-manager.appdomain.cloud/api/v1/secrets/public_cert' \
-        -H 'accept: application/json' \
-        -H 'Authorization: Bearer $IAM_token' \
-        -H 'Content-Type: application/json' \
-        -d '{
-              "metadata": {
-                  "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
-                  "collection_total": 1
-                },
-              "resources": [
-                {
-                  "name": "my-public-certificate",
-                  "description": "Description for ordered certificate.",
-                  "ca": "ca_config_name",
-                  "dns": "manual",
-                  "common_name": "domain1.com",
-                  "alt_names": [
-                  "domain2.com",
-                  "domain3.com"
+    ```sh
+    curl -X POST 
+        -H "Authorization: Bearer {iam_token}" \
+        -H "Accept: application/json" \
+        -H "Content-Type: application/json" \
+        -d '{ 
+                "name": "example-public-certificate",
+                "description": "description of my public certificate",
+                "secret_type": "public_cert",
+                "secret_group_id": "bfc0a4a9-3d58-4fda-945b-76756af516aa",
+                "labels": [
+                    "dev",
+                    "us-south"
                 ],
-                  "bundle_certs": false,
-                  "key_algorithm": "RSA2048",
-                  "rotation": {
-                  "auto_rotate": false,
-                  "rotate_keys": false
-                    }
+                "common_name": "example.com",
+                "alt_names": [
+                    "s1.example.com",
+                    "*.s2.example.com"
+                ],
+                "ca": "lets-encrypt-config",
+                "dns": "manual",
+                "rotation": {
+                    "auto_rotate": true,
+                    "rotate_keys": true
+                },
+                "bundle_certs": true,
+                "custom_metadata": {
+                    "metadata_custom_key": "metadata_custom_value"
+                },
+                "version_custom_metadata": {
+                    "custom_version_key": "custom_version_value"
                 }
-            ]
-        }'
-   ```
-   {: codeblock}
-   {: curl}
-   
-   
+                }' \ 
+            "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets" 
+    ```
+    {: codeblock}
+    {: curl}
+
+
 
 
    Example response:
@@ -580,16 +634,18 @@ To create a public certificate by using a manual DNS provider, complete the foll
 5. After the records are propagated, call the {{site.data.keyword.secrets-manager_short}} [Invoke an action on a secret](/apidocs/secrets-manager#update-secret) API to request Let's Encrypt to validate the challenges to your domain and create a public certificate. 
 
    ```sh
-    curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v1/secrets/{id}/actions"
+    curl -X POST 
     --header "Authorization: Bearer {iam_token}" 
     --header "Accept: application/json" 
     --header "Content-Type: application/json" 
     --data '{ 
         "action_type": "public_cert_action_validate_dns_challenge"
     }'\ 
+    "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secrets/{id}/actions"
    ```
    {: codeblock}
    {: curl}
+   
 
    If you need to update your certificate later, you can use the [Invoke an action on a secret](/apidocs/secrets-manager#update-secret) API but with the action `rotate`. However, you can't automatically rotate manual DNS provider certificates in {{site.data.keyword.secrets-manager_short}}.
    {: note}
@@ -614,7 +670,34 @@ When you order a certificate, domain validation takes place to verify the owners
 
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-type public_cert --resources '[{"name": "example-certificate","description": "Extended description for my secret.","ca": "certificate-authority-name", "dns": "manual", "common_name": "cert_common_name","alt_names": ["alt_name1", "alt_name2"],"algorithm": "sha256WithRSAEncryption","key_algorithm": "rsaEncryption 2048 bit","rotation": {"enabled": false,"rotate_keys":false}}]' --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
+ibmcloud secrets-manager secret-create --secret-type=public_cert --resources=
+'[{
+    "name": "example-public-certificate", 
+    "description": "Extended description for this secret.", 
+    "secret_group_id": "bc656587-8fda-4d05-9ad8-b1de1ec7e712", 
+    "labels": [
+        "dev","us-south"
+    ], 
+    "dns": "manual",
+    "common_name": "cert_common_name"
+    "alt_names": [
+        "alt_name1", "alt_name2"
+    ],
+    "algorithm": "sha256WithRSAEncryption",
+    "key_algorithm": "rsaEncryption 2048 bit",
+    "rotation": {
+        "enabled": false,
+        "rotate_keys":false
+        },
+    "custom_metadata" : {
+        "anyKey" : "anyValue"
+    },
+    "version_custom_metadata" : {
+        "anyKey" : "anyValue"
+    },
+    "expiration_date" : "2030-01-01T00:00:00Z",
+        }
+]
 ```
 {: pre}
 
@@ -686,9 +769,33 @@ When you order a certificate, domain validation takes place to verify the owners
 
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-type private_cert --resources '[{"name": "example-certificate","description": "Extended description for my secret.","certificate_template": "example-certificate-template", "secret_group_id": "432b91f1-ff6d-4b47-9f06-82debc236d90", "common_name": "cert_common_name","rotation": {"enabled": false,"rotate_keys":false}}]' --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
+ibmcloud secrets-manager secret-create --secret-type=private_cert --resources=
+    '[{
+        "name": "example-private-certificate", 
+        "description": "Extended description for this secret.", 
+        "secret_group_id": "bc656587-8fda-4d05-9ad8-b1de1ec7e712", 
+        "labels": [
+            "dev","us-south"
+        ], 
+        "certificate_template": "example-certificate-template"
+        "common_name": "cert_common_name",
+        "rotation": {
+            "enabled": false,
+            "rotate_keys":false
+            },
+        "custom_metadata" : {
+        "anyKey" : "anyValue"
+    },
+        "version_custom_metadata" : {
+            "anyKey" : "anyValue"
+        },
+        "expiration_date" : "2030-01-01T00:00:00Z",
+        }
+    ]
 ```
 {: pre}
+
+
 
 
 
@@ -713,47 +820,43 @@ You can store metadata that are relevant to the needs of your organization with 
 
 
 ```sh
-curl  -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/private_cert" \
-      -H "Authorization: Bearer {IAM_token}" \
-      -H "Accept: application/json" \
-      -H "Content-Type: application/json" \
-      -d '{
-            "metadata": {
-              "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
-              "collection_total": 1
-            },
-            "resources": [
-              {
-                "name": "example-certificate",
-                "description": "Extended description for my secret.",
-                "secret_group_id": "432b91f1-ff6d-4b47-9f06-82debc236d90",
-                "certificate_template": "example-certificate-template",
-                "common_name": "example.com",
-                "labels": [
-                    "dev",
-                    "us-south"
-                ],
-                "expiration_date": "2030-01-01T00:00:00Z",
-                "custom_metadata": {
-                    "collection_nickname" : "test_collection"
-                    "collection_special_id" : "test12345"
-                },
-                "version_custom_metadata": {
-                    "version_special_id" : "test6789"
-                }              
-                "rotation": {
-                    "auto_rotate": true,
-                    "interval": 1,
-                    "unit": "month"
-                }
-              }
-            ]
-          }'
+curl -X POST 
+    -H "Authorization: Bearer {iam_token}" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{
+        "name": "example-private-certificate",
+        "description": "Description of my private certificate",
+        "secret_type": "private_cert",
+        "secret_group_id": "bfc0a4a9-3d58-4fda-945b-76756af516aa",
+        "labels": [
+            "dev",
+            "us-south"
+        ],
+        "certificate_template": "test-certificate-template",
+        "common_name": "localhost",
+        "alt_names": [
+            "alt-name-1",
+            "alt-name-2"
+        ],
+        "ip_sans": "127.0.0.1",
+        "uri_sans": "https://www.example.com/test",
+        "ttl": "2190h",
+        "rotation": {
+            "auto_rotate": true,
+            "interval": 1,
+            "unit": "month"
+        },
+        "custom_metadata": {
+            "metadata_custom_key": "metadata_custom_value"
+        },
+        "version_custom_metadata": {
+            "custom_version_key": "custom_version_value"
+        }
+        }' \ "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets" 
 ```
 {: codeblock}
 {: curl}
-
-
 
 Need to create a private certificate with advanced options? You can use optional request parameters to specify advanced attributes for your private certificate, such as Subject Alternative Names or a time-to-live (TTL). If you omit these optional parameters, the attributes that are defined for your selected certificate template are applied. For more information, see the [API reference](/apidocs/secrets-manager#create-secret).
 {: tip}
@@ -764,82 +867,57 @@ A successful request returns the contents of your private certificate, along wit
 
 ```json
 {
-    "metadata": {
-        "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
-        "collection_total": 1
-    },
-    "resources": [
-        {
-            "algorithm": "SHA256-RSA",
-            "alt_names": [
-                "example.com"
-            ],
-            "certificate_authority": "example-intermediate-certificate-authority",
-            "certificate_template": "example-certificate-template",
-            "common_name": "example.com",
-            "created_by": "iam-ServiceId-e4a2f0a4-3c76-4bef-b1f2-fbeae11c0f21",
-            "creation_date": "2022-04-01T00:00:00Z",
-            "crn": "crn:v1:staging:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:f1bc94a6-64aa-4c55-b00f-f6cd70e4b2ce:secret:3288e39c-f1f1-3955-35e0-79f29aa4e644",
-            "description": "Extended description for my secret.",
-            "downloaded": true,
-            "expiration_date": "2023-04-01T00:00:00Z",
-            "id": "3288e39c-f1f1-3955-35e0-79f29aa4e644",
-            "issuer": "example.com",
-            "key_algorithm": "RSA2048",
-            "labels": [
-                "dev",
-                "us-south"
-            ],
-            "last_update_date": "2022-04-01T00:00:00Z",
-            "name": "example-certificate",
-            "next_rotation_date": "2022-05-01T00:00:00Z",
-            "rotation": {
-                "auto_rotate": true,
-                "interval": 1,
-                "unit": "month"
-            },
-            "secret_data": {
-                "ca_chain": [
-                    "-----BEGIN CERTIFICATE-----\nMIIDNTCCAh2gAwIBAgIUAOqMoNUT6oGYG8...(truncated)"
-                ],
-                "certificate": "-----BEGIN CERTIFICATE-----\nMIIDJDCCAgygAwIBAgIUVuzaHjuNRE...(truncated)",
-                "issuing_ca": "-----BEGIN CERTIFICATE-----\nMIIDNTCCAh2gAwIBAgIUAOqMoNUT6o...(truncated)",
-                "private_key": "-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEAxwxU+xWW74Ot09oY...(truncated)"
-            },
-            "secret_group_id": "432b91f1-ff6d-4b47-9f06-82debc236d90",
-            "secret_type": "private_cert",
-            "serial_number": "56:ec:da:1e:3b:8d:44:41:bf:7e:b6:7b:fb:34:f9:fc:c6:fa:d8:cd",
-            "state": 1,
-            "state_description": "Active",
-            "validity": {
-                "not_after": "2023-04-01T00:00:00Z",
-                "not_before": "2022-04-01T00:00:00Z""
-            },
-            "versions": [
-                {
-                    "auto_rotated": false,
-                    "created_by": "iam-ServiceId-e4a2f0a4-3c76-4bef-b1f2-fbeae11c0f21",
-                    "creation_date": "2022-04-01T00:00:00Z",
-                    "downloaded": true,
-                    "expiration_date": "2023-04-01T00:00:00Z",
-                    "id": "73db8437-dd9e-4712-5e9a-95838357301f",
-                    "payload_available": true,
-                    "version_custom_metadata": {},
-                    "serial_number": "56:ec:da:1e:3b:8d:44:41:bf:7e:b6:7b:fb:34:f9:fc:c6:fa:d8:cd",
-                    "state": 1,
-                    "state_description": "Active",
-                    "validity": {
-                        "not_after": "2023-04-01T00:00:00Z",
-                        "not_before": "2022-04-01T00:00:00Z"
-                    }
-                }
-            ],
-            "versions_total": 1,
-            "version_custom_metadata": {
-              "version_special_id" : "test6789"
-            }
-        }
-    ]
+  "alt_names": [
+    "s1.example.com",
+    "*.s2.example.com"
+  ],
+  "certificate_authority": "test-intermediate-CA",
+  "certificate_template": "test-certificate-template",
+  "common_name": "example.com",
+  "created_at": "2022-10-02T14:08:07Z",
+  "created_by": "iam-ServiceId-e4a2f0a4-3c76-4bef-b1f2-fbeae11c0f21",
+  "crn": "crn:v1:bluemix:public:secrets-manager:us-south:a/a5ebf2570dcaedf18d7ed78e216c263a:f1bc94a6-64aa-4c55-b00f-f6cd70e4b2ce:secret:cb7a2502-8ede-47d6-b5b6-1b7af6b6f563",
+  "custom_metadata": {
+    "metadata_custom_key": "metadata_custom_value"
+  },
+  "description": "Extended description for this secret.",
+  "downloaded": true,
+  "expiration_date": "2023-03-02T15:08:37Z",
+  "id": "cb7a2502-8ede-47d6-b5b6-1b7af6b6f563",
+  "issuer": "example.com",
+  "key_algorithm": "RSA2048",
+  "labels": [
+    "dev",
+    "us-south"
+  ],
+  "locks_total": 0,
+  "name": "example-private-certificate",
+  "next_rotation_date": "2022-03-02T14:08:07Z",
+  "rotation": {
+    "auto_rotate": false,
+    "interval": 1,
+    "unit": "month"
+  },
+  "secret_data": {
+    "certificate": "-----BEGIN CERTIFICATE-----\nMIIE3jCCBGSgAwIBAgIUZfTbf3adn87l5J2Q2Aw+6Vk/qhowCgYIKoZIzj0EAwIw\n-----END CERTIFICATE-----",
+    "issuing_ca": "-----BEGIN CERTIFICATE-----\nMIIE3jCCBGSgAwIBAgIUZfTbf3adn87l5J2Q2Aw+6Vk/qhowCgYIKoZIzj0EAwIw\n-----END CERTIFICATE-----",
+    "ca_chain": [
+      "-----BEGIN CERTIFICATE-----\nMIIE3jCCBGSgAwIBAgIUZfTbf3adn87l5J2Q2Aw+6Vk/qhowCgYIKoZIzj0EAwIw\n-----END CERTIFICATE-----"
+    ],
+    "private_key": "-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEAqcRbzV1wp0nVrPtEpMtnWMO6Js1q3rhREZluKZfu0Q8SY4H3\n-----END RSA PRIVATE KEY-----"
+  },
+  "secret_group_id": "bc656587-8fda-4d05-9ad8-b1de1ec7e712",
+  "secret_type": "private_cert",
+  "serial_number": "03:e2:c6:e4:0b:7d:30:e2:e2:78:1b:b9:13:fd:f0:fc:89:dd",
+  "signing_algorithm": "SHA256-RSA",
+  "state": 1,
+  "state_description": "active",
+  "updated_at": "2022-03-02T14:08:37Z",
+  "validity": {
+    "not_before": "2022-03-02T15:08:37Z",
+    "not_after": "2023-03-01T00:00:00Z"
+  },
+  "versions_total": 1
 }
 ```
 {: screen}

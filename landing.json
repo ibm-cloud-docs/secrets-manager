@@ -1,6 +1,6 @@
 {
   "title": "Secrets Manager docs",
-  "lastupdated": "2023-03-03",
+  "lastupdated": "2023-04-13",
   "introduction": "Explore recommended content and resources to help you get started with IBM Cloud Secrets Manager.",
   "section_devtools": {
     "api": "/apidocs/secrets-manager",
@@ -43,6 +43,11 @@
         "date": "3 March 2023",
         "title": "Now available: Terraform support",
         "description": "Secrets Manager now supports Terraform."
+      },
+      {
+        "date": "28 February 2023",
+        "title": "Now available: new API and CLI versions",
+        "description": "Secrets Manager now supports Terraform. The new API and CLI versions offer more options to manage your Secrets Manager instance."
       },
       {
         "date": "11 December 2022",

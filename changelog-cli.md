@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-04-13"
 
 keywords: change log for Secrets Manager CLI, CLI changelog, updates to Secrets Manager CLI
 
@@ -64,6 +64,13 @@ In this change log, you can learn about the latest changes, improvements, and up
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
 
 
+
+
+
+## Version 2.0.0
+{: #2.0.0}
+
+Version 2.0.0 was released on 28 February 2023. All of the commands have been updated in this release. For more information, review the [CLI reference](/docs/secrets-manager?topic=secrets-manager-cli-change-log).
 
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-03-07"
+lastupdated: "2023-04-13"
 
 keywords: terraform, {{site.data.keyword.secrets-manager_short}}
 
@@ -164,6 +164,6 @@ When you are designing your Terraform project, follow Terraform best practices f
 Now that you successfully created your first {{site.data.keyword.secrets-manager_short}} service instance with Terraform on {{site.data.keyword.cloud_notm}}, You can review the {{site.data.keyword.secrets-manager_short}} resources and data sources in the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/secrets_manager_secret){: external}.
 
 
-
+you can review how to manage your {{site.data.keyword.secrets-manager_short}} resources by following the Terraform steps that are included in the How to section. For example, you can follow the directions on how to create [arbitrary secrets](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets&interface=terraform) by using Terraform.
 
 

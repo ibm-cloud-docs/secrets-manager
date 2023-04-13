@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-04-13"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -157,7 +157,9 @@ To allow your {{site.data.keyword.cloud_notm}} API key to create and manage othe
     To configure a secrets engine from the {{site.data.keyword.cloud_notm}} CLI, run the [**`ibmcloud secrets-manager config-update`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-config-update-command) command.
 
     ```sh
-    ibmcloud secrets-manager config-update --secret-type iam_credentials --engine-config '{"api_key": "'"$API_KEY"'"}'
+    ibmcloud secrets-manager config-update \    
+        --secret-type=iam_credentials \    
+        --engine-config='{"api_key": "API_KEY"}'
     ```
     {: pre}
 
@@ -168,7 +170,7 @@ To allow your {{site.data.keyword.cloud_notm}} API key to create and manage othe
 
 
 
-## Setting up IAM credentials with the API
+## Configuring the IAM credentials engine with the API
 {: #configure-iam-engine-api}
 {: api}
 
@@ -187,13 +189,15 @@ The following example shows a query that you can use to configure a secrets engi
 
 
 ```sh
-curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/config/iam_credentials" \
-    -H "Authorization: Bearer {IAM_token}"
-    -H "Accept: application/json"
-    -H "Content-Type: application/json"
-    -d '{
-        "api_key": "$IBM_CLOUD_API_KEY"
-    }'
+curl -X POST 
+  --H "Authorization: Bearer {iam_token}" \
+  --H "Accept: application/json" \
+  --H "Content-Type: application/json" \
+  --d '{ 
+    "api_key": "2epu_ykv0PMp2MhxQmDMn7VzrkSlBwi6BOI8uthi_RCS", "config_type": "iam_credentials_configuration", 
+    "name": "iam-configuration" 
+    }' \ 
+  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/configurations"
 ```
 {: codeblock}
 {: curl}
@@ -201,6 +205,27 @@ curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/
 
 
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
+
+
+## Configuring the IAM credentials engine with Terraform
+{: #configure-iam-engine-terraform}
+{: terraform}
+
+Before you can create dynamic IAM credentials, you must configure the IAM secrets engine for your service instance. You can configure a secrets engine programmatically by using Terraform for {{site.data.keyword.secrets-manager_short}}.
+
+The following example shows a configuration that you can use to configure the IAM credentials engine. 
+
+```terraform
+    resource "ibm_sm_iam_credentials_configuration" "iam_credentials_configuration" {
+        instance_id = local.instance_id
+        region = local.region
+        name = "iam_credentials_config"
+        api_key = var.ibmcloud_api_key
+    }
+```
+{: codeblock}
+
+
 
 ## Next steps
 {: #configure-iam-engine-next-steps}

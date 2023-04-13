@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-03-29"
+lastupdated: "2023-04-13"
 
 keywords: key:value, key/value, key-value, storing key:value secrets
 
@@ -101,7 +101,9 @@ To add a key-value secret by using the {{site.data.keyword.secrets-manager_short
 To create a key-value secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. You can specify the type of secret by using the `--secret-type kv` option. For example, the following command creates a key-value secret and stores `{"key1":"value1"}` as its value.
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-type kv --resources '[{"name": "example-kv-secret","description": "Extended description for my secret.","payload": {"key1":"value1"}}]' --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
+ibmcloud secrets-manager secret-create  \
+  --secret-prototype='{
+  "name": "example-kv-secret","description": "Description of my key-value secret.","secret_type": "kv","secret_group_id": "67d025e1-0248-418f-83ba-deb0ebfb9b4a","labels": ["dev","us-south"],"data": {"key1": "val1","key2": "val2"},"custom_metadata": {"metadata_custom_key": "metadata_custom_value"},"version_custom_metadata": {"custom_version_key": "custom_version_value"}}'
 ```
 {: pre}
 
@@ -122,44 +124,35 @@ You can store metadata that are relevant to the needs of your organization with 
 
 
 
-
 ```sh
-curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/kv" \
-    -H "Authorization: Bearer $IAM_TOKEN" \
+curl -X POST 
+    -H "Authorization: Bearer {iam_token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{
-        "metadata": {
-        "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
-        "collection_total": 1
-        },
-        "resources": [
-        {
+    -d '{ 
           "name": "example-kv-secret",
-          "description": "Extended description for my secret.",
-          "secret_group_id": "432b91f1-ff6d-4b47-9f06-82debc236d90",
-          "payload": {
-                  "key1": "val1"
-                },
+          "description": "Description of my kv secret.",
+          "secret_type": "kv",
+          "secret_group_id": "67d025e1-0248-418f-83ba-deb0ebfb9b4a",
           "labels": [
             "dev",
             "us-south"
           ],
-          "expiration_date": "2030-01-01T00:00:00Z",
+          "data": {
+            "key1": "val1",
+            "key2": "val2"
+          },
           "custom_metadata": {
-            "collection_nickname" : "test_collection"
-            "collection_special_id" : "test12345"
+            "metadata_custom_key": "metadata_custom_value"
           },
           "version_custom_metadata": {
-            "version_special_id" : "test6789"
+            "custom_version_key": "custom_version_value"
           }
-        }
-        ]
-    }'
+        }' \ 
+      "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets"
 ```
 {: codeblock}
 {: curl}
-
 
 
 

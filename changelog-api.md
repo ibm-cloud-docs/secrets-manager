@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-04-13"
 
 keywords: change log for Secrets Manager APIs, API changelog, updates to Secrets Manager APIs
 
@@ -64,6 +64,26 @@ In this change log, you can learn about the latest changes, improvements, and up
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
 
 
+
+
+
+## 28 February 2023
+{: #2023-02-28-api}
+
+Version 2.0.0 was released on 28 February 2023. This release includes the following updates:
+
+* You no longer need to include `secret_type` in the API URL to identify a secret. 
+* The secret group name must be unique per {{site.data.keyword.secrets-manager_short}} instance. 
+* Resources updates are defined as HTTP patch operations.
+* The configurations API follows the pattern of the [sm-short]} API. `config_type` acts as the API discriminator, similarly to `secret_type`.
+* Configurations are modeled as openAPI composites with metadata and data parts, similarly to the [sm-short]} model. Mappings between IAM roles and configurations API follow the same pattern for the [sm-short]} API. For example, an IAM viewer can list configurations to view their metadata.
+* List operations return metadata only for secret, secret version, and config resources.
+* The action to rotate a secret is now the create a new secret version API: `POST/v2/secrets/{id}/versions`.
+* The action to restore secret version is now the create a new secret version API with the `restored_from_version` body parameter.
+* The action to delete IAM credentials is now the delete a secret version data API: `DELETE /v2/secrets/{id}/versions/{version_id}/secret_data`.
+* Policies API is now embedded into the metadata API in version 2.0.
+* The actions to list Secrets and get secret metadata return the `versions_total field`. The version's content is not included.
+* Current and previous secret versions can be referenced by using the `current` and `previous` aliases in version APIs.
 
 
 

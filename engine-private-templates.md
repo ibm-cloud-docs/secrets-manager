@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-04-13"
 
 keywords: certificate parameters, certificate templates
 
@@ -121,22 +121,22 @@ The following example shows a query that you can use to create a certificate tem
 
 
 ```sh
-curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/config/private_cert/certificate_templates' \
--H 'Authorization: Bearer {IAM_token}' \
--H 'Content-Type: application/json' \
--d' {
-  "name": "my-exmaple-certificate-template",
-  "type": "certificate_template",
-  "config": {
-    "certificate_authority": "my-example-intermediate-ca",
-    "max_ttl": "8760h",
-    "allow_any_name": true,
-    "enforce_hostnames": false,
-    "allowed_uri_sans": [
-      "https://www.example.com/test"
-    ]
-  }
-}'
+curl -X POST 
+  --H "Authorization: Bearer {iam_token}" \
+  --H "Accept: application/json" \
+  --H "Content-Type: application/json" \
+  --d '{
+  "config_type": "private_cert_configuration_template",
+  "name": "test-certificate-template",
+  "allow_any_name": true,
+  "allowed_uri_sans": [
+    "https://www.example.com/test"
+  ],
+  "certificate_authority": "test-intermediate-CA",
+  "enforce_hostnames": false,
+  "max_ttl": "8760h"
+}' \  
+  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/configurations"
 ```
 {: codeblock}
 {: curl}
@@ -149,63 +149,79 @@ A successful response adds the template configuration to your service instance.
 
 ```json
 {
-    "metadata": {
-        "collection_type": "application/vnd.ibm.secrets-manager.config+json",
-        "collection_total": 1
-    },
-    "resources": [
-        {
-            "config": {
-                "allow_any_name": true,
-                "allow_bare_domains": false,
-                "allow_glob_domains": false,
-                "allow_ip_sans": true,
-                "allow_localhost": true,
-                "allow_subdomains": false,
-                "allowed_domains": [],
-                "allowed_domains_template": false,
-                "allowed_other_sans": null,
-                "allowed_uri_sans": [
-                    "https://www.example.com/test"
-                ],
-                "basic_constraints_valid_for_non_ca": false,
-                "certificate_authority": "my-example-intermediate-ca",
-                "client_flag": true,
-                "code_signing_flag": false,
-                "country": [],
-                "email_protection_flag": false,
-                "enforce_hostnames": false,
-                "ext_key_usage": [],
-                "ext_key_usage_oids": [],
-                "key_bits": 2048,
-                "key_type": "rsa",
-                "key_usage": [
-                    "DigitalSignature",
-                    "KeyAgreement",
-                    "KeyEncipherment"
-                ],
-                "locality": [],
-                "max_ttl": 31536000,
-                "not_before_duration": 30,
-                "organization": [],
-                "ou": [],
-                "policy_identifiers": [],
-                "postal_code": [],
-                "province": [],
-                "require_cn": true,
-                "server_flag": true,
-                "street_address": [],
-                "ttl": 0,
-                "use_csr_common_name": true,
-                "use_csr_sans": true
-            },
-            "name": "my-example-certificate-template",
-            "type": "certificate_template"
-        }
-    ]
+  "allow_any_name": true,
+  "allow_bare_domains": false,
+  "allow_glob_domains": false,
+  "allow_ip_sans": true,
+  "allow_localhost": true,
+  "allow_subdomains": false,
+  "allowed_domains": [],
+  "allowed_domains_template": false,
+  "allowed_other_sans": [],
+  "allowed_uri_sans": [
+    "https://www.example.com/test"
+  ],
+  "basic_constraints_valid_for_non_ca": false,
+  "certificate_authority": "test-intermediate-CA",
+  "client_flag": true,
+  "code_signing_flag": false,
+  "config_type": "private_cert_configuration_template",
+  "created_at": "2022-06-27T11:58:15Z",
+  "created_by": "iam-ServiceId-e4a2f0a4-3c76-4bef-b1f2-fbeae11c0f21",
+  "country": [],
+  "email_protection_flag": false,
+  "enforce_hostnames": false,
+  "ext_key_usage": [],
+  "ext_key_usage_oids": [],
+  "key_bits": 2048,
+  "key_type": "rsa",
+  "key_usage": [
+    "DigitalSignature",
+    "KeyAgreement",
+    "KeyEncipherment"
+  ],
+  "locality": [],
+  "max_ttl_seconds": 31536000,
+  "name": "test-certificate-template",
+  "not_before_duration_seconds": 30,
+  "organization": [],
+  "ou": [],
+  "policy_identifiers": [],
+  "postal_code": [],
+  "province": [],
+  "require_cn": true,
+  "secret_type": "private_cert",
+  "server_flag": true,
+  "street_address": [],
+  "ttl_seconds": 43200,
+  "updated_at": "2022-10-05T21:33:11Z",
+  "use_csr_common_name": true,
+  "use_csr_sans": true
 }
 ```
 {: screen}
+
+
+## Adding a certificate template with Terraform
+{: #certificate-templates-terraform}
+{: terraform}
+
+You can create a certificate template for your service instance by using Terraform for {{site.data.keyword.secrets-manager_short}}.
+
+The following example shows a configuration that you can use to create a certificate template and associate it with an existing intermediate certificate authority that is configured for your instance.
+
+
+```terraform
+    resource "ibm_sm_private_certificate_configuration_template" "test_ca_template" {
+        instance_id = local.instance_id
+        region = local.region
+        name = "test-ca-template"
+        certificate_authority = ibm_sm_private_certificate_configuration_intermediate_ca.test_int_ca.name
+        allowed_domains = ["example1.com", "my.example.com"]
+        allow_any_name = true
+    }
+```
+{: codeblock}
 
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-05"
+lastupdated: "2023-04-13"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -66,6 +66,35 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 
 
 
+
+
+
+## 28 February 2023
+{: #secrets-manager-feb2823}
+{: release-note}
+
+Now available: API version 2.0
+:   A new version of the {{site.data.keyword.secrets-manager_short}} API is now available. The following updates are included in this release.
+
+   * You no longer need to include `secret_type` in the API URL to identify a secret. 
+   * The secret group name must be unique per {{site.data.keyword.secrets-manager_short}} instance. 
+   * Resources updates are defined as HTTP patch operations.
+   * The configurations API follows the pattern of the {{site.data.keyword.secrets-manager_short}} API. `config_type` acts as the API discriminator, similarly to `secret_type`.
+   * Configurations are modeled as openAPI composites with metadata and data parts, similarly to the {{site.data.keyword.secrets-manager_short}} model. Mappings between IAM roles and configurations API follow the same pattern for the {{site.data.keyword.secrets-manager_short}} API. For example, an IAM viewer can list configurations to view their metadata.
+   * List operations return metadata only for secret, secret version, and config resources.
+   * The action to rotate a secret is now the create a new secret version API: `POST/v2/secrets/{id}/versions`.
+   * The action to restore secret version is now the create a new secret version API with the `restored_from_version` body parameter.
+   * The action to delete IAM credentials is now the delete a secret version data API: `DELETE /v2/secrets/{id}/versions/{version_id}/secret_data`.
+   * Policies API is now embedded into the metadata API in version 2.0.
+   * The actions to list Secrets and get secret metadata return the `versions_total field`. The version's content is not included.
+   * Current and previous secret versions can be referenced by using the `current` and `previous` aliases in version APIs.
+   * The secret lock mode names `exclusive` and `exclusive_delete` are replaced by `remove_previous` and `remove_previous_and delete`. The modes still perform the same action, only the names changed.
+
+   For more information, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#introduction). 
+
+
+Now available: CLI version 2.0
+:   A new version of the {{site.data.keyword.secrets-manager_short}} CLI is now available. For more information about the updates that are included in version 2.0, check out the [CLI change log](/docs/secrets-manager?topic=secrets-manager-cli-change-log).
 
 
 

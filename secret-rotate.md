@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-04-13"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -88,7 +88,7 @@ All the secrets that you store in {{site.data.keyword.secrets-manager_short}} ca
 
 
 
-## Manually rotating secrets in the UI
+## Creating new secret versions in the UI
 {: #manual-rotate-ui}
 {: ui}
 
@@ -117,7 +117,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 
 
 
-### Rotating key-value secrets
+### Creating new versions of key-value secrets
 {: #manual-rotate-key-value-ui}
 {: ui}
 
@@ -140,7 +140,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 
 
 
-### Rotating user credentials
+### Creating new versions of user credentials
 {: #manual-rotate-user-credentials-ui}
 {: ui}
 
@@ -168,7 +168,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 
 
 
-### Rotating imported certificates
+### Creating new versions of imported certificates
 {: #manual-rotate-imported-cert-ui}
 {: ui}
 
@@ -197,7 +197,7 @@ If the certificate that you are rotating was previously imported with an interme
 
 
 
-### Rotating public certificates
+### Creating new versions of public certificates
 {: #manual-rotate-public-cert-ui}
 {: ui}
 
@@ -228,7 +228,7 @@ If your {{site.data.keyword.secrets-manager_short}} service instance is enabled 
 
 
 
-### Rotating public certificates with your own DNS provider in the UI
+### Creating new versions of public certificates with your own DNS provider in the UI
 {: #rotate-certificates-manual-ui}
 {: ui}
 
@@ -257,7 +257,7 @@ To rotate a public certificate that was created by using a manual DNS provider i
 
 
 
-### Rotating private certificates
+### Creating new versions of private certificates
 {: #manual-rotate-private-cert-ui}
 {: ui}
 
@@ -279,7 +279,7 @@ If your {{site.data.keyword.secrets-manager_short}} service instance is enabled 
 
 
 
-## Manually rotating secrets from the CLI
+## Manually creating new versions of secrets from the CLI
 {: #manual-rotate-cli}
 {: cli}
 
@@ -296,10 +296,12 @@ To rotate an arbitrary secret by using the {{site.data.keyword.secrets-manager_s
 
 
 ```sh
-ibmcloud secrets-manager secret-update --action rotate --id SECRET_ID --secret-type arbitrary --body '{"payload": "new-secret-data"}' --output json --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
+ibmcloud secrets-manager secret-version-create \    
+   --secret-id=exampleString \    
+   --secret-version-prototype='{"payload": "updated secret credentials", "custom_metadata": {"anyKey": "anyValue"}, "version_custom_metadata": {"anyKey": "anyValue"}}'
+
 ```
 {: codeblock}
-
 
 
 
@@ -314,7 +316,10 @@ To rotate a user credential secret by using the {{site.data.keyword.secrets-mana
 
 
 ```sh
-ibmcloud secrets-manager secret-update --action rotate --id SECRET_ID --secret-type username_password --body '{"password": "new-password"}' --output json --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
+ibmcloud secrets-manager secret-version-create \    
+   --secret-id=exampleString \    
+   --secret-version-prototype='{"password": "new-password", "custom_metadata": {"anyKey": "anyValue"}, "version_custom_metadata": {"anyKey": "anyValue"}}'
+
 ```
 {: codeblock}
 
@@ -347,23 +352,23 @@ You can store metadata that are relevant to the needs of your organization with 
 
 
 ```sh
-curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/arbitrary/{id}?action=rotate" \
-    -H "Authorization: Bearer {IAM_token}" \
-    -H "Accept: application/json" \
-    -H "Content-Type: application/json" \
-    -d '{
-        "payload": "new-secret-data",
-        "custom_metadata":{
-            "custom_key": "custom_value"
-        },
-        "version_custom_metadata":{
-            "version_custom_key": "version_custom_value"
-        }
-    }'
+curl -X POST 
+   -H "Authorization: Bearer {iam_token}" \
+   -H "Accept: application/json" \
+   -H "Content-Type: application/json" \
+   -d '{ 
+         "custom_metadata": { 
+            "metadata_custom_key": "metadata_custom_value" 
+            }, 
+         "payload": "Updated arbit", 
+         "version_custom_metadata": { 
+            "custom_version_key": "custom_version_value" 
+            } 
+         }' \ 
+      "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secrets/{id}/versions"
 ```
 {: codeblock}
 {: curl}
-
 
 
 
@@ -385,21 +390,22 @@ You can store metadata that are relevant to the needs of your organization with 
 
 
 ```sh
-curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/kv/{secret_id}?action=rotate"
-   -H "Authorization: Bearer {IAM_token}" 
-   -H "Accept: application/json" 
-   -H "Content-Type: application/json"
-   -d '{
-         "payload": {
+curl -X POST  
+   -H "Authorization: Bearer {iam_token}" \
+   -H "Accept: application/json" \
+   -H "Content-Type: application/json" \
+   -d '{ 
+      "custom_metadata": { 
+         "metadata_custom_key": "metadata_custom_value" 
+         }, 
+      "data": {
             "key1": "val2"
          },
-        "custom_metadata":{
-            "custom_key": "custom_value"
-        },
-        "version_custom_metadata":{
-            "version_custom_key": "version_custom_value"
-        }
-      }' 
+      "version_custom_metadata": { 
+         "custom_version_key": "custom_version_value" 
+         }
+      }' \ 
+   "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secrets/{id}/versions"
 ```
 {: codeblock}
 {: curl}
@@ -425,20 +431,22 @@ You can store metadata that are relevant to the needs of your organization with 
 
 
 
-```json
-curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password/{id}?action=rotate" \
-    -H "Authorization: Bearer {IAM_token}" \
-    -H "Accept: application/json" \
-    -H "Content-Type: application/json" \
-    -d '{
-        "password": "new-password",
-        "custom_metadata":{
-            "custom_key": "custom_value"
-        },
-        "version_custom_metadata":{
-            "version_custom_key": "version_custom_value"
-        }
-    }'
+```sh
+curl -X POST 
+   -H "Authorization: Bearer {iam_token}" \
+   -H "Accept: application/json" \
+   -H "Content-Type: application/json" \
+   -d '{ 
+      "custom_metadata": { 
+         "metadata_custom_key": "metadata_custom_value" 
+         }, 
+      "password": "new-password",
+      "version_custom_metadata": { 
+         "custom_version_key": "custom_version_value" 
+         } 
+      }' \ 
+   "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secrets/{id}/versions"
+
 ```
 {: codeblock}
 {: curl}

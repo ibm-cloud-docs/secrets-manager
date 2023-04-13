@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-04-13"
 
 keywords: IAM access for Secrets Manager, permissions for Secrets Manager, identity and access management for Secrets Manager, roles for Secrets Manager, actions for Secrets Manager, assigning access for Secrets Manager
 
@@ -107,28 +107,35 @@ If a specific role and its actions don't fit the use case that you're looking to
 
 | Action | Description | Roles |
 | ----- | :----- | :----- |
-| `secrets-manager.dashboard.view` | View the {{site.data.keyword.secrets-manager_short}} dashboard. | Viewer, Operator, Editor, Administrator |
+| `secrets-manager.dashboard.view` | View the {{site.data.keyword.secrets-manager_short}} dashboard. | Operator, Editor, Administrator |
 | `secrets-manager.secret-group.create` | Create secret groups. | Manager |
 | `secrets-manager.secret-group.update` | Update a secret group. | Manager |
 | `secrets-manager.secret-group.delete` | Delete a secret group. | Manager |
 | `secrets-manager.secret-group.read` | View the details of a secret group. | Reader, SecretsReader, Writer, Manager |
 | `secrets-manager.secret-groups.list` | List the secret groups in your instance. | Reader, SecretsReader, Writer, Manager |
 | `secrets-manager.secret.create` | Create a secret. | Writer, Manager |
-| `secrets-manager.secret.import` | Import a secret. | Writer, Manager |
 | `secrets-manager.secret.read` | Get the value of a secret. | SecretsReader, Writer, Manager |
 | `secrets-manager.secret.delete` | Delete a secret. | Manager |
-| `secrets-manager.secrets.list` | List the secrets in your instance. | Reader, SecretsReader, Writer, Manager |
-| `secrets-manager.secret.rotate` | Rotate a secret. | Writer, Manager |
-| `secrets-manager.secret-lock.create` | Create a secret lock.   | Writer, Manager |
-| `secrets-manager.secret-lock.delete` | Delete a secret lock.  | Manager         |
-| `secrets-manager.secret-locks.list`  | List secret locks.     | Reader, SecretsReader, Writer, Manager |
-| `secrets-manager.locks.list`         |  List the locks that exist in your service instance. | Manager, Reader, Writer, SecretsReader |
-| `secrets-manager.secret-metadata.update` | Update a secret. | Writer, Manager |
+| `secrets-manager.secrets.list` | List the secrets in your instance. | Reader, SecretsReader, Writer, Manager | 
+| `secrets-manager.secret-locks.create` | Create secret locks.   | Writer, Manager |
+| `secrets-manager.secret-locks.delete` | Delete secret locks.  | Manager         |
+| `secrets-manager.secrets-locks.list`  | List secret locks.     | Reader, SecretsReader, Writer, Manager |
+| `secrets-manager.secret-version-locks.create` | Create secret version locks. | Manager, Writer |
+| `secrets-manager.secret-version-locks.list` | List secret version locks. | Manager, Reader, Writer, SecretsReader |
+| `secrets-manager.secret-version-locks.delete` | Delete secret version locks. | Manager |
+| `secrets-manager.secret-metadata.update` | Update the metadata of a secret. | Writer, Manager |
 | `secrets-manager.secret-metadata.read` | View the metadata of a secret. | Reader, SecretsReader, Writer, Manager |
-| `secrets-manager.secret-policies.set` | Set secret policies. | Manager |
-| `secrets-manager.secret-policies.get` | Get secret policies. | Manager |
-| `secrets-manager.secret-engine-config.set` | Set secrets engine configuration. | Manager |
-| `secrets-manager.secret-engine-config.get` | Get secrets engine configuration. | Manager |
+| `secrets-manager.secret-action.create` | Create a secret action. | Manager, Writer |
+| `secrets-manager.secret-version.create` | Create a new secret version. | Manager, Writer |
+| `secrets-manager.secret-version.read` | View the details of a secret version. | Manager, Writer, SecretsReader |
+| `secrets-manager.secret-version-metadata.read` | View the metadata of a secret version. | Manager, Reader, Writer, SecretsReader |
+| `secrets-manager.secret-version-action.create` | Create a secret version action. | Manager, Writer |
+| `secrets-manager.configuration.create` | Create a new configuration. | Manager | 
+| `secrets-manager.configuration-action.create` | Create a new configuration action. | Manager |
+| `secrets-manager.configurations.list` | List configurations. | Manager, Reader, Writer |
+| `secrets-manager.configuration.read` | View the details of a configuration. | Manager |
+| `secrets-manager.configuration.update` | Update a configuration. | Manager |
+| `secrets-manager.configuration.delete` | Delete a configuration. | Manager |
 | `secrets-manager.secret-versions.list` | List secret versions. | Reader, SecretsReader, Writer, Manager |
 | `secrets-manager.endpoints.view` | Get service instance endpoints. | Reader, SecretsReader, Writer, Manager |
 | `secrets-manager.notifications-registration.create` | Create a registration with Event Notifications. | Manager |

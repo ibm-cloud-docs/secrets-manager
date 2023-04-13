@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-04-13"
 
 keywords: delete secret, remove secret, destroy secret
 
@@ -93,7 +93,7 @@ To delete a secret, run the [**`ibmcloud secrets-manager secret-delete`**](/docs
 
 
 ```sh
-ibmcloud secrets-manager secret --secret-type SECRET_TYPE --id SECRET_ID --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
+ibmcloud secrets-manager secret-delete --id ID
 ```
 {: pre}
 
@@ -115,9 +115,10 @@ The following example request deletes a secret and its contents. When you call t
 
 
 
-```bash
-curl -X DELETE "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}" \
-    -H "Authorization: Bearer $IAM_TOKEN"
+``` sh
+curl -X DELETE  
+  --H "Authorization: Bearer {iam_token}" \ 
+  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/{id}"
 ```
 {: codeblock}
 {: curl}

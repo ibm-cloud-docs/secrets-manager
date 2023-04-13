@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-11"
+lastupdated: "2023-04-13"
 
 keywords: secret locks, lock secret, prevent deletion, prevent rotation, unlock secret, create lock, delete lock
 
@@ -163,6 +163,44 @@ You can lock the previous version of a secret by using the {{site.data.keyword.s
 
     A new lock is created for your selected secret version.
 
+### Creating locks from the CLI
+{: #create-lock-cli}
+{: cli}
+
+You can create up to 1000 locks on a secret by using the {{site.data.keyword.secrets-manager_short}} CLI. Each lock can be used to represent a single application or service that uses your secret.
+
+A secret is considered locked after you attach one or more locks to it. A lock can be applied only on a secret version that contains active payload, or secret data.
+{: note}
+
+To help you to create a new lock and remove older locks in a single operation, you can also specify an optional mode at lock creation. 
+
+
+
+| Mode | Description |
+| --- | --- |
+| Lock a secret exclusively | Removes any other locks that match the name that you specify. If any matching locks are found in the previous version of the secret, those locks are deleted when your new lock is created.  \n  \n For example, suppose that the previous version of your secret contains a lock `lock-x`. Creating a lock on the current version of your secret and enabling the **Make this lock exclusive** option results in removing `lock-x` from the previous version. |
+| Lock a secret exclusively and delete previous version data  | Same as the previous option, but also permanently deletes the data of the previous secret version if it doesn't have any locks that are associated with it.  \n  \n Suppose that the previous version of your secret contains a lock `lock-z`. Creating a lock on the current version of your secret with both the **Make this lock exclusive** and **Delete previous version data** options results in removing `lock-z` from the previous version. Additionally, because the previous version doesn't have any other locks that are attached to it, the secret data that is associated with the previous version is also deleted. |
+{: caption="Table 1. Optional lock modes and their descriptions" caption-side="top"}
+
+
+
+
+
+#### Creating a lock on the current secret version
+{: #create-lock-current-version-cli}
+{: cli}
+
+You can lock the current version of a secret by using the {{site.data.keyword.secrets-manager_short}} CLI. A successful request attaches a new lock to the current version of your selected secret, or replaces a lock of the same name if it already exists.
+
+To create a lock on the current version of a secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the `ibmcloud secrets-manager secret-lock` command. You can specify the type of secret, the secret ID, and the mode.
+
+```sh
+ibmcloud secrets-manager secret-lock     --secret-type=arbitrary     --id=exampleString     --locks='[{"name": "lock-1", "description": "lock for consumer-1", "attributes": {"anyKey": "anyValue"}}]'     --mode=exclusive
+```
+{: pre}
+
+
+
 
 
 ### Creating locks with the API
@@ -195,32 +233,32 @@ The following request creates two locks on the current version of a secret. When
 
 
 ```bash
-curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}/lock" \
-    -H "Authorization: Bearer {IAM_token}" \
-    -H "Accept: application/json" \
-    -d '{
-      "locks": [
-         {
-            "name": "lock-1",
-            "description": "lock for consumer-1",
-            "attributes": {
-              "key": "value"
-            }
-         },
-         {
-            "name": "lock-2",
-            "description": "lock for consumer-2",
-            "attributes": {
-              "key": "value"
-            }
-         }
-      ]
-    }'
+curl -X POST 
+-H "Authorization: Bearer {iam_token}" \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-d '{ 
+      "locks": [ 
+        { 
+          "name": "lock-1", 
+          "description": "Lock for consumer 1.", 
+          "attributes": { 
+            "key": "value" 
+          } 
+        }, 
+        { 
+          "name": "lock-2", 
+          "description": "Lock for consumer 2.", 
+          "attributes": { 
+            "key": "value" 
+            } 
+          } 
+        ] 
+      }' \ 
+    "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/{id}/locks_bulk"
 ```
 {: codeblock}
 {: curl}
-
-
 
 
 If you're building an automated flow, you can use the `attributes` object to specify key-value data with each lock on your secret. For example, you can include a resource identifier, such as an ID or Cloud Resource Name (CRN).
@@ -232,31 +270,26 @@ A successful response returns details about the new locks, along with other meta
 
 ```json
 {
-  "metadata": {
-    "collection_type": "application/vnd.ibm.secrets-manager.secret.lock+json",
-    "collection_total": 1
-  },
-  "resources": [
+  "secret_id": "0cf4addb-7a90-410b-a3a7-a15bbe2b7909",
+  "secret_group_id": "d8371728-95c8-4c12-b2af-1af98adb9e41",
+  "versions": [
     {
-      "secret_id": "24ec2c34-38ee-4038-9f1d-9a629423158d",
-      "secret_group_id": "bc656587-8fda-4d05-9ad8-b1de1ec7e712",
-      "versions": [
-        {
-          "id": "7bf3814d-58f8-4df8-9cbd-f6860e4ca973",
-          "alias": "current",
-          "locks": [
-            "lock-1",
-            "lock-2"
-          ],
-          "payload_available": true
-        },
-        {
-          "id": "5bf89b0c-df55-c8d5-7ad6-8816951c6784",
-          "alias": "previous",
-          "locks": [],
-          "payload_available": true
-        }
-      ]
+      "version_id": "7bf3814d-58f8-4df8-9cbd-f6860e4ca973",
+      "version_alias": "current",
+      "locks": [
+        "lock-3",
+        "lock-4"
+      ],
+      "payload_available": true
+    },
+    {
+      "version_id": "5bf89b0c-df55-c8d5-7ad6-8816951c6784",
+      "version_alias": "previous",
+      "locks": [
+        "lock-1",
+        "lock-2"
+      ],
+      "payload_available": true
     }
   ]
 }
@@ -276,27 +309,29 @@ The following request creates two locks on the previous version of a secret. Whe
 
 
 ```bash
-curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}/versions/previous/lock" \
-    -H "Authorization: Bearer {IAM_token}" \
+curl -X POST 
+    -H "Authorization: Bearer {iam_token}" \
     -H "Accept: application/json" \
-    -d '{
-      "locks": [
-         {
-            "name": "lock-3",
-            "description": "lock for consumer-3",
-            "attributes": {
-              "key": "value"
-            }
-         },
-         {
-            "name": "lock-4",
-            "description": "lock for consumer-4",
-            "attributes": {
-              "key": "value"
-            }
-         }
-      ]
-    }'
+    -H "Content-Type: application/json" \
+    -d '{ 
+      "locks": [ 
+        { 
+          "name": "lock-1", 
+          "description": "Lock for consumer 1.", 
+          "attributes": { 
+            "key": "value" 
+            } 
+          }, 
+          { 
+            "name": "lock-2", 
+            "description": "Lock for consumer 2.", 
+            "attributes": { 
+              "key": "value" 
+              } 
+            } 
+          ] 
+        }' \ "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secrets/{id}/versions/{version_id}/locks_bulk"
+
 ```
 {: codeblock}
 {: curl}
@@ -309,40 +344,31 @@ A successful response returns details about the new locks, along with other meta
 
 ```json
 {
-  "metadata": {
-    "collection_type": "application/vnd.ibm.secrets-manager.secret.lock+json",
-    "collection_total": 1
-  },
-  "resources": [
+  "secret_id": "0cf4addb-7a90-410b-a3a7-a15bbe2b7909",
+  "secret_group_id": "d8371728-95c8-4c12-b2af-1af98adb9e41",
+  "versions": [
     {
-      "secret_id": "24ec2c34-38ee-4038-9f1d-9a629423158d",
-      "secret_group_id": "bc656587-8fda-4d05-9ad8-b1de1ec7e712",
-      "versions": [
-        {
-          "id": "7bf3814d-58f8-4df8-9cbd-f6860e4ca973",
-          "alias": "current",
-          "locks": [
-            "lock-1",
-            "lock-2"
-          ],
-          "payload_available": true
-        },
-        {
-          "id": "5bf89b0c-df55-c8d5-7ad6-8816951c6784",
-          "alias": "previous",
-          "locks": [
-            "lock-3",
-            "lock-4"
-          ],
-          "payload_available": true
-        }
-      ]
+      "version_id": "7bf3814d-58f8-4df8-9cbd-f6860e4ca973",
+      "version_alias": "current",
+      "locks": [
+        "lock-3",
+        "lock-4"
+      ],
+      "payload_available": true
+    },
+    {
+      "version_id": "5bf89b0c-df55-c8d5-7ad6-8816951c6784",
+      "version_alias": "previous",
+      "locks": [
+        "lock-1",
+        "lock-2"
+      ],
+      "payload_available": true
     }
   ]
 }
 ```
 {: screen}
-
 
 
 
@@ -385,15 +411,11 @@ To understand whether a secret contains locks, check the `locks_total` field tha
 
 
 ```bash
-curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/{secret_type}/{id}/versions/{id}/unlock" \
-    -H "Authorization: Bearer {IAM_token}" \
-    -H "Accept: application/json" \
-    -d '{
-    "locks": [
-      "lock-1",
-      "lock-2"
-    ]
-  }'
+curl -X DELETE  
+  -H "Authorization: Bearer {iam_token}" \
+  -H "Accept: application/json" \
+  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/{secret_id}/versions/{id}/locks_bulk?name=[ "lock-example-1" ]"
+
 ```
 {: codeblock}
 {: curl}

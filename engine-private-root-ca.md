@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-27"
+lastupdated: "2023-04-13"
 
 keywords: root certificate authority, root CA, internal signing, external signing
 
@@ -113,20 +113,20 @@ The following example shows a query that you can use to create a root certificat
 
 
 ```sh
-curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/config/public_cert/certificate_authorities' \
--H 'Authorization: Bearer {IAM_token}' \
--H 'Content-Type: application/json' \
--d' {
-      "name": "test-root-CA",
-      "type": "root_certificate_authority",
-      "config": {
-         "max_ttl": "43830h",
-         "common_name": "example.com",
-         "crl_disable": false,
-         "crl_distribution_points_encoded": true,
-         "issuing_certificates_urls_encoded": true
-      }
-}'
+curl -X POST 
+  --H "Authorization: Bearer {iam_token}" \
+  --H "Accept: application/json" \
+  --H "Content-Type: application/json" \
+  --d '{
+  "config_type": "private_cert_configuration_root_ca",
+  "name": "test-root-CA",
+  "common_name": "example.com",
+  "crl_disable": false,
+  "crl_distribution_points_encoded": true,
+  "issuing_certificates_urls_encoded": true,
+  "max_ttl": "43830h"
+}' \  
+  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/configurations"
 ```
 {: codeblock}
 {: curl}
@@ -139,48 +139,27 @@ A successful response adds the configuration to your service instance.
 
 ```json
 {
-    "metadata": {
-        "collection_type": "application/vnd.ibm.secrets-manager.config+json",
-        "collection_total": 1
-    },
-    "resources": [
-        {
-            "config": {
-                "common_name": "example.com",
-                "country": [],
-                "crl_disable": false,
-                "crl_distribution_points_encoded": true,
-                "crl_expiry": 259200,
-                "data": {
-                    "certificate": "-----BEGIN CERTIFICATE-----\nMIIDNTCCAh2gAwIBAgIUC68iMvjVRDZ4...(truncated)",
-                    "expiration": 1651603608,
-                    "issuing_ca": "-----BEGIN CERTIFICATE-----\nMIIDNTCCAh2gAwIBAgIUC68iMvjVRDZ4c...(truncated)",
-                    "serial_number": "0b:af:22:32:f8:d5:44:36:78:72:2b:cc:b8:0b:bf:39:8d:e0:06:40"
-                },
-                "exclude_cn_from_sans": false,
-                "expiration_date": "2022-05-03T00:00:00Z",
-                "format": "pem",
-                "issuing_certificates_urls_encoded": true,
-                "key_bits": 2048,
-                "key_type": "rsa",
-                "locality": [],
-                "max_path_length": -1,
-                "max_ttl": 157788000,
-                "organization": [],
-                "other_sans": [],
-                "ou": [],
-                "permitted_dns_domains": [],
-                "postal_code": [],
-                "private_key_format": "der",
-                "province": [],
-                "status": "configured",
-                "street_address": [],
-                "ttl": 0
-            },
-            "name": "test-root-CA",
-            "type": "root_certificate_authority"
-        }
-    ]
+  "common_name": "example.com",
+  "config_type": "private_cert_configuration_root_ca",
+  "created_at": "2022-06-27T11:58:15Z",
+  "created_by": "iam-ServiceId-e4a2f0a4-3c76-4bef-b1f2-fbeae11c0f21",
+  "crl_disable": false,
+  "crl_distribution_points_encoded": true,
+  "data": {
+    "certificate": "-----BEGIN CERTIFICATE-----\nMIIGRjCCBS6gAwIBAgIUSKW6zI+E9JU4bva\n-----END CERTIFICATE-----",
+    "expiration": 1825612535,
+    "issuing_ca": "-----BEGIN CERTIFICATE-----\nMIIGRjCCBS6gAwIBAgIUSKW6zI+E9JU4bvad\n-----END CERTIFICATE-----",
+    "serial_number": "48:a5:ba:cc:8f:84:f4:95:38:6e:f6:9d:9e:d7:8f:d8:43:d3:55:bd"
+  },
+  "exclude_cn_from_sans": false,
+  "format": "pem",
+  "issuing_certificates_urls_encoded": true,
+  "max_path_length": -1,
+  "max_ttl_seconds": 31536000,
+  "name": "test-root-CA",
+  "private_key_format": "der",
+  "secret_type": "private_cert",
+  "updated_at": "2022-10-05T21:33:11Z"
 }
 ```
 {: screen}

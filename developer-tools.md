@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-07"
+lastupdated: "2023-04-13"
 
 keywords: Secrets Manager developer tools, integrate with application, API, SDK, CLI
 
@@ -95,11 +95,13 @@ If you're trying out the {{site.data.keyword.secrets-manager_short}} for the fir
 
 
 ```sh
-curl -X GET "{base_url}/api/v1/secrets" \
+curl -X GET  \
   -H "Authorization: Bearer {access_token}" \
   -H "Accept: application/json" 
+  "{base_url}/api/v2/secrets"
 ```
 {: codeblock}
+
 
 
 Replace `{base_url}` with your service endpoint URL, and `{access_token}` with your IAM token. To run the API request, you can paste it into your command line or preferred API testing tool. 

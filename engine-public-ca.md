@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-27"
+lastupdated: "2023-04-13"
 
 keywords: certificate authority, connect certificate authority, set up certificate authority, connect CA, set up CA, connect Let's Encrypt, set up Let's Encrypt, add certificate authority configuration, add CA configuration
 
@@ -129,16 +129,18 @@ Be sure to convert your private key file to single-line format so that it can be
 
 
 ```sh
-curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v1/config/public_cert/certificate_authorities' \
--H 'Authorization: Bearer {IAM_token}' \
--H 'Content-Type: application/json' \
--d'{
-    "type": "<letsencrypt|letsencrypt-stage>",
-    "name": "my-letsencrypt",
-    "config": {
-        "private_key": "-----BEGIN PRIVATE KEY-----\nMIICdgIBADANB...(redacted)"
-    }
-}'
+curl -X POST 
+  --H "Authorization: Bearer {iam_token}" \
+  --H "Accept: application/json" \
+  --H "Content-Type: application/json" \
+  --d '{
+    "config_type": "public_cert_configuration_ca_lets_encrypt",
+    "lets_encrypt_environment": "production",
+    "lets_encrypt_private_key": "-----BEGIN PRIVATE KEY-----\nMIIEowIBAAKCAQEAqcRbzV1wp0nVrPtEpMtnWMO6Js1q3rhREZluKZfu0Q8SY4H3",
+    "name": "lets-encrypt-config"
+  }' \
+    "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/configurations"
+
 ```
 {: codeblock}
 {: curl}
@@ -185,8 +187,9 @@ After you delete a configuration, the certificates that are associated with the 
 
 
 ```sh
-curl -X DELETE 'https://{instance_id}.us-south.secrets-manager.appdomain.cloud/api/v1/config/public_cert/certificate_authorities/{config_name}' \
-  -H 'Authorization: Bearer $IAM_token'
+curl -X DELETE 
+  --H "Authorization: Bearer {iam_token}"\
+  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/configurations/{name}"
 ```
 {: codeblock}
 {: curl}
