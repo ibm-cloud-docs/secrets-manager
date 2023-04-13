@@ -66,11 +66,8 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 
 
 
-
-
-
-## 28 February 2023
-{: #secrets-manager-feb2823}
+## 17 April 2023
+{: #secrets-manager-apr1723}
 {: release-note}
 
 Now available: API version 2.0
@@ -89,6 +86,8 @@ Now available: API version 2.0
    * The actions to list Secrets and get secret metadata return the `versions_total field`. The version's content is not included.
    * Current and previous secret versions can be referenced by using the `current` and `previous` aliases in version APIs.
    * The secret lock mode names `exclusive` and `exclusive_delete` are replaced by `remove_previous` and `remove_previous_and delete`. The modes still perform the same action, only the names changed.
+   * CLI commands to create secret/group/configuration require JSON input instead of param flags.
+   * CLI command names for configurations and locks slightly changed.
 
    For more information, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#introduction). 
 

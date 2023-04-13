@@ -70,7 +70,7 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 ## Version 2.0.0
 {: #2.0.0}
 
-Version 2.0.0 was released on 28 February 2023. All of the commands have been updated in this release. For more information, review the [CLI reference](/docs/secrets-manager?topic=secrets-manager-cli-change-log).
+Version 2.0.0 was released on 17 April 2023. All of the commands have been updated in this release. For more information, review the [CLI reference](/docs/secrets-manager?topic=secrets-manager-cli-change-log).
 
 
 

@@ -67,10 +67,10 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 
 
 
-## 28 February 2023
-{: #2023-02-28-api}
+## 17 April 2023
+{: #2023-04-17-api}
 
-Version 2.0.0 was released on 28 February 2023. This release includes the following updates:
+Version 2.0.0 was released on 17 April 2023. This release includes the following updates:
 
 * You no longer need to include `secret_type` in the API URL to identify a secret. 
 * The secret group name must be unique per {{site.data.keyword.secrets-manager_short}} instance. 
