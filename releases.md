@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-13"
+lastupdated: "2023-04-05"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -74,7 +74,7 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 {: #secrets-manager-mar0323}
 
 Now available: Terraform support
-:  {{site.data.keyword.secrets-manager_short}}  now supports Terraform on {{site.data.keyword.cloud_notm}}. For more information, see [Setting up Terraform for {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-terraform-setup) and the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/secrets_manager_secret){: external}.
+:  {{site.data.keyword.secrets-manager_short}} now supports Terraform on {{site.data.keyword.cloud_notm}}. For more information, see [Setting up Terraform for {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-terraform-setup) and the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/secrets_manager_secret){: external}.
 
 ## 11 December 2022
 {: #secrets-manager-dec1122}

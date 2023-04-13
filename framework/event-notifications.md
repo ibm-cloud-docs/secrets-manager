@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-27"
+lastupdated: "2023-04-11"
 
 keywords: event notifications for {{site.data.keyword.secrets-manager_short}}, event notifications integration for {{site.data.keyword.secrets-manager_short}}, alerts for {{site.data.keyword.secrets-manager_short}}
 
@@ -304,8 +304,6 @@ Event notifications from {{site.data.keyword.secrets-manager_short}} contain onl
 
 The properties that are sent to {{site.data.keyword.en_short}} vary depending on the event type and type of secret. For example, if an `secret_about_to_expire:in_10_days` event takes place in an instance for one or more `public_cert` secrets, {{site.data.keyword.secrets-manager_short}} sends a notification payload to {{site.data.keyword.en_short}} that is similar to the following example.
 
-
-
 ```json
 {
    "event_sub_type": "in_10_days",
@@ -341,8 +339,6 @@ The properties that are sent to {{site.data.keyword.en_short}} vary depending on
 }
 ```
 {: screen}
-
-
 
 
 Review following table for more information about event notification properties.
