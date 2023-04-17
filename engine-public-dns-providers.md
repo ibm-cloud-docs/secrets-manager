@@ -206,39 +206,38 @@ A successful response adds the configuration to your service instance. For more 
 
 You can add DNS provider configurations to your service instance by using Terraform for {{site.data.keyword.secrets-manager_short}}.
 
-
-### Configuring Cloud Internet Services (CIS)
+### Configuring Cloud Internet Services (CIS) with Terraform
 {: #add-cis-config-terraform}
 {: terraform}
 
 The following example shows a confihuration that you can use to add a a Cloud Internet Services (CIS) DNS configuration to your {{site.data.keyword.secrets-manager_short}} instance. 
 
 ```terraform
-    resource "ibm_sm_public_certificate_configuration_dns_cis" "my_dns_cis_config" {
-        instance_id = local.instance_id
-        region = local.region
-        name = "my_DNS_CIS_config"
-        cloud_internet_services_apikey = var.my_cis_apikey
-        cloud_internet_services_crn = var.my_cis_crn
-    }
+resource "ibm_sm_public_certificate_configuration_dns_cis" "my_dns_cis_config" {
+   instance_id = local.instance_id
+   region = local.region
+   name = "my_DNS_CIS_config"
+   cloud_internet_services_apikey = var.my_cis_apikey
+   cloud_internet_services_crn = var.my_cis_crn
+   }
 ```
 {: codeblock}
 
 
-### Configuring classic infrastructure
+### Configuring classic infrastructure with Terraform
 {: #add-classic-infra-config-terraform}
 {: terraform}
 
 The following example shows a confihuration that you can use to add a classic infrastructure DNS configuration to your {{site.data.keyword.secrets-manager_short}} instance.
 
 ```terraform
-    resource "ibm_sm_public_certificate_configuration_dns_classic_infrastructure" "my_dns_classic_config" {
-        instance_id = local.instance_id
-        region = local.region
-        name = "my_DNS_config"
-        classic_infrastructure_password = "username"
-        classic_infrastructure_username = "password"
-    }
+resource "ibm_sm_public_certificate_configuration_dns_classic_infrastructure" "my_dns_classic_config" {
+   instance_id = local.instance_id
+   region = local.region
+   name = "my_DNS_config"
+   classic_infrastructure_password = "username"
+   classic_infrastructure_username = "password"
+}
 ```
 {: codeblock}
 
