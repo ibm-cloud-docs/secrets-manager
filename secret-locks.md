@@ -119,6 +119,7 @@ To help you to create a new lock and remove older locks in a single operation, y
 
 #### Creating a lock on the current secret version
 {: #create-lock-current-version-ui}
+{: ui}
 
 You can lock the current version of a secret by using the {{site.data.keyword.secrets-manager_short}} UI. A successful request attaches a new lock to the current version of your selected secret, or replaces a lock of the same name if it already exists.
 
@@ -146,6 +147,7 @@ You can lock the current version of a secret by using the {{site.data.keyword.se
 
 #### Creating a lock on the previous secret version
 {: #create-lock-previous-version-ui}
+{: ui}
 
 You can lock the previous version of a secret by using the {{site.data.keyword.secrets-manager_short}} UI. A successful request attaches a new lock to the previous version of your selected secret, or replaces a lock of the same name if it already exists.
 
@@ -225,6 +227,7 @@ To help you to create a new lock and remove older locks in a single operation, y
 
 #### Creating locks on the current secret version
 {: #create-lock-current-version-api}
+{: api}
 
 The following request creates two locks on the current version of a secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for `{secret_type}` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`.
 
@@ -301,6 +304,7 @@ For more information about the required and optional request parameters, see the
 
 #### Creating locks on the previous secret version
 {: #create-lock-previous-version-api}
+{: api}
 
 The following request creates two locks on the previous version of a secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for `{secret_type}` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`.
 
