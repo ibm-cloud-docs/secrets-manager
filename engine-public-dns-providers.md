@@ -138,6 +138,7 @@ You can add DNS provider configurations to your service instance by using the {{
 
 ### Configuring Cloud Internet Services (CIS)
 {: #add-cis-config-api}
+{: api}
 
 The following example shows a query that you can use to add a Cloud Internet Services (CIS) DNS configuration to your {{site.data.keyword.secrets-manager_short}} instance. When you call the API, replace the `cis_crn` value with the CRN of the CIS instance that contains your domains.
 {: curl}
@@ -170,6 +171,7 @@ A successful response adds the configuration to your service instance. For more 
 
 ### Configuring classic infrastructure
 {: #add-classic-infra-config-api}
+{: api}
 
 The following example shows a query that you can use to add a classic infrastructure DNS configuration to your {{site.data.keyword.secrets-manager_short}} instance. When you call the API, replace the `classic_infrastructure_username` and `classic_infastructure_password` (API key) values.
 {: curl}
@@ -204,6 +206,7 @@ A successful response adds the configuration to your service instance. For more 
 
 You can add DNS provider configurations to your service instance by using Terraform for {{site.data.keyword.secrets-manager_short}}.
 
+
 ### Configuring Cloud Internet Services (CIS)
 {: #add-cis-config-terraform}
 {: terraform}
@@ -219,8 +222,8 @@ The following example shows a confihuration that you can use to add a a Cloud In
         cloud_internet_services_crn = var.my_cis_crn
     }
 ```
-
 {: codeblock}
+
 
 ### Configuring classic infrastructure
 {: #add-classic-infra-config-terraform}
@@ -237,7 +240,6 @@ The following example shows a confihuration that you can use to add a classic in
         classic_infrastructure_username = "password"
     }
 ```
-
 {: codeblock}
 
 
