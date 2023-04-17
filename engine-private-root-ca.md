@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-13"
+lastupdated: "2023-04-17"
 
 keywords: root certificate authority, root CA, internal signing, external signing
 
@@ -168,6 +168,27 @@ A successful response adds the configuration to your service instance.
 
 
 For more information about the required and optional request parameters, see [Add a configuration](/apidocs/secrets-manager#create-config-element){: external}.
+
+
+## Creating a root certificate authority with Terraform
+{: #root-ca-terraform}
+{: terraform}
+
+You can create an internally signed root certificate authority for your service instance by using Terraform for {{site.data.keyword.secrets-manager_short}}.
+
+The following example shows a configuration that you can use to create a root certificate authority.
+
+```terraform
+    resource "ibm_sm_private_certificate_configuration_root_ca" "test_root_ca" {
+        instance_id = local.instance_id
+        region = local.region
+        name = "test-root-ca"
+        common_name = "root.example.com"
+        max_ttl = "3650d"
+        issuing_certificates_urls_encoded = true
+    }
+```
+{: codeblock}
 
 
 
