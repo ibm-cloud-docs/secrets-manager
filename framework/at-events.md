@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-04-13"
 
 keywords: activity tracker events for Secrets Manager, events, Secrets Manager actions
 
@@ -113,10 +113,13 @@ The following table lists the secret lock actions that generate an event.
 
 | Action                                | Description                         |
 | ------------------------------------- | ----------------------------------- |
-| `secrets-manager.secret-lock.create`  | Create a secret lock.               |
+| `secrets-manager.secret-locks.create`  | Create a secret lock.               |
 | `secrets-manager.secret-locks.list`   | List secret locks.                  | 
-| `secrets-manager.secret-lock.delete`  | Delete a secret lock.               |
-| `secrets-manager.locks.list`          | List locks that exist in a service instance. | 
+| `secrets-manager.secret-locks.delete`  | Delete a secret lock.               |
+| `secrets-manager.secrets-locks.list`          | List secret locks. | 
+| `secrets-manager.secret-version-locks.create` | Create secret version locks. |
+| `secrets-manager.secret-version-locks.list` | List secret version locks. |
+| `secrets-manager.secret-version-locks.delete` | Delete secret version locks. | 
 {: caption="Table 2. List of secret lock events" caption-side="top"}
 
 
@@ -128,18 +131,26 @@ The following table lists the instance operation actions that generate an event.
 
 
 
+## Events for instance operations
+{: #at-configuration-instance-operations}
+
+The following table lists the instance operation actions that generate an event.
+
 | Action                                     | Description                      |
 | ------------------------------------------ | -------------------------------- |
 | `secrets-manager.instance.login`           | Log in to Vault.                 |
-| `secrets-manager.secret-engine-config.set` | Set secrets engine configuration. |
-| `secrets-manager.secret-engine-config.get` | Get secrets engine configuration. |
-| `secrets-manager.endpoints.get`            | Get service instance endpoints.  |
+| `secrets-manager.configuration.create` | Create a new configuration. |
+| `secrets-manager.configuration-action.create` | Create a new configuration action. |
+| `secrets-manager.configurations.list` | List configurations. |
+| `secrets-manager.configuration.read` | View the details of a configuration. | 
+| `secrets-manager.configuration.update` | Update a configuration. |
+| `secrets-manager.configuration.delete` | Delete a configuration. |
+| `secrets-manager.endpoints.view`            | Get service instance endpoints.  |
 | `secrets-manager.notifications-registration.create` | Create a registration with Event Notifications. | Manager |
 | `secrets-manager.notifications-registration.read` | Get Event Notifications registration details. | Reader, SecretsReader, Writer, Manager |
 | `secrets-manager.notifications-registration.delete` | Delete an Event Notifications registration. | Manager |
 | `secrets-manager.notifications-registration.test` | Send a test event. | Reader, SecretsReader, Writer, Manager |
 {: caption="Table 3. List of instance operation events" caption-side="top"}
-
 
 
 

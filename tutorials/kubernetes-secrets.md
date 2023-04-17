@@ -3,7 +3,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-03-29"
+lastupdated: "2023-04-13"
 
 keywords: tutorial, Secrets Manager
 
@@ -434,7 +434,7 @@ After you install External Secrets Operator in your cluster, you can define {{si
 
     ```yaml 
     
-    apiVersion: external-secrets.io/v1beta1
+    apiVersion: external-secrets.io/v2beta2
     kind: SecretStore
     metadata:
       name: ibmcloud-secrets-manager-example

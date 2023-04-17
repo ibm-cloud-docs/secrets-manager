@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-04-13"
 
 keywords: secret groups, assign secret access, iam roles, secrets policies, organize secrets
 
@@ -107,27 +107,38 @@ The following example request creates a secret group. When you call the API, rep
 
 
 
-```bash
-curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secret_groups" \
-    -H "Authorization: Bearer {IAM_token}" \
-    -H "Accept: application/json" \
-    -H "Content-Type: application/json" \
-    -d '{
-        "metadata": {
-        "collection_type": "application/vnd.ibm.secrets-manager.secret.group+json",
-        "collection_total": 1
-        },
-        "resources": [
-        {
-          "type": "application/vnd.ibm.secrets-manager.secret.group+json",
-          "name": "example-secret-group",
-          "description": "Extended description for my secret group."
-        }
-        ]
-    }'
+```sh
+curl -X POST 
+  --H "Authorization: Bearer {iam_token}" \
+  --H "Accept: application/json" \
+  --H "Content-Type: application/json" \
+  --d '{
+    "name":"my-secret-group",
+    "description":"Extended description for this group."
+    }' \
+  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secret_groups"
 ```
 {: codeblock}
 {: curl}
+
+
+### Creating secret groups with Terraform
+{: #create-group-terraform}
+{: terraform}
+
+You can create secret groups by using Terraform for {{site.data.keyword.secrets-manager_short}}.
+
+The following example request creates a secret group.
+
+```terraform
+resource "ibm_sm_secret_group" "sm_secret_group_test" {
+  instance_id = local.instance_id
+  region = local.region
+  name = "secret_group_test"
+  description = "example secret group"
+}
+```
+{: codeblock}
 
 
 
@@ -165,9 +176,9 @@ The following example request deletes a secret group. When you call the API, rep
 
 
 ```bash
-curl -X DELETE "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secret_groups/{id}" \
-    -H "Authorization: Bearer {IAM_token}" \
-    -H "Accept: application/json"
+curl -X DELETE 
+  --H "Authorization: Bearer {iam_token}" \ 
+  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secret_groups/{id}"
 ```
 {: codeblock}
 {: curl}

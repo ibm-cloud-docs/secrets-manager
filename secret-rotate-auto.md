@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-04-13"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -175,15 +175,10 @@ Schedule the automatic rotation for user credentials by using the {{site.data.ke
 
 
 ```sh
-ibmcloud sm policy-update \
---secret-type username_password \
---id SECRET_ID
---policy rotation
---resources '{
-    "interval": 1,
-    "unit": "month"
-  }'
-  ```
+ibmcloud secrets-manager secret-metadata-update \
+    --id=SECRET_ID \
+    --rotation='{"auto_rotate": true,"interval": 30,"unit": "day"}'
+```
 {: pre}
 
 
@@ -199,15 +194,10 @@ Schedule the automatic rotation for public certificates by using the {{site.data
 
 
 ```sh
-ibmcloud sm policy-update \
---secret-type public_cert \
---id SECRET_ID
---policy rotation
---resources '{
-  "auto_rotate": true,
-  "rotate_keys": true
-}'
-   ```
+ibmcloud secrets-manager secret-metadata-update \
+    --id=SECRET_ID \
+    --rotation='{"auto_rotate": true, "rotate_keys": true}'
+```
 {: pre}
 
 
@@ -222,17 +212,11 @@ Schedule the automatic rotation for private certificates by using the {{site.dat
 
 
 ```sh
-ibmcloud sm policy-update \
---secret-type private_cert \
---id SECRET_ID
---policy rotation
---resources '{
-    "auto_rotate": true,
-    "interval": 1,
-    "unit": "month"
-  }'
-   ```
-  {: pre}
+ibmcloud secrets-manager secret-metadata-update \
+    --id=SECRET_ID \
+    --rotation='{"auto_rotate": true,"interval": 30,"unit": "day"}'
+```
+{: pre}
 
 
 
@@ -244,14 +228,9 @@ Schedule the automatic rotation for IAM credentials by using the {{site.data.key
 
 
 ```sh
-ibmcloud sm policy-update \
---secret-type iam_credentials \
---id SECRET_ID
---policy rotation
---resources '{
-    "interval": 1,
-    "unit": "month"
-}'
+ibmcloud secrets-manager secret-metadata-update \
+    --id=SECRET_ID \
+    --rotation='{"auto_rotate": true,"interval": 30,"unit": "day"}'
 ```
 {: pre}
 
@@ -277,28 +256,21 @@ The following example request creates an automatic rotation policy for a user cr
 
 
 ```sh
-curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/username_password/{id}/policies" \
-    -H "Authorization: Bearer {IAM_token}" \
-    -H "Accept: application/json" \
-    -H "Content-Type: application/json" \
-    -d '{ 
-        "metadata": { 
-          "collection_type": "application/vnd.ibm.secrets-manager.secret.policy+json", 
-          "collection_total": 1 
-        }, 
-        "resources": [ 
-          { 
-            "type": "application/vnd.ibm.secrets-manager.secret.policy+json", 
-            "rotation": { 
-              "interval": 1, 
-              "unit": "month" 
+curl -X PATCH 
+   -H "Authorization: Bearer {iam_token}" \
+   -H "Accept: application/json" \
+   -H 'Content-Type: application/merge-patch+json' \
+   -d '{
+            "rotation": {
+               "auto_rotate": true,
+               "interval": 1, 
+               "unit": "month"
             } 
-          } 
-        ] 
-      }'
+         }' \ 
+      "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secrets/{id}/metadata"
 ```
 {: codeblock}
-{: curl} 
+{: curl}
 
 
 
@@ -322,42 +294,27 @@ The following example request orders a certificate with automatic rotation enabl
 
 
 ```sh
-curl -X POST "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/public_cert" \
-    -H "Authorization: Bearer {IAM_token}" \
-    -H "Accept: application/json" \
-    -H "Content-Type: application/json" \
-    -d '{
-      "metadata": {
-        "collection_type": "application/vnd.ibm.secrets-manager.secret+json",
-        "collection_total": 1
-      },
-      "resources": [
-        {
-          "name": "example-certificate-with-auto-rotation",
-          "description": "Extended description for my secret.",
-          "secret_group_id": "432b91f1-ff6d-4b47-9f06-82debc236d90",
-          "ca": "my-ca-configuration-name",
-          "dns": "my-dns-configuration-name",
-          "labels": [
-            "dev",
-            "us-south"
-          ],
-          "common_name": "certificate-common-name.com",
-          "alt_names": [
-            "www.certificate-common-name.com"
-          ],
-          "bundle_certs": false,
-          "key_algorithm": "RSA2048",
-          "rotation": {
+curl -X POST 
+   -H "Authorization: Bearer {iam_token}" \
+   -H "Accept: application/json" \
+   -H "Content-Type: application/json" \
+   -d '{
+         "custom_metadata": {
+            "metadata_custom_key": "metadata_custom_value"
+         },
+         "rotation": {
             "auto_rotate": true,
             "rotate_keys": true
-          }
-        }
-      ]
-    }'
+         },
+         "version_custom_metadata": {
+            "custom_version_key": "custom_version_value"
+         }
+      }' \ 
+   "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secrets"
 ```
 {: codeblock}
 {: curl}
+
 
 
 
@@ -372,28 +329,21 @@ The following example request creates an automatic rotation policy for a IAM cre
 
 
 ```sh
-curl -X PUT "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v1/secrets/iam_credentials/{id}/policies" \
-    -H "Authorization: Bearer {IAM_token}" \
-    -H "Accept: application/json" \
-    -H "Content-Type: application/json" \
-    -d '{ 
-        "metadata": { 
-          "collection_type": "application/vnd.ibm.secrets-manager.secret.policy+json", "collection_total": 1 
-        }, 
-        "resources": [ 
-          { 
-            "type": "application/vnd.ibm.secrets-manager.secret.policy+json", 
-            "rotation": { 
-              "interval": 1, 
-              "unit": "month" 
-            } 
+curl -X PATCH 
+   -H "Authorization: Bearer {iam_token}" \
+   -H "Accept: application/json" \
+   -H 'Content-Type: application/merge-patch+json' \
+   -d '{
+          "rotation": {
+            "auto_rotate": true,
+            "interval": 30,
+            "unit": "day"
           } 
-        ] 
-      }'
+         }' \ 
+      "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secrets/{id}/metadata"
 ```
 {: codeblock}
 {: curl}
-
 
 
 

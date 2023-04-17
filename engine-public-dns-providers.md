@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-27"
+lastupdated: "2023-04-13"
 
 keywords: DNS provider, connect DNS provider, set up DNS provider, connect DNS, set up DNS, connect CIS, set up CIS, add DNS provider configuration
 
@@ -148,17 +148,17 @@ If you need to access a CIS instance that is located in another account, provide
 
 
 ```sh
-curl -X POST 'https://{instance_id}.us-south.secrets-manager.appdomain.cloud/api/v1/config/public_cert/dns_providers' \
--H 'Authorization: Bearer $IAM_token' \
--H 'Content-Type: application/json' \
--d '{
-    "type": "cis",
-    "name": "my-cloud-internet-services",
-    "config": {
-        "cis_crn": "crn:v1:bluemix:public:internet-svcs:global:a/<account-id>:<instance-id>::",
-        "cis_apikey": "<api_key>"
-    }
-}'
+curl -X POST 
+  --H "Authorization: Bearer {iam_token}" \
+  --H "Accept: application/json" \
+  --H "Content-Type: application/json" \
+  --d '{
+    "cloud_internet_services_apikey": "5ipu_ykv0PMp2MhxQnDMn7VzrkSlBwi3BOI8uthi_EXZ",
+    "cloud_internet_services_crn": "crn:v1:bluemix:public:internet-svcs:global:a/128e84fcca45c1224aae525d31ef2b52:009a0357-1460-42b4-b903-10580aba7dd8::",
+    "config_type": "public_cert_configuration_dns_cloud_internet_services",
+    "name": "cloud-internet-services-config"
+  }' \  
+  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/configurations"
 ```
 {: codeblock}
 {: curl}
@@ -177,20 +177,21 @@ The following example shows a query that you can use to add a classic infrastruc
 
 
 ```sh
-curl -X POST 'https://{instance_id}.us-south.secrets-manager.appdomain.cloud/api/v1/config/public_cert/dns_providers' \
--H 'Authorization: Bearer $IAM_token' \
--H 'Content-Type: application/json' \
--d '{
-    "type": "classic_infrastructure",
-    "name": "my-classic-infra-config",
-    "config": {
-        "classic_infrastructure_username": "123456_user@email.com",
-        "classic_infrastructure_password": "<classic_infrastructure_api_key>"
-    }
-}'
+curl -X POST 
+  --H 'Authorization: Bearer {iam_token}" \
+  --H "Accept: application/json" \
+  --H "Content-Type: application/json" \
+  --d '{
+  "classic_infrastructure_password": "sRBm1jkHOH2kn9oBnK5R0ODsRBm1jkHOH2kn9oBnK5R0ODsRBm1jkHOH2kn9oBnK5R0OD",
+  "classic_infrastructure_username": "1234567_JohnDoe@mail.com",
+  "config_type": "public_cert_configuration_dns_classic_infrastructure",
+  "name": "classic-infrastructure-config"
+}' \  
+  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/configurations"
 ```
 {: codeblock}
 {: curl}
+
 
 
 
@@ -233,8 +234,9 @@ After you delete a configuration, the certificates that are associated with the 
 
 
 ```sh
-curl -X DELETE 'https://{instance_id}.us-south.secrets-manager.appdomain.cloud/api/v1/config/public_cert/dns_providers/{config_name}' \
-  -H 'Authorization: Bearer $IAM_token'
+curl -X DELETE 
+--H "Authorization: Bearer {iam_token}" \
+ "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/configurations/{name}"
 ```
 {: codeblock}
 {: curl}
