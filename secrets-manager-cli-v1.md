@@ -1811,7 +1811,7 @@ ibmcloud secrets-manager config-element-delete \
 Enable lifecycle notifications for your instance by connecting to Event Notifications.
 
 ### `ibmcloud secrets-manager notifications-registration-create`
-{: #secrets-manager-cli-notifications-registration-create-command}
+{: #secrets-manager-cli-notifications-registration-create-command-v1}
 
 Create a registration between a Secrets Manager instance and [Event Notifications](https://cloud.ibm.com/apidocs/event-notifications).
 
