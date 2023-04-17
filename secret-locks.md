@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-13"
+lastupdated: "2023-04-17"
 
 keywords: secret locks, lock secret, prevent deletion, prevent rotation, unlock secret, create lock, delete lock
 
@@ -113,11 +113,9 @@ To help you to create a new lock and remove older locks in a single operation, y
 
 | Mode | Description |
 | --- | --- |
-| Lock a secret exclusively | Removes any other locks that match the name that you specify. If any matching locks are found in the previous version of the secret, those locks are deleted when your new lock is created.  \n  \n For example, suppose that the previous version of your secret contains a lock `lock-x`. Creating a lock on the current version of your secret and enabling the **Make this lock exclusive** option results in removing `lock-x` from the previous version. |
-| Lock a secret exclusively and delete previous version data  | Same as the previous option, but also permanently deletes the data of the previous secret version if it doesn't have any locks that are associated with it.  \n  \n Suppose that the previous version of your secret contains a lock `lock-z`. Creating a lock on the current version of your secret with both the **Make this lock exclusive** and **Delete previous version data** options results in removing `lock-z` from the previous version. Additionally, because the previous version doesn't have any other locks that are attached to it, the secret data that is associated with the previous version is also deleted. |
+| Remove previous locks | Removes any other locks that match the name that you specify. If any matching locks are found in the previous version of the secret, those locks are deleted when your new lock is created.  \n  \n For example, suppose that the previous version of your secret contains a lock `lock-x`. Creating a lock on the current version of your secret and enabling the **Delete matching locks** option results in removing `lock-x` from the previous version. |
+| Remve previous locks and delete previous version data  | Same as the previous option, but also permanently deletes the data of the previous secret version if it doesn't have any locks that are associated with it.  \n  \n Suppose that the previous version of your secret contains a lock `lock-z`. Creating a lock on the current version of your secret with both the **Delete matching locks** and **Delete previous version data** options results in removing `lock-z` from the previous version. Additionally, because the previous version doesn't have any other locks that are attached to it, the secret data that is associated with the previous version is also deleted. |
 {: caption="Table 1. Optional lock modes and their descriptions" caption-side="top"}
-
-
 
 #### Creating a lock on the current secret version
 {: #create-lock-current-version-ui}
@@ -178,11 +176,9 @@ To help you to create a new lock and remove older locks in a single operation, y
 
 | Mode | Description |
 | --- | --- |
-| Lock a secret exclusively | Removes any other locks that match the name that you specify. If any matching locks are found in the previous version of the secret, those locks are deleted when your new lock is created.  \n  \n For example, suppose that the previous version of your secret contains a lock `lock-x`. Creating a lock on the current version of your secret and enabling the **Make this lock exclusive** option results in removing `lock-x` from the previous version. |
-| Lock a secret exclusively and delete previous version data  | Same as the previous option, but also permanently deletes the data of the previous secret version if it doesn't have any locks that are associated with it.  \n  \n Suppose that the previous version of your secret contains a lock `lock-z`. Creating a lock on the current version of your secret with both the **Make this lock exclusive** and **Delete previous version data** options results in removing `lock-z` from the previous version. Additionally, because the previous version doesn't have any other locks that are attached to it, the secret data that is associated with the previous version is also deleted. |
+| Remove previous locks | Removes any other locks that match the name that you specify. If any matching locks are found in the previous version of the secret, those locks are deleted when your new lock is created.  \n  \n For example, suppose that the previous version of your secret contains a lock `lock-x`. Creating a lock on the current version of your secret and enabling the **Delete matching locks** option results in removing `lock-x` from the previous version. |
+| Remve previous locks and delete previous version data  | Same as the previous option, but also permanently deletes the data of the previous secret version if it doesn't have any locks that are associated with it.  \n  \n Suppose that the previous version of your secret contains a lock `lock-z`. Creating a lock on the current version of your secret with both the **Delete matching locks** and **Delete previous version data** options results in removing `lock-z` from the previous version. Additionally, because the previous version doesn't have any other locks that are attached to it, the secret data that is associated with the previous version is also deleted. |
 {: caption="Table 1. Optional lock modes and their descriptions" caption-side="top"}
-
-
 
 
 
@@ -195,9 +191,13 @@ You can lock the current version of a secret by using the {{site.data.keyword.se
 To create a lock on the current version of a secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the `ibmcloud secrets-manager secret-lock` command. You can specify the type of secret, the secret ID, and the mode.
 
 ```sh
-ibmcloud secrets-manager secret-lock     --secret-type=arbitrary     --id=exampleString     --locks='[{"name": "lock-1", "description": "lock for consumer-1", "attributes": {"anyKey": "anyValue"}}]'     --mode=exclusive
+ibmcloud secrets-manager secret-locks-bulk-create \
+    --id=exampleString \
+    --locks='[{"name": "lock-example-1", "description": "lock for consumer 1", "attributes": {"anyKey": "anyValue"}}]' \
+    --mode=remove_previous
 ```
 {: pre}
+
 
 
 
@@ -216,12 +216,10 @@ To help you to create a new lock and remove older locks in a single operation, y
 
 | Mode | Query parameter | Description |
 | --- | --- | --- |
-| Lock a secret exclusively | `mode=exclusive` | Removes any other locks that match the name that you specify. If any matching locks are found in the previous version of the secret, those locks are deleted when your new lock is created.  \n  \n For example, suppose that the previous version of your secret contains a lock `lock-x`. Creating a lock with the `exclusive` mode on the current version of your secret results in removing `lock-x` from the previous version. |
-| Lock a secret exclusively and delete previous version data | `mode=exclusive_delete` | Same as the `exclusive` option, but also permanently deletes the data of the previous secret version if it doesn't have any locks that are associated with it.  \n  \n Suppose that the previous version of your secret contains a lock `lock-z`. Creating a lock with the `exclusive_delete` mode on the current version of your secret results in removing `lock-z` from the previous version. Additionally, because the previous version doesn't have any other locks that are attached to it, the secret data that is associated with the previous version is also deleted. |
+| Remove previous locks | `mode=remove_previous` | Removes any other locks that match the name that you specify. If any matching locks are found in the previous version of the secret, those locks are deleted when your new lock is created.  \n  \n For example, suppose that the previous version of your secret contains a lock `lock-x`. Creating a lock and enabling the `remove_previous` mode on the current secret version results in removing `lock-x` from the previous version. |
+| Remove previous locks | `mode=remove_previous_and_delete` | Same as the `remove_previous` option, but also permanently deletes the data of the previous secret version if it doesn't have any locks that are associated with it.  \n  \n Suppose that the previous version of your secret contains a lock `lock-z`. Creating a lock and enabling the `remove_previous_and_delete` mode on the current secret version results in removing `lock-z` from the previous version. Additionally, because the previous version doesn't have any other locks that are attached to it, the secret data that is associated with the previous version is also deleted. |
 {: caption="Table 1. Optional lock modes and their descriptions" caption-side="top"}
 
-To use an optional lock mode, include it as a query parameter on the URI path in your API request. For example, `https://{base_url}/api/v1/secrets/{secret_type}/{id}/lock?mode=exclusive`. For more information, see the [API reference](/apidocs/secrets-manager#lock-secret).
-{: tip}
 
 
 
