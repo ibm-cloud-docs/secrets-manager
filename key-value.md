@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-04-13"
+lastupdated: "2023-04-17"
 
 keywords: key:value, key/value, key-value, storing key:value secrets
 
@@ -158,5 +158,61 @@ curl -X POST
 
 
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
+
+
+
+  
+## Creating key-value secrets with Terraform
+{: #key-value-terraform}
+{: terraform}
+
+You can create key-value secrets programmatically by using Terraform for {{site.data.keyword.secrets-manager_short}}.
+
+Follow Terraform best practices for protecting sensitive input variables such as secret credentials. For more information, see [Protect sensitive input variables](https://developer.hashicorp.com/terraform/tutorials/configuration-language/sensitive-variables).
+{: note}
+
+The following example shows a configuration that you can use to create a key-value secret by setting sensitive values in a `terraform.tfvars` file.
+
+1. Define an input variable for the key-value secret data in a `variables.tf` file.
+
+```terraform
+    variable "kv_secret_data" {
+        description = "KV secret data"
+        type        = map(any)
+        sensitive   = true
+    }
+```
+{: codeblock}
+
+
+2. Assign a value to the `kv_secret_data` variable in a `terraform.tfvars` file.
+
+   By setting values with a `.tfvars` file, you can separate sensitive values from the rest of your variable values, and ensure that your users who work with your configuration know which values are sensitive. For security purposes, you must maintain and share the `.tfvars` file only with your users who have the appropriate access. You must also be careful not to store `.tfvars` files with sensitive values into version control such as Github, in clear text.
+   {: note}
+
+    ```terraform
+    kv_secret_data = {
+        "key1" : "value1"
+    }
+    ```
+   {: codeblock}
+
+
+3. Create the key-value secret in the `main.tf` file.
+
+The following example shows a configuration that you can use to create a key-value secret.
+
+```terraform
+    resource "ibm_sm_kv_secret" "sm_kv_secret"{
+        instance_id = local.instance_id
+        region = local.region
+        name = "kv-secret-example"
+        description = "Extended description for this key-value secret."
+        labels = ["my-label"]
+        secret_group_id = ibm_sm_secret_group.sm_secret_group_test.secret_group_id
+        data = var.kv_secret_data
+    }
+```
+{: codeblock}
 
 

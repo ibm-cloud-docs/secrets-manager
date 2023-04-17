@@ -96,7 +96,7 @@ Now available: CLI version 2.0
 :   A new version of the {{site.data.keyword.secrets-manager_short}} CLI is now available. For more information about the updates that are included in version 2.0, check out the [CLI change log](/docs/secrets-manager?topic=secrets-manager-cli-change-log).
 
 Deprecated: API, SDK, and CLI v1
-:  As of April 17, 2023, the {{site.data.keyword.secrets-manager_full}} API v1 has been deprecated in favor of v2. If you're are still actively working with the {{site.data.keyword.secrets-manager_short}} API v1, please be sure to start your upgrade as soon as possible. On 31 October 2023, support for the {{site.data.keyword.secrets-manager_short}} API v1 will be removed.
+:  As of April 17, 2023, the {{site.data.keyword.secrets-manager_full}} API v1 has been deprecated in favor of v2. If you're still actively working with the {{site.data.keyword.secrets-manager_short}} API v1, please be sure to start your upgrade as soon as possible. On 31 October 2023, support for the {{site.data.keyword.secrets-manager_short}} API v1 will be removed.
 
 
 

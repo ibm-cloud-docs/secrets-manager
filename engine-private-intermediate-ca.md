@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-13"
+lastupdated: "2023-04-17"
 
 keywords: intermediate certificate authority, intermediate CA, internal signing, external signing
 
@@ -245,6 +245,28 @@ curl -X POST
 {: curl}
 
 
+
+
+## Creating an intermediate CA with internal signing with Terraform
+{: #intermediate-ca-internal-signing-terraform}
+{: terraform}
+
+An intermediate CA with internal signing uses a parent CA that was previously created in your {{site.data.keyword.secrets-manager_short}} instance as its trust anchor. You can create an intermediate CA with internal signing by using Terraform for {{site.data.keyword.secrets-manager_short}}.
+
+The following example shows a configuration that you can use to create an intermediate CA.
+
+```terraform
+    resource "ibm_sm_private_certificate_configuration_intermediate_ca" "test_int_ca" {
+        instance_id = local.instance_id
+        region = local.region
+        name = "test-int-ca"
+        common_name = "intermediate.example.com"
+        issuer = ibm_sm_private_certificate_configuration_root_ca.test_root_ca.name
+        max_ttl = "365d"
+        signing_method = "internal"
+    }
+```
+{: codeblock}
 
 
 

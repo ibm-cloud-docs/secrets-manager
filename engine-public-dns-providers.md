@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-13"
+lastupdated: "2023-04-17"
 
 keywords: DNS provider, connect DNS provider, set up DNS provider, connect DNS, set up DNS, connect CIS, set up CIS, add DNS provider configuration
 
@@ -138,6 +138,7 @@ You can add DNS provider configurations to your service instance by using the {{
 
 ### Configuring Cloud Internet Services (CIS)
 {: #add-cis-config-api}
+{: api}
 
 The following example shows a query that you can use to add a Cloud Internet Services (CIS) DNS configuration to your {{site.data.keyword.secrets-manager_short}} instance. When you call the API, replace the `cis_crn` value with the CRN of the CIS instance that contains your domains.
 {: curl}
@@ -170,6 +171,7 @@ A successful response adds the configuration to your service instance. For more 
 
 ### Configuring classic infrastructure
 {: #add-classic-infra-config-api}
+{: api}
 
 The following example shows a query that you can use to add a classic infrastructure DNS configuration to your {{site.data.keyword.secrets-manager_short}} instance. When you call the API, replace the `classic_infrastructure_username` and `classic_infastructure_password` (API key) values.
 {: curl}
@@ -197,6 +199,47 @@ curl -X POST
 
 A successful response adds the configuration to your service instance. For more information about the required and optional request parameters, see [Add a configuration](/apidocs/secrets-manager#create-config-element){: external}.
 
+
+## Adding a DNS provider configuration with Terraform
+{: #add-dns-provider-terraform}
+{: terraform}
+
+You can add DNS provider configurations to your service instance by using Terraform for {{site.data.keyword.secrets-manager_short}}.
+
+### Configuring Cloud Internet Services (CIS) with Terraform
+{: #add-cis-config-terraform}
+{: terraform}
+
+The following example shows a confihuration that you can use to add a a Cloud Internet Services (CIS) DNS configuration to your {{site.data.keyword.secrets-manager_short}} instance. 
+
+```terraform
+resource "ibm_sm_public_certificate_configuration_dns_cis" "my_dns_cis_config" {
+   instance_id = local.instance_id
+   region = local.region
+   name = "my_DNS_CIS_config"
+   cloud_internet_services_apikey = var.my_cis_apikey
+   cloud_internet_services_crn = var.my_cis_crn
+   }
+```
+{: codeblock}
+
+
+### Configuring classic infrastructure with Terraform
+{: #add-classic-infra-config-terraform}
+{: terraform}
+
+The following example shows a confihuration that you can use to add a classic infrastructure DNS configuration to your {{site.data.keyword.secrets-manager_short}} instance.
+
+```terraform
+resource "ibm_sm_public_certificate_configuration_dns_classic_infrastructure" "my_dns_classic_config" {
+   instance_id = local.instance_id
+   region = local.region
+   name = "my_DNS_config"
+   classic_infrastructure_password = "username"
+   classic_infrastructure_username = "password"
+}
+```
+{: codeblock}
 
 
 ## Deleting a DNS provider configuration in the UI
