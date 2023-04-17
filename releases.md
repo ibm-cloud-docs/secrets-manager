@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-13"
+lastupdated: "2023-04-17"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -70,8 +70,8 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 {: #secrets-manager-apr1723}
 {: release-note}
 
-Now available: API version 2.0
-:   A new version of the {{site.data.keyword.secrets-manager_short}} API is now available. The following updates are included in this release.
+Now available: API, SDK, CLI, and Terraform v2.0
+:   A new version of the {{site.data.keyword.secrets-manager_short}} API and SDKs is now available. The following updates are included in this release.
 
    * You no longer need to include `secret_type` in the API URL to identify a secret. 
    * The secret group name must be unique per {{site.data.keyword.secrets-manager_short}} instance. 
