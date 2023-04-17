@@ -47,7 +47,7 @@
       {
         "date": "17 April 2023",
         "title": "Now available: new API and CLI versions",
-        "description": "The new API, SDK, Terraform, and CLI versions offer more options to manage your Secrets Manager instance."
+        "description": "The new API, SDK, Terraform, and CLI versions offer more options to manage your Secrets Manager instance. The {{site.data.keyword.secrets-manager_full}} API v1 has been deprecated in favor of v2."
       },
       {
         "date": "11 December 2022",
