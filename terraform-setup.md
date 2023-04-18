@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-04-13"
+lastupdated: "2023-04-18"
 
 keywords: terraform, {{site.data.keyword.secrets-manager_short}}
 
@@ -84,7 +84,7 @@ Before you can create an authorization by using Terraform, make sure that you co
 
 2. Create a {{site.data.keyword.secrets-manager_short}} instance by using the `ibm_resource_instance` resource argument in your `main.tf` file.
 
-   The {{site.data.keyword.secrets-manager_short}} instance in the following example is named `secrets-manager-london` and is created with the trial plan in the `eu-gb` region. The `user@ibm.com` is assigned the Administrator role in the IAM access policy. For other supported regions, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints). 
+   1. The {{site.data.keyword.secrets-manager_short}} instance in the following example is named `secrets-manager-london` and is created with the trial plan in the `eu-gb` region. The `user@ibm.com` is assigned the Administrator role in the IAM access policy. For other supported regions, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints). 
 
    ```terraform
     resource "ibm_resource_instance" "sm_instance" {
@@ -99,20 +99,20 @@ Before you can create an authorization by using Terraform, make sure that you co
 
    To view a complete list of the supported attributes, see [`ibm_resource_instance`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/resource_instance){: external}.
 
-3. Then, as an option, you can create a data source to retrieve information about an existing {{site.data.keyword.secrets-manager_short}} instance from {{site.data.keyword.cloud_notm}}, by running the following command. 
+    2. Then, as an option, you can create a data source to retrieve information about an existing {{site.data.keyword.secrets-manager_short}} instance from {{site.data.keyword.cloud_notm}}, by running the following command. 
 
-    ```terraform
-    data "ibm_resource_instance" "sm_resource_instance" {
-        name              = "Secrets Manager-London"
-        location          = "eu-gb"
-        service           = "secrets-manager"
-    }
-    ```
-    {: codeblock}
+        ```terraform
+        data "ibm_resource_instance" "sm_resource_instance" {
+            name              = "Secrets Manager-London"
+            location          = "eu-gb"
+            service           = "secrets-manager"
+        }
+        ```
+        {: codeblock}
 
-   For a complete list of the supported attributes, see [`ibm_resource_instance`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/resource_instance){: external}.
+    For a complete list of the supported attributes, see [`ibm_resource_instance`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/resource_instance){: external}.
 
-4. Provision the resources from the `main.tf` file. For more information, see [Provisioning Infrastructure with Terraform](https://developer.hashicorp.com/terraform/cli/run){: external}.
+3. Provision the resources from the `main.tf` file. For more information, see [Provisioning Infrastructure with Terraform](https://developer.hashicorp.com/terraform/cli/run){: external}.
 
    1. Run `terraform plan` to generate a Terraform execution plan to preview the proposed actions.
 
@@ -128,7 +128,7 @@ Before you can create an authorization by using Terraform, make sure that you co
     ```
     {: pre}
 
-5. Define local values for your Secret Manager instance to be used when you are creating resources
+4. Define local values for your Secret Manager instance to be used when you are creating resources
 
     ```terraform
         locals {
@@ -138,8 +138,8 @@ Before you can create an authorization by using Terraform, make sure that you co
     ```
    {: pre}
 
-6. From the {{site.data.keyword.cloud_notm}} resource list in the UI, select the {{site.data.keyword.secrets-manager_short}} instance that you created and note the instance ID.
-7. Verify that the access policy is successfully assigned. For more information, see [Reviewing assigned access in the console](/docs/account?topic=account-assign-access-resources#review-your-access-console).
+5. From the {{site.data.keyword.cloud_notm}} resource list in the UI, select the {{site.data.keyword.secrets-manager_short}} instance that you created and note the instance ID.
+6. Verify that the access policy is successfully assigned. For more information, see [Reviewing assigned access in the console](/docs/account?topic=account-assign-access-resources#review-your-access-console).
 
 ## Managing Resource Drift
 {: #resource-drift-terraform}
