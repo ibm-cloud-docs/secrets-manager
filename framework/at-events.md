@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-13"
+lastupdated: "2023-04-18"
 
 keywords: activity tracker events for Secrets Manager, events, Secrets Manager actions
 
@@ -108,9 +108,6 @@ The following table lists the secret group actions that generate an event.
 
 The following table lists the secret lock actions that generate an event.
 
-
-
-
 | Action                                | Description                         |
 | ------------------------------------- | ----------------------------------- |
 | `secrets-manager.secret-locks.create`  | Create a secret lock.               |
@@ -123,13 +120,10 @@ The following table lists the secret lock actions that generate an event.
 {: caption="Table 2. List of secret lock events" caption-side="top"}
 
 
-
 ## Events for instance operations
 {: #at-actions-instance-operations}
 
 The following table lists the instance operation actions that generate an event.
-
-
 
 ## Events for instance operations
 {: #at-configuration-instance-operations}
@@ -151,8 +145,6 @@ The following table lists the instance operation actions that generate an event.
 | `secrets-manager.notifications-registration.delete` | Delete an Event Notifications registration. | Manager |
 | `secrets-manager.notifications-registration.test` | Send a test event. | Reader, SecretsReader, Writer, Manager |
 {: caption="Table 3. List of instance operation events" caption-side="top"}
-
-
 
 
 ## Viewing events

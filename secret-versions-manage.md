@@ -105,21 +105,10 @@ If you're auditing the version history of a secret, you can use the {{site.data.
 
 To list all the versions that are associated with a secret, run the [**`ibmcloud secrets-manager secret-versions`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-versions-command) command. You can specify the type of secret by using the `--secret-type SECRET-TYPE` option. The options for `SECRET_TYPE` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`.
 
-<apiv2prod>
-
-```sh
-ibmcloud secrets-manager secret-versions --secret-type SECRET-TYPE --id SECRET_ID --service-url https://<instance_id>.<region>.secrets-manager.appdomain.cloud
-```
-{: pre}
-
-</apiv2prod><apiv2>
-
 ```sh
 ibmcloud secrets-manager secret-versions --secret-id SECRET-ID
 ```
 {: pre}
-
-</apiv2>
 
 
 The command outputs information about the current and previous versions. For example, the date that each version was created. Up to 50 versions can be listed for a secret. For more information about the command options, see [**`ibmcloud secrets-manager secret-versions`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-versions-command).
