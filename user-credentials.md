@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-13"
+lastupdated: "2023-04-18"
 
 keywords: username, password, user credentials, store password
 
@@ -101,13 +101,13 @@ To store a username and password by using the {{site.data.keyword.secrets-manage
 
 To store a username and password by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. You can specify the type of secret by using the `--secret-type username_password` option.
 
+
 ```sh 
 ibmcloud secrets-manager secret-create \    
     --secret-prototype='{"name": "example-username-password-secret","description": "Description of my user credentials secret","secret_type": "username_password","secret_group_id": "bfc0a4a9-3d58-4fda-945b-76756af516aa","labels": ["dev","us-south"],"username": "example-username","password": "example-password","rotation": {"auto_rotate": true,"interval": 10,"unit": "day"},"custom_metadata": {"metadata_custom_key": "metadata_custom_value"},"version_custom_metadata": {"custom_version_key": "custom_version_value"}}'
 
 ```
 {: pre}
-
 
 
 
@@ -122,6 +122,7 @@ You can store a username and password programmatically by calling the {{site.dat
 The following example shows a query that you can use to create a username and password secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 
 You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
+
 
 ```sh
 curl -X POST 
@@ -155,7 +156,6 @@ curl -X POST
 ```
 {: codeblock}
 {: curl}
-
 
 
 ## Adding user credentials with Terraform
@@ -223,9 +223,6 @@ The following example shows a query that you can use to create a username and pa
 
 
 3. Applying the Terraform plan syncs the user credentials `password` field in Terraform with the new version value.
-
-
-
 
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager#create-secret).

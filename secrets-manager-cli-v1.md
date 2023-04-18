@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-04-17"
+lastupdated: "2023-04-18"
 
 subcollection: secrets-manager
 
@@ -2119,6 +2119,4 @@ The following example shows the format of the UpdateSecretVersionMetadata[] obje
 } ]
 ```
 {: codeblock}
-
-
 
