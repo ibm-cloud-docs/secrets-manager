@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-13"
+lastupdated: "2023-04-18"
 
 keywords: secret groups, assign secret access, iam roles, secrets policies, organize secrets
 
@@ -106,7 +106,6 @@ The following example request creates a secret group. When you call the API, rep
 {: curl}
 
 
-
 ```sh
 curl -X POST 
   --H "Authorization: Bearer {iam_token}" \
@@ -141,7 +140,6 @@ resource "ibm_sm_secret_group" "sm_secret_group_test" {
 {: codeblock}
 
 
-
 ## Deleting secret groups
 {: #delete-groups}
 
@@ -174,7 +172,6 @@ The following example request deletes a secret group. When you call the API, rep
 {: curl}
 
 
-
 ```bash
 curl -X DELETE 
   --H "Authorization: Bearer {iam_token}" \ 
@@ -182,7 +179,6 @@ curl -X DELETE
 ```
 {: codeblock}
 {: curl}
-
 
 
 ## Next steps

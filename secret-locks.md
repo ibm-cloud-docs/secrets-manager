@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-17"
+lastupdated: "2023-04-18"
 
 keywords: secret locks, lock secret, prevent deletion, prevent rotation, unlock secret, create lock, delete lock
 
@@ -175,7 +175,6 @@ A secret is considered locked after you attach one or more locks to it. A lock c
 To help you to create a new lock and remove older locks in a single operation, you can also specify an optional mode at lock creation. 
 
 
-
 | Mode | Description |
 | --- | --- |
 | Remove previous locks | Removes any other locks that match the name that you specify. If any matching locks are found in the previous version of the secret, those locks are deleted when your new lock is created.  \n  \n For example, suppose that the previous version of your secret contains a lock `lock-x`. Creating a lock on the current version of your secret and enabling the **Delete matching locks** option results in removing `lock-x` from the previous version. |
@@ -201,10 +200,6 @@ ibmcloud secrets-manager secret-locks-bulk-create \
 {: pre}
 
 
-
-
-
-
 ### Creating locks with the API
 {: #create-lock-api}
 {: api}
@@ -224,13 +219,11 @@ To help you to create a new lock and remove older locks in a single operation, y
 
 
 
-
 #### Creating locks on the current secret version
 {: #create-lock-current-version-api}
 {: api}
 
 The following request creates two locks on the current version of a secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for `{secret_type}` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`.
-
 
 
 ```bash
@@ -268,7 +261,6 @@ If you're building an automated flow, you can use the `attributes` object to spe
 A successful response returns details about the new locks, along with other metadata.
 
 
-
 ```json
 {
   "secret_id": "0cf4addb-7a90-410b-a3a7-a15bbe2b7909",
@@ -299,7 +291,6 @@ A successful response returns details about the new locks, along with other meta
 
 
 
-
 For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager#lock-secret).
 
 #### Creating locks on the previous secret version
@@ -307,7 +298,6 @@ For more information about the required and optional request parameters, see the
 {: api}
 
 The following request creates two locks on the previous version of a secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for `{secret_type}` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`.
-
 
 
 ```bash
@@ -343,7 +333,6 @@ curl -X POST
 A successful response returns details about the new locks, along with other metadata.
 
 
-
 ```json
 {
   "secret_id": "0cf4addb-7a90-410b-a3a7-a15bbe2b7909",
@@ -371,7 +360,6 @@ A successful response returns details about the new locks, along with other meta
 }
 ```
 {: screen}
-
 
 
 
@@ -411,7 +399,6 @@ To understand whether a secret contains locks, check the `locks_total` field tha
 {: note}
 
 
-
 ```bash
 curl -X DELETE  
   -H "Authorization: Bearer {iam_token}" \
@@ -423,8 +410,6 @@ curl -X DELETE
 {: curl}
 
 
-
 For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager#unlock-secret).
-
 
 
