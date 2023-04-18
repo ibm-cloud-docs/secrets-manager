@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-13"
+lastupdated: "2023-04-18"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, imported certificates
 
@@ -151,7 +151,6 @@ You can import certificate files that are in the `.pem` format. Be sure to [conv
 {: note}
 
 
-
 ```sh
 ibmcloud secrets-manager secret-create \   
     --secret-type=imported_cert  \  
@@ -173,7 +172,6 @@ ibmcloud secrets-manager secret-create \
 {: pre}
 
 
-
 The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
 
 
@@ -190,7 +188,6 @@ You can store metadata that are relevant to the needs of your organization with 
 
 You can import certificate files that are in the `.pem` format. Be sure to [convert your PEM files to single-line format](/docs/secrets-manager?topic=secrets-manager-troubleshoot-pem) so that they can be parsed correctly by the {{site.data.keyword.secrets-manager_short}} API.
 {: note}
-
 
 
 ```sh
@@ -222,10 +219,7 @@ curl -X POST
 {: codeblock}
 {: curl}
 
-
-
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
-
 
 
 ### Importing certificates with Terraform
@@ -248,7 +242,6 @@ The following example shows a query that you can use to import an existing certi
     }
 ```
 {: codeblock}
-
 
 
 ## Ordering public certificates
@@ -326,7 +319,6 @@ When you order a certificate, domain validation takes place to verify the owners
 {: note}
 
 
-
 ```sh
 ibmcloud secrets-manager secret-create --secret-type=public_cert --resources=
 '[{
@@ -361,7 +353,6 @@ ibmcloud secrets-manager secret-create --secret-type=public_cert --resources=
 
 
 
-
 The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
 
 
@@ -378,7 +369,6 @@ You can store metadata that are relevant to the needs of your organization with 
 
 When you order a certificate, domain validation takes place to verify the ownership of your selected domains. This process can take a few minutes to complete.
 {: note}
-
 
 
 ```sh
@@ -419,7 +409,6 @@ curl -X POST
 ```        
 {: codeblock}
 {: curl}
-
 
 
 
@@ -508,7 +497,6 @@ To create a public certificate by using a manual DNS provider, complete the foll
 2. Create a new public certificate by specifying `manual` as your DNS configuration.
 
 
-
     ```sh
     curl -X POST 
         -H "Authorization: Bearer {iam_token}" \
@@ -546,8 +534,6 @@ To create a public certificate by using a manual DNS provider, complete the foll
     ```
     {: codeblock}
     {: curl}
-
-
 
 
    Example response:
@@ -645,7 +631,7 @@ To create a public certificate by using a manual DNS provider, complete the foll
    ```
    {: codeblock}
    {: curl}
-   
+
 
    If you need to update your certificate later, you can use the [Invoke an action on a secret](/apidocs/secrets-manager#update-secret) API but with the action `rotate`. However, you can't automatically rotate manual DNS provider certificates in {{site.data.keyword.secrets-manager_short}}.
    {: note}
@@ -700,7 +686,6 @@ ibmcloud secrets-manager secret-create --secret-type=public_cert --resources=
 ]
 ```
 {: pre}
-
 
 
 
@@ -767,7 +752,6 @@ When you order a certificate, domain validation takes place to verify the owners
 {: note}
 
 
-
 ```sh
 ibmcloud secrets-manager secret-create --secret-type=private_cert --resources=
     '[{
@@ -794,11 +778,6 @@ ibmcloud secrets-manager secret-create --secret-type=private_cert --resources=
     ]
 ```
 {: pre}
-
-
-
-
-
 
 
 The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
@@ -858,12 +837,11 @@ curl -X POST
 {: codeblock}
 {: curl}
 
+
 Need to create a private certificate with advanced options? You can use optional request parameters to specify advanced attributes for your private certificate, such as Subject Alternative Names or a time-to-live (TTL). If you omit these optional parameters, the attributes that are defined for your selected certificate template are applied. For more information, see the [API reference](/apidocs/secrets-manager#create-secret).
 {: tip}
 
 A successful request returns the contents of your private certificate, along with other metadata that is determined by the certificate template and issuing certificate authority.
-
-
 
 ```json
 {
@@ -941,8 +919,6 @@ The following example shows a configuration that you can use to create a private
     }
 ```
 {: codeblock}
-
-
 
 
 After a certificate is issued, you can deploy it to your integrated apps, download it, or rotate it manually. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager#create-secret){: external}.
