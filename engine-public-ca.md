@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-13"
+lastupdated: "2023-04-18"
 
 keywords: certificate authority, connect certificate authority, set up certificate authority, connect CA, set up CA, connect Let's Encrypt, set up Let's Encrypt, add certificate authority configuration, add CA configuration
 
@@ -126,8 +126,6 @@ Be sure to convert your private key file to single-line format so that it can be
 {: tip}
 
 
-
-
 ```sh
 curl -X POST 
   --H "Authorization: Bearer {iam_token}" \
@@ -146,10 +144,25 @@ curl -X POST
 {: curl}
 
 
-
 A successful response adds the configuration to your service instance. For more information about the required and optional request parameters, see [Add a configuration](/apidocs/secrets-manager#create-config-element){: external}.
 
 
+## Adding a certificate authority configuration with Terraform
+{: #add-certificate-authority-terraform}
+{: terraform}
+
+The following example shows a configuration that you can use to create a root certificate authority.
+
+```terraform
+    resource "ibm_sm_public_certificate_configuration_ca_lets_encrypt" "my_lets_encrypt_config" {
+        instance_id = local.instance_id
+        region = local.region
+        name = "lets-encrypt-config"
+        lets_encrypt_environment = "production"
+        lets_encrypt_private_key = var.my_lets_encrypt_private_ley
+    }
+```
+{: codeblock}
 
 
 ## Deleting a certificate authority configuration in the UI
@@ -185,7 +198,6 @@ After you delete a configuration, the certificates that are associated with the 
 {: important}
 
 
-
 ```sh
 curl -X DELETE 
   --H "Authorization: Bearer {iam_token}"\
@@ -193,7 +205,6 @@ curl -X DELETE
 ```
 {: codeblock}
 {: curl}
-
 
 
 A successful response removes the configuration from your service instance. For more information about the required and optional request parameters, see [Remove a configuration](/apidocs/secrets-manager#delete-config-element){: external}.

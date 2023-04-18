@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-17"
+lastupdated: "2023-04-18"
 
 keywords: DNS provider, connect DNS provider, set up DNS provider, connect DNS, set up DNS, connect CIS, set up CIS, add DNS provider configuration
 
@@ -147,7 +147,6 @@ If you need to access a CIS instance that is located in another account, provide
 {: note} 
 
 
-
 ```sh
 curl -X POST 
   --H "Authorization: Bearer {iam_token}" \
@@ -165,7 +164,6 @@ curl -X POST
 {: curl}
 
 
-
 A successful response adds the configuration to your service instance. For more information about the required and optional request parameters, see [Add a configuration](/apidocs/secrets-manager#create-config-element){: external}.
 
 
@@ -175,7 +173,6 @@ A successful response adds the configuration to your service instance. For more 
 
 The following example shows a query that you can use to add a classic infrastructure DNS configuration to your {{site.data.keyword.secrets-manager_short}} instance. When you call the API, replace the `classic_infrastructure_username` and `classic_infastructure_password` (API key) values.
 {: curl}
-
 
 
 ```sh
@@ -193,7 +190,6 @@ curl -X POST
 ```
 {: codeblock}
 {: curl}
-
 
 
 
@@ -275,7 +271,6 @@ After you delete a configuration, the certificates that are associated with the 
 {: important}
 
 
-
 ```sh
 curl -X DELETE 
 --H "Authorization: Bearer {iam_token}" \
@@ -283,7 +278,6 @@ curl -X DELETE
 ```
 {: codeblock}
 {: curl}
-
 
 
 A successful response removes the configuration from your service instance. For more information about the required and optional request parameters, see [Remove a configuration](/apidocs/secrets-manager#delete-config-element){: external}.

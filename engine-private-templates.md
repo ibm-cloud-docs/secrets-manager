@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-13"
+lastupdated: "2023-04-18"
 
 keywords: certificate parameters, certificate templates
 
@@ -119,7 +119,6 @@ The following example shows a query that you can use to create a certificate tem
 {: note}
 
 
-
 ```sh
 curl -X POST 
   --H "Authorization: Bearer {iam_token}" \
@@ -140,7 +139,6 @@ curl -X POST
 ```
 {: codeblock}
 {: curl}
-
 
 
 A successful response adds the template configuration to your service instance. 
@@ -222,8 +220,6 @@ The following example shows a configuration that you can use to create a certifi
     }
 ```
 {: codeblock}
-
-
 
 
 For more information about the required and optional request parameters, see [Add a configuration](/apidocs/secrets-manager#create-config-element){: external}.
