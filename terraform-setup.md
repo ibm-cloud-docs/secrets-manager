@@ -84,22 +84,22 @@ Before you can create an authorization by using Terraform, make sure that you co
 
 2. Create a {{site.data.keyword.secrets-manager_short}} instance by using the `ibm_resource_instance` resource argument in your `main.tf` file.
 
-   1. The {{site.data.keyword.secrets-manager_short}} instance in the following example is named `secrets-manager-london` and is created with the trial plan in the `eu-gb` region. The `user@ibm.com` is assigned the Administrator role in the IAM access policy. For other supported regions, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints). 
+   * The {{site.data.keyword.secrets-manager_short}} instance in the following example is named `secrets-manager-london` and is created with the trial plan in the `eu-gb` region. The `user@ibm.com` is assigned the Administrator role in the IAM access policy. For other supported regions, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints). Plan options include `trial` and `standard`. 
 
-   ```terraform
-    resource "ibm_resource_instance" "sm_instance" {
-        name = "Secrets Manager-London"
-        service = "secrets-manager"
-        plan = "trial"
-        location = "eu-gb"
-    }
-   ```
-   {: codeblock}
+      ```terraform
+       resource "ibm_resource_instance" "sm_instance" {
+           name = "Secrets Manager-London"
+           service = "secrets-manager"
+           plan = "trial"
+           location = "eu-gb"
+       }
+      ```
+      {: codeblock}
+ 
+ 
+      To view a complete list of the supported attributes, see [`ibm_resource_instance`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/resource_instance){: external}.
 
-
-   To view a complete list of the supported attributes, see [`ibm_resource_instance`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/resource_instance){: external}.
-
-    2. Then, as an option, you can create a data source to retrieve information about an existing {{site.data.keyword.secrets-manager_short}} instance from {{site.data.keyword.cloud_notm}}, by running the following command. 
+    * Optionally, you can create a data source to retrieve information about an existing {{site.data.keyword.secrets-manager_short}} instance from {{site.data.keyword.cloud_notm}}, by running the following command. 
 
         ```terraform
         data "ibm_resource_instance" "sm_resource_instance" {
@@ -110,7 +110,7 @@ Before you can create an authorization by using Terraform, make sure that you co
         ```
         {: codeblock}
 
-    For a complete list of the supported attributes, see [`ibm_resource_instance`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/resource_instance){: external}.
+   For a complete list of the supported attributes, see [`ibm_resource_instance`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/resource_instance){: external}.
 
 3. Provision the resources from the `main.tf` file. For more information, see [Provisioning Infrastructure with Terraform](https://developer.hashicorp.com/terraform/cli/run){: external}.
 
@@ -144,7 +144,7 @@ Before you can create an authorization by using Terraform, make sure that you co
 ## Managing Resource Drift
 {: #resource-drift-terraform}
  
-With Terraform, you can safely and predictably manage the lifecycle of your infrastructure by using declarative configuration files. One challenge that exists when you are managing infrastructure as code is drift. Drift is the term that is used for when the real-world state of your infrastructure differs from the state that is defined in your configuration. You can encounter this issue due to various reasons. Within the context of your configuration, you run into this issue when you are adding or removing resources, or changing resource definitions. Outside of your configuration, drift occurs when resources are terminated or fail, and when changes are made manually or by using other automation tools.
+With Terraform, you can safely and predictably manage the lifecycle of your infrastructure by using declarative configuration files. One challenge that exists when you are managing infrastructure as code is drift. Drift occurs when resources are added, deleted, or modified outside of applying Terraform configuration changes. For example, when a secret expires or is rotated. To avoid drift, always use Terraform to manage resources initially created with Terraform.
 
 The Terraform state file is a record of all resources that Terraform manages. You must not make manual changes to resources that are controlled by Terraform because by doing so, the state file becomes out of sync or "drift", from the real infrastructure. If your state and configuration do not match your infrastructure, Terraform attempts to reconcile your infrastructure, which might unintentionally destroy or re-create resources.
 
