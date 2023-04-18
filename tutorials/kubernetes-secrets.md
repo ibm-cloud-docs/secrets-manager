@@ -3,7 +3,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-04-13"
+lastupdated: "2023-04-18"
 
 keywords: tutorial, Secrets Manager
 
@@ -433,7 +433,6 @@ After you install External Secrets Operator in your cluster, you can define {{si
 2. Modify the file to include information about the secret that you want to fetch from your {{site.data.keyword.secrets-manager_short}} instance.
 
     ```yaml 
-    
     apiVersion: external-secrets.io/v2beta2
     kind: SecretStore
     metadata:
@@ -447,7 +446,7 @@ After you install External Secrets Operator in your cluster, you can define {{si
               secretApiKeySecretRef:
                 name: secret-api-key
                 key: apikey
-    ---
+                
     apiVersion: external-secrets.io/v1beta1
     kind: ExternalSecret
     metadata:
