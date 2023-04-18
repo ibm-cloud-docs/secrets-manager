@@ -185,8 +185,8 @@ toc:
           - troubleshooting/troubleshoot-iam-engine-access.md
           - troubleshooting/troubleshoot-ip-address.md
           - troubleshooting/troubleshoot-iam-restore.md
-          - troubleshooting/troubleshoot-pem.md<locks>
+          - troubleshooting/troubleshoot-pem.md
           - troubleshooting/troubleshoot-locked-iam.md
-          - troubleshooting/troubleshoot-locked-certificate.md</locks>
+          - troubleshooting/troubleshoot-locked-certificate.md
           - troubleshooting/troubleshoot-delete-group.md
           - troubleshooting/troubleshoot-instance-delete.md

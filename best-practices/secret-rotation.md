@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-05"
+lastupdated: "2023-04-18"
 
 keywords: secrets management best practice, rotating secrets, secret rotation, locking secrets, automatic rotation
 
@@ -129,7 +129,6 @@ Use locks to plan for periodic rotation of secrets. When you create and remove l
     | 4 | Run another pipeline that 1) verifies that the new secret version was picked up by the service pods in your cluster, and 2) removes both locks on the previous version of the secret in {{site.data.keyword.secrets-manager_short}}.
     | 5 | After two days, the previous version of the secret expires and is safely deleted from your instance. The next periodic rotation cycle repeats steps 2 - 4. |
     {: caption="Table 1. Example automated workflow for locking secrets." caption-side="bottom"}
-
 
 
 
