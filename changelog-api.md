@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-17"
+lastupdated: "2023-04-18"
 
 keywords: change log for Secrets Manager APIs, API changelog, updates to Secrets Manager APIs
 
@@ -66,7 +66,6 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 
 
 
-
 ## 17 April 2023
 {: #2023-04-17-api}
 
@@ -85,8 +84,6 @@ Version 2.0.0 was released on 17 April 2023. This release includes the following
 * The actions to list Secrets and get secret metadata return the `versions_total field`. The version's content is not included.
 * Current and previous secret versions can be referenced by using the `current` and `previous` aliases in version APIs.
 * As of April 17, 2023, the {{site.data.keyword.secrets-manager_full}} API v1 has been deprecated in favor of v2. If you're still actively working with the {{site.data.keyword.secrets-manager_short}} API v1, please be sure to start your upgrade as soon as possible. On 31 October 2023, support for the {{site.data.keyword.secrets-manager_short}} API v1 will be removed.
-
-
 
 
 ## 12 September 2022
