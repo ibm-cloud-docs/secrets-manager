@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-17"
+lastupdated: "2023-04-18"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -97,8 +97,6 @@ Now available: CLI version 2.0
 
 Deprecated: API, SDK, and CLI v1
 :  As of April 17, 2023, the {{site.data.keyword.secrets-manager_full}} API v1 has been deprecated in favor of v2. If you're still actively working with the {{site.data.keyword.secrets-manager_short}} API v1, please be sure to start your upgrade as soon as possible. On 31 October 2023, support for the {{site.data.keyword.secrets-manager_short}} API v1 will be removed.
-
-
 
 
 

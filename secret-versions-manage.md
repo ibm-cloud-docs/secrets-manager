@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-04-13"
+lastupdated: "2023-04-18"
 
 keywords: secret version history, view versions, secret versions
 
@@ -105,14 +105,10 @@ If you're auditing the version history of a secret, you can use the {{site.data.
 
 To list all the versions that are associated with a secret, run the [**`ibmcloud secrets-manager secret-versions`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-versions-command) command. You can specify the type of secret by using the `--secret-type SECRET-TYPE` option. The options for `SECRET_TYPE` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`.
 
-
-
 ```sh
 ibmcloud secrets-manager secret-versions --secret-id SECRET-ID
 ```
 {: pre}
-
-
 
 
 The command outputs information about the current and previous versions. For example, the date that each version was created. Up to 50 versions can be listed for a secret. For more information about the command options, see [**`ibmcloud secrets-manager secret-versions`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-versions-command).
@@ -127,7 +123,6 @@ The following example request lists metadata properties for each version. When y
 {: curl}
 
 
-
 ```sh
 curl -X GET 
   --H "Authorization: Bearer {iam_token}" \
@@ -138,9 +133,7 @@ curl -X GET
 {: curl}
 
 
-
 A successful response returns metadata details about each secret version.
-
 
 
 ```json
@@ -172,9 +165,6 @@ A successful response returns metadata details about each secret version.
 {: screen}
 
 
-
-
-
 The `downloaded` property indicates whether the data for each secret version was already read or accessed. If the `payload_available` field has a value of `true`, it means that you're able to access or [restore the secret data of that version](#restore-secret-api). For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager).
 
 You can store metadata that is relevant to the needs of your organization with the `version_custom_metadata` request parameter. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager).
@@ -204,7 +194,6 @@ To update the metadata of a secret version, complete the following steps.
 
 You can use the {{site.data.keyword.secrets-manager_short}} CLI plug-in to update the metadata of a specific version of a secret.
 
-  
 To update the metadata of a secret, run the [**`ibmcloud secrets-manager secret-metadata-update`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-metadata-update-command) command. 
   
 The following example shows the format of the `ibmcloud secrets-manager secret-metadata-update` command.
@@ -215,9 +204,6 @@ ibmcloud secrets-manager secret-version-metadata-update --secret-id SECRET-ID --
 {: pre}
 
 
-
-
-
 ## Updating secret versions metadata with the API
 {: #versions-metadata-api}
 {: api}
@@ -226,7 +212,6 @@ If you're updating the metadata of a secret version, you can use the {{site.data
 
 The following example request updates metadata properties for each version. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. The options for `{secret_type}` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`.
 {: curl}
-
 
 
 ```sh
@@ -241,9 +226,7 @@ curl -X PATCH
 {: curl}
 
 
-
 A successful response returns metadata details about each secret version.
-
 
 
 ```json
@@ -264,8 +247,6 @@ A successful response returns metadata details about each secret version.
 }
 ```
 {: screen}
-
-
 
 
 The `downloaded` property indicates whether the data for each secret version was already read or accessed. If the `payload_available` field has a value of `true`, it means that you're able to access or [restore the secret data of that version](#restore-secret-api). 
@@ -298,7 +279,6 @@ The following example request restores the previous version of a secret. When yo
 
 To list the versions of a secret and obtain the ID of each version, use the [List versions API](/docs/secrets-manager?topic=secrets-manager-version-history&interface=api#versions-api).
 {: tip}
-
 
 
 ```bash

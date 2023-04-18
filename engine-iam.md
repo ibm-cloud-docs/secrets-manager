@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-13"
+lastupdated: "2023-04-18"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -164,17 +164,13 @@ To allow your {{site.data.keyword.cloud_notm}} API key to create and manage othe
     {: pre}
 
 
-
     Using a Windows™ command prompt (`cmd.exe`) or PowerShell? If you encounter errors with passing JSON content on the command line, you might need to adjust the strings for quotation-escaping requirements that are specific to your operating system. For more information, see [Using quotation marks with strings in the {{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-quote-strings).
     {: tip}
-
 
 
 ## Configuring the IAM credentials engine with the API
 {: #configure-iam-engine-api}
 {: api}
-
-
 
 Before you can create dynamic IAM credentials, you must configure the IAM secrets engine for your service instance. You can configure a secrets engine programmatically by calling the {{site.data.keyword.secrets-manager_short}} API.
 
@@ -185,7 +181,6 @@ For step-by-step instructions to create an {{site.data.keyword.cloud_notm}} API 
 
 The following example shows a query that you can use to configure a secrets engine for your instance. When you call the API, replace the API key variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: note}
-
 
 
 ```sh
@@ -201,7 +196,6 @@ curl -X POST
 ```
 {: codeblock}
 {: curl}
-
 
 
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.

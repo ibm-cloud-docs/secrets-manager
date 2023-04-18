@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-17"
+lastupdated: "2023-04-18"
 
 keywords: intermediate certificate authority, intermediate CA, internal signing, external signing
 
@@ -115,7 +115,6 @@ An intermediate CA with internal signing uses a parent CA that was previously cr
    You can now select this intermediate CA to [generate a private certificate](/docs/secrets-manager?topic=secrets-manager-certificates#create-certificates). To modify or remove an existing configuration, click **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) in the row of the certificate authority that you want to update.
 
 
-
 ## Creating an intermediate CA with internal signing with the API
 {: #intermediate-ca-internal-signing-api}
 {: api}
@@ -215,7 +214,6 @@ After you sign an intermediate CA certificate by using an external parent CA, yo
    The signed intermediate CA is added to your list of configurations for your instance with an **Active** status. You can now use this intermediate CA to [create private certificates](/docs/secrets-manager?topic=secrets-manager-certificates#create-certificates) for your applications. To modify or remove an existing configuration, click **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) in the row of the certificate authority that you want to update.
 
 
-
 ## Creating an intermediate CA with external signing with the API
 {: #intermediate-ca-external-signing-api}
 {: api}
@@ -243,7 +241,6 @@ curl -X POST
 ```
 {: codeblock}
 {: curl}
-
 
 
 

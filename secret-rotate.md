@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-13"
+lastupdated: "2023-04-18"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -86,13 +86,9 @@ All the secrets that you store in {{site.data.keyword.secrets-manager_short}} ca
 {: caption="Table 1. Describes how {{site.data.keyword.secrets-manager_short}} evaluates manual rotation by secret type" caption-side="top"}
 
 
-
-
 ## Creating new secret versions in the UI
 {: #manual-rotate-ui}
 {: ui}
-
-
 
 You can manually rotate your secrets and certificates by using the {{site.data.keyword.secrets-manager_short}} UI.
 
@@ -115,14 +111,9 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
    In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
 
 
-
-
 ### Creating new versions of key-value secrets
 {: #manual-rotate-key-value-ui}
 {: ui}
-
-
-
 
 You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotate your key-value secrets.
 
@@ -139,12 +130,9 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
    In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
 
 
-
 ### Creating new versions of user credentials
 {: #manual-rotate-user-credentials-ui}
 {: ui}
-
-
 
 You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotate the password values that are associated with a user credentials secret.
 
@@ -167,11 +155,9 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 
 
 
-
 ### Creating new versions of imported certificates
 {: #manual-rotate-imported-cert-ui}
 {: ui}
-
 
 
 When it's time to renew a certificate that was initially imported to the service, you can use the {{site.data.keyword.secrets-manager_short}} UI to manually reimport it. After a certificate is rotated, the previous version is retained in case you need it.
@@ -196,12 +182,9 @@ If the certificate that you are rotating was previously imported with an interme
    To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager#get-secret) API.
 
 
-
 ### Creating new versions of public certificates
 {: #manual-rotate-public-cert-ui}
 {: ui}
-
-
 
 If your {{site.data.keyword.secrets-manager_short}} service instance is enabled for [public certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates), you can manually renew a certificate that was previously ordered from a third-party certificate authority.
 
@@ -226,13 +209,9 @@ If your {{site.data.keyword.secrets-manager_short}} service instance is enabled 
 
 
 
-
-
 ### Creating new versions of public certificates with your own DNS provider in the UI
 {: #rotate-certificates-manual-ui}
 {: ui}
-
-
 
 To rotate a public certificate that was created by using a manual DNS provider in the UI, complete the following steps.
 
@@ -256,13 +235,9 @@ To rotate a public certificate that was created by using a manual DNS provider i
 10. When your certificate is issued, clean up and remove the TXT records from the domains in your DNS provider account.
 
 
-
 ### Creating new versions of private certificates
 {: #manual-rotate-private-cert-ui}
 {: ui}
-
-
-
 
 If your {{site.data.keyword.secrets-manager_short}} service instance is enabled for [private certificates](/docs/secrets-manager?topic=secrets-manager-certificates#create-certificates), you can manually renew a certificate that was previously issued by a certificate authority that is configured for your service instance.
 
@@ -278,12 +253,9 @@ If your {{site.data.keyword.secrets-manager_short}} service instance is enabled 
    To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager#get-secret) API.
 
 
-
 ## Manually creating new versions of secrets from the CLI
 {: #manual-rotate-cli}
 {: cli}
-
-
 
 You can manually rotate your secrets and certificates by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in.
 
@@ -292,7 +264,6 @@ You can manually rotate your secrets and certificates by using the {{site.data.k
 {: cli}
 
 To rotate an arbitrary secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-update`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-update-command) command. You can specify the type of secret by using the `--secret-type arbitrary` option. For example, the following command rotates a secret and assigns `new-secret-data` as its new version.
-
 
 
 ```sh
@@ -304,7 +275,6 @@ ibmcloud secrets-manager secret-version-create \
 {: codeblock}
 
 
-
 The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-update`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-update-command).
 
 ### Rotating user credentials
@@ -313,8 +283,6 @@ The command outputs the value of the secret, along with other metadata. For more
 
 To rotate a user credential secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-update`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-update-command) command. You can specify the type of secret by using the `--secret-type username_password` option. For example, the following command rotates a secret and assigns `new-password` as its new version.
 
-
-
 ```sh
 ibmcloud secrets-manager secret-version-create \    
    --secret-id=exampleString \    
@@ -322,7 +290,6 @@ ibmcloud secrets-manager secret-version-create \
 
 ```
 {: codeblock}
-
 
 
 To have the service generate and assign a random password to your credential, you can pass an empty string on the `password` field. For example, `{ "password": ""}`. {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
@@ -350,7 +317,6 @@ You can store metadata that are relevant to the needs of your organization with 
 {: curl}
 
 
-
 ```sh
 curl -X POST 
    -H "Authorization: Bearer {iam_token}" \
@@ -371,7 +337,6 @@ curl -X POST
 {: curl}
 
 
-
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager#update-secret).
 
 
@@ -385,8 +350,6 @@ The following example request creates a new version of your secret. When you cal
 
 You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
 {: curl}
-
-
 
 
 ```sh
@@ -411,9 +374,6 @@ curl -X POST
 {: curl}
 
 
-
-
-
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager#update-secret).
 
 
@@ -427,8 +387,6 @@ The following example request creates a new version of your secret. When you cal
 
 You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
 {: curl}
-
-
 
 
 ```sh
@@ -450,8 +408,6 @@ curl -X POST
 ```
 {: codeblock}
 {: curl}
-
-
 
 
 

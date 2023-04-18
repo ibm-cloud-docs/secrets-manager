@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-04-13"
+lastupdated: "2023-04-18"
 
 keywords: terraform, {{site.data.keyword.secrets-manager_short}}
 
@@ -84,35 +84,35 @@ Before you can create an authorization by using Terraform, make sure that you co
 
 2. Create a {{site.data.keyword.secrets-manager_short}} instance by using the `ibm_resource_instance` resource argument in your `main.tf` file.
 
-   The {{site.data.keyword.secrets-manager_short}} instance in the following example is named `secrets-manager-london` and is created with the trial plan in the `eu-gb` region. The `user@ibm.com` is assigned the Administrator role in the IAM access policy. For other supported regions, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints). 
+   * The {{site.data.keyword.secrets-manager_short}} instance in the following example is named `secrets-manager-london` and is created with the trial plan in the `eu-gb` region. The `user@ibm.com` is assigned the Administrator role in the IAM access policy. For other supported regions, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints). Plan options include `trial` and `standard`. 
 
-   ```terraform
-    resource "ibm_resource_instance" "sm_instance" {
-        name = "Secrets Manager-London"
-        service = "secrets-manager"
-        plan = "trial"
-        location = "eu-gb"
-    }
-   ```
-   {: codeblock}
+      ```terraform
+       resource "ibm_resource_instance" "sm_instance" {
+           name = "Secrets Manager-London"
+           service = "secrets-manager"
+           plan = "trial"
+           location = "eu-gb"
+       }
+      ```
+      {: codeblock}
+ 
+ 
+      To view a complete list of the supported attributes, see [`ibm_resource_instance`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/resource_instance){: external}.
 
+    * Optionally, you can create a data source to retrieve information about an existing {{site.data.keyword.secrets-manager_short}} instance from {{site.data.keyword.cloud_notm}}, by running the following command. 
 
-   To view a complete list of the supported attributes, see [`ibm_resource_instance`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/resource_instance){: external}.
-
-3. Then, as an option, you can create a data source to retrieve information about an existing {{site.data.keyword.secrets-manager_short}} instance from {{site.data.keyword.cloud_notm}}, by running the following command. 
-
-    ```terraform
-    data "ibm_resource_instance" "sm_resource_instance" {
-        name              = "Secrets Manager-London"
-        location          = "eu-gb"
-        service           = "secrets-manager"
-    }
-    ```
-    {: codeblock}
+        ```terraform
+        data "ibm_resource_instance" "sm_resource_instance" {
+            name              = "Secrets Manager-London"
+            location          = "eu-gb"
+            service           = "secrets-manager"
+        }
+        ```
+        {: codeblock}
 
    For a complete list of the supported attributes, see [`ibm_resource_instance`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/resource_instance){: external}.
 
-4. Provision the resources from the `main.tf` file. For more information, see [Provisioning Infrastructure with Terraform](https://developer.hashicorp.com/terraform/cli/run){: external}.
+3. Provision the resources from the `main.tf` file. For more information, see [Provisioning Infrastructure with Terraform](https://developer.hashicorp.com/terraform/cli/run){: external}.
 
    1. Run `terraform plan` to generate a Terraform execution plan to preview the proposed actions.
 
@@ -128,7 +128,7 @@ Before you can create an authorization by using Terraform, make sure that you co
     ```
     {: pre}
 
-5. Define local values for your Secret Manager instance to be used when you are creating resources
+4. Define local values for your Secret Manager instance to be used when you are creating resources
 
     ```terraform
         locals {
@@ -138,13 +138,13 @@ Before you can create an authorization by using Terraform, make sure that you co
     ```
    {: pre}
 
-6. From the {{site.data.keyword.cloud_notm}} resource list in the UI, select the {{site.data.keyword.secrets-manager_short}} instance that you created and note the instance ID.
-7. Verify that the access policy is successfully assigned. For more information, see [Reviewing assigned access in the console](/docs/account?topic=account-assign-access-resources#review-your-access-console).
+5. From the {{site.data.keyword.cloud_notm}} resource list in the UI, select the {{site.data.keyword.secrets-manager_short}} instance that you created and note the instance ID.
+6. Verify that the access policy is successfully assigned. For more information, see [Reviewing assigned access in the console](/docs/account?topic=account-assign-access-resources#review-your-access-console).
 
 ## Managing Resource Drift
 {: #resource-drift-terraform}
  
-With Terraform, you can safely and predictably manage the lifecycle of your infrastructure by using declarative configuration files. One challenge that exists when you are managing infrastructure as code is drift. Drift is the term that is used for when the real-world state of your infrastructure differs from the state that is defined in your configuration. You can encounter this issue due to various reasons. Within the context of your configuration, you run into this issue when you are adding or removing resources, or changing resource definitions. Outside of your configuration, drift occurs when resources are terminated or fail, and when changes are made manually or by using other automation tools.
+With Terraform, you can safely and predictably manage the lifecycle of your infrastructure by using declarative configuration files. One challenge that exists when you are managing infrastructure as code is drift. Drift occurs when resources are added, deleted, or modified outside of applying Terraform configuration changes. For example, when a secret expires or is rotated. To avoid drift, always use Terraform to manage resources initially created with Terraform.
 
 The Terraform state file is a record of all resources that Terraform manages. You must not make manual changes to resources that are controlled by Terraform because by doing so, the state file becomes out of sync or "drift", from the real infrastructure. If your state and configuration do not match your infrastructure, Terraform attempts to reconcile your infrastructure, which might unintentionally destroy or re-create resources.
 
@@ -161,9 +161,6 @@ When you are designing your Terraform project, follow Terraform best practices f
 ## What's next?
 {: #terraform-setup-next}
 
-Now that you successfully created your first {{site.data.keyword.secrets-manager_short}} service instance with Terraform on {{site.data.keyword.cloud_notm}}, You can review the {{site.data.keyword.secrets-manager_short}} resources and data sources in the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/secrets_manager_secret){: external}.
-
-
-you can review how to manage your {{site.data.keyword.secrets-manager_short}} resources by following the Terraform steps that are included in the How to section. For example, you can follow the directions on how to create [arbitrary secrets](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets&interface=terraform) by using Terraform.
+Now that you successfully created your first {{site.data.keyword.secrets-manager_short}} service instance with Terraform on {{site.data.keyword.cloud_notm}}, You can review the {{site.data.keyword.secrets-manager_short}} resources and data sources in the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/secrets_manager_secret){: external}. You can also review how to manage your {{site.data.keyword.secrets-manager_short}} resources by following the Terraform steps that are included in the How to section. For example, you can follow the directions on how to create [arbitrary secrets](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets&interface=terraform) by using Terraform.
 
 

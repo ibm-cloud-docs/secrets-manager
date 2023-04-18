@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-17"
+lastupdated: "2023-04-18"
 
 keywords: root certificate authority, root CA, internal signing, external signing
 
@@ -111,7 +111,6 @@ The following example shows a query that you can use to create a root certificat
 {: curl}
 
 
-
 ```sh
 curl -X POST 
   --H "Authorization: Bearer {iam_token}" \
@@ -130,7 +129,6 @@ curl -X POST
 ```
 {: codeblock}
 {: curl}
-
 
 
 A successful response adds the configuration to your service instance. 
@@ -163,7 +161,6 @@ A successful response adds the configuration to your service instance.
 }
 ```
 {: screen}
-
 
 
 

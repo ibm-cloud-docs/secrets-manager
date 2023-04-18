@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-17"
+lastupdated: "2023-04-18"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -175,15 +175,12 @@ You can schedule the automatic rotation of secrets by using the {{site.data.keyw
 
 Schedule the automatic rotation for user credentials by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in. 
 
-
-
 ```sh
 ibmcloud secrets-manager secret-metadata-update \
     --id=SECRET_ID \
     --rotation='{"auto_rotate": true,"interval": 30,"unit": "day"}'
 ```
 {: pre}
-
 
 
 To remove a policy, keep the resources block empty.
@@ -196,16 +193,12 @@ To remove a policy, keep the resources block empty.
 Schedule the automatic rotation for public certificates by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in. 
 
 
-
 ```sh
 ibmcloud secrets-manager secret-metadata-update \
     --id=SECRET_ID \
     --rotation='{"auto_rotate": true, "rotate_keys": true}'
 ```
 {: pre}
-
-
-
 
 
 ### Setting an automatic rotation policy for private certificates
@@ -215,14 +208,12 @@ ibmcloud secrets-manager secret-metadata-update \
 Schedule the automatic rotation for private certificates by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in. 
 
 
-
 ```sh
 ibmcloud secrets-manager secret-metadata-update \
     --id=SECRET_ID \
     --rotation='{"auto_rotate": true,"interval": 30,"unit": "day"}'
 ```
 {: pre}
-
 
 
 ### Setting an automatic rotation policy for IAM credentials
@@ -231,17 +222,12 @@ ibmcloud secrets-manager secret-metadata-update \
 
 Schedule the automatic rotation for IAM credentials by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in. 
 
-
-
 ```sh
 ibmcloud secrets-manager secret-metadata-update \
     --id=SECRET_ID \
     --rotation='{"auto_rotate": true,"interval": 30,"unit": "day"}'
 ```
 {: pre}
-
-
-
 
 
 To remove a policy, keep the resources block empty.
@@ -259,7 +245,6 @@ You can schedule the automatic rotation of secrets by using the {{site.data.keyw
 
 The following example request creates an automatic rotation policy for a user credentials (`username_password`) secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
-
 
 
 ```sh
@@ -281,7 +266,6 @@ curl -X PATCH
 
 
 
-
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager#update-secret).
 
 To remove a policy, keep the resources block empty.
@@ -299,7 +283,6 @@ If you prefer to schedule your certificates to be automatically renewed, you can
 
 The following example request orders a certificate with automatic rotation enabled. When you call the API, set the `auto_rotate` property to `true`. Optionally, you can set `rotate_keys` to `true` to request a new private key for the certificate on each rotation.
 {: curl}
-
 
 
 ```sh
@@ -325,8 +308,6 @@ curl -X POST
 {: curl}
 
 
-
-
 A successful response returns the ID value for the certificate, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager#create-secret).
 
 ### Setting an automatic rotation policy for IAM credentials
@@ -335,7 +316,6 @@ A successful response returns the ID value for the certificate, along with other
 
 The following example request creates an automatic rotation policy for a IAM credentials (`iam_credentials`) secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
-
 
 
 ```sh
@@ -354,7 +334,6 @@ curl -X PATCH
 ```
 {: codeblock}
 {: curl}
-
 
 
 To remove a policy, keep the resources block empty.
