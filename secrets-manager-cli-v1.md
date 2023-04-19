@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-04-18"
+lastupdated: "2023-04-19"
 
 subcollection: secrets-manager
 
@@ -1480,7 +1480,7 @@ ibmcloud secrets-manager policy \
 Configure secrets engines for your instance so that you can work with specific types of secrets.
 
 ### `ibmcloud secrets-manager config-update`
-{: #secrets-manager-cli-config-update-command}
+{: #secrets-manager-cli-config-update-command-v1}
 
 Set the configuration for the specified secret type.
 
