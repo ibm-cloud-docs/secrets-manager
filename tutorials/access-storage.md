@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-04-19"
 content-type: tutorial
 services: secrets-manager, cloud-object-storage
 account-plan: paid
@@ -293,7 +293,7 @@ Finally, configure your {{site.data.keyword.secrets-manager_short}} instance to 
     To configure the IAM secrets engine from the {{site.data.keyword.cloud_notm}} CLI, run the [**`ibmcloud secrets-manager config-update`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-config-update-command) command.
 
     ```sh
-    ibmcloud secrets-manager config-update --secret-type iam_credentials --engine-config '{"api_key": "$API_KEY"}'
+    ibmcloud secrets-manager config-update --engine-config '{"api_key": "$API_KEY"}'
     ```
     {: pre}
 
@@ -310,7 +310,7 @@ To create an IAM credential from the {{site.data.keyword.cloud_notm}} CLI, run t
 
 
 ```sh
-export SECRET_ID=`ibmcloud secrets-manager secret-create --secret-type iam_credentials --resources '[{"name":"test-iam-credentials","description":"Extended description for my secret.","access_groups":["$ACCESS_GROUP_ID"],"secret_group_id":"$SECRET_GROUP_ID","ttl":"2h","labels":["storage","us-south"]}]' --output json | jq -r ".resources[].id"`
+export SECRET_ID=`ibmcloud secrets-manager secret-create --resources '[{"name":"test-iam-credentials","description":"Extended description for my secret.","access_groups":["$ACCESS_GROUP_ID"],"secret_group_id":"$SECRET_GROUP_ID","ttl":"2h","labels":["storage","us-south"]}]' --output json | jq -r ".resources[].id"`
 ```
 {: pre}
 
@@ -328,7 +328,7 @@ To retrieve an IAM credential from the {{site.data.keyword.cloud_notm}} CLI, you
 1. Retrieve the contents of your IAM credential secret.
 
     ```sh
-    ibmcloud secrets-manager secret --secret-type iam_credentials --id $SECRET_ID --output json
+    ibmcloud secrets-manager secret --id $SECRET_ID --output json
     ```
     {: pre}
 

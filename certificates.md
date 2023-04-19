@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-18"
+lastupdated: "2023-04-19"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, imported certificates
 
@@ -145,15 +145,14 @@ You can import an existing certificate by using the {{site.data.keyword.secrets-
 {: #import-certificates-cli}
 {: cli}
 
-To import a certificate by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. You can specify the type of secret by using the `--secret-type imported_cert` option. For example, the following command imports a certificate along with its private key and intermediate certificate.
+To import a certificate by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. option. For example, the following command imports a certificate along with its private key and intermediate certificate.
 
 You can import certificate files that are in the `.pem` format. Be sure to [convert your PEM files to single-line format](/docs/secrets-manager?topic=secrets-manager-troubleshoot-pem) so that they can be parsed correctly by the {{site.data.keyword.secrets-manager_short}} CLI.
 {: note}
 
 
 ```sh
-ibmcloud secrets-manager secret-create \   
-    --secret-type=imported_cert  \  
+ibmcloud secrets-manager secret-create \    
     --resources='[
         {
             "name": "example-imported-certificate", 
@@ -313,14 +312,14 @@ You can order a certificate by using the {{site.data.keyword.secrets-manager_sho
 {: #order-certificates-cli}
 {: cli}
 
-To order a public certificate with an integrated DNS provider by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. You can specify the type of secret by using the `--secret-type public_cert` option. For example, the following command requests a public certificate secret from the certificate authority that you specify.
+To order a public certificate with an integrated DNS provider by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command.For example, the following command requests a public certificate secret from the certificate authority that you specify.
 
 When you order a certificate, domain validation takes place to verify the ownership of your selected domains. This process can take a few minutes to complete.
 {: note}
 
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-type=public_cert --resources=
+ibmcloud secrets-manager secret-create --resources=
 '[{
     "name": "example-public-certificate", 
     "description": "Extended description for this secret.", 
@@ -648,7 +647,7 @@ Want to automate the creation of your public certificates? If your domains are c
 {: #order-certificates-manual-cli}
 {: cli}
 
-To order a public certificate with your own DNS provider by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. You can specify the type of secret by using the `--secret-type public_cert` option. For example, the following command requests a public certificate secret from the certificate authority that you specify.
+To order a public certificate with your own DNS provider by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. For example, the following command requests a public certificate secret from the certificate authority that you specify.
 
 When you order a certificate, domain validation takes place to verify the ownership of your selected domains. This process can take a few minutes to complete.
 {: note}
@@ -656,7 +655,7 @@ When you order a certificate, domain validation takes place to verify the owners
 
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-type=public_cert --resources=
+ibmcloud secrets-manager secret-create --resources=
 '[{
     "name": "example-public-certificate", 
     "description": "Extended description for this secret.", 
@@ -746,14 +745,14 @@ You can create a private certificate by using the {{site.data.keyword.secrets-ma
 {: #generate-certificates-cli}
 {: cli}
 
-To create a private certificate by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. You can specify the type of secret by using the `--secret-type private_cert` option. For example, the following command creates a private certificate secret from the certificate template that you specify.
+To create a private certificate by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. For example, the following command creates a private certificate secret from the certificate template that you specify.
 
 When you order a certificate, domain validation takes place to verify the ownership of your selected domains. This process can take a few minutes to complete.
 {: note}
 
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-type=private_cert --resources=
+ibmcloud secrets-manager secret-create --resources=
     '[{
         "name": "example-private-certificate", 
         "description": "Extended description for this secret.", 

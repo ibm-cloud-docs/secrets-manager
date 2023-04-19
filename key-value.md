@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-04-18"
+lastupdated: "2023-04-19"
 
 keywords: key:value, key/value, key-value, storing key:value secrets
 
@@ -98,7 +98,7 @@ To add a key-value secret by using the {{site.data.keyword.secrets-manager_short
 {: #key-value-cli}
 {: cli}
 
-To create a key-value secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. You can specify the type of secret by using the `--secret-type kv` option. For example, the following command creates a key-value secret and stores `{"key1":"value1"}` as its value.
+To create a key-value secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. For example, the following command creates a key-value secret and stores `{"key1":"value1"}` as its value.
 
 ```sh
 ibmcloud secrets-manager secret-create  \
