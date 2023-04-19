@@ -68,7 +68,7 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 ## Version 2.0.1
 {: #2.0.1}
 
-Version 2.0.0 was released on 19 April 2023. In this release, the CLI was updated to address an error that Windows users faced when they downloaded some plug-ins. 
+Version 2.0.1 was released on 19 April 2023. In this release, the CLI was updated to address an error that Windows users faced when they attempted to install the plug-in. 
 
 ## Version 2.0.0
 {: #2.0.0}

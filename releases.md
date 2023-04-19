@@ -71,7 +71,7 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 {: release-note}
 
 Now available: CLI v2.0.1
-:   A new version of the {{site.data.keyword.secrets-manager_short}} CLI is now available. In this release, the CLI was updated to address an error that Windows users faced when they downloaded some plug-ins. 
+:   A new version of the {{site.data.keyword.secrets-manager_short}} CLI is now available. In this release, the CLI was updated to address an error that Windows users faced when they attempted to download the plug-in. 
 
 ## 17 April 2023
 {: #secrets-manager-apr1723}
