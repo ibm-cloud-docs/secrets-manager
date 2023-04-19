@@ -312,7 +312,7 @@ You can order a certificate by using the {{site.data.keyword.secrets-manager_sho
 {: #order-certificates-cli}
 {: cli}
 
-To order a public certificate with an integrated DNS provider by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command.For example, the following command requests a public certificate secret from the certificate authority that you specify.
+To order a public certificate with an integrated DNS provider by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. For example, the following command requests a public certificate secret from the certificate authority that you specify.
 
 When you order a certificate, domain validation takes place to verify the ownership of your selected domains. This process can take a few minutes to complete.
 {: note}
