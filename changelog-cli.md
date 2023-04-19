@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-18"
+lastupdated: "2023-04-19"
 
 keywords: change log for Secrets Manager CLI, CLI changelog, updates to Secrets Manager CLI
 
@@ -64,6 +64,11 @@ In this change log, you can learn about the latest changes, improvements, and up
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
 
 
+
+## Version 2.0.1
+{: #2.0.1}
+
+Version 2.0.1 was released on 19 April 2023. In this release, the CLI was updated to address an error that Windows users faced when they attempted to install the plug-in. 
 
 ## Version 2.0.0
 {: #2.0.0}

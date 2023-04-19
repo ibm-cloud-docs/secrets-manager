@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-18"
+lastupdated: "2023-04-19"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -263,7 +263,7 @@ You can manually rotate your secrets and certificates by using the {{site.data.k
 {: #manual-rotate-arbitrary-cli}
 {: cli}
 
-To rotate an arbitrary secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-update`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-update-command) command. You can specify the type of secret by using the `--secret-type arbitrary` option. For example, the following command rotates a secret and assigns `new-secret-data` as its new version.
+To rotate an arbitrary secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-update`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-update-command) command. For example, the following command rotates a secret and assigns `new-secret-data` as its new version.
 
 
 ```sh
@@ -281,7 +281,7 @@ The command outputs the value of the secret, along with other metadata. For more
 {: #manual-rotate-user-credentials-cli}
 {: cli}
 
-To rotate a user credential secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-update`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-update-command) command. You can specify the type of secret by using the `--secret-type username_password` option. For example, the following command rotates a secret and assigns `new-password` as its new version.
+To rotate a user credential secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-update`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-update-command) command. For example, the following command rotates a secret and assigns `new-password` as its new version.
 
 ```sh
 ibmcloud secrets-manager secret-version-create \    

@@ -3,7 +3,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-04-18"
+lastupdated: "2023-04-19"
 
 keywords: tutorial, Secrets Manager
 
@@ -336,7 +336,7 @@ Secrets are application-specific and can vary based on the individual app or ser
 In this tutorial, you create a username and password as an example. To create a secret from the {{site.data.keyword.cloud_notm}} CLI, you use the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. Run the following command to create the secret and store its ID as an environment variable.
 
 ```sh
-export SECRET_ID=`ibmcloud secrets-manager secret-create --secret-type username_password  --resources '[{"name":"example_username_password","description":"Extended description for my secret.","secret_group_id":"'"$SECRET_GROUP_ID"'","username":"user123","password":"cloudy-rainy-coffee-book","labels":["my-test-cluster","tutorial"]}]' --output json | jq -r ".resources[].id"`; echo $SECRET_ID
+export SECRET_ID=`ibmcloud secrets-manager username_password  --resources '[{"name":"example_username_password","description":"Extended description for my secret.","secret_group_id":"'"$SECRET_GROUP_ID"'","username":"user123","password":"cloudy-rainy-coffee-book","labels":["my-test-cluster","tutorial"]}]' --output json | jq -r ".resources[].id"`; echo $SECRET_ID
 ```
 {: pre}
 
