@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-04-19"
+lastupdated: "2023-04-24"
 
 subcollection: secrets-manager
 
@@ -62,7 +62,7 @@ keywords: Secrets Manager CLI, Secrets Manager command line, Secrets Manager ter
 You can use the {{site.data.keyword.secrets-manager_full}} command-line interface (CLI) to manage secrets in your {{site.data.keyword.secrets-manager_short}} instance.
 {: shortdesc}
 
-Current version: **`0.1.23`**
+Current version: **`0.1.25`**
 
 ## Prerequisites
 {: #secrets-manager-cli-prereq-v1}
@@ -71,7 +71,7 @@ Current version: **`0.1.23`**
 * Install the {{site.data.keyword.secrets-manager_short}} CLI by running the following command:
 
     ```sh
-    ibmcloud plugin install secrets-manager
+    ibmcloud plugin install secrets-manager -v 0.1.25
     ```
     {: pre}
 
