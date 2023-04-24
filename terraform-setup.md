@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-04-18"
+lastupdated: "2023-04-24"
 
 keywords: terraform, {{site.data.keyword.secrets-manager_short}}
 
@@ -92,6 +92,10 @@ Before you can create an authorization by using Terraform, make sure that you co
            service = "secrets-manager"
            plan = "trial"
            location = "eu-gb"
+           timeouts {
+            create = "60m"
+            delete = "2h"
+        },
        }
       ```
       {: codeblock}
