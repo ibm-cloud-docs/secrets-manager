@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-04-24"
+lastupdated: "2023-04-25"
 
 subcollection: secrets-manager
 
@@ -113,10 +113,10 @@ ibmcloud secrets-manager secret-group-create --metadata METADATA --resources RES
 #### Command options
 {: #secrets-manager-secret-group-create-cli-options-v1}
 
-`--metadata` ([`CollectionMetadata`](#cli-collection-metadata-example-schema))
+`--metadata` ([`CollectionMetadata`](#cli-collection-metadata-example-schema-v1))
 :   The metadata that describes the resource array. Required.
 
-`--resources` ([`SecretGroupResource[]`](#cli-secret-group-resource-example-schema))
+`--resources` ([`SecretGroupResource[]`](#cli-secret-group-resource-example-schema-v1))
 :   A collection of resources. Required.
 
 #### Examples
@@ -192,10 +192,10 @@ ibmcloud secrets-manager secret-group-metadata-update --id ID --metadata METADAT
 
     The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
 
-`--metadata` ([`CollectionMetadata`](#cli-collection-metadata-example-schema))
+`--metadata` ([`CollectionMetadata`](#cli-collection-metadata-example-schema-v1))
 :   The metadata that describes the resource array. Required.
 
-`--resources` ([`SecretGroupMetadataUpdatable[]`](#cli-secret-group-metadata-updatable-example-schema))
+`--resources` ([`SecretGroupMetadataUpdatable[]`](#cli-secret-group-metadata-updatable-example-schema-v1))
 :   A collection of resources. Required.
 
 #### Examples
@@ -265,10 +265,10 @@ ibmcloud secrets-manager secret-create --secret-type SECRET-TYPE --metadata META
 
     Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `public_cert`, `private_cert`, `username_password`, `kv`.
 
-`--metadata` ([`CollectionMetadata`](#cli-collection-metadata-example-schema))
+`--metadata` ([`CollectionMetadata`](#cli-collection-metadata-example-schema-v1))
 :   The metadata that describes the resource array. Required.
 
-`--resources` ([`SecretResource[]`](#cli-secret-resource-example-schema))
+`--resources` ([`SecretResource[]`](#cli-secret-resource-example-schema-v1))
 :   A collection of resources. Required.
 
 #### Examples
@@ -463,7 +463,7 @@ ibmcloud secrets-manager secret-update --secret-type SECRET-TYPE --id ID --actio
 
     Allowable values are: `rotate`, `restore`, `revoke`, `delete_credentials`, `validate_dns_challenge`.
 
-`--body` ([`SecretAction`](#cli-secret-action-example-schema))
+`--body` ([`SecretAction`](#cli-secret-action-example-schema-v1))
 :   The properties to update for the secret.
 
 #### Examples
@@ -801,10 +801,10 @@ ibmcloud secrets-manager secret-version-metadata-update --secret-type SECRET-TYP
 
     The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
 
-`--metadata` ([`CollectionMetadata`](#cli-collection-metadata-example-schema))
+`--metadata` ([`CollectionMetadata`](#cli-collection-metadata-example-schema-v1))
 :   The metadata that describes the resource array. Required.
 
-`--resources` ([`UpdateSecretVersionMetadata[]`](#cli-update-secret-version-metadata-example-schema))
+`--resources` ([`UpdateSecretVersionMetadata[]`](#cli-update-secret-version-metadata-example-schema-v1))
 :   A collection of resources. Required.
 
 #### Examples
@@ -880,10 +880,10 @@ ibmcloud secrets-manager secret-metadata-update --secret-type SECRET-TYPE --id I
 
     The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
 
-`--metadata` ([`CollectionMetadata`](#cli-collection-metadata-example-schema))
+`--metadata` ([`CollectionMetadata`](#cli-collection-metadata-example-schema-v1))
 :   The metadata that describes the resource array. Required.
 
-`--resources` ([`SecretMetadata[]`](#cli-secret-metadata-example-schema))
+`--resources` ([`SecretMetadata[]`](#cli-secret-metadata-example-schema-v1))
 :   A collection of resources. Required.
 
 #### Examples
@@ -1035,7 +1035,7 @@ ibmcloud secrets-manager secret-lock --secret-type SECRET-TYPE --id ID [--locks 
 
     The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
 
-`--locks` ([`LockSecretBodyLocksItem[]`](#cli-lock-secret-body-locks-item-example-schema))
+`--locks` ([`LockSecretBodyLocksItem[]`](#cli-lock-secret-body-locks-item-example-schema-v1))
 :   The lock data to be attached to a secret version.
 
 `--mode` (string)
@@ -1249,7 +1249,7 @@ ibmcloud secrets-manager secret-version-lock --secret-type SECRET-TYPE --id ID -
 
     The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|previous)$/`.
 
-`--locks` ([`LockSecretBodyLocksItem[]`](#cli-lock-secret-body-locks-item-example-schema))
+`--locks` ([`LockSecretBodyLocksItem[]`](#cli-lock-secret-body-locks-item-example-schema-v1))
 :   The lock data to be attached to a secret version.
 
 `--mode` (string)
@@ -1411,10 +1411,10 @@ ibmcloud secrets-manager policy-update --secret-type SECRET-TYPE --id ID --metad
 
     The value must match regular expression `/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/`.
 
-`--metadata` ([`CollectionMetadata`](#cli-collection-metadata-example-schema))
+`--metadata` ([`CollectionMetadata`](#cli-collection-metadata-example-schema-v1))
 :   The metadata that describes the resource array. Required.
 
-`--resources` ([`SecretPolicyRotation[]`](#cli-secret-policy-rotation-example-schema))
+`--resources` ([`SecretPolicyRotation[]`](#cli-secret-policy-rotation-example-schema-v1))
 :   A collection of resources. Required.
 
 `--policy` (string)
@@ -1499,7 +1499,7 @@ ibmcloud secrets-manager config-update --secret-type SECRET-TYPE --engine-config
 
     Allowable values are: `iam_credentials`.
 
-`--engine-config` ([`EngineConfig`](#cli-engine-config-example-schema))
+`--engine-config` ([`EngineConfig`](#cli-engine-config-example-schema-v1))
 :   Properties to update for a secrets engine. Required.
 
 #### Examples
@@ -1582,7 +1582,7 @@ ibmcloud secrets-manager config-element-create --secret-type SECRET-TYPE --confi
 
     Allowable values are: `letsencrypt`, `letsencrypt-stage`, `cis`, `classic_infrastructure`, `root_certificate_authority`, `intermediate_certificate_authority`, `certificate_template`. The maximum length is `128` characters. The minimum length is `2` characters.
 
-`--config` ([`ConfigElementDefConfig`](#cli-config-element-def-config-example-schema))
+`--config` ([`ConfigElementDefConfig`](#cli-config-element-def-config-example-schema-v1))
 :   The configuration to define for the specified secret type. Required.
 
 #### Examples
@@ -1752,7 +1752,7 @@ ibmcloud secrets-manager config-element-action --secret-type SECRET-TYPE --confi
 
     Allowable values are: `sign_intermediate`, `sign_csr`, `set_signed`, `revoke`, `rotate_crl`.
 
-`--config` ([`ConfigAction`](#cli-config-action-example-schema))
+`--config` ([`ConfigAction`](#cli-config-action-example-schema-v1))
 :   Properties that describe an action on a configuration element.
 
 #### Examples
