@@ -139,7 +139,7 @@ You can import an existing certificate by using the {{site.data.keyword.secrets-
 11. Optional: Add metadata to your secret or to a specific version of your secret.
     1. To include metadata with your secret, switch the metadata toggle to **Yes**.
     2. Upload a file or enter the metadata and the version metadata in JSON format. 
-12. Click**Import**.
+12. Click **Import**.
 
 ### Importing certificates from the CLI
 {: #import-certificates-cli}
