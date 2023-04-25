@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-24"
+lastupdated: "2023-04-25"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, imported certificates
 
@@ -139,7 +139,7 @@ You can import an existing certificate by using the {{site.data.keyword.secrets-
 11. Optional: Add metadata to your secret or to a specific version of your secret.
     1. To include metadata with your secret, switch the metadata toggle to **Yes**.
     2. Upload a file or enter the metadata and the version metadata in JSON format. 
-12. Click **Import**.
+12. Click**Import**.
 
 ### Importing certificates from the CLI
 {: #import-certificates-cli}
@@ -793,8 +793,6 @@ The following example shows a query that you can use to create a private certifi
 
 You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
 {: curl}
-
-
 
 
 ```sh
