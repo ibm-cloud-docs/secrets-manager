@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-19"
+lastupdated: "2023-04-26"
 
 keywords: arbitrary secrets, arbitrary text, custom secrets
 
@@ -98,13 +98,11 @@ To add an arbitrary secret by using the {{site.data.keyword.secrets-manager_shor
     2. Upload a file or enter the metadata and the version metadata in JSON format.  
 11. Click **Add**.
 
-
-
 ## Creating arbitrary secrets from the CLI
 {: #arbitrary-cli}
 {: cli}
 
-To create an arbitrary secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. For example, the following command creates an arbitrary secret and stores `secret-data` as its value.
+To create an arbitrary secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. You can specify the type of secret by using the `--secret-type arbitrary` option. For example, the following command creates an arbitrary secret and stores `secret-data` as its value.
 
 {{site.data.keyword.secrets-manager_short}} supports text-based payloads only for arbitrary secrets. If you need to upload a binary file, you must base64 encode the data first so that you can pass it to the {{site.data.keyword.secrets-manager_short}} CLI in a single-line string. To access this secret later in its original form, you need to base64 decode it. Consider assigning a label on your secret with encoded data, such as `encode:base64`, so that you can track secrets that require base64 decoding.
 {: note}
@@ -163,7 +161,7 @@ curl -X POST
 {: curl}
 
 
-A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager#create-secret).
+A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager#create-secret).<apiv2>
 
 
 ## Creating arbitrary secrets with Terraform
@@ -216,4 +214,4 @@ The following example shows a configuration that you can use to create an arbitr
     {: codeblock}
 
 
-
+</apiv2>
