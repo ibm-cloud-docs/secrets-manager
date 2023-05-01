@@ -129,7 +129,6 @@ toc:
           - link:
               label: Secrets Manager API
               href: https://{DomainName}/apidocs/secrets-manager
-          - api-migration.md
           - changelog-api.md
       - topicgroup:
           label: CLI reference
