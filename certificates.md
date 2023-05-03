@@ -118,6 +118,8 @@ You can use {{site.data.keyword.secrets-manager_short}} to store certificate fil
 
 You can import an existing certificate by using the {{site.data.keyword.secrets-manager_short}} UI.
 
+
+
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
