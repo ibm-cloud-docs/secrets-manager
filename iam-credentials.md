@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-19"
+lastupdated: "2023-05-03"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -74,11 +74,14 @@ IAM credentials require an extra configuration step before you can start to crea
 {: note}
 
 
+
 ## Creating IAM credentials in the UI
 {: #iam-credentials-ui}
 {: ui}
 
 To create IAM credentials by using the {{site.data.keyword.secrets-manager_short}} UI, complete the following steps.
+
+
 
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
@@ -104,6 +107,7 @@ To create IAM credentials by using the {{site.data.keyword.secrets-manager_short
 12. Click **Next**.
 13. [Determine the scope of access](#iam-credentials-service-id-ui) to assign for your IAM credential.
 14. To confirm your selections, click **Create**.
+
 
 
 ### Reusing the same API key until the lease expires
