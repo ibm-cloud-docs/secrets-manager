@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-01"
+lastupdated: "2023-05-03"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -415,3 +415,37 @@ To have the service generate and assign a random password to your credential, yo
 {: tip}
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager#update-secret).
+
+## Manually rotating secrets with Terraform
+{: #manual-rotate-terraform}
+{: terraform}
+
+You can manually rotate your arbitrary secrets, key-value secrets, or imported certificates by using Terraform for {{site.data.keyword.secrets-manager_short}}. To manually rotate other types of secrets, you must use the UI, the API or the CLI. 
+
+### Rotating arbitrary secrets
+{: #manual-rotate-arbitrary-terraform}
+{: terraform}
+
+You can rotate arbitrary secrets by using Terraform for {{site.data.keyword.secrets-manager_short}}.
+
+To rotate an arbitrary secret, modify the value of the `payload` attribute in your `ibm_sm_arbitrary_secret` resource configuration, and run `terraform apply` to apply the change. If you're using an input variable for the payload, modify its value in the `variables.tf` file.
+
+You can also modify other attributes of the arbitrary secret at the same time, including metadata attributes such as `description`, `custom_metadata`, or `version_custom_metadata`.
+
+### Rotating key-value secrets
+{: #manual-rotate-key-value-terraform}
+{: terraform}
+
+To rotate a key-value secret by using Terraform for {{site.data.keyword.secrets-manager_short}}, modify the value of the `data` attribute in your `ibm_sm_kv_secret` resource configuration, and run `terraform apply` to apply the change. If you're using an input variable for the payload, modify its value in the `variables.tf` file.
+
+You can also modify other attributes of the key-value secret at the same time, including metadata attributes such as `description`, `custom_metadata` or `version_custom_metadata`.
+
+### Rotating imported certificates
+{: #manual-rotate-imported-certificate-terraform}
+{: terraform}
+
+You can rotate imported certificates by using Terraform for {{site.data.keyword.secrets-manager_short}}.
+
+To rotate an imported certificate, modify the values of the `certificate`, `intermediate` (optional) and `private_key` (optional) attributes in your `ibm_sm_imported_certificate` resource configuration, and run `terraform apply` to apply the change. 
+
+You can also modify other attributes of the imported certificate at the same time, including metadata attributes such as `description`, `custom_metadata` or `version_custom_metadata`.
