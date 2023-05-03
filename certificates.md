@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-27"
+lastupdated: "2023-05-03"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, imported certificates
 
@@ -704,6 +704,8 @@ After you [configure the private certificates engine](/docs/secrets-manager?topi
 
 You can create a private certificate by using the {{site.data.keyword.secrets-manager_short}} UI.
 
+
+
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
@@ -740,6 +742,9 @@ You can create a private certificate by using the {{site.data.keyword.secrets-ma
 14. Click **Create**.
 
     After a certificate is issued, you can deploy it to your integrated apps, download it, revoke it, or rotate it manually. Your private key for SSL/TLS is generated directly in {{site.data.keyword.secrets-manager_short}} and stored securely.
+
+
+
 
 
 ### Creating private certificates from the CLI
