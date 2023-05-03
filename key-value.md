@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-04-19"
+lastupdated: "2023-05-03"
 
 keywords: key:value, key/value, key-value, storing key:value secrets
 
@@ -74,6 +74,8 @@ Before you get started, be sure that you have the required level of access. To c
 {: ui}
 
 To add a key-value secret by using the {{site.data.keyword.secrets-manager_short}} UI, complete the following steps. 
+
+
 
 1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**. 
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}. 
