@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-03"
+lastupdated: "2023-05-04"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -118,7 +118,7 @@ IAM credentials consist of a service ID and an API key. By default, the service 
 
 If you'd like to continue to use those credentials through the end of the lease of your secret, you can set **Reuse IAM credentials until lease expires** to **On**. When you enable this option, your secret retains its current service ID, and API key values and reuses them on each read while the secret remains valid. After the secret reaches the end of its lease, the credentials are revoked automatically.
 
-If **Reuse IAM credentials until lease expires** for IAM credentials is set to **Off**, manual rotation for the secret isn't supported. For more information, see [Manually rotating secrets](/docs/secrets-manager?topic=secrets-manager-manual-rotation).
+If the reuse IAM credentials option is set to **Off**, manual rotation for the secret isn't supported. For more information, see [Manually rotating secrets](/docs/secrets-manager?topic=secrets-manager-manual-rotation).
 {: important}
 
 ### Using an existing service ID in your account
