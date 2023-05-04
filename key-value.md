@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-05-03"
+lastupdated: "2023-05-04"
 
 keywords: key:value, key/value, key-value, storing key:value secrets
 
@@ -84,12 +84,13 @@ To add a key-value secret by using the {{site.data.keyword.secrets-manager_short
 5. Add a name and description to easily identify your secret. 
 6. Select the [secret group](#x9968962){: term} that you want to assign to the secret. 
    
-   Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
+    Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
+
 7. Optional: Add labels to help you to search for similar secrets in your instance. 
 8. Select a file or enter the secret value that you want to associate with the secret. 
 
-   You must enter the key-value data as a JSON object. The maximum file size is 512 KB.
-   {: note}
+    You must enter the key-value data as a JSON object. The maximum file size is 512 KB.
+    {: note}
 
 9. Optional: Add metadata to your secret or to a specific version of your secret.
     1. To include metadata with your secret, switch the metadata toggle to **Yes**.
