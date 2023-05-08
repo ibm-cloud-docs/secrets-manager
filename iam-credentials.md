@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-04"
+lastupdated: "2023-05-08"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -87,26 +87,29 @@ To create IAM credentials by using the {{site.data.keyword.secrets-manager_short
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
 4. From the list of secret types, click the **IAM credentials** tile.
-5. Add a name and description to easily identify your secret.
-6. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
+5. Click **Next**.
+6. Add a name and description to easily identify your secret.
+7. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
 
     Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
-7. Optional: Add labels to help you to search for similar secrets in your instance.
-8. Set a lease duration or time-to-live (TTL) for the secret.
+8. Optional: Add labels to help you to search for similar secrets in your instance.
+9. Optional: Add metadata to your secret or to a specific version of your secret.
+    1. Upload a file or enter the metadata and the version metadata in JSON format.  
+10. Click **Next**.
+11. Set a lease duration or time-to-live (TTL) for the secret.
 
     By setting a lease duration for your IAM credential, you determine how long its associated API key remains valid. After the IAM credential reaches the end of its lease, it is revoked automatically.
 
     Minimum duration is 1 minute. Maximum is 90 days.
     {: note}
 
-9. Optional: [Determine whether IAM credentials can be reused](#iam-credentials-reuse-ui) for your secret.
-10. Optional: Enable automatic rotation of your secret. Secrets can be automatically rotated only if the reuse IAM credentials option is selected.
-11. Optional: Add metadata to your secret or to a specific version of your secret.
-    1. To include metadata with your secret, switch the metadata toggle to **Yes**.
-    2. Upload a file or enter the metadata and the version metadata in JSON format.  
-12. Click **Next**.
-13. [Determine the scope of access](#iam-credentials-service-id-ui) to assign for your IAM credential.
-14. To confirm your selections, click **Create**.
+12. Optional: [Determine whether IAM credentials can be reused](#iam-credentials-reuse-ui) for your secret.
+13. Optional: Enable automatic rotation of your secret. Secrets can be automatically rotated only if the reuse IAM credentials option is selected.
+14. Click **Next**.
+15. [Determine the scope of access](#iam-credentials-service-id-ui) to assign for your IAM credential.
+16. Click **Next**.
+17. Review the details of your secret. 
+18. Click **Add**.
 
 
 
