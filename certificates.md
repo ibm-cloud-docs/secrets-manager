@@ -123,29 +123,6 @@ You can import an existing certificate by using the {{site.data.keyword.secrets-
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
-4. From the list of secret types, click the **TLS certificates** tile.
-5. Add a name and description to easily identify your certificate.
-6. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
-
-    Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
-7. Select a certificate file or enter its value.
-
-    You can store unexpired X.509 certificate files that are in PEM format. If you're working with certificates that are in a different format, you can use command-line utilities to convert your certificates to `.pem`. For more information, see [Why can't I import my certificate?](/docs/secrets-manager?topic=secrets-manager-troubleshoot-pem)
-
-8. Optional: Select a private key file or enter its value.
-
-    If you choose to store a private key, ensure that it matches to your certificate. The private key must be unencrypted before you can import it to the service.
-
-9. Optional: Select an intermediate certificate file or enter its value.
-10. Optional: Add labels to help you to search for similar secrets in your instance.
-11. Optional: Add metadata to your secret or to a specific version of your secret.
-    1. To include metadata with your secret, switch the metadata toggle to **Yes**.
-    2. Upload a file or enter the metadata and the version metadata in JSON format. 
-12. Click **Create**.</new-flow-prod>
-
-1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
-2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
-3. In the **Secrets** table, click **Add**.
 4. From the list of secret types, click the **Import certificate** tile.
 5. Click **Next**.
 6. Add a name and description to easily identify your certificate.
