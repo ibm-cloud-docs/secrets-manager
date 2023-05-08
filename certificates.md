@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-27"
+lastupdated: "2023-05-08"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, imported certificates
 
@@ -118,15 +118,22 @@ You can use {{site.data.keyword.secrets-manager_short}} to store certificate fil
 
 You can import an existing certificate by using the {{site.data.keyword.secrets-manager_short}} UI.
 
+
+
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
-4. From the list of secret types, click the **TLS certificates** tile.
-5. Add a name and description to easily identify your certificate.
+4. From the list of secret types, click the **Import certificate** tile.
+5. Click **Next**.
+6. Add a name and description to easily identify your certificate.
 6. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
 
     Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
-7. Select a certificate file or enter its value.
+10. Optional: Add labels to help you to search for similar secrets in your instance.
+11. Optional: Add metadata to your secret or to a specific version of your secret.
+    1. Upload a file or enter the metadata and the version metadata in JSON format. 
+12. Click **Next**.
+13. Select a certificate file or enter its value.
 
     You can store unexpired X.509 certificate files that are in PEM format. If you're working with certificates that are in a different format, you can use command-line utilities to convert your certificates to `.pem`. For more information, see [Why can't I import my certificate?](/docs/secrets-manager?topic=secrets-manager-troubleshoot-pem)
 
@@ -135,11 +142,11 @@ You can import an existing certificate by using the {{site.data.keyword.secrets-
     If you choose to store a private key, ensure that it matches to your certificate. The private key must be unencrypted before you can import it to the service.
 
 9. Optional: Select an intermediate certificate file or enter its value.
-10. Optional: Add labels to help you to search for similar secrets in your instance.
-11. Optional: Add metadata to your secret or to a specific version of your secret.
-    1. To include metadata with your secret, switch the metadata toggle to **Yes**.
-    2. Upload a file or enter the metadata and the version metadata in JSON format. 
-12. Click **Create**.
+10. Click **Next**.
+11. Review the details of your certificate. 
+12. Click **Add**.
+
+
 
 
 ### Importing certificates from the CLI
@@ -270,43 +277,55 @@ After you [configure the public certificates engine](/docs/secrets-manager?topic
 
 You can order a certificate by using the {{site.data.keyword.secrets-manager_short}} UI.
 
+
+
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
-4. From the list of secret types, click the **TLS certificates** tile.
-5. Click the **Order a public certificate** tile.
-6. Add a name and description to easily identify your certificate.
-7. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
+4. Click the **Order public certificate** tile.
+5. Add a name and description to easily identify your certificate.
+6. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
 
-   Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
-8. Select a certificate authority configuration.
+    Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 
-   The configuration that you select determines the certificate authority to use for signing and issuing the certificate. To view the configurations that are defined for your instance, you can go to **Secrets engines > Public certificates**.
-9. Select the key algorithm to be used to generate the public key for your certificate.
+7. Optional: Add labels to help you to search for similar secrets in your instance.
+8. Optional: Add metadata to your secret or to a specific version of your secret.
+    1. Upload a file or enter the metadata and the version metadata in JSON format. 
+9. Click **Next**.
+9. Select a certificate authority configuration.
 
-   The key algorithm that you select determines the encryption algorithm (`RSA` or `ECDSA`) and key size to use to generate keys and sign certificates. For longer living certificates, it is recommended to use longer key lengths to provide more encryption protection. Options include `RSA2048`, `RSA4096`, `ECDSA256`, and `ECDSA384`.
-10. Optional: Add labels to help you to search for similar secrets in your instance.
-11. Optional: Add metadata to your secret or to a specific version of your secret.
-    1. To include metadata with your secret, switch the metadata toggle to **Yes**.
-    2. Upload a file or enter the metadata and the version metadata in JSON format. 
-12. Optional: Enable advanced options for the certificate.
+    The configuration that you select determines the certificate authority to use for signing and issuing the certificate. To view the configurations that are defined for your instance, you can go to **Secrets engines > Public certificates**.
+
+10. Select the key algorithm to be used to generate the public key for your certificate.
+
+    The key algorithm that you select determines the encryption algorithm (`RSA` or `ECDSA`) and key size to use to generate keys and sign certificates. For longer living certificates, it is recommended to use longer key lengths to provide more encryption protection. Options include `RSA2048`, `RSA4096`, `ECDSA256`, and `ECDSA384`.
+
+11. Optional: Enable advanced options for the certificate.
+
     1. To bundle your issued certificate with intermediate certificates, switch the bundle toggle to **On**. After your certificates are bundled, they can no longer be unbundled.
     2. To enable automatic rotation for the certificate, switch the rotation toggle to **On**. Your certificate is rotated 31 days before it expires.
     3. To request a new private key with the certificate on each rotation, switch the rekey toggle to **On**.
-13. Select a DNS provider configuration.
+   
+12. Select a DNS provider configuration.
 
     The configuration that you select determines the DNS provider to validate the ownership of your domains. To view the configurations that are defined for your instance, you can go to **Secrets engines > Public certificates**.  
-14. Add the domains to include in your request.
+
+13. Add the domains to include in your request.
 
     You can include up to 100 domains, subdomains, or wildcards. The Common Name, or fully qualified domain name of the certificate, can't exceed 64 characters in length. A wildcard can be selected as the Common Name.
 
     1. Click **Select domains**.
     2. From your list of domains, select the Common Name of the certificate.
-15. Click **Order**.
+14. Click **Next**.
+15. Review the details of your certificate.
+16. Click **Add**.
 
     When you order a certificate, domain validation takes place to verify the ownership of your selected domains. This process can take a few minutes to complete. After you submit your certificate details, {{site.data.keyword.secrets-manager_short}} sends your request to the selected certificate authority. After a certificate is issued, you can deploy it to your integrated apps, download it, or rotate it manually. Your private key for SSL/TLS is generated directly in {{site.data.keyword.secrets-manager_short}} and stored securely.
     
     Need to check your order status? From your Secrets table, you can check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.
+
+
+
 
 
 ### Ordering public certificates with integrated DNS providers from the CLI
@@ -446,31 +465,43 @@ The following example shows a configuration that you can use to order a public c
 
 To create a public certificate by using a manual DNS provider in the UI, complete the following steps.
 
+
+
+
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
-4. From the list of secret types, click the **TLS certificates** tile.
-5. Click the **Order a public certificate** tile.
-6. Add a name and description to easily identify your certificate.
-7. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
+4. Click the **Order public certificate** tile.
+5. Add a name and description to easily identify your certificate.
+6. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
 
-   Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
-8. Select a certificate authority.
+    Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 
-   The configuration that you select determines the certificate authority to use for signing and issuing the certificate. To view the configurations that are defined for your instance, you can go to **Secrets engines > Public certificates**.
-9. Select the key algorithm to be used to generate the public key for your certificate.
+7. Optional: Add labels to help you to search for similar secrets in your instance.
+8. Optional: Add metadata to your secret or to a specific version of your secret.
+    1. Upload a file or enter the metadata and the version metadata in JSON format. 
+9. Click **Next**.
+9. Select a certificate authority configuration.
 
-   The key algorithm that you select determines the encryption algorithm (`RSA` or `ECDSA`) and key size to use to generate keys and sign certificates. For longer living certificates, it is recommended to use longer key lengths to provide more encryption protection. Options include `RSA2048`, `RSA4096`, `ECDSA256`, and `ECDSA384`.
-10. Optional: Add labels to help you to search for similar secrets in your instance.
+    The configuration that you select determines the certificate authority to use for signing and issuing the certificate. To view the configurations that are defined for your instance, you can go to **Secrets engines > Public certificates**.
+
+10. Select the key algorithm to be used to generate the public key for your certificate.
+
+    The key algorithm that you select determines the encryption algorithm (`RSA` or `ECDSA`) and key size to use to generate keys and sign certificates. For longer living certificates, it is recommended to use longer key lengths to provide more encryption protection. Options include `RSA2048`, `RSA4096`, `ECDSA256`, and `ECDSA384`.
+
 11. Optional: Enable advanced options for the certificate.
     1. To bundle your issued certificate with intermediate certificates, switch the bundle toggle to **On**. After your certificates are bundled, they can no longer be unbundled.
+    2. To enable automatic rotation for the certificate, switch the rotation toggle to **On**. Your certificate is rotated 31 days before it expires.
+    3. To request a new private key with the certificate on each rotation, switch the rekey toggle to **On**.
 12. Select **Manual** as your DNS provider.
 13. Add the domains to include in your request.
 
     You can include up to 100 domains, subdomains, or wildcards. The Common Name, or fully qualified domain name of the certificate, can't exceed 64 characters in length. A wildcard can be selected as the Common Name.
 
     1. In the **Common name** section, from your list of domains, select the Common Name of the certificate.
-14. Click **Order**.
+14. Click **Next**.
+15. Review the details of your certificate.
+16. Click **Add**.
 15. Check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**. 
 16. Click **Challenges** to access the TXT record name and value that are associated with each of your domains. You need them to complete the challenges.
 17. To validate the ownership of your domains, manually add the TXT records that are provided for each of your domains to your DNS provider account. You must address only the challenges that are not validated before the expiration date. 
@@ -485,6 +516,8 @@ To create a public certificate by using a manual DNS provider in the UI, complet
     {: note}
 
 20. When your certificate is issued, clean up and remove the TXT records from the domains in your DNS provider account.
+
+
 
 
 ### Ordering public certificates with your own DNS provider by using the API
@@ -704,42 +737,47 @@ After you [configure the private certificates engine](/docs/secrets-manager?topi
 
 You can create a private certificate by using the {{site.data.keyword.secrets-manager_short}} UI.
 
+
+
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
-4. From the list of secret types, click the **TLS certificates** tile.
-5. Click the **Create private certificate** tile.
+4. Click the **Create private certificate** tile.
+5. Click **Next**.
 6. Add a name and description to easily identify your certificate.
-7. Select a certificate authority configuration.
+7. Optional: Add labels to help you to search for similar secrets in your instance.
+8. Optional: Add metadata to your secret or to a specific version of your secret.
+    1. Upload a file or enter the metadata and the version metadata in JSON format. 
+9. Click **Next**.
+10. Select a certificate authority configuration.
 
     The configuration that you select determines the certificate authority to use for signing and issuing the certificate. To view the configurations that are defined for your instance, you can go to **Secrets engines > Private certificates**.
    
-8. Select a [certificate template](/docs/secrets-manager?topic=secrets-manager-certificate-templates).
+11. Select a [certificate template](/docs/secrets-manager?topic=secrets-manager-certificate-templates).
 
     The template that you select determines the parameters to be applied to your generated certificate. To view the details of the certificate templates that are defined for your selected certificate authority, you can go to **Secrets engines > Private certificates**. From the list of certificate authorities, expand the row of the CA that you want to use as the issuing authority for your private certificate, and click **Templates**.
-
-9. Optional: Add labels to help you to search for similar secrets in your instance.
-
-10. Optional: Enable automatic rotation for the certificate.
+12. Optional: Enable automatic rotation for the certificate.
 
     To enable automatic rotation, switch the rotation toggle to **On**. Select an interval and unit that specifies the number of days between scheduled rotations.
 
     Depending on the certificate template that you choose in the following steps, some restrictions on the rotation interval for your private certificate might apply. For example, the rotation interval can't exceed the time-to-live (TTL) that is defined in the template. For more information, see [Certificate templates](/docs/secrets-manager?topic=secrets-manager-certificate-templates).
     {: note}
 
-11. Select the [secret group](#x9968962){: term} that you want to assign to the certificate.
-
-    If your selected certificate template allows certificates to be added to specific secret groups, only those allowed groups are listed. If the template has no restrictions, you can create a secret group if you don't already have one. Your certificate is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
-
-12. Required: Specify a common name for your certificate.
+13. Required: Specify a common name for your certificate.
 
     Depending on the certificate template that you choose, some restrictions on the common name might apply. To view the details of your selected certificate template, you can go to **Secrets engines > Private certificates**. From the list of certificate authorities, expand the row of the CA that you want to use as the issuing authority for your private certificate, and click **Templates**.
-13. Optional: Add metadata to your secret or to a specific version of your secret.
-    1. To include metadata with your secret, switch the metadata toggle to **Yes**.
-    2. Upload a file or enter the metadata and the version metadata in JSON format.    
-14. Click **Create**.
+14. Select the [secret group](#x9968962){: term} that you want to assign to the certificate.
 
-    After a certificate is issued, you can deploy it to your integrated apps, download it, revoke it, or rotate it manually. Your private key for SSL/TLS is generated directly in {{site.data.keyword.secrets-manager_short}} and stored securely.
+    If your selected certificate template allows certificates to be added to specific secret groups, only those allowed groups are listed. If the template has no restrictions, you can create a secret group if you don't already have one. Your certificate is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
+15. Optional: Specify alternative names for your certificate.
+
+    The alternative names can be hostnames or email addresses.
+16. Click **Next**.
+17. Review the details of your certificate.
+18. Click **Add**.
+
+
+
 
 
 ### Creating private certificates from the CLI

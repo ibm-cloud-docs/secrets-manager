@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-18"
+lastupdated: "2023-05-02"
 
 keywords: event notifications for {{site.data.keyword.secrets-manager_short}}, event notifications integration for {{site.data.keyword.secrets-manager_short}}, alerts for {{site.data.keyword.secrets-manager_short}}
 
@@ -109,6 +109,8 @@ Depending on the type of secret that you're working with in the service, an even
 | Test event | `com.ibm.cloud.secrets-manager.test_event` | | An event is sent when a test notification is forwarded to {{site.data.keyword.en_short}}. | Low |
 {: caption="Table 1. Actions that generate event notifications" caption-side="bottom"}
 
+`secret_about_to_expire` events are sent only once, on the specified day. This means that if you specify that a secret is to expire in 10 days, you receive a single notification when the secret has 10 days left. You do not receive a notification at any other time, for example, when the secret has 9 days left.
+{: note}
 
 ### Supported secret types
 {: #event-notifications-by-secret-type}
