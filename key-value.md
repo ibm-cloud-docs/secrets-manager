@@ -75,8 +75,6 @@ Before you get started, be sure that you have the required level of access. To c
 
 To add a key-value secret by using the {{site.data.keyword.secrets-manager_short}} UI, complete the following steps. 
 
-
-
 1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**. 
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}. 
 3. In the **Secrets** table, click **Add**. 
@@ -98,7 +96,6 @@ To add a key-value secret by using the {{site.data.keyword.secrets-manager_short
 12. Click **Next**. 
 13. Review the details of your secret. 
 14. Click **Add**. 
-
 
 
 ## Creating key-value secrets from the CLI

@@ -81,8 +81,6 @@ IAM credentials require an extra configuration step before you can start to crea
 
 To create IAM credentials by using the {{site.data.keyword.secrets-manager_short}} UI, complete the following steps.
 
-
-
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.

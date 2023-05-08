@@ -77,8 +77,6 @@ Before you get started, be sure that you have the required level of access. To c
 
 To store a username and password by using the {{site.data.keyword.secrets-manager_short}} UI, complete the following steps.
 
-
-
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**. 
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
@@ -99,7 +97,6 @@ To store a username and password by using the {{site.data.keyword.secrets-manage
 10. Click **Next**. 
 11. Review the details of your secret. 
 12. Click **Add**.
-
 
 
 ## Adding user credentials from the CLI
