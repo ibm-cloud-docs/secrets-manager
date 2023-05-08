@@ -106,6 +106,8 @@ Before you get started, be sure that you have the required level of access. To c
 {: class="simple-tab-table"}
 
 
+
+
 ## Importing your existing certificates
 {: #import-certificates}
 
@@ -118,7 +120,28 @@ You can use {{site.data.keyword.secrets-manager_short}} to store certificate fil
 
 You can import an existing certificate by using the {{site.data.keyword.secrets-manager_short}} UI.
 
+1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
+3. In the **Secrets** table, click **Add**.
+4. From the list of secret types, click the **TLS certificates** tile.
+5. Add a name and description to easily identify your certificate.
+6. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
 
+    Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
+7. Select a certificate file or enter its value.
+
+    You can store unexpired X.509 certificate files that are in PEM format. If you're working with certificates that are in a different format, you can use command-line utilities to convert your certificates to `.pem`. For more information, see [Why can't I import my certificate?](/docs/secrets-manager?topic=secrets-manager-troubleshoot-pem)
+
+8. Optional: Select a private key file or enter its value.
+
+    If you choose to store a private key, ensure that it matches to your certificate. The private key must be unencrypted before you can import it to the service.
+
+9. Optional: Select an intermediate certificate file or enter its value.
+10. Optional: Add labels to help you to search for similar secrets in your instance.
+11. Optional: Add metadata to your secret or to a specific version of your secret.
+    1. To include metadata with your secret, switch the metadata toggle to **Yes**.
+    2. Upload a file or enter the metadata and the version metadata in JSON format. 
+12. Click **Create**.</new-flow-prod>
 
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
@@ -145,8 +168,6 @@ You can import an existing certificate by using the {{site.data.keyword.secrets-
 10. Click **Next**.
 11. Review the details of your certificate. 
 12. Click **Add**.
-
-
 
 
 ### Importing certificates from the CLI
@@ -251,14 +272,19 @@ The following example shows a query that you can use to import an existing certi
 {: codeblock}
 
 
+
 ## Ordering public certificates
 {: #order-certificates}
 
-After you [configure the public certificates engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates) for your instance, you can use {{site.data.keyword.secrets-manager_short}} to request public SSL/TLS certificates from Let's Encrypt. Before a certificate can be issued to you, {{site.data.keyword.secrets-manager_short}} uses domain validation to verify the ownership of your domains. When you order a certificate:
+After you [configure the public certificates engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates) for your instance, you can use {{site.data.keyword.secrets-manager_short}} to request public SSL/TLS certificates from Let's Encrypt. 
+
+Before a certificate can be issued to you, {{site.data.keyword.secrets-manager_short}} uses domain validation to verify the ownership of your domains. When you order a certificate:
 
 - {{site.data.keyword.secrets-manager_short}} sends your request to the selected certificate authority. The status of the certificate changes to **Pre-activation** to indicate that your request is being processed.
 - If the validation completes successfully, your certificate is issued and its status changes to **Active**.
-- If the validation doesn't complete successfully, the status of your certificate changes to **Deactivated**. From your Secrets table, you can check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.
+- If the validation doesn't complete successfully, the status of your certificate changes to **Deactivated**. 
+
+From your Secrets table, you can check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.
     {: ui}
 
 - If the validation doesn't complete successfully, the status of your certificate changes to **Deactivated**. From your Secrets table, you can check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.
@@ -275,8 +301,6 @@ After you [configure the public certificates engine](/docs/secrets-manager?topic
 {: ui}
 
 You can order a certificate by using the {{site.data.keyword.secrets-manager_short}} UI.
-
-
 
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
@@ -322,8 +346,6 @@ You can order a certificate by using the {{site.data.keyword.secrets-manager_sho
     When you order a certificate, domain validation takes place to verify the ownership of your selected domains. This process can take a few minutes to complete. After you submit your certificate details, {{site.data.keyword.secrets-manager_short}} sends your request to the selected certificate authority. After a certificate is issued, you can deploy it to your integrated apps, download it, or rotate it manually. Your private key for SSL/TLS is generated directly in {{site.data.keyword.secrets-manager_short}} and stored securely.
     
     Need to check your order status? From your Secrets table, you can check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.
-
-
 
 
 
@@ -466,7 +488,6 @@ To create a public certificate by using a manual DNS provider in the UI, complet
 
 
 
-
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
@@ -515,8 +536,6 @@ To create a public certificate by using a manual DNS provider in the UI, complet
     {: note}
 
 20. When your certificate is issued, clean up and remove the TXT records from the domains in your DNS provider account.
-
-
 
 
 ### Ordering public certificates with your own DNS provider by using the API
@@ -736,8 +755,6 @@ After you [configure the private certificates engine](/docs/secrets-manager?topi
 
 You can create a private certificate by using the {{site.data.keyword.secrets-manager_short}} UI.
 
-
-
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
@@ -774,9 +791,6 @@ You can create a private certificate by using the {{site.data.keyword.secrets-ma
 16. Click **Next**.
 17. Review the details of your certificate.
 18. Click **Add**.
-
-
-
 
 
 ### Creating private certificates from the CLI
