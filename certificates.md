@@ -163,16 +163,23 @@ private_key=$(awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' key.pem)
 
 ibmcloud secrets-manager secret-create 
     --output json 
-    --secret-prototype="{\
-    "custom_metadata\": {\"anyKey\": \"anyValue\"},
-    \"certificate\": \"${certificate}\", 
-    \"private_key\": \"${private_key}\", 
-    \"description\": \"Description of my imported certificate.\", 
-    \"labels\": [\"dev\",\"us-south\"], 
-    \"name\": \"example-imported-certificate\", 
-    \"secret_group_id\": \"default\", 
-    \"secret_type\": \"imported_cert\", 
-    \"version_custom_metadata\": {\"anyKey\": \"anyValue\"}}
+    --secret-prototype="{
+    "custom_metadata": {
+        "anyKey": "anyValue
+        "},
+    "certificate": "certificate", 
+    "private_key": "private_key", 
+    "description": "Description of my imported certificate.", 
+    "labels": [
+        "dev","us-south"
+        ], 
+    "name": "example-imported-certificate", 
+    "secret_group_id": "default", 
+    "secret_type": "imported_cert", 
+    "version_custom_metadata": {
+        "anyKey": "anyValue"
+        }
+    }
 ```
 {: pre}
 
