@@ -130,6 +130,25 @@ You can add DNS provider configurations to your service instance by using the {{
 
 
 
+## Adding a DNS provider configuration from the CLI
+{: #add-dns-provider-cli}
+{: cli}
+
+You can add DNS provider configurations to your service instance by using the {{site.data.keyword.secrets-manager_short}} CLI. Manual DNS providers can be configured only by using the API.
+
+To configure a secrets engine from the {{site.data.keyword.cloud_notm}} CLI, run the [**`ibmcloud secrets-manager configuration-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-configuration-create-command) command.
+
+```sh
+ibmcloud secrets-manager configuration-create {
+  "cloud_internet_services_apikey": "MY_APIKEY_WITH_MANAGER_ACCESS_TO_CIS",
+  "cloud_internet_services_crn": "MY_CIS_CRN",
+  "config_type": "public_cert_configuration_dns_cloud_internet_services",
+  "name": "my-cloud-internet-services-config"}'
+```
+{: pre}
+
+
+
 ## Adding a DNS provider configuration with the API
 {: #add-dns-provider-api}
 {: api}

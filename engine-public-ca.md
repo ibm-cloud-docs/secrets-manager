@@ -113,6 +113,25 @@ You can add certificate authority configurations to your service instance by usi
 
 
 
+## Adding a certificate authority configuration from the CLI
+{: #add-certificate-authority-cli}
+{: cli}
+
+You can add certificate authority configurations to your service instance by using the {{site.data.keyword.secrets-manager_short}} CLI.
+
+To add a configuration, run the [**`ibmcloud secrets-manager configuration-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-configuration-create-command) command.
+
+```sh
+ibmcloud secrets-manager configuration-create '{
+  config_type": "public_cert_configuration_ca_lets_encrypt",
+  "lets_encrypt_environment": "production", 
+  "lets_encrypt_private_key": "-----BEGIN PRIVATE KEY-----\nMY_PRIVATE_KEY_WITH_NEWLINES_TRANSFORMED_TO_\N_CHARS-----...", "name": "my-lets-encrypt-config"
+  }'
+```
+{: pre}
+
+
+
 ## Adding a certificate authority configuration with the API
 {: #add-certificate-authority-api}
 {: api}

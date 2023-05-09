@@ -28,6 +28,7 @@ toc:
           - best-practices/secret-rotation.md
       - topic: integrations.md
         navtitle: Integrations
+      - api-migration.md
       - topic: releases.md
         navtitle: Release notes
 
@@ -66,7 +67,11 @@ toc:
               - topic: key-value.md
                 navtitle: Key-value secrets
               - topic: certificates.md
-                navtitle: SSL/TLS certificates                                
+                navtitle: Imported certificates                
+              - topic: certificates-public.md
+                navtitle: Public certificates
+              - topic: certificates-private.md
+                navtitle: Private certificates                                
               - topic: user-credentials.md
                 navtitle: User credentials
           - secret-access.md
