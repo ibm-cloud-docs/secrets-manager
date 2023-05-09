@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-08"
+lastupdated: "2023-05-09"
 
 keywords: secret locks, lock secret, prevent deletion, prevent rotation, unlock secret, create lock, delete lock
 
@@ -322,7 +322,7 @@ curl -X POST
               } 
             } 
           ] 
-        }' \ "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secrets/{id}/versions/{version_id}/locks_bulk"
+        }' \ "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/{id}/versions/{version_id}/locks_bulk"
 
 ```
 {: codeblock}

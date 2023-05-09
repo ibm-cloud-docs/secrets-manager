@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-18"
+lastupdated: "2023-05-09"
 
 keywords: root certificate authority, root CA, internal signing, external signing
 
@@ -125,7 +125,7 @@ curl -X POST
   "issuing_certificates_urls_encoded": true,
   "max_ttl": "43830h"
 }' \  
-  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/configurations"
+  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/configurations"
 ```
 {: codeblock}
 {: curl}

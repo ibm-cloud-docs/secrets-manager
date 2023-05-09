@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-19"
+lastupdated: "2023-05-09"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -191,7 +191,7 @@ curl -X POST
     "api_key": "2epu_ykv0PMp2MhxQmDMn7VzrkSlBwi6BOI8uthi_RCS", "config_type": "iam_credentials_configuration", 
     "name": "iam-configuration" 
     }' \ 
-  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/configurations"
+  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/configurations"
 ```
 {: codeblock}
 {: curl}

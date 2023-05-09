@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-18"
+lastupdated: "2023-05-09"
 
 keywords: certificate parameters, certificate templates
 
@@ -135,7 +135,7 @@ curl -X POST
   "enforce_hostnames": false,
   "max_ttl": "8760h"
 }' \  
-  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/configurations"
+  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/configurations"
 ```
 {: codeblock}
 {: curl}

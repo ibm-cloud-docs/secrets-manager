@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-18"
+lastupdated: "2023-05-09"
 
 keywords: DNS provider, connect DNS provider, set up DNS provider, connect DNS, set up DNS, connect CIS, set up CIS, add DNS provider configuration
 
@@ -158,7 +158,7 @@ curl -X POST
     "config_type": "public_cert_configuration_dns_cloud_internet_services",
     "name": "cloud-internet-services-config"
   }' \  
-  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/configurations"
+  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/configurations"
 ```
 {: codeblock}
 {: curl}
@@ -186,7 +186,7 @@ curl -X POST
   "config_type": "public_cert_configuration_dns_classic_infrastructure",
   "name": "classic-infrastructure-config"
 }' \  
-  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/configurations"
+  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/configurations"
 ```
 {: codeblock}
 {: curl}
@@ -274,7 +274,7 @@ After you delete a configuration, the certificates that are associated with the 
 ```sh
 curl -X DELETE 
 --H "Authorization: Bearer {iam_token}" \
- "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/configurations/{name}"
+ "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/configurations/{name}"
 ```
 {: codeblock}
 {: curl}

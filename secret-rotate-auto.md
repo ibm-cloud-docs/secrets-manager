@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-18"
+lastupdated: "2023-05-09"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -259,7 +259,7 @@ curl -X PATCH
                "unit": "month"
             } 
          }' \ 
-      "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secrets/{id}/metadata"
+      "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/{id}/metadata"
 ```
 {: codeblock}
 {: curl}
@@ -302,7 +302,7 @@ curl -X POST
             "custom_version_key": "custom_version_value"
          }
       }' \ 
-   "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secrets"
+   "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets"
 ```
 {: codeblock}
 {: curl}
@@ -330,7 +330,7 @@ curl -X PATCH
             "unit": "day"
           } 
          }' \ 
-      "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secrets/{id}/metadata"
+      "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/{id}/metadata"
 ```
 {: codeblock}
 {: curl}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-18"
+lastupdated: "2023-05-09"
 
 keywords: certificate authority, connect certificate authority, set up certificate authority, connect CA, set up CA, connect Let's Encrypt, set up Let's Encrypt, add certificate authority configuration, add CA configuration
 
@@ -137,7 +137,7 @@ curl -X POST
     "lets_encrypt_private_key": "-----BEGIN PRIVATE KEY-----\nMIIEowIBAAKCAQEAqcRbzV1wp0nVrPtEpMtnWMO6Js1q3rhREZluKZfu0Q8SY4H3",
     "name": "lets-encrypt-config"
   }' \
-    "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/configurations"
+    "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/configurations"
 
 ```
 {: codeblock}
@@ -201,7 +201,7 @@ After you delete a configuration, the certificates that are associated with the 
 ```sh
 curl -X DELETE 
   --H "Authorization: Bearer {iam_token}"\
-  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/configurations/{name}"
+  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/configurations/{name}"
 ```
 {: codeblock}
 {: curl}

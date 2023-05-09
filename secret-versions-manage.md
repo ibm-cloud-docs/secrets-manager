@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-04-19"
+lastupdated: "2023-05-09"
 
 keywords: secret version history, view versions, secret versions
 
@@ -103,7 +103,8 @@ If you're auditing the version history of a secret, you can use the {{site.data.
 
 If you're auditing the version history of a secret, you can use the {{site.data.keyword.secrets-manager_short}} CLI plug-in to view the general characteristics of each rotation.
 
-To list all the versions that are associated with a secret, run the [**`ibmcloud secrets-manager secret-versions`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-versions-command) command. 
+To list all the versions that are associated with a secret, run the [**`ibmcloud secrets-manager secret-versions`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-versions-command) command. The options for `SECRET_TYPE` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`.
+
 ```sh
 ibmcloud secrets-manager secret-versions --secret-id SECRET-ID
 ```
@@ -126,7 +127,7 @@ The following example request lists metadata properties for each version. When y
 curl -X GET 
   --H "Authorization: Bearer {iam_token}" \
   --H "Accept: application/json" \
-  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secrets/{id}/versions"
+  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/{id}/versions"
 ```
 {: codeblock}
 {: curl}
@@ -219,7 +220,7 @@ curl -X PATCH
   -H "Accept: application/json" \
   --H "Content-Type: application/merge-patch+json" \
   -d '{ "version_custom_metadata": { "version_special_id" : "someString" } }' \
-  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secrets/{id}/versions/{version_id}/metadata"
+  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/{id}/versions/{version_id}/metadata"
 ```
 {: codeblock}
 {: curl}
@@ -294,7 +295,7 @@ curl -X POST
             "custom_version_key": "custom_version_value"
          }
       }' \ 
-   "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secrets/{id}/versions"
+   "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/{id}/versions"
 
 ```
 {: codeblock}

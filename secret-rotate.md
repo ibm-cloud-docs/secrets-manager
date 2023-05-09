@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-03"
+lastupdated: "2023-05-09"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -318,7 +318,7 @@ You can store metadata that are relevant to the needs of your organization with 
 
 
 ```sh
-curl -X POST 
+curl -X POST \
    -H "Authorization: Bearer {iam_token}" \
    -H "Accept: application/json" \
    -H "Content-Type: application/json" \
@@ -331,7 +331,7 @@ curl -X POST
             "custom_version_key": "custom_version_value" 
             } 
          }' \ 
-      "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secrets/{id}/versions"
+      "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/{id}/versions"
 ```
 {: codeblock}
 {: curl}
@@ -353,8 +353,8 @@ You can store metadata that are relevant to the needs of your organization with 
 
 
 ```sh
-curl -X POST  
-   -H "Authorization: Bearer {iam_token}" \
+curl -X POST \
+   -H "Authorization: Bearer ${iam_token}" \
    -H "Accept: application/json" \
    -H "Content-Type: application/json" \
    -d '{ 
@@ -368,7 +368,7 @@ curl -X POST
          "custom_version_key": "custom_version_value" 
          }
       }' \ 
-   "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secrets/{id}/versions"
+   "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/{id}/versions"
 ```
 {: codeblock}
 {: curl}
@@ -390,7 +390,7 @@ You can store metadata that are relevant to the needs of your organization with 
 
 
 ```sh
-curl -X POST 
+curl -X POST \
    -H "Authorization: Bearer {iam_token}" \
    -H "Accept: application/json" \
    -H "Content-Type: application/json" \
@@ -403,7 +403,7 @@ curl -X POST
          "custom_version_key": "custom_version_value" 
          } 
       }' \ 
-   "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secrets/{id}/versions"
+   "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/{id}/versions"
 
 ```
 {: codeblock}

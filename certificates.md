@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-08"
+lastupdated: "2023-05-09"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, imported certificates
 
@@ -655,7 +655,7 @@ To create a public certificate by using a manual DNS provider, complete the foll
     --data '{ 
         "action_type": "public_cert_action_validate_dns_challenge"
     }'\ 
-    "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secrets/{id}/actions"
+    "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/{id}/actions"
    ```
    {: codeblock}
    {: curl}
