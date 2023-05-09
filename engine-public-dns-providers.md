@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-18"
+lastupdated: "2023-05-09"
 
 keywords: DNS provider, connect DNS provider, set up DNS provider, connect DNS, set up DNS, connect CIS, set up CIS, add DNS provider configuration
 
@@ -61,7 +61,7 @@ subcollection: secrets-manager
 With {{site.data.keyword.secrets-manager_full}}, you can connect to a DNS provider by adding a configuration to your instance.
 {: shortdesc}
 
-A DNS provider is the service that is used to add and manage domains for apps or services. By adding a DNS configuration, you can specify the DNS service to use for domain validation when you [order certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates) through {{site.data.keyword.secrets-manager_short}}. 
+A DNS provider is the service that is used to add and manage domains for apps or services. By adding a DNS configuration, you can specify the DNS service to use for domain validation when you [order certificates](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates) through {{site.data.keyword.secrets-manager_short}}. 
 
 You can define up to 10 DNS configurations per instance. To view a list of configurations that are available for your instance, go to the **Secrets engines > Public certificates** page in the {{site.data.keyword.secrets-manager_short}} UI.
 {: note}
@@ -130,6 +130,25 @@ You can add DNS provider configurations to your service instance by using the {{
 
 
 
+## Adding a DNS provider configuration from the CLI
+{: #add-dns-provider-cli}
+{: cli}
+
+You can add DNS provider configurations to your service instance by using the {{site.data.keyword.secrets-manager_short}} CLI. Manual DNS providers can be configured only by using the API.
+
+To configure a secrets engine from the {{site.data.keyword.cloud_notm}} CLI, run the [**`ibmcloud secrets-manager configuration-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-configuration-create-command) command.
+
+```sh
+ibmcloud secrets-manager configuration-create {
+  "cloud_internet_services_apikey": "MY_APIKEY_WITH_MANAGER_ACCESS_TO_CIS",
+  "cloud_internet_services_crn": "MY_CIS_CRN",
+  "config_type": "public_cert_configuration_dns_cloud_internet_services",
+  "name": "my-cloud-internet-services-config"}'
+```
+{: pre}
+
+
+
 ## Adding a DNS provider configuration with the API
 {: #add-dns-provider-api}
 {: api}
@@ -158,7 +177,7 @@ curl -X POST
     "config_type": "public_cert_configuration_dns_cloud_internet_services",
     "name": "cloud-internet-services-config"
   }' \  
-  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/configurations"
+  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/configurations"
 ```
 {: codeblock}
 {: curl}
@@ -186,7 +205,7 @@ curl -X POST
   "config_type": "public_cert_configuration_dns_classic_infrastructure",
   "name": "classic-infrastructure-config"
 }' \  
-  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/configurations"
+  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/configurations"
 ```
 {: codeblock}
 {: curl}
@@ -274,7 +293,7 @@ After you delete a configuration, the certificates that are associated with the 
 ```sh
 curl -X DELETE 
 --H "Authorization: Bearer {iam_token}" \
- "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/configurations/{name}"
+ "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/configurations/{name}"
 ```
 {: codeblock}
 {: curl}
@@ -286,6 +305,6 @@ A successful response removes the configuration from your service instance. For 
 ## Next steps
 {: #manage-dns-config-next-steps}
 
-- [Order a certificate](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates)
+- [Order a certificate](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates).
 
 

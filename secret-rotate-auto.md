@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-18"
+lastupdated: "2023-05-09"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -116,7 +116,7 @@ If you prefer to schedule your public SSL/TLS certificates to be automatically r
 Certificates that expire in less than 31 days must also be [rotated manually](/docs/secrets-manager?topic=secrets-manager-manual-rotation) before rotation becomes automatic in the following cycles.
 {: note}
 
-1. If you're [ordering a public certificate](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates), enable the rotation options.
+1. If you're [ordering a public certificate](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates), enable the rotation options.
    
    1. To rotate the certificate automatically, switch the rotation toggle to **On**. Your certificate is automatically reordered 31 days before its expiration date.
    2. To request a new private key for the certificate on each rotation, switch the rekey toggle to **On**.
@@ -130,7 +130,7 @@ Certificates that expire in less than 31 days must also be [rotated manually](/d
 
 If you prefer to schedule your private SSL or TLS certificates to be automatically renewed, you can enable automatic rotation for certificates when you create them, or by editing the details of an existing certificate. The certificate must 
 
-1. If you're [creating a private certificate](/docs/secrets-manager?topic=secrets-manager-certificates#create-certificates), enable the rotation options.
+1. If you're [creating private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates), enable the rotation options.
    
    1. To rotate the certificate automatically, switch the rotation toggle to **On**.
    2. Select an interval and unit that specifies the number of days between scheduled rotations.
@@ -259,7 +259,7 @@ curl -X PATCH
                "unit": "month"
             } 
          }' \ 
-      "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secrets/{id}/metadata"
+      "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/{id}/metadata"
 ```
 {: codeblock}
 {: curl}
@@ -302,7 +302,7 @@ curl -X POST
             "custom_version_key": "custom_version_value"
          }
       }' \ 
-   "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secrets"
+   "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets"
 ```
 {: codeblock}
 {: curl}
@@ -330,7 +330,7 @@ curl -X PATCH
             "unit": "day"
           } 
          }' \ 
-      "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secrets/{id}/metadata"
+      "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/{id}/metadata"
 ```
 {: codeblock}
 {: curl}

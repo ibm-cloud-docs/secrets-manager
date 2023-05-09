@@ -78,9 +78,6 @@ Before you get started, be sure that you have the required level of access. To c
 
 To add an arbitrary secret by using the {{site.data.keyword.secrets-manager_short}} UI, complete the following steps.
 
-
-
-
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
@@ -104,7 +101,6 @@ To add an arbitrary secret by using the {{site.data.keyword.secrets-manager_shor
 12. Click **Next**.
 13. Review the details of your secret.
 14. Click **Add**.
-
 
 
 ## Creating arbitrary secrets from the CLI
@@ -170,7 +166,7 @@ curl -X POST
 {: curl}
 
 
-A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager#create-secret).<apiv2>
+A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager#create-secret).
 
 
 ## Creating arbitrary secrets with Terraform
@@ -222,5 +218,3 @@ The following example shows a configuration that you can use to create an arbitr
     ```
     {: codeblock}
 
-
-</apiv2>

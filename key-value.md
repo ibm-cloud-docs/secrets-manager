@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-05-08"
+lastupdated: "2023-05-09"
 
 keywords: key:value, key/value, key-value, storing key:value secrets
 
@@ -60,7 +60,9 @@ subcollection: secrets-manager
 
 You can use {{site.data.keyword.secrets-manager_full}} to store and manage key-value secrets, including complex JSON documents, that are used to access protected systems that are inside or outside of IBM Cloud. {: shortdesc}
 
-A key-value secret is a type of application secret that can be used to hold sensitive data that is structured as a JSON object. After you create the secret, you can use it to connect your application to a protected resource, such as a database or a third-party app. Your secret is stored securely in your dedicated {{site.data.keyword.secrets-manager_short}} service instance, where you can centrally manage its lifecycle. You can store multiple versions per key and access the history and metadata of your key-value secret with {{site.data.keyword.secrets-manager_short}}.
+A key-value secret is a type of application secret that can be used to hold sensitive data that is structured as a JSON object. After you create the secret, you can use it to connect your application to a protected resource, such as a database or a third-party app. Your secret is stored securely in your dedicated {{site.data.keyword.secrets-manager_short}} service instance, where you can centrally manage its lifecycle.
+
+You can store multiple versions per key and access the history and metadata of your key-value secret with {{site.data.keyword.secrets-manager_short}}. For more information, see [Managing key-value secrets with Vault](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv).
 
 To learn more about the types of secrets that you can manage in {{site.data.keyword.secrets-manager_short}}, see [What is a secret?](/docs/secrets-manager?topic=secrets-manager-what-is-secret)
 
@@ -74,8 +76,6 @@ Before you get started, be sure that you have the required level of access. To c
 {: ui}
 
 To add a key-value secret by using the {{site.data.keyword.secrets-manager_short}} UI, complete the following steps. 
-
-
 
 1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**. 
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}. 
@@ -98,7 +98,6 @@ To add a key-value secret by using the {{site.data.keyword.secrets-manager_short
 12. Click **Next**. 
 13. Review the details of your secret. 
 14. Click **Add**. 
-
 
 
 ## Creating key-value secrets from the CLI

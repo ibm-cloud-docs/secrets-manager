@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-18"
+lastupdated: "2023-05-09"
 
 keywords: secret groups, assign secret access, iam roles, secrets policies, organize secrets
 
@@ -115,7 +115,7 @@ curl -X POST
     "name":"my-secret-group",
     "description":"Extended description for this group."
     }' \
-  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secret_groups"
+  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secret_groups"
 ```
 {: codeblock}
 {: curl}
@@ -175,7 +175,7 @@ The following example request deletes a secret group. When you call the API, rep
 ```bash
 curl -X DELETE 
   --H "Authorization: Bearer {iam_token}" \ 
-  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/v2/secret_groups/{id}"
+  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secret_groups/{id}"
 ```
 {: codeblock}
 {: curl}
