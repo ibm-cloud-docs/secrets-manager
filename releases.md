@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-19"
+lastupdated: "2023-05-09"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -274,7 +274,7 @@ CLI plug-in version 1.1.18
 {: release-note}
 
 Integrations with {{site.data.keyword.containershort}} and {{site.data.keyword.openshiftshort}}
-:   You can now use {{site.data.keyword.secrets-manager_short}} to centrally manage Ingress subdomain certificates and other secrets for your Kubernetes or {{site.data.keyword.openshiftshort}} clusters. To learn more about this integration, check out the [{{site.data.keyword.containershort}}](/docs/containers?topic=containers-ingress-types){: external} or [{{site.data.keyword.openshiftshort}} documentation](/docs/openshift?topic=openshift-ingress-roks4#manage_certs){: external}.
+:   You can now use {{site.data.keyword.secrets-manager_short}} to centrally manage Ingress subdomain certificates and other secrets for your Kubernetes or {{site.data.keyword.openshiftshort}} clusters. To learn more about this integration, check out the [{{site.data.keyword.containershort}}](/docs/containers?topic=containers-ingress-types){: external} or [{{site.data.keyword.openshiftshort}} documentation](/docs/openshift?topic=openshift-ingress-roks4){: external}.
 
 ## 23 March 2022
 {: #secrets-manager-mar2322}
@@ -403,7 +403,7 @@ Order domain-validated TLS certificates from Let's Encrypt
    - {{site.data.keyword.cloud_notm}} Internet Services (CIS)
    - {{site.data.keyword.cloud_notm}} classic infrastructure (SoftLayer)
 
-   For more information, see [Ordering domain-validated certificates from third-parties](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates) or check out the [announcement blog](https://www.ibm.com/cloud/blog/announcements/now-available-order-domain-validated-tls-certificates-with-single-tenant-ibm-cloud-secrets-manager){: external}.
+   For more information, see [Ordering domain-validated certificates from third-parties](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates) or check out the [announcement blog](https://www.ibm.com/cloud/blog/announcements/now-available-order-domain-validated-tls-certificates-with-single-tenant-ibm-cloud-secrets-manager){: external}.
 
 
 ## 30 August 2021

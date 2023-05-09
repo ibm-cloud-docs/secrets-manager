@@ -61,7 +61,7 @@ subcollection: secrets-manager
 With {{site.data.keyword.secrets-manager_full}}, you can connect to a third-party certificate authority by adding a configuration to your instance.
 {: shortdesc}
 
-A certificate authority (CA) is the entity that signs and issues your SSL/TLS certificates. By adding a CA configuration, you can specify the authority that you want to use when you [order public certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates) through {{site.data.keyword.secrets-manager_short}}.
+A certificate authority (CA) is the entity that signs and issues your SSL/TLS certificates. By adding a CA configuration, you can specify the authority that you want to use when you [order public certificates](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates) through {{site.data.keyword.secrets-manager_short}}.
 
 You can define up to 10 certificate authority configurations per instance. To view a list of configurations that are available for your instance, go to the **Secrets engines > Public certificates** page in the {{site.data.keyword.secrets-manager_short}} UI.
 {: note}
@@ -214,7 +214,7 @@ A successful response removes the configuration from your service instance. For 
 {: #manage-ca-config-next-steps}
 
 - [Add a DNS provider configuration](/docs/secrets-manager?topic=secrets-manager-add-dns-provider)
-- [Order a certificate](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates)
+- [Order a certificate](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates)
 
 
 

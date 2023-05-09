@@ -186,7 +186,7 @@ If the certificate that you are rotating was previously imported with an interme
 {: #manual-rotate-public-cert-ui}
 {: ui}
 
-If your {{site.data.keyword.secrets-manager_short}} service instance is enabled for [public certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates), you can manually renew a certificate that was previously ordered from a third-party certificate authority.
+If your {{site.data.keyword.secrets-manager_short}} service instance is enabled for [public certificates](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates), you can manually renew a certificate that was previously ordered from a third-party certificate authority.
 
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
@@ -239,7 +239,7 @@ To rotate a public certificate that was created by using a manual DNS provider i
 {: #manual-rotate-private-cert-ui}
 {: ui}
 
-If your {{site.data.keyword.secrets-manager_short}} service instance is enabled for [private certificates](/docs/secrets-manager?topic=secrets-manager-certificates#create-certificates), you can manually renew a certificate that was previously issued by a certificate authority that is configured for your service instance.
+If your {{site.data.keyword.secrets-manager_short}} service instance is enabled for [private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates), you can manually renew a certificate that was previously issued by a certificate authority that is configured for your service instance.
 
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-05-09"
 
 keywords: set up public certificates, public certificates engine, set up CIS, set up CA, set up Let's Encrypt
 
@@ -63,7 +63,7 @@ You can enable your {{site.data.keyword.secrets-manager_full}} service instance 
 
 In {{site.data.keyword.secrets-manager_short}}, the public certificates engine serves as the back end for the `public_cert` secret type. Public certificates are domain-validated TLS certificates that you can order and manage in the service. Before you can order a certificate, you must enable your service instance by connecting supported certificate authorities (CA) and DNS providers.
 
-[Ordering a certificate](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates) through {{site.data.keyword.secrets-manager_short}} is an asynchronous process that can take a few minutes to complete.
+[Ordering a certificate](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates) through {{site.data.keyword.secrets-manager_short}} is an asynchronous process that can take a few minutes to complete.
 {: note}
 
 

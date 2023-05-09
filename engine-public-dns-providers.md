@@ -61,7 +61,7 @@ subcollection: secrets-manager
 With {{site.data.keyword.secrets-manager_full}}, you can connect to a DNS provider by adding a configuration to your instance.
 {: shortdesc}
 
-A DNS provider is the service that is used to add and manage domains for apps or services. By adding a DNS configuration, you can specify the DNS service to use for domain validation when you [order certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates) through {{site.data.keyword.secrets-manager_short}}. 
+A DNS provider is the service that is used to add and manage domains for apps or services. By adding a DNS configuration, you can specify the DNS service to use for domain validation when you [order certificates](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates) through {{site.data.keyword.secrets-manager_short}}. 
 
 You can define up to 10 DNS configurations per instance. To view a list of configurations that are available for your instance, go to the **Secrets engines > Public certificates** page in the {{site.data.keyword.secrets-manager_short}} UI.
 {: note}
@@ -286,6 +286,6 @@ A successful response removes the configuration from your service instance. For 
 ## Next steps
 {: #manage-dns-config-next-steps}
 
-- [Order a certificate](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates)
+- [Order a certificate](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates).
 
 
