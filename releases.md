@@ -129,7 +129,7 @@ Support for context-based restrictions (CBR)
 {: release-note}
 
 Manually configure your own DNS provider
-:   If you work with a DNS provider that is not currently integrated with the service, you can manually configure it when you use the {{site.data.keyword.secrets-manager_short}} UI to order new certificates. If you choose to manually configure a provider, you must complete a challenge to prove ownership over your domain. For more information, see [Ordering public certificates with your own DNS provider in the UI](/docs/secrets-manager?topic=secrets-manager-certificates&interface=ui#order-certificates-manual-ui).
+:   If you work with a DNS provider that is not currently integrated with the service, you can manually configure it when you use the {{site.data.keyword.secrets-manager_short}} UI to order new certificates. If you choose to manually configure a provider, you must complete a challenge to prove ownership over your domain. For more information, see [Ordering public certificates with your own DNS provider in the UI](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-cert-manual-ui).
 
 Create a leaf certificate with a certificate signing request
 :   You can create private leaf certificates through your public key infrastructure (PKI) by using a certificate signing request (CSR). [Learn more](/apidocs/secrets-manager/secrets-manager-v2#create-configuration-action).
