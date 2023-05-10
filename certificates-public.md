@@ -2,7 +2,7 @@
 
 copyright:
   years: "2023"
-lastupdated: "2023-05-09"
+lastupdated: "2023-05-10"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, public certificates
 
@@ -160,7 +160,7 @@ When you order a certificate, domain validation takes place to verify the owners
 
 
 ```sh
-ibmcloud secrets-manager secret-create --resources=
+ibmcloud secrets-manager secret-create --secret-prototype=
 '[{
     "name": "example-public-certificate", 
     "description": "Extended description for this secret.", 
@@ -326,7 +326,7 @@ To create a public certificate by using a manual DNS provider in the UI, complet
 16. Click **Challenges** to access the TXT record name and value that are associated with each of your domains. You need them to complete the challenges.
 17. To validate the ownership of your domains, manually add the TXT records that are provided for each of your domains to your DNS provider account. You must address only the challenges that are not validated before the expiration date. 
 
-    If you order a certificate for subdomains, for example, `sub1.sub2.domain.com`, you need to add the TXT records to your registered domain `domain.com`.
+    If you order a certificate for a subdomain, for example, `sub1.sub2.domain.com`, you need to add the TXT records to your registered domain `domain.com`.
     {: note}
 
 18. Verify that the TXT records that you added to your domains are propagated. Depending on your DNS provider, it can take some time to complete.

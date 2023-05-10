@@ -2,7 +2,7 @@
 
 copyright:
   years: "2023"
-lastupdated: "2023-05-09"
+lastupdated: "2023-05-10"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, private certificates
 
@@ -138,7 +138,7 @@ When you order a certificate, domain validation takes place to verify the owners
 
 
 ```sh
-ibmcloud secrets-manager secret-create --resources=
+ibmcloud secrets-manager secret-create --secret-prototype=
     '[{
         "name": "example-private-certificate", 
         "description": "Extended description for this secret.", 
