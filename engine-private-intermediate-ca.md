@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-18"
+lastupdated: "2023-05-10"
 
 keywords: intermediate certificate authority, intermediate CA, internal signing, external signing
 
@@ -218,7 +218,7 @@ After you sign an intermediate CA certificate by using an external parent CA, yo
 {: #intermediate-ca-external-signing-api}
 {: api}
 
-An intermediate CA with external signing uses a parent CA from an external PKI system, or even another {{site.data.keyword.secrets-manager_short}} instance, as its trust anchor. The parent CA can be a root CA or an intermediate CA.You can create an intermediate CA with external signing by using the {{site.data.keyword.secrets-manager_short}} API. 
+An intermediate CA with external signing uses a parent CA from an external PKI system, or even another {{site.data.keyword.secrets-manager_short}} instance, as its trust anchor. The parent CA can be a root CA or an intermediate CA. You can create an intermediate CA with external signing by using the {{site.data.keyword.secrets-manager_short}} API. 
 
 ```sh
 curl -X POST 
@@ -241,6 +241,42 @@ curl -X POST
 ```
 {: codeblock}
 {: curl}
+
+
+## Creating an intermediate CA with external signing from the CLI
+{: #intermediate-ca-external-signing-cli}
+{: cli}
+
+An intermediate CA with external signing uses a parent CA from an external PKI system, or even another {{site.data.keyword.secrets-manager_short}} instance, as its trust anchor. The parent CA can be a root CA or an intermediate CA. You can create an intermediate CA with external signing by using the {{site.data.keyword.secrets-manager_short}} CLI. 
+
+```sh
+ibmcloud secrets-manager configuration-create 
+   --configuration-prototype='{
+      "config_type": "private_cert_configuration_intermediate_ca",
+      "name": "example-intermediate-CA",
+      "max_ttl": "26300h",
+      "signing_method": "internal",
+      "issuer": "example-root-CA",
+      "crl_expiry": "72h",
+      "crl_disable": false,
+      "crl_distribution_points_encoded": true,
+      "issuing_certificates_urls_encoded": true,
+      "common_name": "example.com",
+      "alt_names": [
+         "alt-name-1","alt-name-2"
+         ],
+      "ip_sans": "127.0.0.1",
+      "uri_sans": "https://www.example.com/test",
+      "other_sans": ["1.2.3.5.4.3.201.10.4.3;utf8:test@example.com"],
+      "format": "pem",
+      "private_key_format": "der",
+      "key_type": "rsa",
+      "key_bits": 4096,
+      "exclude_cn_from_sans": false
+   }'
+```
+{:pre}
+
 
 
 
