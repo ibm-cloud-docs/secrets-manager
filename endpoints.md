@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-18"
+lastupdated: "2023-05-12"
 
 keywords: Secrets Manager availability, regions, Secrets Manager endpoints, Vault endpoint
 
@@ -105,7 +105,7 @@ If you are managing your {{site.data.keyword.secrets-manager_short}} resources o
 | Washington DC | `https://{instance_ID}.us-east.secrets-manager.appdomain.cloud`  |
 {: caption="Table 1. Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
 
-Ready to try the APIs? To interact with a Swagger UI from your browser, add `/swagger-ui` to your service endpoint URL. For example, `https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/swagger-ui`.
+Ready to try the APIs? To interact with a Swagger UI from your browser, add `api/v2/swagger-ui` to your service endpoint URL. For example, `https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/swagger-ui`.
 {: tip}
 
 ### Private endpoints
@@ -170,7 +170,7 @@ A successful request returns the endpoint URLs that are associated with the regi
 ```
 {: screen}
 
-To try this API, you can interact with the following Swagger UI from your browser: `https://{region}.secrets-manager.cloud.ibm.com/swagger-ui/`.
+To try this API, you can interact with the following Swagger UI from your browser: `https://{region}.secrets-manager.cloud.ibm.com/api/v2/swagger-ui/`.
 {: tip}
 
 If your instance is configured with the **Private only** option, this API returns only the `private_endpoints` object in the response.
