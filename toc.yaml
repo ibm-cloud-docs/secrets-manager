@@ -133,7 +133,7 @@ toc:
           topics:
           - link:
               label: Secrets Manager API
-              href: https://{DomainName}/apidocs/secrets-manager
+              href: https://{DomainName}/apidocs/secrets-manager/secrets-manager-v2
           - changelog-api.md
       - topicgroup:
           label: CLI reference

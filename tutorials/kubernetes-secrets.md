@@ -3,7 +3,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-04-19"
+lastupdated: "2023-05-12"
 
 keywords: tutorial, Secrets Manager
 
@@ -570,4 +570,4 @@ As you construct your [YAML document](#tutorial-kubernetes-secrets-update-deploy
 Great job! In this tutorial, you learned how to set up {{site.data.keyword.secrets-manager_short}} to securely populate application secrets to your cluster. Check out more resources to help you get started with {{site.data.keyword.secrets-manager_short}}.
 
 - Review the [secret types in {{site.data.keyword.secrets-manager_short}}](https://external-secrets.io/latest/provider/ibm-secrets-manager/){: external} that are supported by External Secrets Operator.
-- Learn more about the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager).
+- Learn more about the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager/secrets-manager-v2).

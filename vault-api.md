@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-25"
+lastupdated: "2023-05-12"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -61,7 +61,7 @@ subcollection: secrets-manager
 If you're already using the HashiCorp Vault HTTP API, you can use its API format and guidelines to interact with {{site.data.keyword.secrets-manager_full}}.
 {: shortdesc}
 
-To use the standard REST API for {{site.data.keyword.secrets-manager_short}}, check out the [{{site.data.keyword.secrets-manager_short}} API reference](/apidocs/secrets-manager){: external}.
+To use the standard REST API for {{site.data.keyword.secrets-manager_short}}, check out the [{{site.data.keyword.secrets-manager_short}} API reference](/apidocs/secrets-manager/secrets-manager-v2){: external}.
 
 ## Overview
 {: #vault-api-overview}
@@ -3360,7 +3360,7 @@ You can add multiple configurations for your instance:
 | ------------- | ----------------------------------------------------------------------------------- |
 | `name`        | A human-readable name to assign to your certificate authority configuration.        |
 | `type`        | The type of certificate authority that you want to create. Allowable values are: `root_certificate_authority`, `intermediate_certificate_authority`. | 
-| `[params..]`  | For a complete list of parameters, see [Add a configuration](/apidocs/secrets-manager#create-config-element){: external}. |
+| `[params..]`  | For a complete list of parameters, see [Add a configuration](/apidocs/secrets-manager/secrets-manager-v2#create-config-element){: external}. |
 {: caption="Table 11. Private certificates engine request parameters" caption-side="top"}
 {: #private-cert-secrets-engine-ca-request-params}
 {: tab-title="Private CAs"}
@@ -3371,7 +3371,7 @@ You can add multiple configurations for your instance:
 | ------------- | ----------------------------------------------------------------------------------- |
 | `name`        | A human-readable name to assign to your certificate template.                       |
 | `type`        | The type of configuration that you want to add. For certificate templates, use `certificate_templates`. |
-| `[params..]`  | For a complete list of parameters, see [Add a configuration](/apidocs/secrets-manager#create-config-element){: external}. |
+| `[params..]`  | For a complete list of parameters, see [Add a configuration](/apidocs/secrets-manager/secrets-manager-v2#create-config-element){: external}. |
 {: caption="Table 11. Private certificates engine request parameters" caption-side="top"}
 {: #private-cert-secrets-engine-template-request-params}
 {: tab-title="Certificate templates"}

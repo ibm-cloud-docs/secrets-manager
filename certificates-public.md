@@ -2,7 +2,7 @@
 
 copyright:
   years: "2023"
-lastupdated: "2023-05-10"
+lastupdated: "2023-05-12"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, public certificates
 
@@ -91,7 +91,7 @@ After you [configure the public certificates engine](/docs/secrets-manager?topic
 - If the validation doesn't complete successfully, the status of your certificate changes to **Deactivated**. From your Secrets table, you can check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.
     {: cli}
 
-- If the validation doesn't complete successfully, the status of your certificate changes to **Deactivated**. You can use the [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
+- If the validation doesn't complete successfully, the status of your certificate changes to **Deactivated**. You can use the [Get secret metadata](/apidocs/secrets-manager/secrets-manager-v2#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
     {: api}
 
 - After the certificate is issued, you can deploy it to your integrated apps, download it, or modify its rotation options. 
@@ -251,9 +251,9 @@ curl -X POST
 {: curl}
 
 
-When you submit your certificate details, {{site.data.keyword.secrets-manager_short}} sends your request to the selected certificate authority. After a certificate is issued, you can deploy it to your integrated apps, download it, or rotate it manually. Your private key for SSL/TLS is generated directly in {{site.data.keyword.secrets-manager_short}} and stored securely. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
+When you submit your certificate details, {{site.data.keyword.secrets-manager_short}} sends your request to the selected certificate authority. After a certificate is issued, you can deploy it to your integrated apps, download it, or rotate it manually. Your private key for SSL/TLS is generated directly in {{site.data.keyword.secrets-manager_short}} and stored securely. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager/secrets-manager-v2#create-secret){: external}.
 
-Need to check your order status? Use the [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
+Need to check your order status? Use the [Get secret metadata](/apidocs/secrets-manager/secrets-manager-v2#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
 {: tip} 
 
 
@@ -468,7 +468,7 @@ To create a public certificate by using a manual DNS provider, complete the foll
 4. Validate that the TXT records that you added are propagated. Depending on your DNS provider, it can take some time to complete.
 
 
-5. After the records are propagated, call the {{site.data.keyword.secrets-manager_short}} [Invoke an action on a secret](/apidocs/secrets-manager#update-secret) API to request Let's Encrypt to validate the challenges to your domain and create a public certificate. 
+5. After the records are propagated, call the {{site.data.keyword.secrets-manager_short}} [Invoke an action on a secret](/apidocs/secrets-manager/secrets-manager-v2#update-secret) API to request Let's Encrypt to validate the challenges to your domain and create a public certificate. 
 
    ```sh
     curl -X POST 
@@ -484,7 +484,7 @@ To create a public certificate by using a manual DNS provider, complete the foll
    {: curl}
 
 
-   If you need to update your certificate later, you can use the [Invoke an action on a secret](/apidocs/secrets-manager#update-secret) API but with the action `rotate`. However, you can't automatically rotate manual DNS provider certificates in {{site.data.keyword.secrets-manager_short}}.
+   If you need to update your certificate later, you can use the [Invoke an action on a secret](/apidocs/secrets-manager/secrets-manager-v2#update-secret) API but with the action `rotate`. However, you can't automatically rotate manual DNS provider certificates in {{site.data.keyword.secrets-manager_short}}.
    {: note}
 
 

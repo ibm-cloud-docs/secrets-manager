@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-04-03"
+lastupdated: "2023-05-12"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager, KV, key-value, KV APIs
 
@@ -68,7 +68,7 @@ If you already use the Vault API, you can use its API format and guidelines to i
 
 For more information about authentication and the custom version of open source HashiCorp Vault that {{site.data.keyword.secrets-manager_short}} uses, see [Vault API](/docs/secrets-manager?topic=secrets-manager-vault-api).
 
-To use the standard REST API for Secrets Manager, check out the [{{site.data.keyword.secrets-manager_short}} API reference](/apidocs/secrets-manager){: external}.
+To use the standard REST API for Secrets Manager, check out the [{{site.data.keyword.secrets-manager_short}} API reference](/apidocs/secrets-manager/secrets-manager-v2){: external}.
 
 
 ### Difference between KV and {{site.data.keyword.secrets-manager_short}}

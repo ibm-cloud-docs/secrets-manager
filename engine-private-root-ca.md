@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-10"
+lastupdated: "2023-05-12"
 
 keywords: root certificate authority, root CA, internal signing, external signing
 
@@ -164,7 +164,7 @@ A successful response adds the configuration to your service instance.
 
 
 
-For more information about the required and optional request parameters, see [Add a configuration](/apidocs/secrets-manager#create-config-element){: external}.
+For more information about the required and optional request parameters, see [Add a configuration](/apidocs/secrets-manager/secrets-manager-v2#create-config-element){: external}.
 
 ## Creating a root certificate authority from the CLI
 {: #root-ca-cli}

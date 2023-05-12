@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-05-09"
+lastupdated: "2023-05-12"
 
 keywords: key:value, key/value, key-value, storing key:value secrets
 
@@ -162,7 +162,7 @@ curl -X POST
 
 
 
-A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
+A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager/secrets-manager-v2#create-secret){: external}.
 
 
 

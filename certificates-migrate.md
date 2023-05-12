@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-05-12"
 
 keywords: migrate from {{site.data.keyword.cloudcerts_short}}, migrate to Secrets Manager, migrate certificates
 
@@ -157,7 +157,7 @@ Before you begin, consider the following items and service limitations that migh
 
 - **{{site.data.keyword.cloudcerts_short}} and {{site.data.keyword.secrets-manager_short}} APIs are different in structure.**
 
-  If you use {{site.data.keyword.cloudcerts_short}} to manage your certificates programmatically, be sure to review the [{{site.data.keyword.secrets-manager_short}} API docs](/apidocs/secrets-manager) to understand how moving your certificates impacts your current experience.
+  If you use {{site.data.keyword.cloudcerts_short}} to manage your certificates programmatically, be sure to review the [{{site.data.keyword.secrets-manager_short}} API docs](/apidocs/secrets-manager/secrets-manager-v2) to understand how moving your certificates impacts your current experience.
 
 - **Ordering Let's Encrypt certificates with {{site.data.keyword.secrets-manager_short}} requires an Automatic Certificate Management Environment (ACME) account.**
 

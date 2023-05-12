@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-08"
+lastupdated: "2023-05-12"
 
 keywords: username, password, user credentials, store password
 
@@ -229,4 +229,4 @@ The following example shows a query that you can use to create a username and pa
 3. Applying the Terraform plan syncs the user credentials `password` field in Terraform with the new version value.
 
 
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager#create-secret).
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager/secrets-manager-v2#create-secret).

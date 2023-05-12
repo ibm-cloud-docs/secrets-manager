@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-19"
+lastupdated: "2023-05-12"
 content-type: tutorial
 services: secrets-manager, cloud-object-storage
 account-plan: paid
@@ -530,7 +530,7 @@ Great job! In this tutorial, you learned how to set up {{site.data.keyword.secre
 
 - Learn more about [secret types](/docs/secrets-manager?topic=secrets-manager-what-is-secret).
 - Design an access strategy with [secret groups](/docs/secrets-manager?topic=secrets-manager-secret-groups).
-- Learn more about the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager){: external}.
+- Learn more about the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager/secrets-manager-v2){: external}.
 
 
 

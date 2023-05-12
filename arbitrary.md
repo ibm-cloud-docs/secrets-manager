@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-08"
+lastupdated: "2023-05-12"
 
 keywords: arbitrary secrets, arbitrary text, custom secrets
 
@@ -166,7 +166,7 @@ curl -X POST
 {: curl}
 
 
-A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager#create-secret).
+A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager/secrets-manager-v2#create-secret).
 
 
 ## Creating arbitrary secrets with Terraform

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-09"
+lastupdated: "2023-05-12"
 
 keywords: secret locks, lock secret, prevent deletion, prevent rotation, unlock secret, create lock, delete lock
 
@@ -291,7 +291,7 @@ A successful response returns details about the new locks, along with other meta
 
 
 
-For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager#lock-secret).
+For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#lock-secret).
 
 #### Creating locks on the previous secret version
 {: #create-lock-previous-version-api}
@@ -363,7 +363,7 @@ A successful response returns details about the new locks, along with other meta
 
 
 
-For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager#lock-secret).
+For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#lock-secret).
 
 
 
@@ -410,6 +410,6 @@ curl -X DELETE
 {: curl}
 
 
-For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager#unlock-secret).
+For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#unlock-secret).
 
 
