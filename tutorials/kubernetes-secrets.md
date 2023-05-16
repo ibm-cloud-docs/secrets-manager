@@ -3,7 +3,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-05-12"
+lastupdated: "2023-05-16"
 
 keywords: tutorial, Secrets Manager
 
@@ -362,23 +362,19 @@ External Secrets Operator is an open source tool that is not maintained by IBM. 
 
 First, add `external-secrets` resources to your cluster by installing the official Helm chart. For more installation options, check out the [getting started guide](https://external-secrets.io/v0.5.9/guides-getting-started/){: external}.
 
-1. From your command line, use the service ID API key that you created in step 1 to define `secret-api-key`.
-
-    ```sh
-    kubectl -n default create secret generic secret-api-key --from-literal=apikey=$IBM_CLOUD_API_KEY
-    ```
-    {: pre}
-
-2. Run the following commands to install External Secrets Operator.
+1. Run the following command to install External Secrets Operator helm repository:
 
     ```sh
     helm repo add external-secrets https://charts.external-secrets.io
     ```
     {: pre}
+    
+2. Configure authentication between External Secrets Operator and Secrets Manager.
 
     If you're using a service ID to authenticate:
 
     ```sh
+    kubectl -n default create secret generic secret-api-key --from-literal=apikey=$IBM_CLOUD_API_KEY
     helm install external-secrets external-secrets/external-secrets -n external-secrets --create-namespace --set installCRDs=true
     ```
     {: pre}
@@ -387,7 +383,6 @@ First, add `external-secrets` resources to your cluster by installing the offici
 
     ```sh
     echo '
-    [root@vpc-bastion-6miaq40s-jumphost secret_testing]# cat values.yml
     installCRDs: true
     extraVolumes:
     - name: sa-token
@@ -402,18 +397,19 @@ First, add `external-secrets` resources to your cluster by installing the offici
     - mountPath: /var/run/secrets/tokens
     name: sa-token
     webhook:
-    extraVolumes:
-    - name: sa-token
-    projected:
-        defaultMode: 420
-        sources:
-        - serviceAccountToken:
-            path: sa-token
-            expirationSeconds: 3600
-            audience: iam
-    extraVolumeMounts:
-    - mountPath: /var/run/secrets/tokens
-    name: sa-token
+        extraVolumes:
+      - name: sa-token
+          projected:
+          defaultMode: 420
+          sources:
+          - serviceAccountToken:
+              path: sa-token
+              expirationSeconds: 3600
+              audience: iam
+      extraVolumeMounts:
+      - mountPath: /var/run/secrets/tokens
+          name: sa-token' >values.yml
+    helm install external-secrets external-secrets/external-secrets -n external-secrets --create-namespace -f values.yml
     ```
     {: pre}
 
