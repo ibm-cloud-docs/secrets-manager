@@ -2,7 +2,7 @@
 
 copyright:
   years: "2023"
-lastupdated: "2023-05-12"
+lastupdated: "2023-05-16"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, private certificates
 
@@ -303,5 +303,4 @@ The following example shows a configuration that you can use to create a private
 
 
 After a certificate is issued, you can deploy it to your integrated apps, download it, or rotate it manually. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#create-secret){: external}.
-
 

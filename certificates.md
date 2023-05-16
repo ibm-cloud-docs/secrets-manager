@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-12"
+lastupdated: "2023-05-16"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, imported certificates
 
@@ -56,10 +56,8 @@ subcollection: secrets-manager
 {:release-note: data-hd-content-type='release-note'}
 
 
-
 # Importing SSL/TLS certificates
 {: #certificates}
-
 
 
 You can use {{site.data.keyword.secrets-manager_full}} to import SSL/TLS certificates that you can use for your apps or services.
@@ -70,7 +68,7 @@ An SSL/TLS certificate is a type of digital certificate that is used to establis
 In {{site.data.keyword.secrets-manager_short}}, certificates that you import to the service are imported certificates (`imported_cert`). Certificates that you order through {{site.data.keyword.secrets-manager_short}} from a third-party certificate authority are [public certificates](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates) (`public_cert`). Certificates that you create by using a private certificate authority are [private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates) (`private_cert`).
 {: note}
 
-To learn more about the types of secrets that you can manage in {{site.data.keyword.secrets-manager_short}}, see [What is a secret?](/docs/secrets-manager?topic=secrets-manager-what-is-secret)
+To learn more about the types of secrets that you can manage in {{site.data.keyword.secrets-manager_short}}, see [What is a secret?](/docs/secrets-manager?topic=secrets-manager-what-is-secret).
 
 ## Before you begin
 {: #before-certificates}
@@ -81,8 +79,6 @@ Before you import a certificate, be sure that you:
 - Create an X.509 compliant certificate with a matching private key (optional).
 - Convert your files into Privacy-enhanced electronic mail (PEM) format. 
 - Keep the private key unencrypted to ensure that it can be imported into {{site.data.keyword.secrets-manager_short}}.
-
-
 
 
 ## Importing your existing certificates
@@ -232,4 +228,5 @@ The following example shows a query that you can use to import an existing certi
     }
 ```
 {: codeblock}
+
 
