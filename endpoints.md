@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-12"
+lastupdated: "2023-05-16"
 
 keywords: Secrets Manager availability, regions, Secrets Manager endpoints, Vault endpoint
 
@@ -139,7 +139,7 @@ You can find your service endpoint URLs in the **Endpoints** page of the {{site.
 curl -X GET  
     -H "Accept: application/json" \
     -H "Authorization: Bearer {IAM_token}"
-"https://{region}.secrets-manager.cloud.ibm.com/api/v2/instances/{url_encoded_instance_CRN}/endpoints"
+"https://{region}.secrets-manager.cloud.ibm.com/api/v1/instances/{url_encoded_instance_CRN}/endpoints"
 ```
 {: pre}
 
@@ -158,19 +158,20 @@ A successful request returns the endpoint URLs that are associated with the regi
 
 ```json
 {
+    "plan": "standard",
     "public_endpoints": {
         "service_api": "https://927fb8ae-1ddd-4483-a21f-7d3c0fc845f5.us-south.secrets-manager.appdomain.cloud/api",
-    "vault_api": "https://927fb8ae-1ddd-4483-a21f-7d3c0fc845f5.us-south.secrets-manager.appdomain.cloud"
+        "vault_api": "https://927fb8ae-1ddd-4483-a21f-7d3c0fc845f5.us-south.secrets-manager.appdomain.cloud"
     },
     "private_endpoints": {
         "service_api": "https://927fb8ae-1ddd-4483-a21f-7d3c0fc845f5.private.us-south.secrets-manager.appdomain.cloud/api",
-    "vault_api": "https://927fb8ae-1ddd-4483-a21f-7d3c0fc845f5.private.us-south.secrets-manager.appdomain.cloud"
+        "vault_api": "https://927fb8ae-1ddd-4483-a21f-7d3c0fc845f5.private.us-south.secrets-manager.appdomain.cloud"
     }
 }
 ```
 {: screen}
 
-To try this API, you can interact with the following Swagger UI from your browser: `https://{region}.secrets-manager.cloud.ibm.com/api/v2/swagger-ui/`.
+To try this API, you can interact with the following Swagger UI from your browser: `https://{region}.secrets-manager.cloud.ibm.com/swagger-ui`.
 {: tip}
 
 If your instance is configured with the **Private only** option, this API returns only the `private_endpoints` object in the response.
