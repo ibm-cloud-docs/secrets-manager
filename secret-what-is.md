@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-18"
+lastupdated: "2023-05-12"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -196,4 +196,4 @@ Check out the following image to see how a secret is structured.
 ## How do I get started?
 {: #what-is-secret-get-started}
 
-To get started with secrets, you can go to the **Secrets** page of the {{site.data.keyword.secrets-manager_short}} UI, or check out the [API reference](/apidocs/secrets-manager) to learn more about creating secrets programmatically.
+To get started with secrets, you can go to the **Secrets** page of the {{site.data.keyword.secrets-manager_short}} UI, or check out the [API reference](/apidocs/secrets-manager/secrets-manager-v2) to learn more about creating secrets programmatically.

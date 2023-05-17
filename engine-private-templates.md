@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-09"
+lastupdated: "2023-05-12"
 
 keywords: certificate parameters, certificate templates
 
@@ -65,7 +65,7 @@ You can define up to 10 certificate templates per instance. To view a list of te
 {: note}
 {: ui}
 
-You can define up to 10 certificate templates per instance. To obtain a list of templates that are available for a specific certificate authority, you can use the [List configurations](/apidocs/secrets-manager#get-secret-config-element) API.
+You can define up to 10 certificate templates per instance. To obtain a list of templates that are available for a specific certificate authority, you can use the [List configurations](/apidocs/secrets-manager/secrets-manager-v2#get-secret-config-element) API.
 {: note}
 {: api}
 
@@ -200,6 +200,58 @@ A successful response adds the template configuration to your service instance.
 {: screen}
 
 
+## Adding a certificate template from the CLI
+{: #certificate-templates-cli}
+{: cli}
+
+You can create a certificate template for your service instance by using the {{site.data.keyword.secrets-manager_short}} CLI.
+
+The following example shows a command that you can use to create a certificate template and associate it with an existing intermediate certificate authority that is configured for your instance.
+{: note}
+
+
+```sh
+ibmcloud secrets-manager configuration-create 
+  --configuration-prototype='{
+    "config_type": "private_cert_configuration_template",
+    "name": "example-certificate-template",
+    "allow_any_name": true,
+    "allow_bare_domains": true,
+    "allow_glob_domains": true,
+    "allow_ip_sans": true,
+    "allow_localhost": true,
+    "allow_subdomains": false,
+    "allow_wildcard_certificates": true,
+    "allowed_domains": ["example.com","acme.com"],
+    "allowed_domains_template": true,
+    "allowed_other_sans": [
+      "1.2.3.5.4.3.201.10.4.3;utf8:test@example.com",
+      "1.3.6.1.4.1.201.10.5.5;UTF-8:*"
+      ],
+    "allowed_secret_groups": "d898bb90-82f6-4d61-b5cc-b079b66cfa76",
+    "allowed_uri_sans": ["example.com","acme://*"],
+    "certificate_authority": "example-intermediate-CA",
+    "client_flag": true,
+    "code_signing_flag": false,
+    "email_protection_flag": false,
+    "enforce_hostnames": false,
+    "key_bits": 2048,
+    "key_type": "rsa",
+    "key_usage": [
+      "DigitalSignature",
+      "KeyAgreement",
+      "KeyEncipherment"
+    ],
+    "max_ttl": "24h",
+    "server_flag": true,
+    "ttl": "8h",
+    "use_csr_common_name": true,
+    "use_csr_sans": true
+  }'
+```
+{: pre}
+
+
 ## Adding a certificate template with Terraform
 {: #certificate-templates-terraform}
 {: terraform}
@@ -222,7 +274,7 @@ The following example shows a configuration that you can use to create a certifi
 {: codeblock}
 
 
-For more information about the required and optional request parameters, see [Add a configuration](/apidocs/secrets-manager#create-config-element){: external}.
+For more information about the required and optional request parameters, see [Add a configuration](/apidocs/secrets-manager/secrets-manager-v2#create-config-element){: external}.
 
 ## Next steps
 {: #certificate-templates-next-steps}

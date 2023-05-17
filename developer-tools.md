@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-18"
+lastupdated: "2023-05-12"
 
 keywords: Secrets Manager developer tools, integrate with application, API, SDK, CLI
 
@@ -104,7 +104,7 @@ curl -X GET  \
 
 Replace `{base_url}` with your service endpoint URL, and `{access_token}` with your IAM token. To run the API request, you can paste it into your command line or preferred API testing tool. 
 
-For more information about using {{site.data.keyword.secrets-manager_short}} APIs, check out the [{{site.data.keyword.secrets-manager_short}} API reference](/apidocs/secrets-manager).
+For more information about using {{site.data.keyword.secrets-manager_short}} APIs, check out the [{{site.data.keyword.secrets-manager_short}} API reference](/apidocs/secrets-manager/secrets-manager-v2).
 {: note}
 
 ### Vault

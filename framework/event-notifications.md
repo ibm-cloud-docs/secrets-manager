@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-02"
+lastupdated: "2023-05-12"
 
 keywords: event notifications for {{site.data.keyword.secrets-manager_short}}, event notifications integration for {{site.data.keyword.secrets-manager_short}}, alerts for {{site.data.keyword.secrets-manager_short}}
 
@@ -218,7 +218,7 @@ curl -X POST
 {: curl}
 
 
-A successful request returns the CRN value of your connected {{site.data.keyword.en_short}} service instance. For more information about the required and optional request parameters, see the [API docs](/apidocs/secrets-manager).
+A successful request returns the CRN value of your connected {{site.data.keyword.en_short}} service instance. For more information about the required and optional request parameters, see the [API docs](/apidocs/secrets-manager/secrets-manager-v2).
 
 
 ### Connecting to {{site.data.keyword.en_short}} with Terraform
@@ -277,7 +277,7 @@ curl -X GET
 {: codeblock}
 {: curl}
 
-A successful request returns an HTTP `200 OK` response to indicate that a test event was forwarded successfully to your connected {{site.data.keyword.en_short}} service instance. For more information, see the [API docs](/apidocs/secrets-manager).
+A successful request returns an HTTP `200 OK` response to indicate that a test event was forwarded successfully to your connected {{site.data.keyword.en_short}} service instance. For more information, see the [API docs](/apidocs/secrets-manager/secrets-manager-v2).
 
 
 ## Delivering notifications to select destinations

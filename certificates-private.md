@@ -2,7 +2,7 @@
 
 copyright:
   years: "2023"
-lastupdated: "2023-05-09"
+lastupdated: "2023-05-16"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, private certificates
 
@@ -138,7 +138,7 @@ When you order a certificate, domain validation takes place to verify the owners
 
 
 ```sh
-ibmcloud secrets-manager secret-create --resources=
+ibmcloud secrets-manager secret-create --secret-prototype=
     '[{
         "name": "example-private-certificate", 
         "description": "Extended description for this secret.", 
@@ -220,7 +220,7 @@ curl -X POST
 {: curl}
 
 
-Need to create a private certificate with advanced options? You can use optional request parameters to specify advanced attributes for your private certificate, such as Subject Alternative Names or a time-to-live (TTL). If you omit these optional parameters, the attributes that are defined for your selected certificate template are applied. For more information, see the [API reference](/apidocs/secrets-manager#create-secret).
+Need to create a private certificate with advanced options? You can use optional request parameters to specify advanced attributes for your private certificate, such as Subject Alternative Names or a time-to-live (TTL). If you omit these optional parameters, the attributes that are defined for your selected certificate template are applied. For more information, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#create-secret).
 {: tip}
 
 A successful request returns the contents of your private certificate, along with other metadata that is determined by the certificate template and issuing certificate authority.
@@ -302,6 +302,5 @@ The following example shows a configuration that you can use to create a private
 {: codeblock}
 
 
-After a certificate is issued, you can deploy it to your integrated apps, download it, or rotate it manually. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager#create-secret){: external}.
-
+After a certificate is issued, you can deploy it to your integrated apps, download it, or rotate it manually. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#create-secret){: external}.
 

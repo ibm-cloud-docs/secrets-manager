@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-08"
+lastupdated: "2023-05-12"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -246,7 +246,7 @@ curl -X POST
 
 
 
-A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager#create-secret).
+A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager/secrets-manager-v2#create-secret).
 
 ### Reusing the same API key until the lease expires
 {: #iam-credentials-reuse-api}
@@ -292,7 +292,7 @@ curl -X POST
 {: curl}
 
 
-A successful request returns the ID value of the secret, along with other metadata. After the secret reaches the end of its lease, the credentials are revoked automatically. For more information, check out the [API reference](/apidocs/secrets-manager).
+A successful request returns the ID value of the secret, along with other metadata. After the secret reaches the end of its lease, the credentials are revoked automatically. For more information, check out the [API reference](/apidocs/secrets-manager/secrets-manager-v2).
 
 If `reuse_api_key` is `false` for IAM credentials, manual rotation for the secret isn't supported. For more information, see [Manually rotating secrets](/docs/secrets-manager?topic=secrets-manager-manual-rotation).
 {: important}
@@ -339,7 +339,7 @@ curl -X POST
 {: codeblock}
 {: curl}
 
-A successful request returns the ID value of the secret, along with other metadata. For more information, check out the [API reference](/apidocs/secrets-manager).
+A successful request returns the ID value of the secret, along with other metadata. For more information, check out the [API reference](/apidocs/secrets-manager/secrets-manager-v2).
 
 ## Creating IAM credentials with Terraform
 {: #iam-credentials-terraform}

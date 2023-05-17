@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-05-12"
 
 keywords: secrets engines, engine configurations, IAM credentials engine, public certificates engine
 
@@ -100,4 +100,4 @@ Check out the following image to see how a configuration is structured.
 ## How do I get started?
 {: #secrets-engines-get-started}
 
-To get started with secrets, you can go to the **Secrets engines** page of the {{site.data.keyword.secrets-manager_short}} UI, or check out the [API reference](/apidocs/secrets-manager) to learn more about managing secret types programmatically.
+To get started with secrets, you can go to the **Secrets engines** page of the {{site.data.keyword.secrets-manager_short}} UI, or check out the [API reference](/apidocs/secrets-manager/secrets-manager-v2) to learn more about managing secret types programmatically.

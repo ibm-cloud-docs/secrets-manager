@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-03-27"
+lastupdated: "2023-05-12"
 
 keywords: context-based restrictions, access allowlist, network security
 
@@ -104,7 +104,7 @@ Context-based restrictions protect only the actions that are associated with the
 - [Global Search APIs](/apidocs/search)
 - Global Tagging [Attach](/apidocs/tagging#attach-tag) and [Detach](/apidocs/tagging#detach-tag) APIs
 - [Context-based Restriction Rule APIs](/apidocs/context-based-restrictions#create-rule)
-- [Secrets Manager APIs](/apidocs/secrets-manager)
+- [Secrets Manager APIs](/apidocs/secrets-manager/secrets-manager-v2)
 
 
 ## Creating network zones

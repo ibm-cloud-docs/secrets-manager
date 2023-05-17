@@ -71,7 +71,7 @@ toc:
               - topic: certificates-public.md
                 navtitle: Public certificates
               - topic: certificates-private.md
-                navtitle: Private certificates                                
+                navtitle: Private certificates                               
               - topic: user-credentials.md
                 navtitle: User credentials
           - secret-access.md
@@ -133,7 +133,7 @@ toc:
           topics:
           - link:
               label: Secrets Manager API
-              href: https://{DomainName}/apidocs/secrets-manager
+              href: https://{DomainName}/apidocs/secrets-manager/secrets-manager-v2
           - changelog-api.md
       - topicgroup:
           label: CLI reference

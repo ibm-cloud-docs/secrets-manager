@@ -2,7 +2,7 @@
 
 copyright:
   years: "2023"
-lastupdated: "2023-05-09"
+lastupdated: "2023-05-16"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, public certificates
 
@@ -91,7 +91,7 @@ After you [configure the public certificates engine](/docs/secrets-manager?topic
 - If the validation doesn't complete successfully, the status of your certificate changes to **Deactivated**. From your Secrets table, you can check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.
     {: cli}
 
-- If the validation doesn't complete successfully, the status of your certificate changes to **Deactivated**. You can use the [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
+- If the validation doesn't complete successfully, the status of your certificate changes to **Deactivated**. You can use the [Get secret metadata](/apidocs/secrets-manager/secrets-manager-v2#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
     {: api}
 
 - After the certificate is issued, you can deploy it to your integrated apps, download it, or modify its rotation options. 
@@ -160,7 +160,7 @@ When you order a certificate, domain validation takes place to verify the owners
 
 
 ```sh
-ibmcloud secrets-manager secret-create --resources=
+ibmcloud secrets-manager secret-create --secret-prototype=
 '[{
     "name": "example-public-certificate", 
     "description": "Extended description for this secret.", 
@@ -251,9 +251,9 @@ curl -X POST
 {: curl}
 
 
-When you submit your certificate details, {{site.data.keyword.secrets-manager_short}} sends your request to the selected certificate authority. After a certificate is issued, you can deploy it to your integrated apps, download it, or rotate it manually. Your private key for SSL/TLS is generated directly in {{site.data.keyword.secrets-manager_short}} and stored securely. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager#create-secret){: external}.
+When you submit your certificate details, {{site.data.keyword.secrets-manager_short}} sends your request to the selected certificate authority. After a certificate is issued, you can deploy it to your integrated apps, download it, or rotate it manually. Your private key for SSL/TLS is generated directly in {{site.data.keyword.secrets-manager_short}} and stored securely. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager/secrets-manager-v2#create-secret){: external}.
 
-Need to check your order status? Use the [Get secret metadata](/apidocs/secrets-manager#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
+Need to check your order status? Use the [Get secret metadata](/apidocs/secrets-manager/secrets-manager-v2#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
 {: tip} 
 
 
@@ -326,7 +326,7 @@ To create a public certificate by using a manual DNS provider in the UI, complet
 16. Click **Challenges** to access the TXT record name and value that are associated with each of your domains. You need them to complete the challenges.
 17. To validate the ownership of your domains, manually add the TXT records that are provided for each of your domains to your DNS provider account. You must address only the challenges that are not validated before the expiration date. 
 
-    If you order a certificate for subdomains, for example, `sub1.sub2.domain.com`, you need to add the TXT records to your registered domain `domain.com`.
+    If you order a certificate for a subdomain, for example, `sub1.sub2.domain.com`, you need to add the TXT records to your registered domain `domain.com`.
     {: note}
 
 18. Verify that the TXT records that you added to your domains are propagated. Depending on your DNS provider, it can take some time to complete.
@@ -468,7 +468,7 @@ To create a public certificate by using a manual DNS provider, complete the foll
 4. Validate that the TXT records that you added are propagated. Depending on your DNS provider, it can take some time to complete.
 
 
-5. After the records are propagated, call the {{site.data.keyword.secrets-manager_short}} [Invoke an action on a secret](/apidocs/secrets-manager#update-secret) API to request Let's Encrypt to validate the challenges to your domain and create a public certificate. 
+5. After the records are propagated, call the {{site.data.keyword.secrets-manager_short}} [Invoke an action on a secret](/apidocs/secrets-manager/secrets-manager-v2#update-secret) API to request Let's Encrypt to validate the challenges to your domain and create a public certificate. 
 
    ```sh
     curl -X POST 
@@ -484,7 +484,7 @@ To create a public certificate by using a manual DNS provider, complete the foll
    {: curl}
 
 
-   If you need to update your certificate later, you can use the [Invoke an action on a secret](/apidocs/secrets-manager#update-secret) API but with the action `rotate`. However, you can't automatically rotate manual DNS provider certificates in {{site.data.keyword.secrets-manager_short}}.
+   If you need to update your certificate later, you can use the [Invoke an action on a secret](/apidocs/secrets-manager/secrets-manager-v2#update-secret) API but with the action `rotate`. However, you can't automatically rotate manual DNS provider certificates in {{site.data.keyword.secrets-manager_short}}.
    {: note}
 
 
@@ -540,9 +540,6 @@ ibmcloud secrets-manager secret-create --resources=
 
 
 The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
-
-
-
 
 
 

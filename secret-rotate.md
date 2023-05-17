@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-09"
+lastupdated: "2023-05-12"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -179,7 +179,7 @@ If the certificate that you are rotating was previously imported with an interme
    In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
 8. Redeploy the latest certificate version to your TLS termination point.
 
-   To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager#get-secret) API.
+   To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager/secrets-manager-v2#get-secret) API.
 
 
 ### Creating new versions of public certificates
@@ -204,7 +204,7 @@ If your {{site.data.keyword.secrets-manager_short}} service instance is enabled 
 
 8. Redeploy the latest certificate version to your TLS termination point.
 
-   To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager#get-secret) API.
+   To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager/secrets-manager-v2#get-secret) API.
 
 
 
@@ -250,7 +250,7 @@ If your {{site.data.keyword.secrets-manager_short}} service instance is enabled 
 6. Click **Rotate**.
 7. Redeploy the latest certificate version to your TLS termination point.
 
-   To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager#get-secret) API.
+   To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager/secrets-manager-v2#get-secret) API.
 
 
 ## Manually creating new versions of secrets from the CLI
@@ -337,7 +337,7 @@ curl -X POST \
 {: curl}
 
 
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager#update-secret).
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#update-secret).
 
 
 ### Rotating key-value secrets
@@ -374,7 +374,7 @@ curl -X POST \
 {: curl}
 
 
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager#update-secret).
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#update-secret).
 
 
 ### Rotating user credentials
@@ -414,7 +414,7 @@ curl -X POST \
 To have the service generate and assign a random password to your credential, you can pass an empty string on the `password` field. For example, `{ "password": ""}`. {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
 {: tip}
 
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager#update-secret).
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#update-secret).
 
 ## Manually rotating secrets with Terraform
 {: #manual-rotate-terraform}
