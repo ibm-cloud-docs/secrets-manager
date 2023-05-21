@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-05-12"
+lastupdated: "2023-05-21"
 
 keywords: context-based restrictions, access allowlist, network security
 
@@ -119,7 +119,8 @@ By creating network zones, you can define an allowlist of network locations wher
 Make sure to add {{site.data.keyword.secrets-manager_short}} to network zones for rules that target other {{site.data.keyword.cloud_notm}} resources, or some operations in your workflow might fail. 
 {: important}
 
-
+If you have created a VSI in your VPC, the private IP that is being used for the CBR rule is not the internal VSI machine IP but a VPC gateway IP. To find the gateway IP, select the relevant Cloud Service Endpoint source IP address in your VPC Infrastructure.
+{: important}
 
 ### Creating network zones by using the API
 {: #cbr-create-zones-api}
