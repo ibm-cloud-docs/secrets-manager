@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-05-22"
 
 keywords: logging, activity, monitor app, monitor secrets
 
@@ -90,5 +90,29 @@ To view {{site.data.keyword.secrets-manager_short}} logs, complete the following
     For more information about searching and filtering logs, check out the [{{site.data.keyword.la_short}} documentation](/docs/log-analysis?topic=log-analysis-monitor_logs).
 
 
+## Analyzing logs
+{: #analyze-logs-ui}
 
+You can create views and alerts from all of your {{site.data.keyword.secrets-manager_short}} instances, or from a specific instance.  
+To target a specific instance, replace `host:secrets-manager` with `app:{INSTANCE_CRN}`.
 
+### Query for finding all errors from all instances
+{: #query-all-logs}
+
+Run the following query to find all errors from all of your instances.
+
+```sh
+host:secrets-manager
+```
+
+### Query for finding all errors from a specific instance
+{: #query-instance-logs}
+
+Run the following query to find all errors from a specific instance.
+
+```sh
+app:crn:v1:bluemix:public:secrets-manager:au-syd:a/9add8f16c5a24a6ea8ce5d8b89b15b28:ee536f33-48ce-4125-ae4a-37b46cdc802d::
+```
+
+To learn more about creating [views](/log-analysis?topic=log-analysis-view_logs) and [alerts](/log-analysis?topic=log-analysis-create_alert_ui), see the {{site.data.keyword.logs_full_notm}} documentation.
+{: note}

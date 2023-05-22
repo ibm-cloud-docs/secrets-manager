@@ -2,7 +2,7 @@
 
 copyright:
   years: "2023"
-lastupdated: "2023-05-09"
+lastupdated: "2023-05-19"
 
 keywords: api, api v2, secrets manager api, migration, new version
 
@@ -73,6 +73,7 @@ Review the following list for the biggest changes that you can expect in v2.
 * Use the lock modes `remove_previous` and `remove_previous_and_delete` instead of `exclusive` and `exclusive_delete`.
 * With the Reader role, you can list configurations of IAM permissions.
 * Review the response structure, as it might not be the same as v1. 
+* For those who created custom roles in IAM - some action names were changed.
 
 ## Migrating Curl applications
 {: #migrate-api-v2-curl}
@@ -447,6 +448,7 @@ createSecretOptions := secretsManager.NewCreateSecretOptions(
 secret, _, err := secretsManager.CreateSecret(createSecretOptions)
 ```
 {: codeblock}
+
 
 
 
