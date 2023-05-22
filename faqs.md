@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-12"
+lastupdated: "2023-05-22"
 
 keywords: faqs, Frequently Asked Questions, question, Secrets Manager, dynamic what is a secret, what is an arbitrary secret, what is an IAM credential, arbitrary secret, IAM credential, what happens when secret expires
 
@@ -103,7 +103,7 @@ For more information about secret rotation, see [Rotating secrets](/docs/secrets
 {: faq}
 {: support}
 
-If you are storing an arbitrary secret or user credentials, you can choose to set the date and time at which your secret expires. When the secret reaches its expiration date, it transitions to a *Destroyed* state. When that happens, the value that is associated with the secret is no longer recoverable.
+In some secret types such as `arbitrary` or `username_password`, you can set the date and time when your secret expires. When the secret reaches its expiration date, it transitions to a Destroyed state. When the transition happens, the value that is associated with the secret is no longer recoverable. The transition to the Destroyed state can take up to a couple of minutes after the secret expires, or a lock that prevented expiration is removed.
 
 For more information about how your information is protected, see [Securing your data](/docs/secrets-manager?topic=secrets-manager-mng-data).
 
