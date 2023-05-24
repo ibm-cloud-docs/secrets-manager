@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-12"
+lastupdated: "2023-05-24"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -84,15 +84,11 @@ Automatic rotation is supported for [private certificates](/docs/secrets-manager
 | [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) | The Service ID's API key value is replaced with a new API key. The previous API key remains available for the remaining time in the defined TTL. |
 {: caption="Table 1. Describes how {{site.data.keyword.secrets-manager_short}} evaluates manual rotation by secret type" caption-side="top"}
 
-
 ## Scheduling automatic rotation in the UI
 {: #schedule-auto-rotate-ui}
 {: ui}
 
 You can schedule the automatic rotation of secrets by using the {{site.data.keyword.secrets-manager_short}} UI. 
-
-
-
 
 ### Setting an automatic rotation policy for user credentials
 {: #schedule-auto-rotate-password-ui}
@@ -108,15 +104,14 @@ If you need more control over the rotation frequency of a secret, you can use th
     2. In the row for the secret that you want to edit, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Edit details**.
     3. Use the **Automatic rotation** option to enable or disable automatic rotation for the secret.
   
+An update to a secret's rotation settings will trigger an immediate rotation.
+{: note}
 
 ### Setting an automatic rotation policy for public certificates
 {: #schedule-auto-rotate-public-cert-ui}
 {: ui}
 
 If you prefer to schedule your public SSL/TLS certificates to be automatically renewed, you can enable automatic rotation for certificates when you order them. You can also enable auto rotation by editing the details of an existing certificate. In the certificate's next rotation cycle, {{site.data.keyword.secrets-manager_short}} begins attempting to reorder the certificate 31 days before its expiry date. The service continues to attempt to renew the certificate daily until it is successful.
-
-Certificates that expire in less than 31 days must also be [rotated manually](/docs/secrets-manager?topic=secrets-manager-manual-rotation) before rotation becomes automatic in the following cycles.
-{: note}
 
 1. If you're [ordering a public certificate](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates), enable the rotation options.
    
