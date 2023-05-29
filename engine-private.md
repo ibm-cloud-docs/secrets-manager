@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-07"
+lastupdated: "2023-05-29"
 
 keywords: create certificate authority, create root CA, create intermediate CA, set up PKI, set up private certificates, private certificates engine
 
@@ -169,6 +169,57 @@ Before you create a certificate authority in {{site.data.keyword.secrets-manager
    
    For longer living certificates, it is recommended to use longer key lengths to provide more encryption protection.
    {: tip}
+
+## Using certificate authority unauthenticated endpoints
+{: #unauthenticated-endpoints}
+
+If you are using leaf certificates that are issued by a CA in {{site.data.keyword.secrets-manager_short}} for your applications, use the following API calls to gain access to the issuing CA Certificate Revocation List (CRL) and CA certificate.
+
+### Read Certificate Revocation List
+{: #read-certificate-revocation-list}
+
+Wit this endpoint, you can retrieve the current CRL in raw DER-encoded form. If `/pem` is added to the endpoint, the CRL is returned in PEM format.
+
+```sh
+GET v1/ibmcloud/private_cert/config/certificate_authorities/:ca-name/crl(/pem)
+
+Response 200 OK
+<binary DER-encoded CRL>
+```
+{: codeblock}
+
+
+To validate that your leaf or intermediate CA certificates are not revoked from the context of a leaf certificate, you can configure your CA with the property `"crl_distribution_points_encoded": true`. This configuration encodes the URL for downloading the issuing CA CRL in the property such as `X509v3 CRL Distribution Points` in each leaf or intermediate CA certificate. Then, your CA validator can check whether the leaf or intermediate CA certificates are revoked.
+
+### Read CA Certificate
+{: #read-ca-certificate}
+
+With this endpoint, you can retrieve the CA certificate in raw DER-encoded form. If `/pem` is added to the endpoint, the CA certificate is returned in PEM format. 
+
+```sh
+GET v1/ibmcloud/private_cert/config/certificate_authorities/:ca-name/ca(/pem)
+
+Response 200 OK
+<binary DER-encoded certificate >
+```
+{: codeblock}
+
+
+### Read CA Certificate Chain
+{: #read-ca-certificate-chain}
+
+You can retrieve with this endpoint the CA certificate chain, which includes the CA in PEM format. This endpoint is bare. It doesn't return a standard Vault data structure and the Vault CLI can't read it. 
+
+```sh
+GET v1/ibmcloud/private_cert/config/certificate_authorities/:ca-name/ca_chain
+
+Response 200 OK
+<PEM-encoded certificate chain>
+```
+{: codeblock}
+
+
+To verify that the CA chain is from the context of a leaf certificate, you can configure your CAs in {{site.data.keyword.secrets-manager_short}} with the property `"issuing_certificates_urls_encoded": true`. In each leaf or intermediate CA certificate, this configuration encodes the URL that is used for downloading the issuing CA certificate in the property `Authority Information Access/CA Issuers`. Then, your CA validator can validate each CA certificate.
 
 ## Next steps
 {: #prepare-create-certificates-next-steps}
