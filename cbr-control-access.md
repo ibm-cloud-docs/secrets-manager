@@ -119,7 +119,7 @@ By creating network zones, you can define an allowlist of network locations wher
 Make sure to add {{site.data.keyword.secrets-manager_short}} to network zones for rules that target other {{site.data.keyword.cloud_notm}} resources, or some operations in your workflow might fail. 
 {: important}
 
-If you created a Virtual Server Infrastructure (VSI) in your Virtual Private Cloud, the private IP that must be used for the CBR rule is a Virtual Private Cloud gateway IP. It's not the internal VSI machine IP. To find the gateway IP, select the relevant Cloud Service Endpoint source IP address in your Virtual Private Cloud Infrastructure.
+If you created an {{site.data.keyword.cloud_notm}} virtual server on classic infrastructure in your Virtual Private Cloud, the private IP that you must use for the CBR rule is a Virtual Private Cloud gateway IP. Do not use the IP for the internal virtual server on classic infrastructure. To find the gateway IP, select the relevant {{site.data.keyword.cloud_notm}} service endpoint source IP address in your Virtual Private Cloud Infrastructure.
 {: note}
 
 ### Creating network zones by using the API
