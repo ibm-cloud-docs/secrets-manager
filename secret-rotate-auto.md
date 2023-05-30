@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-24"
+lastupdated: "2023-05-30"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -104,7 +104,7 @@ If you need more control over the rotation frequency of a secret, you can use th
     2. In the row for the secret that you want to edit, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Edit details**.
     3. Use the **Automatic rotation** option to enable or disable automatic rotation for the secret.
   
-An update to a secret's rotation settings will trigger an immediate rotation.
+When you update a secret's rotation settings, you trigger an immediate rotation.
 {: note}
 
 ### Setting an automatic rotation policy for public certificates
