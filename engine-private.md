@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-29"
+lastupdated: "2023-05-30"
 
 keywords: create certificate authority, create root CA, create intermediate CA, set up PKI, set up private certificates, private certificates engine
 
@@ -83,7 +83,7 @@ A valid chain of certificates begins at a trusted root CA, passes through one or
 ## Designing your CA hierarchy
 {: #design-ca-hierarchy}
 
-With {{site.data.keyword.secrets-manager_short}}, you can create up to 10 root CAs and 10 intermediate CAs in your service instance with multiple branches and hierarchies.
+With {{site.data.keyword.secrets-manager_short}}, you can create up to 10 root CAs and 10 intermediate CAs in your service instance that contain multiple branches and hierarchies.
 
 | Authority type | Description |
 | --- | --- |
@@ -95,7 +95,7 @@ With {{site.data.keyword.secrets-manager_short}}, you can create up to 10 root C
 ### Planning the structure of a CA hierarchy
 {: #plan-ca-structure}
 
-As a best practice, plan a hierarchy of certificate authorities that corresponds with the structure of your organization. In most cases, you can implement one of the following common CA structures.
+As a best practice, plan a hierarchy of certificate authorities that corresponds with the structure of your organization. Usually, you can implement one of the following common CA structures.
 
 #### Two levels: Root CA and subordinate CA
 {: #two-level-ca}
@@ -173,7 +173,7 @@ Before you create a certificate authority in {{site.data.keyword.secrets-manager
 ## Using certificate authority unauthenticated endpoints
 {: #unauthenticated-endpoints}
 
-If you are using leaf certificates that are issued by a CA in {{site.data.keyword.secrets-manager_short}} for your applications, use the following API calls to gain access to the issuing CA Certificate Revocation List (CRL) and CA certificate.
+If you're using leaf certificates that are issued by a CA in {{site.data.keyword.secrets-manager_short}} for your applications, use the following API calls to gain access to the issuing CA Certificate Revocation List (CRL) and CA certificate.
 
 ### Read Certificate Revocation List
 {: #read-certificate-revocation-list}
@@ -189,9 +189,9 @@ Response 200 OK
 {: codeblock}
 
 
-To validate that your leaf or intermediate CA certificates are not revoked from the context of a leaf certificate, you can configure your CA with the property `"crl_distribution_points_encoded": true`. This configuration encodes the URL for downloading the issuing CA CRL in the property such as `X509v3 CRL Distribution Points` in each leaf or intermediate CA certificate. Then, your CA validator can check whether the leaf or intermediate CA certificates are revoked.
+To validate that your leaf or intermediate CA certificates are not revoked from the context of a leaf certificate, you can configure your CA with the property `"crl_distribution_points_encoded": true`. This configuration encodes the URL that is used for downloading the issuing CA CRL in the property such as `X509v3 CRL Distribution Points` in each leaf or intermediate CA certificate. Then, your CA validator can check whether the leaf or intermediate CA certificates are revoked.
 
-### Read CA Certificate
+### Read CA certificate
 {: #read-ca-certificate}
 
 With this endpoint, you can retrieve the CA certificate in raw DER-encoded form. If `/pem` is added to the endpoint, the CA certificate is returned in PEM format. 
@@ -205,7 +205,7 @@ Response 200 OK
 {: codeblock}
 
 
-### Read CA Certificate Chain
+### Read CA certificate chain
 {: #read-ca-certificate-chain}
 
 You can retrieve with this endpoint the CA certificate chain, which includes the CA in PEM format. This endpoint is bare. It doesn't return a standard Vault data structure and the Vault CLI can't read it. 
