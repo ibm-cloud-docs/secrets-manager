@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-12"
+lastupdated: "2023-05-25"
 
 keywords: certificate parameters, certificate templates
 
@@ -68,6 +68,16 @@ You can define up to 10 certificate templates per instance. To view a list of te
 You can define up to 10 certificate templates per instance. To obtain a list of templates that are available for a specific certificate authority, you can use the [List configurations](/apidocs/secrets-manager/secrets-manager-v2#get-secret-config-element) API.
 {: note}
 {: api}
+
+## Specifying allowed domains for generated certificates
+{: #allowed-domains-generated-certificates}
+{: ui}
+
+You can specify the domains that are allowed for the certificates that you generate.
+
+- Use the **Domains settings** section to add the domains that the template allows. Then, the list is used with the **Allow bare domain** and **Allow subdomains** options to determine the type of matching between these domains and the domains for which clients can request certificates.
+- Enable the **Allow bare domains** option to specify whether clients can request certificates that match the domains that the template allows.
+- Enable the **Allow subdomains** option to indicate whether clients can request certificates that match subdomains of the domains that this template allows. Wildcard subdomains are included in this option.
 
 ## Before you begin
 {: #before-certificate-templates}
