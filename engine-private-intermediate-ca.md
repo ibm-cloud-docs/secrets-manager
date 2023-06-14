@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-06-13"
+lastupdated: "2023-06-14"
 
 keywords: intermediate certificate authority, intermediate CA, internal signing, external signing
 
@@ -278,9 +278,29 @@ You can choose from various tools, such as `openssl`, to sign a CSR file. For ex
 ```sh
 openssl x509 -req -in <intermediate-ca-csr-file> -CA <external-parent-ca-file> -CAkey <external-ca-key-file> -out <signed-intermediate-ca-file>
 ```
-{: pre}
+{: codeblock}
 
-The command outputs a signed certificate file that you can then import into your intermediate CA configuration to complete the signing process.
+The command outputs a signed certificate file that you can import into your intermediate CA configuration to complete the signing process. 
+
+If the parent CA is a root CA or an intermediate CA from another {{site.data.keyword.secrets-manager_short}} instance, you can sign the CSR by by using the `sign-csr` action. The following example shows a query that you can use to sign the CSR.  
+
+```sh
+curl -X POST 
+  --H "Authorization: Bearer {iam_token}" \
+  --H "Accept: application/json" \
+  --H "Content-Type: application/json" \
+  --d '{
+  "action_type": "private_cert_configuration_action_sign_csr",
+  "csr": "-----BEGIN CERTIFICATE REQUEST-----\nMIICiDCCAXACAQAwGDEWMBQGA1UEAxMNct5ANo8jybxCwNjHOA==\n-----END CERTIFICATE REQUEST-----"
+}' \  
+  "https://{other_instance_ID}.{other_instance_region}.secrets-manager.appdomain.cloud/api/v2/configurations/example-intermediate-CA/actions"
+```
+{: codeblock}
+{: curl}
+
+
+Copy the value of the `certificate` field from the response to use it in the next step.
+
 
 ### Step 3: Import a signed intermediate CA into your intermediate CA configuration
 {: #intermediate-ca-set-signed-api}
@@ -342,6 +362,7 @@ ibmcloud secrets-manager configuration-create
 
 
 ### Step 2: Sign the intermediate CA
+{: #intermediate-ca-external-create-cli}
 
 To sign the intermediate CA from the {{site.data.keyword.secrets-manager_short}} CLI, apply the `sign-intermediate` action by runnning the [**`ibmcloud secrets-manager configuration-action-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-configuration-action-create-command) command. Pass the name of the signing certificate authority (the issuer) with the `--name` command option. 
 
@@ -411,7 +432,23 @@ openssl x509 -req -in <intermediate-ca-csr-file> -CA <external-parent-ca-file> -
 ```
 {: pre}
 
-The command outputs a signed certificate file that you can then import into your intermediate CA configuration to complete the signing process.
+The command outputs a signed certificate file that you can import into your intermediate CA configuration to complete the signing process.
+
+If the parent CA is a root CA or an intermediate CA from another {{site.data.keyword.secrets-manager_short}} instance, you can sign the CSR by applying the `sign-csr` action. To apply the action run the [**`ibmcloud secrets-manager configuration-action-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-configuration-action-create-command) command. Copy the value of the `certificate` field from the command output to use it in the next step. For example, if the parent CA is the root CA with the name `example-root-CA` in another {{site.data.keyword.secrets-manager_short}} instance, the command would be as follows.
+
+```sh
+ibmcloud secrets-manager configuration-action-create --name example-root-CA --output json  
+   --config-action-prototype='{
+      "action_type": "private_cert_configuration_action_sign_csr",
+      "csr": "-----BEGIN CERTIFICATE REQUEST-----\nMIICiDCCAXACAQAwGDEWMBQGA1UEAxMNct5ANo8jybxCwNjHOA==\n-----END CERTIFICATE REQUEST-----"
+    }'
+```
+{:pre}
+
+
+For the `sign-csr` action you need to target the other {{site.data.keyword.secrets-manager_short}} instance where the parent CA resides. Before running the command, export the environment variable `SECRETS_MANAGER_URL` to target the other instance.
+{: note}
+
 
 ### Step 3: Import a signed intermediate CA into your intermediate CA configuration
 {: #intermediate-ca-set-signed-cli}
@@ -446,6 +483,7 @@ The following example shows a configuration that you can use to create an interm
     }
 ```
 {: codeblock}
+
 
 ## Creating an intermediate CA with external signing with the API
 {: #intermediate-ca-external-signing-terraform}
