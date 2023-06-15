@@ -10,7 +10,6 @@ toc:
     product-page: https://ibm.com/cloud/secrets-manager
     path: secrets-manager
     label: Secrets Manager
-
   entries:
   - navgroup:
       id: learn
@@ -27,11 +26,15 @@ toc:
           - best-practices/secret-organize.md
           - best-practices/secret-rotation.md
       - topic: integrations.md
-        navtitle: Integrations
-      - api-migration.md
+        navtitle: Platform integrations
+      - api-migration.md      
+      - topicgroup:
+          label: Tool integrations
+          topics:
+          - integration-ansible.md
+          - integration-jenkins.md
       - topic: releases.md
         navtitle: Release notes
-
   - navgroup: 
       id: tutorial
       topics: 
@@ -43,7 +46,6 @@ toc:
           - tutorials/notifications-setup.md
           - tutorials/notifications-github.md
           - tutorials/notifications-slack.md
-
   - navgroup:
       id: howto
       topics:
@@ -124,7 +126,6 @@ toc:
                 navtitle: Using service endpoints
           - framework/data-security.md
           - cbr-control-access.md
-
   - navgroup:
       id: reference
       topics:
@@ -177,7 +178,6 @@ toc:
                   href: https://github.com/ibm-cloud-security/vault-plugin-secrets-ibmcloud
       - endpoints.md
       - framework/ha-dr.md
-
   - navgroup:
       id: help
       topics:

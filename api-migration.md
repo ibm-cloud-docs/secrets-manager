@@ -2,7 +2,7 @@
 
 copyright:
   years: "2023"
-lastupdated: "2023-05-19"
+lastupdated: "2023-06-15"
 
 keywords: api, api v2, secrets manager api, migration, new version
 
@@ -448,7 +448,5 @@ createSecretOptions := secretsManager.NewCreateSecretOptions(
 secret, _, err := secretsManager.CreateSecret(createSecretOptions)
 ```
 {: codeblock}
-
-
 
 
