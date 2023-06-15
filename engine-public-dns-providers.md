@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-12"
+lastupdated: "2023-06-15"
 
 keywords: DNS provider, connect DNS provider, set up DNS provider, connect DNS, set up DNS, connect CIS, set up CIS, add DNS provider configuration
 
@@ -129,7 +129,6 @@ You can add DNS provider configurations to your service instance by using the {{
 7. Click **Add**.
 
 
-
 ## Adding a DNS provider configuration from the CLI
 {: #add-dns-provider-cli}
 {: cli}
@@ -146,7 +145,6 @@ ibmcloud secrets-manager configuration-create {
   "name": "my-cloud-internet-services-config"}'
 ```
 {: pre}
-
 
 
 ## Adding a DNS provider configuration with the API

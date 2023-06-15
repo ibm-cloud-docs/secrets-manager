@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-12"
+lastupdated: "2023-06-15"
 
 keywords: certificate authority, connect certificate authority, set up certificate authority, connect CA, set up CA, connect Let's Encrypt, set up Let's Encrypt, add certificate authority configuration, add CA configuration
 
@@ -112,7 +112,6 @@ You can add certificate authority configurations to your service instance by usi
    You can now select this configuration when you order a certificate. To modify or remove an existing configuration, click **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) in the row of the configuration that you want to update.
 
 
-
 ## Adding a certificate authority configuration from the CLI
 {: #add-certificate-authority-cli}
 {: cli}
@@ -129,7 +128,6 @@ ibmcloud secrets-manager configuration-create '{
   }'
 ```
 {: pre}
-
 
 
 ## Adding a certificate authority configuration with the API

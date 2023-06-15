@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-12"
+lastupdated: "2023-06-15"
 
 keywords: Secrets Manager developer tools, integrate with application, API, SDK, CLI
 
@@ -90,7 +90,7 @@ To install {{site.data.keyword.secrets-manager_short}} commands, run `ibmcloud p
 ### {{site.data.keyword.secrets-manager_short}} API
 {: #dev-tool-api}
 
-If you're trying out the {{site.data.keyword.secrets-manager_short}} for the first time, you might want to use the {{site.data.keyword.secrets-manager_short}} API to evaluate the service and test out workflows for your applications. Start by copying the service endpoint URL from the **Endpoints** page in your {{site.data.keyword.secrets-manager_short}} service dashboard. Then, generate an [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) token](/docs/account?topic=account-iamtoken_from_apikey) to include in your request. For example, after you store secrets in your service instance, the following API request can be used to obtain your list of secrets:
+If you're trying out {{site.data.keyword.secrets-manager_short}} for the first time, you might want to use the {{site.data.keyword.secrets-manager_short}} API to evaluate the service and test out workflows for your applications. Start by copying the service endpoint URL from the **Endpoints** page in your {{site.data.keyword.secrets-manager_short}} service dashboard. Then, generate an [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) token](/docs/account?topic=account-iamtoken_from_apikey) to include in your request. For example, after you store secrets in your service instance, the following API request can be used to obtain your list of secrets:
 
 
 ```sh
