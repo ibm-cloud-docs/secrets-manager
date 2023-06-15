@@ -27,7 +27,7 @@ toc:
           - best-practices/secret-rotation.md
       - topic: integrations.md
         navtitle: Platform integrations
-      - api-migration.md      
+      - api-migration.md    
       - topicgroup:
           label: Tool integrations
           topics:

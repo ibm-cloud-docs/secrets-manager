@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-06-15"
 
 keywords: security and compliance for {{site.data.keyword.secrets-manager_short}}, security for {{site.data.keyword.secrets-manager_short}}, compliance for {{site.data.keyword.secrets-manager_short}},
 
@@ -71,8 +71,8 @@ With the {{site.data.keyword.compliance_short}}, you can monitor your {{site.dat
 
 As a security or compliance focal, you can use the {{site.data.keyword.secrets-manager_short}} [goals](#x2117978){: term} to help ensure that your organization is adhering to the external and internal standards for your industry. By using the {{site.data.keyword.compliance_short}} to validate the resource configurations in your account against a [profile](#x2034950){: term}, you can identify potential issues as they arise.
 
-Before you can monitor your accounts for compliance, you need to [install a collector](/docs/security-compliance?topic=security-compliance-collector) that enables a connection between the {{site.data.keyword.compliance_short}} and your IT resources. For more information, check out the [{{site.data.keyword.compliance_short}} docs](/docs/security-compliance?topic=security-compliance-getting-started).
-{: note}
+For more information, check out the [{{site.data.keyword.compliance_short}} docs](/docs/security-compliance?topic=security-compliance-getting-started).
+
 
 ### Available goals for {{site.data.keyword.secrets-manager_short}}
 {: #secrets-manager-available-goals}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-22"
+lastupdated: "2023-06-15"
 
 keywords: activity tracker events for Secrets Manager, events, Secrets Manager actions
 
@@ -186,5 +186,5 @@ To see unauthorized access attempts, run the following query.
 host:secrets-manager reason.reasonType:Unauthorized
 ```
 
-To learn more about creating [views](/activity-tracker?topic=activity-tracker-create_alert_ui#create_alert_ui_step1) and [alerts](/activity-tracker?topic=activity-tracker-create_alert_ui#alerts_create_alert), see the {{site.data.keyword.at_full_notm}} documentation.
+To learn more about creating [views](/docs/activity-tracker?topic=activity-tracker-create_alert_ui#create_alert_ui_step1) and [alerts](/docs/activity-tracker?topic=activity-tracker-create_alert_ui#alerts_create_alert), see the {{site.data.keyword.at_full_notm}} documentation.
 {: note}
