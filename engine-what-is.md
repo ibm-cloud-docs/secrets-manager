@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-12"
+lastupdated: "2023-06-15"
 
 keywords: secrets engines, engine configurations, IAM credentials engine, public certificates engine
 
@@ -66,7 +66,7 @@ subcollection: secrets-manager
 
 In {{site.data.keyword.secrets-manager_short}}, a secrets engine serves as the back end for a specific type of secret, such as a password or an API key. Depending on its type, a secrets engine can store data, generate secrets on demand, and more.
 
-Some engines require a configuration before you can enable them for your instance. For example, when you try to [order SSL/TLS certificates](/docs/secrets-manager?topic=secrets-manager-certificates) or create [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) for the first time, a message is displayed to show that an engine configuration is required.
+Some engines require a configuration before you can enable them for your instance. For example, when you try to [order SSL/TLS certificates](/docs/secrets-manager?topic=secrets-manager-public-certificates) or create [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) for the first time, a message is displayed to show that an engine configuration is required.
 
 ![The image shows the secrets selection screen in the Secrets Manager UI.](images/engine-required.svg){: caption="Figure 1. Example - Engine configuration required" caption-side="bottom"}
 

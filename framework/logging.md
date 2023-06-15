@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-22"
+lastupdated: "2023-06-15"
 
 keywords: logging, activity, monitor app, monitor secrets
 
@@ -114,5 +114,5 @@ Run the following query to find all errors from a specific instance.
 app:crn:v1:bluemix:public:secrets-manager:au-syd:a/9add8f16c5a24a6ea8ce5d8b89b15b28:ee536f33-48ce-4125-ae4a-37b46cdc802d::
 ```
 
-To learn more about creating [views](/log-analysis?topic=log-analysis-view_logs) and [alerts](/log-analysis?topic=log-analysis-create_alert_ui), see the {{site.data.keyword.logs_full_notm}} documentation.
+To learn more about creating [views](/docs/log-analysis?topic=log-analysis-view_logs) and [alerts](/docs/log-analysis?topic=log-analysis-create_alert_ui), see the {{site.data.keyword.logs_full_notm}} documentation.
 {: note}

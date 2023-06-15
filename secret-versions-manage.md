@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-05-12"
+lastupdated: "2023-06-15"
 
 keywords: secret version history, view versions, secret versions
 
@@ -267,7 +267,7 @@ You can restore one version back on [supported secret types](/docs/secrets-manag
 ### Supported secret types
 {: #supported-secret-types}
 
-Restoring to a previous version is supported for [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) and [public certificates](/docs/secrets-manager?topic=secrets-manager-certificates).
+Restoring to a previous version is supported for [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) and [public certificates](/docs/secrets-manager?topic=secrets-manager-public-certificates).
 
 ## Restoring a previous version with the API
 {: #restore-secret-api}
