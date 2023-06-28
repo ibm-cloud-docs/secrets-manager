@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-05-09"
+lastupdated: "2023-06-21"
 
 keywords: terraform, {{site.data.keyword.secrets-manager_short}}
 
@@ -132,7 +132,7 @@ Before you can create an authorization by using Terraform, make sure that you co
     ```
     {: pre}
 
-4. Define local values for your Secret Manager instance to be used when you are creating resources
+4. Define local values for your {{site.data.keyword.secrets-manager_short}} instance to be used when you are creating resources.
 
     ```terraform
         locals {

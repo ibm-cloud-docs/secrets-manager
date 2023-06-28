@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-06-28"
 
 keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, lite plan
 
@@ -58,7 +58,7 @@ subcollection: secrets-manager
 # Creating a {{site.data.keyword.secrets-manager_short}} service instance
 {: #create-instance}
 
-You can get started with {{site.data.keyword.secrets-manager_full}} by creating a service instance in {{site.data.keyword.cloud_notm}} console or with the {{site.data.keyword.cloud_notm}} CLI.
+Get started with {{site.data.keyword.secrets-manager_full}} by creating a service instance in {{site.data.keyword.cloud_notm}} console, or with the {{site.data.keyword.cloud_notm}} CLI.
 {: shortdesc}
 
 Provisioning {{site.data.keyword.secrets-manager_short}} in your {{site.data.keyword.cloud_notm}} account can take 5 - 15 minutes to complete as the service creates a single tenant, dedicated instance.
@@ -144,3 +144,9 @@ You can also create an instance of {{site.data.keyword.secrets-manager_short}} b
 
 To update your service plan after you create an instance, see [Updating your service plan](/docs/billing-usage?topic=billing-usage-changing).
 {: tip}
+
+
+## Upgrading a {{site.data.keyword.secrets-manager_short}} instance to the Standard plan
+{: #upgrade-instance-standard}
+
+When your Trial instance expires, you lose access to your secrets, and integrations. To preserve your data, and prevent any disruptions in your workflow, you must upgrade to the Standard plan before your Trial plan expires. Follow the steps to [update your pricing plan](/docs/billing-usage?topic=billing-usage-changing&interface=ui). You can use the UI, API, and CLI to complete this process. 

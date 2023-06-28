@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-06-15"
+lastupdated: "2023-06-21"
 
 keywords: Secrets Manager developer tools, integrate with application, API, SDK, CLI
 
@@ -55,7 +55,7 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
-# Integrating {{site.data.keyword.secrets-manager_short}} to your apps
+# Integrating {{site.data.keyword.secrets-manager_short}} with your apps
 {: #integrate-with-apps}
 
 Ready to integrate {{site.data.keyword.secrets-manager_full}} into your existing apps or services? Take advantage of our supported developer tools.
