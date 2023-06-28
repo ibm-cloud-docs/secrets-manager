@@ -58,7 +58,7 @@ subcollection: secrets-manager
 # Creating a {{site.data.keyword.secrets-manager_short}} service instance
 {: #create-instance}
 
-You can get started with {{site.data.keyword.secrets-manager_full}} by creating a service instance in {{site.data.keyword.cloud_notm}} console or with the {{site.data.keyword.cloud_notm}} CLI.
+Get started with {{site.data.keyword.secrets-manager_full}} by creating a service instance in {{site.data.keyword.cloud_notm}} console, or with the {{site.data.keyword.cloud_notm}} CLI.
 {: shortdesc}
 
 Provisioning {{site.data.keyword.secrets-manager_short}} in your {{site.data.keyword.cloud_notm}} account can take 5 - 15 minutes to complete as the service creates a single tenant, dedicated instance.
