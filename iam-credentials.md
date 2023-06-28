@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-12"
+lastupdated: "2023-06-28"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -73,7 +73,8 @@ Before you get started, be sure that you have the required level of access. To c
 IAM credentials require an extra configuration step before you can start to create or manage them in the service. For more information, see [Configuring the IAM credentials engine](/docs/secrets-manager?topic=secrets-manager-configure-iam-engine).
 {: note}
 
-
+An account administrator (or any entity with the required level of access) can externally alter IAM Credentials that are created and managed by {{site.data.keyword.secrets-manager_short}}. If such a service ID or API key is deleted outside of {{site.data.keyword.secrets-manager_short}}, the service might behave unexpectedly. For example, you might be unable to create, or rotate credentials.
+{: important}
 
 ## Creating IAM credentials in the UI
 {: #iam-credentials-ui}
