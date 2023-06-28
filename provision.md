@@ -146,7 +146,7 @@ To update your service plan after you create an instance, see [Updating your ser
 {: tip}
 
 
-# Upgrading a {{site.data.keyword.secrets-manager_short}} instance to the Standard plan
+## Upgrading a {{site.data.keyword.secrets-manager_short}} instance to the Standard plan
 {: #upgrade-instance-standard}
 
 When your Trial instance expires, you lose access to your secrets, and integrations. To preserve your data, and prevent any disruptions in your workflow, you must upgrade to the Standard plan before your Trial plan expires. Follow the steps to [update your pricing plan](/docs/billing-usage?topic=billing-usage-changing&interface=ui). You can use the UI, API, and CLI to complete this process. 
