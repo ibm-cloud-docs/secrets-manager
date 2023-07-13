@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-07-04"
+lastupdated: "2023-07-12"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -363,7 +363,7 @@ curl -X POST \
          "custom_metadata": { 
             "metadata_custom_key": "metadata_custom_value" 
             }, 
-         "payload": "Updated arbit", 
+         "payload": "Updated arbitrary data", 
          "version_custom_metadata": { 
             "custom_version_key": "custom_version_value" 
             } 
@@ -450,6 +450,44 @@ curl -X POST \
 
 To have the service generate and assign a random password to your credential, you can pass an empty string on the `password` field. For example, `{ "password": ""}`. {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
 {: tip}
+
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#update-secret).
+
+
+### Rotating imported certificates
+{: #manual-rotate-imported-cert-api}
+{: api}
+
+You can rotate secrets by calling the {{site.data.keyword.secrets-manager_short}} API.
+
+The following example request creates a new version of your secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+
+You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
+{: curl}
+
+
+```sh
+curl -X POST \
+   -H "Authorization: Bearer {iam_token}" \
+   -H "Accept: application/json" \
+   -H "Content-Type: application/json" \
+   -d '{
+         "certificate": "-----BEGIN CERTIFICATE-----\nMIIE3jCCBGSgAwIBAgIUZfTbf3adn87l5J2Q2Aw+6Vk/qhowCgYIKoZIzj0EAwIwx\n-----END CERTIFICATE-----", "custom_metadata": {
+            "metadata_custom_key": "metadata_custom_value"
+         },
+         "intermediate": "-----BEGIN CERTIFICATE-----\nMIIE3DCCBGKgAwIBAgIUKncnp6BdSUKAFGBcP4YVp/gTb7gwCgYIKoZIzj0EAwIw\n-----END CERTIFICATE-----",
+         "private_key": "-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEAqcRbzV1wp0nVrPtEpMtnWMO6Js1q3rhREZluKZfu0Q8SY4H3\n-----END RSA PRIVATE KEY-----", "version_custom_metadata": {
+            "custom_version_key": "custom_version_value"
+         }
+      }' \ 
+   "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/{id}/versions"
+
+```
+{: codeblock}
+{: curl}
+
+Replace new lines in the certificate, intermediate, and private key data with `\n`.
+{: note}
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#update-secret).
 
