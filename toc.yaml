@@ -23,6 +23,7 @@ toc:
       - topicgroup:
           label: Best practices
           topics:
+          - best-practices/developers.md
           - best-practices/secret-organize.md
           - best-practices/secret-rotation.md
       - topic: integrations.md
