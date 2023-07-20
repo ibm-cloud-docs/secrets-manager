@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-06-15"
+lastupdated: "2023-07-20"
 
 keywords: DNS provider, connect DNS provider, set up DNS provider, connect DNS, set up DNS, connect CIS, set up CIS, add DNS provider configuration
 
@@ -120,12 +120,13 @@ You can add DNS provider configurations to your service instance by using the {{
 4. In the DNS providers table, click **Add**.
 5. Select the DNS provider that you want to use. 
 
-   Currently, you can add configurations for Cloud Internet Services (CIS) and IBM Cloud classic infrastructure.
+   Currently, you can add configurations for Cloud Internet Services (CIS) and IBM Cloud classic infrastructure. You can also use your own DNS provider, but no configuration is required in this case.
 6. Grant service access between {{site.data.keyword.secrets-manager_short}} and your selected DNS provider.
    1. If you choose CIS, grant access by selecting from a list of authorized CIS instances or by entering an API key.
 
       Don't have an authorization yet? You can [create one in the IAM console](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#authorize-cis). Optionally, you can grant access to CIS by providing an API key and the instance CRN. You can find the CRN in the **Overview** page of your CIS service instance. For more information about creating an API key for CIS, see [Granting service access by using an API key](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#authorize-cis-another-account)
    2. If you choose classic infrastructure, enter the [username and API key](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#authorize-classic-infrastructure) that is associated with your account.
+   3. If you choose to use your own DNS provider, refer to your provider's documentation for instructions. No DNS provider configuration is required in {{site.data.keyword.secrets-manager_short}}.
 7. Click **Add**.
 
 
@@ -146,12 +147,18 @@ ibmcloud secrets-manager configuration-create {
 ```
 {: pre}
 
+If you choose to use your own DNS provider, refer to your provider's documentation for instructions. No DNS provider configuration is required in {{site.data.keyword.secrets-manager_short}}.
+{: important}
+
 
 ## Adding a DNS provider configuration with the API
 {: #add-dns-provider-api}
 {: api}
 
 You can add DNS provider configurations to your service instance by using the {{site.data.keyword.secrets-manager_short}} API. 
+
+If you choose to use your own DNS provider, refer to your provider's documentation for instructions. No DNS provider configuration is required in {{site.data.keyword.secrets-manager_short}}.
+{: important}
 
 ### Configuring Cloud Internet Services (CIS)
 {: #add-cis-config-api}
@@ -218,6 +225,9 @@ A successful response adds the configuration to your service instance. For more 
 {: terraform}
 
 You can add DNS provider configurations to your service instance by using Terraform for {{site.data.keyword.secrets-manager_short}}.
+
+If you choose to use your own DNS provider, refer to your provider's documentation for instructions. No DNS provider configuration is required in {{site.data.keyword.secrets-manager_short}}.
+{: important}
 
 ### Configuring Cloud Internet Services (CIS) with Terraform
 {: #add-cis-config-terraform}
