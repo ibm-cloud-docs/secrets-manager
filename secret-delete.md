@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-08"
+lastupdated: "2023-07-20"
 
 keywords: delete secret, remove secret, destroy secret
 
@@ -82,8 +82,6 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually delet
 5. Enter the name of the secret to confirm its deletion.
 6. Click **Delete**.
 
-    After you delete a secret, the secret transitions to the _Destroyed_ state. Secrets in this state are no longer recoverable. Metadata that is associated with the secret, such as the secret's deletion date, is kept in the {{site.data.keyword.secrets-manager_short}} database.
-
 ## Deleting secrets from the CLI
 {: #delete-secret-cli}
 {: cli}
@@ -95,9 +93,6 @@ To delete a secret, run the [**`ibmcloud secrets-manager secret-delete`**](/docs
 ibmcloud secrets-manager secret-delete --id ID
 ```
 {: pre}
-
-
-After you delete a secret, the secret transitions to the _Destroyed_ state. Secrets in this state are no longer recoverable. Metadata that is associated with the secret, such as the secret's deletion date, is kept in the {{site.data.keyword.secrets-manager_short}} database.
 
 For more information about the command options, see [**`ibmcloud secrets-manager secret`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-command).
 
@@ -118,6 +113,3 @@ curl -X DELETE
 ```
 {: codeblock}
 {: curl}
-
-
-After you delete a secret, the secret transitions to the _Destroyed_ state. Secrets in this state are no longer recoverable. Metadata that is associated with the secret, such as the secret's deletion date, is kept in the {{site.data.keyword.secrets-manager_short}} database.
