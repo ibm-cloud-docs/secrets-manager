@@ -139,7 +139,7 @@ toc:
       - topicgroup:
           label: CLI reference
           topics:
-          - topic: /secrets-manager-cli-plugin/secrets-manager-cli-plugin-secrets-manager-cli
+          - include: ../cloud-docs/secrets-manager-cli-plugin/secrets-manager-cli.md
             navtitle: Version 2
           - topic: secrets-manager-cli-v1.md
             navtitle: Version 1
