@@ -101,7 +101,7 @@ You can connect the following DNS providers with your {{site.data.keyword.secret
 
 | Prerequisites |
 | :------------ |
-| To use your own DNS provider, you must [create a certificate authority configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority&interface=ui) before you can [order a your certificate](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates-manual-api). |
+| To use your own DNS provider, you must refer to your provider's documentation for instructions. No DNS provider configuration is required in {{site.data.keyword.secrets-manager_short}}. |
 {: caption="Table 1. Prerequisites - Manual DNS providers" caption-side="top"}
 {: #manual-prereqs}
 {: tab-title="Manual"}
