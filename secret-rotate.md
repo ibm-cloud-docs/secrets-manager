@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-07-12"
+lastupdated: "2023-07-24"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -108,8 +108,6 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 7. To rotate the secret immediately, click **Rotate**.
 8. Optional: Check the version history to view the latest updates.
 
-   In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
-
 
 ### Creating new versions of key-value secrets
 {: #manual-rotate-key-value-ui}
@@ -126,8 +124,6 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
    1. Upload a file or enter the metadata and the version metadata in JSON format. 
 7. To rotate the secret immediately, click **Rotate**.
 8. Optional: Check the version history to view the latest updates.
-
-   In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
 
 
 ### Creating new versions of user credentials
@@ -151,9 +147,6 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 7. To rotate the secret immediately, click **Rotate**.  
 8. Optional: Check the version history to view the latest updates.
 
-   In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
-
-
 
 ### Creating new versions of imported certificates
 {: #manual-rotate-imported-cert-ui}
@@ -175,8 +168,6 @@ If the certificate that you are rotating was previously imported with an interme
 
 6. To rotate the certificate immediately, click **Rotate**.
 7. Optional: Check the version history to view the latest updates.
-
-   In the row of the secret that you rotated, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history** to verify that a new version was created successfully.
 8. Redeploy the latest certificate version to your TLS termination point.
 
    To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager/secrets-manager-v2#get-secret) API.
@@ -292,7 +283,7 @@ ibmcloud secrets-manager secret-version-create \
 {: codeblock}
 
 
-To have the service generate and assign a random password to your credential, you can pass an empty string on the `password` field. For example, `{ "password": ""}`. {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
+To have the service generate and assign a random password to your credential, omit the `password` field. For example, `{}`. {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
 {: tip}
 
 The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-version-create-command).
@@ -446,9 +437,7 @@ curl -X POST \
 {: codeblock}
 {: curl}
 
-
-
-To have the service generate and assign a random password to your credential, you can pass an empty string on the `password` field. For example, `{ "password": ""}`. {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
+To have the service generate and assign a random password to your credential, omit the `password` field. For example, `{}`. {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
 {: tip}
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#update-secret).
