@@ -28,7 +28,7 @@ toc:
           - best-practices/secret-rotation.md
       - topic: integrations.md
         navtitle: Platform integrations
-      - api-migration.md    
+      - api-migration.md
       - topicgroup:
           label: Tool integrations
           topics:
@@ -36,9 +36,9 @@ toc:
           - integration-jenkins.md
       - topic: releases.md
         navtitle: Release notes
-  - navgroup: 
+  - navgroup:
       id: tutorial
-      topics: 
+      topics:
       - tutorials/access-storage.md
       - tutorials/kubernetes-secrets.md
       - topicgroup:
@@ -70,11 +70,11 @@ toc:
               - topic: key-value.md
                 navtitle: Key-value secrets
               - topic: certificates.md
-                navtitle: Imported certificates                
+                navtitle: Imported certificates
               - topic: certificates-public.md
                 navtitle: Public certificates
               - topic: certificates-private.md
-                navtitle: Private certificates                               
+                navtitle: Private certificates
               - topic: user-credentials.md
                 navtitle: User credentials
           - secret-access.md
@@ -140,7 +140,7 @@ toc:
       - topicgroup:
           label: CLI reference
           topics:
-          - include: ../cloud-docs/secrets-manager-cli-plugin/secrets-manager-cli.md
+          - include: ../secrets-manager-cli-plugin/secrets-manager-cli.md
             navtitle: Version 2
           - topic: secrets-manager-cli-v1.md
             navtitle: Version 1
@@ -150,7 +150,7 @@ toc:
           topics:
           - link:
               label: Secrets Manager Terraform
-              href: https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/secrets_manager_secret         
+              href: https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/secrets_manager_secret
       - topicgroup:
           label: Vault reference
           topics:
