@@ -2,7 +2,7 @@
 
 copyright:
   years: "2023"
-lastupdated: "2023-05-16"
+lastupdated: "2023-07-25"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, private certificates
 
@@ -81,7 +81,7 @@ A template selection is required when you create a private certificate. Dependin
 ## Creating private certificates
 {: #create-private-certificates}
 
-After you [configure the private certificates engine](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates) for your instance, you can use {{site.data.keyword.secrets-manager_short}} to generate private certificates by using an internal certificate authority that was previously configured for your {{site.data.keyword.secrets-manager_short}} service instance. Before a certificate can be issued to you, {{site.data.keyword.secrets-manager_short}} checks to ensure that your certificate request matches the restrictions that are defined for the [certificate template](/docs/secrets-manager?topic=secrets-manager-certificate-templates) that you select. After a certificate is issued, you can deploy it to your integrated apps, download it, revoke it, or rotate it manually.
+After you [configure the private certificates engine](/docs/secrets-manager?topic=secrets-manager-prepare-create-certificates&interface=ui) for your instance, you can use {{site.data.keyword.secrets-manager_short}} to generate private certificates by using an internal certificate authority that was previously configured for your {{site.data.keyword.secrets-manager_short}} service instance. Before a certificate can be issued to you, {{site.data.keyword.secrets-manager_short}} checks to ensure that your certificate request matches the restrictions that are defined for the [certificate template](/docs/secrets-manager?topic=secrets-manager-certificate-templates) that you select. After a certificate is issued, you can deploy it to your integrated apps, download it, revoke it, or rotate it manually.
 
 
 ### Creating private certificates in the UI
