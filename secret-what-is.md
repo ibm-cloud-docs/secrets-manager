@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-12"
+lastupdated: "2023-08-04"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -127,7 +127,6 @@ Review the following table to understand the types of static and dynamic secrets
 _* Requires an [engine configuration](/docs/secrets-manager?topic=secrets-manager-secrets-engines) before secrets can be created in the service._
 
 
-
 ### Supported features by secret type
 {: #compare-features-by-type}
 
@@ -155,27 +154,57 @@ Secrets that you store with the service consist of metadata attributes and a sec
 
 Check out the following image to see how a secret is structured.
 
-![This image shows the components of a secret. The information in the image is detailed in the surrounding content.](/images/example-secret.svg){: caption="Figure 1. JSON representation of {{site.data.keyword.secrets-manager_short}} secret" caption-side="bottom"}
+```json
+{
+    "name": "my-username-password",
+    "id": "cb123456-8e73-4857-594839587438",
+    "description": "Description for this secret",
+    "secret_type": "username_password",
+    "secret_group_id": "ab654321-3958-9484-1395840384754",
+    "state": 1,
+    "state_description": "Active",
+    "create_by": "iam-ServiceId-gj403948-3048-6059-304958674930",
+    "created_at": "2023-03-08-T20:44:11Z",
+    "labels": [
+        "dev",
+        "us-south"
+    ],
+    "username": "user123",
+    "password": "cloudy-rainy-coffee-book"
+}
+```
+{: screen}
 
 1. The `name`, `id`, and `description`, and other common fields hold identifying information about a secret. These fields store the general attributes of your secret that you can use to understand its purpose and history.
 
-2. For most secret types, the `secret_data` object contains the actual value of your secret.
-
-    When you use the {{site.data.keyword.secrets-manager_short}} API to retrieve the value of a secret, the fields that you see in the `secret_data` object differ depending on the type of secret that you are inspecting. For example, the following truncated example shows how secret data is represented for an arbitrary secret.
+2. When you retrieve the value of a secret the fields that are returned differ based on the secret type.
+    
+    The following truncated example shows how secret data is represented for an `arbitrary` secret.
 
     ```json
     {
-        "name": "my-arbitrary-secret",
+        "name": "my-secret",
         "secret_type": "arbitrary",
         ...
-        "secret_data": {
-          "payload": "The quick brown fox jumped over the lazy dog."
-        }
+        "payload": "The quick brown fox jumped over the lazy dog."
     }
     ```
     {: screen}
 
-    If you're working with IAM credentials, the secret data is listed alongside the other common fields that describe your secret. For example, the following truncated example shows how secret data is represented for an IAM credential.
+    The following truncated example shows how secret data is represented for a `username_password` secret.
+
+    ```json
+    {
+        "name": "my-secret",
+        "secret_type": "arbitrary",
+        ...
+        "username": "foo",
+        "password": "bar"
+    }
+    ```
+    {: screen}
+
+    The following truncated example shows how secret data is represented for an `IAM credential` secret. 
 
     ```json
     {
@@ -185,6 +214,46 @@ Check out the following image to see how a secret is structured.
         "api_key": "RmnPBn6n1dzoo0v3kyznKEpg0WzdTpW9lW7FtKa017_u",
         "api_key_id": "ApiKey-dcd0b857-b590-4507-8c64-ae89a23e8d76",
         "service_id": "ServiceId-bb4ccc31-bd31-493a-bb58-52ec399800be",
+    }
+    ```
+    {: screen}
+
+    The following truncated example shows how secret data is represented for a `KV` secret.
+
+    ```json
+    {
+        "name": "my-kv-secret",
+        "secret_type": "kv",
+        ...
+        "data": '{"key":"value"}'
+    }
+    ```
+    {: screen}
+
+    The following truncated example shows how secret data is represented for `imported_cert` and `public_cert` secrets.
+
+    ```json
+    {
+        "name": "my-certificate",
+        "secret_type": "imported_cert/public_cert",
+        ...
+        "certificate":"...",
+        "intermediate":"...",
+        "private_key":"..."
+    }
+    ```
+    {: screen}
+
+    The following truncated example shows how secret data is represented for a `private_cert` secret.
+
+    ```json
+    {
+        "name": "my-certificate",
+        "secret_type": "private_cert",
+        ...
+        "certificate":"...",
+        "ca_chain":"...",
+        "private_key":"..."
     }
     ```
     {: screen}
