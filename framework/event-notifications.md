@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-12"
+lastupdated: "2023-07-31"
 
 keywords: event notifications for {{site.data.keyword.secrets-manager_short}}, event notifications integration for {{site.data.keyword.secrets-manager_short}}, alerts for {{site.data.keyword.secrets-manager_short}}
 
@@ -62,6 +62,10 @@ As an administrator of {{site.data.keyword.secrets-manager_full}}, you might wan
 {: shortdesc}
 
 To send information to {{site.data.keyword.en_short}}, you must connect your {{site.data.keyword.secrets-manager_short}} service instance to {{site.data.keyword.en_short}}. For more information about working with {{site.data.keyword.en_short}}, see [Getting started with {{site.data.keyword.en_short}}](/docs/event-notifications).
+
+
+If you decide to delete your {{site.data.keyword.secrets-manager_short}} service instance, also remove {{site.data.keyword.secrets-manager_short}} as a source in your {{site.data.keyword.en_short}} service instance.
+{: note}
 
 
 ## How events are collected and sent by {{site.data.keyword.secrets-manager_short}}
