@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-08-08"
 
 keywords: create GitHub issue, open GitHub issue, send to GitHub, expiring secrets, expiring certificates
 
@@ -78,7 +78,7 @@ In part 1 of this tutorial series, you learned how to set up {{site.data.keyword
 Be sure that you've completed [Part 1: Enabling notifications for {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-tutorial-expiring-secrets-part-1). Before you get started with part 2, you also need the following prerequisites:
 
 - An {{site.data.keyword.cloud_notm}} API key with **Manager** service access on the {{site.data.keyword.en_short}} service.
-- A [GitHub personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token){: external} with **repo** access.
+- A [GitHub personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens){: external} with **repo** access.
 
 ## Create a webhook with Cloud Functions
 {: #tutorial-expiring-secrets-part-2-create-webhook}
