@@ -2,7 +2,7 @@
 
 copyright:
   years: "2023"
-lastupdated: "2023-05-16"
+lastupdated: "2023-08-09"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, public certificates
 
@@ -540,6 +540,203 @@ ibmcloud secrets-manager secret-create --resources=
 
 
 The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
+
+### Ordering public certificates with Akamai DNS provider by using Terraform
+{: #order-public-certificates-akamai-terraform}
+{: terraform}
+
+To create a public certificate by using Akamai as your DNS provider, complete the following steps.
+
+1. Create a certificate authority (CA) configuration by following the steps that are defined in [Adding a CA configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority&interface=ui).
+
+2. Create a new public certificate by specifying `akamai` as your DNS configuration. 
+3. Use one of the following Akamai's authentication methods. You can use an `edgerc` file or directly provide your Akamai authentication credentials.  [Learn more about Akamai's authentication credentials](https://techdocs.akamai.com/developer/docs/set-up-authentication-credentials).
+
+  a. Provide the path to your `.edgerc` file and the relevant `config_section`.
+  ```terraform
+      resource "ibm_sm_public_certificate" "sm_public_certificate" {
+          instance_id = local.instance_id
+          region = local.region
+          name = "test-public-certificate"
+          secret_group_id = "default"
+          ca = ibm_sm_public_certificate_configuration_ca_lets_encrypt.my_lets_encrypt_config.name
+          dns = “akamai”
+          akamai {
+              edgerc {
+                path_to_edgerc = “/path/to/your/edgerc/file”
+                config_section = “default”
+              }
+          }
+          rotation {
+              auto_rotate = true
+              rotate_keys = false
+          }
+      }
+
+  ```
+  {: pre}
+  
+  b. Provide your Akamai's authentication credentials:
+  ```terraform
+      resource "ibm_sm_public_certificate" "sm_public_certificate" {
+          instance_id = local.instance_id
+          region = local.region
+          name = "test-public-certificate"
+          secret_group_id = "default"
+          ca = ibm_sm_public_certificate_configuration_ca_lets_encrypt.my_lets_encrypt_config.name
+          dns = “akamai”
+          akamai {
+              config {
+                client_secret = “your_client_secret”
+                host = “your_host”
+                access_token = "your_access_token"
+                client_token = "your_client_token"
+              }
+          }
+          rotation {
+              auto_rotate = true
+              rotate_keys = false
+          }
+      }
+
+  ```
+  {: pre}
+
+
+The newly-created TXT records that are in the relevant domains in Akamai are not automatically deleted. 
+{: note}
+
+
+### Ordering public certificates with your own DNS provider by using Terraform
+{: #order-public-certificates-manual-terraform}
+{: terraform}
+
+1. Create a certificate authority (CA) configuration by following the steps that are defined in [Adding a CA configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority&interface=ui).
+
+2. Create a new public certificate by specifying `manual` as your DNS configuration.
+
+```terraform
+    resource "ibm_sm_public_certificate" "sm_public_certificate" {
+        instance_id = local.instance_id
+        region = local.region
+        name = "test-public-certificate"
+        secret_group_id = "default"
+        ca = ibm_sm_public_certificate_configuration_ca_lets_encrypt.my_lets_encrypt_config.name
+        dns = “manual”
+        rotation {
+            auto_rotate = true
+            rotate_keys = false
+        }
+    }
+
+```
+
+{: codeblock}
+
+   Example response:
+   
+   ```json
+      "alt_names": [
+        "domain2",
+        "domain3"
+      ],
+      "bundle_certs": false,
+      "ca": "ca_config_name",
+      "common_name": "domain1",
+      "created_by": "User",
+      "creation_date": "2022-09-13T06:21:33Z",
+      "crn": "secret crn",
+      "description": "Description for ordered certificate.",
+      "downloaded": false,
+      "id": "38747ae6-8c69-d745-5276-cdf3157b9021",
+      "issuance_info": {
+          "auto_rotated": false,
+          "challenges": [
+            {
+                "domain": "domain1",
+                "expiration": "2022-09-20T06:21:36Z",
+                "status": "pending",
+                "txt_record_name": "_acme-challenge.domain1.",
+                "txt_record_value": "TA6J7fFYrwP3Jg-S_IAQSj2Ydqfw4Ycm4sMwlzuCcxk"
+            },
+                {
+                  "domain": "domain2",
+                  "expiration": "2022-09-20T06:21:36Z",
+                  "status": "pending",
+                  "txt_record_name": "_acme-challenge.domain2.",
+                  "txt_record_value": "qSDrCkFAViX4xANKuEPcMNairWm1PUtROm6kp9bmSS0"
+                },
+                {
+                  "domain": "domain3",
+                  "expiration": "2022-09-20T06:21:36Z",
+                  "status": "pending",
+                  "txt_record_name": "_acme-challenge.domain3.",
+                  "txt_record_value": "8dcgan91fW6aK3aIhPAVZRkHpbYEoMcCNPpVh1n4tSA"
+                }
+            ],
+          "dns": "manual",
+          "ordered_on": "2022-09-13T06:21:33Z",
+          "state": 0,
+          "state_description": "Pre-activation"
+          },
+      "key_algorithm": "RSA2048",
+      "labels": [],
+      "last_update_date": "2022-09-13T06:21:33Z",
+      "locks_total": 0,
+      "name": "my-public-certificate",
+      "rotation": {
+          "auto_rotate": false,
+          "rotate_keys": false
+       },
+      "secret_type": "public_cert",
+      "state": 0,
+      "state_description": "Pre-activation",
+      "versions": [],
+      "versions_total": 1
+   }
+   ```
+   {: screen}
+
+3. Complete the challenges that are marked as `pending` before they expire by adding the TXT records that are specified in the challenge to your domain in your DNS provider account to verify your ownership of the domain.
+
+   If you order a certificate for subdomains, for example, `sub1.sub2.domain.com`, you need to add the TXT records to your registered domain `domain.com`.
+   {: note}
+
+4. Validate that the TXT records that you added are propagated. Depending on your DNS provider, it can take some time to complete.
+
+5. After the records are propagated, request Let's Encrypt to validate the challenges to your domain and create a public certificate. 
+You can do this by using the Terraform’s [ibm_sm_public_certificate_action_validate_manual_dns](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/sm_public_certificate_action_validate_manual_dns) resource, as shown in the following example of a configuration:
+
+```terraform
+    resource "ibm_sm_public_certificate_action_validate_manual_dns" "sm_public_certificate_action_validate_manual_dns_instance" {
+        instance_id = local.instance_id
+        region = local.region
+        secret_id = ibm_sm_public_certificate.sm_public_certificate.secret_id
+    }
+```
+{: codeblock}
+
+You can use [Terraform’s `depends_on` meta-argument](https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on) to insure Terraform’s configuration is being created in the correct logical order as shown in these instructions.   
+{: tip}
+
+Alternatively, you can call the {{site.data.keyword.secrets-manager_short}} [Invoke an action on a secret](/apidocs/secrets-manager/secrets-manager-v2#update-secret) API to request Let's Encrypt to validate the challenges to your domain and create a public certificate.
+
+   ```sh
+    curl -X POST 
+    --header "Authorization: Bearer {iam_token}" 
+    --header "Accept: application/json" 
+    --header "Content-Type: application/json" 
+    --data '{ 
+        "action_type": "public_cert_action_validate_dns_challenge"
+    }'\ 
+    "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/{id}/actions"
+   ```
+   {: codeblock}
+   {: curl}
+
+6. After your certificate is issued (its state is `active`), you must run the Terraform command `terraform apply` again in order to update your public certificate’s Terraform resource and to use your newly issued certificate.
+
+7. Clean up and remove the TXT records from the domains in your DNS provider account.
 
 
 
