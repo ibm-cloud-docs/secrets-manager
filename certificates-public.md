@@ -630,7 +630,6 @@ The newly-created TXT records that are in the relevant domains in Akamai are not
     }
 
 ```
-
 {: codeblock}
 
    Example response:
