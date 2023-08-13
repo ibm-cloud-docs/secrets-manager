@@ -635,7 +635,7 @@ The newly-created TXT records that are in the relevant domains in Akamai are not
    Example response:
    
    ```json
-      {
+   {
       "alt_names": [
         "domain2",
         "domain3"
