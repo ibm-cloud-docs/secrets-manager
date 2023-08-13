@@ -2,7 +2,7 @@
 
 copyright:
   years: "2023"
-lastupdated: "2023-08-09"
+lastupdated: "2023-08-13"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, public certificates
 
@@ -635,6 +635,7 @@ The newly-created TXT records that are in the relevant domains in Akamai are not
    Example response:
    
    ```json
+      {
       "alt_names": [
         "domain2",
         "domain3"
