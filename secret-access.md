@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-12"
+lastupdated: "2023-08-16"
 
 keywords: access secret, retrieve secret, read secret, get secret value, get secrets, view secrets, search secrets, read secrets, get secret value
 
@@ -58,7 +58,7 @@ subcollection: secrets-manager
 # Accessing secrets
 {: #access-secrets}
 
-After you store secrets in your {{site.data.keyword.secrets-manager_full}} service instance, you can retrieve their values programmatically by using the APIs.
+After you store secrets in your {{site.data.keyword.secrets-manager_full}} service instance, you can retrieve their values.
 {: shortdesc}
 
 ## Before you begin
@@ -66,13 +66,21 @@ After you store secrets in your {{site.data.keyword.secrets-manager_full}} servi
 
 Before you begin, be sure that you have the required level of access. To view a list of your available secrets, you need the [**Reader** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam). To retrieve the value of a secret, you need the [**SecretsReader** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam).
 
+
 ## Retrieving a secret in the UI
 {: #get-secret-value-ui}
 {: ui}
 
-Most secret types in {{site.data.keyword.secrets-manager_short}} can't be retrieved directly from the {{site.data.keyword.secrets-manager_short}} service dashboard. This security mechanism is in place by default to help to prevent inadvertent exposure of your sensitive data. Secret types that you can access in the UI include: [TLS certificates](#download-certificate-ui)
+You can retrieve a secret by using the {{site.data.keyword.secrets-manager_short}}. Follow these steps to get your secret.
 
-You can retrieve all secret types programmatically by using the CLI, API, or SDKs. To see the steps for accessing `arbitrary`, `iam_credentials`, `kv`, and `username_password` secrets, switch to the **CLI** or **API**  instructions.
+1. In the **Secrets** table, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) to open a list of options for your secret.
+2. To view the secret value, click **View secret**.
+2. Click **Confirm** after you ensure that you are in a safe environment.
+
+The secret value is displayed for 15 seconds, then the dialog closes.
+{: note}
+
+You can also retrieve all secret types programmatically by using the CLI, API, or SDKs. To see the steps, switch to the **CLI** or **API** instructions.
 {: note}
 
 
