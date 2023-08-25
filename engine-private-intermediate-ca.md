@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-06-15"
+lastupdated: "2023-08-24"
 
 keywords: intermediate certificate authority, intermediate CA, internal signing, external signing
 
@@ -81,6 +81,15 @@ The service offers two options:
 |Internally signed | You're building a chain of certificates that uses an existing parent CA, for example a root CA or another intermediate CA, as its trust anchor. The parent CA was previously created in the same {{site.data.keyword.secrets-manager_short}} instance.|
 |Externally signed |If you created a parent CA offline or in another {{site.data.keyword.secrets-manager_short}} service instance, you can use the external CA to sign and issue an intermediate certificate authority.
 {: caption="Table 1. Options for creating an intermediate CA" caption-side="top"}
+
+### Unsupported configuration actions in Terraform
+{: #configured-actions}
+{: terraform}
+
+The following actions are not supported.
+
+- Rotate CRL
+- Revoke CA
 
 ## Creating an intermediate CA with internal signing in the UI
 {: #intermediate-ca-internal-signing-ui}
@@ -483,6 +492,9 @@ The following example shows a configuration that you can use to create an interm
     }
 ```
 {: codeblock}
+
+When using internal signing, the defined issuer is automatically signing the newly created intermediate CA certificate.
+{: note}
 
 
 ## Creating an intermediate CA with external signing with the API

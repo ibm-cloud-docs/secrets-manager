@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-06-28"
+lastupdated: "2023-08-25"
 
 keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, lite plan
 
@@ -58,7 +58,7 @@ subcollection: secrets-manager
 # Creating a {{site.data.keyword.secrets-manager_short}} service instance
 {: #create-instance}
 
-Get started with {{site.data.keyword.secrets-manager_full}} by creating a service instance in {{site.data.keyword.cloud_notm}} console, or with the {{site.data.keyword.cloud_notm}} CLI.
+Get started with {{site.data.keyword.secrets-manager_full}} by creating a service instance in {{site.data.keyword.cloud_notm}} console, {{site.data.keyword.cloud_notm}} CLI, or API.
 {: shortdesc}
 
 Provisioning {{site.data.keyword.secrets-manager_short}} in your {{site.data.keyword.cloud_notm}} account can take 5 - 15 minutes to complete as the service creates a single tenant, dedicated instance.
@@ -97,7 +97,8 @@ To update your service plan after you create an instance, see [Updating your ser
 {: #create-instance-cli}
 {: cli}
 
-You can also create an instance of {{site.data.keyword.secrets-manager_short}} by using the {{site.data.keyword.cloud_notm}} CLI.
+To create an instance of {{site.data.keyword.secrets-manager_short}} by using the {{site.data.keyword.cloud_notm}} CLI, complete the following steps.
+
 
 1. Log in to {{site.data.keyword.cloud_notm}} through the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-install-ibmcloud-cli){: external}.
 
@@ -126,7 +127,7 @@ You can also create an instance of {{site.data.keyword.secrets-manager_short}} b
     | Variable | Description |
     |:---------|:------------|
     | Instance name (`name`) | A unique alias for your service instance. |
-    | Pricing plan (`plan`) | The pricing plan that you want to use, provided as a plan ID. To obtain the plan ID, run `ibmcloud catalog service secrets-manager`. For more information about plan IDs, see [Updating your service plan](/docs/billing-usage?topic=billing-usage-changing). |
+    | Pricing plan (`plan`) | The pricing plan that you want to use, provided as a plan ID. Use `869c191a-3c2a-4faf-98be-18d48f95ba1f` for `trial` or `7713c3a8-3be8-4a9a-81bb-ee822fcaac3d` for `standard`. |
     | Private endpoints | If you need to provision an instance of {{site.data.keyword.secrets-manager_short}} that uses [private endpoints only](/docs/secrets-manager?topic=secrets-manager-service-connection), you can append `-p '{"allowed_network": "private-only"}'` to your command. |
     | Encryption | To provision an instance of {{site.data.keyword.secrets-manager_short}} that uses [customer-managed encryption](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption), append `-p '{"kms_key": "<root_key_crn>"}'`. Replace `<root_key_crn>` with the CRN value for the root key that you want to integrate. |
     {: caption="Table 1. Descripition of the information that is required to provision the  {{site.data.keyword.secrets-manager_short}} service" caption-side="top"}
@@ -141,6 +142,46 @@ You can also create an instance of {{site.data.keyword.secrets-manager_short}} b
     ibmcloud resource service-instances
     ```
     {: pre}
+
+To update your service plan after you create an instance, see [Updating your service plan](/docs/billing-usage?topic=billing-usage-changing).
+{: tip}
+
+
+## Creating a {{site.data.keyword.secrets-manager_short}} instance from API
+{: #create-instance-api}
+{: api}
+
+To create an instance of {{site.data.keyword.secrets-manager_short}} from API, complete the following steps.
+
+For additional programming languages support, see the [Resource Controller API Docs](/apidocs/resource-controller/resource-controller#create-resource-instance).
+{: tip}
+
+
+1. Obtain an IBM Cloud IAM access token.
+2. Run a curl command to provision an instance of {{site.data.keyword.secrets-manager_short}}.
+
+    ```sh
+    curl -X POST https://resource-controller.cloud.ibm.com/v2/resource_instances -H "Authorization: Bearer <IAM token>" -H 'Content-Type: application/json' -d '{
+    "name": "<instance_name>",
+    "target": "<region>",
+    "resource_group": "<resource_group_id>",
+    "resource_plan_id": "<plan>",
+    "parameters": '{"allowed_network": "private-only","kms_key": "<root_key_crn>"}'
+  }'
+    ```
+    {: pre}
+
+    | Variable | Description |
+    |:---------|:------------|
+    | Instance name (`name`) | A unique alias for your service instance. |
+    | Target (`region`) | The region the instance should be provisioned in. Supported regions: |
+    | Pricing plan (`plan`) | The pricing plan that you want to use, provided as a plan ID. Use `869c191a-3c2a-4faf-98be-18d48f95ba1f` for `trial` or `7713c3a8-3be8-4a9a-81bb-ee822fcaac3d` for `standard`. |
+    | Private endpoints | If you need to provision an instance of {{site.data.keyword.secrets-manager_short}} that uses [private endpoints only](/docs/secrets-manager?topic=secrets-manager-service-connection), keep the `allowed_network` parameter |
+    | Encryption | To provision an instance of {{site.data.keyword.secrets-manager_short}} that uses [customer-managed encryption](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption), keep the `kms_key` parameter, and replace `<root_key_crn>` with the CRN value for the root key that you want to integrate. |
+    {: caption="Table 1. Descripition of the information that is required to provision the  {{site.data.keyword.secrets-manager_short}} service" caption-side="top"}
+
+    You can create only one Trial instance of {{site.data.keyword.secrets-manager_short}} per account. Before you can create a new Trial instance, you must delete the existing Trial instance and its reclamation. 
+    {: note}
 
 To update your service plan after you create an instance, see [Updating your service plan](/docs/billing-usage?topic=billing-usage-changing).
 {: tip}

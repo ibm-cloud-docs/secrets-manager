@@ -3,7 +3,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-07-31"
+lastupdated: "2023-08-17"
 
 keywords: tutorial, Secrets Manager
 
@@ -557,7 +557,7 @@ If you no longer need the resources that you created in this tutorial, you can c
 As you construct your [YAML document](#tutorial-kubernetes-secrets-update-deployment), keep in mind that each key in the data section is polled periodically by using REST from the {{site.data.keyword.secrets-manager_short}} instance. Be aware that:
 
 1. By default, the polling interval is set to 1 hour. You can set this value by using `spec.refreshInterval` in the External Secrets template. The interval can be expressed in units of `s`, `m`, or `h`.
-2. If you set the YAML to fetch a {{site.data.keyword.secrets-manager_short}} secret by name rather than ID (`keyByName: true`), each data entry generates two API calls rather than one. Be extra careful with the number of data entries in the YAML configuration file if you select this option. For more information, see the [External Secrets documentation](https://external-secrets.io/latest/){: external}.
+2. If you set the YAML to fetch a {{site.data.keyword.secrets-manager_short}} secret by name rather than ID (`keyByName: true`), an additional call is made by ESO to fetch the relevant secret ID. For more information, see the [External Secrets documentation](https://external-secrets.io/latest/){: external}.
 
 
 ## Next steps
