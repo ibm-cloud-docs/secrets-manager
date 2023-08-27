@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-08-25"
+lastupdated: "2023-08-26"
 
 keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, lite plan
 
@@ -168,6 +168,7 @@ For additional programming languages support, see the [Resource Controller API D
     "resource_plan_id": "<plan>",
     "parameters": '{"allowed_network": "private-only","kms_key": "<root_key_crn>"}'
   }'
+  
     ```
     {: pre}
 
