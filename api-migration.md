@@ -2,7 +2,7 @@
 
 copyright:
   years: "2023"
-lastupdated: "2023-06-15"
+lastupdated: "2023-09-07"
 
 keywords: api, api v2, secrets manager api, migration, new version
 
@@ -60,6 +60,10 @@ subcollection: secrets-manager
 
 A new version of the {{site.data.keyword.secrets-manager_full}} API is available. Review the following sections to migrate your services and resources to v2. To learn more, see the [API docs](/apidocs/secrets-manager/secrets-manager-v2).
 {: shortdesc}
+
+
+If you use only the service UI, you don't need to migrate your services and resources. For more information about migrating your services and resources if you use the API, SDKs, or CLI, review the following sections.
+{: important}
 
 ## General changes in v2
 {: #api-migration-v2-changes}
