@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-12"
+lastupdated: "2023-09-11"
 
 keywords: HA for {{site.data.keyword.secrets-manager_short}}, DR for {{site.data.keyword.secrets-manager_short}}, high availability for {{site.data.keyword.secrets-manager_short}}, disaster recovery for {{site.data.keyword.secrets-manager_short}}, failover for {{site.data.keyword.secrets-manager_short}}
 
@@ -89,19 +89,12 @@ Creating an automatic backup of your secrets is possible by automating the manua
    Currently, {{site.data.keyword.secrets-manager_short}} supports notifications for certificates only. To learn about the various available lifecycle event types, see [Enabling event notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications).
    {: note}
 
-## Recovering data from a {{site.data.keyword.keymanagementserviceshort}} backup instance
+## Recovering data in BYOK-protected instances
 {: #byok-backup}
 
-Did you experience a failure with your {{site.data.keyword.keymanagementservicelong_notm}} instance? If you backed up your data to a new {{site.data.keyword.keymanagementserviceshort}} instance by using the same root keys, you can update your Secrets Manager instance with data from your backup {{site.data.keyword.keymanagementserviceshort}} instance. To do so, open a case and include the following information.
+If your {{site.data.keyword.secrets-manager_short}} instance was provisioned by using the root key from either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.cloud}} {{site.data.keyword.hscrypto}} (HPCS) and you accidentally deleted the root key, open a case and include the following information:
 
 * Your Secrets Manager instance's CRN
-* Your backup {{site.data.keyword.keymanagementserviceshort}} instance's CRN
-* The key ID
-* The original {{site.data.keyword.keymanagementserviceshort}} instance's CRN and key ID, if available
-
-You must enable service-to-service authorization between your backup {{site.data.keyword.keymanagementserviceshort}} instance and your Secrets Manager instance.
-{: important}
-
-
-For more information, see {{site.data.keyword.keymanagementserviceshort}}'s procedures for [high availability and disaster recovery](/docs/key-protect?topic=key-protect-ha-dr&interface=ui).
-
+* Your backup {{site.data.keyword.keymanagementserviceshort}} or HPCS instance's CRN
+* The new root key ID
+* The original {{site.data.keyword.keymanagementserviceshort}} or HPCS instance's CRN and key ID, if available
