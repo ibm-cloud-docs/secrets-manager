@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-30"
+lastupdated: "2023-09-19"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -895,15 +895,16 @@ If the secrets belong to a secret group, the `data.secrets.secret_group_id` valu
 {: #vault-cli-get-static-secret}
 
 Use the following commands to retrieve a secret and its details. Allowable values for **`SECRET_TYPE`** are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`.
+Either Secret ID or Secret Name can be used for retrieving the secret.
 
 Get a secret.
 ```sh
-vault read [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets/SECRET_ID
+vault read [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets/SECRET_ID_OR_SECRET_NAME
 ```
 
 Get a secret that is assigned to a specified secret group.
 ```sh
-vault read [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets/groups/SECRET_GROUP_ID/SECRET_ID
+vault read [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets/groups/SECRET_GROUP_ID/SECRET_ID_OR_SECRET_NAME
 ```
 
 #### Prerequisites
@@ -922,8 +923,14 @@ You need the [**SecretsReader** or **Writer** service role](/docs/secrets-manage
 
 Retrieve an arbitrary secret, including its payload.
 
+Retrieving by secret ID
 ```sh
 vault read -format=json ibmcloud/arbitrary/secrets/71539dff-9e84-804a-debb-ab3eb3d8afce
+```
+
+Retrieving by secret Name
+```sh
+vault read -format=json ibmcloud/arbitrary/secrets/my-test-arbitrary-secret
 ```
 {: pre}
 
@@ -1859,7 +1866,7 @@ You can format the JSON file that contains the secret lock details based on the 
     }
   ]
 }
-```json
+```
 
 #### Output
 {: #vault-cli-create-secret-locks-output}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-12"
+lastupdated: "2023-09-19"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -1423,7 +1423,7 @@ A request to import a certificate to an existing secret group returns the follow
 ### Get a secret
 {: #vault-get-secret}
 
-Get the value of a secret.
+Get the value of a secret. Either secret ID or secret name can be used for retrieving the secret.  
 
 #### Example requests
 {: #vault-get-secret-request}
@@ -1431,7 +1431,7 @@ Get the value of a secret.
 Get an arbitrary secret.
 
 ```sh
-curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/{secret_id}" \
+curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/{secret_id_or_secret_name}' \
     -H 'Accept: application/json' \
     -H 'X-Vault-Token: {Vault-Token}'
 ```
@@ -1440,7 +1440,7 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 Get an arbitrary secret in an existing secret group.
 
 ```sh
-curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/groups/{group_id}/{secret_id}" \
+curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/arbitrary/secrets/groups/{group_id}/{secret_id_or_secret_name}' \
     -H 'Accept: application/json' \
     -H 'X-Vault-Token: {Vault-Token}'
 ```
@@ -1449,7 +1449,7 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 Get IAM credentials.
 
 ```sh
-curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/iam_credentials/creds/{secret_id}" \
+curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/iam_credentials/creds/{secret_id_or_secret_name}' \
     -H 'Accept: application/json' \
     -H 'X-Vault-Token: {Vault-Token}'
 ```
@@ -1458,7 +1458,7 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 Get IAM credentials in an existing secret group.
 
 ```sh
-curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/iam_credentials/creds/groups/{group_id}/{secret_id}" \
+curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/iam_credentials/creds/groups/{group_id}/{secret_id_or_secret_name}' \
     -H 'Accept: application/json' \
     -H 'X-Vault-Token: {Vault-Token}'
 ```
@@ -1467,7 +1467,7 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 Get key-value secrets. [Learn more](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv&interface=api#overview-kv).
 
 ```sh
-curl -L -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/secrets/{secret_id}' \
+curl -L -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/secrets/{secret_id_or_secret_name}' \
     -H 'Accept: application/json'\
     -H 'X-Vault-Token: {Vault-Token}' 
 ```
@@ -1476,7 +1476,7 @@ curl -L -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v
 Get key-value secrets in an existing secret group.
 
 ```sh
-curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/secrets/groups/{group_id}/{secret_id}' \
+curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/secrets/groups/{group_id}/{secret_id_or_secret_name}' \
     -H 'Accept: application/json' \
     -H 'X-Vault-Token: {Vault-Token}' 
 ```
@@ -1485,7 +1485,7 @@ curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 Get user credentials.
 
 ```sh
-curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/username_password/secrets/{secret_id}" \
+curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/username_password/secrets/{secret_id_or_secret_name}' \
     -H 'Accept: application/json' \
     -H 'X-Vault-Token: {Vault-Token}'
 ```
@@ -1494,7 +1494,7 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 Get user credentials in an existing secret group.
 
 ```sh
-curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/username_password/secrets/{secret_id}/groups/{group_id}" \
+curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/username_password/secrets/groups/{group_id}/{secret_id_or_secret_name}' \
     -H 'Accept: application/json' \
     -H 'X-Vault-Token: {Vault-Token}'
 ```
@@ -1503,7 +1503,7 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 Get an imported certificate.
 
 ```sh
-curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/imported_cert/secrets/{secret_id}" \
+curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/imported_cert/secrets/{secret_id_or_secret_name}' \
     -H 'Accept: application/json' \
     -H 'X-Vault-Token: {Vault-Token}'
 ```
@@ -1512,7 +1512,7 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 Get an imported certificate in an existing secret group.
 
 ```sh
-curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/imported_cert/secrets/{secret_id}/groups/{group_id}" \
+curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/imported_cert/secrets/groups/{group_id}/{secret_id_or_secret_name}' \
     -H 'Accept: application/json' \
     -H 'X-Vault-Token: {Vault-Token}'
 ```
