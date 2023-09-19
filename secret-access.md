@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-08-16"
+lastupdated: "2023-09-19"
 
 keywords: access secret, retrieve secret, read secret, get secret value, get secrets, view secrets, search secrets, read secrets, get secret value
 
@@ -117,8 +117,6 @@ ibmcloud secrets-manager secrets \
 ```
 {: pre}
 
-
-
 The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-command).
 
 
@@ -135,12 +133,10 @@ ibmcloud secrets-manager secret --id=SECRET_ID | jq -r '.certificate' | sed 's/\
 ```
 {: pre}
 
-
-
 The command outputs the value of the certificate and stores it to `my-cert-file.pem`. For more information about the command options, see [**`ibmcloud secrets-manager secret`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-command).
 
 
-## Retrieving a secret with the API
+## Retrieving a secret with the API using secret ID
 {: #get-secret-value-api}
 {: api}
 
@@ -148,7 +144,6 @@ After you store a secret in your instance, you might need to retrieve its value 
 
 The following example request retrieves a secret and its contents. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
-
 
 ```sh
 curl -X GET 
@@ -160,6 +155,25 @@ curl -X GET
 {: curl}
 
 A successful response returns the value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Get a secret](/apidocs/secrets-manager/secrets-manager-v2#get-secret){: external}.
+
+
+## Retrieving a secret with the API using secret Name
+{: #get-secret-value-api-secret-name}
+{: api}
+
+You can also retrieve the secret's value by reference its Name instead of ID:
+
+```sh
+curl -X GET 
+    -H "Authorization: Bearer {iam_token}" \
+    -H "Accept: application/json" \ 
+"https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secret_groups/{secret_group_name}/secret_types/{secret_type}/secrets/{secert_name}"
+```
+{: codeblock}
+{: curl}
+
+Note that you need to specify the secret's `name`, `secret group name` and `secret_type`.
+{: note}
 
 
 ### Retrieving arbitrary secrets that contain binary data
