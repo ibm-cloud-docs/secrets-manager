@@ -359,6 +359,7 @@ External Secrets Operator is an open source tool that is not maintained by IBM. 
 {: #tutorial-kubernetes-secrets-configure-app}
 
 #### Kubernetes
+{: #configure-kubernetes}
 
 First, add `external-secrets` resources to your cluster by installing the official Helm chart. For more installation options, check out the [getting started guide](https://external-secrets.io/v0.5.9/guides-getting-started/){: external}.
 
@@ -414,6 +415,7 @@ First, add `external-secrets` resources to your cluster by installing the offici
     {: pre}
 
 #### OpenShift
+{: #configure-openshift}
 
 1. Install the External Secrets Operator by creating the following resources:
 
