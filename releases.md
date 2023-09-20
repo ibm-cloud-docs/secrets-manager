@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-08-08"
+lastupdated: "2023-09-20"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -64,7 +64,12 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
+## 20 September 2023
+{: #secrets-manager-sept2023}
+{: release-note}
 
+Now available: Get a secret by name
+:   Users can now get a secret and its details by specifying the name and type of the secret through the API. This functionality is also available in CLI and SDKs
 
 ## 19 April 2023
 {: #secrets-manager-apr1923}

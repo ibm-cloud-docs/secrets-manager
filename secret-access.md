@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-09-19"
+lastupdated: "2023-09-20"
 
 keywords: access secret, retrieve secret, read secret, get secret value, get secrets, view secrets, search secrets, read secrets, get secret value
 
@@ -108,16 +108,18 @@ After you store a secret in your instance, you might need to retrieve its value 
 To get the value of a secret, run the [**`ibmcloud secrets-manager secret`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-command) command. 
 
 ```sh
-ibmcloud secrets-manager secrets \
-    --offset=0 \
-    --limit=10 \
-    --sort=created_at \
-    --search=example \
-    --groups=default
+ibmcloud secrets-manager secret --id SECRET_ID
 ```
 {: pre}
 
 The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-command).
+
+You can also get a secret by using its Name:
+
+```sh
+ibmcloud secrets-manager secret-by-name --secret-type SECRET_TYPE --name SECRET_NAME --secret-group-name SECRET_GROUP_NAME
+```
+{: pre}
 
 
 ### Downloading certificates
