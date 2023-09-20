@@ -3,7 +3,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-08-17"
+lastupdated: "2023-09-20"
 
 keywords: tutorial, Secrets Manager
 
@@ -72,8 +72,6 @@ In this tutorial, you learn how to use {{site.data.keyword.secrets-manager_full}
 Alternatively, you can use the {{site.data.keyword.containershort}} CLI plug-in to manage TLS and non-TLS secrets. To learn more about this approach, see [Setting up Kubernetes Ingress](/docs/containers?topic=containers-secrets-mgr).
 {: note}
 
-
-This tutorial is for the Classic flavor of {{site.data.keyword.containershort}} clusters. External Secrets is also available as an [OpenShift operator](https://operatorhub.io/operator/external-secrets-operator).
 {: shortdesc}
 
 You're a developer for a large organization, and your team is using {{site.data.keyword.containershort}} to deploy containerized apps and services on {{site.data.keyword.cloud_notm}}. In your current flow, you use [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/){: external} to store the sensitive data, such as passwords and API keys, that are used by the apps and services that run in your cluster. To have more control over your application secrets, you want the ability to store your cluster secrets in an external secrets management service, where you can [encrypt them at rest](/docs/secrets-manager?topic=secrets-manager-mng-data), [monitor their activity](/docs/secrets-manager?topic=secrets-manager-at-events), and easily manage them.
@@ -133,7 +131,7 @@ Start by creating the account credentials that you need to be able to run operat
 2. Create a service ID and set it as an environment variable.
 
     ```sh
-    export SERVICE_ID=`ibmcloud iam service-id-create kubernetes-secrets-tutorial --description "A service ID for testing Secrets Manager and Kubernetes Service." --output json | jq -r ".id"`; echo $SERVICE_ID
+    export SERVICE_ID=`ibmcloud iam service-id-create kubernetes-secrets-tutorial --description "A service ID for testing ESO integration" --output json | jq -r ".id"`; echo $SERVICE_ID
     ```
     {: pre}
 
@@ -150,7 +148,7 @@ Start by creating the account credentials that you need to be able to run operat
 4. Create an {{site.data.keyword.cloud_notm}} API key for your service ID.
 
     ```sh
-    export IBM_CLOUD_API_KEY=`ibmcloud iam service-api-key-create kubernetes-secrets-tutorial $SERVICE_ID --description "An API key for testing Secrets Manager." --output json | jq -r ".apikey"`
+    export IBM_CLOUD_API_KEY=`ibmcloud iam service-api-key-create kubernetes-secrets-tutorial $SERVICE_ID --description "An API key for testing ESO integration." --output json | jq -r ".apikey"`
     ```
     {: pre}
 
@@ -360,6 +358,9 @@ External Secrets Operator is an open source tool that is not maintained by IBM. 
 ### Configure External Secrets Operator for your cluster
 {: #tutorial-kubernetes-secrets-configure-app}
 
+#### Kubernetes
+{: #configure-kubernetes}
+
 First, add `external-secrets` resources to your cluster by installing the official Helm chart. For more installation options, check out the [getting started guide](https://external-secrets.io/v0.5.9/guides-getting-started/){: external}.
 
 1. Run the following command to install External Secrets Operator helm repository:
@@ -369,7 +370,7 @@ First, add `external-secrets` resources to your cluster by installing the offici
     ```
     {: pre}
     
-2. Configure authentication between External Secrets Operator and Secrets Manager.
+2. Configure authentication between External Secrets Operator and {{site.data.keyword.secrets-manager_short}}.
 
     If you're using a service ID to authenticate:
 
@@ -413,6 +414,96 @@ First, add `external-secrets` resources to your cluster by installing the offici
     ```
     {: pre}
 
+#### OpenShift
+{: #configure-openshift}
+
+1. Install the External Secrets Operator by creating the following resources:
+
+    ```sh
+    echo '
+    apiVersion: v1
+    kind: Namespace
+    metadata:
+      name: external-secrets-operator
+    ---
+    apiVersion: operators.coreos.com/v1
+    kind: OperatorGroup
+    metadata:
+      name: external-secrets-operator
+      namespace: external-secrets-operator
+    spec:
+      targetNamespaces:
+        - external-secrets-operator
+    ---
+    apiVersion: operators.coreos.com/v1alpha1
+    kind: Subscription
+    metadata:
+      name: external-secrets-operator
+      namespace: external-secrets-operator
+    spec:
+      channel: stable
+      installPlanApproval: Automatic
+      name: external-secrets-operator
+      source: community-operators
+      sourceNamespace: openshift-marketplace
+    ' | oc create -f-
+    ```
+    {: pre}
+    
+2. Configure authentication between External Secrets Operator and {{site.data.keyword.secrets-manager_short}}.
+
+    If you're using a service ID to authenticate:
+
+    ```sh
+    echo '
+    apiVersion: operator.external-secrets.io/v1alpha1
+    kind: OperatorConfig
+    metadata:
+      name: cluster
+      namespace: external-secrets-operator
+    spec: {}
+    ' | oc create -f-
+    ```
+    {: pre}
+
+    If you're using a trusted profile to authenticate:
+
+    ```sh
+    echo '
+    apiVersion: operator.external-secrets.io/v1alpha1
+    kind: OperatorConfig
+    metadata:
+      name: cluster
+      namespace: external-secrets-operator
+    spec:
+      extraVolumeMounts:
+      - mountPath: /var/run/secrets/tokens
+        name: sa-token
+      extraVolumes:
+      - name: sa-token
+        projected:
+          defaultMode: 420
+          sources:
+          - serviceAccountToken:
+              audience: iam
+              expirationSeconds: 3600
+              path: sa-token
+      webhook:
+        extraVolumeMounts:
+        - mountPath: /var/run/secrets/tokens
+          name: sa-token
+        extraVolumes:
+        - name: sa-token
+          projected:
+            defaultMode: 420
+            sources:
+            - serviceAccountToken:
+                audience: iam
+                expirationSeconds: 3600
+                path: sa-token
+    ' | oc create -f-
+    ```
+    {: pre}
 
 ### Update your app configuration 
 {: #tutorial-kubernetes-secrets-update-deployment}
