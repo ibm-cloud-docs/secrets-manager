@@ -417,7 +417,8 @@ First, add `external-secrets` resources to your cluster by installing the offici
 
 1. Install the External Secrets Operator by creating the following resources:
 
-    ```yaml
+    ```sh
+    echo '
     apiVersion: v1
     kind: Namespace
     metadata:
@@ -443,6 +444,7 @@ First, add `external-secrets` resources to your cluster by installing the offici
       name: external-secrets-operator
       source: community-operators
       sourceNamespace: openshift-marketplace
+    ' | oc create -f-
     ```
     {: pre}
     
@@ -450,19 +452,22 @@ First, add `external-secrets` resources to your cluster by installing the offici
 
     If you're using a service ID to authenticate:
 
-    ```yaml
+    ```sh
+    echo '
     apiVersion: operator.external-secrets.io/v1alpha1
     kind: OperatorConfig
     metadata:
       name: cluster
       namespace: external-secrets-operator
     spec: {}
+    ' | oc create -f-
     ```
     {: pre}
 
     If you're using a trusted profile to authenticate:
 
-    ```yaml
+    ```sh
+    echo '
     apiVersion: operator.external-secrets.io/v1alpha1
     kind: OperatorConfig
     metadata:
@@ -494,6 +499,7 @@ First, add `external-secrets` resources to your cluster by installing the offici
                 audience: iam
                 expirationSeconds: 3600
                 path: sa-token
+    ' | oc create -f-
     ```
     {: pre}
 
