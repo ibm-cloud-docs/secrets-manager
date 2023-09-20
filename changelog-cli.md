@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-08-08"
+lastupdated: "2023-09-20"
 
 keywords: change log for Secrets Manager CLI, CLI changelog, updates to Secrets Manager CLI
 
@@ -64,6 +64,13 @@ In this change log, you can learn about the latest changes, improvements, and up
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
 
 
+
+## Version 2.0.2
+{: #2.0.2}
+
+Version 2.0.2 was released on 20 September 2023. This release includes the following updates:
+- Added a new command to get a secret value by name instead of by ID.
+- Added a new way to create secrets, groups, and engine configurations by using flags as an input instead of a JSON object.
 
 ## Version 2.0.1
 {: #2.0.1}
