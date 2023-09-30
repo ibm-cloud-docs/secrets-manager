@@ -140,9 +140,9 @@ toc:
       - topicgroup:
           label: CLI reference
           topics:
-          - link: 
-            label: Version 2
-            href: https://{DomainName}/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli  
+          - link:
+              label: Version 2
+              href: https://{DomainName}/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli  
           - topic: secrets-manager-cli-v1.md
             navtitle: Version 1
           - topic: changelog-cli.md
