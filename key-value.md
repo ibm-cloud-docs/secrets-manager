@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-05-12"
+lastupdated: "2023-09-30"
 
 keywords: key:value, key/value, key-value, storing key:value secrets
 
@@ -104,7 +104,7 @@ To add a key-value secret by using the {{site.data.keyword.secrets-manager_short
 {: #key-value-cli}
 {: cli}
 
-To create a key-value secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. For example, the following command creates a key-value secret and stores `{"key1":"value1"}` as its value.
+To create a key-value secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. For example, the following command creates a key-value secret and stores `{"key1":"value1"}` as its value.
 
 ```sh
 ibmcloud secrets-manager secret-create  \
@@ -115,7 +115,7 @@ ibmcloud secrets-manager secret-create  \
 
 
 
-The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
+The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
 
 ## Creating key-value secrets with the API
 {: #key-value-api}

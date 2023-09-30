@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-07-20"
+lastupdated: "2023-09-30"
 
 keywords: DNS provider, connect DNS provider, set up DNS provider, connect DNS, set up DNS, connect CIS, set up CIS, add DNS provider configuration
 
@@ -136,7 +136,7 @@ You can add DNS provider configurations to your service instance by using the {{
 
 You can add DNS provider configurations to your service instance by using the {{site.data.keyword.secrets-manager_short}} CLI. Manual DNS providers can be configured only by using the API.
 
-To configure a secrets engine from the {{site.data.keyword.cloud_notm}} CLI, run the [**`ibmcloud secrets-manager configuration-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-configuration-create-command) command.
+To configure a secrets engine from the {{site.data.keyword.cloud_notm}} CLI, run the [**`ibmcloud secrets-manager configuration-create`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-configuration-create-command) command.
 
 ```sh
 ibmcloud secrets-manager configuration-create {

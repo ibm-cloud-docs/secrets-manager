@@ -140,11 +140,13 @@ toc:
       - topicgroup:
           label: CLI reference
           topics:
-          - include: ../secrets-manager-cli-plugin/secrets-manager-cli.md
-            navtitle: Version 2
+          - link:
+              label: Version 2
+              href: https://{DomainName}/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli  
           - topic: secrets-manager-cli-v1.md
             navtitle: Version 1
-          - changelog-cli.md
+          - topic: changelog-cli.md
+            navtitle: Change log
       - topicgroup:
           label: Terraform reference
           topics:
