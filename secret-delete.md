@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-07-20"
+lastupdated: "2023-09-30"
 
 keywords: delete secret, remove secret, destroy secret
 
@@ -86,7 +86,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually delet
 {: #delete-secret-cli}
 {: cli}
 
-To delete a secret, run the [**`ibmcloud secrets-manager secret-delete`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-delete-command) command.
+To delete a secret, run the [**`ibmcloud secrets-manager secret-delete`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-delete-command) command.
 
 
 ```sh
@@ -94,7 +94,7 @@ ibmcloud secrets-manager secret-delete --id ID
 ```
 {: pre}
 
-For more information about the command options, see [**`ibmcloud secrets-manager secret`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-command).
+For more information about the command options, see [**`ibmcloud secrets-manager secret`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-command).
 
 ## Deleting secrets with the API
 {: #delete-secret-api}

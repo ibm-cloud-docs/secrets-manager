@@ -140,7 +140,7 @@ toc:
       - topicgroup:
           label: CLI reference
           topics:
-          - include: ../secrets-manager-cli-plugin/secrets-manager-cli.md
+          - include: https://{DomainName}/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli
             navtitle: Version 2
           - topic: secrets-manager-cli-v1.md
             navtitle: Version 1

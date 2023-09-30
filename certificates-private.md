@@ -2,7 +2,7 @@
 
 copyright:
   years: "2023"
-lastupdated: "2023-07-25"
+lastupdated: "2023-09-30"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, private certificates
 
@@ -131,7 +131,7 @@ You can create a private certificate by using the {{site.data.keyword.secrets-ma
 {: #generate-private-certificates-cli}
 {: cli}
 
-To create a private certificate by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. For example, the following command creates a private certificate secret from the certificate template that you specify.
+To create a private certificate by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. For example, the following command creates a private certificate secret from the certificate template that you specify.
 
 When you order a certificate, domain validation takes place to verify the ownership of your selected domains. This process can take a few minutes to complete.
 {: note}
@@ -165,7 +165,7 @@ ibmcloud secrets-manager secret-create --secret-prototype=
 {: pre}
 
 
-The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
+The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
 
 
 ### Creating private certificates with the API

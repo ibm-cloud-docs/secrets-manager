@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-07-24"
+lastupdated: "2023-09-30"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -254,7 +254,7 @@ You can manually rotate your secrets and certificates by using the {{site.data.k
 {: #manual-rotate-arbitrary-cli}
 {: cli}
 
-To rotate an arbitrary secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-version-create-command) command. For example, the following command rotates a secret and assigns `new-secret-data` as its new version.
+To rotate an arbitrary secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-version-create-command) command. For example, the following command rotates a secret and assigns `new-secret-data` as its new version.
 
 
 ```sh
@@ -266,13 +266,13 @@ ibmcloud secrets-manager secret-version-create \
 {: codeblock}
 
 
-The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-version-create-command).
+The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-version-create-command).
 
 ### Rotating user credentials
 {: #manual-rotate-user-credentials-cli}
 {: cli}
 
-To rotate a user credential secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-version-create-command) command. For example, the following command rotates a secret and assigns `new-password` as its new version.
+To rotate a user credential secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-version-create-command) command. For example, the following command rotates a secret and assigns `new-password` as its new version.
 
 ```sh
 ibmcloud secrets-manager secret-version-create \    
@@ -286,13 +286,13 @@ ibmcloud secrets-manager secret-version-create \
 To have the service generate and assign a random password to your credential, omit the `password` field. For example, `{}`. {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
 {: tip}
 
-The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-version-create-command).
+The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-version-create-command).
 
 ### Rotating imported certificates
 {: #manual-rotate-imported-certificates-cli}
 {: cli}
 
-To reimport a certificate by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-version-create-command) command. For example, the following command rotates a secret and assigns `new-secret-data` as its new version.
+To reimport a certificate by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-version-create-command) command. For example, the following command rotates a secret and assigns `new-secret-data` as its new version.
 
 
 ```sh
@@ -306,14 +306,14 @@ Replace new lines in the certificate, intermediate, and private key data with `\
 {: note}
 
 
-The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-version-create-command).
+The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-version-create-command).
 
 
 ### Rotating KV secrets
 {: #manual-rotate-kv-cli}
 {: cli}
 
-To rotate a KV secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-version-create-command) command. For example, the following command rotates a secret and assigns `new-secret-data` as its new version.
+To rotate a KV secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-version-create-command) command. For example, the following command rotates a secret and assigns `new-secret-data` as its new version.
 
 
 ```sh
@@ -324,7 +324,7 @@ ibmcloud secrets-manager secret-version-create \
 ```
 {: codeblock}
 
-The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-version-create-command).
+The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-version-create-command).
 
 
 ## Manually rotating secrets with the API
