@@ -264,36 +264,29 @@ Finally, configure your {{site.data.keyword.secrets-manager_short}} instance to 
     Don't have the plug-in? To install the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run `ibmcloud plugin install secrets-manager`.
     {: tip}
 
-2. Export an environment variable with your unique {{site.data.keyword.secrets-manager_short}} API endpoint URL.
-
-    ```sh
-    export SECRETS_MANAGER_URL="https://$SM_INSTANCE_ID.us-south.secrets-manager.appdomain.cloud"
-    ```
-    {: pre}
-
-3. Create a secret group for your instance.
+2. Create a secret group for your instance.
 
     [Secret groups](/docs/secrets-manager?topic=secrets-manager-secret-groups) are a way to organize and control who on your team has access to specific secrets in your instance. To create a secret group from the {{site.data.keyword.cloud_notm}} CLI, run the [**`ibmcloud secrets-manager secret-group-create`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-group-create-command) command.
 
     ```sh
-    export SECRET_GROUP_ID=`ibmcloud secrets-manager secret-group-create --name cloud-object-storage-writers --description "Read and write to Cloud Object storage buckets" --output json | jq -r '.id'`; echo $SECRET_GROUP_ID
+    export SECRET_GROUP_ID=`ibmcloud secrets-manager secret-group-create --name cloud-object-storage-writers --description "Read and write to Cloud Object storage buckets" --service-url https://${instance-id}.${region}.secrets-manager.appdomain.cloud --output json | jq -r '.id'`; echo $SECRET_GROUP_ID
     ```
     {: pre}
+
+    Be sure to update `instance_id` and `region` to yours.
+{: note}
 
     Using a Windows™ command prompt (`cmd.exe`) or PowerShell? If you encounter errors with passing JSON content on the command line, you might need to adjust the strings for quotation-escaping requirements that are specific to your operating system. For more information, see [Using quotation marks with strings in the {{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-quote-strings).
     {: tip}
 
-    If you run into the following error: `Error processing the response received, most likely an error response: Get "https://secrets-manager.cloud.ibm.com/api/v1/secret_groups": dial tcp: lookup secrets-manager.cloud.ibm.com on 1.1.1.1:53: no such host`, be sure that you export an environment variable with your unique {{site.data.keyword.secrets-manager_short}} API endpoint URL as shown in the previous step.
-    {: note}
-
-4. Enable the IAM secrets engine for your instance.
+3. Enable the IAM secrets engine for your instance.
 
     Secret engines are components in {{site.data.keyword.secrets-manager_short}} that are used to process operations for secrets of different types. These engines serve as backends for those secrets. By enabling the IAM secrets engine, you can create an API key for a service ID dynamically, and then lease it to a user based on the lease duration that you specify.
 
     To configure the IAM secrets engine from the {{site.data.keyword.cloud_notm}} CLI, run the [**`ibmcloud secrets-manager config-update`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-configuration-update-command) command.
 
     ```sh
-    ibmcloud secrets-manager --configuration-create --config-type iam_credentials_configuration --iam-credentials-apikey $API_KEY
+    ibmcloud secrets-manager configuration-create --config-type iam_credentials_configuration --iam-credentials-apikey $API_KEY
     ```
     {: pre}
 
@@ -310,9 +303,12 @@ To create an IAM credential from the {{site.data.keyword.cloud_notm}} CLI, run t
 
 
 ```sh
-export SECRET_ID=`ibmcloud secrets-manager secret-create --secret-namename test-iam-credentials --secret-description "Extended description for my secret.",--am-credentials-access_groups $ACCESS_GROUP_ID" --secret_group_id $SECRET_GROUP_ID --iam-credentials-ttl 2h --secret-labels "storage, us-south" --output json | jq -r '.id`
+export SECRET_ID=`ibmcloud secrets-manager secret-create --secret-name test-iam-credentials --secret-description "Extended description for my secret.",--am-credentials-access_groups $ACCESS_GROUP_ID" --secret_group_id $SECRET_GROUP_ID --iam-credentials-ttl 2h --secret-labels "storage, us-south" --output json --service-url https://${instance-id}.${region}.secrets-manager.appdomain.cloud | jq -r '.id`
 ```
 {: pre}
+
+Be sure to update `instance_id` and `region` to yours.
+{: note}
 
 You can also create an IAM credential by using the {{site.data.keyword.secrets-manager_short}} UI. For more information, see [Creating IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials).
 {: note}
