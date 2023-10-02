@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-09-30"
+lastupdated: "2023-10-02"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -58,7 +58,7 @@ subcollection: secrets-manager
 # Manually rotating secrets
 {: #manual-rotation}
 
-With {{site.data.keyword.secrets-manager_full}}, you can manually create new versions of a secret by using the UI or APIs.
+With {{site.data.keyword.secrets-manager_full}}, you can manually create new versions of a secret.
 {: shortdesc}
 
 When you rotate a secret in your service instance, you create a new version of its value. Rotating your credentials limits how long a protected resource can be accessed by a single secret, which can protect your business against the risks that are associated with compromised credentials. Rotate your secrets regularly, for example every 30 or 60 days, so that you're always meeting best practices around secrets management.

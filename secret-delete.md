@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-09-30"
+lastupdated: "2023-10-02"
 
 keywords: delete secret, remove secret, destroy secret
 
@@ -58,7 +58,7 @@ subcollection: secrets-manager
 # Deleting secrets
 {: #delete-secrets}
 
-You can use {{site.data.keyword.secrets-manager_full}} to delete a secret and its contents by using the console or service APIs.
+You can use {{site.data.keyword.secrets-manager_full}} to delete a secret and its contents.
 {: shortdesc}
 
 ## Before you begin

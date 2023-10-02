@@ -86,6 +86,11 @@ toc:
               - secret-rotate-auto.md
               - secret-versions-manage.md
           - secret-delete.md
+          - topicgroup:
+              label: Updating secrets
+              topics:
+              - secret-update.md
+              - secret-version-update.md
       - secret-groups.md
       - topicgroup:
           label: Configuring secrets engines
