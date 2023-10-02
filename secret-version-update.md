@@ -66,7 +66,7 @@ With {{site.data.keyword.secrets-manager_full}}, you can also update an existing
 {: ui}
 
 1. In the row for the secret that you want to update, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) > **Version history**.
-2. Select the version to update its metadata
+2. Select the version to update its custom metadata.
 
 
 ## Updating a secret version metadata using CLI

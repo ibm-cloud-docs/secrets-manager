@@ -74,7 +74,7 @@ Before you get started, be sure that you have the required level of access. To u
 {: ui}
 
 1. In the row for the secret that you want to update, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) > **Details**.
-2. To update either the General, Expiration, or Metadata tab to update their respective details
+2. To update a secret's General, Expiration, or Metadata details, click the respective tab.
 
 
 ## Updating a secret metadata using CLI
