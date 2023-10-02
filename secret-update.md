@@ -55,9 +55,7 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
-# Updating secrets
-
-## Updating secret metadata
+# Updating secret metadata
 {: #updating-secret-metadata}
 
 With {{site.data.keyword.secrets-manager_full}}, you can update an existing secret metadata, such as its name or description, custom metadata and expiration date.  
@@ -124,53 +122,3 @@ curl -X PATCH --location --header "Authorization: Bearer {iam_token}" \
 
 When you call the API, replace the `region`, secret `id` variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: note}
-
-## Updating secret version metadata
-{: #updating-secret-version}
-
-With {{site.data.keyword.secrets-manager_full}}, you can also update an existing secret's version custom metadata.
-{: shortdesc}
-
-## Updating a secret version metadata in the UI
-{: #update-secret-version-ui}
-{: ui}
-
-1. In the row for the secret that you want to update, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) > **Version history**.
-2. Select the version to update its metadata
-
-
-## Updating a secret version metadata using CLI
-{: #update-secret-version-cli}
-{: cli}
-
-To update a secret version by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-version-metadata-update`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-version-metadata-update-command) command. For example, the following command updates a secret's name, description, labels, custom metadata, and expiration date.
-
-```sh
-ibmcloud secrets-manager secret-version-metadata-update \
-    --secret-id 0b5571f7-21e6-42b7-91c5-3f5ac9793a46 \
-    --id eb4cf24d-9cae-424b-945e-159788a5f535 \
-    --version-custom-metadata '{"anyKey": "anyValue"}'
-```
-{: codeblock}
-{: curl}
-
-
-## Updating a secret version metadata using API
-{: #update-secret-version-api}
-{: api}
-
-To update a secret version metadata by using the API, execute the following request. In this example the request updates a secret version's custom metadata.
-
-```sh
-curl -X PATCH --location --header "Authorization: Bearer {iam_token}" \
-    --header "Accept: application/json" \
-    --header "Content-Type: application/merge-patch+json" \
-    --data ''
-   "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/{secret_id}/versions/{id}/metadata""
-```
-{: codeblock}
-{: curl}
-
-When you call the API, replace the `region`, `secret_id`, secret version `id` variables, and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
-{: note}
-
