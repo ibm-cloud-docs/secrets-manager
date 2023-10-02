@@ -2,7 +2,7 @@
 
 copyright:
   years: "2023"
-lastupdated: "2023-09-30"
+lastupdated: "2023-10-02"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, public certificates
 
@@ -506,7 +506,7 @@ When you order a certificate, domain validation takes place to verify the owners
 
 
 ```sh
-ibmcloud secrets-manager secret-create --resources=
+ibmcloud secrets-manager secret-create --secret-prototype \
 '[{
     "name": "example-public-certificate", 
     "description": "Extended description for this secret.", 
@@ -536,8 +536,6 @@ ibmcloud secrets-manager secret-create --resources=
 ]
 ```
 {: pre}
-
-
 
 The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command).
 
