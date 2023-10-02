@@ -55,7 +55,9 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
-# Updating secret metadata
+# Updating secrets
+
+## Updating secret metadata
 {: #updating-secret-metadata}
 
 With {{site.data.keyword.secrets-manager_full}}, you can update an existing secret metadata, such as its name or description, custom metadata and expiration date.  
@@ -123,7 +125,7 @@ curl -X PATCH --location --header "Authorization: Bearer {iam_token}" \
 When you call the API, replace the `region`, secret `id` variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: note}
 
-# Updating secret version metadata
+## Updating secret version metadata
 {: #updating-secret-version}
 
 With {{site.data.keyword.secrets-manager_full}}, you can also update an existing secret's version custom metadata.
