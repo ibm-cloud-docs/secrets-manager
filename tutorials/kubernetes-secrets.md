@@ -338,7 +338,7 @@ In this tutorial, you create a username and password as an example. To create a 
 
 ```sh
 export SECRET_ID=`ibmcloud secrets-manager secret-create --secret-type=username_password --secret-name example_username_password --username-password-username user123 --username-password-password cloudy-rainy-coffee-book --secret-labels "my-test-cluster, tutorial" --secret-group-id $SECRET_GROUP_ID --output json --service-url https://${instance-id}.${region}.secrets-manager.appdomain.cloud | jq -r '.id'`; echo $SECRET_ID
-``````
+```
 {: pre}
 
 Be sure to update `instance_id` and `region` to yours.
