@@ -3,7 +3,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-10-02"
+lastupdated: "2023-10-03"
 
 keywords: tutorial, Secrets Manager
 
@@ -334,7 +334,7 @@ Secrets are application-specific and can vary based on the individual app or ser
 
 {{site.data.keyword.secrets-manager_short}} supports various [types of secrets](/docs/secrets-manager?topic=secrets-manager-what-is-secret#secret-types) that you can create and manage in the service. For example, if you need to manage an API key for an app that is protected by {{site.data.keyword.cloud_notm}} IAM authentication, you can create an [IAM credential](/docs/secrets-manager?topic=secrets-manager-iam-credentials). Or, if you need to manage a secret that can hold any type of structured or unstructured data, you can create an [arbitrary secret](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets).
 
-In this tutorial, you create a username and password as an example. To create a secret from the {{site.data.keyword.cloud_notm}} CLI, you use the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. Run the following command to create the secret and store its ID as an environment variable.
+In this tutorial, you create a username and password as an example. To create a secret from the {{site.data.keyword.cloud_notm}} CLI, you use the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. Run the following command to create the secret and store its ID as an environment variable.
 
 ```sh
 export SECRET_ID=`ibmcloud secrets-manager secret-create --secret-type=username_password --secret-name example_username_password --username-password-username user123 --username-password-password cloudy-rainy-coffee-book --secret-labels "my-test-cluster, tutorial" --secret-group-id $SECRET_GROUP_ID --output json --service-url https://${instance-id}.${region}.secrets-manager.appdomain.cloud | jq -r '.id'`; echo $SECRET_ID
