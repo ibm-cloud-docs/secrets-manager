@@ -96,7 +96,7 @@ This scenario features a third-party tool that can impact the compliance readine
 Before you get started, be sure that you have [**Administrator** platform access](/docs/account?topic=account-assign-access-resources#assign-new-access) so that you can create account credentials and provision resources. You also need the following prerequisites:
 
 - [Download and install the IBM Cloud CLI](https://cloud.ibm.com/docs/cli).
-- [Install the {{site.data.keyword.secrets-manager_short}} CLI plug-in](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli).
+- [Install the {{site.data.keyword.secrets-manager_short}} CLI plug-in](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli).
 - [Install the Kubernetes CLI (`kubectl`)](https://kubernetes.io/docs/tasks/tools/){: external}.
 - [Download and install jq](https://stedolan.github.io/jq/){: external}.
 
@@ -310,7 +310,7 @@ Finally, configure your {{site.data.keyword.secrets-manager_short}} instance to 
 
 3. Create a secret group for your instance.
 
-    [Secret groups](/docs/secrets-manager?topic=secrets-manager-secret-groups) are a way to organize and control who on your team has access to specific secrets in your instance. To create a secret group from the {{site.data.keyword.cloud_notm}} CLI, you use the [**`ibmcloud secrets-manager secret-group-create`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-group-create-command) command. Run the following command to create a secret group and store its ID as an environment variable.
+    [Secret groups](/docs/secrets-manager?topic=secrets-manager-secret-groups) are a way to organize and control who on your team has access to specific secrets in your instance. To create a secret group from the {{site.data.keyword.cloud_notm}} CLI, you use the [**`ibmcloud secrets-manager secret-group-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-group-create-command) command. Run the following command to create a secret group and store its ID as an environment variable.
 
     ```sh
     export SECRET_GROUP_ID=`ibmcloud secrets-manager secret-group-create --name my-test-secret-group --description "Read and write to my test app" --output json --service-url https://${instance-id}.${region}.secrets-manager.appdomain.cloud | jq -r '.id'`; echo $SECRET_GROUP_ID

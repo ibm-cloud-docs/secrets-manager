@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-10-02"
+lastupdated: "2023-10-03"
 
 keywords: update, metadata, secret version
 
@@ -73,7 +73,7 @@ With {{site.data.keyword.secrets-manager_full}}, you can also update an existing
 {: #update-secret-version-cli}
 {: cli}
 
-To update a secret version by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-version-metadata-update`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-version-metadata-update-command) command. For example, the following command updates a secret's name, description, labels, custom metadata, and expiration date.
+To update a secret version by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-version-metadata-update`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-version-metadata-update-command) command. For example, the following command updates a secret's name, description, labels, custom metadata, and expiration date.
 
 ```sh
 ibmcloud secrets-manager secret-version-metadata-update \

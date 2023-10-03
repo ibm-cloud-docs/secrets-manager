@@ -86,7 +86,7 @@ With {{site.data.keyword.secrets-manager_short}}, you can create a [dynamic secr
 Before you get started, be sure that you have [**Administrator** platform access](/docs/account?topic=account-assign-access-resources#assign-new-access) so that you can provision services, create access groups, and customize access policies for others. You also need the following prerequisites:
 
 - [Download and install the IBM Cloud CLI](/docs/cli).
-- [Install the {{site.data.keyword.secrets-manager_short}} CLI plug-in](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli).
+- [Install the {{site.data.keyword.secrets-manager_short}} CLI plug-in](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli).
 - [Download and install jq](https://stedolan.github.io/jq/){: external}.
 
     `jq` helps you slice and filter JSON data. You use `jq` in this tutorial to grab and use stored environment variables.
@@ -266,7 +266,7 @@ Finally, configure your {{site.data.keyword.secrets-manager_short}} instance to 
 
 2. Create a secret group for your instance.
 
-    [Secret groups](/docs/secrets-manager?topic=secrets-manager-secret-groups) are a way to organize and control who on your team has access to specific secrets in your instance. To create a secret group from the {{site.data.keyword.cloud_notm}} CLI, run the [**`ibmcloud secrets-manager secret-group-create`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-group-create-command) command.
+    [Secret groups](/docs/secrets-manager?topic=secrets-manager-secret-groups) are a way to organize and control who on your team has access to specific secrets in your instance. To create a secret group from the {{site.data.keyword.cloud_notm}} CLI, run the [**`ibmcloud secrets-manager secret-group-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-group-create-command) command.
 
     ```sh
     export SECRET_GROUP_ID=`ibmcloud secrets-manager secret-group-create --name cloud-object-storage-writers --description "Read and write to Cloud Object storage buckets" --service-url https://${instance-id}.${region}.secrets-manager.appdomain.cloud --output json | jq -r '.id'`; echo $SECRET_GROUP_ID
@@ -283,7 +283,7 @@ Finally, configure your {{site.data.keyword.secrets-manager_short}} instance to 
 
     Secret engines are components in {{site.data.keyword.secrets-manager_short}} that are used to process operations for secrets of different types. These engines serve as backends for those secrets. By enabling the IAM secrets engine, you can create an API key for a service ID dynamically, and then lease it to a user based on the lease duration that you specify.
 
-    To configure the IAM secrets engine from the {{site.data.keyword.cloud_notm}} CLI, run the [**`ibmcloud secrets-manager config-update`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-configuration-update-command) command.
+    To configure the IAM secrets engine from the {{site.data.keyword.cloud_notm}} CLI, run the [**`ibmcloud secrets-manager config-update`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-configuration-update-command) command.
 
     ```sh
     ibmcloud secrets-manager configuration-create --config-type iam_credentials_configuration --iam-credentials-apikey $API_KEY
@@ -319,7 +319,7 @@ You can also create an IAM credential by using the {{site.data.keyword.secrets-m
 
 After you create the IAM credential, a user with lesser privileges can retrieve the secret when it's time to access the storage bucket.
 
-To retrieve an IAM credential from the {{site.data.keyword.cloud_notm}} CLI, you can run the [**`ibmcloud secrets-manager secret`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-command) command.
+To retrieve an IAM credential from the {{site.data.keyword.cloud_notm}} CLI, you can run the [**`ibmcloud secrets-manager secret`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-command) command.
 
 1. Retrieve the contents of your IAM credential secret.
 

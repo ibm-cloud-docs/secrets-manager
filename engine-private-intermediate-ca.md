@@ -338,7 +338,7 @@ An intermediate CA with internal signing uses a parent CA that was previously cr
 
 ### Step 1: Create an intermediate CA with internal signing
 
-To create an intermediate CA with internal signing, run the [**`ibmcloud secrets-manager configuration-create`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-configuration-create-command) command. In the configuration prototype, set the value of the `signing_method` attribute to `internal`. Use the `issuer` attribute to specify the parent certificate authority. For example, the following command creates an intermediate CA with internal signing.
+To create an intermediate CA with internal signing, run the [**`ibmcloud secrets-manager configuration-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-configuration-create-command) command. In the configuration prototype, set the value of the `signing_method` attribute to `internal`. Use the `issuer` attribute to specify the parent certificate authority. For example, the following command creates an intermediate CA with internal signing.
 
 ```sh
 ibmcloud secrets-manager configuration-create 
@@ -373,7 +373,7 @@ ibmcloud secrets-manager configuration-create
 ### Step 2: Sign the intermediate CA
 {: #intermediate-ca-external-sign-cli}
 
-To sign the intermediate CA from the {{site.data.keyword.secrets-manager_short}} CLI, apply the `sign-intermediate` action by runnning the [**`ibmcloud secrets-manager configuration-action-create`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-configuration-action-create-command) command. Pass the name of the signing certificate authority (the issuer) with the `--name` command option. 
+To sign the intermediate CA from the {{site.data.keyword.secrets-manager_short}} CLI, apply the `sign-intermediate` action by runnning the [**`ibmcloud secrets-manager configuration-action-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-configuration-action-create-command) command. Pass the name of the signing certificate authority (the issuer) with the `--name` command option. 
 
 ```sh
 ibmcloud secrets-manager configuration-action-create --name example-root-CA  
@@ -393,7 +393,7 @@ An intermediate CA with external signing uses a parent CA from an external PKI s
 ### Step 1: Create an intermediate CA and signing request
 {: #intermediate-ca-external-create-cli}
 
-To create an intermediate CA and signing request from the {{site.data.keyword.secrets-manager_short}} CLI, run the [**`ibmcloud secrets-manager configuration-create`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-configuration-create-command) command. In the configuration prototype, set the value of the `signing_method` attribute to `external`. Use the `--output json` option for getting a complete response that includes the value of the `csr` attribute. For example, the following command creates an intermediate CA with external signing.
+To create an intermediate CA and signing request from the {{site.data.keyword.secrets-manager_short}} CLI, run the [**`ibmcloud secrets-manager configuration-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-configuration-create-command) command. In the configuration prototype, set the value of the `signing_method` attribute to `external`. Use the `--output json` option for getting a complete response that includes the value of the `csr` attribute. For example, the following command creates an intermediate CA with external signing.
 
 ```sh
 ibmcloud secrets-manager configuration-create --output json 
@@ -422,7 +422,7 @@ ibmcloud secrets-manager configuration-create --output json
 ```
 {:pre}
 
-Copy the CSR from the response JSON data. The CSR value is nested within the value of the `data` attribute of the response. You can also get the data of the newly created intermediate CA by running run the [**`ibmcloud secrets-manager configuration`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-configuration-command) command with the `--output json` option. For example:
+Copy the CSR from the response JSON data. The CSR value is nested within the value of the `data` attribute of the response. You can also get the data of the newly created intermediate CA by running run the [**`ibmcloud secrets-manager configuration`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-configuration-command) command with the `--output json` option. For example:
 
 ```sh
 ibmcloud secrets-manager configuration --name example-intermediate-CA --output json 
@@ -443,7 +443,7 @@ openssl x509 -req -in <intermediate-ca-csr-file> -CA <external-parent-ca-file> -
 
 The command outputs a signed certificate file that you can import into your intermediate CA configuration to complete the signing process.
 
-If the parent CA is a root CA or an intermediate CA from another {{site.data.keyword.secrets-manager_short}} instance, you can sign the CSR by applying the `sign-csr` action. To apply the action run the [**`ibmcloud secrets-manager configuration-action-create`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-configuration-action-create-command) command. Copy the value of the `certificate` field from the command output to use it in the next step. For example, if the parent CA is the root CA with the name `example-root-CA` in another {{site.data.keyword.secrets-manager_short}} instance, the command would be as follows.
+If the parent CA is a root CA or an intermediate CA from another {{site.data.keyword.secrets-manager_short}} instance, you can sign the CSR by applying the `sign-csr` action. To apply the action run the [**`ibmcloud secrets-manager configuration-action-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-configuration-action-create-command) command. Copy the value of the `certificate` field from the command output to use it in the next step. For example, if the parent CA is the root CA with the name `example-root-CA` in another {{site.data.keyword.secrets-manager_short}} instance, the command would be as follows.
 
 ```sh
 ibmcloud secrets-manager configuration-action-create --name example-root-CA --output json  
@@ -462,7 +462,7 @@ For the `sign-csr` action you need to target the other {{site.data.keyword.secre
 ### Step 3: Import a signed intermediate CA into your intermediate CA configuration
 {: #intermediate-ca-set-signed-cli}
 
-After you sign an intermediate CA certificate by using an external parent CA, you can import it into your intermediate CA configuration by applying the `set-signed` action to your intermediate CA configuration. To apply the action run the [**`ibmcloud secrets-manager configuration-action-create`**](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-configuration-action-create-command) command. For example:
+After you sign an intermediate CA certificate by using an external parent CA, you can import it into your intermediate CA configuration by applying the `set-signed` action to your intermediate CA configuration. To apply the action run the [**`ibmcloud secrets-manager configuration-action-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-configuration-action-create-command) command. For example:
 
 ```sh
 ibmcloud secrets-manager configuration-action-create --name example-intermediate-CA 
@@ -538,5 +538,5 @@ In this example, we use external signing because the root CA is in another {{sit
 ## Next steps
 {: #intermediate-ca-next-steps}
 
-- [Add a certificate template](/docs/secrets-manager?topic=secrets-manager-certificate-templates)
+- [Add a certificate template](/docs/secrets-manager?topic=secrets-manager-certificate-templates).
 
