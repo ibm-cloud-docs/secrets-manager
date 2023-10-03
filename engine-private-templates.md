@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-25"
+lastupdated: "2023-10-03"
 
 keywords: certificate parameters, certificate templates
 
@@ -289,5 +289,5 @@ For more information about the required and optional request parameters, see [Ad
 ## Next steps
 {: #certificate-templates-next-steps}
 
-- [Create a private certificate](/docs/secrets-manager?topic=secrets-manager-certificates#create-certificates)
+- [Create a private certificate](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates).
 

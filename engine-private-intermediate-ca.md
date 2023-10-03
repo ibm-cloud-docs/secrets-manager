@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-09-30"
+lastupdated: "2023-10-03"
 
 keywords: intermediate certificate authority, intermediate CA, internal signing, external signing
 
@@ -58,7 +58,7 @@ subcollection: secrets-manager
 # Creating intermediate certificate authorities
 {: #intermediate-certificate-authorities}
 
-An intermediate certificate authority (CA) is a lower-level certificate authority that can sign and issue certificates to an end-entity, such as an app or website. In {{site.data.keyword.secrets-manager_full}}, you can use an intermediate CA to create [private certificates](/docs/secrets-manager?topic=secrets-manager-certificates#create-certificates).
+An intermediate certificate authority (CA) is a lower-level certificate authority that can sign and issue certificates to an end-entity, such as an app or website. In {{site.data.keyword.secrets-manager_full}}, you can use an intermediate CA to create [private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates).
 {: shortdesc}
 
 If you already created a parent CA in your {{site.data.keyword.secrets-manager_short}} instance, for example a root CA or an intermediate CA, you can use it to sign and issue an intermediate CA. If you created the parent CA elsewhere outside of {{site.data.keyword.secrets-manager_short}}, you can also use that CA to sign an intermediate CA.
@@ -121,7 +121,7 @@ An intermediate CA with internal signing uses a parent CA that was previously cr
 
 9. Review your selections. To create the intermediate CA, click **Create**.
 
-   You can now select this intermediate CA to [generate a private certificate](/docs/secrets-manager?topic=secrets-manager-certificates#create-certificates). To modify or remove an existing configuration, click **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) in the row of the certificate authority that you want to update.
+   You can now select this intermediate CA to [generate a private certificate](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates). To modify or remove an existing configuration, click **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) in the row of the certificate authority that you want to update.
 
 
 ## Creating an intermediate CA with internal signing with the API
@@ -239,7 +239,7 @@ After you sign an intermediate CA certificate by using an external parent CA, yo
 3. Select or enter the signed intermediate CA certificate file that you signed in the [previous step](#intermediate-ca-sign-ui).
 4. Click **Sign** to complete the external signing process.
    
-   The signed intermediate CA is added to your list of configurations for your instance with an **Active** status. You can now use this intermediate CA to [create private certificates](/docs/secrets-manager?topic=secrets-manager-certificates#create-certificates) for your applications. To modify or remove an existing configuration, click **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) in the row of the certificate authority that you want to update.
+   The signed intermediate CA is added to your list of configurations for your instance with an **Active** status. You can now use this intermediate CA to [create private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates) for your applications. To modify or remove an existing configuration, click **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) in the row of the certificate authority that you want to update.
 
 
 ## Creating an intermediate CA with external signing with the API
