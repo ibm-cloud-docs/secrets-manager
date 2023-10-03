@@ -105,7 +105,7 @@ Version 0.1.22 was released on 12 September 2022. This release includes the foll
 
 Version 0.1.21 was released on 27 July 2022. This release includes the following updates:
 
-- Fixed an issue where the [Get secret command](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli#secrets-manager-cli-secret-command) returns empty if labels are present.
+- Fixed an issue where the [Get secret command](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-command) returns empty if labels are present.
 
 ## Version 0.1.20
 {: #0.1.20}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-06-21"
+lastupdated: "2023-10-03"
 
 keywords: Secrets Manager developer tools, integrate with application, API, SDK, CLI
 
@@ -84,7 +84,7 @@ ibmcloud secrets-manager all-secrets
 ```
 {: pre}
 
-To install {{site.data.keyword.secrets-manager_short}} commands, run `ibmcloud plugin install secrets-manager`. For more information, check out the [{{site.data.keyword.secrets-manager_short}} CLI reference](/docs/secrets-manager?topic=secrets-manager-cli-plugin-secrets-manager-cli).
+To install {{site.data.keyword.secrets-manager_short}} commands, run `ibmcloud plugin install secrets-manager`. For more information, check out the [{{site.data.keyword.secrets-manager_short}} CLI reference](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli).
 {: note}
 
 ### {{site.data.keyword.secrets-manager_short}} API
