@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-10-04"
 
 keywords: Vault CLI, configure the Vault CLI, use Secrets Manager with Vault CLI, CLI commands, log in to Vault
 
@@ -77,7 +77,7 @@ All operations follow the guidelines that are available for the Vault CLI. To le
 ## Setting up your environment
 {: #configure-vault-cli-env}
 
-First, set up your environment to access a {{site.data.keyword.secrets-manager_short}} service instance by using Vault. Start by creaing a shell script that sets the credentials that are needed to authenticate to Vault.
+First, set up your environment to access a {{site.data.keyword.secrets-manager_short}} service instance by using Vault. Start by creating a shell script that sets the credentials that are needed to authenticate to Vault.
 
 1. In a project directory, create a `login-vault.sh` file.
 

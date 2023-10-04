@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-04-25"
+lastupdated: "2023-10-04"
 
 subcollection: secrets-manager
 
@@ -966,7 +966,7 @@ ibmcloud secrets-manager locks \
 #### Example output
 {: #secrets-manager-locks-cli-output-v1}
 
-Example response for listing the locks that are assosiated with a specified secret.
+Example response for listing the locks that are associated with a specified secret.
 
 ```json
 {
@@ -1173,7 +1173,7 @@ ibmcloud secrets-manager secret-version-locks \
 #### Example output
 {: #secrets-manager-secret-version-locks-cli-output-v1}
 
-Example response for listing the locks that  areassociated with a specified secret version.
+Example response for listing the locks that  are associated with a specified secret version.
 
 ```json
 {
