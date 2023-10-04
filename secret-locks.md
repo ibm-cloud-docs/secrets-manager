@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-12"
+lastupdated: "2023-10-04"
 
 keywords: secret locks, lock secret, prevent deletion, prevent rotation, unlock secret, create lock, delete lock
 
@@ -189,7 +189,7 @@ To help you to create a new lock and remove older locks in a single operation, y
 
 You can lock the current version of a secret by using the {{site.data.keyword.secrets-manager_short}} CLI. A successful request attaches a new lock to the current version of your selected secret, or replaces a lock of the same name if it already exists.
 
-To create a lock on the current version of a secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the `ibmcloud secrets-manager secret-lock` command. You can specify the type of secret, the secret ID, and the mode.
+To create a lock on the current version of a secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [`ibmcloud secrets-manager secret-locks-bulk-create`](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli&interface=ui#secrets-manager-cli-secret-locks-bulk-create-command) command. You can specify the type of secret, the secret ID, and the mode.
 
 ```sh
 ibmcloud secrets-manager secret-locks-bulk-create \

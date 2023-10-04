@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-09-19"
+lastupdated: "2023-10-02"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -2806,7 +2806,7 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 {: codeblock}
 
 #### Example response
-{: #vault-list-verison-locks-response}
+{: #vault-list-version-locks-response}
 
 A request to get the lock details on the current version of a secret returns the following response:
 ```json

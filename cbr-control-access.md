@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-05-30"
+lastupdated: "2023-10-03"
 
 keywords: context-based restrictions, access allowlist, network security
 
@@ -321,7 +321,7 @@ After you create rules, you can [update](/apidocs/context-based-restrictions#rep
 {: #cbr-create-rules-cli}
 {: cli}
 
-Review the following examples to learn how to create rules for {{site.data.keyword.secrets-manager_short}}. For more information, see the CBR [CLI reference](/docs/account?topic=cli-cbr-plugin).
+Review the following examples to learn how to create rules for {{site.data.keyword.secrets-manager_short}}. For more information, see the CBR [CLI reference](/docs/account?topic=account-cbr-plugin).
 
 1. To create rules from the CLI, [install the CBR CLI plug-in](/docs/cli?topic=cli-cbr-plugin#install-cbr-plugin). 
 1. You can use the `ibmcloud cbr rule-create` [command](/docs/cli?topic=cli-cbr-plugin#cbr-cli-rule-create-command) to create CBR rules. For more information, see the CBR [CLI reference](/docs/cli?topic=cli-cbr-plugin#cbr-zones-cli). Note that the `service_name` for {{site.data.keyword.secrets-manager_short}} is `secrets-manager`. To find a list of service names, run the `ibmcloud cbr service-ref-targets` command. To find a list of API types for a service, run the `ibmcloud cbr api-types --service-name SERVICE` command.

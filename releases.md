@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-09-30"
+lastupdated: "2023-10-03"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -260,7 +260,7 @@ Create private SSL/TLS certificates for your applications
   - [Creating root certificate authorities](/docs/secrets-manager?topic=secrets-manager-root-certificate-authorities)
   - [Creating intermediate certificate authorities](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities)
   - [Adding certificate templates](/docs/secrets-manager?topic=secrets-manager-certificate-templates)
-  - [Creating private certificates](/docs/secrets-manager?topic=secrets-manager-certificates#create-certificates)
+  - [Creating private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates)
 
 New {{site.data.keyword.secrets-manager_short}} event notifications
 :   The following {{site.data.keyword.secrets-manager_short}} events can now be forwarded to a connected {{site.data.keyword.en_short}} instance.
@@ -532,7 +532,7 @@ Now available: {{site.data.keyword.secrets-manager_short}} CLI plug-in
    You can use the {{site.data.keyword.secrets-manager_short}} CLI to interact with the secrets that you store in your {{site.data.keyword.secrets-manager_short}} instance. To install the plug-in, log in to the IBM Cloud CLI and run `ibmcloud plugin install secrets-manager`.
 
    - To see CLI usage examples for creating secrets of different types, check out [Creating secrets](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets).
-   - To find out more about the CLI commands and options that are available for {{site.data.keyword.secrets-manager_short}}, see the [CLI reference](/docs/secrets-manager-cli-plugin?topic=secrets-manager-cli-plugin-secrets-manager-cli).
+   - To find out more about the CLI commands and options that are available for {{site.data.keyword.secrets-manager_short}}, see the [CLI reference](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli).
 
 ## 24 November 2020
 {: #secrets-manager-nov2420}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-30"
+lastupdated: "2023-10-03"
 
 keywords: create certificate authority, create root CA, create intermediate CA, set up PKI, set up private certificates, private certificates engine
 
@@ -67,7 +67,7 @@ In {{site.data.keyword.secrets-manager_short}}, the private certificates engine 
 ## Learning about certificate hierarchies
 {: #what-is-ca-hierarchy}
 
-With {{site.data.keyword.secrets-manager_short}}, you can build your own public-key infrastructure (PKI) system by creating certificate authorities (CA) that can sign and issue SSL/TLS certificates to your applications. With a certificates chain in place, you can use your {{site.data.keyword.secrets-manager_short}} instance to create [private certificates](/docs/secrets-manager?topic=secrets-manager-certificates#create-certificates) for your client and server apps.
+With {{site.data.keyword.secrets-manager_short}}, you can build your own public-key infrastructure (PKI) system by creating certificate authorities (CA) that can sign and issue SSL/TLS certificates to your applications. With a certificates chain in place, you can use your {{site.data.keyword.secrets-manager_short}} instance to create [private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates) for your client and server apps.
 
 A valid chain of certificates begins at a trusted root CA, passes through one or more subordinate CAs, and ends with a leaf certificate that is issued to your end-entity application. For example, check out the following simple CA hierarchy:
 
@@ -78,7 +78,7 @@ A valid chain of certificates begins at a trusted root CA, passes through one or
 2. The subordinate CAs in level 2 are signed and issued by the root CA. These subordinate CAs sign other subordinate CA certificates.
 3. Finally, the subordinate CA certificates in level 3 sign and issue leaf certificates to your end-entity applications.
 
-   In {{site.data.keyword.secrets-manager_short}}, leaf certificates are the [private certificates](/docs/secrets-manager?topic=secrets-manager-certificates#create-certificates) that you create and deploy to your applications.
+   In {{site.data.keyword.secrets-manager_short}}, leaf certificates are the [private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates) that you create and deploy to your applications.
 
 ## Designing your CA hierarchy
 {: #design-ca-hierarchy}

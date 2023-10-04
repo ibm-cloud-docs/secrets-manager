@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-12"
+lastupdated: "2023-10-04"
 
 keywords: root certificate authority, root CA, internal signing, external signing
 
@@ -170,7 +170,7 @@ For more information about the required and optional request parameters, see [Ad
 {: #root-ca-cli}
 {: cli}
 
-You can create an internally signed root certificate authority for your service instance by using the {{site.data.keyword.secrets-manager_short}} CLI.
+You can create an internally signed root certificate authority for your service instance by using the [**`ibmcloud secrets-manager configuration-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-configuration-create-command) command.
 
 The following example shows a command that you can use to create a root certificate authority.
 
