@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-10-03"
+lastupdated: "2023-10-04"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -170,7 +170,7 @@ You can schedule the automatic rotation of secrets by using the {{site.data.keyw
 {: #schedule-auto-rotate-password-cli}
 {: cli}
 
-Schedule the automatic rotation for user credentials by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in. 
+Schedule the automatic rotation for user credentials by using the [`ibmcloud secrets-manager secret-metadata-update`](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli&interface=ui#secrets-manager-cli-secret-metadata-update-command). 
 
 ```sh
 ibmcloud secrets-manager secret-metadata-update \
@@ -187,7 +187,7 @@ To remove a policy, keep the resources block empty.
 {: #schedule-auto-rotate-public-cert-cli}
 {: cli}
 
-Schedule the automatic rotation for public certificates by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in. 
+Schedule the automatic rotation for public certificates by using the [`ibmcloud secrets-manager secret-metadata-update`](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli&interface=ui#secrets-manager-cli-secret-metadata-update-command). 
 
 
 ```sh
@@ -202,7 +202,7 @@ ibmcloud secrets-manager secret-metadata-update \
 {: #schedule-auto-rotate-private-cert-cli}
 {: cli}
 
-Schedule the automatic rotation for private certificates by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in. 
+Schedule the automatic rotation for private certificates by using the [`ibmcloud secrets-manager secret-metadata-update`](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli&interface=ui#secrets-manager-cli-secret-metadata-update-command). 
 
 
 ```sh
@@ -217,7 +217,7 @@ ibmcloud secrets-manager secret-metadata-update \
 {: #schedule-auto-rotate-iam-credentials-cli}
 {: cli}
 
-Schedule the automatic rotation for IAM credentials by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in. 
+Schedule the automatic rotation for IAM credentials by using the [`ibmcloud secrets-manager secret-metadata-update`](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli&interface=ui#secrets-manager-cli-secret-metadata-update-command). 
 
 ```sh
 ibmcloud secrets-manager secret-metadata-update \

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-10-03"
+lastupdated: "2023-10-04"
 
 keywords: certificate parameters, certificate templates
 
@@ -214,7 +214,7 @@ A successful response adds the template configuration to your service instance.
 {: #certificate-templates-cli}
 {: cli}
 
-You can create a certificate template for your service instance by using the {{site.data.keyword.secrets-manager_short}} CLI.
+You can create a certificate template for your service instance by using the [**`ibmcloud secrets-manager configuration-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-configuration-create-command) command.
 
 The following example shows a command that you can use to create a certificate template and associate it with an existing intermediate certificate authority that is configured for your instance.
 {: note}
