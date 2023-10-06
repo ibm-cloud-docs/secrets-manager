@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-10-03"
+lastupdated: "2023-10-04"
 
 keywords: intermediate certificate authority, intermediate CA, internal signing, external signing
 
@@ -373,7 +373,7 @@ ibmcloud secrets-manager configuration-create
 ### Step 2: Sign the intermediate CA
 {: #intermediate-ca-external-sign-cli}
 
-To sign the intermediate CA from the {{site.data.keyword.secrets-manager_short}} CLI, apply the `sign-intermediate` action by runnning the [**`ibmcloud secrets-manager configuration-action-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-configuration-action-create-command) command. Pass the name of the signing certificate authority (the issuer) with the `--name` command option. 
+To sign the intermediate CA from the {{site.data.keyword.secrets-manager_short}} CLI, apply the `sign-intermediate` action by running the [**`ibmcloud secrets-manager configuration-action-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-configuration-action-create-command) command. Pass the name of the signing certificate authority (the issuer) with the `--name` command option. 
 
 ```sh
 ibmcloud secrets-manager configuration-action-create --name example-root-CA  

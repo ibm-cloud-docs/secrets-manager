@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-10-03"
+lastupdated: "2023-10-04"
 
 keywords: DNS provider, connect DNS provider, set up DNS provider, connect DNS, set up DNS, connect CIS, set up CIS, add DNS provider configuration
 
@@ -233,7 +233,7 @@ If you choose to use your own DNS provider, refer to your provider's documentati
 {: #add-cis-config-terraform}
 {: terraform}
 
-The following example shows a confihuration that you can use to add a a Cloud Internet Services (CIS) DNS configuration to your {{site.data.keyword.secrets-manager_short}} instance. 
+The following example shows a configuration that you can use to add a a Cloud Internet Services (CIS) DNS configuration to your {{site.data.keyword.secrets-manager_short}} instance. 
 
 ```terraform
 resource "ibm_sm_public_certificate_configuration_dns_cis" "my_dns_cis_config" {
@@ -251,7 +251,7 @@ resource "ibm_sm_public_certificate_configuration_dns_cis" "my_dns_cis_config" {
 {: #add-classic-infra-config-terraform}
 {: terraform}
 
-The following example shows a confihuration that you can use to add a classic infrastructure DNS configuration to your {{site.data.keyword.secrets-manager_short}} instance.
+The following example shows a configuration that you can use to add a classic infrastructure DNS configuration to your {{site.data.keyword.secrets-manager_short}} instance.
 
 ```terraform
 resource "ibm_sm_public_certificate_configuration_dns_classic_infrastructure" "my_dns_classic_config" {
