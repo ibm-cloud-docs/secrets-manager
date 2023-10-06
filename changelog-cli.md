@@ -84,7 +84,7 @@ Version 2.0.0 was released on 17 April 2023. All of the commands have been updat
 
 As of April 17, 2023, the {{site.data.keyword.secrets-manager_full}} CLI v1 has been deprecated in favor of v2. If you're still actively working with the {{site.data.keyword.secrets-manager_short}} CLI v1, please be sure to start your upgrade as soon as possible. On 31 October 2023, support for the {{site.data.keyword.secrets-manager_short}} CLI v1 will be removed.
 
-[Review the Migrating to CLI v2](/docs/secrets-manager?topic=secrets-manager-api-migration-v2#migrate-api-v2-cli) to learn more about required changes when using this new version.
+Review [Migrating to CLI v2](/docs/secrets-manager?topic=secrets-manager-api-migration-v2#migrate-api-v2-cli) to learn more about required changes when using this new version.
 
 ## Version 0.1.23
 {: #0.1.23}
