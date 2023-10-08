@@ -3,7 +3,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-10-03"
+lastupdated: "2023-10-08"
 
 keywords: tutorial, Secrets Manager
 
@@ -441,7 +441,7 @@ First, add `external-secrets` resources to your cluster by installing the offici
       targetNamespaces:
         - external-secrets-operator
     ---
-    apiVersion: operators.coreos.com/v1alpha1
+    apiVersion: operators.coreos.com/v1beta1
     kind: Subscription
     metadata:
       name: external-secrets-operator
@@ -462,7 +462,7 @@ First, add `external-secrets` resources to your cluster by installing the offici
 
     ```sh
     echo '
-    apiVersion: operator.external-secrets.io/v1alpha1
+    apiVersion: operator.external-secrets.io/v1beta1
     kind: OperatorConfig
     metadata:
       name: cluster
