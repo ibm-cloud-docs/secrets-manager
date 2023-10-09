@@ -3,7 +3,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-10-08"
+lastupdated: "2023-10-09"
 
 keywords: tutorial, Secrets Manager
 
@@ -313,12 +313,9 @@ Finally, configure your {{site.data.keyword.secrets-manager_short}} instance to 
     [Secret groups](/docs/secrets-manager?topic=secrets-manager-secret-groups) are a way to organize and control who on your team has access to specific secrets in your instance. To create a secret group from the {{site.data.keyword.cloud_notm}} CLI, you use the [**`ibmcloud secrets-manager secret-group-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-group-create-command) command. Run the following command to create a secret group and store its ID as an environment variable.
 
     ```sh
-    export SECRET_GROUP_ID=`ibmcloud secrets-manager secret-group-create --name my-test-secret-group --description "Read and write to my test app" --output json --service-url https://${instance-id}.${region}.secrets-manager.appdomain.cloud | jq -r '.id'`; echo $SECRET_GROUP_ID
+    export SECRET_GROUP_ID=`ibmcloud secrets-manager secret-group-create --name my-test-secret-group --description "Read and write to my test app" --output json --service-url $SECRETS_MANAGER_URL | jq -r '.id'`; echo $SECRET_GROUP_ID
     ```
     {: pre}
-
-    Be sure to update `instance_id` and `region` to yours.
-    {: note}
 
     Using a Windows™ command prompt (`cmd.exe`) or PowerShell? If you encounter errors with passing JSON content on the command line, you might need to adjust the strings for quotation-escaping requirements that are specific to your operating system. For more information, see [Using quotation marks with strings in the {{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-quote-strings).
     {: tip}
@@ -337,7 +334,7 @@ Secrets are application-specific and can vary based on the individual app or ser
 In this tutorial, you create a username and password as an example. To create a secret from the {{site.data.keyword.cloud_notm}} CLI, you use the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. Run the following command to create the secret and store its ID as an environment variable.
 
 ```sh
-export SECRET_ID=`ibmcloud secrets-manager secret-create --secret-type=username_password --secret-name example_username_password --username-password-username user123 --username-password-password cloudy-rainy-coffee-book --secret-labels "my-test-cluster, tutorial" --secret-group-id $SECRET_GROUP_ID --output json --service-url https://${instance-id}.${region}.secrets-manager.appdomain.cloud | jq -r '.id'`; echo $SECRET_ID
+export SECRET_ID=`ibmcloud secrets-manager secret-create --secret-type=username_password --secret-name example_username_password --username-password-username user123 --username-password-password cloudy-rainy-coffee-book --secret-labels "my-test-cluster, tutorial" --secret-group-id $SECRET_GROUP_ID --output json $SECRETS_MANAGER_URL | jq -r '.id'`; echo $SECRET_ID
 ```
 {: pre}
 
