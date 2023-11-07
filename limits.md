@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-08-24"
+lastupdated: "2023-11-07"
 
 keywords: known issues for Secrets Manager, known limitations for Secrets Manager
 
@@ -211,8 +211,4 @@ The following limits apply to user credentials.
 | Custom metadata | 10 KB |
 | Version custom metadata | 10 KB |
 {: caption="Table 9. User credential limits" caption-side="top"}
-
-
-
-
 
