@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-10-30"
+lastupdated: "2023-11-08"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -63,6 +63,26 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 {: shortdesc}
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
+
+## 6 November 2023
+{: #secrets-manager-nov2023}
+{: release-notes}
+
+Updated {{site.data.keyword.secrets-manager_short}} UI
+:   An updated version of the {{site.data.keyword.secrets-manager_short}} UI is now available and includes the following improvements:
+
+    * New flow for adding secrets
+    * New Secrets Details side panel
+    * Ability to get a secret engine's configuration value for public_cert, private_cert, and iam_credentials
+    * Ability to get a secret engine's configuration code snippet for public_cert, private_cert, and iam_credentials
+    * Ability to get the secret value of the current and previous secret versions
+    * IAM credentials now display an expiration date in the Secrets table when the reuse apikey is set to true
+    * Improvements to the IAM Credentials secret engine page:
+      * Ability to delete a configuration if all IAM credential secrets are first deleted
+      * Look and feel enhancements
+      * Visual cue for an invalid configuration that is missing or has a misconfigured API key
+    * Multi-select up to 5 secrets to download or delete, depending on the secret type
+
 
 
 
