@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-11-08"
+lastupdated: "2023-11-13"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -166,20 +166,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 7. Optional: Check the version history to view the latest updates.
 
 
-### Creating new versions of service credentials
-{: #manual-rotate-service-credentials-ui}
-{: ui}
 
-You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotate the password values that are associated with a Service credentials secret.
-
-1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
-2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
-3. In the {{site.data.keyword.secrets-manager_short}} UI, go to the **Secrets** list.
-4. In the row for the secret that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
-5. Optional: Add metadata to your secret or to a specific version of your secret. 
-   1. Upload a file or enter the metadata and the version metadata in JSON format. 
-6. To rotate the secret immediately, click **Rotate**.  
-7. Optional: Check the version history to view the latest updates.
 
 
 ### Creating new versions of imported certificates
@@ -341,19 +328,7 @@ Manually rotating an IAM credentials is possible only if **Reuse IAM credentials
 The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-version-create-command).
 
 
-### Rotating Service credentials
-{: #manual-rotate-service-credentials-cli}
-{: cli}
 
-To rotate a service credential secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-version-create-command) command.
-
-```sh
-ibmcloud secrets-manager secret-version-create \    
-   --secret-id=SECRET_ID
-```
-{: codeblock}
-
-The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-version-create-command).
 
 
 ### Rotating imported certificates
@@ -563,38 +538,7 @@ curl -X POST \
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#update-secret).
 
 
-### Rotating Service credentials
-{: #manual-rotate-service-credentials-api}
-{: api}
 
-You can rotate secrets by calling the {{site.data.keyword.secrets-manager_short}} API.
-
-The following example request creates a new version of your secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
-
-You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
-{: curl}
-
-
-```sh
-curl -X POST \
-   -H "Authorization: Bearer {iam_token}" \
-   -H "Accept: application/json" \
-   -H "Content-Type: application/json" \
-   -d '{ 
-      "custom_metadata": { 
-         "metadata_custom_key": "metadata_custom_value" 
-         }, 
-      "version_custom_metadata": { 
-         "custom_version_key": "custom_version_value" 
-         } 
-      }' \ 
-   "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/{id}/versions"
-
-```
-{: codeblock}
-{: curl}
-
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#update-secret).
 
 
 ### Rotating imported certificates
