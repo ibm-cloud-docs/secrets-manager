@@ -82,11 +82,9 @@ Automatic rotation is supported for [private certificates](/docs/secrets-manager
 | [Public certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates) | Public certificates move to the **Active, Rotation pending** status to indicate that the request to renew the certificate is being processed. {{site.data.keyword.secrets-manager_short}} uses DNS validation to verify that you own the domains that are listed as part of the certificate. This process can take a few minutes to complete. If the validation completes successfully, a new certificate is issued and its status changes back to **Active**. If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**.|
 | [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | The existing `password` value is replaced with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols. The `username` value does not change.|
 | [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) | The Service ID's API key value is replaced with a new API key. The previous API key remains available for the remaining time in the defined TTL. |
-| [Service credentials](/docs/secrets-manager?topic=secrets-manager-service-credentials) | The Service credential is replaced with a new one. The previous credential remains available for the remaining time in the defined TTL. |
 {: caption="Table 1. Describes how {{site.data.keyword.secrets-manager_short}} evaluates manual rotation by secret type" caption-side="top"}
 
-Note that in the case of service credentials created for Databases, if in addition to the credential you are also altering the database permissions for the created credential, these will not be synced once the service credential was rotated. When rotating a Databases service credential, this is considered an identity rotation.
-{: important}
+
 
 ## Scheduling automatic rotation in the UI
 {: #schedule-auto-rotate-ui}
