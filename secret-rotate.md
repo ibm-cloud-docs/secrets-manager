@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-11-13"
+lastupdated: "2023-11-14"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -86,7 +86,7 @@ All the secrets that you store in {{site.data.keyword.secrets-manager_short}} ca
 | [Service credentials](/docs/secrets-manager?topic=secrets-manager-service-credentials) | The Service credential is replaced with a new one. The previous credential remains available for the remaining time in the defined TTL. |
 {: caption="Table 1. Describes how {{site.data.keyword.secrets-manager_short}} evaluates manual rotation by secret type" caption-side="top"}
 
-Note that in the case of service credentials created for Databases, if in addition to the credential you are also altering the database permissions for the created credential, these will not be synced once the service credential was rotated.
+Note that in the case of service credentials created for Databases, if in addition to the credential you are also altering the database permissions for the created credential, these will not be synced once the service credential was rotated. When rotating a Databases service credential, this is considered an identity rotation.
 {: important}
 
 ## Creating new secret versions in the UI
