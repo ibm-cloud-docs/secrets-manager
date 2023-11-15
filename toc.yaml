@@ -26,14 +26,17 @@ toc:
           - best-practices/developers.md
           - best-practices/secret-organize.md
           - best-practices/secret-rotation.md
-      - topic: integrations.md
-        navtitle: Platform integrations
-      - api-migration.md
       - topicgroup:
-          label: Tool integrations
+          label: Integrations
           topics:
-          - integration-ansible.md
-          - integration-jenkins.md
+              - topic: integrations.md
+                navtitle: Platform
+              - topicgroup:
+                  label: Tools
+                  topics:
+                  - integration-ansible.md
+                  - integration-jenkins.md
+      - api-migration.md
       - topic: releases.md
         navtitle: Release notes
   - navgroup:
