@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-10-03"
+lastupdated: "2023-11-02"
 
 keywords: secret version history, view versions, secret versions
 
@@ -267,7 +267,44 @@ You can restore one version back on [supported secret types](/docs/secrets-manag
 ### Supported secret types
 {: #supported-secret-types}
 
-Restoring to a previous version is supported for [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) and [public certificates](/docs/secrets-manager?topic=secrets-manager-public-certificates).
+Restoring to a previous version is supported for [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials).
+
+## Restoring a previous version in the UI
+{: #restore-secret-ui}
+{: ui}
+
+You can use the {{site.data.keyword.secrets-manager_short}} UI to restore a secret to its previous version.
+
+1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
+3. In the {{site.data.keyword.secrets-manager_short}} UI, go to your **Secrets** list.
+4. In the row for the secret that you want to inspect, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history**.
+
+    If the secret was rotated previously, the page displays information about the current and previous versions.
+
+5. Click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Restore** next to the version of the secret that you want to restore.
+
+   Currently, you can restore only one version back for IAM credentials secret type. A secret version can be restored only if the defined time-to-live (TTL) or lease duration was not reached. If you don't see an option available, restoring a version isn't supported.
+   {: note}
+   
+## Restoring a previous version from the CLI
+{: #restore-secret-cli}
+{: cli}
+
+You can use the {{site.data.keyword.secrets-manager_short}} CLI to restore a secret to its previous version.
+
+The following example command restores the previous version of a secret. When you call the command, replace the SECRET_ID variable with the value that is specific to your {{site.data.keyword.secrets-manager_short}} instance.
+
+```bash
+ibmcloud sm secret-version-create --secret-d SECRET_ID --secret-version-restore-from-version "previous"
+```
+{:pre}
+
+Currently, you can restore only one version back for IAM credentials and imported certificate secrets. A secret version can be restored only if the defined time-to-live (TTL) or lease duration was not reached.
+{: note}
+
+A successful response returns the value of the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager).
+
 
 ## Restoring a previous version with the API
 {: #restore-secret-api}
@@ -275,7 +312,7 @@ Restoring to a previous version is supported for [IAM credentials](/docs/secrets
 
 You can use the {{site.data.keyword.secrets-manager_short}} API to restore a secret to its previous version.
 
-The following example request restores the previous version of a secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for `{secret_type}` are: `iam_credentials`, `public_cert`
+The following example request restores the previous version of a secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for `{secret_type}` are: `iam_credentials`.
 
 To list the versions of a secret and obtain the ID of each version, use the [List versions API](/docs/secrets-manager?topic=secrets-manager-version-history&interface=api#versions-api).
 {: tip}
@@ -302,8 +339,7 @@ curl -X POST
 {: curl}
 
 
-
-Currently, you can restore only one version back for IAM credentials and public certificate secrets. A secret version can be restored only if the defined time-to-live (TTL) or lease duration was not reached.
+Currently, you can restore only one version back for IAM credentials and imported certificate secrets. A secret version can be restored only if the defined time-to-live (TTL) or lease duration was not reached.
 {: note}
 
 A successful response returns the value of the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager).

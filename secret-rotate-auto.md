@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-10-04"
+lastupdated: "2023-11-14"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -84,6 +84,8 @@ Automatic rotation is supported for [private certificates](/docs/secrets-manager
 | [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) | The Service ID's API key value is replaced with a new API key. The previous API key remains available for the remaining time in the defined TTL. |
 {: caption="Table 1. Describes how {{site.data.keyword.secrets-manager_short}} evaluates manual rotation by secret type" caption-side="top"}
 
+
+
 ## Scheduling automatic rotation in the UI
 {: #schedule-auto-rotate-ui}
 {: ui}
@@ -160,6 +162,8 @@ Rotation is available only for IAM credentials where the reuse key is set to `tr
 {: note}
 
 
+
+
 ## Scheduling automatic rotation from the CLI
 {: #schedule-auto-rotate-cli}
 {: cli}
@@ -229,6 +233,8 @@ ibmcloud secrets-manager secret-metadata-update \
 
 To remove a policy, keep the resources block empty.
 {: note}
+
+
 
 ## Scheduling automatic rotation with the API
 {: #schedule-auto-rotate-api}
@@ -341,4 +347,6 @@ A successful response returns the ID value for the secret, along with other meta
 The defined rotation interval cannot be higher than the defined time-to-live.
 Rotation is available only for IAM credentials where the Re-use key is set to `true`. You can set the TTL for secrets by using `minute` units of time but rotation is not available for those secrets.
 {: note}
+
+
 

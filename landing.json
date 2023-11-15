@@ -1,6 +1,6 @@
 {
   "title": "Secrets Manager docs",
-  "lastupdated": "2023-10-03",
+  "lastupdated": "2023-11-08",
   "introduction": "Explore recommended content and resources to help you get started with IBM Cloud Secrets Manager.",
   "section_devtools": {
     "api": "/apidocs/secrets-manager/secrets-manager-v2",
@@ -39,6 +39,11 @@
   "section_updates": {
     "view_more": "/docs/secrets-manager?topic=secrets-manager-release-notes",
     "tiles": [
+      {
+        "date": "6 November 2023",
+        "title": "Updated Secrets Manager UI",
+        "description": "An updated version of the Secrets Manager UI is now available and includes features for viewing the secret value, viewing the value of the secret engine configuration, a new Create Secret dialog, and more."
+      },
       {
         "date": "20 September 2023",
         "title": "Now available: Get secret value by name",
