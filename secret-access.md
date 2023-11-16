@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-10-03"
+lastupdated: "2023-11-16"
 
 keywords: access secret, retrieve secret, read secret, get secret value, get secrets, view secrets, search secrets, read secrets, get secret value
 
@@ -71,7 +71,7 @@ Before you begin, be sure that you have the required level of access. To view a 
 {: #get-secret-value-ui}
 {: ui}
 
-You can retrieve a secret by using the {{site.data.keyword.secrets-manager_short}}. Follow these steps to get your secret.
+You can retrieve a secret by using the {{site.data.keyword.secrets-manager_short}} UI. Follow these steps to get your secret.
 
 1. In the **Secrets** table, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) to open a list of options for your secret.
 2. To view the secret value, click **View secret**.
