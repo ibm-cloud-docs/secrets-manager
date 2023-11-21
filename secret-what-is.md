@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-11-15"
+lastupdated: "2023-11-21"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -273,7 +273,7 @@ Secrets, in their lifetime, transition through several states that are a functio
 | State | Description |
 | --- | --- |
 | Pre-activation |  Secrets are initially created in the _Pre-activation_ state. Secrets in this state are displayed with a **Pre-activation** status in the UI to indicate that they aren't ready for use yet. |
-| Active | After a secret is ready for use, it moves to the **Active** state.  Secrets remain active until they expire or are destroyed. If a secret has automatic rotation enabled, the following status indicators also apply:  \n  \n - _Rotation pending._ Automatic rotation for the secret is being processed.  \n - _Rotation failed._ Automatic rotation for the secret was not completed. |
+| Active | After a secret is ready for use, it moves to the **Active** state.  Secrets remain active until they expire or are destroyed. If a secret was either manually rotated, or has  automatic rotation enabled, the following status indicators also apply:  \n  \n - _Rotation pending._ Automatic rotation for the secret is being processed.  \n - _Rotation failed._ Automatic rotation for the secret was not completed. |
 | Deactivated | The secret was not created or processed. Secrets in this state are not recoverable and can only be deleted from the instance. |
 | Destroyed | When the data that is associated with a secret expires, it moves to the **Destroyed** state. Secrets in this state are not recoverable and can only be deleted from the instance. Metadata that is associated with a secret, such as the secret's transition history and name, is kept in the {{site.data.keyword.secrets-manager_short}} database. If a secret expires after an automatic rotation starts, the following status indicators also apply:  \n  \n - _Rotation pending._ Automatic rotation for the secret is being processed.  \n - _Rotation failed._ Automatic rotation for the secret was not completed. |
 {: caption="Table 2. Describes secret states and transitions" caption-side="top"}
