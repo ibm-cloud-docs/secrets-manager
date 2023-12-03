@@ -40,6 +40,11 @@
     "view_more": "/docs/secrets-manager?topic=secrets-manager-release-notes",
     "tiles": [
       {
+        "date": "11 December 2023",
+        "title": "Now available: Service credentials secret type",
+        "description": "Secrets Manager now provides support to create and manage IBM Cloud Resource keys for supported services, such as HMAC keys, SASL credentials, TLS certificates and more."
+      },
+      {
         "date": "6 November 2023",
         "title": "Updated Secrets Manager UI",
         "description": "An updated version of the Secrets Manager UI is now available and includes features for viewing the secret value, viewing the value of the secret engine configuration, a new Create Secret dialog, and more."
@@ -58,21 +63,6 @@
         "date": "3 March 2023",
         "title": "Now available: Terraform support",
         "description": "Secrets Manager now supports Terraform."
-      },
-      {
-        "date": "11 December 2022",
-        "title": "Support for context-based restrictions (CBR)",
-        "description": "Manage user and service access to your Secrets Manager resources by using context-based restrictions."
-      },      
-      {
-        "date": "14 November 2022",
-        "title": "Manually configure your own DNS provider",
-        "description": "Your DNS provider isn't integrated with the service? You can now manually configure it by using the UI."
-      },      
-      {
-        "date": "18 October 2022",
-        "title": "Add custom metadata to your secret versions and auto-rotate IAM credentials",
-        "description": "Do you need more space to log details about your secret versions? Add relevant information as metadata."
       }
     ]
   }
