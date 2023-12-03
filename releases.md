@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-11-08"
+lastupdated: "2023-12-03"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -64,6 +64,8 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
+
+
 ## 6 November 2023
 {: #secrets-manager-nov2023}
 {: release-notes}
@@ -82,9 +84,6 @@ Updated {{site.data.keyword.secrets-manager_short}} UI
       * Look and feel enhancements
       * Visual cue for an invalid configuration that is missing or has a misconfigured API key
     * Multi-select up to 5 secrets to download or delete, depending on the secret type
-
-
-
 
 ## 20 September 2023
 {: #secrets-manager-sept2023}

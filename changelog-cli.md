@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-10-06"
+lastupdated: "2023-12-03"
 
 keywords: change log for Secrets Manager CLI, CLI changelog, updates to Secrets Manager CLI
 
@@ -62,6 +62,8 @@ In this change log, you can learn about the latest changes, improvements, and up
 {: shortdesc}
 
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
+
+
 
 
 
