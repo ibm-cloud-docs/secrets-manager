@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-09-11"
+lastupdated: "2023-12-03"
 
 keywords: HA for {{site.data.keyword.secrets-manager_short}}, DR for {{site.data.keyword.secrets-manager_short}}, high availability for {{site.data.keyword.secrets-manager_short}}, disaster recovery for {{site.data.keyword.secrets-manager_short}}, failover for {{site.data.keyword.secrets-manager_short}}
 
@@ -61,11 +61,24 @@ subcollection: secrets-manager
 {{site.data.keyword.secrets-manager_full}} is a highly available, regional service that runs in the Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Osaka (`jp-osa`), Sydney (`au-syd`), Sao Paulo (`br-sao`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington DC (`us-east`) regions.
 {: shortdesc}
 
-In each supported region, the service exists in multiple availability zones with no single point of failure. All the data that is associated with your instance of the service, including your secrets, is backed up across regions.
+In each supported region, the service exists in multiple availability zones with no single point of failure. All the data that is associated with your instance of the service, including your secrets, is backed up daily and stored in [cross-region Cloud Object Storage buckets](/docs/cloud-object-storage?topic=cloud-object-storage-endpoints#endpoints-geo).
 
 However, because {{site.data.keyword.secrets-manager_short}} is a regional service, cross-regional failover, and cross-regional disaster recovery are not automatic. If all the availability zones in a region fail, {{site.data.keyword.secrets-manager_short}} becomes unavailable in that location. When the region is available again, data and traffic is restored without any need for action from you.
 
 See [How do I ensure zero downtime?](/docs/overview?topic=overview-zero-downtime) to learn more about the high availability and disaster recovery standards in {{site.data.keyword.cloud_notm}}. You can also find information about [Service Level Agreements](/docs/overview?topic=overview-slas).
+
+## Application-level high availability
+{: #application-level-high-availability}
+
+Applications that communicate over networks and cloud services are subject to transient connection failures. You want to design your applications to retry connections when errors are caused by a temporary loss in connectivity to your deployment or to {{site.data.keyword.cloud_notm}}.
+
+Because {{site.data.keyword.secrets-manager_short}} is a managed service, regular updates and database maintenance may occur as part of normal operations. Such maintenance can occasionally cause short interruption intervals.
+
+Your applications must be designed to handle temporary interruptions, implement error handling for failed requests, and implement retry logic to recover from a temporary interruption.
+
+
+[Learn more](/docs/secrets-manager?topic=secrets-manager-best-practices-using) around topics such as: implementing code best practices, organizing secrets, and rotating secrets.
+{: note}
 
 ## Manually backing up secrets
 {: #manual-backup}
