@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-12-03"
+lastupdated: "2023-12-04"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -64,6 +64,17 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
+
+
+
+## 4 December 2023
+{: #secrets-manager-dec0423}
+{: release-note}
+
+Madrid availability
+:   You can now create a {{site.data.keyword.secrets-manager_short}} service instance in the Madrid (`eu-es`) region.
+
+   For more information, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
 
 
 ## 6 November 2023
