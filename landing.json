@@ -1,6 +1,6 @@
 {
   "title": "Secrets Manager docs",
-  "lastupdated": "2023-12-03",
+  "lastupdated": "2023-12-04",
   "introduction": "Explore recommended content and resources to help you get started with IBM Cloud Secrets Manager.",
   "section_devtools": {
     "api": "/apidocs/secrets-manager/secrets-manager-v2",
@@ -40,9 +40,9 @@
     "view_more": "/docs/secrets-manager?topic=secrets-manager-release-notes",
     "tiles": [
       {
-        "date": "11 December 2023",
-        "title": "Now available: Service credentials secret type",
-        "description": "Secrets Manager now provides support to create and manage IBM Cloud Resource keys for supported services, such as HMAC keys, SASL credentials, TLS certificates and more."
+        "date": "4 December 2023",
+        "title": "Madrid availability",
+        "description": "Users can now create instances of Secret Manager in the Madrid region."
       },
       {
         "date": "6 November 2023",
@@ -53,16 +53,6 @@
         "date": "20 September 2023",
         "title": "Now available: Get secret value by name",
         "description": "Users can now get a secret and its details by specifying the name and type of the secret through the API. This functionality is also available in CLI and SDKs."
-      },
-      {
-        "date": "17 April 2023",
-        "title": "Now available: new API and CLI versions",
-        "description": "The new API, SDK, Terraform, and CLI versions offer more options to manage your Secrets Manager instance. The Secrets Manager API v1 has been deprecated in favor of v2."
-      },
-      {
-        "date": "3 March 2023",
-        "title": "Now available: Terraform support",
-        "description": "Secrets Manager now supports Terraform."
       }
     ]
   }
