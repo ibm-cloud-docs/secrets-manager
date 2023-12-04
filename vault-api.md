@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-10-02"
+lastupdated: "2023-12-04"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -520,7 +520,7 @@ Creates or imports a secret by using the {{site.data.keyword.secrets-manager_sho
 - User credentials (`user_credentials`)
 - Imported certificates (`import_cert`)
 - Private certificates (`private_cert`)
-- Public certificates (`public_cert`)
+- Public certificates (`public_cert`) 
 
 
 | Request parameters            | Description                                                                         |
@@ -630,6 +630,7 @@ Creates or imports a secret by using the {{site.data.keyword.secrets-manager_sho
 {: tab-title="Public certificates"}
 {: tab-group="vault-create-secret-params"}
 {: class="simple-tab-table"}
+
 
 #### Example requests
 {: #vault-create-secret-request}

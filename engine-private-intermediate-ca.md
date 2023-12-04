@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-10-04"
+lastupdated: "2023-11-16"
 
 keywords: intermediate certificate authority, intermediate CA, internal signing, external signing
 
@@ -533,6 +533,53 @@ The `ibm_sm_private_certificate_configuration_action_set_signed` resource import
 
 In this example, we use external signing because the root CA is in another {{site.data.keyword.secrets-manager_short}} instance. In order to use a parent CA from an external PKI system, use another method to sign the CSR, instead of the `ibm_sm_private_certificate_configuration_action_sign_csr` resource. For example, you may use the `tls_locally_signed_cert` resource from the `tls` provider.
 {: note}
+
+
+## Retrieving an intermediate CA in the UI
+{: #get-root-cert-engine-value-ui}
+{: ui}
+
+You can retrieve the intermediate CA value by using the {{site.data.keyword.secrets-manager_short}} UI.
+
+1. In the **Public certificates** secret engine, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) to open a list of options for your engine configuration.
+2. To view the configuration value, click **View configurationt**.
+2. Click **Confirm** after you ensure that you are in a safe environment.
+
+The secret value is displayed for 15 seconds, then the dialog closes.
+{: note}
+
+
+## Retrieving an intermediate CA using CLI
+{: #get-root-cert-engine-value-cli}
+{: cli}
+
+You can retrieve the intermediate CA value by using the {{site.data.keyword.secrets-manager_short}} CLI. In the following example command, replace the engine configuration name with your configuration's name.
+
+```sh
+ibmcloud secrets-manager configuration --name EXAMPLE_CONFIG --service-url https://{instance_ID}.{region}.secrets-manager.appdomain.cloud
+
+```
+{: pre}
+
+Replace `{instance_ID}` and `{region}` with the values that apply to your {{site.data.keyword.secrets-manager_short}} service instance. To find the endpoint URL that is specific to your instance, you can copy it from the **Endpoints** page in the {{site.data.keyword.secrets-manager_short}} UI. For more information, see [Viewing your endpoint URLs](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls)
+
+
+## Retrieving an intermediate CA using API
+{: #get-root-cert-engine-value-api}
+{: api}
+
+You can retrieve the intermediate CA value by using the {{site.data.keyword.secrets-manager_short}} API. In the following example request, replace the engine configuration name with your configuration's name.
+
+```sh
+curl -X GET --location --header "Authorization: Bearer {iam_token}" \
+--header "Accept: application/json" \
+"https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/configurations/{name}"
+```
+{: pre}
+
+Replace `{instance_ID}` and `{region}` with the values that apply to your {{site.data.keyword.secrets-manager_short}} service instance. To find the endpoint URL that is specific to your instance, you can copy it from the **Endpoints** page in the {{site.data.keyword.secrets-manager_short}} UI. For more information, see [Viewing your endpoint URLs](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls)
+
+A successful response returns the value of the engine configuration, along with other metadata. For more information about the required and optional request parameters, see [Get a secret](/apidocs/secrets-manager/secrets-manager-v2#get-configuration){: external}.
 
 
 ## Next steps

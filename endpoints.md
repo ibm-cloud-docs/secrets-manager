@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-10-05"
+lastupdated: "2023-12-04"
 
 keywords: Secrets Manager availability, regions, Secrets Manager endpoints, Vault endpoint
 
@@ -69,7 +69,8 @@ You can create {{site.data.keyword.secrets-manager_short}} resources in one of t
 - Dallas (`us-south`)
 - Frankfurt (`eu-de`)
 - London (`eu-gb`)
-- Osaka (`jp-osa`
+- Madrid (`eu-es`)
+- Osaka (`jp-osa`)
 - Sao Paulo (`br-sao`)
 - Sydney (`au-syd`)
 - Tokyo (`jp-tok`)
@@ -97,6 +98,7 @@ If you are managing your {{site.data.keyword.secrets-manager_short}} resources o
 | Dallas        | `https://{instance_ID}.us-south.secrets-manager.appdomain.cloud` |
 | Frankfurt     | `https://{instance_ID}.eu-de.secrets-manager.appdomain.cloud`    |
 | London        | `https://{instance_ID}.eu-gb.secrets-manager.appdomain.cloud`    |
+| Madrid        | `https://{instance_ID}.eu-es.secrets-manager.appdomain.cloud`    |
 | Osaka         | `https://{instance_ID}.jp-osa.secrets-manager.appdomain.cloud`   |
 | Sao Paulo     | `https://{instance_ID}.br-sao.secrets-manager.appdomain.cloud`   |
 | Sydney        | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud`   |
@@ -121,6 +123,7 @@ To learn how to configure your {{site.data.keyword.secrets-manager_short}} insta
 | Dallas        | `https://{instance_ID}.private.us-south.secrets-manager.appdomain.cloud` |
 | Frankfurt     | `https://{instance_ID}.private.eu-de.secrets-manager.appdomain.cloud`    |
 | London        | `https://{instance_ID}.private.eu-gb.secrets-manager.appdomain.cloud`    |
+| Madrid        | `https://{instance_ID}.private. eu-es.secrets-manager.appdomain.cloud`   |
 | Osaka         | `https://{instance_ID}.private.jp-osa.secrets-manager.appdomain.cloud`   |
 | Sao Paulo     | `https://{instance_ID}.private.br-sao.secrets-manager.appdomain.cloud`   |
 | Sydney        | `https://{instance_ID}.private.au-syd.secrets-manager.appdomain.cloud`   |

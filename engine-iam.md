@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-08-29"
+lastupdated: "2023-11-16"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -220,6 +220,50 @@ The following example shows a configuration that you can use to configure the IA
 ```
 {: codeblock}
 
+## Retrieving an IAM engine's configuration value in the UI
+{: #get-iam-engine-value-ui}
+{: ui}
+
+You can retrieve an engine's configuration by using the {{site.data.keyword.secrets-manager_short}} UI.
+
+1. In the **IAM credentials** secret engine, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) to open a list of options for your engine configuration.
+2. To view the configuration value, click **View configurationt**.
+2. Click **Confirm** after you ensure that you are in a safe environment.
+
+The secret value is displayed for 15 seconds, then the dialog closes.
+{: note}
+
+
+## Retrieving an engine's configuration value using CLI
+{: #get-iam-engine-value-cli}
+{: cli}
+
+You can retrieve an engine's configuration by using the {{site.data.keyword.secrets-manager_short}} CLI. In the following example command, replace the engine configuration name with your configuration's name.
+
+```sh
+ibmcloud secrets-manager configuration --name EXAMPLE_CONFIG --service-url https://{instance_ID}.{region}.secrets-manager.appdomain.cloud
+```
+{: pre}
+
+Replace `{instance_ID}` and `{region}` with the values that apply to your {{site.data.keyword.secrets-manager_short}} service instance. To find the endpoint URL that is specific to your instance, you can copy it from the **Endpoints** page in the {{site.data.keyword.secrets-manager_short}} UI. For more information, see [Viewing your endpoint URLs](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls)
+
+
+## Retrieving an engine's configuration value using API
+{: #get-iam-engine-value-api}
+{: api}
+
+You can retrieve an engine's configuration by using the {{site.data.keyword.secrets-manager_short}} API. In the following example request, replace the engine configuration name with your configuration's name.
+
+```sh
+curl -X GET --location --header "Authorization: Bearer {iam_token}" \
+--header "Accept: application/json" \
+"https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/configurations/{name}"
+```
+{: pre}
+
+Replace `{instance_ID}` and `{region}` with the values that apply to your {{site.data.keyword.secrets-manager_short}} service instance. To find the endpoint URL that is specific to your instance, you can copy it from the **Endpoints** page in the {{site.data.keyword.secrets-manager_short}} UI. For more information, see [Viewing your endpoint URLs](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls)
+
+A successful response returns the value of the engine configuration, along with other metadata. For more information about the required and optional request parameters, see [Get a secret](/apidocs/secrets-manager/secrets-manager-v2#get-configuration){: external}.
 
 
 ## Next steps

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-09-19"
+lastupdated: "2023-12-04"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -549,6 +549,7 @@ vault write -format=json ibmcloud/private_cert/secrets name="my-test-private-cer
 {: pre}
 
 
+
 #### Output
 {: #vault-cli-create-static-secret-output}
 
@@ -797,6 +798,8 @@ The command to create a `private_cert` secret returns the following output:
 ```
 {: screen}
 
+
+
 ### List secrets
 {: #vault-cli-list-static-secrets}
 
@@ -1014,10 +1017,12 @@ vault write -format=json ibmcloud/arbitrary/secrets/fe874c2b-e8fd-bbb6-9f19-e91b
 ```
 {: pre}
 
+
+
 #### Output
 {: #vault-cli-update-static-secret-output}
 
-The command returns the following output:
+The arbitrary command returns the following output:
 ```json
 {
     "request_id": "f361132f-a0e3-eab0-52b8-4d992074b411",
@@ -1040,6 +1045,12 @@ The command returns the following output:
 }
 ```
 {: screen}
+
+
+
+
+
+
 
 ### Rotate a secret
 {: #vault-cli-rotate-static-secret}
@@ -1106,6 +1117,8 @@ vault write -format=json -force ibmcloud/username_password/secrets/cb32abc1-2a4b
 ```
 {: pre}
 
+
+
 #### Output
 {: #vault-cli-rotate-static-secret-output}
 
@@ -1164,6 +1177,8 @@ The command to manually rotate a `username_password` secret with a service-gener
 }
 ```
 {: screen}
+
+
 
 ### Delete a secret
 {: #vault-cli-delete-static-secret}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-11-14"
+lastupdated: "2023-11-26"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
