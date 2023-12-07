@@ -2,7 +2,7 @@
 
 copyright:
   years: "2023"
-lastupdated: "2023-10-03"
+lastupdated: "2023-12-07"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, public certificates
 
@@ -126,7 +126,7 @@ You can order a certificate by using the {{site.data.keyword.secrets-manager_sho
 
 11. Optional: Enable advanced options for the certificate.
 
-    1. To bundle your issued certificate with intermediate certificates, switch the bundle toggle to **On**. After your certificates are bundled, they can no longer be unbundled.
+    1. To bundle your issued certificate with intermediate certificates, switch the bundle toggle to **On**. After your certificates are bundled, they can no longer be unbundled. If you choose not to bundle the certificates, this cannot be changed afterwards, only by creating a new secret.
     2. To enable automatic rotation for the certificate, switch the rotation toggle to **On**. Your certificate is rotated 31 days before it expires.
     3. To request a new private key with the certificate on each rotation, switch the rekey toggle to **On**.
    
@@ -310,7 +310,7 @@ To create a public certificate by using a manual DNS provider in the UI, complet
     The key algorithm that you select determines the encryption algorithm (`RSA` or `ECDSA`) and key size to use to generate keys and sign certificates. For longer living certificates, it is recommended to use longer key lengths to provide more encryption protection. Options include `RSA2048`, `RSA4096`, `ECDSA256`, and `ECDSA384`.
 
 11. Optional: Enable advanced options for the certificate.
-    1. To bundle your issued certificate with intermediate certificates, switch the bundle toggle to **On**. After your certificates are bundled, they can no longer be unbundled.
+    1. To bundle your issued certificate with intermediate certificates, switch the bundle toggle to **On**. After your certificates are bundled, they can no longer be unbundled. If you choose not to bundle the certificates, this cannot be changed afterwards, only by creating a new secret.
     2. To enable automatic rotation for the certificate, switch the rotation toggle to **On**. Your certificate is rotated 31 days before it expires.
     3. To request a new private key with the certificate on each rotation, switch the rekey toggle to **On**.
 12. Select **Manual** as your DNS provider.
