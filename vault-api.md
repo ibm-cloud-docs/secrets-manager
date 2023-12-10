@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-12-04"
+lastupdated: "2023-12-10"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -523,7 +523,7 @@ Creates or imports a secret by using the {{site.data.keyword.secrets-manager_sho
 - Public certificates (`public_cert`) 
 
 
-| Request parameters            | Description                                                                         |
+| Request parameters   | Description                                 |
 | ------------- | ----------------------------------------------------------------------------------- |
 | `name`        | **Required.** The human-readable alias that you want to assign to the secret. |
 | `description` | An extended description of the secret.                                      |
@@ -630,6 +630,8 @@ Creates or imports a secret by using the {{site.data.keyword.secrets-manager_sho
 {: tab-title="Public certificates"}
 {: tab-group="vault-create-secret-params"}
 {: class="simple-tab-table"}
+
+
 
 
 #### Example requests
@@ -960,6 +962,9 @@ curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
     }'
 ```
 {: codeblock}
+
+
+
 
 #### Example responses
 {: #vault-create-secret-response}
@@ -1519,6 +1524,8 @@ curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 ```
 {: codeblock}
 
+
+
 #### Example responses
 {: #vault-get-secret-response}
 
@@ -1831,6 +1838,8 @@ A request to retrieve an imported certificate returns the following response:
 }
 ```
 {: screen}
+
+
 
 ### List secrets
 {: #vault-list-secrets}
