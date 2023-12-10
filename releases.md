@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-12-04"
+lastupdated: "2023-12-10"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -65,6 +65,13 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
 
+
+## 11 December 2023
+{: #secrets-manager-dec1123}
+{: release-note}
+
+Manage service credentials for supported {{site.data.keyword.cloud_notm}} services
+:   You can now use {{site.data.keyword.secrets-manager_short}} to create and manage service credentials for supported services. To learn more, see [What is a secret](/docs/secrets-manager?topic=secrets-manager-what-is-secret) and [Create a Service credential](/docs/secrets-manager?topic=secrets-manager-service-credentials).
 
 
 ## 4 December 2023

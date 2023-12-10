@@ -80,6 +80,8 @@ toc:
                 navtitle: Private certificates
               - topic: user-credentials.md
                 navtitle: User credentials
+              - topic: service-credentials.md
+                navtitle: Service credentials
           - secret-access.md
           - secret-locks.md
           - topicgroup:

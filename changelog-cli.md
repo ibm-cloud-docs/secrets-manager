@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-12-03"
+lastupdated: "2023-12-10"
 
 keywords: change log for Secrets Manager CLI, CLI changelog, updates to Secrets Manager CLI
 
@@ -65,7 +65,11 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 
 
 
+## Version 2.0.3
+{: #2.0.3}
 
+Version 2.0.3 was released on 13 December 2023. This release includes the following updates:
+- Support for Service credentials secret type. [Learn more](/docs/secrets-manager?topic=secrets-manager-service-credentials).
 
 ## Version 2.0.2
 {: #2.0.2}

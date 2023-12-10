@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-11-07"
+lastupdated: "2023-12-10"
 
 keywords: known issues for Secrets Manager, known limitations for Secrets Manager
 
@@ -212,3 +212,18 @@ The following limits apply to user credentials.
 | Version custom metadata | 10 KB |
 {: caption="Table 9. User credential limits" caption-side="top"}
 
+#### Limits for service credentials
+{: #service-credential-limits}
+
+The following limits apply to service credentials.
+
+| Attribute | Limit |
+| --- | --- |
+| Name | 2 - 256 characters  \n  \n The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
+| Description | 2 - 1024 characters |
+| Labels | 2 - 30 characters  \n  \n 30 labels per secret |
+| Versions | For auditing purposes, the service retains the metadata of up to 50 versions for each secret, which you can review as part of a secret's [version history](/docs/secrets-manager?topic=secrets-manager-version-history). |
+| Locks | 1000 |
+| Custom metadata | 10 KB |
+| Version custom metadata | 10 KB |
+{: caption="Table 9. Service credential limits" caption-side="top"}
