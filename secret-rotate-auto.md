@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-11-14"
+lastupdated: "2023-12-10"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -82,8 +82,12 @@ Automatic rotation is supported for [private certificates](/docs/secrets-manager
 | [Public certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates) | Public certificates move to the **Active, Rotation pending** status to indicate that the request to renew the certificate is being processed. {{site.data.keyword.secrets-manager_short}} uses DNS validation to verify that you own the domains that are listed as part of the certificate. This process can take a few minutes to complete. If the validation completes successfully, a new certificate is issued and its status changes back to **Active**. If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**.|
 | [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | The existing `password` value is replaced with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols. The `username` value does not change.|
 | [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) | The Service ID's API key value is replaced with a new API key. The previous API key remains available for the remaining time in the defined TTL. |
+| [Service credentials](/docs/secrets-manager?topic=secrets-manager-service-credentials) | The Service credential is replaced with a new one. The previous credential remains available for the remaining time in the defined TTL. |
 {: caption="Table 1. Describes how {{site.data.keyword.secrets-manager_short}} evaluates manual rotation by secret type" caption-side="top"}
 
+
+Note that in the case of service credentials created for Databases, if in addition to the credential you are also altering the database permissions for the created credential, these will not be synced once the service credential was rotated. When rotating a Databases service credential, this is considered an identity rotation.
+{: important}
 
 
 ## Scheduling automatic rotation in the UI
@@ -161,7 +165,20 @@ If you need more control over the rotation frequency of a secret, you can use th
 Rotation is available only for IAM credentials where the reuse key is set to `true`. The defined rotation interval cannot be higher than the defined time-to-live (TTL). You can set the TTL for secrets by using `minute` units of time but rotation is not available for those secrets.
 {: note}
 
+### Setting an automatic rotation policy for Service credentials
+{: #schedule-auto-rotate-service-credentials-ui}
+{: ui}
 
+If you prefer to schedule your service credential to be automatically rotated at regular intervals, you can enable automatic rotation for your Service credentials at their creation. You can also enable auto rotation by editing the details of an existing secret. Choose between a 30, 60, or 90-day rotation interval.
+
+If you need more control over the rotation frequency of a secret, you can use the {{site.data.keyword.secrets-manager_short}} API to set a custom interval by using `day` or `month` units of time. For more information, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#put-policy).
+{: tip}
+
+1. If you're [adding a secret](/docs/secrets-manager?topic=secrets-manager-service-credentials#service-credentials-ui), enable the rotation option by selecting a 30, 60, or 90-day rotation interval.
+2. If you're editing an existing secret, enable automatic rotation by updating its details.
+    1. In the **Secrets** table, view a list of your existing secrets.
+    2. In the row for the secret that you want to edit, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Edit details**.
+    3. Use the **Automatic rotation** option to enable or disable automatic rotation for the secret.
 
 
 ## Scheduling automatic rotation from the CLI
@@ -234,7 +251,22 @@ ibmcloud secrets-manager secret-metadata-update \
 To remove a policy, keep the resources block empty.
 {: note}
 
+### Setting an automatic rotation policy for Service credentials
+{: #schedule-auto-rotate-service-credentials-cli}
+{: cli}
 
+Schedule the automatic rotation for service credentials by using the [`ibmcloud secrets-manager secret-metadata-update`](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli&interface=ui#secrets-manager-cli-secret-metadata-update-command). 
+
+```sh
+ibmcloud secrets-manager secret-metadata-update \
+    --id=SECRET_ID \
+    --rotation='{"auto_rotate": true,"interval": 30,"unit": "day"}'
+```
+{: pre}
+
+
+To remove a policy, keep the resources block empty.
+{: note}
 
 ## Scheduling automatic rotation with the API
 {: #schedule-auto-rotate-api}
@@ -348,5 +380,37 @@ The defined rotation interval cannot be higher than the defined time-to-live.
 Rotation is available only for IAM credentials where the Re-use key is set to `true`. You can set the TTL for secrets by using `minute` units of time but rotation is not available for those secrets.
 {: note}
 
+### Setting an automatic rotation policy for Service credentials
+{: #schedule-auto-rotate-service-credentials-api}
+{: api}
 
+The following example request creates an automatic rotation policy for a Service credential (`service_credentials`) secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+{: curl}
+
+
+```sh
+curl -X PATCH 
+   -H "Authorization: Bearer {iam_token}" \
+   -H "Accept: application/json" \
+   -H 'Content-Type: application/merge-patch+json' \
+   -d '{
+          "rotation": {
+            "auto_rotate": true,
+            "interval": 30,
+            "unit": "day"
+          } 
+         }' \ 
+      "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/{id}/metadata"
+```
+{: codeblock}
+{: curl}
+
+
+To remove a policy, keep the resources block empty.
+{: note}
+
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#update-secret).
+
+The defined rotation interval cannot be higher than the defined time-to-live.
+{: note}
 

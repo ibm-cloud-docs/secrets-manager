@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-11-02"
+lastupdated: "2023-12-10"
 
 keywords: secret version history, view versions, secret versions
 
@@ -103,7 +103,7 @@ If you're auditing the version history of a secret, you can use the {{site.data.
 
 If you're auditing the version history of a secret, you can use the {{site.data.keyword.secrets-manager_short}} CLI plug-in to view the general characteristics of each rotation.
 
-To list all the versions that are associated with a secret, run the [**`ibmcloud secrets-manager secret-versions`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-versions-command) command. The options for `SECRET_TYPE` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`.
+To list all the versions that are associated with a secret, run the [**`ibmcloud secrets-manager secret-versions`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-versions-command) command. The options for `SECRET_TYPE` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, `service_credentials`, and `username_password`.
 
 ```sh
 ibmcloud secrets-manager secret-versions --secret-id SECRET-ID
@@ -119,7 +119,7 @@ The command outputs information about the current and previous versions. For exa
 
 If you're auditing the version history of a secret, you can use the {{site.data.keyword.secrets-manager_short}} API to view the general characteristics of each rotation.
 
-The following example request lists metadata properties for each version. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. The options for `{secret_type}` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`.
+The following example request lists metadata properties for each version. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. The options for `{secret_type}` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, `service_credentials`, and `username_password`.
 {: curl}
 
 
@@ -210,7 +210,7 @@ ibmcloud secrets-manager secret-version-metadata-update --secret-id SECRET-ID --
 
 If you're updating the metadata of a secret version, you can use the {{site.data.keyword.secrets-manager_short}} API.
 
-The following example request updates metadata properties for each version. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. The options for `{secret_type}` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, and `username_password`.
+The following example request updates metadata properties for each version. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. The options for `{secret_type}` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, `service_credentials`, and `username_password`.
 {: curl}
 
 

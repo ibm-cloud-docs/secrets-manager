@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-12-04"
+lastupdated: "2023-12-10"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -521,9 +521,10 @@ Creates or imports a secret by using the {{site.data.keyword.secrets-manager_sho
 - Imported certificates (`import_cert`)
 - Private certificates (`private_cert`)
 - Public certificates (`public_cert`) 
+- Service credentials (`service_credentials`)
 
 
-| Request parameters            | Description                                                                         |
+| Request parameters   | Description                                 |
 | ------------- | ----------------------------------------------------------------------------------- |
 | `name`        | **Required.** The human-readable alias that you want to assign to the secret. |
 | `description` | An extended description of the secret.                                      |
@@ -630,6 +631,22 @@ Creates or imports a secret by using the {{site.data.keyword.secrets-manager_sho
 {: tab-title="Public certificates"}
 {: tab-group="vault-create-secret-params"}
 {: class="simple-tab-table"}
+
+
+
+| Request parameters           | Description                                                                         |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `name`        | **Required.** The human-readable alias that you want to assign to the secret. |
+| `source_crn` | **Required.** The CRN of the source service instance.   |
+| `role` | **Required.** The IAM service role name for the level of permissions that you want to assign. |
+| `ttl` |  The time-to-live (TTL) to assign to the credentials. Time can be specified in days.|
+{: caption="Table 6. Create secret request parameters - Service credentials" caption-side="top"}
+{: #vault-create-secret-params-service-credentials}
+{: tab-title="Service credentials"}
+{: tab-group="vault-create-secret-params"}
+{: class="simple-tab-table"}
+
+
 
 
 #### Example requests
@@ -960,6 +977,28 @@ curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
     }'
 ```
 {: codeblock}
+
+
+
+Create or import a set of service credentials.
+
+```sh
+curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/service_credentials/secrets" \
+    -H 'Accept: application/json' \
+        -H "X-Vault-Token: $VAULT_TOKEN" \
+    -H 'Content-Type: application/json' \
+    -d '{
+        "name": "test-sc-secret",
+        "source_crn":"crn:v1:staging:public:event-notifications:us-south:a/826aa2b9cab6c666477fc55ebc47bafc:f85409e9-1a06-47d5-8320-95ed4e1675bc::",
+        "role":"crn:v1:bluemix:public:iam::::serviceRole:Manager",
+        "ttl":"90d"
+    }' | jq
+```
+{: codeblock}
+
+
+
+
 
 #### Example responses
 {: #vault-create-secret-response}
@@ -1421,6 +1460,73 @@ A request to import a certificate to an existing secret group returns the follow
 
 
 
+A request to create or import a set of service credentials returns the following response:
+
+```json
+{
+  "request_id": "b7b8799c-e0f7-f31c-c050-3d66f854c214",
+  "lease_id": "",
+  "renewable": false,
+  "lease_duration": 0,
+  "data": {
+    "created_by": "IBMid-2723462DAH",
+    "creation_date": "2023-11-23T13:33:36Z",
+    "crn": "crn:v1:staging:public:secrets-manager:us-south:a/826aa2b9cab6c666477fc55ebc47bacc:e2c32ad4-1414-41e0-8747-e107e6b9f8e6:secret:c70951dd-f672-9995-968d-b76204b2432d",
+    "custom_metadata": {},
+    "downloaded": true,
+    "iam_apikey_description": "Auto-generated for key crn:v1:staging:public:event-notifications:us-south:a/826aa2b9cab6c666477fc55ebc47bacc:f85409e9-1a06-47d5-8320-95ed4e1675cc:resource-key:d13dd212-cd38-4732-a14e-1889ee3ca4fa",
+    "iam_apikey_id": "ApiKey-4fdabb94-2654-4ab7-8d01-fbf41117b4a9",
+    "iam_apikey_name": "test-sc-secret",
+    "iam_role_crn": "crn:v1:bluemix:public:iam::::serviceRole:Manager",
+    "iam_serviceid_crn": "crn:v1:staging:public:iam-identity::a/826aa2b9cab6c666477fc55ebc47bacc::serviceid:ServiceId-38fd1d20-db0b-4ae6-bee9-23d6468e149f",
+    "id": "c70951dd-f672-9995-968d-b76204b2432d",
+    "labels": [],
+    "last_update_date": "2023-11-23T13:33:36Z",
+    "locks_total": 0,
+    "name": "test-sc-secret",
+    "parameters": {},
+    "resource_key_crn": "crn:v1:staging:public:event-notifications:us-south:a/826aa2b9cab6c666477fc55ebc47bacc:f85409e9-1a06-47d5-8320-95ed4e1675cc:resource-key:d13dd212-cd38-4732-a14e-1889ee3ca4fa",
+    "resource_key_name": "test-sc-secret",
+    "role": "crn:v1:bluemix:public:iam::::serviceRole:Manager",
+    "secret_data": {
+      "apikey": "xxxxxxxxxxxxxxxxxxxx",
+      "guid": "f85409e9-1a06-47d5-8320-95ed4e1675bc",
+      "iam_apikey_description": "Auto-generated for key crn:v1:staging:public:event-notifications:us-south:a/826aa2b9cab6c666477fc55ebc47bacc:f85409e9-1a06-47d5-8320-95ed4e1675cc:resource-key:d13dd212-cd38-4732-a14e-1889ee3ca4fa",
+      "iam_apikey_id": "ApiKey-4fdabb94-2654-4ab7-8d01-fbf41117b4a9",
+      "iam_apikey_name": "test-sc-secret",
+      "iam_role_crn": "crn:v1:bluemix:public:iam::::serviceRole:Manager",
+      "iam_serviceid_crn": "crn:v1:staging:public:iam-identity::a/826aa2b9cab6c666477fc55ebc47bacc::serviceid:ServiceId-38fd1d20-db0b-4ae6-bee9-23d6468e149f",
+      "instance_id": "f85409e9-1a06-47d5-8320-95ed4e1675cc",
+      "plan": "33b50df2-9cd6-4005-a941-bf0a59f0d133",
+      "region": "us-south"
+    },
+    "secret_type": "service_credentials",
+    "source_crn": "crn:v1:staging:public:event-notifications:us-south:a/826aa2b9cab6c666477fc55ebc47bafc:f85409e9-1a06-47d5-8320-95ed4e1675cc::",
+    "state": 1,
+    "state_description": "Active",
+    "ttl": 7776000,
+    "versions": [
+      {
+        "created_by": "IBMid-2723462DAH",
+        "creation_date": "2023-11-23T13:33:36Z",
+        "downloaded": true,
+        "expiration_date": "2024-02-21T13:33:36Z",
+        "id": "1ab6e797-c74d-419d-0863-a8976b64efe8",
+        "payload_available": true,
+        "version_custom_metadata": {}
+      }
+    ],
+    "versions_total": 1
+  },
+  "wrap_info": null,
+  "warnings": null,
+  "auth": null
+}
+```
+{: screen}
+
+
+
 ### Get a secret
 {: #vault-get-secret}
 
@@ -1518,6 +1624,19 @@ curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
     -H 'X-Vault-Token: {Vault-Token}'
 ```
 {: codeblock}
+
+
+
+Get a set of service credentials.
+
+```sh
+curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/service_credentials/secrets/{secret_id_or_secret_name}" \
+     -H 'Accept: application/json' \
+     -H "X-Vault-Token: $VAULT_TOKEN" | jq
+```
+{: codeblock}
+
+
 
 #### Example responses
 {: #vault-get-secret-response}
@@ -1831,6 +1950,75 @@ A request to retrieve an imported certificate returns the following response:
 }
 ```
 {: screen}
+
+
+
+A request to retrieve a set of service credentials returns the following response:
+
+```json
+{
+  "request_id": "18d15b17-eb6f-68ad-8b44-4033ab64feb1",
+  "lease_id": "",
+  "renewable": false,
+  "lease_duration": 0,
+  "data": {
+    "created_by": "IBMid-2723462DAH",
+    "creation_date": "2023-11-23T13:33:36Z",
+    "crn": "crn:v1:staging:public:secrets-manager:us-south:a/826aa2b9cab6c666477fc55ebc47bacc:e2c32ad4-1414-41e0-8747-e107e6b9f8a6:secret:c70951dd-f672-9995-968d-b76204b2432d",
+    "custom_metadata": {},
+    "downloaded": true,
+    "iam_apikey_description": "Auto-generated for key crn:v1:staging:public:event-notifications:us-south:a/826aa2b9cab6c666477fc55ebc47bacc:f85409e9-1a06-47d5-8320-95ed4e1675cc:resource-key:d13dd212-cd38-4732-a14e-1889ee3ca4fa",
+    "iam_apikey_id": "ApiKey-4fdabb94-2654-4ab7-8d01-fbf41117b4a9",
+    "iam_apikey_name": "test-sc-secret",
+    "iam_role_crn": "crn:v1:bluemix:public:iam::::serviceRole:Manager",
+    "iam_serviceid_crn": "crn:v1:staging:public:iam-identity::a/826aa2b9cab6c666477fc55ebc47bacc::serviceid:ServiceId-38fd1d20-db0b-4ae6-bee9-23d6468e149f",
+    "id": "c70951dd-f672-9995-968d-b76204b2432d",
+    "labels": [],
+    "last_update_date": "2023-11-23T13:33:36Z",
+    "locks_total": 0,
+    "name": "test-sc-secret",
+    "parameters": {},
+    "resource_key_crn": "crn:v1:staging:public:event-notifications:us-south:a/826aa2b9cab6c666477fc55ebc47bacc:f85409e9-1a06-47d5-8320-95ed4e1675cc:resource-key:d13dd212-cd38-4732-a14e-1889ee3ca4fa",
+    "resource_key_name": "test-sc-secret",
+    "role": "crn:v1:bluemix:public:iam::::serviceRole:Manager",
+    "secret_data": {
+      "apikey": "xxxxxxxxxxxxxxxxxxxxxxx",
+      "guid": "f85409e9-1a06-47d5-8320-95ed4e1675cc",
+      "iam_apikey_description": "Auto-generated for key crn:v1:staging:public:event-notifications:us-south:a/826aa2b9cab6c666477fc55ebc47bacc:f85409e9-1a06-47d5-8320-95ed4e1675cc:resource-key:d13dd212-cd38-4732-a14e-1889ee3ca4fa",
+      "iam_apikey_id": "ApiKey-4fdabb94-2654-4ab7-8d01-fbf41117b4a9",
+      "iam_apikey_name": "test-sc-secret",
+      "iam_role_crn": "crn:v1:bluemix:public:iam::::serviceRole:Manager",
+      "iam_serviceid_crn": "crn:v1:staging:public:iam-identity::a/826aa2b9cab6c666477fc55ebc47bacc::serviceid:ServiceId-38fd1d20-db0b-4ae6-bee9-23d6468e149f",
+      "instance_id": "f85409e9-1a06-47d5-8320-95ed4e1675cc",
+      "plan": "33b50df2-9cd6-4005-a941-bf0a59f0d133",
+      "region": "us-south"
+    },
+    "secret_type": "service_credentials",
+    "source_crn": "crn:v1:staging:public:event-notifications:us-south:a/826aa2b9cab6c666477fc55ebc47bacc:f85409e9-1a06-47d5-8320-95ed4e1675cc::",
+    "state": 1,
+    "state_description": "Active",
+    "ttl": 7776000,
+    "versions": [
+      {
+        "created_by": "IBMid-2723462DAH",
+        "creation_date": "2023-11-23T13:33:36Z",
+        "downloaded": true,
+        "expiration_date": "2024-02-21T13:33:36Z",
+        "id": "1ab6e797-c74d-419d-0863-a8976b64efe8",
+        "payload_available": true,
+        "version_custom_metadata": {}
+      }
+    ],
+    "versions_total": 1
+  },
+  "wrap_info": null,
+  "warnings": null,
+  "auth": null
+}
+```
+{: screen}
+
+
 
 ### List secrets
 {: #vault-list-secrets}

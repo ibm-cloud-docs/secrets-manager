@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-12-03"
+lastupdated: "2023-12-11"
 
 keywords: change log for Secrets Manager CLI, CLI changelog, updates to Secrets Manager CLI
 
@@ -65,7 +65,16 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 
 
 
+## Version 2.0.3
+{: #2.0.3}
 
+Version 2.0.3 was released on 13 December 2023. This release includes the following updates:
+- Support for Service credentials secret type. [Learn more](/docs/secrets-manager?topic=secrets-manager-service-credentials).
+- Strings updates
+- Command name changes:
+  * `--private-cert-alt-names` changes to `--certificate-alt-names` (applicable for `public_cert` and `private_cert` secret types)
+  * `--private-cert-common-name` changes to `--certificate-common-name` (applicable for `public_cert` and `private_cert` secret types)
+  * `--iam-credentials-ttl` changes to `--secret-ttl` (applicable for `iam_credentials` and `service_credentials` secret types)
 
 ## Version 2.0.2
 {: #2.0.2}
