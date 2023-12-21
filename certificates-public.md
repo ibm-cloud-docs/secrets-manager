@@ -2,7 +2,7 @@
 
 copyright:
   years: "2023"
-lastupdated: "2023-12-07"
+lastupdated: "2023-12-21"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, public certificates
 
@@ -163,7 +163,8 @@ When you order a certificate, domain validation takes place to verify the owners
 ibmcloud secrets-manager secret-create --secret-prototype=
 '[{
     "name": "example-public-certificate", 
-    "description": "Extended description for this secret.", 
+    "description": "Extended description for this secret.",
+    "secret_type": "public_cert",
     "secret_group_id": "bc656587-8fda-4d05-9ad8-b1de1ec7e712", 
     "labels": [
         "dev","us-south"
@@ -176,7 +177,7 @@ ibmcloud secrets-manager secret-create --secret-prototype=
     "algorithm": "sha256WithRSAEncryption",
     "key_algorithm": "rsaEncryption 2048 bit",
     "rotation": {
-        "enabled": false,
+        "auto_rotate": true,
         "rotate_keys":false
         },
     "custom_metadata" : {
