@@ -536,7 +536,7 @@ After you install External Secrets Operator in your cluster, you can define {{si
               secretApiKeySecretRef:
                 name: secret-api-key
                 key: apikey
-                
+    ---
     apiVersion: external-secrets.io/v1beta1
     kind: ExternalSecret
     metadata:
