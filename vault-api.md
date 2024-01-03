@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-12-10"
+  years: 2020, 2024
+lastupdated: "2024-01-03"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -1574,7 +1574,7 @@ curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 Get key-value secrets. [Learn more](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv&interface=api#overview-kv).
 
 ```sh
-curl -L -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/secrets/{secret_id_or_secret_name}' \
+curl -L -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/secrets/{secret_id}' \
     -H 'Accept: application/json'\
     -H 'X-Vault-Token: {Vault-Token}' 
 ```
@@ -1583,7 +1583,7 @@ curl -L -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v
 Get key-value secrets in an existing secret group.
 
 ```sh
-curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/secrets/groups/{group_id}/{secret_id_or_secret_name}' \
+curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/secrets/groups/{group_id}/{secret_id}' \
     -H 'Accept: application/json' \
     -H 'X-Vault-Token: {Vault-Token}' 
 ```
