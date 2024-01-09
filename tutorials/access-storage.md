@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-10-03"
+  years: 2020, 2024
+lastupdated: "2024-01-09"
 content-type: tutorial
 services: secrets-manager, cloud-object-storage
 account-plan: paid
@@ -283,7 +283,10 @@ Finally, configure your {{site.data.keyword.secrets-manager_short}} instance to 
 
     Secret engines are components in {{site.data.keyword.secrets-manager_short}} that are used to process operations for secrets of different types. These engines serve as backends for those secrets. By enabling the IAM secrets engine, you can create an API key for a service ID dynamically, and then lease it to a user based on the lease duration that you specify.
 
-    To configure the IAM secrets engine from the {{site.data.keyword.cloud_notm}} CLI, run the [**`ibmcloud secrets-manager config-update`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-configuration-update-command) command.
+    To configure the IAM secrets engine from the {{site.data.keyword.cloud_notm}} CLI, run the [**`ibmcloud secrets-manager config-update`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-configuration-update-command) command. 
+    
+    Be sure to first create an IAM Service ID and API Key [with the required access policies](/docs/secrets-manager?topic=secrets-manager-configure-iam-engine&interface=ui#before-configure-iam-engine). Use the generated API key in the command below.
+    {: note}
 
     ```sh
     ibmcloud secrets-manager configuration-create --config-type iam_credentials_configuration --iam-credentials-apikey $API_KEY
