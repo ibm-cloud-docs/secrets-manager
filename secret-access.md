@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-11-16"
+  years: 2020, 2024
+lastupdated: "2024-01-12"
 
 keywords: access secret, retrieve secret, read secret, get secret value, get secrets, view secrets, search secrets, read secrets, get secret value
 
@@ -80,6 +80,11 @@ You can retrieve a secret by using the {{site.data.keyword.secrets-manager_short
 The secret value is displayed for 15 seconds, then the dialog closes.
 {: note}
 
+You can also retieve a secret's details such as expiration date, and rotation interval or state.
+
+1. In the **Secrets** table, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) to open a list of options for your secret.
+2. To view the secret value, click **Details**.
+
 You can also retrieve all secret types programmatically by using the CLI, API, or SDKs. To see the steps, switch to the **CLI** or **API** instructions.
 {: note}
 
@@ -105,7 +110,7 @@ To download a certificate by using the {{site.data.keyword.secrets-manager_short
 
 After you store a secret in your instance, you might need to retrieve its value so that you can connect to an external app or get access to a protected service. You can retrieve the value of a secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in.
 
-To get the value of a secret, run the [**`ibmcloud secrets-manager secret`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-command) command. 
+To get the value of a secret as well as review its details such as expiration date and rotation interval or state, run the [**`ibmcloud secrets-manager secret`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-command) command. 
 
 ```sh
 ibmcloud secrets-manager secret --id SECRET_ID
@@ -144,7 +149,7 @@ The command outputs the value of the certificate and stores it to `my-cert-file.
 
 After you store a secret in your instance, you might need to retrieve its value so that you can connect to an external app or get access to a protected service. You can retrieve the value of a secret by using the {{site.data.keyword.secrets-manager_short}} API.
 
-The following example request retrieves a secret and its contents. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+The following example request retrieves a secret and its details, such as expiration date and rotation interval or state. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 {: curl}
 
 ```sh
