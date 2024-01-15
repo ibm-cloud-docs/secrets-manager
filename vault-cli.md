@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-12-10"
+  years: 2020, 2024
+lastupdated: "2024-01-07"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -549,7 +549,6 @@ vault write -format=json ibmcloud/private_cert/secrets name="my-test-private-cer
 {: pre}
 
 
-
 Create a set of service credentials by specifying the source service instance CRN and the IAM service role name.
 
 ```sh
@@ -806,7 +805,6 @@ The command to create a `private_cert` secret returns the following output:
 }
 ```
 {: screen}
-
 
 
 The command to create a `service-credentials` secret returns the following output:
@@ -1091,7 +1089,6 @@ vault write -format=json ibmcloud/arbitrary/secrets/fe874c2b-e8fd-bbb6-9f19-e91b
 {: pre}
 
 
-
 Update the name of a service credentials secret.
 
 ```sh
@@ -1127,7 +1124,6 @@ The arbitrary command returns the following output:
 }
 ```
 {: screen}
-
 
 
 
@@ -1171,7 +1167,6 @@ The service credentials command returns the following output:
 }
 ```
 {: screen}
-
 
 
 
@@ -1306,7 +1301,6 @@ vault write -format=json -force ibmcloud/username_password/secrets/cb32abc1-2a4b
 {: pre}
 
 
-
 Rotate a set of service credentials.
 
 ```sh
@@ -1374,7 +1368,6 @@ The command to manually rotate a `username_password` secret with a service-gener
 }
 ```
 {: screen}
-
 
 
 The command to manually rotate a set of service credentials returns the following output:

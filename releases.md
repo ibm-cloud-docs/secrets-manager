@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-12-10"
+  years: 2020, 2024
+lastupdated: "2024-01-07"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -64,6 +64,13 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
+
+## 10 January 2024
+{: #secrets-manager-jan1024}
+{: release-note}
+
+New event notifications for secret types
+:   You can now configure Event Notifications to send an alert for all secret types when a secret is rotated or deleted. To learn more about the integration, see [Enabling event notifications for {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-event-notifications).
 
 
 ## 11 December 2023

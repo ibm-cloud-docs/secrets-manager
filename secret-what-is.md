@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-12-10"
+  years: 2020, 2024
+lastupdated: "2024-01-07"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -122,6 +122,7 @@ Review the following table to understand the types of static and dynamic secrets
 | [Key-value secrets](/docs/secrets-manager?topic=secrets-manager-key-value) | `kv` | Static | Pieces of sensitive data that is structured in JSON format that you can use to access an application or resource. |
 | [SSL/TLS certificates](/docs/secrets-manager?topic=secrets-manager-certificates) | `imported_cert`  \n `public_cert`\*  \n `private_cert`\* | Static | A type of digital certificate that can be used to establish communication privacy between a server and a client. In {{site.data.keyword.secrets-manager_short}}, you can store the following types of certificates.\n  \n - **Imported certificates**: Certificates that you import to the service. \n - **Public certificates**: Certificates that you order from a third-party certificate authority, for example Let's Encrypt.\n - **Private certificates**: Certificates that you generate by using a private certificate authority that you manage in {{site.data.keyword.secrets-manager_short}}. |
 | [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | `username_password` | Static | Username and password values that you can use to log in or access an application or resource. |
+| [Service credentials](/docs/secrets-manager?topic=secrets-manager-service-credentials) | `service_credentials` | Static | A JSON containing service-defined sensitive data such as keys, certificates, and URLs. |
 {: caption="Table 1. Secret types in {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
 
 _* Requires an [engine configuration](/docs/secrets-manager?topic=secrets-manager-secrets-engines) before secrets can be created in the service._

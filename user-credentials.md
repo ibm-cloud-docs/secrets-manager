@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-10-03"
+  years: 2020, 2024
+lastupdated: "2024-01-08"
 
 keywords: username, password, user credentials, store password
 
@@ -87,16 +87,19 @@ To store a username and password by using the {{site.data.keyword.secrets-manage
 
     Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 8. Optional: Add labels to help you to search for similar secrets in your instance.
-10. Optional: Add metadata to your secret or to a specific version of your secret.
+9. Optional: Add metadata to your secret or to a specific version of your secret.
     1. Upload a file or enter the metadata and the version metadata in JSON format. 
-11. Click **Next**.
-12. Enter the username and password that you want to associate with the secret.
-9. Optional: Enable expiration and rotation options to control the lifespan of the secret.
+10. Click **Next**.
+11. Enter the username and password that you want to associate with the secret.
+
+    If you choose to generate a password, {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
+
+12. Optional: Enable expiration and rotation options to control the lifespan of the secret.
     1. To set an expiration date for the secret, switch the expiration toggle to **Yes**.
     2. To rotate your secret at a 30, 60, or 90-day interval, switch the **Automatic secret rotation** toggle to **Yes**.
-10. Click **Next**. 
-11. Review the details of your secret. 
-12. Click **Add**.
+13. Click **Next**. 
+14. Review the details of your secret. 
+15. Click **Add**.
 
 
 ## Adding user credentials from the CLI
