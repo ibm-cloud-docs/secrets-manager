@@ -159,7 +159,7 @@ To create Service credentials by using the {{site.data.keyword.secrets-manager_s
 To create a Service credential secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. You can specify the type of secret by using the `--secret-type service_credentials` option. For example, the following command creates a Service credential for a Cloud Object Storage instance, with HMAC support. As well as specifying the IAM role to provide for this credential, eg `Writer`.
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-type="service_credentials" --secret-name="example-service-credentials-secret" --secret-source-service='{"instance": {"crn": "CRN of the instance to create a credential for"},"parameters": {"HMAC": true},"role": {"crn": "crn:v1:bluemix:public:iam::::serviceRole:Writer"}'
+ibmcloud secrets-manager secret-create --secret-type="service_credentials" --secret-name="example-service-credentials-secret" --secret-source-service='{"instance": {"crn": "CRN of the instance to create a credential for"},"parameters": {"HMAC": true},"role": {"crn": "crn:v1:bluemix:public:iam::::serviceRole:Writer"}}'
 ```
 {: pre}
 
