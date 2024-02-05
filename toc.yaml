@@ -36,7 +36,6 @@ toc:
                   topics:
                   - integration-ansible.md
                   - integration-jenkins.md
-      - api-migration.md
       - topic: releases.md
         navtitle: Release notes
   - navgroup:
