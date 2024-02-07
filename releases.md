@@ -68,8 +68,8 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 {: #secrets-manager-feb1024}
 {: release-note}
 
-:   Support for random password generation in User credentials
-The User credentials secret type now supports generating a random password on secret creation. In addition you can control the password's length, and wether to include numbers, symbols and upper-case letters. To learn more, see [Storing user credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials).
+Support for random password generation in User credentials
+:   The User credentials secret type now supports generating a random password on secret creation. In addition you can control the password's length, and wether to include numbers, symbols and upper-case letters. To learn more, see [Storing user credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials).
 
 ## 10 January 2024
 {: #secrets-manager-jan1024}
