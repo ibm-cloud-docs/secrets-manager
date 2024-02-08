@@ -69,7 +69,7 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 {: #2.0.4}
 
 Version 2.0.4 was released on 7 February 2024. This release includes the following updates:
-- Support for random password generation in User credentials. The User credentials secret type now supports generating a random password on secret creation. In addition you can control the password's length, and wether to include numbers, symbols and upper-case letters. To learn more, see [Storing user credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials).
+- Support for random password generation in User credentials. The User credentials secret type now supports generating a random password on secret creation. In addition you can control the password's length, and whether to include numbers, symbols and upper-case letters. To learn more, see [Storing user credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials).
 
 ## Version 2.0.3
 {: #2.0.3}
