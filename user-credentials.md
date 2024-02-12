@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-07"
+lastupdated: "2024-02-12"
 
 keywords: username, password, user credentials, store password
 
@@ -92,7 +92,7 @@ To store a username and password by using the {{site.data.keyword.secrets-manage
 10. Click **Next**.
 11. Enter the username and password that you want to associate with the secret.
 
-    If you choose to generate a password, {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols. You can choose to further customize the generated password by configuring its length (12-256 characters), and wether to include numbers, symbols, and upper-case letters.
+    If you choose to generate a password, {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols. You can choose to further customize the generated password by configuring its length (12-256 characters), and whether to include numbers, symbols, and upper-case letters.
 
 12. Optional: Enable expiration and rotation options to control the lifespan of the secret.
     1. To set an expiration date for the secret, switch the expiration toggle to **Yes**.
@@ -120,7 +120,7 @@ ibmcloud secrets-manager secret-create \
 {: #random-password-cli}
 {: cli}
 
-You can choose to further customize the generated password by configuring its length (12-256 characters), and wether to include numbers, symbols, and upper-case letters. To generate a random password using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-create-command) command and include the `password_generation_policy` field.
+You can choose to further customize the generated password by configuring its length (12-256 characters), and whether to include numbers, symbols, and upper-case letters. To generate a random password using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-create-command) command and include the `password_generation_policy` field.
 
 
 ```sh 
@@ -181,7 +181,7 @@ curl -X POST
 {: #random-password-api}
 {: api}
 
-You can choose to further customize the generated password by configuring its length (12-256 characters), and wether to include numbers, symbols, and upper-case letters. When calling the {{site.data.keyword.secrets-manager_short}} API include the `password_generation_policy` field.
+You can choose to further customize the generated password by configuring its length (12-256 characters), and whether to include numbers, symbols, and upper-case letters. When calling the {{site.data.keyword.secrets-manager_short}} API include the `password_generation_policy` field.
 
 ```sh
 curl -X POST 
