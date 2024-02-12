@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-12-10"
+  years: 2020, 2024
+lastupdated: "2024-02-02"
 
 keywords: Service credentials, App ID, App Config, Cloudant, Cloud Object Storage, Event Notifications, Event Streams, etcd, ElasticSearch, PostgreSQL, Redis, MongoDB
 
@@ -159,7 +159,7 @@ To create Service credentials by using the {{site.data.keyword.secrets-manager_s
 To create a Service credential secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. You can specify the type of secret by using the `--secret-type service_credentials` option. For example, the following command creates a Service credential for a Cloud Object Storage instance, with HMAC support. As well as specifying the IAM role to provide for this credential, eg `Writer`.
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-type="service_credentials" --secret-name="example-service-credentials-secret" --secret-source-service='{"crn": "CRN of the instance to create a credential for","parameters": {"HMAC": true},"role": "Writer"}'
+ibmcloud secrets-manager secret-create --secret-type="service_credentials" --secret-name="example-service-credentials-secret" --secret-source-service='{"instance": {"crn": "CRN of the instance to create a credential for"},"parameters": {"HMAC": true},"role": {"crn": "crn:v1:bluemix:public:iam::::serviceRole:Writer"}}'
 ```
 {: pre}
 
@@ -194,12 +194,16 @@ curl -X POST
           "us-south"
         ],
         "source_service": {
-          "crn": "CRN of the instance to create a credential for",
+          "instance": {
+            "crn": "CRN of the instance to create a credential for"
+          },
           "parameters": {
             "serviceid_crn": "Existing Service ID's IAM ID",
             "HMAC": true
           },
-          "role": "Writer"
+          "role": {
+            "crn": "crn:v1:bluemix:public:iam::::serviceRole:Writer"
+          }
         }
       }' \ "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets"
 ```

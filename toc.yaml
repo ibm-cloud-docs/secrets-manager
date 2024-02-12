@@ -36,7 +36,6 @@ toc:
                   topics:
                   - integration-ansible.md
                   - integration-jenkins.md
-      - api-migration.md
       - topic: releases.md
         navtitle: Release notes
   - navgroup:
@@ -152,9 +151,7 @@ toc:
           label: CLI reference
           topics:
           - include: ../secrets-manager-cli-plugin/secrets-manager-cli.md
-            navtitle: CLI Version 2
-          - topic: secrets-manager-cli-v1.md
-            navtitle: CLI Version 1
+            navtitle: CLI commands
           - topic: changelog-cli.md
             navtitle: CLI change log
       - topicgroup:

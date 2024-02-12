@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-01-08"
+lastupdated: "2024-02-12"
 
 keywords: username, password, user credentials, store password
 
@@ -92,7 +92,7 @@ To store a username and password by using the {{site.data.keyword.secrets-manage
 10. Click **Next**.
 11. Enter the username and password that you want to associate with the secret.
 
-    If you choose to generate a password, {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
+    If you choose to generate a password, {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols. You can choose to further customize the generated password by configuring its length (12-256 characters), and whether to include numbers, symbols, and upper-case letters.
 
 12. Optional: Enable expiration and rotation options to control the lifespan of the secret.
     1. To set an expiration date for the secret, switch the expiration toggle to **Yes**.
@@ -116,6 +116,19 @@ ibmcloud secrets-manager secret-create \
 ```
 {: pre}
 
+## Generating a random password from the CLI
+{: #random-password-cli}
+{: cli}
+
+You can choose to further customize the generated password by configuring its length (12-256 characters), and whether to include numbers, symbols, and upper-case letters. To generate a random password using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-create-command) command and include the `password_generation_policy` field.
+
+
+```sh 
+ibmcloud secrets-manager secret-create \    
+    --secret-prototype='{"name": "example-username-password-secret","description": "Description of my user credentials secret","secret_type": "username_password","secret_group_id": "bfc0a4a9-3d58-4fda-945b-76756af516aa","labels": ["dev","us-south"],"username": "example-username","password": "example-password","rotation": {"auto_rotate": true,"interval": 10,"unit": "day"},"password_generation_policy": {"length": 24, "include_digits": true, "include_symbols": false, "include_uppercase": true}, "custom_metadata": {"metadata_custom_key": "metadata_custom_value"},"version_custom_metadata": {"custom_version_key": "custom_version_value"}}'
+
+```
+{: pre}
 
 
 The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-create-command).
@@ -151,6 +164,51 @@ curl -X POST
         "auto_rotate": true,
         "interval": 10,
         "unit": "day"
+      },
+      "custom_metadata": {
+        "metadata_custom_key": "metadata_custom_value"
+      },
+      "version_custom_metadata": {
+        "custom_version_key": "custom_version_value"
+      }
+    }'
+  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets" 
+```
+{: codeblock}
+{: curl}
+
+## Generating a random password with the API
+{: #random-password-api}
+{: api}
+
+You can choose to further customize the generated password by configuring its length (12-256 characters), and whether to include numbers, symbols, and upper-case letters. When calling the {{site.data.keyword.secrets-manager_short}} API include the `password_generation_policy` field.
+
+```sh
+curl -X POST 
+    -H "Authorization: Bearer {IAM_token}" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "name": "example-username-password-secret",
+      "description": "Description of my user credentials secret",
+      "secret_type": "username_password",
+      "secret_group_id": "bfc0a4a9-3d58-4fda-945b-76756af516aa",
+      "labels": [
+        "dev",
+        "us-south"
+      ],
+      "username": "example-username",
+      "password": "example-password",
+      "rotation": {
+        "auto_rotate": true,
+        "interval": 10,
+        "unit": "day"
+      },
+      "password_generation_policy": {
+        "length": 24,
+        "include_digits": true,
+        "include_symbols": false,
+        "include_uppercase": true
       },
       "custom_metadata": {
         "metadata_custom_key": "metadata_custom_value"
