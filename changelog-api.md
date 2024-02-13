@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-06-15"
+  years: 2020, 2024
+lastupdated: "2024-02-13"
 
 keywords: change log for Secrets Manager APIs, API changelog, updates to Secrets Manager APIs
 
@@ -64,7 +64,11 @@ In this change log, you can learn about the latest changes, improvements, and up
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
 
 
+## 12 February 2024
+{: #2024-02-12-api}
 
+* Added support for random password generation in User credentials
+- Support for random password generation in User credentials. The User credentials secret type now supports generating a random password on secret creation. In addition you can control the password's length, and whether to include numbers, symbols and upper-case letters. To learn more, see [Storing user credentials]({[link]}-user-credentials).
 
 ## 17 April 2023
 {: #2023-04-17-api}
