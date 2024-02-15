@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-14"
+lastupdated: "2024-02-15"
 
 keywords: change log for Secrets Manager APIs, API changelog, updates to Secrets Manager APIs
 
@@ -63,14 +63,11 @@ In this change log, you can learn about the latest changes, improvements, and up
 
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
 
-
-
 ## 12 February 2024
 {: #2024-02-12-api}
 
-* Added support for random password generation in User credentials
-- Support for random password generation in User credentials. The User credentials secret type now supports generating a random password on secret creation. In addition you can control the password's length, and whether to include numbers, symbols and upper-case letters. To learn more, see [Storing user credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials).
-
+- The User credentials secret type now supports generating a random password on secret creation. In addition you can control the password's length, and whether to include numbers, symbols and upper-case letters. To learn more, see [Storing user credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials).
+- You can switch between API key and service-to-service authorization by passing an empty string in the `apikey` field. Note: it is assumed there a service-to-service authorization to the same Cloud Internet Services instance with an identical or matching access policy was configured prior to the switch.
 
 ## 17 April 2023
 {: #2023-04-17-api}
