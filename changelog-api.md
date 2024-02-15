@@ -69,6 +69,11 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 - The User credentials secret type now supports generating a random password on secret creation if the `password` field is kept empty. In addition you can control the password's length, and whether to include numbers, symbols and upper-case letters by including the `password_generation_policy` field. To learn more, see [Storing user credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials).
 - For an existing DNS Provider configuration, you can switch between API key and service-to-service authorization by passing an empty string in the `apikey` field. Note: it is assumed that a service-to-service authorization to the same Cloud Internet Services instance with an identical or matching access policy was configured prior to the switch.
 
+## 20 September 2023
+{: #2023-09-20-api}
+
+Get a secret by name instead of ID by using a new API endpoint `/api/v2/secret_groups/{secret_group_name}/secret_types/{secret_type}/secrets/{name}`. Learn more in [Accessing secrets](/docs/secrets-manager?topic=secrets-manager-access-secrets&interface=api).
+
 ## 17 April 2023
 {: #2023-04-17-api}
 
