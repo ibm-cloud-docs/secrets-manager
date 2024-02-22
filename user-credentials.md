@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-07"
+lastupdated: "2024-02-21"
 
 keywords: username, password, user credentials, store password
 
@@ -229,13 +229,35 @@ curl -X POST
 
 You can store a username and password programmatically by using Terraform for {{site.data.keyword.secrets-manager_short}}.
 
-By default, Terraform detects any difference in the settings of an infrastructure object and creates a plan to update the remote object to match the configuration.
+You can either provide a password by setting the optional `password` argument in the Terraform configuration or choose to generate a random password. If you omit the `password` argument, {{site.data.keyword.secrets-manager_short}} generates a 32-character random password that contains uppercase letters, lowercase letters, digits, and symbols. You can choose to further customize the generated password by configuring its length (12-256 characters), and whether to include numbers, symbols, and upper-case letters.
 
-You can use the Terraform meta-argument `ignore_changes` when you create a resource with references to data that might change in the future, but `ignore_changes` does not affect the resource after you create it. With the `ignore_changes` meta-argument, you can specify resource attributes that Terraform ignores when it updates the associated remote object. When secrets are set to auto-rotation, {{site.data.keyword.secrets-manager_short}} generates a new version of the secret with a computed new value of the password property.
+If you configure the secret with an automatic rotation policy it is recommended to omit the `password` argument to have the initial password also generated automatically. This is to avoid a Terraform drift situation, where after automatic rotation has occured, Terraform detects that the password had been changed outside of Terraform. 
 
-The following example shows a query that you can use to create a username and password secret with auto-rotation, by using the Terraform lifecycle meta-argument `ignore_changes` for the `password` field. 
+The first example below shows a query that you can use to create a username and password secret with a randomly-generated password and auto-rotation enabled. This example also shows how to specify a non-default password generation policy for thr secret.
 
-1. Create the user credentials by running the following command.
+```terraform
+    resource "ibm_sm_username_password_secret" "test_username_password_secret" {
+        instance_id = local.instance_id
+        region = local.region
+        secret_group_id = "default"
+        name = "test-user-creds-secret"
+        username = "sm_username"
+        rotation {
+            auto_rotate = true
+            interval = 10
+            unit = "day"
+        }
+        password_generation_policy {
+            length = 24
+            include_digits = true
+            include_symbols = false
+            include_uppercase = true
+        }
+    } 
+```
+{: codeblock}
+
+The second example shows a query that you can use to create a username and password secret with the password provided in the Terraform configuration. Auto-rotation is disabled in this example, but you can rotate the password manually by modifying the value of the `password` argument in the configuration.
 
 ```terraform
     resource "ibm_sm_username_password_secret" "test_username_password_secret" {
@@ -245,49 +267,8 @@ The following example shows a query that you can use to create a username and pa
         name = "test-user-creds-secret"
         username = "sm_username"
         password = "sm_password"
-        rotation {
-            auto_rotate = true
-            interval = 10
-            unit = "day"
-        }
-        lifecycle {
-            ignore_changes = [
-                password,
-            ]
-        }
     } 
 ```
 {: codeblock}
-
-
-2. After 10 days, the secret is auto-rotated in {{site.data.keyword.secrets-manager_short}}. When you check the Terraform plan, it shows that the `password` field was changed outside of Terraform, as displayed in the following example.
-
-```terraform
-    terraform plan
-    data.ibm_resource_instance.sm_resource_instance: Reading...
-    data.ibm_resource_instance.sm_resource_instance: Read complete after 6s [id=crn:v1:bluemix:public:secrets-manager:eu-gb:a/1efe69ceedd307f4de6f5fb6296a34b1:73d9bf0e-7b82-453d-a9bf-bfdceceb55bd::]
-    ibm_sm_username_password_secret.test_username_password_secret: Refreshing state... [id=1a87fb02-9025-8b41-77b5-6bf76d52ba72]
-
-    Note: Objects have changed outside of Terraform
-
-    Terraform detected the following changes made outside of Terraform since the last "terraform apply" which may have affected this plan:
-
-    # ibm_sm_username_password_secret.sm_username_password_secret has changed
-    ~ resource "ibm_sm_username_password_secret" "test_username_password_secret" {
-        id                 = "1a87fb02-9025-8b41-77b5-6bf76d52ba72"
-        name               = "test-user-creds-secret"
-        ~ password           = (sensitive value)
-        # (15 unchanged attributes hidden)
-
-        # (1 unchanged block hidden)
-    }
-    Unless you have made equivalent changes to your configuration, or ignored the relevant attributes using ignore_changes, the following plan may include actions to undo
-    Hi or respond to these changes.
-```
-{: codeblock}
-
-
-3. Applying the Terraform plan syncs the user credentials `password` field in Terraform with the new version value.
-
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager/secrets-manager-v2#create-secret).
