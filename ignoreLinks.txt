@@ -1,6 +1,6 @@
 https://wcp-ace-docs-jenkins.swg-devops.com/job/Docs-build/job/Docs-build-secrets-manager,
-https://test.cloud.ibm.com/docs/writing/markdown?topic=writing-create-content-md#validmarkdown,
-https://test.cloud.ibm.com/docs/writing/markdown?topic=writing-create-content-md#validmarkdown,
+https://test.cloud.ibm.com/docs/writing?topic=writing-create-content-md#validmarkdown,
+https://test.cloud.ibm.com/docs/writing/?topic=writing-create-content-md#validmarkdown,
 https://ibm.webex.com/join/{name},
 https://www-03preprod.ibm.com/support/knowledgecenter/ibm_style/basics.html,
-https://www-03preprod.ibm.com/support/knowledgecenter/ibm_style/abbreviations.html	
+https://www-03preprod.ibm.com/support/knowledgecenter/ibm_style/abbreviations.html

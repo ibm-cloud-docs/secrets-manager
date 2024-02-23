@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-12-10"
+  years: 2024
+lastupdated: "2024-02-23"
 
 keywords: secret version history, view versions, secret versions
 
@@ -64,18 +64,14 @@ When you rotate a secret in {{site.data.keyword.secrets-manager_full}}, you crea
 ## Before you begin
 {: #before-manage-secret-version}
 
-Before you get started, be sure that you have the required level of access. To view the version history of a secret, update the metadata of a secret version, and restore a secret to its previous version, you need the [**Writer** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam).
+Before you get started, be sure that you have the required level of access. To update the metadata of a secret version or restore a secret to its previous version, you need the [**Writer** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam). To view the version history of a secret, you need the [**Reader** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam).
+
 
 ## Viewing the version history of secrets
 {: #version-history-view}
 
 When you rotate a secret in {{site.data.keyword.secrets-manager_full}}, you create a new version of its value. You can quickly examine the version history of your secrets by using the UI or API.
-{: shortdesc}
 
-## Before you begin
-{: #before-versions}
-
-Before you get started, be sure that you have the required level of access. To view the version history of a secret, you need the [**Reader** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam).
 
 ## Viewing version history in the UI
 {: #versions-ui}
@@ -165,7 +161,7 @@ A successful response returns metadata details about each secret version.
 {: screen}
 
 
-The `downloaded` property indicates whether the data for each secret version was already read or accessed. If the `payload_available` field has a value of `true`, it means that you're able to access or [restore the secret data of that version](#restore-secret-api). For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager/secrets-manager-v2).
+The `downloaded` property indicates whether the data for each secret version was already read or accessed. If the `payload_available` field has a value of `true`, it means that you're able to access or [restore the secret data of that version](/docs/secrets-manager?topic=secrets-manager-version-history&interface=api#restore-secret-api). For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager/secrets-manager-v2).
 
 You can store metadata that is relevant to the needs of your organization with the `version_custom_metadata` request parameter. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager/secrets-manager-v2).
 

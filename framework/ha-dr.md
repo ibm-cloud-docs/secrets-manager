@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-12-03"
+  years: 2020, 2024
+lastupdated: "2024-02-23"
 
 keywords: HA for {{site.data.keyword.secrets-manager_short}}, DR for {{site.data.keyword.secrets-manager_short}}, high availability for {{site.data.keyword.secrets-manager_short}}, disaster recovery for {{site.data.keyword.secrets-manager_short}}, failover for {{site.data.keyword.secrets-manager_short}}
 
@@ -87,7 +87,7 @@ To manually back up your secrets across regions, you must first have an instance
 
 1. List and download secrets from your instance by using the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager/secrets-manager-v2) or CLI.
 
-   If you have existing configurations on secrets engines in your instance, you can also retrieve the information programmatically so that it can be re-created in a new instance. For more information, see the [Get the configuration of a secret type](/apidocs/secrets-manager/secrets-manager-v2#get-config) API.
+   If you have existing configurations on secrets engines in your instance, you can also retrieve the information programmatically so that it can be re-created in a new instance. For more information, see the [Get the configuration of a secret type](/apidocs/secrets-manager/secrets-manager-v2#get-configuration) API.
 
 2. Add your downloaded secrets to the newly created instance.
 

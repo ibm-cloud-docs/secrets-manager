@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-15"
+lastupdated: "2024-02-23"
 
 keywords: change log for Secrets Manager APIs, API changelog, updates to Secrets Manager APIs
 
@@ -121,8 +121,8 @@ This release includes the following updates:
 - Added the [Invoke an action on a version of a secret](/apidocs/secrets-manager/secrets-manager-v2#update-secret-version) method that can be used to revoke a version of a private certificate. Currently, this API supports `private_cert` secrets only.
 - Updated the [Invoke an action on a secret](/apidocs/secrets-manager/secrets-manager-v2#update-secret) method to include `revoke` as a supported action. Currently, the `revoke` action is supported for `private_cert` secrets only.
 - Updated the [Get a version of a secret](/apidocs/secrets-manager/secrets-manager-v2#get-secret-version) method that can be used to retrieve the previous version of a secret. This API now supports `private_cert` secrets in addition to `imported_cert` and `public_cert`.
-- Updated the [Add a configuration](/apidocs/secrets-manager/secrets-manager-v2#create-config-element), [List configurations](/apidocs/secrets-manager/secrets-manager-v2#get-config-elements), [Update a configuration](/apidocs/secrets-manager/secrets-manager-v2#update-config-element), [Get a configuration](/apidocs/secrets-manager/secrets-manager-v2#get-config-element), and [Remove a configuration](/apidocs/secrets-manager/secrets-manager-v2#delete-config-element) methods. These APIs now support `private_cert` secrets in addition to `public_cert`.
-- Added the [Invoke an action on a configuration](/apidocs/secrets-manager/secrets-manager-v2#action-on-config-element) method that be used to run operations on specific configuration elements, for example root or intermediate certificate authorities. Currently, this API supports `private_cert` secrets only.
+- Updated the [Add a configuration](/apidocs/secrets-manager/secrets-manager-v2#create-configuration), [List configurations](/apidocs/secrets-manager/secrets-manager-v2#list-configurations), [Update a configuration](/apidocs/secrets-manager/secrets-manager-v2#update-configuration), [Get a configuration](/apidocs/secrets-manager/secrets-manager-v2#get-configuration), and [Remove a configuration](/apidocs/secrets-manager/secrets-manager-v2#delete-configuration) methods. These APIs now support `private_cert` secrets in addition to `public_cert`.
+- Added the [Invoke an action on a configuration](/apidocs/secrets-manager/secrets-manager-v2#create-configuration-action) method that be used to run operations on specific configuration elements, for example root or intermediate certificate authorities. Currently, this API supports `private_cert` secrets only.
 
 
 ## 3 February 2022
@@ -158,7 +158,7 @@ This release includes the following updates:
 This release includes the following updates:
 
 - Added `public_cert` secret type that can be used to order domain-validated TLS certificates with the service. For more information, see [Ordering certificates](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates).
-- Added the [Add a configuration](/apidocs/secrets-manager/secrets-manager-v2#create-config-element), [List configurations](/apidocs/secrets-manager/secrets-manager-v2#get-config-elements), [Update a configuration](/apidocs/secrets-manager/secrets-manager-v2#update-config-element), [Get a configuration](/apidocs/secrets-manager/secrets-manager-v2#get-config-element), and [Remove a configuration](/apidocs/secrets-manager/secrets-manager-v2#delete-config-element) methods that can be used to add engine configurations to the service. Currently, these APIs support `public_cert` secrets only.
+- Added the [Add a configuration](/apidocs/secrets-manager/secrets-manager-v2#create-config-element), [List configurations](/apidocs/secrets-manager/secrets-manager-v2#list-configurations), [Update a configuration](/apidocs/secrets-manager/secrets-manager-v2#update-configuration), [Get a configuration](/apidocs/secrets-manager/secrets-manager-v2#get-configuration), and [Remove a configuration](/apidocs/secrets-manager/secrets-manager-v2#delete-configuration) methods that can be used to add engine configurations to the service. Currently, these APIs support `public_cert` secrets only.
 - Updated the [Get a version of a secret](/apidocs/secrets-manager/secrets-manager-v2#get-secret-version) method that can be used to retrieve the previous version of a secret. This API now supports `public_cert` secrets in addition to `imported_cert`.
 
 ## 11 July 2021
