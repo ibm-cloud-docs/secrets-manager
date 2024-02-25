@@ -120,8 +120,6 @@ The following limits apply to secret groups.
 | --- | --- |
 | Name | 2 - 64 characters |
 | Description | 2 - 1024 characters |
-| Labels | 2 - 64 characters  \n  \n 30 labels per secret group |
-| Total secrets | – |
 {: caption="Table 4. Secret group limits" caption-side="top"}
 
 #### Limits for arbitrary secrets
