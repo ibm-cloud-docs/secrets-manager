@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-11-16"
+  years: 2020, 2024
+lastupdated: "2024-02-23"
 
 keywords: DNS provider, connect DNS provider, set up DNS provider, connect DNS, set up DNS, connect CIS, set up CIS, add DNS provider configuration
 
@@ -67,7 +67,7 @@ You can define up to 10 DNS configurations per instance. To view a list of confi
 {: note}
 {: ui}
 
-You can define up to 10 DNS configurations per instance. To obtain a list of configurations that are available for your instance, you can use the [List configurations](/apidocs/secrets-manager/secrets-manager-v2#get-secret-config-element) API.
+You can define up to 10 DNS configurations per instance. To obtain a list of configurations that are available for your instance, you can use the [List configurations](/apidocs/secrets-manager/secrets-manager-v2#get-configuration) API.
 {: note}
 {: api}
 

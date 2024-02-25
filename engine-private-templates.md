@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-11-16"
+  years: 2020, 2024
+lastupdated: "2024-02-23"
 
 keywords: certificate parameters, certificate templates
 
@@ -65,7 +65,7 @@ You can define up to 10 certificate templates per instance. To view a list of te
 {: note}
 {: ui}
 
-You can define up to 10 certificate templates per instance. To obtain a list of templates that are available for a specific certificate authority, you can use the [List configurations](/apidocs/secrets-manager/secrets-manager-v2#get-secret-config-element) API.
+You can define up to 10 certificate templates per instance. To obtain a list of templates that are available for a specific certificate authority, you can use the [List configurations](/apidocs/secrets-manager/secrets-manager-v2#get-configuration) API.
 {: note}
 {: api}
 

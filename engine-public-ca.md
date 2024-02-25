@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-11-16"
+  years: 2020, 2024
+lastupdated: "2024-02-23"
 
 keywords: certificate authority, connect certificate authority, set up certificate authority, connect CA, set up CA, connect Let's Encrypt, set up Let's Encrypt, add certificate authority configuration, add CA configuration
 
@@ -67,7 +67,7 @@ You can define up to 10 certificate authority configurations per instance. To vi
 {: note}
 {: ui}
 
-You can define up to 10 certificate authority configurations per instance. To obtain a list of configurations that are available for your instance, you can use the [List configurations](/apidocs/secrets-manager/secrets-manager-v2#get-secret-config-element) API.
+You can define up to 10 certificate authority configurations per instance. To obtain a list of configurations that are available for your instance, you can use the [List configurations](/apidocs/secrets-manager/secrets-manager-v2#get-configuration) API.
 {: note}
 {: api}
 

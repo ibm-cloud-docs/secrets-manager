@@ -7,7 +7,7 @@ toc:
     audience: service
     href: /docs/secrets-manager
     console-page: /catalog/services/secrets-manager
-    product-page: https://ibm.com/cloud/secrets-manager
+    product-page: https://ibm.com/products/secrets-manager
     path: secrets-manager
     label: Secrets Manager
   entries:
