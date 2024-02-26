@@ -107,7 +107,7 @@ As of April 17, 2023, the {{site.data.keyword.secrets-manager_full}} CLI v1 has 
 
 Version 0.1.23 was released on 19 September 2022. This release includes the following update:
 
-- Added the `validate_dns_challenge` field to the [`ibmcloud secrets-manager secret-update`](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli&interface=api#secrets-manager-cli-secret-update-command) command to validate challenges for public certificates that are ordered with a manual dns provider.
+- Added the `validate_dns_challenge` field to the `ibmcloud secrets-manager secret-update` command to validate challenges for public certificates that are ordered with a manual dns provider.
 
 
 ## Version 0.1.22
@@ -115,7 +115,7 @@ Version 0.1.23 was released on 19 September 2022. This release includes the foll
 
 Version 0.1.22 was released on 12 September 2022. This release includes the following updates:
 
-- Added the [update the version metadata of a secret](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli&interface=api#secrets-manager-cli-secret-version-metadata-update-command) command to store custom metadata that is relevant to the needs of your organization.
+- Added the update the version metadata of a secret command to store custom metadata that is relevant to the needs of your organization.
 - Added the `version_custom_metadata` and `custom_metadata` options to the create a secret, update a secret, update a secret version, and update the metadata of a secret.
 
 ## Version 0.1.21
