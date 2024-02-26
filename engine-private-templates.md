@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-02-26"
 
 keywords: certificate parameters, certificate templates
 
@@ -283,7 +283,7 @@ The following example shows a configuration that you can use to create a certifi
 ```
 {: codeblock}
 
-For more information about the required and optional request parameters, see [Add a configuration](/apidocs/secrets-manager/secrets-manager-v2#create-config-element){: external}.
+For more information about the required and optional request parameters, see [Add a configuration](/apidocs/secrets-manager/secrets-manager-v2#create-configuration){: external}.
 
 
 ## Retrieving a certificate template in the UI

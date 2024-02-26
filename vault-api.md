@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-01-08"
+lastupdated: "2024-02-26"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -3535,7 +3535,7 @@ You can add multiple configurations for your instance:
 | ------------- | ----------------------------------------------------------------------------------- |
 | `name`        | A human-readable name to assign to your certificate authority configuration.        |
 | `type`        | The type of certificate authority that you want to create. Allowable values are: `root_certificate_authority`, `intermediate_certificate_authority`. | 
-| `[params..]`  | For a complete list of parameters, see [Add a configuration](/apidocs/secrets-manager/secrets-manager-v2#create-config-element){: external}. |
+| `[params..]`  | For a complete list of parameters, see [Add a configuration](/apidocs/secrets-manager/secrets-manager-v2#create-configuration){: external}. |
 {: caption="Table 11. Private certificates engine request parameters" caption-side="top"}
 {: #private-cert-secrets-engine-ca-request-params}
 {: tab-title="Private CAs"}
@@ -3546,7 +3546,7 @@ You can add multiple configurations for your instance:
 | ------------- | ----------------------------------------------------------------------------------- |
 | `name`        | A human-readable name to assign to your certificate template.                       |
 | `type`        | The type of configuration that you want to add. For certificate templates, use `certificate_templates`. |
-| `[params..]`  | For a complete list of parameters, see [Add a configuration](/apidocs/secrets-manager/secrets-manager-v2#create-config-element){: external}. |
+| `[params..]`  | For a complete list of parameters, see [Add a configuration](/apidocs/secrets-manager/secrets-manager-v2#create-configuration){: external}. |
 {: caption="Table 11. Private certificates engine request parameters" caption-side="top"}
 {: #private-cert-secrets-engine-template-request-params}
 {: tab-title="Certificate templates"}
