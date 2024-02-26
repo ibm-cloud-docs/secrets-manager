@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-12"
+lastupdated: "2024-02-26"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -213,7 +213,7 @@ Automatic rotation for IAM credentials
 :   The ability to schedule an automatic rotation policy is now available for IAM credentials that are configured for reuse. For more information, see [Automatically rotating secrets](/docs/secrets-manager?topic=secrets-manager-automatic-rotation).
 
 Manually configure your own DNS provider
-:   If you work with a DNS provider that is not currently integrated with the service, you can manually configure it when you use the {{site.data.keyword.secrets-manager_short}} API to order new certificates. If you choose to manually configure a provider, you must complete a challenge to prove ownership over your domain. For more information, see [Ordering public certificates with your own DNS provider](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates-manual-api).
+:   If you work with a DNS provider that is not currently integrated with the service, you can manually configure it when you use the {{site.data.keyword.secrets-manager_short}} API to order new certificates. If you choose to manually configure a provider, you must complete a challenge to prove ownership over your domain. For more information, see [Ordering public certificates with your own DNS provider](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates).
 
 
 
