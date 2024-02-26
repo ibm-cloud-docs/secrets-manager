@@ -442,7 +442,7 @@ curl -X POST \
 {: curl}
 
 
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#update-secret).
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#create-secret-version).
 
 
 ### Rotating key-value secrets
@@ -479,7 +479,7 @@ curl -X POST \
 {: curl}
 
 
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#update-secret).
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#create-secret-version).
 
 
 ### Rotating user credentials
@@ -517,7 +517,7 @@ curl -X POST \
 To have the service generate and assign a random password to your credential, omit the `password` field. For example, `{}`. {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
 {: tip}
 
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#update-secret).
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#create-secret-version).
 
 ### Rotating IAM credentials
 {: #manual-rotate-iam-credentials-api}
@@ -550,7 +550,7 @@ curl -X POST \
 {: codeblock}
 {: curl}
 
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#update-secret).
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#create-secret-version).
 
 
 ### Rotating Service credentials
@@ -584,7 +584,7 @@ curl -X POST \
 {: codeblock}
 {: curl}
 
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#update-secret).
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#create-secret-version).
 
 
 ### Rotating imported certificates
@@ -622,7 +622,7 @@ curl -X POST \
 Replace new lines in the certificate, intermediate, and private key data with `\n`.
 {: note}
 
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#update-secret).
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#create-secret-version).
 
 ## Manually rotating secrets with Terraform
 {: #manual-rotate-terraform}

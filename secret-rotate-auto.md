@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-02-26"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -301,7 +301,7 @@ curl -X PATCH
 
 
 
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#update-secret).
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#update-secret-metadata).
 
 To remove a policy, keep the resources block empty.
 {: note}
@@ -374,7 +374,7 @@ curl -X PATCH
 To remove a policy, keep the resources block empty.
 {: note}
 
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#update-secret).
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#update-secret-metadata).
 
 The defined rotation interval cannot be higher than the defined time-to-live.
 Rotation is available only for IAM credentials where the Re-use key is set to `true`. You can set the TTL for secrets by using `minute` units of time but rotation is not available for those secrets.
@@ -409,7 +409,7 @@ curl -X PATCH
 To remove a policy, keep the resources block empty.
 {: note}
 
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#update-secret).
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#update-secret-metadata).
 
 The defined rotation interval cannot be higher than the defined time-to-live.
 {: note}

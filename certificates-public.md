@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: "2023"
-lastupdated: "2023-12-21"
+  years: "2024"
+lastupdated: "2024-02-26"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, public certificates
 
@@ -469,7 +469,7 @@ To create a public certificate by using a manual DNS provider, complete the foll
 4. Validate that the TXT records that you added are propagated. Depending on your DNS provider, it can take some time to complete.
 
 
-5. After the records are propagated, call the {{site.data.keyword.secrets-manager_short}} [Invoke an action on a secret](/apidocs/secrets-manager/secrets-manager-v2#update-secret) API to request Let's Encrypt to validate the challenges to your domain and create a public certificate. 
+5. After the records are propagated, call the {{site.data.keyword.secrets-manager_short}} [Create a secret action](/apidocs/secrets-manager/secrets-manager-v2#create-secret-action) API to request Let's Encrypt to validate the challenges to your domain and create a public certificate. 
 
    ```sh
     curl -X POST 
@@ -485,7 +485,7 @@ To create a public certificate by using a manual DNS provider, complete the foll
    {: curl}
 
 
-   If you need to update your certificate later, you can use the [Invoke an action on a secret](/apidocs/secrets-manager/secrets-manager-v2#update-secret) API but with the action `rotate`. However, you can't automatically rotate manual DNS provider certificates in {{site.data.keyword.secrets-manager_short}}.
+   If you need to update your certificate later, you can use the [Create a secret action](/apidocs/secrets-manager/secrets-manager-v2#create-secret-action) API but with the action `rotate`. However, you can't automatically rotate manual DNS provider certificates in {{site.data.keyword.secrets-manager_short}}.
    {: note}
 
 
@@ -718,7 +718,7 @@ You can do this by using the Terraform’s [ibm_sm_public_certificate_action_val
 You can use [Terraform’s `depends_on` meta-argument](https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on) to insure Terraform’s configuration is being created in the correct logical order as shown in these instructions.   
 {: tip}
 
-Alternatively, you can call the {{site.data.keyword.secrets-manager_short}} [Invoke an action on a secret](/apidocs/secrets-manager/secrets-manager-v2#update-secret) API to request Let's Encrypt to validate the challenges to your domain and create a public certificate.
+Alternatively, you can call the {{site.data.keyword.secrets-manager_short}} [Create a secret action](/apidocs/secrets-manager/secrets-manager-v2#create-secret-action) API to request Let's Encrypt to validate the challenges to your domain and create a public certificate.
 
    ```sh
     curl -X POST 
