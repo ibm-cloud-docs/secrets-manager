@@ -185,7 +185,7 @@ The following limits apply to imported, private, or public certificates.
 | Certificate | 100 KB  \n  \n Supported file type is `.pem`. The certificate must be a valid, X.509-based certificate. |
 | Private key | 100 KB  \n  \n Private key file is limited to PEM-formatted content. If provided, the private key must match the certificate that you are importing. Only unencrypted private keys are supported. |
 | Intermediate certificate | 100 KB  \n  \n Supported file type is `.pem`. If provided, the intermediate certificate must be a valid, X.509-based certificate. |
-| Labels | 2 - 364characters  \n  \n 30 labels per secret |
+| Labels | 2 - 64 characters  \n  \n 30 labels per secret |
 | Versions | 2 versions per certificate (current and previous)  \n  \nFor auditing purposes, the service retains the metadata of up to 50 versions for each secret, which you can review as part of a secret's [version history](/docs/secrets-manager?topic=secrets-manager-version-history). |
 | Locks | 1000 |
 | Custom metadata | 10 KB |
