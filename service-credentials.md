@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-26"
+lastupdated: "2024-02-27"
 
 keywords: Service credentials, App ID, App Config, Cloudant, Cloud Object Storage, Event Notifications, Event Streams, etcd, ElasticSearch, PostgreSQL, Redis, MongoDB
 
@@ -83,7 +83,7 @@ You can create service credentials through {{site.data.keyword.secrets-manager_s
 - [Databases for PostgreSQL](/docs/databases-for-postgresql?topic=databases-for-postgresql-user-management&interface=ui#user-management-service-cred)
 - [Databases for MySQL](/docs/databases-for-mysql?topic=databases-for-mysql-user-management&interface=ui)
 - [Databases for MongoDB](/docs/databases-for-mongodb?topic=databases-for-mongodb-user-management&interface=ui#user-management-ui)
-- [Databases for Redis 6 and above](/docs/databases-for-redis?topic=databases-for-redis-user-management&interface=ui#user-management-ui)
+- [Databases for Redis 6 and above](/docs/databases-for-redis?topic=databases-for-redis-user-management&interface=ui)
 - [Event Notifications](/docs/event-notifications?topic=event-notifications-en-service-credentials)
 - [Event Streams](/docs/EventStreams?topic=EventStreams-connecting)
 

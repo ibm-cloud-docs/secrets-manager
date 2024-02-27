@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-26"
+lastupdated: "2024-02-27"
 
 keywords: change log for Secrets Manager APIs, API changelog, updates to Secrets Manager APIs
 
@@ -100,7 +100,7 @@ Version 2.0.0 was released on 17 April 2023. This release includes the following
 This release includes the following updates:
 
 - Added the [Update the metadata of a secret version](/apidocs/secrets-manager/secrets-manager-v2#update-secret-metadata) method that can be used to store version custom metadata that is relevant to the needs of your organization.
-- Updated the [Create a secret](/apidocs/secrets-manager/secrets-manager-v2#create-secret), [Invoke an action on a secret](/apidocs/secrets-manager/secrets-manager-v2#update-secret), [Get secret metadata](/apidocs/secrets-manager/secrets-manager-v2#get-secret-metadata), [Get secret version metadata](/apidocs/secrets-manager/secrets-manager-v2#get-secret-version-metadata), and [Update secret metadata](/apidocs/secrets-manager/secrets-manager-v2#update-secret-metadata) methods to include `custom_metadata` and `version_custom_metadata` fields.
+- Updated the [Create a secret](/apidocs/secrets-manager/secrets-manager-v2#create-secret), Invoke an action on a secret, [Get secret metadata](/apidocs/secrets-manager/secrets-manager-v2#get-secret-metadata), [Get secret version metadata](/apidocs/secrets-manager/secrets-manager-v2#get-secret-version-metadata), and [Update secret metadata](/apidocs/secrets-manager/secrets-manager-v2#update-secret-metadata) methods to include `custom_metadata` and `version_custom_metadata` fields.
 
 ## 10 July 2022
 {: #2022-07-10-api}
