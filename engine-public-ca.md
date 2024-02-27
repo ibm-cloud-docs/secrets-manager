@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-26"
+lastupdated: "2024-02-27"
 
 keywords: certificate authority, connect certificate authority, set up certificate authority, connect CA, set up CA, connect Let's Encrypt, set up Let's Encrypt, add certificate authority configuration, add CA configuration
 
@@ -224,7 +224,7 @@ curl -X DELETE
 {: curl}
 
 
-A successful response removes the configuration from your service instance. For more information about the required and optional request parameters, see [Remove a configuration](/apidocs/secrets-manager/secrets-manager-v2#delete-config-element){: external}.
+A successful response removes the configuration from your service instance. For more information about the required and optional request parameters, see [Remove a configuration](/apidocs/secrets-manager/secrets-manager-v2#delete-configuration){: external}.
 
 
 ## Retrieving a certificate authority configuration in the UI

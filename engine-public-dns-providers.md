@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-26"
+lastupdated: "2024-02-27"
 
 keywords: DNS provider, connect DNS provider, set up DNS provider, connect DNS, set up DNS, connect CIS, set up CIS, add DNS provider configuration
 
@@ -306,7 +306,7 @@ curl -X DELETE
 {: codeblock}
 {: curl}
 
-A successful response removes the configuration from your service instance. For more information about the required and optional request parameters, see [Remove a configuration](/apidocs/secrets-manager/secrets-manager-v2#delete-config-element){: external}.
+A successful response removes the configuration from your service instance. For more information about the required and optional request parameters, see [Remove a configuration](/apidocs/secrets-manager/secrets-manager-v2#delete-configuration){: external}.
 
 
 ## Retrieving a DNS provider configuration in the UI
