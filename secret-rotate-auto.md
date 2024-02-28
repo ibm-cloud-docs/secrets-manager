@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-26"
+lastupdated: "2024-02-28"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -101,7 +101,7 @@ You can schedule the automatic rotation of secrets by using the {{site.data.keyw
 
 If you prefer to schedule your passwords to be automatically rotated at regular intervals, you can enable automatic rotation for your user credentials at their creation. You can also enable auto rotation by editing the details of an existing secret.
 
-If you need more control over the rotation frequency of a secret, you can use the {{site.data.keyword.secrets-manager_short}} API to set a custom interval by using `day` or `month` units of time. For more information, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#put-policy).
+If you need more control over the rotation frequency of a secret, you can use the {{site.data.keyword.secrets-manager_short}} API to set a custom interval by using `day` or `month` units of time. For more information, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#update-secret-metadata).
 {: tip}
 
 1. If you're [adding a secret](/docs/secrets-manager?topic=secrets-manager-user-credentials#user-credentials-ui), enable the rotation option.

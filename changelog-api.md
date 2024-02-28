@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-27"
+lastupdated: "2024-02-28"
 
 keywords: change log for Secrets Manager APIs, API changelog, updates to Secrets Manager APIs
 
@@ -119,7 +119,7 @@ This release includes the following updates:
 
 - Added the `private_cert` secret type that can be used to generate TLS certificates with the service. For more information, see [Creating private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates).
 - Added the [Invoke an action on a version of a secret](/apidocs/secrets-manager/secrets-manager-v2#update-secret-metadata) method that can be used to revoke a version of a private certificate. Currently, this API supports `private_cert` secrets only.
-- Updated the [Invoke an action on a secret](/apidocs/secrets-manager/secrets-manager-v2#update-secret) method to include `revoke` as a supported action. Currently, the `revoke` action is supported for `private_cert` secrets only.
+- Updated the Invoke an action on a secret method to include `revoke` as a supported action. Currently, the `revoke` action is supported for `private_cert` secrets only.
 - Updated the [Get a version of a secret](/apidocs/secrets-manager/secrets-manager-v2#get-secret-version) method that can be used to retrieve the previous version of a secret. This API now supports `private_cert` secrets in addition to `imported_cert` and `public_cert`.
 - Updated the [Add a configuration](/apidocs/secrets-manager/secrets-manager-v2#create-configuration), [List configurations](/apidocs/secrets-manager/secrets-manager-v2#list-configurations), [Update a configuration](/apidocs/secrets-manager/secrets-manager-v2#update-configuration), [Get a configuration](/apidocs/secrets-manager/secrets-manager-v2#get-configuration), and [Remove a configuration](/apidocs/secrets-manager/secrets-manager-v2#delete-configuration) methods. These APIs now support `private_cert` secrets in addition to `public_cert`.
 - Added the [Invoke an action on a configuration](/apidocs/secrets-manager/secrets-manager-v2#create-configuration-action) method that be used to run operations on specific configuration elements, for example root or intermediate certificate authorities. Currently, this API supports `private_cert` secrets only.
