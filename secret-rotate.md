@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-12-10"
+  years: 2020, 2024
+lastupdated: "2024-02-26"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -81,7 +81,7 @@ All the secrets that you store in {{site.data.keyword.secrets-manager_short}} ca
 | [Imported certificates](/docs/secrets-manager?topic=secrets-manager-certificates#import-certificates) | Certificates that were initially imported to a service instance are immediately replaced with the data that you reimport on rotation. |
 | [Key-value secrets](/docs/secrets-manager?topic=secrets-manager-key-value) | Key-value secrets are immediately replaced with the data that you provide on rotation. |
 | [Private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates) | Private certificates are immediately replaced with a certificate that is signed by its parent or issuing certificate authority.|
-| [Public certificates](/docs/secrets-manager?topic=secrets-manager-certificates#order-certificates) | Public certificates move to the **Active, Rotation pending** status to indicate that a request to rotate a certificate is being processed. {{site.data.keyword.secrets-manager_short}} sends the request to the configured certificate authority (CA), for example Let's Encrypt, to validate the ownership of your domains. If the validation completes successfully, a new certificate is issued. |
+| [Public certificates](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates) | Public certificates move to the **Active, Rotation pending** status to indicate that a request to rotate a certificate is being processed. {{site.data.keyword.secrets-manager_short}} sends the request to the configured certificate authority (CA), for example Let's Encrypt, to validate the ownership of your domains. If the validation completes successfully, a new certificate is issued. |
 | [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | Passwords that are associated with user credentials secrets are immediately replaced with the data that you provide on rotation. |
 | [Service credentials](/docs/secrets-manager?topic=secrets-manager-service-credentials) | The Service credential is replaced with a new one. The previous credential remains available for the remaining time in the defined TTL. |
 {: caption="Table 1. Describes how {{site.data.keyword.secrets-manager_short}} evaluates manual rotation by secret type" caption-side="top"}
@@ -442,7 +442,7 @@ curl -X POST \
 {: curl}
 
 
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#update-secret).
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#create-secret-version).
 
 
 ### Rotating key-value secrets
@@ -479,7 +479,7 @@ curl -X POST \
 {: curl}
 
 
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#update-secret).
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#create-secret-version).
 
 
 ### Rotating user credentials
@@ -517,7 +517,7 @@ curl -X POST \
 To have the service generate and assign a random password to your credential, omit the `password` field. For example, `{}`. {{site.data.keyword.secrets-manager_short}} replaces the existing value with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
 {: tip}
 
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#update-secret).
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#create-secret-version).
 
 ### Rotating IAM credentials
 {: #manual-rotate-iam-credentials-api}
@@ -550,7 +550,7 @@ curl -X POST \
 {: codeblock}
 {: curl}
 
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#update-secret).
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#create-secret-version).
 
 
 ### Rotating Service credentials
@@ -584,7 +584,7 @@ curl -X POST \
 {: codeblock}
 {: curl}
 
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#update-secret).
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#create-secret-version).
 
 
 ### Rotating imported certificates
@@ -622,7 +622,7 @@ curl -X POST \
 Replace new lines in the certificate, intermediate, and private key data with `\n`.
 {: note}
 
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#update-secret).
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#create-secret-version).
 
 ## Manually rotating secrets with Terraform
 {: #manual-rotate-terraform}

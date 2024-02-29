@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-07-19"
+  years: 2020, 2024
+lastupdated: "2024-02-26"
 
 keywords: Secrets Manager integrations, enable integration, create authorization, service to service, grant access between services, using Secrets Manager with other services, authorize Secrets Manager
 
@@ -72,7 +72,7 @@ The following table lists the services that can be authorized to work with {{sit
 | ------------------ | ----------- | ----------- |
 | [{{site.data.keyword.alb_full}}](/docs/vpc?topic=vpc-load-balancers)  | Certificates | Centrally manage the SSL/TLS certificates that are required for load balancers to perform SSL offloading tasks. Create an authorization between **VPC Infrastructure Services** and {{site.data.keyword.secrets-manager_short}} to give a load balancer access to your certificates. [Learn more about this integration](/docs/vpc?topic=vpc-load-balancers). |
 | [App Configuration](/docs/app-configuration) | All secret types | A property value can be imported from {{site.data.keyword.secrets-manager_short}} into the App Configuration service. [Learn more](/docs/app-configuration?topic=app-configuration-ac-properties#property-type-secret-reference). |
-| [API Connect](/docs/apiconnect?topic=apiconnect-getting-started-v5) | Certificates | Store your custom domain certificates in {{site.data.keyword.secrets-manager_short}}, then use certificate CRNs to bind with custom domains in API Gateway. |    
+| [API Connect](/docs/apiconnect?topic=apiconnect-getting-started) | Certificates | Store your custom domain certificates in {{site.data.keyword.secrets-manager_short}}, then use certificate CRNs to bind with custom domains in API Gateway. |    
 | [Catalog management](/docs/account?topic=account-create-private-catalog) | Arbitrary secrets | Centrally manage the credentials for software in your private catalogs. [Learn more about this integration](/docs/account?topic=account-create-private-catalog). |
 | [Continuous Delivery](/docs/ContinuousDelivery?topic=ContinuousDelivery-secretsmanager) | Arbitrary secrets  \n IAM credentials | Centrally manage the credentials for your {{site.data.keyword.contdelivery_short}} toolchain. Create an authorization between **Toolchain** and {{site.data.keyword.secrets-manager_short}} to give a toolchain access to your secrets. [Learn more about this integration](/docs/ContinuousDelivery?topic=ContinuousDelivery-secretsmanager).  |
 | [Data Engine](/docs/sql-query?topic=sql-query-getting-started) |  Arbitrary secrets  \n IAM credentials | Store API keys for transferring messages between Event Streams, Data Engine and Cloud Object Storage. [Learn more](/docs/sql-query?topic=sql-query-event-streams-landing#permissions-event-streams).|

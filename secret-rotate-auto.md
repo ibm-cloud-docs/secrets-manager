@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-02-28"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -101,7 +101,7 @@ You can schedule the automatic rotation of secrets by using the {{site.data.keyw
 
 If you prefer to schedule your passwords to be automatically rotated at regular intervals, you can enable automatic rotation for your user credentials at their creation. You can also enable auto rotation by editing the details of an existing secret.
 
-If you need more control over the rotation frequency of a secret, you can use the {{site.data.keyword.secrets-manager_short}} API to set a custom interval by using `day` or `month` units of time. For more information, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#put-policy).
+If you need more control over the rotation frequency of a secret, you can use the {{site.data.keyword.secrets-manager_short}} API to set a custom interval by using `day` or `month` units of time. For more information, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#update-secret-metadata).
 {: tip}
 
 1. If you're [adding a secret](/docs/secrets-manager?topic=secrets-manager-user-credentials#user-credentials-ui), enable the rotation option.
@@ -153,7 +153,7 @@ If you prefer to schedule your private SSL or TLS certificates to be automatical
 
 If you prefer to schedule your API key to be automatically rotated at regular intervals, you can enable automatic rotation for your IAM credentials at their creation. You can also enable auto rotation by editing the details of an existing secret. Choose between a 30, 60, or 90-day rotation interval.
 
-If you need more control over the rotation frequency of a secret, you can use the {{site.data.keyword.secrets-manager_short}} API to set a custom interval by using `day` or `month` units of time. For more information, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#put-policy).
+If you need more control over the rotation frequency of a secret, you can use the {{site.data.keyword.secrets-manager_short}} API to set a custom interval by using `day` or `month` units of time. For more information, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#update-secret-metadata).
 {: tip}
 
 1. If you're [adding a secret](/docs/secrets-manager?topic=secrets-manager-iam-credentials#iam-credentials-ui), enable the rotation option by selecting a 30, 60, or 90-day rotation interval.
@@ -171,7 +171,7 @@ Rotation is available only for IAM credentials where the reuse key is set to `tr
 
 If you prefer to schedule your service credential to be automatically rotated at regular intervals, you can enable automatic rotation for your Service credentials at their creation. You can also enable auto rotation by editing the details of an existing secret. Choose between a 30, 60, or 90-day rotation interval.
 
-If you need more control over the rotation frequency of a secret, you can use the {{site.data.keyword.secrets-manager_short}} API to set a custom interval by using `day` or `month` units of time. For more information, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#put-policy).
+If you need more control over the rotation frequency of a secret, you can use the {{site.data.keyword.secrets-manager_short}} API to set a custom interval by using `day` or `month` units of time. For more information, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#update-secret-metadata).
 {: tip}
 
 1. If you're [adding a secret](/docs/secrets-manager?topic=secrets-manager-service-credentials#service-credentials-ui), enable the rotation option by selecting a 30, 60, or 90-day rotation interval.
@@ -301,7 +301,7 @@ curl -X PATCH
 
 
 
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#update-secret).
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#update-secret-metadata).
 
 To remove a policy, keep the resources block empty.
 {: note}
@@ -374,7 +374,7 @@ curl -X PATCH
 To remove a policy, keep the resources block empty.
 {: note}
 
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#update-secret).
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#update-secret-metadata).
 
 The defined rotation interval cannot be higher than the defined time-to-live.
 Rotation is available only for IAM credentials where the Re-use key is set to `true`. You can set the TTL for secrets by using `minute` units of time but rotation is not available for those secrets.
@@ -409,7 +409,7 @@ curl -X PATCH
 To remove a policy, keep the resources block empty.
 {: note}
 
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#update-secret).
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#update-secret-metadata).
 
 The defined rotation interval cannot be higher than the defined time-to-live.
 {: note}

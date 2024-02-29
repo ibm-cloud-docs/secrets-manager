@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-02-28"
 
 keywords: change log for Secrets Manager APIs, API changelog, updates to Secrets Manager APIs
 
@@ -99,17 +99,17 @@ Version 2.0.0 was released on 17 April 2023. This release includes the following
 
 This release includes the following updates:
 
-- Added the [Update the metadata of a secret version](/apidocs/secrets-manager/secrets-manager-v2#update-secret-version-metadata) method that can be used to store version custom metadata that is relevant to the needs of your organization.
-- Updated the [Create a secret](/apidocs/secrets-manager/secrets-manager-v2#create-secret), [Invoke an action on a secret](/apidocs/secrets-manager/secrets-manager-v2#update-secret), [Get secret metadata](/apidocs/secrets-manager/secrets-manager-v2#get-secret-metadata), [Get secret version metadata](/apidocs/secrets-manager/secrets-manager-v2#get-secret-version-metadata), and [Update secret metadata](/apidocs/secrets-manager/secrets-manager-v2#update-secret-metadata) methods to include `custom_metadata` and `version_custom_metadata` fields.
+- Added the [Update the metadata of a secret version](/apidocs/secrets-manager/secrets-manager-v2#update-secret-metadata) method that can be used to store version custom metadata that is relevant to the needs of your organization.
+- Updated the [Create a secret](/apidocs/secrets-manager/secrets-manager-v2#create-secret), Invoke an action on a secret, [Get secret metadata](/apidocs/secrets-manager/secrets-manager-v2#get-secret-metadata), [Get secret version metadata](/apidocs/secrets-manager/secrets-manager-v2#get-secret-version-metadata), and [Update secret metadata](/apidocs/secrets-manager/secrets-manager-v2#update-secret-metadata) methods to include `custom_metadata` and `version_custom_metadata` fields.
 
 ## 10 July 2022
 {: #2022-07-10-api}
 
 This release includes the following updates: 
 
-- Added the [Lock a secret](/apidocs/secrets-manager/secrets-manager-v2#lock-secret) and [Lock a secret version](/apidocs/secrets-manager/secrets-manager-v2#lock-secret-version) methods that can be used to create locks on a secret in your instance. For more information, see [Locking secrets](/docs/secrets-manager?topic=secrets-manager-secret-locks).
-- Added the [Unlock a secret](/apidocs/secrets-manager/secrets-manager-v2#unlock-secret) and [Unlock a secret version](/apidocs/secrets-manager/secrets-manager-v2#unlock-secret-version) methods that can be used to remove locks on a secret or specific secret version.
-- Added the [List secret locks](/apidocs/secrets-manager/secrets-manager-v2#get-locks), [List secret version locks](/apidocs/secrets-manager/secrets-manager-v2#get-secret-version-locks), and [List all secrets and locks](/apidocs/secrets-manager/secrets-manager-v2#list-instance-secrets-locks).
+- Added the [Lock a secret](/apidocs/secrets-manager/secrets-manager-v2#create-secret-locks-bulk) and [Lock a secret version](/apidocs/secrets-manager/secrets-manager-v2#create-secret-version-locks-bulk) methods that can be used to create locks on a secret in your instance. For more information, see [Locking secrets](/docs/secrets-manager?topic=secrets-manager-secret-locks).
+- Added the [Unlock a secret](/apidocs/secrets-manager/secrets-manager-v2#delete-secret-locks-bulk) and [Unlock a secret version](/apidocs/secrets-manager/secrets-manager-v2#delete-secret-version-locks-bulk) methods that can be used to remove locks on a secret or specific secret version.
+- Added the [List secret locks](/apidocs/secrets-manager/secrets-manager-v2#list-secret-locks), [List secret version locks](/apidocs/secrets-manager/secrets-manager-v2#list-secret-version-locks), and [List all secrets and locks](/apidocs/secrets-manager/secrets-manager-v2#list-secrets-locks).
 - Updated all secrets operations to return a `locks_total` field as part of the metadata of a secret.
 
 ## 25 April 2022
@@ -118,8 +118,8 @@ This release includes the following updates:
 This release includes the following updates: 
 
 - Added the `private_cert` secret type that can be used to generate TLS certificates with the service. For more information, see [Creating private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates).
-- Added the [Invoke an action on a version of a secret](/apidocs/secrets-manager/secrets-manager-v2#update-secret-version) method that can be used to revoke a version of a private certificate. Currently, this API supports `private_cert` secrets only.
-- Updated the [Invoke an action on a secret](/apidocs/secrets-manager/secrets-manager-v2#update-secret) method to include `revoke` as a supported action. Currently, the `revoke` action is supported for `private_cert` secrets only.
+- Added the [Invoke an action on a version of a secret](/apidocs/secrets-manager/secrets-manager-v2#update-secret-metadata) method that can be used to revoke a version of a private certificate. Currently, this API supports `private_cert` secrets only.
+- Updated the Invoke an action on a secret method to include `revoke` as a supported action. Currently, the `revoke` action is supported for `private_cert` secrets only.
 - Updated the [Get a version of a secret](/apidocs/secrets-manager/secrets-manager-v2#get-secret-version) method that can be used to retrieve the previous version of a secret. This API now supports `private_cert` secrets in addition to `imported_cert` and `public_cert`.
 - Updated the [Add a configuration](/apidocs/secrets-manager/secrets-manager-v2#create-configuration), [List configurations](/apidocs/secrets-manager/secrets-manager-v2#list-configurations), [Update a configuration](/apidocs/secrets-manager/secrets-manager-v2#update-configuration), [Get a configuration](/apidocs/secrets-manager/secrets-manager-v2#get-configuration), and [Remove a configuration](/apidocs/secrets-manager/secrets-manager-v2#delete-configuration) methods. These APIs now support `private_cert` secrets in addition to `public_cert`.
 - Added the [Invoke an action on a configuration](/apidocs/secrets-manager/secrets-manager-v2#create-configuration-action) method that be used to run operations on specific configuration elements, for example root or intermediate certificate authorities. Currently, this API supports `private_cert` secrets only.
@@ -130,7 +130,7 @@ This release includes the following updates:
 
 This release includes the following update: 
 
-- Added the [Register with {{site.data.keyword.en_short}}](/apidocs/secrets-manager/secrets-manager-v2#create-notifications-registration), [Get {{site.data.keyword.en_short}} registration details](/apidocs/secrets-manager/secrets-manager-v2#get-notifications-registration), [Unregister from {{site.data.keyword.en_short}}](/apidocs/secrets-manager/secrets-manager-v2#delete-notifications-registration), and [Send test event](/apidocs/secrets-manager/secrets-manager-v2#send-test-notification) methods that can be used to manage your connection to the {{site.data.keyword.en_short}} service.
+- Added the [Register with {{site.data.keyword.en_short}}](/apidocs/secrets-manager/secrets-manager-v2#create-notifications-registration), [Get {{site.data.keyword.en_short}} registration details](/apidocs/secrets-manager/secrets-manager-v2#get-notifications-registration), [Unregister from {{site.data.keyword.en_short}}](/apidocs/secrets-manager/secrets-manager-v2#delete-notifications-registration), and [Send test event](/apidocs/secrets-manager/secrets-manager-v2#get-notifications-registration-test) methods that can be used to manage your connection to the {{site.data.keyword.en_short}} service.
 
 ## 31 January 2022
 {: #2022-01-31-api}
@@ -149,7 +149,7 @@ This release includes the following updates:
 - Added the `service_id_is_static` boolean parameter to the response details of the [Create a secret](/apidocs/secrets-manager/secrets-manager-v2#create-secret) and [Get secret metadata](/apidocs/secrets-manager/secrets-manager-v2#get-secret-metadata) methods. This parameter indicates whether an IAM credential secret was created by using an existing service ID.
 - Added the [List versions of a secret](/apidocs/secrets-manager/secrets-manager-v2#list-secret-versions) method that can be used to obtain version history information for a secret. 
 - Added `payload_available` and `downloaded` boolean parameters to the response details of the [Get a secret](/apidocs/secrets-manager/secrets-manager-v2#get-secret), [Get secret version metadata](/apidocs/secrets-manager/secrets-manager-v2#get-secret-version-metadata), [List versions of a secret](/apidocs/secrets-manager/secrets-manager-v2#list-secret-versions) methods. These parameters can help you to identify whether the a secret version is available to be restored, and whether it has already been previously read or accessed.
-- Added the `restore` query parameter as a request option on the [Invoke an action on a secret](/apidocs/secrets-manager/secrets-manager-v2#update-secret) method. You can use this action to [restore the previous version](/docs/secrets-manager?topic=secrets-manager-version-history) of a secret.
+- Added the `restore` query parameter as a request option on the Invoke an action on a secret method. You can use this action to [restore the previous version](/docs/secrets-manager?topic=secrets-manager-version-history) of a secret.
 - Updated the [Get a version of a secret](/apidocs/secrets-manager/secrets-manager-v2#get-secret-version) method that can be used to retrieve the previous version of a secret. This API now supports `arbitrary`, `iam_credentials`, and `username_password` secrets, in addition to `public_cert` and `imported_cert`.
 
 ## 20 September 2021
@@ -158,7 +158,7 @@ This release includes the following updates:
 This release includes the following updates:
 
 - Added `public_cert` secret type that can be used to order domain-validated TLS certificates with the service. For more information, see [Ordering certificates](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates).
-- Added the [Add a configuration](/apidocs/secrets-manager/secrets-manager-v2#create-config-element), [List configurations](/apidocs/secrets-manager/secrets-manager-v2#list-configurations), [Update a configuration](/apidocs/secrets-manager/secrets-manager-v2#update-configuration), [Get a configuration](/apidocs/secrets-manager/secrets-manager-v2#get-configuration), and [Remove a configuration](/apidocs/secrets-manager/secrets-manager-v2#delete-configuration) methods that can be used to add engine configurations to the service. Currently, these APIs support `public_cert` secrets only.
+- Added the [Add a configuration](/apidocs/secrets-manager/secrets-manager-v2#create-configuration), [List configurations](/apidocs/secrets-manager/secrets-manager-v2#list-configurations), [Update a configuration](/apidocs/secrets-manager/secrets-manager-v2#update-configuration), [Get a configuration](/apidocs/secrets-manager/secrets-manager-v2#get-configuration), and [Remove a configuration](/apidocs/secrets-manager/secrets-manager-v2#delete-configuration) methods that can be used to add engine configurations to the service. Currently, these APIs support `public_cert` secrets only.
 - Updated the [Get a version of a secret](/apidocs/secrets-manager/secrets-manager-v2#get-secret-version) method that can be used to retrieve the previous version of a secret. This API now supports `public_cert` secrets in addition to `imported_cert`.
 
 ## 11 July 2021

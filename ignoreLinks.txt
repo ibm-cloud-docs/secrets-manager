@@ -3,4 +3,5 @@ https://test.cloud.ibm.com/docs/writing?topic=writing-create-content-md#validmar
 https://test.cloud.ibm.com/docs/writing/?topic=writing-create-content-md#validmarkdown,
 https://ibm.webex.com/join/{name},
 https://www-03preprod.ibm.com/support/knowledgecenter/ibm_style/basics.html,
-https://www-03preprod.ibm.com/support/knowledgecenter/ibm_style/abbreviations.html
+https://www-03preprod.ibm.com/support/knowledgecenter/ibm_style/abbreviations.html,
+:([A-Za-z0-9-._~!$&'(

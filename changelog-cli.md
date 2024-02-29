@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-07"
+lastupdated: "2024-02-26"
 
 keywords: change log for Secrets Manager CLI, CLI changelog, updates to Secrets Manager CLI
 
@@ -101,14 +101,13 @@ Version 2.0.0 was released on 17 April 2023. All of the commands have been updat
 
 As of April 17, 2023, the {{site.data.keyword.secrets-manager_full}} CLI v1 has been deprecated in favor of v2. If you're still actively working with the {{site.data.keyword.secrets-manager_short}} CLI v1, please be sure to start your upgrade as soon as possible. On 31 October 2023, support for the {{site.data.keyword.secrets-manager_short}} CLI v1 will be removed.
 
-Review [Migrating to CLI v2](/docs/secrets-manager?topic=secrets-manager-api-migration-v2#migrate-api-v2-cli) to learn more about required changes when using this new version.
 
 ## Version 0.1.23
 {: #0.1.23}
 
 Version 0.1.23 was released on 19 September 2022. This release includes the following update:
 
-- Added the `validate_dns_challenge` field to the [`ibmcloud secrets-manager secret-update`](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli&interface=api#secrets-manager-cli-secret-update-command) command to validate challenges for public certificates that are ordered with a manual dns provider.
+- Added the `validate_dns_challenge` field to the `ibmcloud secrets-manager secret-update` command to validate challenges for public certificates that are ordered with a manual dns provider.
 
 
 ## Version 0.1.22
@@ -116,8 +115,8 @@ Version 0.1.23 was released on 19 September 2022. This release includes the foll
 
 Version 0.1.22 was released on 12 September 2022. This release includes the following updates:
 
-- Added the [update the version metadata of a secret](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli&interface=api#secrets-manager-cli-secret-version-metadata-update-command) command to store custom metadata that is relevant to the needs of your organization.
-- Added the `version_custom_metadata` and `custom_metadata` options to the [create a secret](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli-v1), [update a secret](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli-v1), [update a secret version](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli-v1), and [update the metadata of a secret](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli-v1).
+- Added the update the version metadata of a secret command to store custom metadata that is relevant to the needs of your organization.
+- Added the `version_custom_metadata` and `custom_metadata` options to the create a secret, update a secret, update a secret version, and update the metadata of a secret.
 
 ## Version 0.1.21
 {: #0.1.21}
@@ -131,7 +130,7 @@ Version 0.1.21 was released on 27 July 2022. This release includes the following
 
 Version 0.1.20 was released on 10 July 2022. This release includes the following updates:
 
-- Added the [locks](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secrets-locks-command), [secret-lock](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-locks-command), [secret-unlock](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli-v1), [secret-version-locks](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-version-locks-command), [secret-version-lock](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli-v1), [secret-version-unlock](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli-v1), and [all-locks](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secrets-locks-command) commands.
+- Added the [locks](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secrets-locks-command), [secret-lock](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-locks-command), secret-unlock, [secret-version-locks](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-version-locks-command), secret-version-lock, secret-version-unlock, and [all-locks](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secrets-locks-command) commands.
 
 ## Version 0.1.19
 {: #0.1.19}
@@ -147,7 +146,7 @@ Version 0.1.19 was released on 16 May 2022. This release includes the following 
 Version 0.1.18 was released on 25 April 2022. This release includes the following updates:
 
 - Added support for the `private_cert` secret type.
-- Added the [secret-version-update](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli-v1) and [config-element-action](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli-v1) commands.
+- Added the secret-version-update and config-element-actionå commands.
 - Added ARM64 builds for Apple silicon (M1) and Linux.
 
 ## Version 0.1.17
@@ -213,7 +212,7 @@ Version 0.0.11 was released on 23 June 2021. This release includes the following
 
 Version 0.0.10 was released on 23 April 2021. This release includes the following updates:
 
-- Changed the **--secret-action-one-of** flag in the [secret-update](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli-v1) command to **--body**.
+- Changed the **--secret-action-one-of** flag in the secret-update command to **--body**.
 - Added **--groups** flag to the [all-secrets](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secrets-command) command.
 
 

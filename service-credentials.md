@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-24"
+lastupdated: "2024-02-27"
 
 keywords: Service credentials, App ID, App Config, Cloudant, Cloud Object Storage, Event Notifications, Event Streams, etcd, ElasticSearch, PostgreSQL, Redis, MongoDB
 
@@ -83,7 +83,7 @@ You can create service credentials through {{site.data.keyword.secrets-manager_s
 - [Databases for PostgreSQL](/docs/databases-for-postgresql?topic=databases-for-postgresql-user-management&interface=ui#user-management-service-cred)
 - [Databases for MySQL](/docs/databases-for-mysql?topic=databases-for-mysql-user-management&interface=ui)
 - [Databases for MongoDB](/docs/databases-for-mongodb?topic=databases-for-mongodb-user-management&interface=ui#user-management-ui)
-- [Databases for Redis 6 and above](/docs/databases-for-redis?topic=databases-for-redis-user-management&interface=ui#user-management-ui)
+- [Databases for Redis 6 and above](/docs/databases-for-redis?topic=databases-for-redis-user-management&interface=ui)
 - [Event Notifications](/docs/event-notifications?topic=event-notifications-en-service-credentials)
 - [Event Streams](/docs/EventStreams?topic=EventStreams-connecting)
 
@@ -105,7 +105,7 @@ Note that in the case of service credentials created for Databases, if in additi
 ### Assigning IAM service access role for Service credentials
 {: #service-credentials-iam-access-role}
 
-In order to create a service credential, an **IAM service access role** must be selected. The available roles to select from may differ between the supported services. [See list of supported services](/docs/secrets-manager?topic=secrets-manager-service-credentials&interface=ui#supported-ibm-cloud-services) for related documentation. The selected role is then attached to an **IAM Service ID** that can be either an existing Service ID, or an auto-generated one.
+In order to create a service credential, an **IAM service access role** must be selected. The available roles to select from may differ between the supported services. [See list of supported services](/docs/secrets-manager?topic=secrets-manager-service-credentials#service-credentials-supported-services) for related documentation. The selected role is then attached to an **IAM Service ID** that can be either an existing Service ID, or an auto-generated one.
 
 The  Service ID continues to be used once secret rotation takes place. If deleting a secret, a pre-existing Service ID will not be deleted, however an auto-generated Service ID will be deleted.
 {: note}

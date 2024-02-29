@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-02-27"
 
 keywords: DNS provider, connect DNS provider, set up DNS provider, connect DNS, set up DNS, connect CIS, set up CIS, add DNS provider configuration
 
@@ -188,7 +188,7 @@ curl -X POST
 {: curl}
 
 
-A successful response adds the configuration to your service instance. For more information about the required and optional request parameters, see [Add a configuration](/apidocs/secrets-manager/secrets-manager-v2#create-config-element){: external}.
+A successful response adds the configuration to your service instance. For more information about the required and optional request parameters, see [Add a configuration](/apidocs/secrets-manager/secrets-manager-v2#create-configuration){: external}.
 
 
 ### Configuring classic infrastructure
@@ -217,7 +217,7 @@ curl -X POST
 
 
 
-A successful response adds the configuration to your service instance. For more information about the required and optional request parameters, see [Add a configuration](/apidocs/secrets-manager/secrets-manager-v2#create-config-element){: external}.
+A successful response adds the configuration to your service instance. For more information about the required and optional request parameters, see [Add a configuration](/apidocs/secrets-manager/secrets-manager-v2#create-configuration){: external}.
 
 
 ## Adding a DNS provider configuration with Terraform
@@ -306,7 +306,7 @@ curl -X DELETE
 {: codeblock}
 {: curl}
 
-A successful response removes the configuration from your service instance. For more information about the required and optional request parameters, see [Remove a configuration](/apidocs/secrets-manager/secrets-manager-v2#delete-config-element){: external}.
+A successful response removes the configuration from your service instance. For more information about the required and optional request parameters, see [Remove a configuration](/apidocs/secrets-manager/secrets-manager-v2#delete-configuration){: external}.
 
 
 ## Retrieving a DNS provider configuration in the UI
