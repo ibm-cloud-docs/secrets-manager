@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-03-01"
 
 keywords: assign access for Secrets Manager, secret group access, assign access for all secrets, grant access, add users
 
@@ -96,6 +96,9 @@ To assign access to a {{site.data.keyword.secrets-manager_short}} instance and i
 {: #assign-access-secret-group}
 
 You can further narrow the scope of access to secrets in your instance by creating and managing [secret groups](#x9968962){: term}.
+
+Assigning a separate `Viewer` access policy to be able to view the service instance is required, in addition to the scoped access policy.
+{: note}
 
 ### Assigning access to a secret group in the service UI
 {: #assign-access-secret-group-ui}
