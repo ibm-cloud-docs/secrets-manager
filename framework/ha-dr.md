@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-03-04"
 
 keywords: HA for {{site.data.keyword.secrets-manager_short}}, DR for {{site.data.keyword.secrets-manager_short}}, high availability for {{site.data.keyword.secrets-manager_short}}, disaster recovery for {{site.data.keyword.secrets-manager_short}}, failover for {{site.data.keyword.secrets-manager_short}}
 
@@ -58,10 +58,10 @@ subcollection: secrets-manager
 # Understanding high availability and disaster recovery for {{site.data.keyword.secrets-manager_short}}
 {: #ha-dr}
 
-{{site.data.keyword.secrets-manager_full}} is a highly available, regional service that runs in the Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Osaka (`jp-osa`), Sydney (`au-syd`), Sao Paulo (`br-sao`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington DC (`us-east`) regions.
+{{site.data.keyword.secrets-manager_full}} is a highly available, regional service that runs in the Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`jp-osa`), Sydney (`au-syd`), Sao Paulo (`br-sao`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington DC (`us-east`) regions.
 {: shortdesc}
 
-In each supported region, the service exists in multiple availability zones with no single point of failure. All the data that is associated with your instance of the service, including your secrets, is backed up daily and stored in [cross-region Cloud Object Storage buckets](/docs/cloud-object-storage?topic=cloud-object-storage-endpoints#endpoints-geo).
+In each supported region, the service exists in multiple availability zones with no single point of failure. All the data that is associated with your instance of the service, including your secrets, is backed up daily and stored in cross-region Cloud Object Storage buckets managed by {{site.data.keyword.secrets-manager_short}}.
 
 However, because {{site.data.keyword.secrets-manager_short}} is a regional service, cross-regional failover, and cross-regional disaster recovery are not automatic. If all the availability zones in a region fail, {{site.data.keyword.secrets-manager_short}} becomes unavailable in that location. When the region is available again, data and traffic is restored without any need for action from you.
 
