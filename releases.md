@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-26"
+lastupdated: "2024-03-11"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -64,8 +64,15 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
+## 11 March 2024
+{: #secrets-manager-march1124}
+{: release-note}
+
+Additional filter options
+:   You can now filter by secret types as well as filter for more than one label.
+
 ## 12 February 2024
-{: #secrets-manager-feb1024}
+{: #secrets-manager-feb1224}
 {: release-note}
 
 Support for random password generation in User credentials
@@ -98,7 +105,7 @@ Madrid availability
 
 
 ## 6 November 2023
-{: #secrets-manager-nov2023}
+{: #secrets-manager-nov0623}
 {: release-notes}
 
 Updated {{site.data.keyword.secrets-manager_short}} UI

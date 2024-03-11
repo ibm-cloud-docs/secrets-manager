@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-01-07"
+lastupdated: "2024-03-11"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -259,7 +259,19 @@ Check out the following image to see how a secret is structured.
     ```
     {: screen}
 
-    
+    The following truncated example shows how secret data is represented for a `service_credentials` secret.
+
+    ```json
+    {
+        "name": "my-secret",
+        "secret_type": "service_credential",
+        ...
+        "credentials": {
+            "key": "The quick brown fox jumped over the lazy dog."
+            }
+    }
+    ```
+    {: screen}
 
 
 ## Secret states and transitions
