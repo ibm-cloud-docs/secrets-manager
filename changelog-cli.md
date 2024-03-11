@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-26"
+lastupdated: "2024-03-11"
 
 keywords: change log for Secrets Manager CLI, CLI changelog, updates to Secrets Manager CLI
 
@@ -64,6 +64,12 @@ In this change log, you can learn about the latest changes, improvements, and up
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
 
 
+
+## Version 2.0.5
+{: #2.0.5}
+
+Version 2.0.5 was released on 12 March 2024. This release includes the following updates:
+- Support for new List secrets parameters, `secret_types` and `match_all_labels`.
 
 ## Version 2.0.4
 {: #2.0.4}

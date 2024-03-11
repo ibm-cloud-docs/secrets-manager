@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-12-04"
+  years: 2020, 2024
+lastupdated: "2024-03-11"
 
 keywords: Secrets Manager availability, regions, Secrets Manager endpoints, Vault endpoint
 
@@ -163,12 +163,16 @@ A successful request returns the endpoint URLs that are associated with the regi
 {
     "plan": "standard",
     "public_endpoints": {
-        "service_api": "https://927fb8ae-1ddd-4483-a21f-7d3c0fc845f5.us-south.secrets-manager.appdomain.cloud/api",
-        "vault_api": "https://927fb8ae-1ddd-4483-a21f-7d3c0fc845f5.us-south.secrets-manager.appdomain.cloud"
+        "service_api": "https://927fb8ae-1ddd-4483-a21f-7d3c0fc81234.us-south.secrets-manager.appdomain.cloud/api",
+        "vault_api": "https://927fb8ae-1ddd-4483-a21f-7d3c0fc81234.us-south.secrets-manager.appdomain.cloud"
     },
     "private_endpoints": {
-        "service_api": "https://927fb8ae-1ddd-4483-a21f-7d3c0fc845f5.private.us-south.secrets-manager.appdomain.cloud/api",
-        "vault_api": "https://927fb8ae-1ddd-4483-a21f-7d3c0fc845f5.private.us-south.secrets-manager.appdomain.cloud"
+        "service_api": "https://927fb8ae-1ddd-4483-a21f-7d3c0fc1234.private.us-south.secrets-manager.appdomain.cloud/api",
+        "vault_api": "https://927fb8ae-1ddd-4483-a21f-7d3c0fc81234.private.us-south.secrets-manager.appdomain.cloud"
+    },
+    "encryption": {
+      "provider_managed_encryption": "key_protect",  
+      "encryption_key_crn": "crn:v1:staging:public:kms:us-south:a/791f5fb10986423e97aa8512f181234:31639268-42e8-4420-9872-590a6ee21234:key:b4af8f76-e6ea-4dc5-89cc-5f1b9bb1234"
     }
 }
 ```

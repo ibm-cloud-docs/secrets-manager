@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-01-12"
+lastupdated: "2024-03-11"
 
 keywords: access secret, retrieve secret, read secret, get secret value, get secrets, view secrets, search secrets, read secrets, get secret value
 
@@ -85,7 +85,10 @@ You can also retieve a secret's details such as expiration date, and rotation in
 1. In the **Secrets** table, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) to open a list of options for your secret.
 2. To view the secret value, click **Details**.
 
-You can also retrieve all secret types programmatically by using the CLI, API, or SDKs. To see the steps, switch to the **CLI** or **API** instructions.
+You can further filter retrieved secrets from the filter option in the Secrets table, and select a secret group and/or secret type.
+{: note}
+
+You can also retrieve secrets programmatically by using the CLI, API, or SDKs. To see the steps, switch to the **CLI** or **API** instructions.
 {: note}
 
 
@@ -126,6 +129,9 @@ ibmcloud secrets-manager secret-by-name --secret-type SECRET_TYPE --name SECRET_
 ```
 {: pre}
 
+You can further filter retrieved secrets by using the `--secret-types` and `--match-all-labels` optional flags.
+{: note}
+
 
 ### Downloading certificates
 {: #download-certificate-cli}
@@ -163,6 +169,9 @@ curl -X GET
 
 A successful response returns the value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Get a secret](/apidocs/secrets-manager/secrets-manager-v2#get-secret){: external}.
 
+You can further filter retrieved secrets by using the `?secret_types` and `?match_all_labels` optional parameters.
+{: note}
+
 
 ## Retrieving a secret with the API using secret Name
 {: #get-secret-value-api-secret-name}
@@ -182,6 +191,8 @@ curl -X GET
 Note that you need to specify the secret's `name`, `secret group name` and `secret_type`.
 {: note}
 
+You can further filter retrieved secrets by using the `?secret_types` and `?match_all_labels` optional parameters.
+{: note}
 
 ### Retrieving arbitrary secrets that contain binary data
 {: #get-arbitrary-secret-file-api}
