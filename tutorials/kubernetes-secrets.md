@@ -559,7 +559,7 @@ After you install External Secrets Operator in your cluster, you can define {{si
     ```
     {: codeblock}
     
-    There are two modes you choose to work by - Secret ID or secret Name. If choosing secret name the format changes from `secret_type/secret_id` to `secret_group/secret_type/secret_name`.
+    There are two ways to pull secrets - by Secret ID or Secret name. To pull by Secret ID use `secret_type/secret_id`. To pull by Secret name use `secret_group/secret_type/secret_name`.
     {: note}
 
     Replace `<endpoint_url>` with the {{site.data.keyword.secrets-manager_short}} endpoint URL that you retrieved [earlier](#tutorial-kubernetes-secrets-prepare-sm). Replace `<SECRET_ID>` with the unique ID of the secret that you created in the previous step.
