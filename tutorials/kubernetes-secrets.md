@@ -2,8 +2,8 @@
 
 
 copyright:
-  years: 2023
-lastupdated: "2023-12-31"
+  years: 2024
+lastupdated: "2024-03-12"
 
 keywords: tutorial, Secrets Manager
 
@@ -558,6 +558,9 @@ After you install External Secrets Operator in your cluster, you can define {{si
           key: username_password/<SECRET_ID>
     ```
     {: codeblock}
+    
+    There are two modes you choose to work by - Secret ID or secret Name. If choosing secret name the format changes from `secret_type/secret_id` to `secret_group/secret_type/secret_name`.
+    {: note}
 
     Replace `<endpoint_url>` with the {{site.data.keyword.secrets-manager_short}} endpoint URL that you retrieved [earlier](#tutorial-kubernetes-secrets-prepare-sm). Replace `<SECRET_ID>` with the unique ID of the secret that you created in the previous step.
 
