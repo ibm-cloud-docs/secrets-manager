@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-03-11"
+lastupdated: "2024-03-18"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -63,6 +63,13 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 {: shortdesc}
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
+
+## 18 March 2024
+{: #secrets-manager-march1824}
+{: release-note}
+
+Key management service
+:   The Settings page now displays the key management service selected for the service instance - provider-managed, or user-provided ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}).
 
 ## 11 March 2024
 {: #secrets-manager-march1124}
