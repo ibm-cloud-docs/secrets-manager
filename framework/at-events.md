@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-06-15"
+  years: 2020, 2024
+lastupdated: "2024-03-22"
 
 keywords: activity tracker events for Secrets Manager, events, Secrets Manager actions
 
@@ -118,12 +118,6 @@ The following table lists the secret lock actions that generate an event.
 | `secrets-manager.secret-version-locks.list` | List secret version locks. |
 | `secrets-manager.secret-version-locks.delete` | Delete secret version locks. | 
 {: caption="Table 2. List of secret lock events" caption-side="top"}
-
-
-## Events for instance operations
-{: #at-actions-instance-operations}
-
-The following table lists the instance operation actions that generate an event.
 
 ## Events for instance operations
 {: #at-configuration-instance-operations}
