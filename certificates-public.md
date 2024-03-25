@@ -2,7 +2,7 @@
 
 copyright:
   years: "2024"
-lastupdated: "2024-02-26"
+lastupdated: "2024-03-25"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, public certificates
 
@@ -174,8 +174,8 @@ ibmcloud secrets-manager secret-create --secret-prototype=
     "alt_names": [
         "alt_name1", "alt_name2"
     ],
-    "algorithm": "sha256WithRSAEncryption",
-    "key_algorithm": "rsaEncryption 2048 bit",
+    "ca": "lets-encrypt-config",
+    "key_algorithm": "RSA2048",
     "rotation": {
         "auto_rotate": true,
         "rotate_keys":false
@@ -185,10 +185,8 @@ ibmcloud secrets-manager secret-create --secret-prototype=
     },
     "version_custom_metadata" : {
         "anyKey" : "anyValue"
-    },
-    "expiration_date" : "2030-01-01T00:00:00Z",
-        }
-]
+    }
+}]
 ```
 {: pre}
 
@@ -520,8 +518,8 @@ ibmcloud secrets-manager secret-create --secret-prototype \
     "alt_names": [
         "alt_name1", "alt_name2"
     ],
-    "algorithm": "sha256WithRSAEncryption",
-    "key_algorithm": "rsaEncryption 2048 bit",
+    "ca": "lets-encrypt-config",
+    "key_algorithm": "RSA2048",
     "rotation": {
         "enabled": false,
         "rotate_keys":false
@@ -531,10 +529,8 @@ ibmcloud secrets-manager secret-create --secret-prototype \
     },
     "version_custom_metadata" : {
         "anyKey" : "anyValue"
-    },
-    "expiration_date" : "2030-01-01T00:00:00Z",
-        }
-]
+    }
+}]
 ```
 {: pre}
 
