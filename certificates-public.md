@@ -161,7 +161,7 @@ When you order a certificate, domain validation takes place to verify the owners
 
 ```sh
 ibmcloud secrets-manager secret-create --secret-prototype=
-'[{
+'{
     "name": "example-public-certificate", 
     "description": "Extended description for this secret.",
     "secret_type": "public_cert",
@@ -186,7 +186,7 @@ ibmcloud secrets-manager secret-create --secret-prototype=
     "version_custom_metadata" : {
         "anyKey" : "anyValue"
     }
-}]
+}
 ```
 {: pre}
 
@@ -506,7 +506,7 @@ When you order a certificate, domain validation takes place to verify the owners
 
 ```sh
 ibmcloud secrets-manager secret-create --secret-prototype \
-'[{
+'{
     "name": "example-public-certificate", 
     "description": "Extended description for this secret.", 
     "secret_group_id": "bc656587-8fda-4d05-9ad8-b1de1ec7e712", 
@@ -530,7 +530,7 @@ ibmcloud secrets-manager secret-create --secret-prototype \
     "version_custom_metadata" : {
         "anyKey" : "anyValue"
     }
-}]
+}
 ```
 {: pre}
 
