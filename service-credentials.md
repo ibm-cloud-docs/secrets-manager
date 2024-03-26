@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-27"
+lastupdated: "2024-03-26"
 
 keywords: Service credentials, App ID, App Config, Cloudant, Cloud Object Storage, Event Notifications, Event Streams, etcd, ElasticSearch, PostgreSQL, Redis, MongoDB
 
@@ -100,6 +100,9 @@ An account administrator, or any entity with the required level of access, can e
 
 Note that in the case of service credentials created for Databases, if in addition to the credential you are also altering the database permissions for the created credential, these will not be synced once the service credential was rotated.
 {: important}
+
+When changing a Service credential secret's TTL, it will be applied only on the next secret version rotation.
+{: note}
 
 
 ### Assigning IAM service access role for Service credentials
