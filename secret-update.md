@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-10-03"
+  years: 2020, 2024
+lastupdated: "2024-03-27"
 
 keywords: update
 
@@ -61,6 +61,9 @@ subcollection: secrets-manager
 With {{site.data.keyword.secrets-manager_full}}, you can update an existing secret metadata, such as its name or description, custom metadata and expiration date.  
 Note that not all secret types support all options.
 {: shortdesc}
+
+When changing an IAM credential's or Service crednetial's secret TTL, it will be applied only on the next secret version rotation.
+{: note}
 
 
 ## Before you begin

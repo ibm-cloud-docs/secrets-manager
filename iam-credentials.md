@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-03-27"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -71,6 +71,9 @@ To learn more about the types of secrets that you can manage in {{site.data.keyw
 Before you get started, be sure that you have the required level of access. To create or add secrets, you need the [**Writer** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam).
 
 IAM credentials require an extra configuration step before you can start to create or manage them in the service. For more information, see [Configuring the IAM credentials engine](/docs/secrets-manager?topic=secrets-manager-configure-iam-engine).
+{: note}
+
+When changing an IAM credential secret's TTL, it will be applied only on the next secret version rotation.
 {: note}
 
 An account administrator (or any entity with the required level of access) can externally alter IAM Credentials that are created and managed by {{site.data.keyword.secrets-manager_short}}. If such a service ID or API key is deleted outside of {{site.data.keyword.secrets-manager_short}}, the service might behave unexpectedly. For example, you might be unable to create, or rotate credentials.
