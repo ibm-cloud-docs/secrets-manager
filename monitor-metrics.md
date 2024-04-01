@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-03-31"
+lastupdated: "2024-04-01"
 
 keywords: monitoring, metrics, operational metrics
 
@@ -64,7 +64,7 @@ As a security officer, auditor, or manager, you can use the {{site.data.keyword.
 {{site.data.keyword.mon_full_notm}} records data on the operations that occur inside of {{site.data.keyword.cloud_notm}}. This service allows you to gain operational visibility into the performance and health of your applications, services, and platforms. You can use its advanced features to monitor and troubleshoot, define alerts based on API response codes, and design custom
 dashboards.
 
-For more information regarding the {{site.data.keyword.mon_short}} service, see the [getting started tutorial for {{site.data.keyword.mon_full_notm}}](/docs/monitoring?topic=monitoring-getting-started-monitor){: external}.
+For more information regarding the {{site.data.keyword.mon_short}} service, see the [getting started tutorial for {{site.data.keyword.mon_full_notm}}](/docs/monitoring?topic=monitoring-getting-started){: external}.
 
 ## What metrics are available?
 {: #metrics-available}
