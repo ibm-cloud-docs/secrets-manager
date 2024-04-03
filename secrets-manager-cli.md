@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-04-02"
+lastupdated: "2024-04-03"
 
 subcollection: secrets-manager
 
@@ -103,9 +103,6 @@ Current version: **`2.0.4`**
       {: pre}
 
     Replace `{instance_ID}` and `{region}` with the values that apply to your {{site.data.keyword.secrets-manager_short}} service instance. To find the endpoint URL that is specific to your instance, you can copy it from the **Endpoints** page in the {{site.data.keyword.secrets-manager_short}} UI. For more information, see [Viewing your endpoint URLs](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls)
-
-
-   
 
 
 ## Globals
@@ -464,12 +461,11 @@ Example of `SecretGroup` response
 
 Delete a secret group by specifying the ID of the secret group.
 
-**Note:** To delete a secret group, it must be empty. If you need to remove a secret group that contains secrets, you must first [delete the secrets](#secrets-manager-cli-secret-delete-command) that are associated with the group.
+**Note:** To delete a secret group, it must be empty. If you need to remove a secret group that contains secrets, you must first [delete the secrets](#delete-secret) that are associated with the group.
 
 ```sh
 ibmcloud secrets-manager secret-group-delete --id ID
 ```
-{: pre}
 
 
 #### Command options
@@ -547,7 +543,7 @@ ibmcloud secrets-manager secret-create [--secret-prototype SECRET-PROTOTYPE | --
 `--secret-type` (string)
 :   The secret type. Supported types are arbitrary, imported_cert, public_cert, private_cert, iam_credentials, service_credentials, kv, and username_password. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
 
-    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, `service_credentials`, `username_password`.
+    Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, `service_credentials`, `username_password`. Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, `service_credentials`, `username_password`.
 
 `--arbitrary-payload` (string)
 :   The secret data that is assigned to an `arbitrary` secret. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
@@ -577,7 +573,7 @@ ibmcloud secrets-manager secret-create [--secret-prototype SECRET-PROTOTYPE | --
 `--iam-credentials-reuse-apikey` (bool)
 :   This parameter indicates whether to reuse the service ID and API key for future read operations. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
 
-`--secret-rotation` (`RotationPolicy`)
+`--secret-rotation` ([`RotationPolicy`](#cli-rotation-policy-example-schema))
 :   This field indicates whether Secrets Manager rotates your secrets automatically. Supported secret types: username_password, private_cert, public_cert, iam_credentials. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
 
     Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--secret-rotation=@path/to/file.json`.
@@ -672,7 +668,7 @@ ibmcloud secrets-manager secret-create [--secret-prototype SECRET-PROTOTYPE | --
 
     The default value is `true`.
 
-`--secret-source-service` (`ServiceCredentialsSecretSourceService`)
+`--secret-source-service` ([`ServiceCredentialsSecretSourceService`](#cli-service-credentials-secret-source-service-example-schema))
 :   The properties that are required to create the service credentials for the specified source service instance. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
 
     Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--secret-source-service=@path/to/file.json`.
@@ -687,7 +683,7 @@ ibmcloud secrets-manager secret-create [--secret-prototype SECRET-PROTOTYPE | --
 
     The maximum length is `256` characters. The minimum length is `6` characters. The value must match regular expression `/.{6,256}/`.
 
-`--username-password-policy` (`PasswordGenerationPolicy`)
+`--username-password-policy` ([`PasswordGenerationPolicy`](#cli-password-generation-policy-example-schema))
 :   Policy for auto-generated passwords. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
 
     Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--username-password-policy=@path/to/file.json`.
@@ -699,8 +695,10 @@ Example request
 
 ```sh
 ibmcloud secrets-manager secret-create --secret-name=example-arbitrary-secret --secret-type=arbitrary --arbitrary-payload=example-secret-data
+
 ibmcloud secrets-manager secret-create \
   --secret-prototype='{"name": "example-arbitrary-secret", "secret_type": "arbitrary", "payload":"example-secret-data"}'
+
 ```
 {: pre}
 
@@ -711,7 +709,7 @@ List the secrets that are available in your Secrets Manager instance.
 Note: If the `--all-pages` option is not set, the command will only retrieve a single page of the collection.
 
 ```sh
-ibmcloud secrets-manager secrets [--offset OFFSET] [--limit LIMIT] [--sort SORT] [--search SEARCH] [--groups GROUPS]
+ibmcloud secrets-manager secrets [--offset OFFSET] [--limit LIMIT] [--sort SORT] [--search SEARCH] [--groups GROUPS] [--secret-types SECRET-TYPES] [--match-all-labels MATCH-ALL-LABELS]
 ```
 
 
@@ -743,6 +741,16 @@ ibmcloud secrets-manager secrets [--offset OFFSET] [--limit LIMIT] [--sort SORT]
 
     The list items must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|default)$/`. The maximum length is `201` items. The minimum length is `0` items.
 
+`--secret-types` ([]string)
+:   Filter secrets by types. Provide the secret types to filter by.
+
+    Allowable list items are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, `service_credentials`, `username_password`. The maximum length is `8` items. The minimum length is `0` items.
+
+`--match-all-labels` ([]string)
+:   Filter secrets by labels. Provide the labels to filter by.
+
+    The list items must match regular expression `/(.*?)/`. The maximum length is `30` items. The minimum length is `0` items.
+
 `--all-pages` (bool)
 :   Invoke multiple requests to display all pages of the collection for secrets.
 
@@ -755,7 +763,9 @@ ibmcloud secrets-manager secrets \
     --limit 10 \
     --sort created_at \
     --search example \
-    --groups default,cac40995-c37a-4dcb-9506-472869077634
+    --groups default,cac40995-c37a-4dcb-9506-472869077634 \
+    --secret-types arbitrary,iam_credentials,imported_cert,kv,private_cert,public_cert,service_credentials,username_password \
+    --match-all-labels dev,us-south
 ```
 {: pre}
 
@@ -866,12 +876,11 @@ Example secret metadata collection response
 
 Get a secret and its details by specifying the ID of the secret.
 
-A successful request returns the secret data that is associated with your secret, along with other metadata. To view only the details of a specified secret without retrieving its value, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-command) operation.
+A successful request returns the secret data that is associated with your secret, along with other metadata. To view only the details of a specified secret without retrieving its value, use the [Get secret metadata](#get-secret-metadata) operation.
 
 ```sh
 ibmcloud secrets-manager secret --id ID
 ```
-{: pre}
 
 
 #### Command options
@@ -994,10 +1003,10 @@ ibmcloud secrets-manager secret-metadata-update --id ID [--name NAME] [--descrip
 
     The maximum length is `10` characters. The minimum length is `1` character. The value must match regular expression `/^[0-9]+[s,m,h,d]{0,1}$/`.
 
-`--rotation` (`RotationPolicy`)
+`--rotation` ([`RotationPolicy`](#cli-rotation-policy-example-schema))
 :   This field indicates whether Secrets Manager rotates your secrets automatically. Supported secret types: username_password, private_cert, public_cert, iam_credentials.
 
-`--password-generation-policy` (`PasswordGenerationPolicyPatch`)
+`--password-generation-policy` ([`PasswordGenerationPolicyPatch`](#cli-password-generation-policy-patch-example-schema))
 :   Policy patch for auto-generated passwords. Policy properties that are included in the patch are updated.
 Properties that are not included in the patch remain unchanged.
 
@@ -1041,7 +1050,7 @@ ibmcloud secrets-manager secret-action-create --id ID [--secret-action-prototype
 `--secret-action-type` (string)
 :   The type of secret action. This option provides a value for a sub-field of the JSON option 'secret-action-prototype'. It is mutually exclusive with that option.
 
-    Allowable values are: `public_cert_action_validate_dns_challenge`, `private_cert_action_revoke_certificate`.
+    Allowable values are: `public_cert_action_validate_dns_challenge`, `private_cert_action_revoke_certificate`. Allowable values are: `public_cert_action_validate_dns_challenge`, `private_cert_action_revoke_certificate`.
 
 #### Example
 {: #secrets-manager-secret-action-create-examples}
@@ -1050,9 +1059,11 @@ Example request
 
 ```sh
 ibmcloud secrets-manager secret-action-create --id=0b5571f7-21e6-42b7-91c5-3f5ac9793a46 --secret-action-type=public_cert_action_validate_dns_challenge
+
 ibmcloud secrets-manager secret-action-create \
   --id=0b5571f7-21e6-42b7-91c5-3f5ac9793a46 \
   --secret-action-prototype='{"action_type": "public_cert_action_validate_dns_challenge"}'
+
 ```
 {: pre}
 
@@ -1061,7 +1072,7 @@ ibmcloud secrets-manager secret-action-create \
 
 Get a secret and its details by specifying the Name and Type of the secret.
 
-A successful request returns the secret data that is associated with your secret, along with other metadata. To view only the details of a specified secret without retrieving its value, use the [Get secret metadata](#secrets-manager-cli-secret-metadata-update-command) operation.
+A successful request returns the secret data that is associated with your secret, along with other metadata. To view only the details of a specified secret without retrieving its value, use the [Get secret metadata](#get-secret-metadata) operation.
 
 ```sh
 ibmcloud secrets-manager secret-by-name --secret-type SECRET-TYPE --name NAME --secret-group-name SECRET-GROUP-NAME
@@ -1173,7 +1184,7 @@ ibmcloud secrets-manager secret-version-create --secret-id SECRET-ID [--secret-v
 
     The maximum length is `4096` characters. The minimum length is `2` characters. The value must match regular expression `/^(-{5}BEGIN.+?-{5}[\\s\\S]+-{5}END.+?-{5}[\\s]*)$/`.
 
-`--public-cert-rotation` (`PublicCertificateRotationObject`)
+`--public-cert-rotation` ([`PublicCertificateRotationObject`](#cli-public-certificate-rotation-object-example-schema))
 :   Defines the rotation object that is used to manually rotate public certificates. This option provides a value for a sub-field of the JSON option 'secret-version-prototype'. It is mutually exclusive with that option.
 
     Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--public-cert-rotation=@path/to/file.json`.
@@ -1190,9 +1201,11 @@ Example request
 
 ```sh
 ibmcloud secrets-manager secret-version-create --secret-id 0b5571f7-21e6-42b7-91c5-3f5ac9793a46 --arbitrary-payload='updated secret credentials' --secret-version-custom-metadata='{"anyKey": "anyValue"}'
+
 ibmcloud secrets-manager secret-version-create \
   --secret-id=0b5571f7-21e6-42b7-91c5-3f5ac9793a46 \
   --secret-version-prototype='{"payload": "updated secret credentials", "custom_metadata": {"anyKey": "anyValue"}, "version_custom_metadata": {"anyKey": "anyValue"}}'
+
 ```
 {: pre}
 
@@ -1445,10 +1458,12 @@ Example request
 
 ```sh
 ibmcloud secrets-manager secret--version-action-create --secret-id=0b5571f7-21e6-42b7-91c5-3f5ac9793a46 --id=eb4cf24d-9cae-424b-945e-159788a5f535 --secret-version-action-type=private_cert_action_revoke_certificate
+
 ibmcloud secrets-manager secret-version-action-create \
   --secret-id=0b5571f7-21e6-42b7-91c5-3f5ac9793a46 \
   --id=eb4cf24d-9cae-424b-945e-159788a5f535 \
   --secret-version-action-prototype='{"action_type": "private_cert_action_revoke_certificate"}'
+
 ```
 {: pre}
 
@@ -2077,7 +2092,7 @@ ibmcloud secrets-manager configuration-create [--configuration-prototype CONFIGU
 `--config-type` (string)
 :   The configuration type. Can be one of: iam_credentials_configuration, public_cert_configuration_ca_lets_encrypt, public_cert_configuration_dns_classic_infrastructure, public_cert_configuration_dns_cloud_internet_services, private_cert_configuration_root_ca, private_cert_configuration_intermediate_ca, private_cert_configuration_template. This option provides a value for a sub-field of the JSON option 'configuration-prototype'. It is mutually exclusive with that option.
 
-    Allowable values are: `public_cert_configuration_ca_lets_encrypt`, `public_cert_configuration_dns_classic_infrastructure`, `public_cert_configuration_dns_cloud_internet_services`, `iam_credentials_configuration`, `private_cert_configuration_root_ca`, `private_cert_configuration_intermediate_ca`, `private_cert_configuration_template`.
+    Allowable values are: `public_cert_configuration_ca_lets_encrypt`, `public_cert_configuration_dns_classic_infrastructure`, `public_cert_configuration_dns_cloud_internet_services`, `iam_credentials_configuration`, `private_cert_configuration_root_ca`, `private_cert_configuration_intermediate_ca`, `private_cert_configuration_template`. Allowable values are: `public_cert_configuration_ca_lets_encrypt`, `public_cert_configuration_dns_classic_infrastructure`, `public_cert_configuration_dns_cloud_internet_services`, `iam_credentials_configuration`, `private_cert_configuration_root_ca`, `private_cert_configuration_intermediate_ca`, `private_cert_configuration_template`.
 
 `--name` (string)
 :   A human-readable unique name to assign to your configuration. This option provides a value for a sub-field of the JSON option 'configuration-prototype'. It is mutually exclusive with that option.
@@ -2326,7 +2341,7 @@ ibmcloud secrets-manager configuration-create [--configuration-prototype CONFIGU
 `--public-cert-lets-encrypt-preferred-chain` (string)
 :   The preferred chain with an issuer that matches this Subject Common Name. This option provides a value for a sub-field of the JSON option 'configuration-prototype'. It is mutually exclusive with that option.
 
-    The value must match regular expression `/(.*?)/`.
+    The maximum length is `30` characters. The minimum length is `2` characters. The value must match regular expression `/(.*?)/`.
 
 `--public-cert-cloud-internet-services-apikey` (string)
 :   An IBM Cloud API key that can list domains in your Cloud Internet Services instance and add DNS records. This option provides a value for a sub-field of the JSON option 'configuration-prototype'. It is mutually exclusive with that option.
@@ -2361,6 +2376,7 @@ Example request
 ```sh
 ibmcloud secrets-manager configuration-create --config-type=private_cert_configuration_root_ca \
   --name=example-root-CA --private-cert-common-name=example.com
+
 ibmcloud secrets-manager configuration-create \
   --configuration-prototype='{"config_type": "private_cert_configuration_root_ca", "name": "example-root-CA", "max_ttl": "43830h", "crl_expiry": "72h", "crl_disable": false, "crl_distribution_points_encoded": true, "issuing_certificates_urls_encoded": true, "common_name": "example.com", "alt_names": ["alt-name-1","alt-name-2"], "ip_sans": "127.0.0.1", "uri_sans": "https://www.example.com/test", "other_sans": ["1.2.3.5.4.3.201.10.4.3;utf8:test@example.com"], "ttl": "2190h", "format": "pem", "private_key_format": "der", "key_type": "rsa", "key_bits": 4096, "max_path_length": -1, "exclude_cn_from_sans": false, "permitted_dns_domains": ["exampleString"], "ou": ["exampleString"], "organization": ["exampleString"], "country": ["exampleString"], "locality": ["exampleString"], "province": ["exampleString"], "street_address": ["exampleString"], "postal_code": ["exampleString"], "serial_number": "d9:be:fe:35:ba:09:42:b5:35:ba:09:42:b5"}'
 ```
@@ -2608,7 +2624,6 @@ ibmcloud secrets-manager configuration-update --name NAME [--api-key API-KEY] [-
 `--private-cert-allow-bare-domains` (bool)
 :   This field indicates whether to allow clients to request private certificates that match the value of the actual domains on the final certificate.
 
-
 `--private-cert-allow-subdomains` (bool)
 :   This field indicates whether to allow clients to request private certificates with common names (CN) that are subdomains of the CNs that are allowed by the other certificate template options.
 
@@ -2744,7 +2759,7 @@ ibmcloud secrets-manager configuration-update --name NAME [--api-key API-KEY] [-
 `--public-cert-lets-encrypt-preferred-chain` (string)
 :   The preferred chain with an issuer that matches this Subject Common Name.
 
-    The value must match regular expression `/(.*?)/`.
+    The maximum length is `30` characters. The minimum length is `2` characters. The value must match regular expression `/(.*?)/`.
 
 `--public-cert-cloud-internet-services-apikey` (string)
 :   An IBM Cloud API key that can list domains in your Cloud Internet Services instance and add DNS records.
@@ -2847,7 +2862,7 @@ ibmcloud secrets-manager configuration-action-create --name NAME [--config-actio
 `--config-action-action-type` (string)
 :   The type of configuration action. This option provides a value for a sub-field of the JSON option 'config-action-prototype'. It is mutually exclusive with that option.
 
-    Allowable values are: `private_cert_configuration_action_rotate_crl`, `private_cert_configuration_action_sign_intermediate`, `private_cert_configuration_action_sign_csr`, `private_cert_configuration_action_set_signed`, `private_cert_configuration_action_revoke_ca_certificate`.
+    Allowable values are: `private_cert_configuration_action_rotate_crl`, `private_cert_configuration_action_sign_intermediate`, `private_cert_configuration_action_sign_csr`, `private_cert_configuration_action_set_signed`, `private_cert_configuration_action_revoke_ca_certificate`. Allowable values are: `private_cert_configuration_action_rotate_crl`, `private_cert_configuration_action_sign_intermediate`, `private_cert_configuration_action_sign_csr`, `private_cert_configuration_action_set_signed`, `private_cert_configuration_action_revoke_ca_certificate`.
 
 `--certificate-common-name` (string)
 :   The Common Name (CN) represents the server name that is protected by the SSL certificate. This option provides a value for a sub-field of the JSON option 'config-action-prototype'. It is mutually exclusive with that option.
@@ -3118,6 +3133,7 @@ The following schema examples represent the data that you need to specify for a 
 The following example shows the format of the ConfigurationActionPrototype object.
 
 ```json
+
 {
   "action_type" : "private_cert_configuration_action_rotate_crl"
 }
@@ -3130,6 +3146,7 @@ The following example shows the format of the ConfigurationActionPrototype objec
 The following example shows the format of the ConfigurationPrototype object.
 
 ```json
+
 {
   "config_type" : "private_cert_configuration_root_ca",
   "name" : "example-root-CA",
@@ -3169,6 +3186,7 @@ The following example shows the format of the ConfigurationPrototype object.
 The following example shows the format of the SecretActionPrototype object.
 
 ```json
+
 {
   "action_type" : "private_cert_action_revoke_certificate"
 }
@@ -3181,6 +3199,7 @@ The following example shows the format of the SecretActionPrototype object.
 The following example shows the format of the SecretLockPrototype[] object.
 
 ```json
+
 [ {
   "name" : "lock-example-1",
   "description" : "lock for consumer 1",
@@ -3197,6 +3216,7 @@ The following example shows the format of the SecretLockPrototype[] object.
 The following example shows the format of the SecretPrototype object.
 
 ```json
+
 {
   "custom_metadata" : {
     "anyKey" : "anyValue"
@@ -3221,6 +3241,7 @@ The following example shows the format of the SecretPrototype object.
 The following example shows the format of the SecretVersionActionPrototype object.
 
 ```json
+
 {
   "action_type" : "private_cert_action_revoke_certificate"
 }
@@ -3233,6 +3254,7 @@ The following example shows the format of the SecretVersionActionPrototype objec
 The following example shows the format of the SecretVersionPrototype object.
 
 ```json
+
 {
   "payload" : "updated secret credentials",
   "custom_metadata" : {
