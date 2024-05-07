@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-05-07"
 
 keywords: IAM access for Secrets Manager, permissions for Secrets Manager, identity and access management for Secrets Manager, roles for Secrets Manager, actions for Secrets Manager, assigning access for Secrets Manager
 
@@ -93,8 +93,8 @@ If a specific role and its actions don't fit the use case that you're looking to
 | ----- | :----- |
 | Reader | As a reader, you can complete read-only actions within a {{site.data.keyword.secrets-manager_short}} service instance, such as the ability to view secrets and secret groups. Readers can access only the metadata that is associated with a secret. |
 | SecretsReader | As a secrets reader, you can complete read-only actions, and you can also access the secret data that is associated with a secret. A secrets reader can't create secrets or modify the value of an existing secret. |
-| Writer | As a writer, you have permissions beyond the secrets reader role, including the ability to create and edit secrets. Writers can't create secret groups, manage the rotation policies of a secret, or configure secrets engines. |
-| Manager | As a manager, you have permissions beyond the writer role to complete privileged actions, such as the ability to manage secret groups, configure secrets engines, and manage secrets policies. |
+| Writer | As a writer, you have permissions beyond the secrets reader role, including the ability to create and edit secrets. Writers can't create secret groups, or configure secrets engines. |
+| Manager | As a manager, you have permissions beyond the writer role to complete privileged actions, such as the ability to manage secret groups, and configure secrets engines. |
 {: caption="Table 1. Service roles - {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
 {: #service-roles-table1}
 {: tab-title="Service roles"}
