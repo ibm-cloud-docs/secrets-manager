@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-03-01"
+  years: 2020, 2024
+lastupdated: "2024-05-13"
 
 keywords: isolation for {{site.data.keyword.secrets-manager_short}}, service endpoints for {{site.data.keyword.secrets-manager_short}}, private network for {{site.data.keyword.secrets-manager_short}}, network isolation in {{site.data.keyword.secrets-manager_short}}, non-public routes for {{site.data.keyword.secrets-manager_short}}, private connection for {{site.data.keyword.secrets-manager_short}}
 
@@ -70,7 +70,6 @@ You must first enable virtual routing and forwarding in your account, and then y
 Keep in mind the following considerations:
 
 - You can select a service endpoint option for a {{site.data.keyword.secrets-manager_short}} instance only at its creation.
-- The {{site.data.keyword.secrets-manager_short}} service UI is not accessible for **Private only** instances.
 
 ## Setting up private endpoints for {{site.data.keyword.secrets-manager_short}} in the UI
 {: #endpoint-setup-ui}
@@ -88,7 +87,7 @@ After your account is enabled for VRF and service endpoints, you can provision a
     You can enhance the security of your secrets at rest by integrating with a key management service. For more information about customer-managed encryption, check out [Protecting your sensitive data in {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption).
 7. From the list of endpoint options, select **Public and private** or **Private only**.
 
-    By default, {{site.data.keyword.secrets-manager_short}} instances accept API requests from both public and private endpoints. To limit access to your instance to take place only through a private network, select the **Private only** option. Keep in mind that the {{site.data.keyword.secrets-manager_short}} service UI is not accessible for **Private only** instances.
+    By default, {{site.data.keyword.secrets-manager_short}} instances accept API requests from both public and private endpoints. To limit access to your instance to take place only through a private network, select the **Private only** option.
 8. Click **Create**.
 
     Provisioning a {{site.data.keyword.secrets-manager_short}} instance can take 5 - 15 minutes to complete.
