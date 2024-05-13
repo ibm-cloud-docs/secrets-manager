@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-03-18"
+lastupdated: "2024-05-13"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -63,6 +63,13 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 {: shortdesc}
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
+
+## 13 May 2024
+{: #secrets-manager-may1324}
+{: release-note}
+
+Enhanced UI
+:   Users of private-only service instances can now access the full experience of the service UI.
 
 ## 18 March 2024
 {: #secrets-manager-march1824}
