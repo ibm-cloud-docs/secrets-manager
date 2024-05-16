@@ -458,14 +458,23 @@ First, add `external-secrets` resources to your cluster by installing the offici
     If you're using a service ID to authenticate:
 
     ```sh
-    echo '
+    echo "
     apiVersion: operator.external-secrets.io/v1alpha1
     kind: OperatorConfig
     metadata:
       name: cluster
       namespace: external-secrets-operator
     spec: {}
-    ' | oc create -f-
+    ---
+    apiVersion: v1
+    kind: Secret
+    metadata:
+      name: secret-api-key
+      namespace: default
+    type: Opaque 
+    stringData: 
+      apikey: $IBM_CLOUD_API_KEY
+    " | oc create -f-
     ```
     {: pre}
 
