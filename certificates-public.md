@@ -2,7 +2,7 @@
 
 copyright:
   years: "2024"
-lastupdated: "2024-03-25"
+lastupdated: "2024-05-23"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, public certificates
 
@@ -300,20 +300,19 @@ To create a public certificate by using a manual DNS provider in the UI, complet
 8. Optional: Add metadata to your secret or to a specific version of your secret.
     1. Upload a file or enter the metadata and the version metadata in JSON format. 
 9. Click **Next**.
-9. Select a certificate authority configuration.
+10. Select a certificate authority configuration.
 
     The configuration that you select determines the certificate authority to use for signing and issuing the certificate. To view the configurations that are defined for your instance, you can go to **Secrets engines > Public certificates**.
 
-10. Select the key algorithm to be used to generate the public key for your certificate.
+11. Select the key algorithm to be used to generate the public key for your certificate.
 
     The key algorithm that you select determines the encryption algorithm (`RSA` or `ECDSA`) and key size to use to generate keys and sign certificates. For longer living certificates, it is recommended to use longer key lengths to provide more encryption protection. Options include `RSA2048`, `RSA4096`, `ECDSA256`, and `ECDSA384`.
 
-11. Optional: Enable advanced options for the certificate.
+12. Optional: Enable advanced options for the certificate.
     1. To bundle your issued certificate with intermediate certificates, switch the bundle toggle to **On**. After your certificates are bundled, they can no longer be unbundled. If you choose not to bundle the certificates, this cannot be changed afterwards, only by creating a new secret.
-    2. To enable automatic rotation for the certificate, switch the rotation toggle to **On**. Your certificate is rotated 31 days before it expires.
-    3. To request a new private key with the certificate on each rotation, switch the rekey toggle to **On**.
-12. Select **Manual** as your DNS provider.
-13. Add the domains to include in your request.
+    2. To request a new private key with the certificate on each rotation, switch the rekey toggle to **On**.
+13. Select **Manual** as your DNS provider.
+14. Add the domains to include in your request.
 
     You can include up to 100 domains, subdomains, or wildcards. The Common Name, or fully qualified domain name of the certificate, can't exceed 64 characters in length. A wildcard can be selected as the Common Name.
 
