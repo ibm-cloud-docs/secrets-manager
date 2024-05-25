@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-12-03"
+  years: 2020, 2024
+lastupdated: "2024-05-25"
 
 keywords: secrets management in IBM Cloud, differences between {{site.data.keyword.secrets-manager_short}} and Key Protect, when to use {{site.data.keyword.secrets-manager_short}}, {{site.data.keyword.secrets-manager_short}} use cases, single tenant, multi-tenant
 
@@ -90,9 +90,9 @@ For a higher level of security and control, your business might benefit from the
 
 | Service | Secret types | Multi-tenant[^multi-tenant] | Single-tenant[^single-tenant] | HSM backed[^hsm] |
 | --- | --- | --- | --- |  --- |
-| **{{site.data.keyword.secrets-manager_short}}** | Arbitrary secrets  \n IAM credentials  \n Key-value secrets  \n SSL/TLS certificates  \n User credentials | | ![Checkmark icon](../../icons/checkmark-icon.svg)| |
+| **{{site.data.keyword.secrets-manager_short}}** | Arbitrary secrets  \n IAM credentials  \n Service credentials \n Key-value secrets  \n SSL/TLS certificates  \n User credentials | | ![Checkmark icon](../../icons/checkmark-icon.svg)| |
 | **{{site.data.keyword.keymanagementserviceshort}}** | Symmetric encryption keys | ![Checkmark icon](../../icons/checkmark-icon.svg)| | ![Checkmark icon](../../icons/checkmark-icon.svg) | |
-| **{{site.data.keyword.hscrypto}}** | Symmetric encryption keys | |![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| **{{site.data.keyword.hscrypto}}** | Symmetric and asymmetric encryption keys | |![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
 {: caption="Table 2. Key features for {{site.data.keyword.cloud_notm}} data protection services" caption-side="top"}
 {: summary="The table compares features across {{site.data.keyword.secrets-manager_short}}, {{site.data.keyword.cloudcerts_short}}, {{site.data.keyword.keymanagementserviceshort}}, and {{site.data.keyword.hscrypto}}. The first column lists the names of the services. The second column lists the types of secrets that are supported by each service. The third column uses checkmarks to indicate whether a service is multi-tenant. The fourth column uses checkmarks to indicate whether a service is single-tenant. The last column uses checkmarks to indicate whether a service is backed by a hardware security module (HSM)."}
 {: class="comparison-table"}
