@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-11-16"
+  years: 2020, 2024
+lastupdated: "2024-05-23"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -227,7 +227,7 @@ The following example shows a configuration that you can use to configure the IA
 You can retrieve an engine's configuration by using the {{site.data.keyword.secrets-manager_short}} UI.
 
 1. In the **IAM credentials** secret engine, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) to open a list of options for your engine configuration.
-2. To view the configuration value, click **View configurationt**.
+2. To view the configuration value, click **View configuration**.
 2. Click **Confirm** after you ensure that you are in a safe environment.
 
 The secret value is displayed for 15 seconds, then the dialog closes.
