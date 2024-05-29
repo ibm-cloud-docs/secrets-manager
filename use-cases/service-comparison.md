@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-05-25"
+lastupdated: "2024-05-29"
 
 keywords: secrets management in IBM Cloud, differences between {{site.data.keyword.secrets-manager_short}} and Key Protect, when to use {{site.data.keyword.secrets-manager_short}}, {{site.data.keyword.secrets-manager_short}} use cases, single tenant, multi-tenant
 
@@ -81,10 +81,10 @@ The following table lists the different offerings that you can use with {{site.d
 | You need a way to offload TLS handshake encryption to a dedicated, FIPS 140-2 Level 4 hardware security module that you control and manage. | You can also use **[{{site.data.keyword.hscrypto}}](/docs/hs-crypto)** to control your TLS/SSL keys in a dedicated HSM. |
 {: caption="Table 1. Secrets management and data protection scenarios" caption-side="top"}
 
-## What are key features for each data protection service?
+## What are key secret types supported by each data protection service?
 {: #key-features}
 
-As you plan your data protection strategy, some differences between services to consider include the level of data isolation that your workload requires.
+As you plan your data protection strategy, some differences between services to consider include the level of data isolation that your workload requires, and the secret types that you can use.
 
 For a higher level of security and control, your business might benefit from the data isolation that a single-tenant offering provides, such as {{site.data.keyword.secrets-manager_short}} or {{site.data.keyword.hscrypto}}. You might also decide that the reduced cost and scalability benefits of a multi-tenant service, such as {{site.data.keyword.keymanagementserviceshort}}, are better suited to your needs. The following table lists key features for each service.
 
