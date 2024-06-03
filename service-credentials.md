@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-03-26"
+lastupdated: "2024-05-29"
 
 keywords: Service credentials, App ID, App Config, Cloudant, Cloud Object Storage, Event Notifications, Event Streams, etcd, ElasticSearch, PostgreSQL, Redis, MongoDB
 
@@ -63,10 +63,6 @@ You can use {{site.data.keyword.secrets-manager_full}} to create service credent
 
 Service credentials can hold Identity and Access Management issued credentials. The credentials can also be service-specific native credentials such as HMAC keys, a database user ID and password, SASL credentials, or TLS certificates. To learn more about the types of secrets that you can manage by using {{site.data.keyword.secrets-manager_short}}, see [What is a secret?](/docs/secrets-manager?topic=secrets-manager-what-is-secret).
 
-Note that in the case of service credentials created for Databases, if in addition to the credential you are also altering the database permissions for the created credential, these will not be synced once the service credential was rotated. When rotating a Databases service credential, this is considered an identity rotation.
-{: important}
-
-
 ## Supported {{site.data.keyword.cloud_notm}} services
 {: #service-credentials-supported-services}
 
@@ -97,8 +93,7 @@ Before you get started, be sure that you have the required level of access. To c
 An account administrator, or any entity with the required level of access, can externally alter service credentials that are created and managed by {{site.data.keyword.secrets-manager_short}}. If such a credential is deleted outside of {{site.data.keyword.secrets-manager_short}}, the service might behave unexpectedly. For example, you might be unable to create, or rotate credentials.
 {: important}
 
-
-Note that in the case of service credentials created for Databases, if in addition to the credential you are also altering the database permissions for the created credential, these will not be synced once the service credential was rotated.
+Note that in the case of service credentials created for Databases, if in addition to the credential you are also altering the database permissions for the created credential, these will not be synced once the service credential was rotated. When rotating a Databases service credential, this is considered an identity rotation.
 {: important}
 
 When changing a Service credential secret's TTL, it will be applied only on the next secret version rotation.

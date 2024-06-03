@@ -122,6 +122,7 @@ toc:
           topics:
           - framework/at-events.md
           - framework/logging.md
+          - monitor-metrics.md
       - topic: terraform-setup.md
         navtitle: Setting up Terraform
       - topicgroup:
