@@ -195,7 +195,7 @@ You can scope down your metrics by using scope filters, which are more granular 
 ## Default dashboards
 {: #default-dashboards}
 
-### How to find the {{site.data.keyword.mon_short}} dashboard for {{site.data.keyword.secrets-manager_short}} using observability page
+### How to find the {{site.data.keyword.mon_short}} dashboard for {{site.data.keyword.secrets-manager_short}} using the Observability page
 {: #find-observability}
 
 After configuring your {{site.data.keyword.mon_short}} instance to receive platform metrics, follow the below steps:
@@ -204,6 +204,9 @@ After configuring your {{site.data.keyword.mon_short}} instance to receive platf
 2. Click on the **View {{site.data.keyword.mon_short}}** button in the **View Dashboard** column of the monitoring instance.
 3. Once you are in the {{site.data.keyword.mon_short}} platform, click **Dashboards** to open up the side menu.
 4. Select **{{site.data.keyword.secrets-manager_short}}** under the **IBM** section to view the dashboard.
+
+To see metrics for one or more instances, select from the **ibm_service_instance** dropdown in the {{site.data.keyword.secrets-manager_short}} dashboard.
+{: note}
 
 ## Setting alerts
 {: #set-monitor-alerts}
