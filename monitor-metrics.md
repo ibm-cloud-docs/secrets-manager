@@ -207,7 +207,7 @@ After configuring your {{site.data.keyword.mon_short}} instance to receive platf
 2. Click on the **View {{site.data.keyword.mon_short}}** button in the **View Dashboard** column of the monitoring instance.
 3. Once you are in the {{site.data.keyword.mon_short}} platform, click **Dashboards** to open up the side menu.
 4. Select **IBM** under the **Dashboard Templates** section.
-5. Select **{{site.data.keyword.secrets-manager_short}} - Overview** to view the dashboard for your {{site.data.keyword.secrets-manager_short}} service instance.
+5. Select **{{site.data.keyword.secrets-manager_short}}** to view the dashboard.
 
 You will not be able to see any metrics in your {{site.data.keyword.mon_short}} instance until you enable monitoring and make API requests to your {{site.data.keyword.secrets-manager_short}} instance.
 {: note}
