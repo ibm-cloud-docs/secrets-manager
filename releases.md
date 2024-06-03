@@ -70,7 +70,7 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 
 Service metrics
 :   You can now monitor and gain operational visibility into the performance and health of your {{site.data.keyword.secrets-manager_short}} instance. To learn more, see [Monitoring operational metrics
-](/secrets-manager?topic=secrets-manager-operational-metrics)
+](/docs/secrets-manager?topic=secrets-manager-operational-metrics)
 
 ## 13 May 2024
 {: #secrets-manager-may1324}

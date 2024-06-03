@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-05-29"
+lastupdated: "2024-06-03"
 
 keywords: monitoring, metrics, operational metrics
 
@@ -198,7 +198,7 @@ Due to {{site.data.keyword.mon_short}} limitations, you can only see the values 
 ## Default dashboards
 {: #default-dashboards}
 
-### How to find the {{site.data.keyword.mon_short}} dashboard for your {{site.data.keyword.keymanagementserviceshort}} service instance using observability page
+### How to find the {{site.data.keyword.mon_short}} dashboard for your {{site.data.keyword.secrets-manager_short}} service instance using observability page
 {: #find-observability}
 
 After configuring your {{site.data.keyword.mon_short}} instance to receive platform metrics, follow the below steps:
