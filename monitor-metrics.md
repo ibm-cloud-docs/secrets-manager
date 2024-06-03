@@ -192,13 +192,10 @@ You can scope down your metrics by using scope filters, which are more granular 
 |ibm_service_instance|The service instance id associated with the metric.|
 {: caption="Table 4. Describes the scope filters for {{site.data.keyword.secrets-manager_short}} metrics." caption-side="bottom"}
 
-Due to {{site.data.keyword.mon_short}} limitations, you can only see the values in the dropdown filters for up to six hours. You can manually type `value` into scope variables to use scope filters for given time periods.
-{: note}
-
 ## Default dashboards
 {: #default-dashboards}
 
-### How to find the {{site.data.keyword.mon_short}} dashboard for your {{site.data.keyword.secrets-manager_short}} service instance using observability page
+### How to find the {{site.data.keyword.mon_short}} dashboard for {{site.data.keyword.secrets-manager_short}} using the Observability page
 {: #find-observability}
 
 After configuring your {{site.data.keyword.mon_short}} instance to receive platform metrics, follow the below steps:
@@ -206,10 +203,9 @@ After configuring your {{site.data.keyword.mon_short}} instance to receive platf
 1. Go to the [Monitoring](/observe/monitoring){: external} dashboard and find your monitoring instance that is configured to receive platform metrics.
 2. Click on the **View {{site.data.keyword.mon_short}}** button in the **View Dashboard** column of the monitoring instance.
 3. Once you are in the {{site.data.keyword.mon_short}} platform, click **Dashboards** to open up the side menu.
-4. Select **IBM** under the **Dashboard Templates** section.
-5. Select **{{site.data.keyword.secrets-manager_short}} - Overview** to view the dashboard for your {{site.data.keyword.secrets-manager_short}} service instance.
+4. Select **{{site.data.keyword.secrets-manager_short}}** under the **IBM** section to view the dashboard.
 
-You will not be able to see any metrics in your {{site.data.keyword.mon_short}} instance until you enable monitoring and make API requests to your {{site.data.keyword.secrets-manager_short}} instance.
+To see metrics for one or more instances, select from the **ibm_service_instance** dropdown in the {{site.data.keyword.secrets-manager_short}} dashboard.
 {: note}
 
 ## Setting alerts
