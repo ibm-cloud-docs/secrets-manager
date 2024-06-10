@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-03"
+lastupdated: "2024-06-06"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -69,8 +69,7 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 {: release-note}
 
 Service metrics
-:   You can now monitor and gain operational visibility into the performance and health of your {{site.data.keyword.secrets-manager_short}} instance. To learn more, see [Monitoring operational metrics
-](/docs/secrets-manager?topic=secrets-manager-operational-metrics)
+:   You can now monitor and gain operational visibility into the performance and health of your {{site.data.keyword.secrets-manager_short}} instance. To learn more, see [Monitoring operational metrics](/docs/secrets-manager?topic=secrets-manager-operational-metrics)
 
 ## 13 May 2024
 {: #secrets-manager-may1324}

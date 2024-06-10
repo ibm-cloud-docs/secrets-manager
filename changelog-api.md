@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-03-11"
+lastupdated: "2024-06-06"
 
 keywords: change log for Secrets Manager APIs, API changelog, updates to Secrets Manager APIs
 
@@ -63,12 +63,16 @@ In this change log, you can learn about the latest changes, improvements, and up
 
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
 
+## 10 June 2024
+{: #2024-06-10-api}
+
+- The [Update metadata API](/apidocs/secrets-manager/secrets-manager-v2#update-secret-metadata) now supports `null` for the `expiration_date` field, making it possible to disable expiration for the `arbitrary` and `username_passowrd` secret types.
+
 ## 11 March 2024
 {: #2024-03-11-api}
 
 - The [service endpoints API](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls) now also returns the key management service selected for the service instance - provider-managed, or user-provided ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}).
 - The [List secrets API](/apidocs/secrets-manager/secrets-manager-v2#list-secrets) now accepts additional parameters, `?secret_types=...` to filter by secret type, and `?match_all_labels=...` to filter by a label or a combination of labels.
-
 
 ## 12 February 2024
 {: #2024-02-12-api}
