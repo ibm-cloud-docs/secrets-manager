@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-03-04"
+lastupdated: "2024-06-28"
 
 keywords: HA for {{site.data.keyword.secrets-manager_short}}, DR for {{site.data.keyword.secrets-manager_short}}, high availability for {{site.data.keyword.secrets-manager_short}}, disaster recovery for {{site.data.keyword.secrets-manager_short}}, failover for {{site.data.keyword.secrets-manager_short}}
 
@@ -97,7 +97,7 @@ To manually back up your secrets across regions, you must first have an instance
 Creating an automatic backup of your secrets is possible by automating the manual flow, which can be done in various ways. Check out some of the following examples to see whether one of them might work for you.
 
 - Create a script that periodically downloads all of your secrets and then imports them into your backup instance.
-- [Create a destination and subscription in {{site.data.keyword.en_short}}](/docs/event-notifications) that points to an IBM Cloud Functions action. Configure the action to listen for lifecycle events such as `secret_created` and `secret_rotated`. Then, when the action receives the event, the action downloads the secret from one instance and adds it to the backup instance.
+- [Create a destination and subscription in {{site.data.keyword.en_short}}](/docs/event-notifications) that points to an IBM Cloud Code Engine action. Configure the action to listen for lifecycle events such as `secret_created` and `secret_rotated`. Then, when the action receives the event, the action downloads the secret from one instance and adds it to the backup instance.
 
    Currently, {{site.data.keyword.secrets-manager_short}} supports notifications for certificates only. To learn about the various available lifecycle event types, see [Enabling event notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications).
    {: note}
