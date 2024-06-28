@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-10-03"
+  years: 2020, 2024
+lastupdated: "2024-06-28"
 
 keywords: create certificate authority, create root CA, create intermediate CA, set up PKI, set up private certificates, private certificates engine
 
@@ -146,7 +146,6 @@ A certificate must have a validity period that is shorter than or equal to the v
 3. Choose a validity period for your root CA.
 
    When you update a root CA certificate, the change impacts your entire public-key infrastructure. To minimize impact, it is recommended that you set a long validity period for your root CA certificate. In {{site.data.keyword.secrets-manager_short}}, the default TTL for root certificates is 10 years.
-
 
 ### Choosing an algorithm for generating keys
 {: #choose-key-algorithm}

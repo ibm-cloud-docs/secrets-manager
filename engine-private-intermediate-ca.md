@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-11-16"
+  years: 2020, 2024
+lastupdated: "2024-06-28"
 
 keywords: intermediate certificate authority, intermediate CA, internal signing, external signing
 
@@ -108,10 +108,9 @@ An intermediate CA with internal signing uses a parent CA that was previously cr
    4. Select a maximum time-to-live (TTL) for the certificate to be generated for this CA. The TTL determines how long the CA certificate remains valid.
    5. Select the maximum number of end-entity certificates that can exist in the chain.
    6. To encode the issuing CA certificate URL into end-entity certificates, set the **Encode URL** option to **Enabled**.
-
 6. Enter the subject name fields for your root CA certificate.
-7. [Select the key algorithm](/docs/secrets-manager?topic=secrets-manager-prepare-create-certificates#choose-key-algorithm) that you want to use to generate the public and private key for your CA certificate.
-8. Determine whether to enable certificate revocation list (CRL) building and distribution points for your CA certificate.
+8. [Select the key algorithm](/docs/secrets-manager?topic=secrets-manager-prepare-create-certificates#choose-key-algorithm) that you want to use to generate the public and private key for your CA certificate.
+9. Determine whether to enable certificate revocation list (CRL) building and distribution points for your CA certificate.
 
    A CRL is a list of certificates that are revoked by the issuing certificate authority before their scheduled expiration date. A certificate that is listed as part of a CRL can no longer be trusted by applications. 
     
@@ -119,7 +118,7 @@ An intermediate CA with internal signing uses a parent CA that was previously cr
    2. To encode the URL of the revocation list in the intermediate CA certificate, set the **CRL distribution points** option to **Enabled**.
    3. Select a time-to-live (TTL) of the generated CRL. The TTL determines how long the CRL remains valid.
 
-9. Review your selections. To create the intermediate CA, click **Create**.
+10. Review your selections. To create the intermediate CA, click **Create**.
 
    You can now select this intermediate CA to [generate a private certificate](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates). To modify or remove an existing configuration, click **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) in the row of the certificate authority that you want to update.
 
@@ -194,10 +193,9 @@ You can create an intermediate CA certificate that uses external signing in the 
    3. Enter a name to easily identify your certificate authority.
    4. Select a maximum time-to-live (TTL) for the certificate to be generated for this CA. The TTL determines how long the CA certificate remains valid.
    5. To encode the issuing CA certificate URL into end-entity certificates, set the **Encode URL** option to **Enabled**.
-
 6. Enter the subject name fields for your intermediate CA certificate.
-7. [Select the key algorithm](/docs/secrets-manager?topic=secrets-manager-prepare-create-certificates#choose-key-algorithm) that you want to use to generate the public and private key for your CA certificate.
-8. Determine whether to enable certificate revocation list (CRL) building and distribution points for your CA certificate.
+8. [Select the key algorithm](/docs/secrets-manager?topic=secrets-manager-prepare-create-certificates#choose-key-algorithm) that you want to use to generate the public and private key for your CA certificate.
+9. Determine whether to enable certificate revocation list (CRL) building and distribution points for your CA certificate.
 
    A CRL is a list of certificates that have been revoked by the issuing certificate authority before their scheduled expiration date. A certificate that is listed as part of a CRL can no longer be trusted by applications. 
     
@@ -205,7 +203,7 @@ You can create an intermediate CA certificate that uses external signing in the 
    2. To encode the URL of the revocation list in the intermediate CA certificate, set the **CRL distribution points** option to **Enabled**.
    3. Select a time-to-live (TTL) of the generated CRL. The TTL determines how long the CRL remains valid.
 
-9. Review your selections. To create the intermediate CA, click **Create**.
+10. Review your selections. To create the intermediate CA, click **Create**.
 
    The intermediate CA is added to your list of configurations for your instance with a **Signing required** status. Before you can use this intermediate CA to issue private certificates, you must sign it by using the parent CA certificate that you created in your external PKI system.
 
