@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-01-09"
+lastupdated: "2024-06-28"
 content-type: tutorial
 services: secrets-manager, cloud-object-storage
 account-plan: paid
@@ -289,7 +289,7 @@ Finally, configure your {{site.data.keyword.secrets-manager_short}} instance to 
     {: note}
 
     ```sh
-    ibmcloud secrets-manager configuration-create --config-type iam_credentials_configuration --iam-credentials-apikey $API_KEY
+    ibmcloud secrets-manager configuration-create --config-type iam_credentials_configuration --iam-credentials-apikey $IBM_CLOUD_API_KEY
     ```
     {: pre}
 
