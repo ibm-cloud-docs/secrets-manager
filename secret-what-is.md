@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-03-11"
+lastupdated: "2024-06-28"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -197,7 +197,7 @@ Check out the following image to see how a secret is structured.
     ```json
     {
         "name": "my-secret",
-        "secret_type": "arbitrary",
+        "secret_type": "username-password",
         ...
         "username": "foo",
         "password": "bar"
