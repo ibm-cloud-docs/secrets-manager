@@ -14,7 +14,7 @@ subcollection: secrets-manager
 {: #pricing}
 
 
-Pricing in {{site.data.keyword.secrets-manager_full}} on {{site.data.keyword.cloud_notm}} is based on the number of **key versions** in your account. The first five key versions are free, after which there is a charge per month. For the latest monthly charge, check out [{{site.data.keyword.keymanagementserviceshort}} in the {{site.data.keyword.cloud_notm}} catalog](/catalog/services/key-protect).
+Pricing in {{site.data.keyword.secrets-manager_full}} is based on the number service instances in an account, and the number of active secrets in each of service instances. Learn more about the Trial and Standard plans offered by {{site.data.keyword.secrets-manager_short}}.
 {: shortdesc}
 
 ## Plans
