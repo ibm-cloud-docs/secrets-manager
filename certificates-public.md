@@ -2,7 +2,7 @@
 
 copyright:
   years: "2024"
-lastupdated: "2024-05-23"
+lastupdated: "2024-07-10"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, public certificates
 
@@ -140,6 +140,10 @@ You can order a certificate by using the {{site.data.keyword.secrets-manager_sho
 
     1. Click **Select domains**.
     2. From your list of domains, select the Common Name of the certificate.
+
+    You can optionally also manually add valid domains using the **Add domains manually** field.
+    {: note}
+    
 14. Click **Next**.
 15. Review the details of your certificate.
 16. Click **Add**.

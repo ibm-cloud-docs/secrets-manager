@@ -38,6 +38,8 @@ toc:
                   - integration-jenkins.md
       - topic: releases.md
         navtitle: Release notes
+      - topic: pricing.md
+        navtitle: Pricing
   - navgroup:
       id: tutorial
       topics:
