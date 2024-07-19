@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-28"
+lastupdated: "2024-07-18"
 
 keywords: root certificate authority, root CA, internal signing, external signing
 
@@ -99,7 +99,7 @@ You can create an internally signed root certificate authority for your service 
     3. Select a time-to-live (TTL) of the generated CRL. The TTL determines how long the CRL remains valid.
 10.  Review your selections. To create the root CA, click **Create**.
 
-    You can now select this root CA when you [create an intermediate CA with internal signing](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities#intermediate-ca-internal-signing-ui). To modify or remove an existing configuration, click **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) in the row of the certificate authority that you want to update.
+You can now select this root CA when you [create an intermediate CA with internal signing](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities#intermediate-ca-internal-signing-ui). To modify or remove an existing configuration, click **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) in the row of the certificate authority that you want to update.
 
 ## Creating a root certificate authority with the API
 {: #root-ca-api}
