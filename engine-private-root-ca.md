@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-18"
+lastupdated: "2024-07-31"
 
 keywords: root certificate authority, root CA, internal signing, external signing
 
@@ -130,10 +130,24 @@ curl -X POST
 {: codeblock}
 {: curl}
 
+If you are bringing your own HSM, include the following in the request:
+
+```sh
+"crypto_key": {
+    "label": "my_key",
+    "allow_generate_key": true,
+    "provider": {
+      "type": "hyper_protect_crypto_services",
+      "instance_crn": "replace_with_hpcs_crn::",
+      "pin_iam_credentials_secret_id": "replace_with_iam_credentials_secret_guid",
+      "private_keystore_id": "replace_with_keystore_id"
+    }
+  }
+```
+{: codeblock}
+{: curl}
 
 A successful response adds the configuration to your service instance. 
-
-
 
 ```json
 {
@@ -207,6 +221,22 @@ ibmcloud secrets-manager configuration-create
     "postal_code": ["exampleString"], 
     "serial_number": "d9:be:fe:35:ba:09:42:b5:35:ba:09:42:b5"
   }'
+```
+{: pre}
+
+If you are bringing your own HSM, include the following in the command:
+
+```sh
+"crypto_key": {
+    "label": "my_key",
+    "allow_generate_key": true,
+    "provider": {
+      "type": "hyper_protect_crypto_services",
+      "instance_crn": "replace_with_hpcs_crn::",
+      "pin_iam_credentials_secret_id": "replace_with_iam_credentials_secret_guid",
+      "private_keystore_id": "replace_with_keystore_id"
+    }
+  }
 ```
 {: pre}
 
