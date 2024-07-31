@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-28"
+lastupdated: "2024-07-31"
 
 keywords: intermediate certificate authority, intermediate CA, internal signing, external signing
 
@@ -154,6 +154,24 @@ curl -X POST
 {: codeblock}
 {: curl}
 
+If you are bringing your own HSM, include the following in the request:
+
+```sh
+"crypto_key": {
+    "label": "my_key",
+    "allow_generate_key": true,
+    "provider": {
+      "type": "hyper_protect_crypto_services",
+      "instance_crn": "replace_with_hpcs_crn::",
+      "pin_iam_credentials_secret_id": "replace_with_iam_credentials_secret_guid",
+      "private_keystore_id": "replace_with_keystore_id"
+    }
+  }
+```
+{: codeblock}
+{: curl}
+
+
 ### Step 2: Sign the intermediate CA
 The following example shows a query that you can use to sign the intermediate CA that you created in step 1.
 
@@ -273,6 +291,23 @@ curl -X POST
 {: codeblock}
 {: curl}
 
+If you are bringing your own HSM, include the following in the request:
+
+```sh
+"crypto_key": {
+    "label": "my_key",
+    "allow_generate_key": true,
+    "provider": {
+      "type": "hyper_protect_crypto_services",
+      "instance_crn": "replace_with_hpcs_crn::",
+      "pin_iam_credentials_secret_id": "replace_with_iam_credentials_secret_guid",
+      "private_keystore_id": "replace_with_keystore_id"
+    }
+  }
+```
+{: codeblock}
+{: curl}
+
 Copy the CSR from the response JSON data. The CSR value is nested within the value of the `data` attribute of the response. You can also use the [**`get configuration`**](/apidocs/secrets-manager/secrets-manager-v2#get-configuration) API to get the CSR from the data of the newly created intermediate CA.
 
 ### Step 2: Sign an intermediate CA with an external CA
@@ -363,10 +398,24 @@ ibmcloud secrets-manager configuration-create
       "key_bits": 4096,
       "exclude_cn_from_sans": false
    }'
-
 ```
 {: pre}
 
+If you are bringing your own HSM, include the following in the request:
+
+```sh
+"crypto_key": {
+    "label": "my_key",
+    "allow_generate_key": true,
+    "provider": {
+      "type": "hyper_protect_crypto_services",
+      "instance_crn": "replace_with_hpcs_crn::",
+      "pin_iam_credentials_secret_id": "replace_with_iam_credentials_secret_guid",
+      "private_keystore_id": "replace_with_keystore_id"
+    }
+  }
+```
+{: pre}
 
 ### Step 2: Sign the intermediate CA
 {: #intermediate-ca-external-sign-cli}
