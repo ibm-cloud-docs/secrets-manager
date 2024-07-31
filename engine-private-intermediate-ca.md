@@ -109,6 +109,15 @@ An intermediate CA with internal signing uses a parent CA that was previously cr
    5. Select the maximum number of end-entity certificates that can exist in the chain.
    6. To encode the issuing CA certificate URL into end-entity certificates, set the **Encode URL** option to **Enabled**.
 6. Enter the subject name fields for your root CA certificate.
+7. Select the Key management service. Choose the {{site.data.keyword.secrets-manager_short}} service for creating the root certificate authority keys internally by the service, or choose {{site.data.keyword.hscrypto}} (HPCS). In case HPCS is selected perform the following tasks:
+   1. Select your HPCS instance from the instances dropdown list or enter your HPCS instance CRN manually 
+   2. Select the IAM Credentials secret that was created earlier for authenticating with HPCS.
+  
+      Once the IAM credential has been set in the CA configuration it cannot be later replaced.
+      {: note}
+  
+   3. Select the HPCS private keystore from the keystores dropdown list, or enter the keystore ID manually.
+   4. Choose to use existing keys or generate new keys. In case selecting an existing HPCS private key or entering a private key ID manually, make sure that a public key exists and it has the same ID as the private key in the private keystore.
 8. [Select the key algorithm](/docs/secrets-manager?topic=secrets-manager-prepare-create-certificates#choose-key-algorithm) that you want to use to generate the public and private key for your CA certificate.
 9. Determine whether to enable certificate revocation list (CRL) building and distribution points for your CA certificate.
 
@@ -212,6 +221,11 @@ You can create an intermediate CA certificate that uses external signing in the 
    4. Select a maximum time-to-live (TTL) for the certificate to be generated for this CA. The TTL determines how long the CA certificate remains valid.
    5. To encode the issuing CA certificate URL into end-entity certificates, set the **Encode URL** option to **Enabled**.
 6. Enter the subject name fields for your intermediate CA certificate.
+7. Select the Key management service. Choose the {{site.data.keyword.secrets-manager_short}} service for creating the root certificate authority keys internally by the service, or choose {{site.data.keyword.hscrypto}} (HPCS). In case HPCS is selected perform the following tasks:
+   1. Select your HPCS instance from the instances dropdown list or enter your HPCS instance CRN manually 
+   2. Select the IAM Credentials secret that was created earlier for authenticating with HPCS. 
+   3. Select the HPCS private keystore from the keystores dropdown list, or enter the keystore ID manually.
+   4. Choose to use existing keys or generate new keys. In case selecting an existing HPCS private key or entering a private key ID manually, make sure that a public key exists and it has the same ID as the private key in the private keystore.
 8. [Select the key algorithm](/docs/secrets-manager?topic=secrets-manager-prepare-create-certificates#choose-key-algorithm) that you want to use to generate the public and private key for your CA certificate.
 9. Determine whether to enable certificate revocation list (CRL) building and distribution points for your CA certificate.
 
