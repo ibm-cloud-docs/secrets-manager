@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-06"
+lastupdated: "2024-08-01"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -64,6 +64,15 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
+## 11 August 2024
+{: #secrets-manager-august1124}
+{: release-note}
+
+Support for HSM in Private Certificates
+:   You can use the Private Certificate engine to generate Root and Intermediate CA certificates with private keys managed by a Hardware Security Module (HSM). This feature is currently available using IBM Cloud Hyper Protect Crypto Services HSM.
+
+Finer granularity in Configurations API
+:   Use the `secret_types` option to list configuration for a specific engine. Supported values are: `iam_credentials`, `public_cert`, and `private_cert`.    
 ## 3 June 2024
 {: #secrets-manager-june0324}
 {: release-note}
@@ -440,7 +449,7 @@ Pricing plan updates coming soon in {{site.data.keyword.secrets-manager_short}}
 {: release-note}
 
 Enable lifecycle notifications for your certificates
-:   You can now integrate with the [ß[en-short]}](/catalog/services/event-notifications){: external} service so that you can manage and route all of your {{site.data.keyword.secrets-manager_short}} alerts to your preferred destinations.
+:   You can now integrate with the [{{site.data.keyword.en_short}}](/catalog/services/event-notifications){: external} service so that you can manage and route all of your {{site.data.keyword.secrets-manager_short}} alerts to your preferred destinations.
 
    Currently, {{site.data.keyword.secrets-manager_short}} supports notifications for certificates only. For more information, see [Enabling event notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications).
    {: note}
