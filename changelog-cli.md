@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-01"
+lastupdated: "2024-08-05"
 
 keywords: change log for Secrets Manager CLI, CLI changelog, updates to Secrets Manager CLI
 
@@ -68,11 +68,11 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 ## Version 2.0.6
 {: #2.0.6}
 
-Version 2.0.6 was released on 6 August 2024. This release includes the following updates:
+Version 2.0.6 was released on 5 August 2024. This release includes the following updates:
 - Use the `--secret-types` flag in `ibmcloud configurations` to list configurations for a specific engine. Supported values are: `iam_credentials`, `public_cert`, and `private_cert`. 
 - Use `--labels "[]"` to remove all labels from a secret.
-- Use `--expiration-date null` to disable expiration.
-- New flag `--private-cert-crypto-key` to provide your own HSM.
+- Use `--expiration-date null` to remove an expiration date from a secret.
+- New flag `--private-cert-crypto-key` in `configuration-create` to provide your own HSM for private certificate.
 
 ## Version 2.0.5
 {: #2.0.5}
