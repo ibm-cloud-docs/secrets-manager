@@ -69,7 +69,7 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 {: #2.0.6}
 
 Version 2.0.6 was released on 5 August 2024. This release includes the following updates:
-- Use the `--secret-types` flag in `ibmcloud configurations` to list configurations for a specific engine. Supported values are: `iam_credentials`, `public_cert`, and `private_cert`. 
+- Use the `--secret-types` flag in `ibmcloud configurations` to list existing configurations in a specific engine. Supported values are: `iam_credentials`, `public_cert`, and `private_cert`. 
 - Use `--labels "[]"` to remove all labels from a secret.
 - Use `--expiration-date null` to remove an expiration date from a secret.
 - New flag `--private-cert-crypto-key` in `configuration-create` to provide your own HSM for private certificate.
