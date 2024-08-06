@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-01"
+lastupdated: "2024-08-06"
 
 keywords: root certificate authority, root CA, internal signing, external signing
 
@@ -272,6 +272,22 @@ The following example shows a configuration that you can use to create a root ce
         issuing_certificates_urls_encoded = true
     }
 ```
+{: codeblock}
+
+If you are bringing your own HSM, include the following in the configuration:
+
+```terraform
+crypto_key {
+    label = "my_key"
+    allow_generate_key = true
+    provider {
+      type = "hyper_protect_crypto_services"
+      instance_crn = "replace_with_hpcs_crn::"
+      pin_iam_credentials_secret_id = "replace_with_iam_credentials_secret_guid"
+      private_keystore_id = "replace_with_keystore_id"
+    }
+  }
+  ```
 {: codeblock}
 
 
