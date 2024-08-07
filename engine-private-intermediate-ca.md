@@ -623,6 +623,22 @@ The `ibm_sm_private_certificate_configuration_action_set_signed` resource import
 In this example, we use external signing because the root CA is in another {{site.data.keyword.secrets-manager_short}} instance. In order to use a parent CA from an external PKI system, use another method to sign the CSR, instead of the `ibm_sm_private_certificate_configuration_action_sign_csr` resource. For example, you may use the `tls_locally_signed_cert` resource from the `tls` provider.
 {: note}
 
+If you are bringing your own HSM, include the following in the configuration:
+
+```terraform
+crypto_key {
+    label = "my_key"
+    allow_generate_key = true
+    provider {
+      type = "hyper_protect_crypto_services"
+      instance_crn = "replace_with_hpcs_crn::"
+      pin_iam_credentials_secret_id = "replace_with_iam_credentials_secret_guid"
+      private_keystore_id = "replace_with_keystore_id"
+    }
+  }
+  ```
+{: codeblock}
+
 ## Retrieving an intermediate CA in the UI
 {: #get-root-cert-engine-value-ui}
 {: ui}
