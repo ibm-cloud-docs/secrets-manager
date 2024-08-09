@@ -293,7 +293,7 @@ A successful request returns an HTTP `200 OK` response to indicate that a test e
 
 After you enable notifications for {{site.data.keyword.secrets-manager_short}}, create topics and subscriptions in {{site.data.keyword.en_short}} so that alerts can be forwarded and delivered to your selected destinations. 
 
-For a complete list of supported destinations, see the [{{site.data.keyword.en_short}} documentation](/docs/event-notifications?topic=event-notifications-en-destination).
+For a complete list of supported destinations, see the [{{site.data.keyword.en_short}} documentation](https://cloud.ibm.com/docs/event-notifications?topic=event-notifications-supported-destinations).
 {: tip}
 
 ### Email notifications
