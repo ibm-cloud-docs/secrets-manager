@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-03-01"
+  years: 2020, 2024
+lastupdated: "2024-08-09"
 
 keywords: Data security for Secrets Manager, byok, kyok, data storage, data encryption in Secrets Manager, customer managed keys
 
@@ -80,7 +80,7 @@ When you work with {{site.data.keyword.secrets-manager_short}}, the service comm
 
 You can add a higher level of encryption control to your data at rest (when it is stored) by enabling integration with a key management service.
 
-The data that you store in {{site.data.keyword.cloud_notm}} is encrypted at rest by using [envelope encryption](#x9860393){: term}. If you need to control the encryption keys, you can integrate a key management service. These processes are commonly referred to as Bring Your Own Keys (BYOK) or Keep Your Own Keys (KYOK). With a key management service, you can create, import, and manage encryption keys. You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service.
+The data that you store in {{site.data.keyword.cloud_notm}} is encrypted at rest by using envelope encryption. If you need to control the encryption keys, you can integrate a key management service. These processes are commonly referred to as Bring Your Own Keys (BYOK) or Keep Your Own Keys (KYOK). With a key management service, you can create, import, and manage encryption keys. You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service.
 
 The following table describes your options for managing the encryption of your {{site.data.keyword.secrets-manager_short}} data.
 
