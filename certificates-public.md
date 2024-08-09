@@ -2,7 +2,7 @@
 
 copyright:
   years: "2024"
-lastupdated: "2024-07-10"
+lastupdated: "2024-08-09"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, public certificates
 
@@ -108,7 +108,7 @@ You can order a certificate by using the {{site.data.keyword.secrets-manager_sho
 3. In the **Secrets** table, click **Add**.
 4. Click the **Order public certificate** tile.
 5. Add a name and description to easily identify your certificate.
-6. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
+6. Select the secret group that you want to assign to the secret.
 
     Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 
@@ -296,7 +296,7 @@ To create a public certificate by using a manual DNS provider in the UI, complet
 3. In the **Secrets** table, click **Add**.
 4. Click the **Order public certificate** tile.
 5. Add a name and description to easily identify your certificate.
-6. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
+6. Select the secret group that you want to assign to the secret.
 
     Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 
