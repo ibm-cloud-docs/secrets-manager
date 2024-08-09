@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-01"
+lastupdated: "2024-08-09"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -384,18 +384,6 @@ Osaka and Toronto availability
 :   You can now create a {{site.data.keyword.secrets-manager_short}} service instance in the Osaka (`jp-osa`) and Toronto (`ca-tor`) regions.
 
    For more information, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
-
-
-## 15 March 2022
-{: #secrets-manager-mar1522}
-{: release-note}
-
-Tutorial series: Set up alerts for expiring certificates
-:   Looking for examples that can help you to send {{site.data.keyword.secrets-manager_short}} notifications to GitHub or Slack? Check out the new [tutorial series](/docs/secrets-manager?topic=secrets-manager-tutorial-expiring-secrets-part-1) that guides you through:
-
-   - Enabling [{{site.data.keyword.en_short}}](/docs/event-notifications) for {{site.data.keyword.secrets-manager_short}}
-   - Using [Cloud Functions](/docs/openwhisk) to create a GitHub issue when a secret is about to expire
-   - Using Cloud functions to sending a notification to Slack
 
 ## 28 February 2022
 {: #secrets-manager-feb2822}
