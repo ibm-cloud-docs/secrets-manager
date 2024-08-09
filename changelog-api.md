@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-01"
+lastupdated: "2024-08-09"
 
 keywords: change log for Secrets Manager APIs, API changelog, updates to Secrets Manager APIs
 
@@ -66,7 +66,7 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 ## 6 August 2024
 {: #2024-08-6-api}
 
-- Use the `secret_types` option to list existing configurations in a secret engine. Supported values are: `iam_credentials`, `public_cert`, and `private_cert`. 
+- Use the `secret_types` option to list configuration for a specific engine. Supported values are: `iam_credentials`, `public_cert`, and `private_cert`. 
 - New property `crypto_key` to provide your own HSM.
 
 ## 10 June 2024
