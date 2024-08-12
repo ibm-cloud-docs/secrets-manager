@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-06"
+lastupdated: "2024-08-12"
 
 keywords: root certificate authority, root CA, internal signing, external signing
 
@@ -93,23 +93,23 @@ You can create an internally signed root certificate authority for your service 
    1. Select your HPCS instance from the instances dropdown list or enter your HPCS instance CRN manually 
    2. Select the IAM Credentials secret that was created earlier for authenticating with HPCS.
   
-      Once the IAM credential has been set in the CA configuration it cannot be later replaced.
-      {: note}
+       Once the IAM credential has been set in the CA configuration it cannot be later replaced.
+       {: note}
   
    3. Select the HPCS private keystore from the keystores dropdown list, or enter the keystore ID manually.
    4. Choose to use existing keys or generate new keys. In case selecting an existing HPCS private key or entering a private key ID manually, make sure that a public key exists and it has the same ID as the private key in the private keystore.
 
-      In case you choose to generate new keys, those keys will not be deleted by {{site.data.keyword.secrets-manager_short}} in case the configuration will be deleted.
-      {: note} 
+       In case you choose to generate new keys, those keys will not be deleted by {{site.data.keyword.secrets-manager_short}} in case the configuration will be deleted.
+       {: note} 
 
 8. [Select the key algorithm](/docs/secrets-manager?topic=secrets-manager-prepare-create-certificates#choose-key-algorithm) that you want to use to generate the public and private key for your CA certificate.
 9.  Determine whether to enable certificate revocation list (CRL) building and distribution points for your CA certificate.
 
-    A CRL is a list of certificates that are revoked by the issuing certificate authority before their scheduled expiration date. A certificate that is listed as part of a CRL can no longer be trusted by applications. 
+     A CRL is a list of certificates that are revoked by the issuing certificate authority before their scheduled expiration date. A certificate that is listed as part of a CRL can no longer be trusted by applications. 
     
-    1. To build a CRL for your root CA with each certificate request, set the **CRL building** option to **Enabled**.
-    2. To encode the URL of the revocation list in the root CA certificate, set the **CRL distribution points** option to **Enabled**.
-    3. Select a time-to-live (TTL) of the generated CRL. The TTL determines how long the CRL remains valid.
+     1. To build a CRL for your root CA with each certificate request, set the **CRL building** option to **Enabled**.
+     2. To encode the URL of the revocation list in the root CA certificate, set the **CRL distribution points** option to **Enabled**.
+     3. Select a time-to-live (TTL) of the generated CRL. The TTL determines how long the CRL remains valid.
 10.  Review your selections. To create the root CA, click **Create**.
 
 You can now select this root CA when you [create an intermediate CA with internal signing](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities#intermediate-ca-internal-signing-ui). To modify or remove an existing configuration, click **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) in the row of the certificate authority that you want to update.
