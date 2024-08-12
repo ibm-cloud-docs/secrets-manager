@@ -113,27 +113,27 @@ An intermediate CA with internal signing uses a parent CA that was previously cr
    1. Select your HPCS instance from the instances dropdown list or enter your HPCS instance CRN manually 
    2. Select the IAM Credentials secret that was created earlier for authenticating with HPCS.
   
-      Once the IAM credential has been set in the CA configuration it cannot be later replaced.
-      {: note}
+       Once the IAM credential has been set in the CA configuration it cannot be later replaced.
+       {: note}
   
    3. Select the HPCS private keystore from the keystores dropdown list, or enter the keystore ID manually.
    4. Choose to use existing keys or generate new keys. In case selecting an existing HPCS private key or entering a private key ID manually, make sure that a public key exists and it has the same ID as the private key in the private keystore.
 
-      In case you choose to generate new keys, those keys will not be deleted by {{site.data.keyword.secrets-manager_short}} in case the configuration will be deleted.
-      {: note} 
+       In case you choose to generate new keys, those keys will not be deleted by {{site.data.keyword.secrets-manager_short}} in case the configuration will be deleted.
+       {: note} 
       
 8. [Select the key algorithm](/docs/secrets-manager?topic=secrets-manager-prepare-create-certificates#choose-key-algorithm) that you want to use to generate the public and private key for your CA certificate.
 9. Determine whether to enable certificate revocation list (CRL) building and distribution points for your CA certificate.
 
-   A CRL is a list of certificates that are revoked by the issuing certificate authority before their scheduled expiration date. A certificate that is listed as part of a CRL can no longer be trusted by applications. 
+    A CRL is a list of certificates that are revoked by the issuing certificate authority before their scheduled expiration date. A certificate that is listed as part of a CRL can no longer be trusted by applications. 
     
-   1. To build a CRL for your intermediate CA with each certificate request, set the **CRL building** option to **Enabled**.
-   2. To encode the URL of the revocation list in the intermediate CA certificate, set the **CRL distribution points** option to **Enabled**.
-   3. Select a time-to-live (TTL) of the generated CRL. The TTL determines how long the CRL remains valid.
+    1. To build a CRL for your intermediate CA with each certificate request, set the **CRL building** option to **Enabled**.
+    2. To encode the URL of the revocation list in the intermediate CA certificate, set the **CRL distribution points** option to **Enabled**.
+    3. Select a time-to-live (TTL) of the generated CRL. The TTL determines how long the CRL remains valid.
 
 10. Review your selections. To create the intermediate CA, click **Create**.
 
-   You can now select this intermediate CA to [generate a private certificate](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates). To modify or remove an existing configuration, click **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) in the row of the certificate authority that you want to update.
+     You can now select this intermediate CA to [generate a private certificate](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates). To modify or remove an existing configuration, click **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) in the row of the certificate authority that you want to update.
 
 
 ## Creating an intermediate CA with internal signing with the API
@@ -143,6 +143,8 @@ An intermediate CA with internal signing uses a parent CA that was previously cr
 An intermediate CA with internal signing uses a parent CA that was previously created in your {{site.data.keyword.secrets-manager_short}} instance as its trust anchor. You can create an intermediate CA with internal signing by using the {{site.data.keyword.secrets-manager_short}} API. 
 
 ### Step 1: Create an intermediate CA with internal signing
+{: #step-1-create-intermediate-ca}
+
 The following example shows a query that you can use to create an intermediate CA with internal signing. In the request body, set the value of the `signing_method` attribute to `internal`. Use the `issuer` attribute to specify the parent certificate authority.
 
 ```sh
@@ -186,6 +188,8 @@ If you are bringing your own HSM, include the following in the request:
 
 
 ### Step 2: Sign the intermediate CA
+{: #step-2-sign-intermediate-ca}
+
 The following example shows a query that you can use to sign the intermediate CA that you created in step 1.
 
 ```sh
@@ -229,27 +233,27 @@ You can create an intermediate CA certificate that uses external signing in the 
    1. Select your HPCS instance from the instances dropdown list or enter your HPCS instance CRN manually 
    2. Select the IAM Credentials secret that was created earlier for authenticating with HPCS. 
 
-      Once the IAM credential has been set in the CA configuration it cannot be later replaced.
-      {: note}
+       Once the IAM credential has been set in the CA configuration it cannot be later replaced.
+       {: note}
 
    3. Select the HPCS private keystore from the keystores dropdown list, or enter the keystore ID manually.
    4. Choose to use existing keys or generate new keys. In case selecting an existing HPCS private key or entering a private key ID manually, make sure that a public key exists and it has the same ID as the private key in the private keystore.
 
-      In case you choose to generate new keys, those keys will not be deleted by {{site.data.keyword.secrets-manager_short}} in case the configuration will be deleted.
-      {: note} 
+       In case you choose to generate new keys, those keys will not be deleted by {{site.data.keyword.secrets-manager_short}} in case the configuration will be deleted.
+       {: note} 
       
 8. [Select the key algorithm](/docs/secrets-manager?topic=secrets-manager-prepare-create-certificates#choose-key-algorithm) that you want to use to generate the public and private key for your CA certificate.
 9. Determine whether to enable certificate revocation list (CRL) building and distribution points for your CA certificate.
 
-   A CRL is a list of certificates that have been revoked by the issuing certificate authority before their scheduled expiration date. A certificate that is listed as part of a CRL can no longer be trusted by applications. 
+    A CRL is a list of certificates that have been revoked by the issuing certificate authority before their scheduled expiration date. A certificate that is listed as part of a CRL can no longer be trusted by applications. 
     
-   1. To build a CRL for your intermediate CA with each certificate request, set the **CRL building** option to **Enabled**.
-   2. To encode the URL of the revocation list in the intermediate CA certificate, set the **CRL distribution points** option to **Enabled**.
-   3. Select a time-to-live (TTL) of the generated CRL. The TTL determines how long the CRL remains valid.
+    1. To build a CRL for your intermediate CA with each certificate request, set the **CRL building** option to **Enabled**.
+    2. To encode the URL of the revocation list in the intermediate CA certificate, set the **CRL distribution points** option to **Enabled**.
+    3. Select a time-to-live (TTL) of the generated CRL. The TTL determines how long the CRL remains valid.
 
 10. Review your selections. To create the intermediate CA, click **Create**.
 
-   The intermediate CA is added to your list of configurations for your instance with a **Signing required** status. Before you can use this intermediate CA to issue private certificates, you must sign it by using the parent CA certificate that you created in your external PKI system.
+     The intermediate CA is added to your list of configurations for your instance with a **Signing required** status. Before you can use this intermediate CA to issue private certificates, you must sign it by using the parent CA certificate that you created in your external PKI system.
 
 ### Step 2: Sign an intermediate CA with an external CA
 {: #intermediate-ca-sign-ui}
@@ -261,15 +265,14 @@ When you create an intermediate CA in {{site.data.keyword.secrets-manager_short}
 3. Copy or download the CSR.
 4. Use the CSR to sign your intermediate CA certificate.
 
-   You can choose from various tools, such as `openssl`, to sign a CSR file. For example, the following `openssl` command takes a CSR file that you downloaded from {{site.data.keyword.secrets-manager_short}} and uses a PEM-encoded CA file and its associated private key to issue a signed CA certificate.
+    You can choose from various tools, such as `openssl`, to sign a CSR file. For example, the following `openssl` command takes a CSR file that you downloaded from {{site.data.keyword.secrets-manager_short}} and uses a PEM-encoded CA file and its associated private key to issue a signed CA certificate.
 
-   ```sh
-   openssl x509 -req -in <intermediate-ca-csr-file> -CA <external-parent-ca-file> -CAkey <external-ca-key-file> -out <signed-intermediate-ca-file>
-   ```
-   {: pre}
+    ```sh
+    openssl x509 -req -in <intermediate-ca-csr-file> -CA <external-parent-ca-file> -CAkey <external-ca-key-file> -out <signed-intermediate-ca-file>
+    ```
+    {: pre}
 
-   The command outputs a signed intermediate CA certificate file that you can then import to your {{site.data.keyword.secrets-manager_short}} instance to complete the signing process.   
-
+    The command outputs a signed intermediate CA certificate file that you can then import to your {{site.data.keyword.secrets-manager_short}} instance to complete the signing process.   
 
 ### Step 3: Import a signed intermediate CA to your instance
 {: #intermediate-ca-set-signed-ui}
@@ -281,7 +284,7 @@ After you sign an intermediate CA certificate by using an external parent CA, yo
 3. Select or enter the signed intermediate CA certificate file that you signed in the [previous step](#intermediate-ca-sign-ui).
 4. Click **Sign** to complete the external signing process.
    
-   The signed intermediate CA is added to your list of configurations for your instance with an **Active** status. You can now use this intermediate CA to [create private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates) for your applications. To modify or remove an existing configuration, click **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) in the row of the certificate authority that you want to update.
+    The signed intermediate CA is added to your list of configurations for your instance with an **Active** status. You can now use this intermediate CA to [create private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates) for your applications. To modify or remove an existing configuration, click **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) in the row of the certificate authority that you want to update.
 
 
 ## Creating an intermediate CA with external signing with the API
