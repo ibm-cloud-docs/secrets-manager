@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: "2023"
-lastupdated: "2023-06-15"
+  years: 2024
+lastupdated: "2024-08-12"
 
 keywords: integration, tool integrations, ansible, integrations
 
@@ -192,7 +192,7 @@ ok: [localhost] => {
 
 
 ## Next steps
-{: integration-ansible-next}
+{: #integration-ansible-next}
 
 You can run this playbook to look up other secrets from {{site.data.keyword.secrets-manager_short}}.
 
