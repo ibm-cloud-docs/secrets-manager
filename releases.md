@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-06"
+lastupdated: "2024-08-09"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -64,6 +64,15 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
+## 12 August 2024
+{: #secrets-manager-august1224}
+{: release-note}
+
+Support for HSM in Private Certificates
+:   You can use the Private Certificate engine to generate Root and Intermediate CA certificates with private keys managed by a Hardware Security Module (HSM). This feature is currently available using IBM Cloud Hyper Protect Crypto Services HSM.
+
+Finer granularity in Configurations API
+:   Use the `secret_types` option to list configuration for a specific engine. Supported values are: `iam_credentials`, `public_cert`, and `private_cert`.    
 ## 3 June 2024
 {: #secrets-manager-june0324}
 {: release-note}
@@ -376,18 +385,6 @@ Osaka and Toronto availability
 
    For more information, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
 
-
-## 15 March 2022
-{: #secrets-manager-mar1522}
-{: release-note}
-
-Tutorial series: Set up alerts for expiring certificates
-:   Looking for examples that can help you to send {{site.data.keyword.secrets-manager_short}} notifications to GitHub or Slack? Check out the new [tutorial series](/docs/secrets-manager?topic=secrets-manager-tutorial-expiring-secrets-part-1) that guides you through:
-
-   - Enabling [{{site.data.keyword.en_short}}](/docs/event-notifications) for {{site.data.keyword.secrets-manager_short}}
-   - Using [Cloud Functions](/docs/openwhisk) to create a GitHub issue when a secret is about to expire
-   - Using Cloud functions to sending a notification to Slack
-
 ## 28 February 2022
 {: #secrets-manager-feb2822}
 {: release-note}
@@ -440,7 +437,7 @@ Pricing plan updates coming soon in {{site.data.keyword.secrets-manager_short}}
 {: release-note}
 
 Enable lifecycle notifications for your certificates
-:   You can now integrate with the [ß[en-short]}](/catalog/services/event-notifications){: external} service so that you can manage and route all of your {{site.data.keyword.secrets-manager_short}} alerts to your preferred destinations.
+:   You can now integrate with the [{{site.data.keyword.en_short}}](/catalog/services/event-notifications){: external} service so that you can manage and route all of your {{site.data.keyword.secrets-manager_short}} alerts to your preferred destinations.
 
    Currently, {{site.data.keyword.secrets-manager_short}} supports notifications for certificates only. For more information, see [Enabling event notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications).
    {: note}

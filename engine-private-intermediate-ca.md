@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-28"
+lastupdated: "2024-08-07"
 
 keywords: intermediate certificate authority, intermediate CA, internal signing, external signing
 
@@ -109,6 +109,19 @@ An intermediate CA with internal signing uses a parent CA that was previously cr
    5. Select the maximum number of end-entity certificates that can exist in the chain.
    6. To encode the issuing CA certificate URL into end-entity certificates, set the **Encode URL** option to **Enabled**.
 6. Enter the subject name fields for your root CA certificate.
+7. Select the Key management service. Choose the {{site.data.keyword.secrets-manager_short}} service for creating the root certificate authority keys internally by the service, or choose {{site.data.keyword.hscrypto}} (HPCS). In case HPCS is selected perform the following tasks:
+   1. Select your HPCS instance from the instances dropdown list or enter your HPCS instance CRN manually 
+   2. Select the IAM Credentials secret that was created earlier for authenticating with HPCS.
+  
+      Once the IAM credential has been set in the CA configuration it cannot be later replaced.
+      {: note}
+  
+   3. Select the HPCS private keystore from the keystores dropdown list, or enter the keystore ID manually.
+   4. Choose to use existing keys or generate new keys. In case selecting an existing HPCS private key or entering a private key ID manually, make sure that a public key exists and it has the same ID as the private key in the private keystore.
+
+      In case you choose to generate new keys, those keys will not be deleted by {{site.data.keyword.secrets-manager_short}} in case the configuration will be deleted.
+      {: note} 
+      
 8. [Select the key algorithm](/docs/secrets-manager?topic=secrets-manager-prepare-create-certificates#choose-key-algorithm) that you want to use to generate the public and private key for your CA certificate.
 9. Determine whether to enable certificate revocation list (CRL) building and distribution points for your CA certificate.
 
@@ -154,6 +167,24 @@ curl -X POST
 {: codeblock}
 {: curl}
 
+If you are bringing your own HSM, include the following in the request:
+
+```sh
+"crypto_key": {
+    "label": "my_key",
+    "allow_generate_key": true,
+    "provider": {
+      "type": "hyper_protect_crypto_services",
+      "instance_crn": "replace_with_hpcs_crn::",
+      "pin_iam_credentials_secret_id": "replace_with_iam_credentials_secret_guid",
+      "private_keystore_id": "replace_with_keystore_id"
+    }
+  }
+```
+{: codeblock}
+{: curl}
+
+
 ### Step 2: Sign the intermediate CA
 The following example shows a query that you can use to sign the intermediate CA that you created in step 1.
 
@@ -194,6 +225,19 @@ You can create an intermediate CA certificate that uses external signing in the 
    4. Select a maximum time-to-live (TTL) for the certificate to be generated for this CA. The TTL determines how long the CA certificate remains valid.
    5. To encode the issuing CA certificate URL into end-entity certificates, set the **Encode URL** option to **Enabled**.
 6. Enter the subject name fields for your intermediate CA certificate.
+7. Select the Key management service. Choose the {{site.data.keyword.secrets-manager_short}} service for creating the root certificate authority keys internally by the service, or choose {{site.data.keyword.hscrypto}} (HPCS). In case HPCS is selected perform the following tasks:
+   1. Select your HPCS instance from the instances dropdown list or enter your HPCS instance CRN manually 
+   2. Select the IAM Credentials secret that was created earlier for authenticating with HPCS. 
+
+      Once the IAM credential has been set in the CA configuration it cannot be later replaced.
+      {: note}
+
+   3. Select the HPCS private keystore from the keystores dropdown list, or enter the keystore ID manually.
+   4. Choose to use existing keys or generate new keys. In case selecting an existing HPCS private key or entering a private key ID manually, make sure that a public key exists and it has the same ID as the private key in the private keystore.
+
+      In case you choose to generate new keys, those keys will not be deleted by {{site.data.keyword.secrets-manager_short}} in case the configuration will be deleted.
+      {: note} 
+      
 8. [Select the key algorithm](/docs/secrets-manager?topic=secrets-manager-prepare-create-certificates#choose-key-algorithm) that you want to use to generate the public and private key for your CA certificate.
 9. Determine whether to enable certificate revocation list (CRL) building and distribution points for your CA certificate.
 
@@ -269,6 +313,23 @@ curl -X POST
   "signing_method": "external"
 }' \  
   "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/configurations"
+```
+{: codeblock}
+{: curl}
+
+If you are bringing your own HSM, include the following in the request:
+
+```sh
+"crypto_key": {
+    "label": "my_key",
+    "allow_generate_key": true,
+    "provider": {
+      "type": "hyper_protect_crypto_services",
+      "instance_crn": "replace_with_hpcs_crn::",
+      "pin_iam_credentials_secret_id": "replace_with_iam_credentials_secret_guid",
+      "private_keystore_id": "replace_with_keystore_id"
+    }
+  }
 ```
 {: codeblock}
 {: curl}
@@ -363,10 +424,24 @@ ibmcloud secrets-manager configuration-create
       "key_bits": 4096,
       "exclude_cn_from_sans": false
    }'
-
 ```
 {: pre}
 
+If you are bringing your own HSM, include the following in the request:
+
+```sh
+"crypto_key": {
+    "label": "my_key",
+    "allow_generate_key": true,
+    "provider": {
+      "type": "hyper_protect_crypto_services",
+      "instance_crn": "replace_with_hpcs_crn::",
+      "pin_iam_credentials_secret_id": "replace_with_iam_credentials_secret_guid",
+      "private_keystore_id": "replace_with_keystore_id"
+    }
+  }
+```
+{: pre}
 
 ### Step 2: Sign the intermediate CA
 {: #intermediate-ca-external-sign-cli}
@@ -491,11 +566,27 @@ The following example shows a configuration that you can use to create an interm
 ```
 {: codeblock}
 
+If you are bringing your own HSM, include the following in the configuration:
+
+```terraform
+crypto_key {
+    label = "my_key"
+    allow_generate_key = true
+    provider {
+      type = "hyper_protect_crypto_services"
+      instance_crn = "replace_with_hpcs_crn::"
+      pin_iam_credentials_secret_id = "replace_with_iam_credentials_secret_guid"
+      private_keystore_id = "replace_with_keystore_id"
+    }
+  }
+  ```
+{: codeblock}
+
 When using internal signing, the defined issuer is automatically signing the newly created intermediate CA certificate.
 {: note}
 
 
-## Creating an intermediate CA with external signing with the API
+## Creating an intermediate CA with external signing with Terraform
 {: #intermediate-ca-external-signing-terraform}
 {: terraform}
 
@@ -532,6 +623,21 @@ The `ibm_sm_private_certificate_configuration_action_set_signed` resource import
 In this example, we use external signing because the root CA is in another {{site.data.keyword.secrets-manager_short}} instance. In order to use a parent CA from an external PKI system, use another method to sign the CSR, instead of the `ibm_sm_private_certificate_configuration_action_sign_csr` resource. For example, you may use the `tls_locally_signed_cert` resource from the `tls` provider.
 {: note}
 
+If you are bringing your own HSM, include the following in the configuration:
+
+```terraform
+crypto_key {
+    label = "my_key"
+    allow_generate_key = true
+    provider {
+      type = "hyper_protect_crypto_services"
+      instance_crn = "replace_with_hpcs_crn::"
+      pin_iam_credentials_secret_id = "replace_with_iam_credentials_secret_guid"
+      private_keystore_id = "replace_with_keystore_id"
+    }
+  }
+  ```
+{: codeblock}
 
 ## Retrieving an intermediate CA in the UI
 {: #get-root-cert-engine-value-ui}

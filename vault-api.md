@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-26"
+lastupdated: "2024-08-05"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -85,12 +85,14 @@ The following table lists the endpoint URLs by region that can be used to intera
 | Dallas        | `https://{instance_ID}.us-south.secrets-manager.appdomain.cloud` |
 | Frankfurt     | `https://{instance_ID}.eu-de.secrets-manager.appdomain.cloud`    |
 | London        | `https://{instance_ID}.eu-gb.secrets-manager.appdomain.cloud`    |
+| Madrid        | `https://{instance_ID}.eu-es.secrets-manager.appdomain.cloud`    |
 | Osaka         | `https://{instance_ID}.jp-osa.secrets-manager.appdomain.cloud`   |
 | Sao Paulo     | `https://{instance_ID}.br-sao.secrets-manager.appdomain.cloud`   |
 | Sydney        | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud`   |
 | Tokyo         | `https://{instance_ID}.jp-tok.secrets-manager.appdomain.cloud`   |
 | Toronto       | `https://{instance_ID}.ca-tor.secrets-manager.appdomain.cloud`   |
 | Washington DC | `https://{instance_ID}.us-east.secrets-manager.appdomain.cloud`  |
+
 {: caption="Table 1. Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
 {: #public-endpoints-vault}
 {: tab-title="Public endpoints"}
@@ -102,6 +104,7 @@ The following table lists the endpoint URLs by region that can be used to intera
 | Dallas        | `https://{instance_ID}.private.us-south.secrets-manager.appdomain.cloud` |
 | Frankfurt     | `https://{instance_ID}.private.eu-de.secrets-manager.appdomain.cloud`    |
 | London        | `https://{instance_ID}.private.eu-gb.secrets-manager.appdomain.cloud`    |
+| Madrid        | `https://{instance_ID}.private.eu-es.secrets-manager.appdomain.cloud`    |
 | Osaka         | `https://{instance_ID}.private.jp-osa.secrets-manager.appdomain.cloud`   |
 | Sao Paulo     | `https://{instance_ID}.private.br-sao.secrets-manager.appdomain.cloud`   |
 | Sydney        | `https://{instance_ID}.private.au-syd.secrets-manager.appdomain.cloud`   |

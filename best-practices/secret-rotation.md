@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-04-18"
+  years: 2020, 2024
+lastupdated: "2024-08-09"
 
 keywords: secrets management best practice, rotating secrets, secret rotation, locking secrets, automatic rotation
 
@@ -87,8 +87,6 @@ Connect to the {{site.data.keyword.en_short}} service so that {{site.data.keywor
 1. Set up alerts for your instance by enabling event notifications. To connect your instance to the {{site.data.keyword.en_short}} service, go to the **{{site.data.keyword.secrets-manager_short}} UI > Settings > Event Notifications**.
 2. Create topics and subscriptions in {{site.data.keyword.en_short}} so that alerts can be forwarded and delivered to your [selected destinations](/docs/secrets-manager?topic=secrets-manager-event-notifications#event-notifications-destinations), for example Slack or email. 
 
-    Looking for examples? Check out our [tutorial series](/docs/secrets-manager?topic=secrets-manager-tutorial-expiring-secrets-part-1) that guides you through sending notifications to GitHub and Slack.
-    {: tip}
 
 ## Enable automatic rotation for secrets
 {: #best-practices-automati-rotation}
