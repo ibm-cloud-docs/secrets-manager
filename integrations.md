@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-26"
+lastupdated: "2024-08-12"
 
 keywords: Secrets Manager integrations, enable integration, create authorization, service to service, grant access between services, using Secrets Manager with other services, authorize Secrets Manager
 
@@ -61,8 +61,6 @@ subcollection: secrets-manager
 With {{site.data.keyword.secrets-manager_full}}, you can save time with platform integrations that help you to dynamically create and retrieve secrets while you work with supported {{site.data.keyword.cloud_notm}} services.
 {: shortdesc}
 
-
-
 ## Available integrations
 {: #available-integrations}
 
@@ -102,7 +100,7 @@ To authorize a supported {{site.data.keyword.cloud_notm}} service to access your
 7. Click **Authorize**.
 
 ## Next steps
-{: next-steps-integration}
+{: #next-steps-integration}
 
 - Start integrating your services with {{site.data.keyword.secrets-manager_short}}.
 - [Check out this blog](https://www.ibm.com/blog/unleashing-terraform-for-kubernetes-secret-management-with-ibm-cloud-kubernetes-service-and-secrets-manager/){: external} for details about to begin using Terraform for {{site.data.keyword.containershort}} secret management with {{site.data.keyword.containerfull}} and {{site.data.keyword.secrets-manager_short}}.
