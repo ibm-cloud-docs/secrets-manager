@@ -64,8 +64,8 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
-## 11 August 2024
-{: #secrets-manager-august1124}
+## 12 August 2024
+{: #secrets-manager-august1224}
 {: release-note}
 
 Support for HSM in Private Certificates
