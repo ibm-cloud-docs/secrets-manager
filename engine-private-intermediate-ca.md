@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-07"
+lastupdated: "2024-08-12"
 
 keywords: intermediate certificate authority, intermediate CA, internal signing, external signing
 
@@ -455,7 +455,7 @@ ibmcloud secrets-manager configuration-action-create --name example-root-CA
       "intermediate_certificate_authority": "example-intermediate-CA"
    }'
 ```
-{:pre}
+{: pre}
 
 ## Creating an intermediate CA with external signing from the CLI
 {: #intermediate-ca-external-signing-cli}
@@ -493,14 +493,14 @@ ibmcloud secrets-manager configuration-create --output json
       "exclude_cn_from_sans": false
    }'
 ```
-{:pre}
+{: pre}
 
 Copy the CSR from the response JSON data. The CSR value is nested within the value of the `data` attribute of the response. You can also get the data of the newly created intermediate CA by running run the [**`ibmcloud secrets-manager configuration`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-configuration-command) command with the `--output json` option. For example:
 
 ```sh
 ibmcloud secrets-manager configuration --name example-intermediate-CA --output json 
 ```
-{:pre}
+{: pre}
 
 ### Step 2: Sign an intermediate CA with an external CA
 {: #intermediate-ca-sign-cli}
@@ -525,7 +525,7 @@ ibmcloud secrets-manager configuration-action-create --name example-root-CA --ou
       "csr": "-----BEGIN CERTIFICATE REQUEST-----\nMIICiDCCAXACAQAwGDEWMBQGA1UEAxMNct5ANo8jybxCwNjHOA==\n-----END CERTIFICATE REQUEST-----"
     }'
 ```
-{:pre}
+{: pre}
 
 
 For the `sign-csr` action you need to target the other {{site.data.keyword.secrets-manager_short}} instance where the parent CA resides. Before running the command, export the environment variable `SECRETS_MANAGER_URL` to target the other instance.
@@ -544,7 +544,7 @@ ibmcloud secrets-manager configuration-action-create --name example-intermediate
       "certificate": "-----BEGIN CERTIFICATE-----\nMIIGRjCCBS6gAwIBAgIUSKW6zI+E9JU4bva\n-----END CERTIFICATE-----"
     }'
 ```
-{:pre}
+{: pre}
 
 ## Creating an intermediate CA with internal signing with Terraform
 {: #intermediate-ca-internal-signing-terraform}
