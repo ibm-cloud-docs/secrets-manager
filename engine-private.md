@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-31"
+lastupdated: "2024-08-12"
 
 keywords: create certificate authority, create root CA, create intermediate CA, set up PKI, set up private certificates, private certificates engine
 
@@ -78,7 +78,7 @@ A valid chain of certificates begins at a trusted root CA, passes through one or
 2. The subordinate CAs in level 2 are signed and issued by the root CA. These subordinate CAs sign other subordinate CA certificates.
 3. Finally, the subordinate CA certificates in level 3 sign and issue leaf certificates to your end-entity applications.
 
-   In {{site.data.keyword.secrets-manager_short}}, leaf certificates are the [private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates) that you create and deploy to your applications.
+    In {{site.data.keyword.secrets-manager_short}}, leaf certificates are the [private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates) that you create and deploy to your applications.
 
 ## Designing your CA hierarchy
 {: #design-ca-hierarchy}
@@ -134,18 +134,18 @@ A certificate must have a validity period that is shorter than or equal to the v
 
 1. Choose a validity period for your leaf certificates that is appropriate for your use case.
 
-   The private certificates that you can create with {{site.data.keyword.secrets-manager_short}} are considered leaf certificates that can be issued to an end-entity, such as a client or server app. With {{site.data.keyword.secrets-manager_short}}, you can create certificates with a maximum validity period of three years or 36 months. After you determine a TTL or validity period for leaf certificates, you set the value by using a [certificate template](/docs/secrets-manager?topic=secrets-manager-certificate-templates) so that your preferred TTL is applied each time a new leaf certificate is generated.
+    The private certificates that you can create with {{site.data.keyword.secrets-manager_short}} are considered leaf certificates that can be issued to an end-entity, such as a client or server app. With {{site.data.keyword.secrets-manager_short}}, you can create certificates with a maximum validity period of three years or 36 months. After you determine a TTL or validity period for leaf certificates, you set the value by using a [certificate template](/docs/secrets-manager?topic=secrets-manager-certificate-templates) so that your preferred TTL is applied each time a new leaf certificate is generated.
 
-   The shorter the TTL of your leaf certificates, the more protected you are against inadvertent exposure or compromise of your certificate and its private key. A shorter validity period for your certificates means that you reduce the likelihood of compromise, but it also requires that you rotate the certificate more frequently to ensure that it stays valid. To avoid an inadvertent outage, you can schedule [automatic rotation](/docs/secrets-manager?topic=secrets-manager-automatic-rotation) of your private certificates.
+    The shorter the TTL of your leaf certificates, the more protected you are against inadvertent exposure or compromise of your certificate and its private key. A shorter validity period for your certificates means that you reduce the likelihood of compromise, but it also requires that you rotate the certificate more frequently to ensure that it stays valid. To avoid an inadvertent outage, you can schedule [automatic rotation](/docs/secrets-manager?topic=secrets-manager-automatic-rotation) of your private certificates.
    {: note}
 
 2. Choose a validity period for the subordinate CA.
 
-   As a best practice, set a validity period for a subordinate CA certificate that is significantly longer than the validity periods of the certificates that they issue. Define a validity period of a parent CA that is two to five times the period of any child CA certificate or leaf certificate that it issues. For example, if you have a [two-level CA hierarchy](#two-level-ca) and you want to issue leaf certificates with a TTL of one year, configure the subordinate issuing CA with a TTL of three years. You can always update subordinate CA certificates without replacing the root CA certificate.
+    As a best practice, set a validity period for a subordinate CA certificate that is significantly longer than the validity periods of the certificates that they issue. Define a validity period of a parent CA that is two to five times the period of any child CA certificate or leaf certificate that it issues. For example, if you have a [two-level CA hierarchy](#two-level-ca) and you want to issue leaf certificates with a TTL of one year, configure the subordinate issuing CA with a TTL of three years. You can always update subordinate CA certificates without replacing the root CA certificate.
 
 3. Choose a validity period for your root CA.
 
-   When you update a root CA certificate, the change impacts your entire public-key infrastructure. To minimize impact, it is recommended that you set a long validity period for your root CA certificate. In {{site.data.keyword.secrets-manager_short}}, the default TTL for root certificates is 10 years.
+    When you update a root CA certificate, the change impacts your entire public-key infrastructure. To minimize impact, it is recommended that you set a long validity period for your root CA certificate. In {{site.data.keyword.secrets-manager_short}}, the default TTL for root certificates is 10 years.
 
 ### Choosing a Key management service
 {: #choose-key-management-service}
@@ -164,18 +164,18 @@ You should have an instance of HPCS provisioned in your account. In your HPCS in
 Follow the instructions in HPCS documentation for setting up a PKCS #11 Normal user type.
 
 1. Create custom IAM roles
-  1. [Create a custom role for performing crypto operations](/docs/hs-crypto?topic=hs-crypto-best-practice-pkcs11-access#create-crypto-operator)
-  2. [Create a custom role for managing keys](/docs/hs-crypto?topic=hs-crypto-best-practice-pkcs11-access#create-manage-key-operator)
+   1. [Create a custom role for performing crypto operations](/docs/hs-crypto?topic=hs-crypto-best-practice-pkcs11-access#create-crypto-operator)
+   2. [Create a custom role for managing keys](/docs/hs-crypto?topic=hs-crypto-best-practice-pkcs11-access#create-manage-key-operator)
 
 2. Create IAM service ID
-  1. [Create service ID for the normal user](/docs/hs-crypto?topic=hs-crypto-best-practice-pkcs11-access#create-service-id-api-key-normal-user)
+   1. [Create service ID for the normal user](/docs/hs-crypto?topic=hs-crypto-best-practice-pkcs11-access#create-service-id-api-key-normal-user)
 
   Note: do not create an API key for the Service ID. The API key will be created and managed by {{site.data.keyword.secrets-manager_short}}
 {: note}
 
 3. Assign IAM roles to the service ID
-  1. [Assign the custom roles to the service ID](/docs/hs-crypto?topic=hs-crypto-best-practice-pkcs11-access#assign-custom-role-normal-user-service)
-  2. Assign a Viewer role to the service ID for the HPCS instance.
+   1. [Assign the custom roles to the service ID](/docs/hs-crypto?topic=hs-crypto-best-practice-pkcs11-access#assign-custom-role-normal-user-service)
+   2. Assign a Viewer role to the service ID for the HPCS instance.
 
 In your {{site.data.keyword.secrets-manager_short}} instance:
 1. [Configure the IAM credentials engine](/docs/secrets-manager?topic=secrets-manager-configure-iam-engine&interface=ui)
@@ -202,10 +202,10 @@ Before you create a certificate authority in {{site.data.keyword.secrets-manager
 
 2. Choose a key size.
 
-   The key size or length that you select determines the encryption strength. The larger the key size for an algorithm family, the more difficult it is to break. Keep in mind that longer key lengths results in more data to store and transmit, which can impact the performance of your certificate. As a best practice, choose a key size that is appropriate for the TTL or validity period of your certificate.
+    The key size or length that you select determines the encryption strength. The larger the key size for an algorithm family, the more difficult it is to break. Keep in mind that longer key lengths results in more data to store and transmit, which can impact the performance of your certificate. As a best practice, choose a key size that is appropriate for the TTL or validity period of your certificate.
    
-   For longer living certificates, it is recommended to use longer key lengths to provide more encryption protection.
-   {: tip}
+    For longer living certificates, it is recommended to use longer key lengths to provide more encryption protection.
+    {: tip}
 
 ## Using certificate authority unauthenticated endpoints
 {: #unauthenticated-endpoints}
@@ -215,7 +215,7 @@ If you're using leaf certificates that are issued by a CA in {{site.data.keyword
 ### Read Certificate Revocation List
 {: #read-certificate-revocation-list}
 
-Wit this endpoint, you can retrieve the current CRL in raw DER-encoded form. If `/pem` is added to the endpoint, the CRL is returned in PEM format.
+With this endpoint, you can retrieve the current CRL in raw DER-encoded form. If `/pem` is added to the endpoint, the CRL is returned in PEM format.
 
 ```sh
 GET v1/ibmcloud/private_cert/config/certificate_authorities/:ca-name/crl(/pem)

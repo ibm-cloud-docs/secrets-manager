@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-05"
+lastupdated: "2024-08-12"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -92,7 +92,6 @@ The following table lists the endpoint URLs by region that can be used to intera
 | Tokyo         | `https://{instance_ID}.jp-tok.secrets-manager.appdomain.cloud`   |
 | Toronto       | `https://{instance_ID}.ca-tor.secrets-manager.appdomain.cloud`   |
 | Washington DC | `https://{instance_ID}.us-east.secrets-manager.appdomain.cloud`  |
-
 {: caption="Table 1. Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
 {: #public-endpoints-vault}
 {: tab-title="Public endpoints"}
@@ -111,7 +110,7 @@ The following table lists the endpoint URLs by region that can be used to intera
 | Tokyo         | `https://{instance_ID}.private.jp-tok.secrets-manager.appdomain.cloud`   |
 | Toronto       | `https://{instance_ID}.private.ca-tor.secrets-manager.appdomain.cloud`   |
 | Washington DC | `https://{instance_ID}.private.us-east.secrets-manager.appdomain.cloud`  |
-{: caption="Table 1. Private endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
+{: caption="Table 2. Private endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
 {: #private-endpoints-vault}
 {: tab-title="Private endpoints"}
 {: tab-group="vault-endpoint-urls"}
@@ -129,7 +128,7 @@ This section describes the headers that are common to all requests.
 | --------------- | ----------------------------------------------------------------------------------- |
 | `X-Vault-Token` | **Required.** A valid Vault token with sufficient permissions to perform the operation. |
 | `Content-Type`  | **Required.** `application/json`                                                        |
-{: caption="Table 2. Common headers" caption-side="top"}
+{: caption="Table 3. Common headers" caption-side="top"}
 
 ### Timestamps
 {: #vault-api-timestamps}
@@ -152,7 +151,7 @@ Logs in to Vault by using an {{site.data.keyword.cloud_notm}} IAM token and obta
 | Request parameters      | Description                                    |
 | ------- | ---------------------------------------------- |
 | `token` | **Required.** Your {{site.data.keyword.cloud_notm}} IAM access token. |
-{: caption="Table 3. Login request parameters" caption-side="top"}
+{: caption="Table 4. Login request parameters" caption-side="top"}
 
 
 #### Example request
@@ -220,7 +219,7 @@ Use a duration string such as `300s` or `2h45m`. Valid time units are `s`, `m`, 
 | --------------- | ----------------------------------------------------------------------------------------------------------------- |
 | `token_max_ttl` | The maximum lifetime of the login token. Default is `24h`. This value can't exceed the Vault `MaxLeaseTTL` value. |
 | `token_ttl`     | The initial time-to-live (TTL) of the login token to generate. Default is `1h`.                                   |
-{: caption="Table 3. Configure login token request parameters" caption-side="top"}
+{: caption="Table 5. Configure login token request parameters" caption-side="top"}
 
 
 #### Example request
@@ -293,7 +292,7 @@ Creates a secret group.
 | ------------- | ----------------------------------------------------------------------------------- |
 | `name`        | **Required.** The human-readable alias that you want to assign to the secret group. |
 | `description` | An extended description of the secret group.                                        |
-{: caption="Table 4. Create secret group request parameters" caption-side="top"}
+{: caption="Table 6. Create secret group request parameters" caption-side="top"}
 
 
 #### Example request
@@ -395,7 +394,7 @@ Updates the details of an existing secret group.
 | ------------- | ----------------------------------------------------------------------------------- |
 | `name`        | **Required.** The human-readable alias that you want to assign to the secret group. |
 | `description` | An extended description of the secret group.                                        |
-{: caption="Table 5. Update secret group request parameters" caption-side="top"}
+{: caption="Table 7. Update secret group request parameters" caption-side="top"}
 
 
 #### Example request
@@ -534,7 +533,7 @@ Creates or imports a secret by using the {{site.data.keyword.secrets-manager_sho
 | `payload`     | **Required.** The secret data to assign to the secret. |
 | `expiration_date` | The expiration date that you want to assign to the secret. The date format follows [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).|
 | `labels[]` | Labels that you can use to filter for secrets in your instance. Up to 30 labels can be added. |
-{: caption="Table 6. Create secret request parameters - Arbitrary secrets" caption-side="top"}
+{: caption="Table 8. Create secret request parameters - Arbitrary secrets" caption-side="top"}
 {: #vault-create-secret-params-arbitrary}
 {: tab-title="Arbitrary secrets"}
 {: tab-group="vault-create-secret-params"}
@@ -547,7 +546,7 @@ Creates or imports a secret by using the {{site.data.keyword.secrets-manager_sho
 | `access_groups[]`    | **Required.** The access groups that define the capabilities of the service ID and API key that are generated for an `iam_credentials` secret. |
 | `ttl`    |  **Required.** The time-to-live (TTL) or lease duration to assign to generated credentials. The value can be either an integer that specifies the number of seconds, or the string representation of a duration, such as `120m` or `24h`. |
 | `labels[]` | Labels that you can use to filter for secrets in your instance. Up to 30 labels can be added. |
-{: caption="Table 6. Create secret request parameters - IAM credentials" caption-side="top"}
+{: caption="Table 9. Create secret request parameters - IAM credentials" caption-side="top"}
 {: #vault-create-secret-params-iam-creds}
 {: tab-title="IAM credentials"}
 {: tab-group="vault-create-secret-params"}
@@ -559,7 +558,7 @@ Creates or imports a secret by using the {{site.data.keyword.secrets-manager_sho
 | `description` | An extended description of the secret.                                      |
 | `payload` | **Required.** The secret data in JSON format to assign to the secret. The maximum file size is 512 KB. |
 | `labels[]` | Labels that you can use to filter for secrets in your instance. Up to 30 labels can be added. |
-{: caption="Table 6. Create secret request parameters - Key-value secrets" caption-side="top"}
+{: caption="Table 10. Create secret request parameters - Key-value secrets" caption-side="top"}
 {: #vault-create-secret-params-kv}
 {: tab-title="Key-value secrets"}
 {: tab-group="vault-create-secret-params"}
@@ -574,7 +573,7 @@ Creates or imports a secret by using the {{site.data.keyword.secrets-manager_sho
 | `password`    | The password to assign to the secret. |
 | `expiration_date` | The expiration date that you want to assign to the secret. The date format follows [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).|
 | `labels[]` | Labels that you can use to filter for secrets in your instance. Up to 30 labels can be added. |
-{: caption="Table 6. Create secret request parameters - User credentials" caption-side="top"}
+{: caption="Table 11. Create secret request parameters - User credentials" caption-side="top"}
 {: #vault-create-secret-params-user-creds}
 {: tab-title="User credentials"}
 {: tab-group="vault-create-secret-params"}
@@ -588,7 +587,7 @@ Creates or imports a secret by using the {{site.data.keyword.secrets-manager_sho
 | `private_key` | The matching private key to assign to an `imported_cert` secret. |
 | `intermediate` | The intermediate certificate data to assign to an `import_cert` secret.|
 | `labels[]` | Labels that you can use to filter for secrets in your instance. Up to 30 labels can be added. |
-{: caption="Table 6. Create secret request parameters - Imported certificates" caption-side="top"}
+{: caption="Table 12. Create secret request parameters - Imported certificates" caption-side="top"}
 {: #vault-create-secret-params-imported-certs}
 {: tab-title="Imported certificates"}
 {: tab-group="vault-create-secret-params"}
@@ -610,7 +609,7 @@ Creates or imports a secret by using the {{site.data.keyword.secrets-manager_sho
 | `auto_rotate` | Determines whether Secrets Manager rotates your certificate automatically. For private certificates, the certificate is rotated according to the time interval specified in the `interval` and `unit` fields.  |
 | `interval` | Used together with the `unit` field to specify the rotation interval. The minimum interval is one day, and the maximum interval is 3 years (1095 days). Required in case `auto_rotate` is set to `true`.  |
 | `unit` | The time unit of the rotation interval. Allowable values are: `day`, `month` |            
-{: caption="Table 6. Create secret request parameters - Private certificates" caption-side="top"}
+{: caption="Table 13. Create secret request parameters - Private certificates" caption-side="top"}
 {: #vault-create-secret-params-private-certs}
 {: tab-title="Private certificates"}
 {: tab-group="vault-create-secret-params"}
@@ -629,7 +628,7 @@ Creates or imports a secret by using the {{site.data.keyword.secrets-manager_sho
 | `auto_rotate` | Determines whether Secrets Manager rotates your certificate automatically.  \n  \n If set to `true`, the service reorders your certificate 31 days before it expires. Default: `false`|
 | `rotate_keys` | Determines whether Secrets Manager rotates the private key for your certificate automatically. If set to `true`, the service generates and stores a new private key for your rotated certificate. Default: `false` |
 | `labels[]` | Labels that you can use to filter for secrets in your instance. Up to 30 labels can be added. |
-{: caption="Table 6. Create secret request parameters - Public certificates" caption-side="top"}
+{: caption="Table 14. Create secret request parameters - Public certificates" caption-side="top"}
 {: #vault-create-secret-params-public-certs}
 {: tab-title="Public certificates"}
 {: tab-group="vault-create-secret-params"}
@@ -641,7 +640,7 @@ Creates or imports a secret by using the {{site.data.keyword.secrets-manager_sho
 | `source_crn` | **Required.** The CRN of the source service instance.   |
 | `role` | **Required.** The IAM service role name for the level of permissions that you want to assign. |
 | `ttl` |  The time-to-live (TTL) to assign to the credentials. Time can be specified in days.|
-{: caption="Table 6. Create secret request parameters - Service credentials" caption-side="top"}
+{: caption="Table 14. Create secret request parameters - Service credentials" caption-side="top"}
 {: #vault-create-secret-params-service-credentials}
 {: tab-title="Service credentials"}
 {: tab-group="vault-create-secret-params"}
@@ -2245,7 +2244,7 @@ Update the metadata of a secret, such as its name, description, or expiration da
 | `name`        | The updated name to assign to the secret.                                           |
 | `description` | The updated description to assign to the secret.                                    |
 | `expiration_date` | The updated expiration date to assign to the secret. This option is supported for the `arbitrary` and `username_password` secret types. The date format follows [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).|
-{: caption="Table 7. Update secret metadata request parameters" caption-side="top"}
+{: caption="Table 16. Update secret metadata request parameters" caption-side="top"}
 
 
 #### Example requests
@@ -2322,7 +2321,7 @@ Create a new version of a secret. The secret retains its identifying information
 | `certificate` | The new certificate to assign to an `imported_cert` secret. |
 | `private_key` | The new private key to assign to an `imported_cert` secret. |
 | `intermediate` | The new intermediate certificate data to assign to an `import_cert` secret.|
-{: caption="Table 8. Rotate secret request parameters" caption-side="top"}
+{: caption="Table 17. Rotate secret request parameters" caption-side="top"}
 
 
 #### Example requests
@@ -2578,7 +2577,7 @@ List the locks that are associated with a specified secret.
 | `limit`     | The number of locks to retrieve. Default is 25. To retrieve a different set of items, use `limit` with `offset` to page through your available resources. |
 | `offset`    | The number of locks to skip. Default is 0. By specifying offset, you retrieve a subset of locks that starts with the offset value. Use offset with limit to page through your available secrets locks. |
 | `search` | Filter locks that contain the specified string in their name. |
-{: caption="Table 9. Lock secret request parameters" caption-side="top"}
+{: caption="Table 18. Lock secret request parameters" caption-side="top"}
 
 #### Example request
 {: #vault-list-locks-request}
@@ -2683,7 +2682,7 @@ A lock can be used to prevent a secret from being deleted or modified while it's
 | `name`     | A human-readable name to assign to your secret lock. Names are unique per secret version.  /n **Note:** Creating a lock with an existing name replaces the lock and overrides its attributes. |
 | `description`    | An extended description of your secret lock. |
 | `attributes` | Optional information to associate with a lock, such as resources CRNs to be used by automation. |
-{: caption="Table 9. Lock secret request parameters" caption-side="top"}
+{: caption="Table 19. Lock secret request parameters" caption-side="top"}
 
 #### Example request
 {: #vault-create-locks-request}
@@ -2942,7 +2941,7 @@ Use `{version_id}` in the URL path to specify the version. The aliases `current`
 | `limit`     | The number of locks to retrieve. Default is 25. To retrieve a different set of items, use `limit` with `offset` to page through your available resources. |
 | `offset`    | The number of locks to skip. Default is 0. By specifying offset, you retrieve a subset of locks that starts with the offset value. Use offset with limit to page through your available secrets locks. |
 | `search` | Filter locks that contain the specified string in their name. |
-{: caption="Table 9. Lock secret request parameters" caption-side="top"}
+{: caption="Table 20. Lock secret request parameters" caption-side="top"}
 
 #### Example request
 {: #vault-list-version-locks-request}
@@ -3048,7 +3047,7 @@ A lock can be used to prevent a secret from being deleted or modified while it's
 | `name`     | A human-readable name to assign to your secret lock. Names are unique per secret version.  /n **Note:** Creating a lock with an existing name replaces the lock and overrides its attributes. |
 | `description`    | An extended description of your secret lock. |
 | `attributes` | Optional information to associate with a lock, such as resources CRNs to be used by automation. |
-{: caption="Table 9. Lock secret request parameters" caption-side="top"}
+{: caption="Table 21. Lock secret request parameters" caption-side="top"}
 
 #### Example request
 {: #vault-create-version-locks-request}
@@ -3273,7 +3272,7 @@ Creates or updates an [automatic rotation policy](/docs/secrets-manager?topic=se
 | ------------- | ----------------------------------------------------------------------------------- |
 | `interval`     | The length of the secret rotation time interval. |
 | `unit`    | The units for the secret rotation time interval. Allowable values are: day, month|
-{: caption="Table 9. Set secret policy request parameters" caption-side="top"}
+{: caption="Table 22. Set secret policy request parameters" caption-side="top"}
 
 
 #### Example request
@@ -3420,7 +3419,7 @@ Configures a secrets engine that serves as the backend for a specific type of se
 | Request parameters         | Description                                                                         |
 | ------------- | ----------------------------------------------------------------------------------- |
 | `api_key`     | An {{site.data.keyword.cloud_notm}} API key that can create and manage service IDs. The API key must be assigned the Editor platform role on the Access Groups Service and the Operator platform role on the IAM Identity Service. |
-{: caption="Table 10. IAM secrets engine request parameters" caption-side="top"}
+{: caption="Table 23. IAM secrets engine request parameters" caption-side="top"}
 {: #iam-secrets-engine-request-params}
 {: tab-title="IAM credentials"}
 {: tab-group="vault-configure-secret-type-params"}
@@ -3516,7 +3515,7 @@ You can add multiple configurations for your instance:
 | `name`        | A human-readable name to assign to your certificate authority configuration.        |
 | `type`        | The environment type, for example the Let's Encrypt staging or production environment that corresponds with the URL that you want to target to order public certificates. Allowable values are: `letsencrypt-stage`, `letsencrypt` | 
 | `private_key` | The private key that is associated with your registered ACME account.               |
-{: caption="Table 11. Public certificates engine request parameters" caption-side="top"}
+{: caption="Table 24. Public certificates engine request parameters" caption-side="top"}
 {: #public-cert-secrets-engine-ca-request-params}
 {: tab-title="Public CAs"}
 {: tab-group="vault-add-config-params"}
@@ -3528,7 +3527,7 @@ You can add multiple configurations for your instance:
 | `type` | The name of the DNS provider that you want to use. Allowable values are: `cis`             |
 | `cis_crn` | The CRN of the Cloud Internet Services (CIS) instance that you want to use.             |
 | `cis_apikey` | An API key that has access to both your CIS instance and {{site.data.keyword.secrets-manager_short}} instance. Alternatively, you can also create an authorization between both services by using IAM. |
-{: caption="Table 11. Public certificates engine request parameters" caption-side="top"}
+{: caption="Table 25. Public certificates engine request parameters" caption-side="top"}
 {: #public-cert-secrets-engine-dns-request-params}
 {: tab-title="DNS providers"}
 {: tab-group="vault-add-config-params"}
@@ -3539,7 +3538,7 @@ You can add multiple configurations for your instance:
 | `name`        | A human-readable name to assign to your certificate authority configuration.        |
 | `type`        | The type of certificate authority that you want to create. Allowable values are: `root_certificate_authority`, `intermediate_certificate_authority`. | 
 | `[params..]`  | For a complete list of parameters, see [Add a configuration](/apidocs/secrets-manager/secrets-manager-v2#create-configuration){: external}. |
-{: caption="Table 11. Private certificates engine request parameters" caption-side="top"}
+{: caption="Table 26. Private certificates engine request parameters" caption-side="top"}
 {: #private-cert-secrets-engine-ca-request-params}
 {: tab-title="Private CAs"}
 {: tab-group="vault-add-config-params"}
@@ -3550,7 +3549,7 @@ You can add multiple configurations for your instance:
 | `name`        | A human-readable name to assign to your certificate template.                       |
 | `type`        | The type of configuration that you want to add. For certificate templates, use `certificate_templates`. |
 | `[params..]`  | For a complete list of parameters, see [Add a configuration](/apidocs/secrets-manager/secrets-manager-v2#create-configuration){: external}. |
-{: caption="Table 11. Private certificates engine request parameters" caption-side="top"}
+{: caption="Table 27. Private certificates engine request parameters" caption-side="top"}
 {: #private-cert-secrets-engine-template-request-params}
 {: tab-title="Certificate templates"}
 {: tab-group="vault-add-config-params"}
