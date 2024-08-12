@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: "2024"
-lastupdated: "2024-08-09"
+  years: 2020, "2024"
+lastupdated: "2024-08-12"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, public certificates
 
@@ -697,8 +697,8 @@ The newly-created TXT records that are in the relevant domains in Akamai are not
 
 3. Complete the challenges that are marked as `pending` before they expire by adding the TXT records that are specified in the challenge to your domain in your DNS provider account to verify your ownership of the domain.
 
-   If you order a certificate for subdomains, for example, `sub1.sub2.domain.com`, you need to add the TXT records to your registered domain `domain.com`.
-   {: note}
+    If you order a certificate for subdomains, for example, `sub1.sub2.domain.com`, you need to add the TXT records to your registered domain `domain.com`.
+    {: note}
 
 4. Validate that the TXT records that you added are propagated. Depending on your DNS provider, it can take some time to complete.
 
