@@ -37,21 +37,6 @@
   "section_updates": {
     "view_more": "/docs/secrets-manager?topic=secrets-manager-release-notes",
     "tiles": [
-      {
-        "date": "3 June 2024",
-        "title": "Now available: Operational metrics",
-        "description": "Secrets Manager now provides operational visibility into the performance and health of your instance. To learn more, see [Monitoring operational metrics](/docs/secrets-manager?topic=secrets-manager-operational-metrics)"
-      },
-      {
-        "date": "11 December 2023",
-        "title": "Now available: Service credentials secret type",
-        "description": "Secrets Manager now provides support to create and manage IBM Cloud Resource keys for supported services, such as HMAC keys, SASL credentials, TLS certificates and more."
-      },
-      {
-        "date": "4 December 2023",
-        "title": "Madrid availability",
-        "description": "Users can now create instances of Secret Manager in the Madrid region."
-      }
     ]
   }
 }
