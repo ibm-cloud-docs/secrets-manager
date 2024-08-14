@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-06-03"
+lastupdated: "2024-08-14"
 
 keywords: monitoring, metrics, operational metrics
 
@@ -198,7 +198,7 @@ You can scope down your metrics by using scope filters, which are more granular 
 ### How to find the {{site.data.keyword.mon_short}} dashboard for {{site.data.keyword.secrets-manager_short}} using the Observability page
 {: #find-observability}
 
-After configuring your {{site.data.keyword.mon_short}} instance to receive platform metrics, follow the below steps:
+After configuring your {{site.data.keyword.mon_short}} instance to receive platform metrics, follow these steps:
 
 1. Go to the [Monitoring](/observe/monitoring){: external} dashboard and find your monitoring instance that is configured to receive platform metrics.
 2. Click on the **View {{site.data.keyword.mon_short}}** button in the **View Dashboard** column of the monitoring instance.

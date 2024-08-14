@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-10-03"
+  years: 2024
+lastupdated: "2024-08-14"
 
 keywords: context-based restrictions, access allowlist, network security
 
@@ -69,7 +69,7 @@ With [context-based restrictions](/docs/account?topic=account-context-restrictio
 
 You can control {{site.data.keyword.secrets-manager_short}} resources with context-based restrictions and identity and access management (IAM) policies. These resources include Virtual Private Cloud (VPC) references and Internet Protocol (IP) addresses that are linked to your {{site.data.keyword.secrets-manager_short}} instance.
 
-These restrictions work with traditional IAM policies, which are based on identity, to provide an extra layer of protection. Unlike IAM policies, context-based restrictions don't assign access. Context-based restrictions check that an access request comes from an allowed context that you configure. Since both IAM access and context-based restrictions enforce access, context-based restrictions offer protection even in the face of compromised or mismanaged credentials. For more information, see [What are context-based restrictions](/docs/account?topic=account-context-restrictions-whatis).
+These restrictions work with traditional IAM policies, which are based on identity, to provide another layer of protection. Unlike IAM policies, context-based restrictions don't assign access. Context-based restrictions check that an access request comes from an allowed context that you configure. Since both IAM access and context-based restrictions enforce access, context-based restrictions offer protection even in the face of compromised or mismanaged credentials. For more information, see [What are context-based restrictions](/docs/account?topic=account-context-restrictions-whatis).
 
 A user must have the `Administrator` role on the {{site.data.keyword.secrets-manager_short}} service to create, update, or delete rules. A user must also have either the `Editor` or `Administrator` role on the context-based restrictions service to create, update, or delete network zones. A user with the `Viewer` role on the context-based restrictions service can add only network zones to a rule. 
 {: note}

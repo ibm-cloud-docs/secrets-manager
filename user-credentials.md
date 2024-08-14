@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-21"
+lastupdated: "2024-08-14"
 
 keywords: username, password, user credentials, store password
 
@@ -233,7 +233,7 @@ You can either provide a password by setting the optional `password` argument in
 
 If you configure the secret with an automatic rotation policy it is recommended to omit the `password` argument to have the initial password also generated automatically. This is to avoid a Terraform drift situation, where after automatic rotation has occured, Terraform detects that the password had been changed outside of Terraform. 
 
-The first example below shows a query that you can use to create a username and password secret with a randomly-generated password and auto-rotation enabled. This example also shows how to specify a non-default password generation policy for thr secret.
+The following example shows a query that you can use to create a username and password secret with a randomly-generated password and auto-rotation enabled. This example also shows how to specify a non-default password generation policy for thr secret.
 
 ```terraform
     resource "ibm_sm_username_password_secret" "test_username_password_secret" {
@@ -257,7 +257,7 @@ The first example below shows a query that you can use to create a username and 
 ```
 {: codeblock}
 
-The second example shows a query that you can use to create a username and password secret with the password provided in the Terraform configuration. Auto-rotation is disabled in this example, but you can rotate the password manually by modifying the value of the `password` argument in the configuration.
+The following example shows a query that you can use to create a username and password secret with the password provided in the Terraform configuration. Auto-rotation is disabled in this example, but you can rotate the password manually by modifying the value of the `password` argument in the configuration.
 
 ```terraform
     resource "ibm_sm_username_password_secret" "test_username_password_secret" {

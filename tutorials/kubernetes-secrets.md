@@ -3,7 +3,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-05-16"
+lastupdated: "2024-08-14"
 
 keywords: tutorial, Secrets Manager
 
@@ -74,7 +74,7 @@ Alternatively, you can use the {{site.data.keyword.containershort}} CLI plug-in 
 
 {: shortdesc}
 
-You're a developer for a large organization, and your team is using {{site.data.keyword.containershort}} to deploy containerized apps and services on {{site.data.keyword.cloud_notm}}. In your current flow, you use [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/){: external} to store the sensitive data, such as passwords and API keys, that are used by the apps and services that run in your cluster. To have more control over your application secrets, you want the ability to store your cluster secrets in an external secrets management service, where you can [encrypt them at rest](/docs/secrets-manager?topic=secrets-manager-mng-data), [monitor their activity](/docs/secrets-manager?topic=secrets-manager-at-events), and easily manage them.
+You're a developer in an organization, and your team is using {{site.data.keyword.containershort}} to deploy containerized apps and services on {{site.data.keyword.cloud_notm}}. In your current flow, you use [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/){: external} to store the sensitive data, such as passwords and API keys, that are used by the apps and services that run in your cluster. To have more control over your application secrets, you want the ability to store your cluster secrets in an external secrets management service, where you can [encrypt them at rest](/docs/secrets-manager?topic=secrets-manager-mng-data), [monitor their activity](/docs/secrets-manager?topic=secrets-manager-at-events), and easily manage them.
 
 With {{site.data.keyword.secrets-manager_short}}, you can centralize and secure the secrets that are used by the apps that run in your Kubernetes clusters. Rather than injecting your secrets at deployment time, you can configure your apps to securely retrieve secrets from {{site.data.keyword.secrets-manager_short}} at run time. When it's time to rotate the secret, you can do so from {{site.data.keyword.secrets-manager_short}}. For example, consider the following scenario:
 
