@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-28"
+lastupdated: "2024-08-13"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -280,8 +280,6 @@ Check out the following image to see how a secret is structured.
 Secrets, in their lifetime, transition through several states that are a function of how long the secrets are in existence and whether its associated resources can be accessed.
 
 {{site.data.keyword.secrets-manager_short}} provides a graphical user interface and a REST API for tracking secrets as they move through several states in their lifecycle. The following diagram shows how a secret passes through states between its generation and its destruction.
-
-![The diagram shows the same components as described in the following definition table.](){: caption="Figure 2. Secret states and transitions" caption-side="bottom"}
 
 | State | Description |
 | --- | --- |

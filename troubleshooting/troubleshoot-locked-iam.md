@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-03-01"
+  years: 2020, 2024
+lastupdated: "2024-08-12"
 
 keywords: 412 Precondition Failed, IAM credentials, locked IAM credentials
 
@@ -68,7 +68,7 @@ You try to read or access an IAM credentials secret that you manage in {{site.da
 You have an IAM credentials secret that you want to regenerate for your application. But when you use the {{site.data.keyword.secrets-manager_short}} APIs, SDKs, or CLI to get the secret, you see the following `412 Precondition Failed` error:
 {: tsSymptoms}
 
-```
+```plaintext
 The requested action can't be completed because the secret version is locked.
 ```
 {: screen}

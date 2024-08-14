@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-03-31"
+lastupdated: "2024-08-12"
 
 keywords: terraform, {{site.data.keyword.secrets-manager_short}}
 
@@ -127,10 +127,10 @@ Before you can create an authorization by using Terraform, make sure that you co
 
    2. Run `terraform apply` to create the resources that are defined in the plan.
 
-    ```terraform
-    terraform apply
-    ```
-    {: pre}
+        ```terraform
+        terraform apply
+        ```
+        {: pre}
 
 4. Define local values for your {{site.data.keyword.secrets-manager_short}} instance to be used when you are creating resources.
 

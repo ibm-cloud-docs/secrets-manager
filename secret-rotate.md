@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-26"
+lastupdated: "2024-08-12"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -200,13 +200,13 @@ If the certificate that you are rotating was previously imported with an interme
 4. In the row for the certificate that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
 5. Select or enter the new certificate data.
 
-   Keep in mind that manually rotating a certificate replaces the content of the certificate with the new data that you provide only. Private keys and intermediate certificates from previous versions are not retained.
+    Keep in mind that manually rotating a certificate replaces the content of the certificate with the new data that you provide only. Private keys and intermediate certificates from previous versions are not retained.
 
 6. To rotate the certificate immediately, click **Rotate**.
 7. Optional: Check the version history to view the latest updates.
 8. Redeploy the latest certificate version to your TLS termination point.
 
-   To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager/secrets-manager-v2#get-secret) API.
+    To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager/secrets-manager-v2#get-secret) API.
 
 
 ### Creating new versions of public certificates
@@ -223,15 +223,15 @@ If your {{site.data.keyword.secrets-manager_short}} service instance is enabled 
    1. Upload a file or enter the metadata and the version metadata in JSON format. 
 6. Click **Rotate**.
 
-   A success message is displayed to indicate that your order is being processed. If the validation completes successfully, a new certificate is issued and the status of the certificate changes from **Active, Rotation pending** back to **Active**. If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**.
+    A success message is displayed to indicate that your order is being processed. If the validation completes successfully, a new certificate is issued and the status of the certificate changes from **Active, Rotation pending** back to **Active**. If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**.
 
 7. Optional: Check the issuance details of a certificate.
 
-   You can check the issuance details of a public certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> Details**. If there was an issue with the request, the Status field provides information about why the rotation did not complete successfully.
+    You can check the issuance details of a public certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> Details**. If there was an issue with the request, the Status field provides information about why the rotation did not complete successfully.
 
 8. Redeploy the latest certificate version to your TLS termination point.
 
-   To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager/secrets-manager-v2#get-secret) API.
+    To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager/secrets-manager-v2#get-secret) API.
 
 
 
@@ -250,14 +250,14 @@ To rotate a public certificate that was created by using a manual DNS provider i
 6. Click **Challenges** to access the TXT record name and value that are associated with each of your domains. You need them to complete the challenges.
 7. To validate the ownership of your domains, manually add the TXT records that are provided for each of your domains to your DNS provider account. You must address only the challenges that are not validated, before the expiration date. 
 
-   If you order a certificate for subdomains, for example, `sub1.sub2.domain.com`, you need to add the TXT records to your registered domain `domain.com`.
-   {: note}
+    If you order a certificate for subdomains, for example, `sub1.sub2.domain.com`, you need to add the TXT records to your registered domain `domain.com`.
+    {: note}
 
 8. Verify that the TXT records that you added to your domains are propagated. Depending on your DNS provider, it can take some time to complete.
 9. After you confirm that the records are propagated, click **Validate** to request Let's Encrypt to validate the challenges to your domains and create a public certificate. 
 
-  If the order fails, for example, if the TXT records were not successfully propagated, you must start a new order to proceed. 
-  {: note}
+   If the order fails, for example, if the TXT records were not successfully propagated, you must start a new order to proceed. 
+   {: note}
 
 10. When your certificate is issued, clean up and remove the TXT records from the domains in your DNS provider account.
 
@@ -277,7 +277,7 @@ If your {{site.data.keyword.secrets-manager_short}} service instance is enabled 
 6. Click **Rotate**.
 7. Redeploy the latest certificate version to your TLS termination point.
 
-   To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager/secrets-manager-v2#get-secret) API.
+    To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager/secrets-manager-v2#get-secret) API.
 
 
 ## Manually creating new versions of secrets from the CLI

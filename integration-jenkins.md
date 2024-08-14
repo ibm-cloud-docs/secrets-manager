@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: "2023"
-lastupdated: "2023-06-15"
+  years: 2024
+lastupdated: "2024-08-12"
 
 keywords: migration, integrations, vault jenkins plug-in, ansible, tool integrations
 
@@ -116,7 +116,7 @@ For more information about the {{site.data.keyword.secrets-manager_short}} authe
 
 
 ## Next steps
-{: integration-jenkins-next}
+{: #integration-jenkins-next}
 
 Now that you integrated your Jenkins job by using the Vault plug-in, you can fetch secrets from {{site.data.keyword.secrets-manager_short}} and add the environment variables as usual, without additional code changes.
 
