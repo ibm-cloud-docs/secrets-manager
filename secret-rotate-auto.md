@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-28"
+lastupdated: "2024-08-14"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -74,7 +74,7 @@ Before you get started, be sure that you have the required level of access. To r
 ### Supported secret types
 {: #before-auto-rotate-supported-secret-types}
 
-Automatic rotation is supported for [private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates), [public certificates](/docs/secrets-manager?topic=secrets-manager-public-certificates), [user credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials), and [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials). Depending on the type of secret, automatic rotation takes place immediately on the date and time that you set, or it might need to complete a few extra steps before a new version of the secret can be created.
+Automatic rotation is supported for [private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates), [public certificates](/docs/secrets-manager?topic=secrets-manager-public-certificates), [user credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials), and [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials). Depending on the type of secret, automatic rotation takes place immediately on the date and time that you set, or it might need to complete a few additional steps before a new version of the secret can be created.
 
 | Type | Rotation description |
 | --- | --- |

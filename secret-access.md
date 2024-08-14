@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-03-11"
+lastupdated: "2024-08-14"
 
 keywords: access secret, retrieve secret, read secret, get secret value, get secrets, view secrets, search secrets, read secrets, get secret value
 
@@ -198,7 +198,7 @@ You can further filter retrieved secrets by using the `?secret_types` and `?matc
 {: #get-arbitrary-secret-file-api}
 {: api}
 
-If you created an arbitrary secret by using a binary file, such as an image, the service uses base64 encoding to store the data as a base64 encoded string. To access the secret in its original form, you need to complete a few extra steps to base64 decode your retrieved secret.
+If you created an arbitrary secret by using a binary file, such as an image, the service uses base64 encoding to store the data as a base64 encoded string. To access the secret in its original form, you need to complete a few additional steps to base64 decode your retrieved secret.
 
 First, retrieve the secret by calling the {{site.data.keyword.secrets-manager_short}} API. The following example uses cURL and  `jq` to collect the `payload` value of a secret.
 

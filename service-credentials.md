@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-28"
+lastupdated: "2024-08-14"
 
 keywords: Service credentials, App ID, App Config, Cloudant, Cloud Object Storage, Event Notifications, Event Streams, etcd, ElasticSearch, PostgreSQL, Redis, MongoDB
 
@@ -181,7 +181,7 @@ You can create Service credentials programmatically by calling the {{site.data.k
 You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
 {: curl}
 
-In the below example, a service crednetial for Cloud Object Storage is created, with custom parameters with an existing Service ID's IAM ID, and enabling HMAC. As well as specifying the IAM role to provide for this credential, eg `Writer`.
+In the following example, a service crednetial for Cloud Object Storage is created, with custom parameters with an existing Service ID's IAM ID, and enabling HMAC. As well as specifying the IAM role to provide for this credential, eg `Writer`.
 
 ```sh
 curl -X POST  

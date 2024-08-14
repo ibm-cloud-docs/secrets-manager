@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-03-27"
+lastupdated: "2024-08-14"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -70,7 +70,7 @@ To learn more about the types of secrets that you can manage in {{site.data.keyw
 
 Before you get started, be sure that you have the required level of access. To create or add secrets, you need the [**Writer** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam).
 
-IAM credentials require an extra configuration step before you can start to create or manage them in the service. For more information, see [Configuring the IAM credentials engine](/docs/secrets-manager?topic=secrets-manager-configure-iam-engine).
+IAM credentials require a configuration step before you can start to create or manage them in the service. For more information, see [Configuring the IAM credentials engine](/docs/secrets-manager?topic=secrets-manager-configure-iam-engine).
 {: note}
 
 When changing an IAM credential secret's TTL, it will be applied only on the next secret version rotation.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-12"
+lastupdated: "2024-08-14"
 
 keywords: root certificate authority, root CA, internal signing, external signing
 
@@ -292,7 +292,7 @@ crypto_key {
 
 
 ## Retrieving a root certificate authority in the UI
-{: #get-root-cert-engine-value-ui}
+{: #get-root-cert-value-ui}
 {: ui}
 
 You can retrieve the root certificate authority value by using the {{site.data.keyword.secrets-manager_short}} UI.
@@ -306,7 +306,7 @@ The secret value is displayed for 15 seconds, then the dialog closes.
 
 
 ## Retrieving a root certificate authority using CLI
-{: #get-root-cert-engine-value-cli}
+{: #get-root-cert-value-cli}
 {: cli}
 
 You can retrieve the root certificate authority value by using the {{site.data.keyword.secrets-manager_short}} CLI. In the following example command, replace the engine configuration name with your configuration's name.
@@ -321,7 +321,7 @@ Replace `{instance_ID}` and `{region}` with the values that apply to your {{site
 
 
 ## Retrieving a root certificate authority using API
-{: #get-root-cert-engine-value-api}
+{: #get-root-cert-value-api}
 {: api}
 
 You can retrieve the root certificate authority value by using the {{site.data.keyword.secrets-manager_short}} API. In the following example request, replace the engine configuration name with your configuration's name.

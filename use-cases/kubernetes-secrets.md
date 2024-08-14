@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-03-01"
+  years: 2024
+lastupdated: "2024-08-14"
 
 keywords: Kuberetes secrets, External Kubernetes Operator, sync with Kubernetes, deploy to Kubernetes
 
@@ -65,7 +65,7 @@ You can use {{site.data.keyword.secrets-manager_full}} with {{site.data.keyword.
 ## Scenario: Integrate secrets from {{site.data.keyword.secrets-manager_short}} to your Kubernetes cluster
 {: #use-case-kubernetes-secrets-scenario}
 
-You're a security architect for a large, financial institution that competes regionally with global institutions for clients and opportunities. To maintain and extend its competitive advantage, your company wants to deliver powerful new experiences to its customers at a faster rate. But, the development velocity in your organization has slowed over time, as its services and applications are built on traditional tools and infrastructure that often rely on manual processes. You need to increase velocity, but cannot sacrifice security. You have no tolerance for putting customers in harm's way.
+You're a security architect for a financial institution that competes regionally with global institutions for clients and opportunities. To maintain and extend its competitive advantage, your company wants to deliver powerful new experiences to its customers at a faster rate. But, the development velocity in your organization has slowed over time, as its services and applications are built on traditional tools and infrastructure that often rely on manual processes. You need to increase velocity, but cannot sacrifice security. You have no tolerance for putting customers in harm's way.
 
 After much deliberation, your organization chooses {{site.data.keyword.cloud_notm}} in a major initiative to accelerate velocity within its IT division. Your teams start their transition by using [{{site.data.keyword.containerfull_notm}}](/docs/containers?topic=containers-getting-started) to containerize their apps and move them to the cloud. As part of their automation, they need the ability to generate, secure, and reference thousands of {{site.data.keyword.containershort}} application secrets. Rather than to inject those secrets at deployment time, you want the ability to secure them in an external secrets management service, and then retrieve them seamlessly at application run time.
 
