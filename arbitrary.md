@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-10-03"
+  years: 2020, 2024
+lastupdated: "2024-08-15"
 
 keywords: arbitrary secrets, arbitrary text, custom secrets
 
@@ -86,15 +86,16 @@ To add an arbitrary secret by using the {{site.data.keyword.secrets-manager_shor
 6. Add a name and description to easily identify your secret.
 7. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
 
-    Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
+   Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
+
 8. Optional: Add labels to help you to search for similar secrets in your instance.
 9. Optional: Add metadata to your secret or to a specific version of your secret.
-    1. Upload a file or enter the metadata and the version metadata in JSON format. 
+   1. Upload a file or enter the metadata and the version metadata in JSON format. 
 10. Click **Next**.
 11. Select a file or enter the secret value that you want to associate with the secret.
 
-    {{site.data.keyword.secrets-manager_short}} supports text-based payloads only for arbitrary secrets. If you select a file to assign to an arbitrary secret, the service uses base64 encoding to store the data in your instance. To access this secret later, you need to base64 decode it. Consider assigning a label on your secret with encoded data, such as `encode:base64`, so that you can track secrets that require base64 decoding.
-    {: note}
+   {{site.data.keyword.secrets-manager_short}} supports text-based payloads only for arbitrary secrets. If you select a file to assign to an arbitrary secret, the service uses base64 encoding to store the data in your instance. To access this secret later, you need to base64 decode it. Consider assigning a label on your secret with encoded data, such as `encode:base64`, so that you can track secrets that require base64 decoding.
+   {: note}
 
 12. Optional: Enable expiration  to control the lifespan of the secret.
     1. To set an expiration date for the secret, switch the expiration toggle to **Yes**.
@@ -182,39 +183,39 @@ The following example shows a configuration that you can use to create an arbitr
 
 1. Define an input variable for the arbitrary secret payload in a `variables.tf` file.
 
-```terraform
-    variable "arbitrary_secret_payload" {
-        description = "Arbitrary secret payload"
-        type        = string
-        sensitive   = true
-    }
-```
-  {: codeblock}
+	```terraform
+		variable "arbitrary_secret_payload" {
+			description = "Arbitrary secret payload"
+			type        = string
+			sensitive   = true
+		}
+	```
+	{: codeblock}
   
 
 2. Assign a value to the `arbitrary_secret_payload` variable in a `terraform.tfvars` file.
 
-    By setting values with a `.tfvars` file, you can separate sensitive values from the rest of your variable values, and ensure that your users who work with your configuration know which values are sensitive. For security purposes, you must maintain and share the `.tfvars` file only with your users who have the appropriate access. You must also be careful not to store `.tfvars` files with sensitive values into version control such as Github, in clear text.
-    {: note}
+	By setting values with a `.tfvars` file, you can separate sensitive values from the rest of your variable values, and ensure that your users who work with your configuration know which values are sensitive. For security purposes, you must maintain and share the `.tfvars` file only with your users who have the appropriate access. You must also be careful not to store `.tfvars` files with sensitive values into version control such as Github, in clear text.
+	{: note}
 
-    ```terraform
-    arbitrary_secret_payload = "my sensitive arbitrary payload"
-    ```
-    {: codeblock}
+	```terraform
+	arbitrary_secret_payload = "my sensitive arbitrary payload"
+	```
+	{: codeblock}
 
 
 3. Create the arbitrary secret in the `main.tf` file.
 
-    ```terraform
-    resource "ibm_sm_arbitrary_secret" "sm_arbitrary_secret" {
-        instance_id = local.instance_id
-        region = local.region
-        description = "Extended description for this arbitrary secret"
-        labels = [ "tf-resource"]
-        name = "test-arbitrary-secret"
-        secret_group_id = ibm_sm_secret_group.sm_secret_group_test.secret_group_id
-        payload = var.arbitrary_secret_payload
-    } 
-    ```
-    {: codeblock}
+	```terraform
+	resource "ibm_sm_arbitrary_secret" "sm_arbitrary_secret" {
+		instance_id = local.instance_id
+		region = local.region
+		description = "Extended description for this arbitrary secret"
+		labels = [ "tf-resource"]
+		name = "test-arbitrary-secret"
+		secret_group_id = ibm_sm_secret_group.sm_secret_group_test.secret_group_id
+		payload = var.arbitrary_secret_payload
+	} 
+	```
+	{: codeblock}
 
