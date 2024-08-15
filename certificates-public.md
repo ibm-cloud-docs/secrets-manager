@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, "2024"
-lastupdated: "2024-08-12"
+  years: 2021, 2024
+lastupdated: "2024-08-15"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, public certificates
 
@@ -85,21 +85,22 @@ After you [configure the public certificates engine](/docs/secrets-manager?topic
 
 - {{site.data.keyword.secrets-manager_short}} sends your request to the selected certificate authority. The status of the certificate changes to **Pre-activation** to indicate that your request is being processed.
 - If the validation completes successfully, your certificate is issued and its status changes to **Active**.
-- If the validation doesn't complete successfully, the status of your certificate changes to **Deactivated**. From your Secrets table, you can check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.
-    {: ui}
 
 - If the validation doesn't complete successfully, the status of your certificate changes to **Deactivated**. From your Secrets table, you can check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.
-    {: cli}
+{: ui}
+
+- If the validation doesn't complete successfully, the status of your certificate changes to **Deactivated**. From your Secrets table, you can check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**.
+{: cli}
 
 - If the validation doesn't complete successfully, the status of your certificate changes to **Deactivated**. You can use the [Get secret metadata](/apidocs/secrets-manager/secrets-manager-v2#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
-    {: api}
+{: api}
 
 - After the certificate is issued, you can deploy it to your integrated apps, download it, or modify its rotation options. 
 
 
 ### Ordering public certificates with integrated DNS providers in the UI
 {: #order-public-certificates-ui}
-{: ui}
+{: ui} 
 
 You can order a certificate by using the {{site.data.keyword.secrets-manager_short}} UI.
 
@@ -280,7 +281,6 @@ The following example shows a configuration that you can use to order a public c
         }
     }
 ```
-
 {: codeblock}
 
 
@@ -328,14 +328,14 @@ To create a public certificate by using a manual DNS provider in the UI, complet
 16. Click **Challenges** to access the TXT record name and value that are associated with each of your domains. You need them to complete the challenges.
 17. To validate the ownership of your domains, manually add the TXT records that are provided for each of your domains to your DNS provider account. You must address only the challenges that are not validated before the expiration date. 
 
-    If you order a certificate for a subdomain, for example, `sub1.sub2.domain.com`, you need to add the TXT records to your registered domain `domain.com`.
+   If you order a certificate for a subdomain, for example, `sub1.sub2.domain.com`, you need to add the TXT records to your registered domain `domain.com`.
     {: note}
 
 18. Verify that the TXT records that you added to your domains are propagated. Depending on your DNS provider, it can take some time to complete.
 19. After you confirm that the records are propagated, click **Validate** to request Let's Encrypt to validate the challenges to your domains and create a public certificate. 
 
-    If the order fails because the TXT records were not successfully propagated, you must start a new order to proceed. 
-    {: note}
+   If the order fails because the TXT records were not successfully propagated, you must start a new order to proceed. 
+   {: note}
 
 20. When your certificate is issued, clean up and remove the TXT records from the domains in your DNS provider account.
 
@@ -349,8 +349,7 @@ To create a public certificate by using a manual DNS provider, complete the foll
 1. Create a certificate authority (CA) configuration by following the steps that are defined in [Adding a CA configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority&interface=ui).
 2. Create a new public certificate by specifying `manual` as your DNS configuration.
 
-
-    ```sh
+   ```sh
     curl -X POST 
         -H "Authorization: Bearer {iam_token}" \
         -H "Accept: application/json" \
@@ -545,60 +544,60 @@ The command outputs the ID value of the secret, along with other metadata. For m
 
 To create a public certificate by using Akamai as your DNS provider, complete the following steps.
 
-1. Create a certificate authority (CA) configuration by following the steps that are defined in [Adding a CA configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority&interface=ui).
-
+1. Create a certificate authority (CA) configuration by following the steps that are defined in [Adding a CA configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority).
 2. Create a new public certificate by specifying `akamai` as your DNS configuration. 
 3. Use one of the following Akamai's authentication methods. You can use an `edgerc` file or directly provide your Akamai authentication credentials.  [Learn more about Akamai's authentication credentials](https://techdocs.akamai.com/developer/docs/set-up-authentication-credentials).
 
-  a. Provide the path to your `.edgerc` file and the relevant `config_section`.
-  ```terraform
-      resource "ibm_sm_public_certificate" "sm_public_certificate" {
-          instance_id = local.instance_id
-          region = local.region
-          name = "test-public-certificate"
-          secret_group_id = "default"
-          ca = ibm_sm_public_certificate_configuration_ca_lets_encrypt.my_lets_encrypt_config.name
-          dns = “akamai”
-          akamai {
-              edgerc {
-                path_to_edgerc = “/path/to/your/edgerc/file”
-                config_section = “default”
-              }
-          }
-          rotation {
-              auto_rotate = true
-              rotate_keys = false
-          }
-      }
+	1. Provide the path to your `.edgerc` file and the relevant `config_section`.
 
-  ```
-  {: pre}
+		```terraform
+			resource "ibm_sm_public_certificate" "sm_public_certificate" {
+					instance_id = local.instance_id
+					region = local.region
+					name = "test-public-certificate"
+					secret_group_id = "default"
+					ca = ibm_sm_public_certificate_configuration_ca_lets_encrypt.my_lets_encrypt_config.name
+					dns = “akamai”
+					akamai {
+						edgerc {
+							path_to_edgerc = “/path/to/your/edgerc/file”
+							config_section = “default”
+						}
+					}
+					rotation {
+						auto_rotate = true
+						rotate_keys = false
+					}
+			}
+
+      ```
+      {: pre}
   
-  b. Provide your Akamai's authentication credentials:
-  ```terraform
-      resource "ibm_sm_public_certificate" "sm_public_certificate" {
-          instance_id = local.instance_id
-          region = local.region
-          name = "test-public-certificate"
-          secret_group_id = "default"
-          ca = ibm_sm_public_certificate_configuration_ca_lets_encrypt.my_lets_encrypt_config.name
-          dns = “akamai”
-          akamai {
-              config {
-                client_secret = “your_client_secret”
-                host = “your_host”
-                access_token = "your_access_token"
-                client_token = "your_client_token"
-              }
-          }
-          rotation {
-              auto_rotate = true
-              rotate_keys = false
-          }
-      }
+	2. Provide your Akamai's authentication credentials.
 
-  ```
-  {: pre}
+		```terraform
+			resource "ibm_sm_public_certificate" "sm_public_certificate" {
+					instance_id = local.instance_id
+					region = local.region
+					name = "test-public-certificate"
+					secret_group_id = "default"
+					ca = ibm_sm_public_certificate_configuration_ca_lets_encrypt.my_lets_encrypt_config.name
+					dns = “akamai”
+					akamai {
+						config {
+							client_secret = “your_client_secret”
+							host = “your_host”
+							access_token = "your_access_token"
+							client_token = "your_client_token"
+						}
+					}
+					rotation {
+						auto_rotate = true
+						rotate_keys = false
+					}
+			}
+      ```
+      {: pre}
 
 
 The newly-created TXT records that are in the relevant domains in Akamai are not automatically deleted. 

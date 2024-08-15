@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-02-26"
+lastupdated: "2024-08-15"
 
 keywords: secret version history, view versions, secret versions
 
@@ -294,7 +294,7 @@ The following example command restores the previous version of a secret. When yo
 ```bash
 ibmcloud sm secret-version-create --secret-d SECRET_ID --secret-version-restore-from-version "previous"
 ```
-{:pre}
+{: pre}
 
 Currently, you can restore only one version back for IAM credentials and imported certificate secrets. A secret version can be restored only if the defined time-to-live (TTL) or lease duration was not reached.
 {: note}
