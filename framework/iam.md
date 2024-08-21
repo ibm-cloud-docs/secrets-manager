@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-05-07"
+lastupdated: "2024-08-21"
 
 keywords: IAM access for Secrets Manager, permissions for Secrets Manager, identity and access management for Secrets Manager, roles for Secrets Manager, actions for Secrets Manager, assigning access for Secrets Manager
 
@@ -65,7 +65,7 @@ IAM access policies enable access to be granted at different levels. Some of the
 
 - Access across all {{site.data.keyword.secrets-manager_short}} service instances in your account
 - Access to an individual {{site.data.keyword.secrets-manager_short}} instance in your account
-- Access to a specific resource within a {{site.data.keyword.secrets-manager_short}} instance, such resource type `secret-group`
+- Access to a specific resource within a {{site.data.keyword.secrets-manager_short}} instance, applicable type is `secret-group`
 
 ## IAM roles and actions for {{site.data.keyword.secrets-manager_short}} 
 {: #iam-roles-actions}
