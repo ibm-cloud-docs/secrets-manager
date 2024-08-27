@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-08-14"
+lastupdated: "2024-08-27"
 
 keywords: monitoring, metrics, operational metrics
 
@@ -207,6 +207,14 @@ After configuring your {{site.data.keyword.mon_short}} instance to receive platf
 
 To see metrics for one or more instances, select from the **ibm_service_instance** dropdown in the {{site.data.keyword.secrets-manager_short}} dashboard.
 {: note}
+
+### Opening the {{site.data.keyword.mon_short}} dashboard from {{site.data.keyword.secrets-manager_short}}
+{: #open-from-sm}
+
+After configuring your {{site.data.keyword.mon_short}} instance to receive platform metrics, you can open the dashboard directly from your {{site.data.keyword.secrets-manager_short}} instance.
+
+1. Click on the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg)
+2. Click on the **Monitoring** option to open the dashboard
 
 ## Setting alerts
 {: #set-monitor-alerts}
