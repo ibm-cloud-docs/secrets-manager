@@ -145,39 +145,33 @@ toc:
               href: https://{DomainName}/apidocs/secrets-manager/secrets-manager-v2
           - topic: changelog-api.md
             navtitle: API change log
-      - topicgroup:
-          label: CLI reference
-          topics:
           - topic: secrets-manager-cli.md
-            navtitle: CLI commands
+            navtitle: CLI reference
           - topic: changelog-cli.md
             navtitle: CLI change log
-      - topicgroup:
-          label: Terraform
-          topics:
           - link:
-              label: Secrets Manager Terraform
+              label: Terraform
               href: https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/secrets_manager_secret
-      - topicgroup:
-          label: Vault
-          topics:
-          - topic: vault-api.md
-            navtitle: Vault API reference
-          - topic: vault-kv-api.md
-            navtitle: KV secrets engine
-          - topic: vault-kv-cli.md
-            navtitle: KV CLI commands
-          - topic: vault-cli-configure.md
-            navtitle: Setting up the Vault CLI
-          - topic: vault-cli.md
-            navtitle: Vault CLI
-          links:
-          - link:
-              label: IBM Cloud Auth method
-              href: https://github.com/ibm-cloud-security/vault-plugin-auth-ibmcloud
-          - link:
-              label: IBM Cloud Secrets backend
-              href: https://github.com/ibm-cloud-security/vault-plugin-secrets-ibmcloud
+          - topicgroup:
+              label: Vault
+              topics:
+              - topic: vault-api.md
+                navtitle: Vault API reference
+              - topic: vault-kv-api.md
+                navtitle: KV secrets engine
+              - topic: vault-kv-cli.md
+                navtitle: KV CLI commands
+              - topic: vault-cli-configure.md
+                navtitle: Setting up the Vault CLI
+              - topic: vault-cli.md
+                navtitle: Vault CLI
+              links:
+              - link:
+                  label: IBM Cloud Auth method
+                  href: https://github.com/ibm-cloud-security/vault-plugin-auth-ibmcloud
+              - link:
+                  label: IBM Cloud Secrets backend
+                  href: https://github.com/ibm-cloud-security/vault-plugin-secrets-ibmcloud
       - topicgroup:
           label: Service availability
           topics:
