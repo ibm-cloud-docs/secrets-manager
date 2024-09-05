@@ -156,12 +156,6 @@ To create Service credentials by using the {{site.data.keyword.secrets-manager_s
 15. Review the details of your secret. 
 16. Click **Add**.
 
-Your Service credential secret is now created.
-
-The service credential that is created by {{site.data.keyword.secrets-manager_short}} will also be the name of the resource key. For example, a Service credential secret for Cloud Object Storage called `my-secret-name` will have a matching resource key in Cloud Object Storage named `my-secret-name`.
-{:: note}
-
-
 ## Creating Service credentials from the CLI
 {: #service-credentials-cli}
 {: cli}
