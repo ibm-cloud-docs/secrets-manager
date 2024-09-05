@@ -177,10 +177,8 @@ toc:
           topics:
           - topic: endpoints.md
             navtitle: Regions and endpoints
-          - topic: framework/ha.md
-            navtitle: Understanding high availability
-          - topic: framework/bc-dr.md
-            navtitle: Understanding disaster recovery
+          - topic: framework/ha-dr.md
+            navtitle: Understanding high availability and disaster recovery
   - navgroup:
       id: help
       topics:
