@@ -17,7 +17,7 @@ toc:
       - getting-started.md
       - topicgroup:
           label: About
-          topics:
+          topics: 
           - topic: pricing.md
             navtitle: Pricing
       - topicgroup:
