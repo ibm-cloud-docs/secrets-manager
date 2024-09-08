@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-05"
+lastupdated: "2024-09-08"
 
 keywords: Service credentials, App ID, App Config, Cloudant, Cloud Object Storage, Event Notifications, Event Streams, etcd, ElasticSearch, PostgreSQL, Redis, MongoDB
 
@@ -97,6 +97,10 @@ Note that in the case of service credentials created for Databases, if in additi
 
 When changing a Service credential secret's TTL, it will be applied only on the next secret version rotation.
 {: note}
+
+The service credential secret that is created by {{site.data.keyword.secrets-manager_short}} will also be the name of the resource key. For example, a Service credential secret for Cloud Object Storage called `my-secret-name` will have a matching resource key in Cloud Object Storage named `my-secret-name`. If you will later rename the secret in {{site.data.keyword.secrets-manager_short}}, this change will not reflect in the resource key but functionality will not break.
+{:: note}
+
 
 
 ### Assigning IAM service access role for Service credentials
