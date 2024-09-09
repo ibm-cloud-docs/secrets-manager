@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-04"
+lastupdated: "2024-09-09"
 
 keywords: change log for Secrets Manager CLI, CLI changelog, updates to Secrets Manager CLI
 
@@ -65,6 +65,12 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 
 
 
+## Version 2.0.7
+{: #2.0.7}
+
+Version 2.0.7 was released on 9 August 2024. This release includes the following updates:
+- The `expiration_date` field is now included in the response when getting a secret's version using the `ibmcloud secrets-manager secret-version` command.
+
 ## Version 2.0.6
 {: #2.0.6}
 
@@ -93,9 +99,9 @@ Version 2.0.3 was released on 13 December 2023. This release includes the follow
 - Support for Service credentials secret type. [Learn more](/docs/secrets-manager?topic=secrets-manager-service-credentials).
 - Strings updates
 - Command name changes:
-  * `--private-cert-alt-names` changes to `--certificate-alt-names` (applicable for `public_cert` and `private_cert` secret types)
-  * `--private-cert-common-name` changes to `--certificate-common-name` (applicable for `public_cert` and `private_cert` secret types)
-  * `--iam-credentials-ttl` changes to `--secret-ttl` (applicable for `iam_credentials` and `service_credentials` secret types)
+    * `--private-cert-alt-names` changes to `--certificate-alt-names` (applicable for `public_cert` and `private_cert` secret types)
+    * `--private-cert-common-name` changes to `--certificate-common-name` (applicable for `public_cert` and `private_cert` secret types)
+    * `--iam-credentials-ttl` changes to `--secret-ttl` (applicable for `iam_credentials` and `service_credentials` secret types)
 
 ## Version 2.0.2
 {: #2.0.2}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-08-06"
+lastupdated: "2024-09-09"
 
 subcollection: secrets-manager
 
@@ -62,7 +62,7 @@ keywords: Secrets Manager CLI, Secrets Manager command line, Secrets Manager ter
 You can use the {{site.data.keyword.secrets-manager_full}} command-line interface (CLI) to manage secrets in your {{site.data.keyword.secrets-manager_short}} instance.
 {: shortdesc}
 
-Current version: **`2.0.6`**
+Current version: **`2.0.7`**
 
 ## Prerequisites
 {: #secrets-manager-cli-prereq}
@@ -466,7 +466,7 @@ Example of `SecretGroup` response
 
 Delete a secret group by specifying the ID of the secret group.
 
-**Note:** To delete a secret group, it must be empty. If you need to remove a secret group that contains secrets, you must first [delete the secrets](#delete-secret) that are associated with the group.
+**Note:** To delete a secret group, it must be empty. If you need to remove a secret group that contains secrets, you must first delete the secrets that are associated with the group.
 
 ```sh
 ibmcloud secrets-manager secret-group-delete --id ID
@@ -881,7 +881,7 @@ Example secret metadata collection response
 
 Get a secret and its details by specifying the ID of the secret.
 
-A successful request returns the secret data that is associated with your secret, along with other metadata. To view only the details of a specified secret without retrieving its value, use the [Get secret metadata](#get-secret-metadata) operation.
+A successful request returns the secret data that is associated with your secret, along with other metadata. To view only the details of a specified secret without retrieving its value, use the Get secret metadata operation.
 
 ```sh
 ibmcloud secrets-manager secret --id ID
@@ -1077,7 +1077,7 @@ ibmcloud secrets-manager secret-action-create \
 
 Get a secret and its details by specifying the Name and Type of the secret.
 
-A successful request returns the secret data that is associated with your secret, along with other metadata. To view only the details of a specified secret without retrieving its value, use the [Get secret metadata](#get-secret-metadata) operation.
+A successful request returns the secret data that is associated with your secret, along with other metadata. To view only the details of a specified secret without retrieving its value, use the Get secret metadata operation.
 
 ```sh
 ibmcloud secrets-manager secret-by-name --secret-type SECRET-TYPE --name NAME --secret-group-name SECRET-GROUP-NAME
@@ -3177,6 +3177,82 @@ The following example shows the format of the ConfigurationPrototype object.
 ```
 {: codeblock}
 
+### PasswordGenerationPolicy
+{: #cli-password-generation-policy-example-schema}
+
+The following example shows the format of the PasswordGenerationPolicy object.
+
+```json
+
+{
+  "length" : 32,
+  "include_digits" : true,
+  "include_symbols" : true,
+  "include_uppercase" : true
+}
+```
+{: codeblock}
+
+### PasswordGenerationPolicyPatch
+{: #cli-password-generation-policy-patch-example-schema}
+
+The following example shows the format of the PasswordGenerationPolicyPatch object.
+
+```json
+
+{
+  "length" : 12,
+  "include_digits" : true,
+  "include_symbols" : true,
+  "include_uppercase" : true
+}
+```
+{: codeblock}
+
+### PrivateCertificateCryptoKey
+{: #cli-private-certificate-crypto-key-example-schema}
+
+The following example shows the format of the PrivateCertificateCryptoKey object.
+
+```json
+
+{
+  "type" : "hyper_protect_crypto_services",
+  "instance_crn" : "crn:v1:bluemix:public:hs-crypto:us-south:a/791f3fb10486421e97aa8512f18b7e65:b49ad24d-81d4-5ebc-b9b9-b0937d1c84d5::",
+  "pin_iam_credentials_secret_id" : "6ebb80d3-26d1-4e24-81d6-afb0d8e22f54",
+  "private_keystore_id" : "b49ad24d-81d4-5ebc-b9b9-b0937d1c84d5"
+}
+```
+{: codeblock}
+
+### PublicCertificateRotationObject
+{: #cli-public-certificate-rotation-object-example-schema}
+
+The following example shows the format of the PublicCertificateRotationObject object.
+
+```json
+
+{
+  "rotate_keys" : true
+}
+```
+{: codeblock}
+
+### RotationPolicy
+{: #cli-rotation-policy-example-schema}
+
+The following example shows the format of the RotationPolicy object.
+
+```json
+
+{
+  "auto_rotate" : true,
+  "interval" : 1,
+  "unit" : "day"
+}
+```
+{: codeblock}
+
 ### SecretActionPrototype
 {: #cli-secret-action-prototype-example-schema}
 
@@ -3260,6 +3336,19 @@ The following example shows the format of the SecretVersionPrototype object.
   "version_custom_metadata" : {
     "anyKey" : "anyValue"
   }
+}
+```
+{: codeblock}
+
+### ServiceCredentialsSecretSourceService
+{: #cli-service-credentials-secret-source-service-example-schema}
+
+The following example shows the format of the ServiceCredentialsSecretSourceService object.
+
+```json
+
+{
+  "crn" : "exampleString"
 }
 ```
 {: codeblock}
