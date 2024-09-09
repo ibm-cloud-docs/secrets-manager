@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-14"
+lastupdated: "2024-09-08"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -76,6 +76,9 @@ IAM credentials require a configuration step before you can start to create or m
 When changing an IAM credential secret's TTL, it will be applied only on the next secret version rotation.
 {: note}
 
+The IAM credential secret that is created by {{site.data.keyword.secrets-manager_short}} will also be the name of the IAM API key. For example, a secret called `my-secret-name` will have a matching API key named `Secrets-Manager-IAM-Secret-my-secret-name`. If you will later rename the secret in {{site.data.keyword.secrets-manager_short}}, this change will not reflect in IAM but functionality will not break.
+{:: note}
+
 An account administrator (or any entity with the required level of access) can externally alter IAM Credentials that are created and managed by {{site.data.keyword.secrets-manager_short}}. If such a service ID or API key is deleted outside of {{site.data.keyword.secrets-manager_short}}, the service might behave unexpectedly. For example, you might be unable to create, or rotate credentials.
 {: important}
 
@@ -112,7 +115,6 @@ To create IAM credentials by using the {{site.data.keyword.secrets-manager_short
 16. Click **Next**.
 17. Review the details of your secret. 
 18. Click **Add**.
-
 
 
 ### Reusing the same API key until the lease expires

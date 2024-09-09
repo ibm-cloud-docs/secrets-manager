@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-12"
+lastupdated: "2024-09-09"
 
 keywords: change log for Secrets Manager APIs, API changelog, updates to Secrets Manager APIs
 
@@ -62,6 +62,11 @@ In this change log, you can learn about the latest changes, improvements, and up
 {: shortdesc}
 
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
+
+## 9 September 2024
+{: #2024-09-09-api}
+
+- The `expiration_date` field is now returned also for secret versions.
 
 ## 6 August 2024
 {: #2024-08-06-api}
@@ -223,4 +228,3 @@ This release includes the following updates:
 
 - Changed the maximum length for secret names to 128 characters.
 - Changed the maximum length for secret group names to 62 characters.
-
