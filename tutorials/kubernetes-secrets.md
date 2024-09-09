@@ -3,7 +3,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-08-14"
+lastupdated: "2024-09-09"
 
 keywords: tutorial, Secrets Manager
 
@@ -655,14 +655,12 @@ If you no longer need the resources that you created in this tutorial, you can c
     ```
     {: pre}
 
-## Best practices for using External Secrets Operator with {{site.data.keyword.secrets-manager_short}} 
-{: #kubernetes-secrets-best-practices}
-
-{{site.data.keyword.secrets-manager_short}} sets a limit on the rate in which a client can send API requests to it. The limit is 20 calls per second for all API methods.
+## Notes of interest
+{: #notes-of-interest}
 
 As you construct your [YAML document](#tutorial-kubernetes-secrets-update-deployment), keep in mind that each key in the data section is polled periodically by using REST from the {{site.data.keyword.secrets-manager_short}} instance. Be aware that:
 
-1. By default, the polling interval is set to 1 hour. You can set this value by using `spec.refreshInterval` in the External Secrets template. The interval can be expressed in units of `s`, `m`, or `h`.
+1. By default, the polling interval is set to 1 hour and is  the preferred value to set. You can change this value by using `spec.refreshInterval` in the External Secrets template. The interval can be expressed in units of `s`, `m`, or `h`.
 2. If you set the YAML to fetch a {{site.data.keyword.secrets-manager_short}} secret by name rather than ID (`keyByName: true`), an additional call is made by ESO to fetch the relevant secret ID. For more information, see the [External Secrets documentation](https://external-secrets.io/latest/){: external}.
 
 
