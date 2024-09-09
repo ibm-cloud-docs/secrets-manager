@@ -99,9 +99,9 @@ Version 2.0.3 was released on 13 December 2023. This release includes the follow
 - Support for Service credentials secret type. [Learn more](/docs/secrets-manager?topic=secrets-manager-service-credentials).
 - Strings updates
 - Command name changes:
-  * `--private-cert-alt-names` changes to `--certificate-alt-names` (applicable for `public_cert` and `private_cert` secret types)
-  * `--private-cert-common-name` changes to `--certificate-common-name` (applicable for `public_cert` and `private_cert` secret types)
-  * `--iam-credentials-ttl` changes to `--secret-ttl` (applicable for `iam_credentials` and `service_credentials` secret types)
+    * `--private-cert-alt-names` changes to `--certificate-alt-names` (applicable for `public_cert` and `private_cert` secret types)
+    * `--private-cert-common-name` changes to `--certificate-common-name` (applicable for `public_cert` and `private_cert` secret types)
+    * `--iam-credentials-ttl` changes to `--secret-ttl` (applicable for `iam_credentials` and `service_credentials` secret types)
 
 ## Version 2.0.2
 {: #2.0.2}
