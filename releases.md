@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-14"
+lastupdated: "2024-09-09"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -64,6 +64,7 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
+
 ## 12 August 2024
 {: #secrets-manager-august1224}
 {: release-note}
@@ -73,12 +74,14 @@ Support for HSM in Private Certificates
 
 Finer granularity in Configurations API
 :   Use the `secret_types` option to list configuration for a specific engine. Supported values are: `iam_credentials`, `public_cert`, and `private_cert`.    
+
 ## 3 June 2024
 {: #secrets-manager-june0324}
 {: release-note}
 
 Service metrics
 :   You can now monitor and gain operational visibility into the performance and health of your {{site.data.keyword.secrets-manager_short}} instance. To learn more, see [Monitoring operational metrics](/docs/secrets-manager?topic=secrets-manager-operational-metrics).
+
 
 ## 13 May 2024
 {: #secrets-manager-may1324}
@@ -87,12 +90,14 @@ Service metrics
 Enhanced UI
 :   Users of private-only service instances can now access the full experience of the service UI.
 
+
 ## 18 March 2024
 {: #secrets-manager-march1824}
 {: release-note}
 
 Key management service
 :   The Settings page now displays the key management service selected for the service instance - provider-managed, or user-provided ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}).
+
 
 ## 11 March 2024
 {: #secrets-manager-march1124}
@@ -101,12 +106,14 @@ Key management service
 Additional filter options
 :   You can now filter by secret types as well as filter for more than one label.
 
+
 ## 12 February 2024
 {: #secrets-manager-feb1224}
 {: release-note}
 
 Support for random password generation in User credentials
 :   The User credentials secret type now supports generating a random password on secret creation. In addition you can control the password's length, and whether to include numbers, symbols and upper-case letters. To learn more, see [Storing user credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials).
+
 
 ## 10 January 2024
 {: #secrets-manager-jan1024}
@@ -153,6 +160,7 @@ Updated {{site.data.keyword.secrets-manager_short}} UI
       * Visual cue for an invalid configuration that is missing or has a misconfigured API key
     * Multi-select up to 5 secrets to download or delete, depending on the secret type
 
+
 ## 20 September 2023
 {: #secrets-manager-sept2023}
 {: release-note}
@@ -160,12 +168,14 @@ Updated {{site.data.keyword.secrets-manager_short}} UI
 Now available: Get a secret by name
 :   Users can now get a secret and its details by specifying the name and type of the secret through the API. This functionality is also available in CLI and SDKs
 
+
 ## 19 April 2023
 {: #secrets-manager-apr1923}
 {: release-note}
 
 Now available: CLI v2.0.1
 :   A new version of the {{site.data.keyword.secrets-manager_short}} CLI is now available. In this release, the CLI was updated to address an error that Windows users faced when they attempted to download the plug-in. 
+
 
 ## 17 April 2023
 {: #secrets-manager-apr1723}
@@ -200,12 +210,12 @@ Deprecated: API, SDK, and CLI v1
 :  As of April 17, 2023, the {{site.data.keyword.secrets-manager_full}} API v1 has been deprecated in favor of v2. If you're still actively working with the {{site.data.keyword.secrets-manager_short}} API v1, please be sure to start your upgrade as soon as possible. On 31 October 2023, support for the {{site.data.keyword.secrets-manager_short}} API v1 will be removed.
 
 
-
 ## 3 March 2023
 {: #secrets-manager-mar0323}
 
 Now available: Terraform support
 :  {{site.data.keyword.secrets-manager_short}} now supports Terraform on {{site.data.keyword.cloud_notm}}. For more information, see [Setting up Terraform for {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-terraform-setup) and the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/secrets_manager_secret){: external}.
+
 
 ## 11 December 2022
 {: #secrets-manager-dec1122}
@@ -239,6 +249,7 @@ Version custom metadata
 Automatic rotation for IAM credentials
 :   The ability to schedule an automatic rotation policy is now available for IAM credentials that are configured for reuse in the UI. For more information, see [Automatically rotating secrets](/docs/secrets-manager?topic=secrets-manager-automatic-rotation).
 
+
 ## 19 September 2022
 {: #secrets-manager-sept1922}
 {: release-note}
@@ -251,7 +262,6 @@ Automatic rotation for IAM credentials
 
 Manually configure your own DNS provider
 :   If you work with a DNS provider that is not currently integrated with the service, you can manually configure it when you use the {{site.data.keyword.secrets-manager_short}} API to order new certificates. If you choose to manually configure a provider, you must complete a challenge to prove ownership over your domain. For more information, see [Ordering public certificates with your own DNS provider](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates).
-
 
 
 ## 12 September 2022
@@ -284,7 +294,6 @@ Improved authorization flow
 :   The documentation for granting service access to domains is now updated to simplify the required flow. To try out the latest updates, see [Granting service access to CIS](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#authorize-domains).
 
 
-
 ## 27 July 2022
 {: #secrets-manager-jul2722}
 {: release-note}
@@ -313,6 +322,7 @@ CLI plug-in version 0.1.20
 
 Allow access to {{site.data.keyword.secrets-manager_short}} in a restricted account
 :   Working in an account that has [IP address access restrictions](/docs/account?topic=account-ips&interface=ui)? To use certain features in {{site.data.keyword.secrets-manager_short}}, for example, to generate IAM credentials, a configuration step is required to ensure that your account is able to accept incoming requests from the service. If your account allows access to only specific IP addresses, you can update your account settings to specify a required list of IP addresses for {{site.data.keyword.secrets-manager_short}}.
+
 
 ## 27 May 2022
 {: #secrets-manager-may2722}
@@ -659,5 +669,3 @@ Introducing {{site.data.keyword.secrets-manager_short}}
    - User credentials, such as usernames and passwords that you can use to log in to applications.
 
    To find out more about capabilities and use cases for {{site.data.keyword.secrets-manager_short}}, check out the [announcement blog](https://www.ibm.com/blog/announcement/introducing-ibm-cloud-secrets-manager-beta/){: external}.
-
-
