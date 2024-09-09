@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-04"
+lastupdated: "2024-09-09"
 
 keywords: change log for Secrets Manager CLI, CLI changelog, updates to Secrets Manager CLI
 
@@ -64,6 +64,12 @@ In this change log, you can learn about the latest changes, improvements, and up
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
 
 
+
+## Version 2.0.7
+{: #2.0.7}
+
+Version 2.0.7 was released on 9 August 2024. This release includes the following updates:
+- The `expiration_date` field is now included in the response when getting a secret's version using the `ibmcloud secrets-manager secret-version` command.
 
 ## Version 2.0.6
 {: #2.0.6}
