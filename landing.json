@@ -1,11 +1,11 @@
 {
   "title": "Secrets Manager docs",
-  "lastupdated": "2024-09-05",
+  "lastupdated": "2024-09-09",
   "introduction": "Explore recommended content and resources to help you get started with IBM Cloud Secrets Manager.",
   "section_devtools": {
     "api": "/apidocs/secrets-manager/secrets-manager-v2",
     "cli": "/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli",
-    "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/secrets_manager_secret"
+    "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/sm_secrets"
   },
   "section_recommended": [
     {
