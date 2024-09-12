@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-15"
+lastupdated: "2024-09-12"
 
 keywords: assign access for Secrets Manager, secret group access, assign access for all secrets, grant access, add users
 
@@ -131,7 +131,7 @@ To assign access in the {{site.data.keyword.cloud_notm}} console, be sure that y
 5. From the list of services, select **{{site.data.keyword.secrets-manager_short}}** and click **Next**.
 7. In the Resources section, select **Specific resources**.
     1. In the **Instance ID** field, select your {{site.data.keyword.secrets-manager_short}} instance. Click **Add condition**.
-    2. In the **Resource Type** field, enter `secret-group`. Click **Add condition**.
+    2. In the **Resource Type** field, select `secret-group`. Click **Add condition**.
     3. In the **Resource** field, enter the ID that was assigned to your secret group by the {{site.data.keyword.secrets-manager_short}} service.
     4. Click **Next**.
 8. Choose a combination of [access roles](/docs/secrets-manager?topic=secrets-manager-iam) to assign.
@@ -142,4 +142,3 @@ To assign access in the {{site.data.keyword.cloud_notm}} console, be sure that y
 
 You can't assign access to the `default` secret group.
 {: note}
-
