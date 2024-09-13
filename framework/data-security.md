@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-09"
+lastupdated: "2024-09-13"
 
 keywords: Data security for Secrets Manager, byok, kyok, data storage, data encryption in Secrets Manager, customer managed keys
 
@@ -119,9 +119,8 @@ If you choose to work with a key that you manage, you must ensure that valid IAM
     1. Go to **Manage > Access IAM > Authorizations**.
     2. Select the {{site.data.keyword.secrets-manager_short}} service as the source service.
     3. Select the instance of the {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} as the target service.
-    4. Select the key that you created in the previous steps.
-    5. Assign the Reader role.
-    6. Click **Authorize** to confirm the authorization.
+    4. Assign the Reader role.
+    5. Click **Authorize** to confirm the authorization.
 
     If you choose to [delete your {{site.data.keyword.secrets-manager_short}} instance later](#service-delete), this authorization is also deleted by IAM.
     {: note}
@@ -205,6 +204,3 @@ If you haven't permanently deleted your instance, you can restore it during the 
     {: pre}
 
     Replace `<reclamation_ID>` with the value that you retrieved in the previous step.
-
-
-
