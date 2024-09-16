@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-09-13"
+lastupdated: "2024-09-16"
 
 keywords: pricing plan, billing, cost
 
@@ -57,7 +57,6 @@ subcollection: secrets-manager
 
 # Pricing for {{site.data.keyword.secrets-manager_short}} on {{site.data.keyword.cloud_notm}}
 {: #pricing}
-
 
 Pricing in {{site.data.keyword.secrets-manager_full}} is based on the number of service instances in an account, and the number of active secrets in each of the service instances. Learn more about the Trial and Standard plans offered by {{site.data.keyword.secrets-manager_short}}.
 {: shortdesc}
