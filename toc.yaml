@@ -20,6 +20,8 @@ toc:
           topics: 
           - topic: pricing.md
             navtitle: Pricing
+          - topic: framework/responsibilities.md
+            navtitle: Your responsibilities
       - topicgroup:
           label: Use cases
           topics:
