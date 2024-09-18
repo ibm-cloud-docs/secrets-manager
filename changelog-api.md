@@ -66,9 +66,11 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 ## 23 September 2024
 {: #2024-09-23-api}
 
-- A new field `account_id` is returned when the Service ID being managed belongs to a different {{site.data.keyword.cloud_notm}} account.
+-	The [Create Secret API](/apidocs/secrets-manager/secrets-manager-v2#create-secret) now supports creating an IAM secret for managing credentials on a different {{site.data.keyword.cloud_notm}} account by passing the account ID in the new `account_id` field.
+-	A new property `disabled` has been added to the IAM credentials configuration. Use this property to disable the API key configuration when you switch to using IAM service authorization configuration.
+-	The [Update configuration](/apidocs/secrets-manager/secrets-manager-v2#update-configuration) method can now be used to update either the `api_key` field or the `disabled` field.
 
-- ## 9 September 2024
+## 9 September 2024
 {: #2024-09-09-api}
 
 - The `expiration_date` field is now returned also for secret versions.
