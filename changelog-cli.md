@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-09"
+lastupdated: "2024-09-18"
 
 keywords: change log for Secrets Manager CLI, CLI changelog, updates to Secrets Manager CLI
 
@@ -64,6 +64,13 @@ In this change log, you can learn about the latest changes, improvements, and up
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
 
 
+
+## Version 2.0.8
+{: #2.0.8}
+
+Version 2.0.8 was released on 23 September 2024. This release includes the following updates:
+- The IAM credentials engine can now be configured with IAM service authorization instead of an IAM API key. 
+- IAM credentials secrets can be created and managed also from other {{site.data.keyword.cloud_notm}} accounts.
 
 ## Version 2.0.7
 {: #2.0.7}

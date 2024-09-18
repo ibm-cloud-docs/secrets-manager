@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-09"
+lastupdated: "2024-09-18"
 
 keywords: change log for Secrets Manager APIs, API changelog, updates to Secrets Manager APIs
 
@@ -63,7 +63,12 @@ In this change log, you can learn about the latest changes, improvements, and up
 
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
 
-## 9 September 2024
+## 23 September 2024
+{: #2024-09-23-api}
+
+- A new field `account_id` is returned when the Service ID being managed belongs to a different {{site.data.keyword.cloud_notm}} account.
+
+- ## 9 September 2024
 {: #2024-09-09-api}
 
 - The `expiration_date` field is now returned also for secret versions.
