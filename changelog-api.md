@@ -63,13 +63,6 @@ In this change log, you can learn about the latest changes, improvements, and up
 
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
 
-## 23 September 2024
-{: #2024-09-23-api}
-
--	The [Create Secret API](/apidocs/secrets-manager/secrets-manager-v2#create-secret) now supports creating an IAM secret for managing credentials on a different {{site.data.keyword.cloud_notm}} account by passing the account ID in the new `account_id` field.
--	A new property `disabled` has been added to the IAM credentials configuration. Use this property to disable the API key configuration when you switch to using IAM service authorization configuration.
--	The [Update configuration](/apidocs/secrets-manager/secrets-manager-v2#update-configuration) method can now be used to update either the `api_key` field or the `disabled` field.
-
 ## 9 September 2024
 {: #2024-09-09-api}
 

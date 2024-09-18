@@ -64,16 +64,6 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
-## 23 September 2024
-{: #secrets-manager-september2324}
-{: release-note}
-
-Create IAM service authorizations through the IAM credentials secret engine
-:   You can now use IAM service authorization to configure the IAM credentials engine instead of maintaining an API key. In addition, you can now create IAM credentials secrets either from the current {{site.data.keyword.cloud_notm}} account or from a specific other account. Learn more about [how to configure and create IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials).
-
-See the expiration date of previous secret versions
-:   You can see the expiration date of the previous version for a rotated secret in the version history side panel.
-
 ## 12 August 2024
 {: #secrets-manager-august1224}
 {: release-note}

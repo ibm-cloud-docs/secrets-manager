@@ -65,13 +65,6 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 
 
 
-## Version 2.0.8
-{: #2.0.8}
-
-Version 2.0.8 was released on 23 September 2024. This release includes the following updates:
-- The IAM credentials engine can now be configured with IAM service authorization instead of an IAM API key. 
-- IAM credentials secrets can be created and managed also from other {{site.data.keyword.cloud_notm}} accounts.
-
 ## Version 2.0.7
 {: #2.0.7}
 
