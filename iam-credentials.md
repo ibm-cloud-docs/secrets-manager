@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-18"
+lastupdated: "2024-09-19"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -111,8 +111,8 @@ To create IAM credentials by using the {{site.data.keyword.secrets-manager_short
 12. Optional: [Determine whether IAM credentials can be reused](/docs/secrets-manager?topic=secrets-manager-iam-credentials&interface=ui#iam-credentials-reuse-ui) for your secret.
 13. Optional: Enable automatic rotation of your secret. Secrets can be automatically rotated only if the reuse IAM credentials option is selected.
 14. Click **Next**.
-15. [Determine the source account]((/docs/secrets-manager?topic=secrets-manager-iam-credentials&interface=ui#iam-credentials-source-account-ui).
-16. [Determine the scope of access](/docs/secrets-manager?topic=secrets-manager-iam-credentials&interface=ui#iam-credentials-scope-of-access-ui) to assign.
+15. [Determine the source account](/docs/secrets-manager?topic=secrets-manager-iam-credentials#iam-credentials-source-account-ui).
+16. [Determine the scope of access](/docs/secrets-manager?topic=secrets-manager-iam-credentials#iam-credentials-scope-of-access-ui) to assign.
 17. Click **Next**.
 18. Review the details of your secret. 
 19. Click **Add**.
