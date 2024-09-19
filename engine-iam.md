@@ -103,7 +103,6 @@ Complete the following steps to configure the IAM credentials engine using IAM s
 {{site.data.keyword.secrets-manager_short}} adds the following two authorization policies on your behalf, for the current instance.
 - **Operator** for **IAM Identity Service service**
 - **Groups Service Member Manage** for **IAM Access Groups Service service**
-{: note}
 
 ### Using API key
 {: #ui-apikey}
@@ -114,9 +113,6 @@ Complete the following steps to configure the IAM credentials engine using a Ser
 2. Click **Configure IAM credentials engine with API key**.
 3. Enter an API key that has access to create and manage other API keys in your account.
 4. Click **Configure**.
-
-If you configured your {{site.data.keyword.secrets-manager_short}} instance by using an API key, the key will take priority over an IAM service credential configuration. To use the service credential flow. you can disable and delete the API key configuration. Be sure to delete the API key when it's no longer needed.
-{: note}
 
 ## Setting up the IAM credentials engine from the CLI
 {: #configure-iam-engine-cli}
