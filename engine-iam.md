@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-18"
+lastupdated: "2024-09-19"
 
 keywords: IAM credentials, dynamic, IAM API key IAM credentials engine
 
@@ -91,11 +91,22 @@ If the account in which you want to generate IAM credentials allows access from 
 {: #configure-iam-engine-ui}
 {: ui}
 
+### Using IAM service authorization
+{: #ui-s2s}
+
 Complete the following steps to configure the IAM credentials engine using IAM service authorization.
 
 1. In the **Secrets engines** page, click the **IAM credentials** tab.
 2. Click **Authorize**.
 3. Click **Configure**.
+
+{{site.data.keyword.secrets-manager_short}} adds the following two authorization policies on your behalf, for the current instance.
+- **Operator** for **IAM Identity Service service**
+- **Groups Service Member Manage** for **IAM Access Groups Service service**
+{: note}
+
+### Using API key
+{: #ui-apikey}
 
 Complete the following steps to configure the IAM credentials engine using a Service ID's API key.
 
