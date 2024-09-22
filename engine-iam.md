@@ -383,7 +383,7 @@ The following example shows a configuration that you can use to configure the IA
 {: #get-iam-engine-value-ui}
 {: ui}
 
-You can retrieve an engine's configuration by using the {{site.data.keyword.secrets-manager_short}} UI.
+You can retrieve an engine's configuration by using the {{site.data.keyword.secrets-manager_short}} UI. Retreiving a configuration is valid only when configuring the IAM credentials engine with an API key.
 
 1. In the **IAM credentials** secret engine, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) to open a list of options for your engine configuration.
 2. To view the configuration value, click **View configuration**.
@@ -397,7 +397,7 @@ The secret value is displayed for 15 seconds, then the dialog closes.
 {: #get-iam-engine-value-cli}
 {: cli}
 
-You can retrieve an engine's configuration by using the {{site.data.keyword.secrets-manager_short}} CLI. In the following example command, replace the engine configuration name with your configuration's name.
+You can retrieve an engine's configuration by using the {{site.data.keyword.secrets-manager_short}} CLI. In the following example command, replace the engine configuration name with your configuration's name. Retreiving a configuration is valid only when configuring the IAM credentials engine with an API key.
 
 ```sh
 ibmcloud secrets-manager configuration --name EXAMPLE_CONFIG --service-url https://{instance_ID}.{region}.secrets-manager.appdomain.cloud
@@ -411,7 +411,7 @@ Replace `{instance_ID}` and `{region}` with the values that apply to your {{site
 {: #get-iam-engine-value-api}
 {: api}
 
-You can retrieve an engine's configuration by using the {{site.data.keyword.secrets-manager_short}} API. In the following example request, replace the engine configuration name with your configuration's name.
+You can retrieve an engine's configuration by using the {{site.data.keyword.secrets-manager_short}} API. In the following example request, replace the engine configuration name with your configuration's name. Retreiving a configuration is valid only when configuring the IAM credentials engine with an API key.
 
 ```sh
 curl -X GET --location --header "Authorization: Bearer {iam_token}" \
