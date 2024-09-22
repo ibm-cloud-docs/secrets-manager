@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-19"
+lastupdated: "2024-09-22"
 
 keywords: IAM credentials, dynamic, IAM API key IAM credentials engine
 
@@ -96,14 +96,36 @@ If the account in which you want to generate IAM credentials allows access from 
 
 Complete the following steps to configure the IAM credentials engine using IAM service authorization.
 
+To manage IAM credenials from the same {{site.data.keyword.cloud_notm}} account as your {{site.data.keyword.secrets-manager_short}} instance, {{site.data.keyword.secrets-manager_short}} adds the following two authorization policies on your behalf.
+- **Groups Service Member Manage** for **IAM Access Groups Service service**
+- **Operator** for **IAM Identity Service service**
+
 1. In the **Secrets engines** page, click the **IAM credentials** tab.
 2. Click **Authorize**.
 3. Click **Configure**.
 
-{{site.data.keyword.secrets-manager_short}} adds the following two authorization policies on your behalf, for the current instance.
-- **Operator** for **IAM Identity Service service**
-- **Groups Service Member Manage** for **IAM Access Groups Service service**
+To manage IAM credenials from another {{site.data.keyword.cloud_notm}} account, manually create the IAM service authorizations.
 
+For the **IAM Identity Service service** authorization policy:
+1. In the account where your {{site.data.keyword.secrets-manager_short}} instance is, go to **Manage > Access (IAM)**.
+2. Select **Authorizations** from the left pane menu.
+3. Click on **Create**.
+4. Under Source account select **Specific account** and the specific {{site.data.keyword.secrets-manager_short}} service instance.
+5. Under Target account select
+     - Service: **IAM Access Groups Service**  
+     - IAM Identity Service serviceResources: **All**
+     - Roles: **Operator**
+
+For the **Groups Service Member Manage** authorization policy:
+1. In the account where your {{site.data.keyword.secrets-manager_short}} instance is, go to **Manage > Access (IAM)**.
+2. Select **Authorizations** from the left pane menu.
+3. Click on **Create**.
+4. Under Source account select **Specific account** and the specific {{site.data.keyword.secrets-manager_short}} service instance.
+5. Under Target account select
+     - Service: **IAM Access Groups Service**  
+     - Resources: **All**
+     - Roles: **Groups Service Member Manage**
+     
 ### Using API key
 {: #ui-apikey}
 
@@ -123,16 +145,19 @@ Complete the following steps to configure the IAM credentials engine using a Ser
 
 Complete the following steps to configure the IAM credentials engine by using an IAM service authorization.
 
-1. Add the required policies.
+Add the required policies.
 
-      ```sh
-      ibmcloud iam authorization-policy-create secrets-manager iam-identity "Service ID Creator, Operator" --source-service-instance-id SOURCE_SERVICE_INSTANCE_GUID --source-service-account ACCOUNT_GUID 
-      ibmcloud iam authorization-policy-create secrets-manager iam-groups "Groups Service Member Manage" --source-service-account SOURCE_SERVICE_INSTANCE_GUID --source-service-instance-id ACCOUNT_GUID
-      ```
-      {: pre}
-      
-      - Replace **SOURCE_SERVICE_INSTANCE_GUID** with the {{site.data.keyword.secrets-manager_short}} instance service ID. If not provided, the authorization applies to all {{site.data.keyword.secrets-manager_short}} instances
-      - Replace **ACCOUNT_GUID** with the {{site.data.keyword.cloud_notm}} account's ID where you want to create IAM credential secrets. If you are managing secrets in the same account as the {{site.data.keyword.secrets-manager_short}} instance, you do not need to provide this.
+```sh
+ibmcloud iam authorization-policy-create secrets-manager iam-identity "Service ID Creator, Operator" --source-service-instance-id SOURCE_SERVICE_INSTANCE_GUID --source-service-account ACCOUNT_GUID 
+ibmcloud iam authorization-policy-create secrets-manager iam-groups "Groups Service Member Manage" --source-service-account SOURCE_SERVICE_INSTANCE_GUID --source-service-instance-id ACCOUNT_GUID
+```
+{: pre}
+
+- Replace **SOURCE_SERVICE_INSTANCE_GUID** with the {{site.data.keyword.secrets-manager_short}} instance service ID. If not provided, the authorization applies to all {{site.data.keyword.secrets-manager_short}} instances
+- Replace **ACCOUNT_GUID** with the {{site.data.keyword.cloud_notm}} account's ID where you want to create IAM credential secrets.
+
+If you are managing secrets in the same account as the {{site.data.keyword.secrets-manager_short}} instance, you do not need to provide the **ACCOUNT_GUID** parameter. 
+{: note}
 
 ### Using API key
 {: #cli-apikey}
