@@ -97,8 +97,8 @@ If the account in which you want to generate IAM credentials allows access from 
 Complete the following steps to configure the IAM credentials engine using IAM service authorization.
 
 To manage IAM credenials from the same {{site.data.keyword.cloud_notm}} account as your {{site.data.keyword.secrets-manager_short}} instance, {{site.data.keyword.secrets-manager_short}} adds the following two authorization policies on your behalf.
-- **Groups Service Member Manage** for **IAM Access Groups Service service**
-- **Operator** for **IAM Identity Service service**
+- `Groups Service Member Manage` for **IAM Access Groups Service service**
+- `Operator` for **IAM Identity Service service**
 
 1. In the **Secrets engines** page, click the **IAM credentials** tab.
 2. Click **Authorize**.
@@ -118,7 +118,7 @@ For the **IAM Identity Service service** authorization policy:
      - Resources: **All**
      - Roles: **Operator**
 
-For the **Groups Service Member Manage** authorization policy:
+For the **IAM Access Groups Service service** authorization policy:
 1. In the account where you'd like to manage the IAM credentials, go to **Manage > Access (IAM)**.
 2. Select **Authorizations** from the left pane menu.
 3. Click on **Create**.
