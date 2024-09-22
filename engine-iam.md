@@ -66,7 +66,7 @@ In {{site.data.keyword.secrets-manager_short}}, the IAM credentials engine serve
 When using an API key for the engine configuration, the access token that is generated lasts for 60 minutes and will continue to work even if the API key is deleted from IAM. This can be modified by changing the token expiration in IAM settings. [Learn more](/docs/account?topic=account-token-limit). Note that if the entity that is related to the API key is deleted, the token is invalidated immediately.
 {: note}
 
-When using IAM service authorization for the engine configuration, you can create and manage IAM credential secrets in the same {{site.data.keyword.cloud_notm}} account as the {{site.data.keyword.secrets-manager_short}} instance, as well as from other accounts.
+When using IAM service authorization for the engine configuration, you can create and manage IAM credential secrets in the same {{site.data.keyword.cloud_notm}} account as the {{site.data.keyword.secrets-manager_short}} instance, as well as from other accounts. API key configuation works only with the account the {{site.data.keyword.secrets-manager_short}} instance belongs to.
 {: tip}
 
 ## Before you begin
