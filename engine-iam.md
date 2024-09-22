@@ -107,21 +107,25 @@ To manage IAM credenials from the same {{site.data.keyword.cloud_notm}} account 
 To manage IAM credenials from another {{site.data.keyword.cloud_notm}} account, manually create the IAM service authorizations.
 
 For the **IAM Identity Service service** authorization policy:
-1. In the account where your {{site.data.keyword.secrets-manager_short}} instance is, go to **Manage > Access (IAM)**.
+1. In the account where you'd like to manage the IAM credentials, go to **Manage > Access (IAM)**.
 2. Select **Authorizations** from the left pane menu.
 3. Click on **Create**.
-4. Under Source account select **Specific account** and the specific {{site.data.keyword.secrets-manager_short}} service instance.
-5. Under Target account select
-     - Service: **IAM Access Groups Service**  
+4. Under Source select **Specific account** and provide the account ID where the {{site.data.keyword.secrets-manager_short}} instance belongs to.
+     - For Service select **{{site.data.keyword.secrets-manager_short}}**.
+     - For Resources select **Specific resources > Service instance** and provide the servce instance ID for your {{site.data.keyword.secrets-manager_short}} instance.
+5. Under Target select
+     - For service: **IAM Access Groups Service**  
      - IAM Identity Service serviceResources: **All**
      - Roles: **Operator**
 
 For the **Groups Service Member Manage** authorization policy:
-1. In the account where your {{site.data.keyword.secrets-manager_short}} instance is, go to **Manage > Access (IAM)**.
+1. In the account where you'd like to manage the IAM credentials, go to **Manage > Access (IAM)**.
 2. Select **Authorizations** from the left pane menu.
 3. Click on **Create**.
-4. Under Source account select **Specific account** and the specific {{site.data.keyword.secrets-manager_short}} service instance.
-5. Under Target account select
+4. Under Source select **Specific account** and provide the account ID where the {{site.data.keyword.secrets-manager_short}} instance belongs to.
+     - For Service select **{{site.data.keyword.secrets-manager_short}}**.
+     - For Resources select **Specific resources > Service instance** and provide the servce instance ID for your {{site.data.keyword.secrets-manager_short}} instance.
+5. Under Target  select
      - Service: **IAM Access Groups Service**  
      - Resources: **All**
      - Roles: **Groups Service Member Manage**
