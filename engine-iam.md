@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-22"
+lastupdated: "2024-09-24"
 
 keywords: IAM credentials, dynamic, IAM API key IAM credentials engine
 
@@ -80,7 +80,7 @@ If configuring the IAM credentials engine with an API key, you need a [service I
 - [**Operator** platform role](/docs/account?topic=account-account-services#identity-service-account-management) on the IAM Identity Service.
 - [**Service ID creator** service role](/docs/account?topic=account-account-services#identity-service-account-management) on the IAM Identity Service. The service ID creator service role is only required when you disable the creation of service IDs in your IAM settings.
 
-If configurating the IAM credenials engine with IAM service authorization, {{site.data.keyword.secrets-manager_short}} adds the following two authorization policies on your behalf.
+If configuring the IAM credenials engine with IAM service authorization, {{site.data.keyword.secrets-manager_short}} adds the following two authorization policies on your behalf.
 - [**Groups Service Member Manage** platform role](/docs/account?topic=account-account-services#access-groups-account-management) on the IAM Access Groups Service service.
 - [**Operator** platform role](/docs/account?topic=account-account-services#identity-service-account-management) for IAM Identity Service service.
 
