@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-19"
+lastupdated: "2024-09-29"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -142,11 +142,11 @@ You might already have a service ID in your account that you want to generate an
 
 In the **Assign access** step of the Create IAM credentials wizard, choose a scope of access for your secret.
 
-1. To use an existing service ID, select an ID from the list. If the source account is a specific other account, provide the IAM ID of the service ID.
+1. To use an existing service ID, select an ID from the list. If the source account is a specific other account, provide the ID of the service ID, in the following format: `ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0`.
 
    Choose this option when you need {{site.data.keyword.secrets-manager_short}} to generate and manage only an API key for your IAM credentials secret, and not the service ID itself. The API key inherits the access policy of the service ID that you select from your account. Only the service IDs that you have access to are displayed. 
 
-2. To generate both a new service ID and API key for the secret, select an access group. If the source account is a specific account, provide the IAM IDs of the wanted access groups.
+2. To generate both a new service ID and API key for the secret, select an access group. If the source account is a specific account, provide the IDs of the wanted access groups.
 
    By selecting an access group, you determine the scope of permissions that are assigned to the service ID and the API key. The API key is generated and associated with your new IAM credential. You can assign up to 10 access groups.
 
@@ -168,11 +168,11 @@ ibmcloud secrets-manager secret-create --secret-name "example-iam-credentials-se
 To use an existing service ID and create an API key by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. To create it in a specific other account add the `--iam-credentials-account-id` option.
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-name "example-iam-credentials-secret" --secret-description "Description of my IAM credentials secret" --iam-credentials-service-id "<iam_id_of_service_id>" --secret-ttl 30m
+ibmcloud secrets-manager secret-create --secret-name "example-iam-credentials-secret" --secret-description "Description of my IAM credentials secret" --iam-credentials-service-id "ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0" --secret-ttl 30m
 ```
 {: pre}
 
-You can find the ID value of a service ID in the IAM section of the console. Go to **Manage > Access (IAM) > Service IDs > _name_**. Click **Details** to view the ID.
+You can find the **ID** value of a service ID in the IAM section of the console. Go to **Manage > Access (IAM) > Service IDs > _name_**. Click **Details** to view the ID.
 {: note}
 
 The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-create-command).
@@ -298,7 +298,7 @@ You might already have a service ID in your account that you want to use to dyna
 
 You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
 
-You can find the ID value of a service ID in the IAM section of the console. Go to **Manage > Access (IAM) > Service IDs > _name_**. Click **Details** to view the ID.
+You can find the **ID** value of a service ID in the IAM section of the console. Go to **Manage > Access (IAM) > Service IDs > _name_**. Click **Details** to view the ID.
 {: note}
 
 
@@ -310,7 +310,6 @@ curl -X POST
     -d '{ 
           "name": "example-iam-credentials-secret",
           "description": "Description of my IAM Credentials secret",
-          "service_id":"iam-ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0",
           "secret_type": "iam_credentials",
           "secret_group_id": "bfc0a4a9-3d58-4fda-945b-76756af516aa",
           "labels": [
