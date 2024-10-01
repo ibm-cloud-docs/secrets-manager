@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-03-22"
+lastupdated: "2024-10-01"
 
 keywords: activity tracker events for Secrets Manager, events, Secrets Manager actions
 
@@ -73,18 +73,23 @@ Audit devices that you can enable with Vault, such as the [`syslog` audit device
 
 The following table lists the secret actions that generate an event.
 
-| Action                                      | Description                                                    |
-| ------------------------------------------- | -------------------------------------------------------------- |
-| `secrets-manager.secret.create`             | Create a secret.                                               |
-| `secrets-manager.secrets.list`              | List secrets.                                                  |
-| `secrets-manager.secret.read`               | Get a secret.                                                  |
-| `secrets-manager.secret.rotate`             | Rotate a secret.                                               |
-| `secrets-manager.secret-credentials.delete` | Delete the {{site.data.keyword.cloud_notm}} API key that is associated with a secret. |
-| `secrets-manager.secret.delete`             | Delete a secret.                                               |
-| `secrets-manager.secret-metadata.read`      | View the metadata of a secret.                                 |
-| `secrets-manager.secret-metadata.update`    | Update the metadata of a secret.                               |
-| `secrets-manager.secret-policies.set`       | Set secret policies.                                           |
-| `secrets-manager.secret-policies.get`       | Get secret policies.                                           |
+| Action                                           | Description                                                    |
+| ------------------------------------------------ | -------------------------------------------------------------- |
+| `secrets-manager.secret.create`                  | Create a secret.                                               |
+| `secrets-manager.secrets.list`                   | List secrets.                                                  |
+| `secrets-manager.secret.read`                    | Get a secret.                                                  |
+| `secrets-manager.secret.delete`                  | Delete a secret.                                               |
+| `secrets-manager.secret-metadata.read`           | View the metadata of a secret.                                 |
+| `secrets-manager.secret-metadata.update`         | Update the metadata of a secret.                               |
+| `secrets-manager.secret-action.create`	         | Create a secret action                                         |
+| `secrets-manager.secret-versions.list`           | List versions of a secret                                      |
+| `secrets-manager.secret-version.create`	         | Create a new secret version                                    |
+| `secrets-manager.secret-version.read`	           | Get a secret version                                           |
+| `secrets-manager.secret-version-metadata.update` |	Update the metadata of a secret version                       |
+| `secrets-manager.secret-version-metadata.read`   |	Get the metadata of a secret version                          |
+| `secrets-manager.secret-version-data.delete`     |	Delete the data of a secret version                           |
+| `secrets-manager.secret-version-action.create`   |	Create a version action                                       |
+
 {: caption="Table 1. List of secret events" caption-side="top"}
 
 
@@ -108,15 +113,15 @@ The following table lists the secret group actions that generate an event.
 
 The following table lists the secret lock actions that generate an event.
 
-| Action                                | Description                         |
-| ------------------------------------- | ----------------------------------- |
-| `secrets-manager.secret-locks.create`  | Create a secret lock.               |
-| `secrets-manager.secret-locks.list`   | List secret locks.                  | 
-| `secrets-manager.secret-locks.delete`  | Delete a secret lock.               |
-| `secrets-manager.secrets-locks.list`          | List secret locks. | 
-| `secrets-manager.secret-version-locks.create` | Create secret version locks. |
-| `secrets-manager.secret-version-locks.list` | List secret version locks. |
-| `secrets-manager.secret-version-locks.delete` | Delete secret version locks. | 
+| Action                                         | Description                         |
+| ---------------------------------------------- | ----------------------------------- |
+| `secrets-manager.secret-locks.create`          | Create a secret lock.               |
+| `secrets-manager.secret-locks.list`            | List secrets and their locks        | 
+| `secrets-manager.secret-locks.delete`          | Delete a secret lock.               |
+| `secrets-manager.secrets-locks.list`           | List secret locks.                  | 
+| `secrets-manager.secret-version-locks.create`  | Create secret version locks.        |
+| `secrets-manager.secret-version-locks.list`    | List secret version locks.          |
+| `secrets-manager.secret-version-locks.delete`  | Delete secret version locks.        | 
 {: caption="Table 2. List of secret lock events" caption-side="top"}
 
 ## Events for instance operations
