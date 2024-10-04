@@ -73,8 +73,8 @@ It is therefore recommended that you set a long validity period for your root CA
 {: #rotating-your-root-ca}
 
 1. Notify your PKI users about the upcoming rotation plan. The time when the new root CA will be available for download, the time when new leaf certificates will be issued using the new CA chain, and the time when the existing root CA certificate will expire.
-2. Follow the Creating root certificate authorities process to create a new root CA.
-3. Follow the Creating intermediate certificate authorities process to create your CA chain signed with your new root CA.
+2. Follow the [Creating root certificate authorities process](/docs/secrets-manager?topic=secrets-manager-root-certificate-authorities) to create a new root CA.
+3. Follow the [Creating intermediate certificate authorities process](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities) to create your CA chain signed with your new root CA.
 4. Distribute the new root CA to allow all consumers to install it in their trust store alongside the existing root CA.
 5. Monitor your rotation plan and notify your PKI users about each upcoming milestone event.
 
