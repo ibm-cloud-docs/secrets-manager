@@ -66,7 +66,7 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 ## 7 October 2024
 {: #2024-10-07-api}
 
-- A new configuration `action_type`, `private_cert_configuration_action_rotate_intermediate`, is now available to enable rotation of an intermediate CA's certificate. Learn more about [rotating an intermediate CA](/docs/secrets-manager?topic=secrets-manager-rotate-intermediate).
+- A new configuration `action_type`, `private_cert_configuration_action_rotate_intermediate`, is now available to enable rotation of an intermediate CA's certificate. Learn more about [rotating an intermediate CA](/docs/secrets-manager?topic=secrets-manager-rotating-ca-certificates).
 
 ## 23 September 2024
 {: #2024-09-23-api}

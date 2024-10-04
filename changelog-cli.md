@@ -67,7 +67,7 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 {: #2.0.9}
 
 Version 2.0.9 was released on 7 October 2024. This release includes the following updates:
-- A new configuration `action_type`, `private_cert_configuration_action_rotate_intermediate`, is now available to enable rotation of an intermediate CA's certificate. Learn more about [rotating an intermediate CA](/docs/secrets-manager?topic=secrets-manager-rotate-intermediate).
+- A new configuration `action_type`, `private_cert_configuration_action_rotate_intermediate`, is now available to enable rotation of an intermediate CA's certificate. Learn more about [rotating an intermediate CA](/docs/secrets-manager?topic=secrets-manager-rotating-ca-certificates).
 
 ## Version 2.0.8
 {: #2.0.8}
