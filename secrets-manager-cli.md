@@ -165,6 +165,7 @@ ibmcloud secrets-manager
     --quiet
 ```
 {: pre}
+
 Note: This example only demonstrates the global options available to all sub-commands and is not a valid command itself.
 
 ### `ibmcloud secrets-manager config`
@@ -2869,6 +2870,7 @@ Create a configuration action. This operation supports the following actions:
 - `private_cert_configuration_action_set_signed`: Set a signed intermediate certificate authority.
 - `private_cert_configuration_action_revoke_ca_certificate`: Revoke an internally signed intermediate certificate authority certificate.
 - `private_cert_configuration_action_rotate_crl`: Rotate the certificate revocation list (CRL) of an intermediate certificate authority.
+- `private_cert_configuration_action_rotate_intermediate`: Rotate an internally signed intermediate certificate authority certificate.
 
 ```sh
 ibmcloud secrets-manager configuration-action-create --name NAME [--config-action-prototype CONFIG-ACTION-PROTOTYPE | --config-action-action-type CONFIG-ACTION-ACTION-TYPE --certificate-common-name CERTIFICATE-COMMON-NAME --certificate-alt-names CERTIFICATE-ALT-NAMES --private-cert-ip-sans PRIVATE-CERT-IP-SANS --private-cert-uri-sans PRIVATE-CERT-URI-SANS --private-cert-other-sans PRIVATE-CERT-OTHER-SANS --private-cert-ttl PRIVATE-CERT-TTL --private-cert-format PRIVATE-CERT-FORMAT --private-cert-max-path-length PRIVATE-CERT-MAX-PATH-LENGTH --private-cert-exclude-cn-from-sans=PRIVATE-CERT-EXCLUDE-CN-FROM-SANS --private-cert-permitted-dns-domains PRIVATE-CERT-PERMITTED-DNS-DOMAINS --config-action-use-csr-values=CONFIG-ACTION-USE-CSR-VALUES --private-cert-subject-organizational-unit PRIVATE-CERT-SUBJECT-ORGANIZATIONAL-UNIT --private-cert-subject-organization PRIVATE-CERT-SUBJECT-ORGANIZATION --private-cert-subject-country PRIVATE-CERT-SUBJECT-COUNTRY --private-cert-subject-locality PRIVATE-CERT-SUBJECT-LOCALITY --private-cert-subject-province PRIVATE-CERT-SUBJECT-PROVINCE --private-cert-subject-street-address PRIVATE-CERT-SUBJECT-STREET-ADDRESS --private-cert-subject-postal-code PRIVATE-CERT-SUBJECT-POSTAL-CODE --private-cert-serial-number PRIVATE-CERT-SERIAL-NUMBER --private-cert-csr PRIVATE-CERT-CSR --config-action-intermediate-certificate-authority CONFIG-ACTION-INTERMEDIATE-CERTIFICATE-AUTHORITY --imported-cert-certificate IMPORTED-CERT-CERTIFICATE] [--config-type CONFIG-TYPE]
@@ -2896,7 +2898,7 @@ ibmcloud secrets-manager configuration-action-create --name NAME [--config-actio
 `--config-action-action-type` (string)
 :   The type of configuration action. This option provides a value for a sub-field of the JSON option 'config-action-prototype'. It is mutually exclusive with that option.
 
-    Allowable values are: `private_cert_configuration_action_rotate_crl`, `private_cert_configuration_action_sign_intermediate`, `private_cert_configuration_action_sign_csr`, `private_cert_configuration_action_set_signed`, `private_cert_configuration_action_revoke_ca_certificate`.
+    Allowable values are: `private_cert_configuration_action_rotate_crl`, `private_cert_configuration_action_sign_intermediate`, `private_cert_configuration_action_sign_csr`, `private_cert_configuration_action_set_signed`, `private_cert_configuration_action_revoke_ca_certificate`, `private_cert_configuration_action_rotate_intermediate`.
 
 `--certificate-common-name` (string)
 :   The Common Name (CN) represents the server name that is protected by the SSL certificate. This option provides a value for a sub-field of the JSON option 'config-action-prototype'. It is mutually exclusive with that option.
