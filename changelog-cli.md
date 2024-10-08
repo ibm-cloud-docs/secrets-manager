@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-19"
+lastupdated: "2024-10-08"
 
 keywords: change log for Secrets Manager CLI, CLI changelog, updates to Secrets Manager CLI
 
@@ -63,7 +63,11 @@ In this change log, you can learn about the latest changes, improvements, and up
 
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
 
+## Version 2.0.9
+{: #2.0.9}
 
+Version 2.0.9 was released on 8 October 2024. This release includes the following updates:
+- A new configuration `action_type`, `private_cert_configuration_action_rotate_intermediate`, is now available to enable rotation of an intermediate CA's certificate. Learn more about [rotating an intermediate CA](/docs/secrets-manager?topic=secrets-manager-rotating-ca-certificates).
 
 ## Version 2.0.8
 {: #2.0.8}

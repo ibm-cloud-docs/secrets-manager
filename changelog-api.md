@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-19"
+lastupdated: "2024-10-04"
 
 keywords: change log for Secrets Manager APIs, API changelog, updates to Secrets Manager APIs
 
@@ -62,6 +62,11 @@ In this change log, you can learn about the latest changes, improvements, and up
 {: shortdesc}
 
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
+
+## 7 October 2024
+{: #2024-10-07-api}
+
+- A new configuration `action_type`, `private_cert_configuration_action_rotate_intermediate`, is now available to enable rotation of an intermediate CA's certificate. Learn more about [rotating an intermediate CA](/docs/secrets-manager?topic=secrets-manager-rotating-ca-certificates).
 
 ## 23 September 2024
 {: #2024-09-23-api}

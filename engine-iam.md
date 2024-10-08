@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-24"
+lastupdated: "2024-10-08"
 
 keywords: IAM credentials, dynamic, IAM API key IAM credentials engine
 
@@ -83,6 +83,7 @@ If configuring the IAM credentials engine with an API key, you need a [service I
 If configuring the IAM credenials engine with IAM service authorization, {{site.data.keyword.secrets-manager_short}} adds the following two authorization policies on your behalf.
 - [**Groups Service Member Manage** platform role](/docs/account?topic=account-account-services#access-groups-account-management) on the IAM Access Groups Service service.
 - [**Operator** platform role](/docs/account?topic=account-account-services#identity-service-account-management) for IAM Identity Service service.
+- [**Service ID creator** service role](/docs/account?topic=account-account-services#identity-service-account-management) on the IAM Identity Service. The service ID creator service role is only required when you disable the creation of service IDs in your IAM settings.
 
 If the account in which you want to generate IAM credentials allows access from specific IP addresses, you must also update the IP address settings in the account to allow incoming requests from {{site.data.keyword.secrets-manager_short}}. For more information, see [Managing access with context-based restrictions](/docs/secrets-manager?topic=secrets-manager-access-control-cbr).
 {: important}
@@ -113,7 +114,7 @@ For the **IAM Identity Service service** authorization policy:
      - Service: **{{site.data.keyword.secrets-manager_short}}**.
      - Resources: **Specific resources > Service instance** and provide the servce instance ID for your {{site.data.keyword.secrets-manager_short}} instance.
 5. Under Target select
-     - Service: **IAM Access Groups Service**  
+     - Service: **IAM Identity Service**  
      - Resources: **All**
      - Roles: **Operator**
 

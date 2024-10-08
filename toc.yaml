@@ -105,6 +105,7 @@ toc:
               - engine-private-root-ca.md
               - engine-private-intermediate-ca.md
               - engine-private-templates.md
+              - engine-private-rotate-intermediate.md
       - topic: framework/event-notifications.md
         navtitle: Enabling event notifications
       - topicgroup:
