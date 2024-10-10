@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-27"
+lastupdated: "2024-10-10"
 
 keywords: DNS provider, connect DNS provider, set up DNS provider, connect DNS, set up DNS, connect CIS, set up CIS, add DNS provider configuration
 
@@ -84,7 +84,7 @@ You can connect the following DNS providers with your {{site.data.keyword.secret
 | Prerequisites |
 | :------------ |
 | Before you add a configuration for Cloud Internet Services (CIS), be sure that you:  \n  \n - [Create a CIS service instance](/docs/cis?topic=cis-getting-started).  \n - [Create an authorization between {{site.data.keyword.secrets-manager_short}} and CIS](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#authorize-cis).  \n - If your CIS instance is located in another account, obtain the CRN of the instance and [create an API key with the correct level of access](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#authorize-cis-another-account). |
-{: caption="Table 1. Prerequisites - CIS" caption-side="top"}
+{: caption="Prerequisites - CIS" caption-side="top"}
 {: #cis-prereqs}
 {: tab-title="Cloud Internet Services"}
 {: tab-group="dns-provider-prereqs"}
@@ -93,7 +93,7 @@ You can connect the following DNS providers with your {{site.data.keyword.secret
 | Prerequisites |
 | :------------ |
 | Before you add a configuration for classic infrastructure, be sure that you:  \n  \n 1. [Obtain your classic infrastructure username](/docs/account?topic=account-classic_keys). If you are using IBMid to log in to your account, your classic infrastructure username is your `<account_id>_<email_address>`. \n 2. [Create a classic infrastructure API key](/docs/account?topic=account-classic_keys). Assign your user permissions to manage DNS in the account. For more information about managing classic infrastructure access, see [Classic infrastructure permissions](/docs/account?topic=account-mngclassicinfra#how-classic-infra-permissions-work). |
-{: caption="Table 1. Prerequisites - Classic infrastructure" caption-side="top"}
+{: caption="Prerequisites - Classic infrastructure" caption-side="top"}
 {: #classic-infrastructure-prereqs}
 {: tab-title="Classic infrastructure"}
 {: tab-group="dns-provider-prereqs"}
@@ -102,7 +102,7 @@ You can connect the following DNS providers with your {{site.data.keyword.secret
 | Prerequisites |
 | :------------ |
 | To use your own DNS provider, you must refer to your provider's documentation for instructions. No DNS provider configuration is required in {{site.data.keyword.secrets-manager_short}}. |
-{: caption="Table 1. Prerequisites - Manual DNS providers" caption-side="top"}
+{: caption="Prerequisites - Manual DNS providers" caption-side="top"}
 {: #manual-prereqs}
 {: tab-title="Manual"}
 {: tab-group="dns-provider-prereqs"}
@@ -359,5 +359,3 @@ A successful response returns the value of the engine configuration, along with 
 {: #manage-dns-config-next-steps}
 
 - [Order a certificate](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates).
-
-

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-09"
+lastupdated: "2024-10-10"
 
 keywords: set up public certificates, public certificates engine, set up CIS, set up CA, set up Let's Encrypt
 
@@ -76,7 +76,7 @@ A certificate authority (CA) is an entity that issues digital certificates. You 
 | Authority | Description |
 | --------- | ----------- | 
 | [Let's Encrypt](https://letsencrypt.org/){: external} | Let’s Encrypt is a free, automated, ACME-based certificate authority that provides domain validated certificates valid for 90 days. It is a service that is provided by the Internet Security Research Group (ISRG). |
-{: caption="Table 1. Certificate authority options" caption-side="top"}
+{: caption="Certificate authority options" caption-side="top"}
 
 
 
@@ -101,7 +101,7 @@ A DNS provider is the service that is used to manage the domains that you own. Y
 | [{{site.data.keyword.cis_full_notm}}](/catalog/services/internet-services) | {{site.data.keyword.cis_full}} (CIS), powered by Cloudflare, provides a fast, highly performant, reliable, and secure internet service for customers who are running their business on {{site.data.keyword.cloud_notm}}. |
 | [{{site.data.keyword.cloud_notm}} classic infrastructure](/docs/dns)  | [{{site.data.keyword.cloud}} Domain Name Registration](/docs/dns), available as part of {{site.data.keyword.cloud_notm}} classic infrastructure (SoftLayer), offers a central location from which to view and manage domains. |
 | [Manual DNS providers](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-cert-manual-ui) | If your DNS provider is not IBM Cloud Internet Services or IBM Cloud Domain Name Registration, you can connect your {{site.data.keyword.secrets-manager_short}} to your DNS provider manually.|
-{: caption="Table 2. DNS provider options" caption-side="top"}
+{: caption="DNS provider options" caption-side="top"}
 
 ### Granting service access to CIS
 {: #authorize-cis}
@@ -118,7 +118,7 @@ You can grant {{site.data.keyword.secrets-manager_short}} the ability to access 
 
 To create a service authorization, you can use the **Access (IAM)** section of the console.
 
-![The figure shows a simplified IAM dashboard with numbered steps for creating an authorization between Secrets Manager and Cloud Internet Services. The steps are described in the following text.](images/create-service-auth.svg){: caption="Figure 1. Creating a service authorization between Secrets Manager and CIS" caption-side="bottom"}
+![The figure shows a simplified IAM dashboard with numbered steps for creating an authorization between Secrets Manager and Cloud Internet Services. The steps are described in the following text.](images/create-service-auth.svg){: caption="Creating a service authorization between Secrets Manager and CIS" caption-side="bottom"}
 
 1. In the console, click **Manage > Access (IAM)**, and select **Authorizations**.
 2. Click **Create**.
@@ -173,7 +173,7 @@ To obtain your classic infrastructure username and API key, you can use the **Ac
 You can view and access your classic infrastructure credentials from the **Access (IAM)** section of the console only if you are a classic infrastructure user. If you do not have classic infrastructure access, the VPN username and classic infrastructure API key fields do not display on the page. For more information, see [Managing classic infrastructure access](/docs/account?topic=account-mngclassicinfra).
 {: important}
 
-![The figure shows a simplified IAM dashboard with numbered steps for viewing your classic infrastructure username and API key. The steps are described in the following text.](images/classic-infra-creds.svg){: caption="Figure 2. Viewing your classic infrastructure username and API key" caption-side="bottom"}
+![The figure shows a simplified IAM dashboard with numbered steps for viewing your classic infrastructure username and API key. The steps are described in the following text.](images/classic-infra-creds.svg){: caption="Viewing your classic infrastructure username and API key" caption-side="bottom"}
 
 1. In the console, go to **Manage > Access (IAM) > Users**, then select the user's name.
 2. In the VPN password section, copy the **Username** value.
@@ -197,4 +197,3 @@ You can view and access your classic infrastructure credentials from the **Acces
 Now you're ready to add engine configurations to your instance.
 
 First, [add a certificate authority configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority) then, [add a DNS provider configuration](/docs/secrets-manager?topic=secrets-manager-add-dns-provider).
-

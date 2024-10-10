@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-14"
+lastupdated: "2024-10-10"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -83,7 +83,7 @@ Automatic rotation is supported for [private certificates](/docs/secrets-manager
 | [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | The existing `password` value is replaced with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols. The `username` value does not change.|
 | [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) | The Service ID's API key value is replaced with a new API key. The previous API key remains available for the remaining time in the defined TTL. |
 | [Service credentials](/docs/secrets-manager?topic=secrets-manager-service-credentials) | The Service credential is replaced with a new one. The previous credential remains available for the remaining time in the defined TTL. |
-{: caption="Table 1. Describes how {{site.data.keyword.secrets-manager_short}} evaluates manual rotation by secret type" caption-side="top"}
+{: caption="Describes how {{site.data.keyword.secrets-manager_short}} evaluates manual rotation by secret type" caption-side="top"}
 
 
 Note that in the case of service credentials created for Databases, if in addition to the credential you are also altering the database permissions for the created credential, these will not be synced once the service credential was rotated. When rotating a Databases service credential, this is considered an identity rotation.
@@ -413,4 +413,3 @@ A successful response returns the ID value for the secret, along with other meta
 
 The defined rotation interval cannot be higher than the defined time-to-live.
 {: note}
-

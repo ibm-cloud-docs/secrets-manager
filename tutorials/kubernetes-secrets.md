@@ -3,7 +3,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-09-09"
+lastupdated: "2024-10-10"
 
 keywords: tutorial, Secrets Manager
 
@@ -79,7 +79,7 @@ You're a developer in an organization, and your team is using {{site.data.keywor
 With {{site.data.keyword.secrets-manager_short}}, you can centralize and secure the secrets that are used by the apps that run in your Kubernetes clusters. Rather than injecting your secrets at deployment time, you can configure your apps to securely retrieve secrets from {{site.data.keyword.secrets-manager_short}} at run time. When it's time to rotate the secret, you can do so from {{site.data.keyword.secrets-manager_short}}. For example, consider the following scenario:
 
 
-![The diagram shows the basic flow between Secrets Manager and your Kubernetes cluster.](../images/iks-external-secrets-flow.svg){: caption="Figure 1. External Secrets flow" caption-side="bottom"}
+![The diagram shows the basic flow between Secrets Manager and your Kubernetes cluster.](../images/iks-external-secrets-flow.svg){: caption="External Secrets flow" caption-side="bottom"}
 
 
 1. As a developer, you use {{site.data.keyword.secrets-manager_short}} to store a secret for an application that you want to deploy in a Kubernetes cluster.

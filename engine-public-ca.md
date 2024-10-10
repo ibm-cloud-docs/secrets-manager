@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-27"
+lastupdated: "2024-10-10"
 
 keywords: certificate authority, connect certificate authority, set up certificate authority, connect CA, set up CA, connect Let's Encrypt, set up Let's Encrypt, add certificate authority configuration, add CA configuration
 
@@ -84,7 +84,7 @@ You can integrate the following certificate authorities with your {{site.data.ke
 | Prerequisites |
 | :------------ |
 | Before you connect Let's Encrypt, be sure that you:  \n  \n - Obtain the private key that's associated with your Automatic Certificate Management Environment (ACME) account.  \n The ACME protocol makes it possible to automatically obtain browser trusted certificates without human intervention. Before you can request Let's Encrypt certificates through {{site.data.keyword.secrets-manager_short}}, you must have an ACME account. If you already have a working ACME account, you need the private key that was generated when the account was initially created.  \n  \n - Optional: Create an ACME account.  \n If you don't have an existing ACME client or account, you can create one by using the [ACME account creation tool](https://github.com/ibm-cloud-security/acme-account-creation-tool){: external}. |
-{: caption="Table 1. Prerequisites - Let's Encrypt" caption-side="top"}
+{: caption="Prerequisites - Let's Encrypt" caption-side="top"}
 {: #add-certificate-authority-prereqs}
 {: tab-title="Let's Encrypt"}
 {: tab-group="ca-prereqs"}
@@ -279,6 +279,3 @@ A successful response returns the value of the engine configuration, along with 
 
 - [Add a DNS provider configuration](/docs/secrets-manager?topic=secrets-manager-add-dns-provider)
 - [Order a certificate](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates)
-
-
-

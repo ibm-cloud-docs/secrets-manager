@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-08-14"
+lastupdated: "2024-10-10"
 
 keywords: Kuberetes secrets, External Kubernetes Operator, sync with Kubernetes, deploy to Kubernetes
 
@@ -78,11 +78,8 @@ This scenario features a third-party tool that can impact the compliance readine
 ## Example architecture and tutorials
 {: #use-case-kubernetes-secrets-architecture}
 
-![The diagram shows the technologies and flows that make up this specific implementation pattern.](../images/iks-sm-architecture.svg){: caption="Figure 1. Example architecture" caption-side="bottom"}
+![The diagram shows the technologies and flows that make up this specific implementation pattern.](../images/iks-sm-architecture.svg){: caption="Example architecture" caption-side="bottom"}
 
 Ready to start building a proof of concept? For more information about this pattern, check out the tutorial to help you get started.
 
 [![This image is a visual link to the tutorial for securing Kubernetes secrets](../images/go-to-tutorial.svg)](/docs/secrets-manager?topic=secrets-manager-tutorial-kubernetes-secrets)
-
-
-

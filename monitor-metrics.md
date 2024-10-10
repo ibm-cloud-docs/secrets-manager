@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-08-27"
+lastupdated: "2024-10-10"
 
 keywords: monitoring, metrics, operational metrics
 
@@ -117,7 +117,7 @@ The total amount of secrets and secret groups in the instance
 |--- |--- |--- |--- |
 |ibm_sm_secrets_count|Total amount of secrets|Gauge|None|
 |ibm_sm_secret_groups_count|Total amount of secret groups|Gauge|None|
-{: caption="Table 1. Describes the API Hits metrics." caption-side="bottom"}
+{: caption="Describes the API Hits metrics." caption-side="bottom"}
 
 ### Total requests
 {: #total-requests}
@@ -132,7 +132,7 @@ The type and amount of API requests being made to your {{site.data.keyword.secre
 |ibm_sm_read_public_requests_count|Total amount of read requests in public network|Gauge|None|
 |ibm_sm_write_private_requests_count|Total amount of write requests in private network|Gauge|None|
 |ibm_sm_write_public_requests_count|Total amount of write requests in public network|Gauge|None|
-{: caption="Table 1. Describes the API Hits metrics." caption-side="bottom"}
+{: caption="Describes the API Hits metrics." caption-side="bottom"}
 
 ### Error count
 {: #error-count}
@@ -143,7 +143,7 @@ This metric gathers the number of `4xx` and `5xx` errors encountered from all AP
 |--- |--- |--- |--- |
 |ibm_sm_4xx_errors_count|Total amount of 4xx errors|Gauge|None|
 |ibm_sm_5xx_errors_count|Total amount of 5xx errors|Gauge|None|
-{: caption="Table 1. Describes the API Hits metrics." caption-side="bottom"}
+{: caption="Describes the API Hits metrics." caption-side="bottom"}
 
 ## Latency
 {: #latency}
@@ -164,7 +164,7 @@ The latency is calculated by getting the average of all requests of the same typ
 |ibm_sm_latency_write_avg_ms|Write operation average response time|Gauge|Milliseconds|
 |ibm_sm_latency_write_max_ms|Write operation maximum response time|Gauge|Milliseconds|
 |ibm_sm_latency_write_min_ms|Write operation minimum response time|Gauge|Milliseconds|
-{: caption="Table 2. Describes the Latency metrics." caption-side="bottom"}
+{: caption="Describes the Latency metrics." caption-side="bottom"}
 
 ## Attributes for segmentation
 {: #attributes-for-segmentation}
@@ -178,7 +178,7 @@ You can filter your metrics by using segmentation attributes.
 |ibm_scope|The account, organization, or space GUID associated with the metric.|
 |ibm_service_instance|{{site.data.keyword.secrets-manager_short}} service instance ID.|
 |ibm_service_name|secrets-manager.|
-{: caption="Table 3. Describes the attributes use for segmenting metrics." caption-side="bottom"}
+{: caption="Describes the attributes use for segmenting metrics." caption-side="bottom"}
 
 ## Metrics filter attributes
 {: #metrics-filter-attributes}
@@ -190,7 +190,7 @@ You can scope down your metrics by using scope filters, which are more granular 
 |ibm_scope|The account, organization, or space GUID associated with the metric.|
 |ibm_location|The location of the instance.|
 |ibm_service_instance|The service instance id associated with the metric.|
-{: caption="Table 4. Describes the scope filters for {{site.data.keyword.secrets-manager_short}} metrics." caption-side="bottom"}
+{: caption="Describes the scope filters for {{site.data.keyword.secrets-manager_short}} metrics." caption-side="bottom"}
 
 ## Default dashboards
 {: #default-dashboards}
