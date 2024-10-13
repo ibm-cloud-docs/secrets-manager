@@ -17,6 +17,18 @@
       {
         "title": "Best practices for organizing your secrets and assigning access",
         "href": "/docs/secrets-manager?topic=secrets-manager-best-practices-organize-secrets"
+      },
+      {
+        "title": "Access a storage bucket by using a dynamic secret",
+        "href": "/docs/secrets-manager?topic=secrets-manager-tutorial-access-storage-bucket"
+      },
+      {
+        "title": "Understanding your responsibilities when using Secrets Manager",
+        "href": "/docs/secrets-manager?topic=secrets-manager-your-id"
+      },
+      {
+        "title": "Best practices for rotating and locking secrets",
+        "href": "/docs/secrets-manager?topic=secrets-manager-best-practices-rotate-secrets"
       }
     ]
   },
