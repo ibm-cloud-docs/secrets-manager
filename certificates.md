@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-10-03"
+  years: 2020, 2024
+lastupdated: "2024-10-14"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, imported certificates
 
@@ -135,13 +135,9 @@ certificate=$(awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' cert.pem)
 private_key=$(awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' key.pem)
 
 ibmcloud secrets-manager secret-create 
-    --output json 
     --secret-prototype="{
-    "custom_metadata": {
-        "anyKey": "anyValue
-        "},
-    "certificate": "certificate", 
-    "private_key": "private_key", 
+    "certificate": "${certificate}", 
+    "private_key": "${private_key}", 
     "description": "Description of my imported certificate.", 
     "labels": [
         "dev","us-south"
@@ -149,9 +145,6 @@ ibmcloud secrets-manager secret-create
     "name": "example-imported-certificate", 
     "secret_group_id": "default", 
     "secret_type": "imported_cert", 
-    "version_custom_metadata": {
-        "anyKey": "anyValue"
-        }
     }
 ```
 {: pre}
@@ -228,5 +221,3 @@ The following example shows a query that you can use to import an existing certi
     }
 ```
 {: codeblock}
-
-
