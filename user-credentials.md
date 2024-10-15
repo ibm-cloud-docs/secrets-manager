@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-14"
+lastupdated: "2024-10-15"
 
 keywords: username, password, user credentials, store password
 
@@ -62,6 +62,10 @@ You can use {{site.data.keyword.secrets-manager_full}} to store a username and p
 {: shortdesc}
 
 User credentials consist of username and password values that you can use to log in to or access an external service or application. Your secret is stored securely in your dedicated {{site.data.keyword.secrets-manager_short}} service instance. In the instance, you can centrally manage its lifecycle, and control the secret's lifespan by setting an expiration date, automatic rotation policies, and more.
+
+In user credentials, only the **password** value in the can be rotated. Once the **username** value is set, it cannot be changed.
+{: note}
+
 
 To learn more about the types of secrets that you can manage in {{site.data.keyword.secrets-manager_short}}, see [What is a secret?](/docs/secrets-manager?topic=secrets-manager-what-is-secret)
 
