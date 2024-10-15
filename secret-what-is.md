@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-20"
+lastupdated: "2024-10-10"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -123,7 +123,7 @@ Review the following table to understand the types of static and dynamic secrets
 | [SSL/TLS certificates](/docs/secrets-manager?topic=secrets-manager-certificates) | `imported_cert`  \n `public_cert`\*  \n `private_cert`\* | Static | A type of digital certificate that can be used to establish communication privacy between a server and a client. In {{site.data.keyword.secrets-manager_short}}, you can store the following types of certificates.\n  \n - **Imported certificates**: Certificates that you import to the service. \n - **Public certificates**: Certificates that you order from a third-party certificate authority, for example Let's Encrypt.\n - **Private certificates**: Certificates that you generate by using a private certificate authority that you manage in {{site.data.keyword.secrets-manager_short}}. |
 | [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | `username_password` | Static | Username and password values that you can use to log in or access an application or resource. |
 | [Service credentials](/docs/secrets-manager?topic=secrets-manager-service-credentials) | `service_credentials` | Static | A JSON containing service-defined sensitive data such as keys, certificates, and URLs. |
-{: caption="Table 1. Secret types in {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
+{: caption="Secret types in {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
 
 _* Requires an [engine configuration](/docs/secrets-manager?topic=secrets-manager-secrets-engines) before secrets can be created in the service._
 
@@ -144,7 +144,7 @@ The following table compares and contrasts some common characteristics between t
 | SDK support | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | CLI plug-in support | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | [HashiCorp Vault HTTP API compatibility](/docs/secrets-manager?topic=secrets-manager-vault-api) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
-{: caption="Table 2. Feature comparison between secret types" caption-side="top"}
+{: caption="Feature comparison between secret types" caption-side="top"}
 
 [^iam]: Because IAM credentials are dynamic secrets, automatic rotation is a built-in feature. The API key that is associated with the secret is deleted automatically when the secret reaches the end of its lease. A new API key is created the next time that the secret is read.
 
@@ -288,7 +288,7 @@ Secrets, in their lifetime, transition through several states that are a functio
 | Active | After a secret is ready for use, it moves to the **Active** state.  Secrets remain active until they expire or are destroyed. If a secret was either manually rotated, or has  automatic rotation enabled, the following status indicators also apply:  \n  \n - _Rotation pending._ Automatic rotation for the secret is being processed.  \n - _Rotation failed._ Automatic rotation for the secret was not completed. |
 | Deactivated | The secret was not created or processed. Secrets in this state are not recoverable and can only be deleted from the instance. |
 | Destroyed | When the data that is associated with a secret expires, it moves to the **Destroyed** state. Secrets in this state are not recoverable and can only be deleted from the instance. Metadata that is associated with a secret, such as the secret's transition history and name, is kept in the {{site.data.keyword.secrets-manager_short}} database. If a secret expires after an automatic rotation starts, the following status indicators also apply:  \n  \n - _Rotation pending._ Automatic rotation for the secret is being processed.  \n - _Rotation failed._ Automatic rotation for the secret was not completed. |
-{: caption="Table 2. Describes secret states and transitions" caption-side="top"}
+{: caption="Describes secret states and transitions" caption-side="top"}
 
 
 ## How do I get started?

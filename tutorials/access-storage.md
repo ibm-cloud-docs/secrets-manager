@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-28"
+lastupdated: "2024-10-10"
 content-type: tutorial
 services: secrets-manager, cloud-object-storage
 account-plan: paid
@@ -73,7 +73,7 @@ As an enterprise developer, you might be looking for ways to improve the securit
 
 With {{site.data.keyword.secrets-manager_short}}, you can create a [dynamic secret](#x9968958){: term} that you can use to access a protected resource, such as deployment logs that you store in a Cloud Object Storage bucket. For example, consider the following scenario.
 
-![The diagram shows the basic flow between the Secrets Manager and Cloud Object Storage services.](../images/iam-credential-flow.svg){: caption="Figure 1. IAM credential flow" caption-side="bottom"}
+![The diagram shows the basic flow between the Secrets Manager and Cloud Object Storage services.](../images/iam-credential-flow.svg){: caption="IAM credential flow" caption-side="bottom"}
 
 1. As an admin user, you want to create a dynamic secret that your team can use to access a Cloud Object Storage bucket in your account. You send a request to create IAM credentials in {{site.data.keyword.secrets-manager_short}}.
 2. {{site.data.keyword.secrets-manager_short}} creates the secret and validates it against your defined IAM access policies.
@@ -530,6 +530,3 @@ Great job! In this tutorial, you learned how to set up {{site.data.keyword.secre
 - Learn more about [secret types](/docs/secrets-manager?topic=secrets-manager-what-is-secret).
 - Design an access strategy with [secret groups](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 - Learn more about the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager/secrets-manager-v2){: external}.
-
-
-

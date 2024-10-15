@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-12"
+lastupdated: "2024-10-10"
 
 keywords: create certificate authority, create root CA, create intermediate CA, set up PKI, set up private certificates, private certificates engine
 
@@ -72,7 +72,7 @@ With {{site.data.keyword.secrets-manager_short}}, you can build your own public-
 A valid chain of certificates begins at a trusted root CA, passes through one or more subordinate CAs, and ends with a leaf certificate that is issued to your end-entity application. For example, check out the following simple CA hierarchy:
 
 
-![The diagram shows a three-level hierarchy of certificates that begins with a root certificate authority in the first level.](images/certificate-hierarchy.svg){: caption="Figure 1. Example three-level CA hierarchy" caption-side="bottom"}
+![The diagram shows a three-level hierarchy of certificates that begins with a root certificate authority in the first level.](images/certificate-hierarchy.svg){: caption="Example three-level CA hierarchy" caption-side="bottom"}
 
 1. The root CA serves as the trust anchor for your entire chain of certificates. 
 2. The subordinate CAs in level 2 are signed and issued by the root CA. These subordinate CAs sign other subordinate CA certificates.
@@ -89,7 +89,7 @@ With {{site.data.keyword.secrets-manager_short}}, you can create up to 10 root C
 | --- | --- |
 | [Root certificate authority](/docs/secrets-manager?topic=secrets-manager-root-certificate-authorities) | A trust anchor for your certificates chain. In a hierarchy of certificates, a root CA is at the top of a certificates chain. This CA is used to sign the certificates of CAs that are subordinate to them, for example intermediate CAs.  |
 | [Intermediate certificate authority](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities) | A subordinate or lower-level certificate authority that signs and issues other intermediate CA certificates. An intermediate CA is also used to issue leaf certificates to end-entities, for example a client or server application. In {{site.data.keyword.secrets-manager_short}}, you can create intermediate CAs that are [signed internally or externally](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities#intermediate-ca-signing).|
-{: caption="Table 1. Certificate authority options" caption-side="top"}
+{: caption="Certificate authority options" caption-side="top"}
 
 
 ### Planning the structure of a CA hierarchy
@@ -102,14 +102,14 @@ As a best practice, plan a hierarchy of certificate authorities that corresponds
 
 Use this option if your workload requires the simplest CA structure. In this scenario, you create a single trusted root CA. Then, you create a subordinate CA, for example an [intermediate CA](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities), to issue leaf certificates to your apps and services.
 
-![The diagram shows a two-level hierarchy of certificates that begins with a root certificate authority in the first level.](images/certificate-hierarchy-2.svg){: caption="Figure 2. Two-level certificate authority hierarchy" caption-side="bottom"}
+![The diagram shows a two-level hierarchy of certificates that begins with a root certificate authority in the first level.](images/certificate-hierarchy-2.svg){: caption="Two-level certificate authority hierarchy" caption-side="bottom"}
 
 #### Three levels: Root CA and two subordinate CAs
 {: #three-level-ca}
 
 Use this option if your workload requires an additional layer between the root CA and lower-level CA operations. In this scenario, the middle subordinate CA is used only to sign subordinate CAs that issue leaf certificates to your apps.
 
-![The diagram shows a three-level hierarchy of certificates that begins with a root certificate authority in the first level.](images/certificate-hierarchy-3.svg){: caption="Figure 3. Three-level certificate authority hierarchy" caption-side="bottom"}
+![The diagram shows a three-level hierarchy of certificates that begins with a root certificate authority in the first level.](images/certificate-hierarchy-3.svg){: caption="Three-level certificate authority hierarchy" caption-side="bottom"}
 
   
 ### Setting the depth of your CA hierarchy
@@ -119,7 +119,7 @@ When you're creating a certificate authority in {{site.data.keyword.secrets-mana
 
 Generally, you can configure a root CA that doesn't limit the number of subordinate CAs that it can create in its certification path. However, defining a maximum path length on subordinate CAs is an important security step to avoid misconfigured CAs. Depending on the placement of a subordinate CA in your hierarchy, make sure to specify a maximum path length so that its signing authority power is limited to only the intended depth.
 
-![The diagram shows a four-level hierarchy of certificates that begins with a root certificate authority in the first level.](images/max-path-length.svg){: caption="Figure 3. Three-level certificate authority hierarchy" caption-side="bottom"}
+![The diagram shows a four-level hierarchy of certificates that begins with a root certificate authority in the first level.](images/max-path-length.svg){: caption="Three-level certificate authority hierarchy" caption-side="bottom"}
 
 The maximum path length that you define does not include leaf certificates. In the previous example, the subordinate CA in level 4 can issue leaf certificates but is unable to have more CA certificates in its path. 
 {: note}
@@ -198,7 +198,7 @@ Before you create a certificate authority in {{site.data.keyword.secrets-manager
     | --- | --- | --- | 
     | RSA | Widely used and compatible with most browsers and servers, RSA is the industry standard for public-key cryptography. | 2048 bits  \n4096 bits|
     | Elliptic curve (EC) | Generates stronger keys and smaller certificates. For example, a 256-bit EC key is equivalent in encryption strength to a 3072-bit RSA key. |  224 bits  \n256 bits  \n384 bits  \n521 bits|
-    {: caption="Table 2. Supported algorithm families and key sizes" caption-side="top"}
+    {: caption="Supported algorithm families and key sizes" caption-side="top"}
 
 2. Choose a key size.
 
@@ -266,4 +266,3 @@ Now you're ready to create certificate authorities for your instance.
 - [Create a root certificate authority](/docs/secrets-manager?topic=secrets-manager-root-certificate-authorities)
 - [Create an intermediate certificate authority](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities)
 - [Add a certificate template](/docs/secrets-manager?topic=secrets-manager-certificate-templates)
-

@@ -1,39 +1,56 @@
 {
-  "title": "Secrets Manager docs",
-  "lastupdated": "2024-10-04",
+  "version": 2,
+  "title": "Secrets Manager",
   "introduction": "Explore recommended content and resources to help you get started with IBM Cloud Secrets Manager.",
+  "product_page": "https://www.ibm.com/products/secrets-manager",
+  "console_page": "/catalog/services/secrets-manager",
+  "section_topics": {
+    "links": [
+      {
+        "title": "What is a secret?",
+        "href": "/docs/secrets-manager?topic=secrets-manager-what-is-secret"
+      },
+      {
+        "title": "Creating secrets",
+        "href": "/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets"
+      },
+      {
+        "title": "Best practices for organizing your secrets and assigning access",
+        "href": "/docs/secrets-manager?topic=secrets-manager-best-practices-organize-secrets"
+      },
+      {
+        "title": "Access a storage bucket by using a dynamic secret",
+        "href": "/docs/secrets-manager?topic=secrets-manager-tutorial-access-storage-bucket"
+      },
+      {
+        "title": "Understanding your responsibilities when using Secrets Manager",
+        "href": "/docs/secrets-manager?topic=secrets-manager-your-id"
+      },
+      {
+        "title": "Best practices for rotating and locking secrets",
+        "href": "/docs/secrets-manager?topic=secrets-manager-best-practices-rotate-secrets"
+      }
+    ]
+  },
+  "section_highlights": [
+    {
+      "title": "Intro to IBM Cloud Secrets Manager",
+      "description": "In this video, Alex Greer with IBM Cloud, explains how IBM Cloud Secrets Manager provides a way for users to create secrets dynamically and lease them to applications while being able to control access from a single location.",
+      "href": "https://mediacenter.ibm.com/media/1_bnfy0wk6?mhsrc=ibmsearch_a&mhq=secrets%20manager",
+      "type": "video"
+    },
+    {
+      "title": "https://www.ibm.com/blog/manage-secrets-in-continuous-delivery-with-ibm-cloud-secrets-manager/",
+      "description": "IBM Cloud Continuous Delivery has introduced support for IBM Cloud Secrets Manager in CI/CD toolchains.",
+      "href": "https://www.ibm.com/blog/manage-secrets-in-continuous-delivery-with-ibm-cloud-secrets-manager/",
+      "type": "blog"
+    }
+  ],
   "section_devtools": {
     "api": "/apidocs/secrets-manager/secrets-manager-v2",
     "cli": "/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli",
     "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/sm_secrets"
   },
-  "section_recommended": [
-    {
-      "title": "What is a secret?",
-      "description": "Learn about secret types that you can create and manage with the service.",
-      "href": "/docs/secrets-manager?topic=secrets-manager-what-is-secret"
-    },
-    {
-      "title": "Creating secrets",
-      "description": "Try out the service by storing your first secret.",
-      "href": "/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets"
-    },
-    {
-      "title": "Best practices for organizing your secrets and assigning access",
-      "description": "Review suggested guidelines for organizing your secrets.",
-      "href": "/docs/secrets-manager?topic=secrets-manager-best-practices-organize-secrets"
-    }
-  ],
-  "section_videos": [
-    {
-      "title": "What is secrets management?",
-      "href": "/docs/secrets-manager?topic=secrets-manager-what-is-secret"
-    },
-    {
-      "title": "Securely managing your cloud secrets with Secrets Manager",
-      "href": "https://www.youtube.com/watch?v=rOp7aGyavnk"
-    }
-  ],
   "section_updates": {
     "view_more": "/docs/secrets-manager?topic=secrets-manager-release-notes"
   }

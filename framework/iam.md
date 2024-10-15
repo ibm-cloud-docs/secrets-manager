@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-21"
+lastupdated: "2024-10-10"
 
 keywords: IAM access for Secrets Manager, permissions for Secrets Manager, identity and access management for Secrets Manager, roles for Secrets Manager, actions for Secrets Manager, assigning access for Secrets Manager
 
@@ -81,7 +81,7 @@ If a specific role and its actions don't fit the use case that you're looking to
 | Operator | As an operator, you can complete platform actions that are required to configure and operate {{site.data.keyword.secrets-manager_short}} service instances, such as the ability to view a {{site.data.keyword.secrets-manager_short}} dashboard. |
 | Editor | As an editor, you can create, modify, and delete {{site.data.keyword.secrets-manager_short}} service instances, but you can't assign access policies to other users. |
 | Administrator | As an administrator, you can complete all platform actions for {{site.data.keyword.secrets-manager_short}}, including the ability to assign access policies to other users. |
-{: caption="Table 1. Platform roles - {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
+{: caption="Platform roles - {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
 {: #platform-roles-table1}
 {: tab-title="Platform roles"}
 {: tab-group="secrets-manager"}
@@ -95,7 +95,7 @@ If a specific role and its actions don't fit the use case that you're looking to
 | SecretsReader | As a secrets reader, you can complete read-only actions, and you can also access the secret data that is associated with a secret. A secrets reader can't create secrets or modify the value of an existing secret. |
 | Writer | As a writer, you have permissions beyond the secrets reader role, including the ability to create and edit secrets. Writers can't create secret groups, or configure secrets engines. |
 | Manager | As a manager, you have permissions beyond the writer role to complete privileged actions, such as the ability to manage secret groups, and configure secrets engines. |
-{: caption="Table 1. Service roles - {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
+{: caption="Service roles - {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
 {: #service-roles-table1}
 {: tab-title="Service roles"}
 {: tab-group="secrets-manager"}
@@ -141,7 +141,7 @@ If a specific role and its actions don't fit the use case that you're looking to
 | `secrets-manager.notifications-registration.read` | Get Event Notifications registration details. | Reader, SecretsReader, Writer, Manager |
 | `secrets-manager.notifications-registration.delete` | Delete an Event Notifications registration. | Manager |
 | `secrets-manager.notifications-registration.test` | Send a test event. | Reader, SecretsReader, Writer, Manager |
-{: caption="Table 1. Service actions - {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
+{: caption="Service actions - {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
 {: #actions-table1}
 {: tab-title="Actions"}
 {: tab-group="secrets-manager"}

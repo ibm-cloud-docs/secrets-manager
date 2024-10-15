@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-03-11"
+lastupdated: "2024-10-10"
 
 keywords: Secrets Manager availability, regions, Secrets Manager endpoints, Vault endpoint
 
@@ -105,7 +105,7 @@ If you are managing your {{site.data.keyword.secrets-manager_short}} resources o
 | Tokyo         | `https://{instance_ID}.jp-tok.secrets-manager.appdomain.cloud`   |
 | Toronto       | `https://{instance_ID}.ca-tor.secrets-manager.appdomain.cloud`   |
 | Washington DC | `https://{instance_ID}.us-east.secrets-manager.appdomain.cloud`  |
-{: caption="Table 1. Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
+{: caption="Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
 
 Ready to try the APIs? To interact with a Swagger UI from your browser, add `api/v2/swagger-ui` to your service endpoint URL. For example, `https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/swagger-ui`.
 {: tip}
@@ -130,7 +130,7 @@ To learn how to configure your {{site.data.keyword.secrets-manager_short}} insta
 | Tokyo         | `https://{instance_ID}.private.jp-tok.secrets-manager.appdomain.cloud`   |
 | Toronto       | `https://{instance_ID}.private.ca-tor.secrets-manager.appdomain.cloud`   |
 | Washington DC | `https://{instance_ID}.private.us-east.secrets-manager.appdomain.cloud`  |
-{: caption="Table 2. Private endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
+{: caption="Private endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
 
 ### Viewing your endpoint URLs
 {: #view-endpoint-urls}
@@ -155,7 +155,7 @@ Replace the variables in the example request according to the following table.
 | `{region}` | The region abbreviation that represents the geographic area where your {{site.data.keyword.secrets-manager_short}} resides. For example, `us-south` or `eu-de`. |
 | `{url_encoded_instance_CRN}` | The Cloud Resource Name (CRN) that uniquely identifies your {{site.data.keyword.secrets-manager_short}} service instance. The value must be URL encoded. |
 | `{IAM_token}` | Your {{site.data.keyword.cloud_notm}} IAM access token. |
-{: caption="Table 3. Required parameters for retrieving service endpoints with the API" caption-side="top"}
+{: caption="Required parameters for retrieving service endpoints with the API" caption-side="top"}
 
 A successful request returns the endpoint URLs that are associated with the region and service instance CRN that you specify. The following JSON snippet shows an example response.
 
@@ -183,7 +183,3 @@ To try this API, you can interact with the following Swagger UI from your browse
 
 If your instance is configured with the **Private only** option, this API returns only the `private_endpoints` object in the response.
 {: note}
-
-
-
-

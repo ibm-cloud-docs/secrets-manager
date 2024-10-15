@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-15"
+lastupdated: "2024-10-10"
 
 keywords: intermediate certificate authority, intermediate CA, internal signing, external signing
 
@@ -80,7 +80,7 @@ The service offers two options:
 | --- | --- |
 |Internally signed | You're building a chain of certificates that uses an existing parent CA, for example a root CA or another intermediate CA, as its trust anchor. The parent CA was previously created in the same {{site.data.keyword.secrets-manager_short}} instance.|
 |Externally signed |If you created a parent CA offline or in another {{site.data.keyword.secrets-manager_short}} service instance, you can use the external CA to sign and issue an intermediate certificate authority.
-{: caption="Table 1. Options for creating an intermediate CA" caption-side="top"}
+{: caption="Options for creating an intermediate CA" caption-side="top"}
 
 ### Unsupported configuration actions in Terraform
 {: #configured-actions}
@@ -698,4 +698,3 @@ A successful response returns the value of the engine configuration, along with 
 {: #intermediate-ca-next-steps}
 
 - [Add a certificate template](/docs/secrets-manager?topic=secrets-manager-certificate-templates).
-

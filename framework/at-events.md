@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-10-01"
+lastupdated: "2024-10-10"
 
 keywords: activity tracker events for Secrets Manager, events, Secrets Manager actions
 
@@ -90,7 +90,7 @@ The following table lists the secret actions that generate an event.
 | `secrets-manager.secret-version-data.delete`     |	Delete the data of a secret version                           |
 | `secrets-manager.secret-version-action.create`   |	Create a version action                                       |
 
-{: caption="Table 1. List of secret events" caption-side="top"}
+{: caption="List of secret events" caption-side="top"}
 
 
 ## Events for secret groups
@@ -105,7 +105,7 @@ The following table lists the secret group actions that generate an event.
 | `secrets-manager.secret-group.read`   | View the details of a secret group. |
 | `secrets-manager.secret-group.update` | Update a secret group.              |
 | `secrets-manager.secret-group.delete` | Delete a secret group.              |
-{: caption="Table 2. List of secret group events" caption-side="top"}
+{: caption="List of secret group events" caption-side="top"}
 
 
 ## Events for secret locks
@@ -122,7 +122,7 @@ The following table lists the secret lock actions that generate an event.
 | `secrets-manager.secret-version-locks.create`  | Create secret version locks.        |
 | `secrets-manager.secret-version-locks.list`    | List secret version locks.          |
 | `secrets-manager.secret-version-locks.delete`  | Delete secret version locks.        | 
-{: caption="Table 2. List of secret lock events" caption-side="top"}
+{: caption="List of secret lock events" caption-side="top"}
 
 ## Events for instance operations
 {: #at-configuration-instance-operations}
@@ -143,7 +143,7 @@ The following table lists the instance operation actions that generate an event.
 | `secrets-manager.notifications-registration.read` | Get Event Notifications registration details. | Reader, SecretsReader, Writer, Manager |
 | `secrets-manager.notifications-registration.delete` | Delete an Event Notifications registration. | Manager |
 | `secrets-manager.notifications-registration.test` | Send a test event. | Reader, SecretsReader, Writer, Manager |
-{: caption="Table 3. List of instance operation events" caption-side="top"}
+{: caption="List of instance operation events" caption-side="top"}
 
 ## Viewing events
 {: #at-ui}

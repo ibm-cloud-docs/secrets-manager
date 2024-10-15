@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-06-15"
+  years: 2020, 2024
+lastupdated: "2024-10-10"
 
 keywords: secrets engines, engine configurations, IAM credentials engine, public certificates engine
 
@@ -68,7 +68,7 @@ In {{site.data.keyword.secrets-manager_short}}, a secrets engine serves as the b
 
 Some engines require a configuration before you can enable them for your instance. For example, when you try to [order SSL/TLS certificates](/docs/secrets-manager?topic=secrets-manager-public-certificates) or create [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) for the first time, a message is displayed to show that an engine configuration is required.
 
-![The image shows the secrets selection screen in the Secrets Manager UI.](images/engine-required.svg){: caption="Figure 1. Example - Engine configuration required" caption-side="bottom"}
+![The image shows the secrets selection screen in the Secrets Manager UI.](images/engine-required.svg){: caption="Example - Engine configuration required" caption-side="bottom"}
 
 ## What's in a configuration?
 {: #secrets-engine-components}
@@ -77,7 +77,7 @@ Engine configurations that you add to your instance contain the properties that 
 
 Check out the following image to see how a configuration is structured.
 
-![This image shows the components of a secrets engine configuration. The information in the image is detailed in the surrounding content.](/images/example-config.svg){: caption="Figure 1. JSON representation of {{site.data.keyword.secrets-manager_short}} engine configuration" caption-side="bottom"}
+![This image shows the components of a secrets engine configuration. The information in the image is detailed in the surrounding content.](/images/example-config.svg){: caption="JSON representation of {{site.data.keyword.secrets-manager_short}} engine configuration" caption-side="bottom"}
 
 
 1. The `name` and `type` fields hold identifying information about a configuration.

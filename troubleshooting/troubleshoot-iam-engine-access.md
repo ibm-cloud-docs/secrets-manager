@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-14"
+lastupdated: "2024-10-10"
 
 keywords: unable to configure IAM credentials engine, can't create API key, access required for IAM credentials engine
 
@@ -89,8 +89,7 @@ First, verify with the account owner that you're assigned the following IAM perm
 
 If the updated access permissions do not resolve the issue, verify with the account owner that the [**Restrict API key creation**](/docs/account?topic=account-allow-api-create) and [**Restrict service ID creation**](/docs/account?topic=account-restrict-service-id-create) options are disabled on the account.
 
-![The figure shows a simplified IAM dashboard with numbered steps for disabling account restrictions.](../images/disable-acct-restrictions.svg){: caption="Figure 1. Disabling API key and service ID restrictions" caption-side="bottom"}
+![The figure shows a simplified IAM dashboard with numbered steps for disabling account restrictions.](../images/disable-acct-restrictions.svg){: caption="Disabling API key and service ID restrictions" caption-side="bottom"}
 
 
 If the problem persists, contact {{site.data.keyword.cloud_notm}} support.
-
