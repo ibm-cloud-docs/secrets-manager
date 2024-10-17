@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-17"
 
 keywords: event notifications for {{site.data.keyword.secrets-manager_short}}, event notifications integration for {{site.data.keyword.secrets-manager_short}}, alerts for {{site.data.keyword.secrets-manager_short}}
 
@@ -71,7 +71,7 @@ If you decide to delete your {{site.data.keyword.secrets-manager_short}} service
 ## How events are collected and sent by {{site.data.keyword.secrets-manager_short}}
 {: #event-notifications-how}
 
-When an event of interest takes place in your {{site.data.keyword.secrets-manager_short}} instance, {{site.data.keyword.secrets-manager_short}} communicates with a connected {{site.data.keyword.en_short}} instance to forward a notification to a [supported destination](/docs/event-notifications?topic=event-notifications-supported-destinations).
+When an event of interest takes place in your {{site.data.keyword.secrets-manager_short}} instance, {{site.data.keyword.secrets-manager_short}} communicates with a connected {{site.data.keyword.en_short}} instance to forward a notification to a [supported destination](/docs/event-notifications?topic=event-notifications-en-destination).
 
 {{site.data.keyword.secrets-manager_short}} aggregates a list of your pending notifications by [event type](#event-notifications-list), the type of secret, and expiry details if they apply. Every 1 - 2 minutes, the service checks for and dispatches any pending notifications to the connected {{site.data.keyword.en_short}} service. For example, you might receive notifications that are similar to the following messages:
 
@@ -293,7 +293,7 @@ A successful request returns an HTTP `200 OK` response to indicate that a test e
 
 After you enable notifications for {{site.data.keyword.secrets-manager_short}}, create topics and subscriptions in {{site.data.keyword.en_short}} so that alerts can be forwarded and delivered to your selected destinations. 
 
-For a complete list of supported destinations, see the [{{site.data.keyword.en_short}} documentation](https://cloud.ibm.com/docs/event-notifications?topic=event-notifications-supported-destinations).
+For a complete list of supported destinations, see the [{{site.data.keyword.en_short}} documentation](/docs/event-notifications?topic=event-notifications-en-destination).
 {: tip}
 
 ### Email notifications
