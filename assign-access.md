@@ -97,10 +97,20 @@ To assign access to a {{site.data.keyword.secrets-manager_short}} instance and i
 
 You can further narrow the scope of access to secrets in your instance by creating and managing [secret groups](#x9968962){: term}.
 
-This process requires two sets of distinct access policies, one with access to the service instance itself, and another to further scope the access to the required access groups.
+This process requires two sets of distinct access policies, one with [**Viewer** platform role](/docs/secrets-manager?topic=secrets-manager-iam#iam-roles-actions) to be able to view the service instance, and another access policy to further scope the access to the required access groups, by using either the service UI, or the IAM UI.
 
-1. Assign a separate [**Viewer** platform role](/docs/secrets-manager?topic=secrets-manager-iam#iam-roles-actions). to be able to view the service instance.
-2. Scope down the access using the following options.
+### Assiging Viewer access to the service instance
+{: #assign-viewer-access}
+
+1. In the console, go to **Manage > Access (IAM) > Access Groups**.
+2. In the row for the access group that you want to manage, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Assign access**.
+3. Click **Assign access**.
+4. From the list of services, select **{{site.data.keyword.secrets-manager_short}}** and click **Next**.
+5. In the Resources section, select **Specific resources**.
+    1. In the **Instance ID** field, select your {{site.data.keyword.secrets-manager_short}} instance.
+    2. Click **Next**.
+6. Review your selections and **Add**.
+7. Click **Assign**.
 
 ### Assigning access to a secret group in the service UI
 {: #assign-access-secret-group-ui}
@@ -127,13 +137,13 @@ To assign access in the {{site.data.keyword.cloud_notm}} console, be sure that y
 
 1. In the console, go to **Manage > Access (IAM) > Access Groups**.
 2. In the row for the access group that you want to manage, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Assign access**.
-4. Click **Assign access**.
-5. From the list of services, select **{{site.data.keyword.secrets-manager_short}}** and click **Next**.
-7. In the Resources section, select **Specific resources**.
+3. Click **Assign access**.
+4. From the list of services, select **{{site.data.keyword.secrets-manager_short}}** and click **Next**.
+5. In the Resources section, select **Specific resources**.
     1. In the **Instance ID** field, select your {{site.data.keyword.secrets-manager_short}} instance. Click **Add condition**.
     2. In the **Resource Type** field, select `secret-group`. Click **Add condition**.
     3. In the **Resource** field, enter the ID that was assigned to your secret group by the {{site.data.keyword.secrets-manager_short}} service.
     4. Click **Next**.
-8. Choose a combination of [access roles](/docs/secrets-manager?topic=secrets-manager-iam) to assign.
-9. Review your selections and **Add**.
-10. Click **Assign**.
+6. Choose a combination of [access roles](/docs/secrets-manager?topic=secrets-manager-iam) to assign.
+7. Review your selections and **Add**.
+8. Click **Assign**.
