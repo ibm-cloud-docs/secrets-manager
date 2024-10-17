@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-10-17"
 
 keywords: Secrets Manager developer tools, integrate with application, API, SDK, CLI
 
@@ -77,14 +77,14 @@ Ready to integrate {{site.data.keyword.secrets-manager_full}} into your existing
 ### {{site.data.keyword.secrets-manager_short}} CLI plug-in
 {: #dev-tool-cli}
 
-Building an automated flow? If you're already using the [{{site.data.keyword.cloud_notm}} Command Line Interface (CLI)](/docs/cli?topic=cli-getting-started), you can install the {{site.data.keyword.secrets-manager_short}} plug-in so that you can manage secrets in your instance. For example, after you add secrets to your service instance, you can run the following CLI command to obtain a list of secrets:
+If you're already using the [{{site.data.keyword.cloud_notm}} Command Line Interface (CLI)](/docs/cli?topic=cli-getting-started), you can install the {{site.data.keyword.secrets-manager_short}} plug-in so that you can manage secrets in your instance from the command line. For example, after you add secrets to your service instance, you can run the following CLI command to obtain a list of secrets:
 
 ```sh
-ibmcloud secrets-manager all-secrets
+ibmcloud secrets-manager secrets
 ```
 {: pre}
 
-To install {{site.data.keyword.secrets-manager_short}} commands, run `ibmcloud plugin install secrets-manager`. For more information, check out the [{{site.data.keyword.secrets-manager_short}} CLI reference](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli).
+To install the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run `ibmcloud plugin install secrets-manager`. For more information, check out the [{{site.data.keyword.secrets-manager_short}} CLI reference](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli).
 {: note}
 
 ### {{site.data.keyword.secrets-manager_short}} API
@@ -119,4 +119,3 @@ For more information, check out the following resources:
 
 - [Vault API reference](/docs/secrets-manager?topic=secrets-manager-vault-api)
 - [Vault CLI reference](/docs/secrets-manager?topic=secrets-manager-vault-cli)
-
