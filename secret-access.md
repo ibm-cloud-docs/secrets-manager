@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-14"
+lastupdated: "2024-10-18"
 
 keywords: access secret, retrieve secret, read secret, get secret value, get secrets, view secrets, search secrets, read secrets, get secret value
 
@@ -80,15 +80,15 @@ You can retrieve a secret by using the {{site.data.keyword.secrets-manager_short
 The secret value is displayed for 15 seconds, then the dialog closes.
 {: note}
 
+After your secret has been rotated, you can view the previous secret value from the **Version history** option.
+{: tip}
+
 You can also retieve a secret's details such as expiration date, and rotation interval or state.
 
 1. In the **Secrets** table, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) to open a list of options for your secret.
 2. To view the secret value, click **Details**.
 
 You can further filter retrieved secrets from the filter option in the Secrets table, and select a secret group and/or secret type.
-{: note}
-
-You can also retrieve secrets programmatically by using the CLI, API, or SDKs. To see the steps, switch to the **CLI** or **API** instructions.
 {: note}
 
 
@@ -102,9 +102,6 @@ To download a certificate by using the {{site.data.keyword.secrets-manager_short
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, open the overflow menu for the certificate that you want to download.
 4. Click **Download**. The certificate file is downloaded to your local system.
-
-    After your secret has been rotated, you can click **Download previous** to obtain the previous version of your certificate. 
-    {: tip}
 
 
 ## Retrieving a secret from the CLI
@@ -248,5 +245,3 @@ curl -X GET
 ```
 {: codeblock}
 {: curl}
-
-
