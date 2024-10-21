@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-10-17"
+lastupdated: "2024-10-21"
 
 keywords: intermediate certificate authority, intermediate CA, rotate
 
@@ -96,6 +96,19 @@ In case you have a multi-tier intermediate CA chain, you should create a new int
 
 1. An intermediate CA can be rotated inline in case it is an internally signed CA in active state, and it is only used to sign leaf certificates.
 2. Inline intermediate CA rotation will not affect existing leaf certificates that were signed using the previous CA certificate. New leaf certificates will be signed using the new CA certificate.
+
+### Rotating using service UI
+{: #rotating-intermediate-ui}
+{: ui}
+
+You can rotate the intermediate CA certificate using the {{site.data.keyword.secrets-manager_short}} service UI.
+
+1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+2. From the list of services, select your {{site.data.keyword.secrets-manager_short}} instance.
+3. In the **Secrets engines** page, click the **Private certificates** tab.
+4. In the row for the intermediate CA certificate that you want to rotate, click the **Details** menu ![Actions icon](../icons/actions-icon-vertical.svg).
+5. Click on the **Actions** button.
+6. Select the **Rotate** action and confirm.
 
 ### Rotating using CLI
 {: #rotating-intermediate-cli}
