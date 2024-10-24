@@ -35,13 +35,13 @@
   "section_highlights": [
     {
       "title": "Intro to IBM Cloud Secrets Manager",
-      "description": "In this video, Alex Greer with IBM Cloud, explains how IBM Cloud Secrets Manager provides a way for users to create secrets dynamically and lease them to applications while being able to control access from a single location.",
+      "description": "Shows how to create secrets dynamically and lease them to applications.",
       "href": "https://mediacenter.ibm.com/media/1_bnfy0wk6?mhsrc=ibmsearch_a&mhq=secrets%20manager",
       "type": "video"
     },
     {
       "title": "Manage Secrets in Continuous Delivery with IBM Cloud Secrets Manager",
-      "description": "IBM Cloud Continuous Delivery has introduced support for IBM Cloud Secrets Manager in CI/CD toolchains.",
+      "description": "IBM Cloud Continuous Delivery now supports Secrets Manager in CI/CD toolchains.",
       "href": "https://www.ibm.com/blog/manage-secrets-in-continuous-delivery-with-ibm-cloud-secrets-manager/",
       "type": "blog"
     }
