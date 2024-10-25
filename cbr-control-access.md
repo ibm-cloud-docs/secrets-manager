@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-08-14"
+lastupdated: "2024-10-25"
 
 keywords: context-based restrictions, access allowlist, network security
 
@@ -213,7 +213,7 @@ Example payload to add multiple services, IP addresses, and VPCs to a network zo
 ```
 {: codeblock}
 
-After you create zones, you can [update](/apidocs/context-based-restrictions#replace-zone) or [delete](/docs/account?topic=account-context-restrictions-remove&interface=ui) them.
+After you create zones, you can [update or remove](/docs/enterprise-management?topic=enterprise-management-context-restrictions-update) them.
 
 ### Creating network zones by using the UI
 {: #cbr-create-zone-ui}
@@ -224,7 +224,7 @@ After you set the prerequisites and requirements, you can create zones in the UI
 1. Determine the resources that you want add to your allowlist.
 2. Follow the steps to [create context-based restrictions](/docs/account?topic=account-context-restrictions-create&interface=ui#network-zones-create) in the console. Add the {{site.data.keyword.secrets-manager_short}} service to your network zones to allow {{site.data.keyword.secrets-manager_full}} to access services and resources in your account.
 
-After you create zones, you can also [update](/apidocs/context-based-restrictions#replace-zone) and [delete](/docs/account?topic=account-context-restrictions-remove&interface=ui) them.
+After you create zones, you can also [update or remove](/docs/enterprise-management?topic=enterprise-management-context-restrictions-update) them.
 
 
 ### Creating network zones by using the CLI
@@ -348,5 +348,3 @@ You must follow the creation or modification of zones or rules with adequate tes
 
 Users who attempt to access your resources outside of the defined zones receive `HTTP error 401` when the appropriate rules are not established.
 {: note}
-
-
