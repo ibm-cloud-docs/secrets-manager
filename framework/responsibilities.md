@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-28"
 
 keywords: responsibilities for {{site.data.keyword.secrets-manager_short}}
 
@@ -56,7 +56,7 @@ subcollection: secrets-manager
 {:release-note: data-hd-content-type='release-note'}
 
 # Understanding your responsibilities when using {{site.data.keyword.secrets-manager_short}}
-{: #your-id}
+{: #understanding-your-responsabilities}
 
 Learn about the management responsibilities and terms and conditions that you have when you use {{site.data.keyword.secrets-manager_full}}. For a high-level view of the service types in {{site.data.keyword.cloud}} and the breakdown of responsibilities between the customer and {{site.data.keyword.IBM_notm}} for each type, see [Shared responsibilities for {{site.data.keyword.cloud_notm}} offerings](/docs/overview?topic=overview-shared-responsibilities).
 {: shortdesc}
