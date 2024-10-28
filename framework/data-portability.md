@@ -41,26 +41,22 @@ To find out more about responsibility ownership for using {{site.data.keyword.cl
 
 
 
-For more information about your responsibilities when using {{site.data.keyword.secrets-manager_short}}, see [Shared responsibilities for {{site.data.keyword.secrets-manager_short}}(docs/secrets-manager?topic=secrets-manager-understanding-your-responsabilities).
+For more information about your responsibilities when using {{site.data.keyword.secrets-manager_short}}, see [Shared responsibilities for {{site.data.keyword.secrets-manager_short}}](docs/secrets-manager?topic=secrets-manager-understanding-your-responsabilities).
 
 ## Data export procedures
 {: #data-portability-procedures}
 
-{{site.data.keyword.secrets-manager_short}} provides mechanisms to export your content that uploaded, stored, and processed using the service.
+{{site.data.keyword.secrets-manager_short}} provides mechanisms to export your content that uploaded, stored, and processed using the service.  
+All data available within the service can be accessed using the {{site.data.keyword.secrets-manager_short}} service APIs as described in the [API documentation](/apidocs/secrets-manager/secrets-manager-v2).
 
-All data available within the service can be accessed using the {{site.data.keyword.secrets-manager_short}} Service APIs as described in the [API documentation](/apidocs/secrets-manager/secrets-manager-v2).
-
-To export a secret group use the [Get a secret group](/apidocs/secrets-manager/secrets-manager-v2#get-secret-group) REST API.
-
-To export a secret use the [Get a secret](h/apidocs/secrets-manager/secrets-manager-v2#get-secret) REST API.
-
-To export a secret engine configuration use the [Get a configuration](/apidocs/secrets-manager/secrets-manager-v2#get-configuration) REST API.
+   - To export a secret group use the [Get a secret group](/apidocs/secrets-manager/secrets-manager-v2#get-secret-group) REST API.
+   - To export a secret use the [Get a secret](h/apidocs/secrets-manager/secrets-manager-v2#get-secret) REST API.
+   - To export a secret engine configuration use the [Get a configuration](/apidocs/secrets-manager/secrets-manager-v2#get-configuration) REST API.
 
 ## Exported data formats
 {: #data-portability-data-formats}
 
-The format of the data exported from the {{site.data.keyword.secrets-manager_short}} Service APIs is JSON. 
-
+The format of the data exported from the {{site.data.keyword.secrets-manager_short}} service APIs is JSON.  
 The schema of the exported data is described when using the {{site.data.keyword.secrets-manager_short}} Service [Swagger UI](/docs/secrets-manager?topic=secrets-manager-endpoints&q=openapi&tags=secrets-manager#public-endpoints). 
 
 ## Non exportable data
@@ -73,5 +69,3 @@ Use Private Certificate with [HPCS Key management service](docs/secrets-manager?
 {: #data-portability-data-ownership}
 
 All exported data are classified as Customer content and therefore appliy to them the full customer ownership and licensing rights, as stated in [IBM Cloud Service Agreement](https://www.ibm.com/terms/?id=Z126-6304_WS).
-
-
