@@ -41,7 +41,7 @@ To find out more about responsibility ownership for using {{site.data.keyword.cl
 
 
 
-For more information about your responsibilities when using {{site.data.keyword.secrets-manager_short}}, see [Shared responsibilities for {{site.data.keyword.secrets-manager_short}}](docs/secrets-manager?topic=secrets-manager-understanding-your-responsabilities).
+For more information about your responsibilities when using {{site.data.keyword.secrets-manager_short}}, see [Shared responsibilities for {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-understanding-your-responsabilities).
 
 ## Data export procedures
 {: #data-portability-procedures}
