@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-08-15"
+lastupdated: "2024-10-29"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, public certificates
 
@@ -157,6 +157,8 @@ You can order a certificate by using the {{site.data.keyword.secrets-manager_sho
 ### Ordering public certificates with integrated DNS providers from the CLI
 {: #order-public-certificates-integrated-cli}
 {: cli}
+
+Before you begin, [follow the CLI docs](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli) to set your API endpoint.
 
 To order a public certificate with an integrated DNS provider by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-create-command) command.For example, the following command requests a public certificate secret from the certificate authority that you specify.
 
@@ -734,6 +736,3 @@ Alternatively, you can call the {{site.data.keyword.secrets-manager_short}} [Cre
 6. After your certificate is issued (its state is `active`), you must run the Terraform command `terraform apply` again in order to update your public certificate’s Terraform resource and to use your newly issued certificate.
 
 7. Clean up and remove the TXT records from the domains in your DNS provider account.
-
-
-
