@@ -182,6 +182,11 @@ toc:
             navtitle: Regions and endpoints
           - topic: framework/ha-dr.md
             navtitle: Understanding high availability and disaster recovery
+      - topicgroup: 
+          label: Data portability
+          topics:
+          - topic: framework/data-portability.md
+            navtitle: Understanding data portability
   - navgroup:
       id: help
       topics:
