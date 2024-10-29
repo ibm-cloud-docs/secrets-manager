@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2024-10-28"
+lastupdated: "2024-10-29"
 
 keywords:
 
@@ -57,7 +57,10 @@ All data available within the service can be accessed using the {{site.data.keyw
 {: #data-portability-data-formats}
 
 The format of the data exported from the {{site.data.keyword.secrets-manager_short}} service APIs is JSON.  
-The schema of the exported data is described when using the {{site.data.keyword.secrets-manager_short}} Service [Swagger UI](/docs/secrets-manager?topic=secrets-manager-endpoints&q=openapi&tags=secrets-manager#public-endpoints). 
+The schema of the exported data is described in the {{site.data.keyword.secrets-manager_short}} service [API documentation](/apidocs/secrets-manager/secrets-manager-v2).
+
+
+[Swagger UI](/docs/secrets-manager?topic=secrets-manager-endpoints&q=openapi&tags=secrets-manager#public-endpoints). 
 
 ## Non exportable data
 {: #data-portability-non-exportable-data}
