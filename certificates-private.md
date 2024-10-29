@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: "2023"
-lastupdated: "2023-10-03"
+  years: 2020, 2024
+lastupdated: "2024-10-29"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, private certificates
 
@@ -130,6 +130,8 @@ You can create a private certificate by using the {{site.data.keyword.secrets-ma
 ### Creating private certificates from the CLI
 {: #generate-private-certificates-cli}
 {: cli}
+
+Before you begin, [follow the CLI docs](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli) to set your API endpoint.
 
 To create a private certificate by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. For example, the following command creates a private certificate secret from the certificate template that you specify.
 
@@ -303,4 +305,3 @@ The following example shows a configuration that you can use to create a private
 
 
 After a certificate is issued, you can deploy it to your integrated apps, download it, or rotate it manually. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#create-secret){: external}.
-

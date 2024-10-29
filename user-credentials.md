@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-10-15"
+lastupdated: "2024-10-29"
 
 keywords: username, password, user credentials, store password
 
@@ -109,6 +109,8 @@ To store a username and password by using the {{site.data.keyword.secrets-manage
 ## Adding user credentials from the CLI
 {: #user-credentials-cli}
 {: cli}
+
+Before you begin, [follow the CLI docs](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli) to set your API endpoint.
 
 To store a username and password by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. 
 
