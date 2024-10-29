@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-10-14"
+lastupdated: "2024-10-29"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, imported certificates
 
@@ -123,6 +123,8 @@ You can import an existing certificate by using the {{site.data.keyword.secrets-
 ### Importing certificates from the CLI
 {: #import-certificates-cli}
 {: cli}
+
+Before you begin, [follow the CLI docs](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli) to set your API endpoint.
 
 To import a certificate by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. For example, the following command imports a certificate along with its private key and intermediate certificate.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-10-08"
+lastupdated: "2024-10-29"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -64,6 +64,8 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
+
+
 ## 7 October 2024
 {: #secrets-manager-october724}
 {: release-note}
@@ -86,10 +88,10 @@ See the expiration date of previous secret versions
 {: release-note}
 
 Support for HSM in Private Certificates
-:   You can use the Private Certificate engine to generate Root and Intermediate CA certificates with private keys managed by a Hardware Security Module (HSM). This feature is currently available using {{site.data.keyword.hscrypto}} HSM. 
+:   You can use the Private Certificate engine to generate Root and Intermediate CA certificates with private keys managed by a Hardware Security Module (HSM). This feature is currently available using {{site.data.keyword.hscrypto}} HSM.
 
 Finer granularity in Configurations API
-:   Use the `secret_types` option to list configuration for a specific engine. Supported values are: `iam_credentials`, `public_cert`, and `private_cert`.    
+:   Use the `secret_types` option to list configuration for a specific engine. Supported values are: `iam_credentials`, `public_cert`, and `private_cert`.
 
 ## 3 June 2024
 {: #secrets-manager-june0324}
@@ -190,7 +192,7 @@ Now available: Get a secret by name
 {: release-note}
 
 Now available: CLI v2.0.1
-:   A new version of the {{site.data.keyword.secrets-manager_short}} CLI is now available. In this release, the CLI was updated to address an error that Windows users faced when they attempted to download the plug-in. 
+:   A new version of the {{site.data.keyword.secrets-manager_short}} CLI is now available. In this release, the CLI was updated to address an error that Windows users faced when they attempted to download the plug-in.
 
 
 ## 17 April 2023
@@ -200,8 +202,8 @@ Now available: CLI v2.0.1
 Now available: API, SDK, CLI, and Terraform v2.0
 :   A new version of the {{site.data.keyword.secrets-manager_short}} API and SDKs is now available. The following updates are included in this release.
 
-   * You no longer need to include `secret_type` in the API URL to identify a secret. 
-   * The secret group name must be unique per {{site.data.keyword.secrets-manager_short}} instance. 
+   * You no longer need to include `secret_type` in the API URL to identify a secret.
+   * The secret group name must be unique per {{site.data.keyword.secrets-manager_short}} instance.
    * Resources updates are defined as HTTP patch operations.
    * The configurations API follows the pattern of the {{site.data.keyword.secrets-manager_short}} API. `config_type` acts as the API discriminator, similarly to `secret_type`.
    * Configurations are modeled as openAPI composites with metadata and data parts, similarly to the {{site.data.keyword.secrets-manager_short}} model. Mappings between IAM roles and configurations API follow the same pattern for the {{site.data.keyword.secrets-manager_short}} API. For example, an IAM viewer can list configurations to view their metadata.
@@ -216,7 +218,7 @@ Now available: API, SDK, CLI, and Terraform v2.0
    * CLI commands to create secret/group/configuration require JSON input instead of param flags.
    * CLI command names for configurations and locks slightly changed.
 
-   For more information, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#introduction). 
+   For more information, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#introduction).
 
 
 Now available: CLI version 2.0
@@ -294,7 +296,7 @@ New {{site.data.keyword.secrets-manager_short}} event notifications
 :   The following notifications for events related to Secret Locks are now available.
 
    - `secret_deletion_blocked`: Now available for arbitrary secrets, IAM credentials, user credentials, key value, imported certificates, private certificates, and public certificates.
-   - `secret_revocation_blocked`: Now available for private certificates. 
+   - `secret_revocation_blocked`: Now available for private certificates.
    - `secret_rotation_blocked`:  Now available for arbitrary secrets, IAM credentials, user credentials, key value, imported certificates, private certificates, and public certificates.
    - `secret_expiration_blocked`:  Now available for arbitrary secrets, IAM credentials, and user credentials.
    - `secret_version_data_deleted`:  Now available for arbitrary secrets, IAM credentials, user credentials, key value, imported certificates, private certificates, and public certificates.
@@ -353,7 +355,7 @@ Integration with {{site.data.keyword.alb_full}}
 {: release-note}
 
 Updated {{site.data.keyword.secrets-manager_short}} event notifications
-:   Previously, notifications for {{site.data.keyword.secrets-manager_short}} were supported for certificates only. Now, you can be notified when other types of secrets in your instance are expired or soon to expire. 
+:   Previously, notifications for {{site.data.keyword.secrets-manager_short}} were supported for certificates only. Now, you can be notified when other types of secrets in your instance are expired or soon to expire.
 
   - `secret_about_to_expire`: Now available for arbitrary secrets, IAM credentials, and user credentials.
   - `secret_expired`: Now available for arbitrary secrets, IAM credentials, and user credentials.
@@ -503,7 +505,7 @@ Rotate IAM credentials on-demand
 {: release-note}
 
 Order domain-validated TLS certificates from Let's Encrypt
-:   In addition to [importing your existing certificates](/docs/secrets-manager?topic=secrets-manager-certificates), you can now use {{site.data.keyword.secrets-manager_short}} to order domain-validated certificates! 
+:   In addition to [importing your existing certificates](/docs/secrets-manager?topic=secrets-manager-certificates), you can now use {{site.data.keyword.secrets-manager_short}} to order domain-validated certificates!
 
    In this release, the following certificate authorities (CA) and DNS providers are supported:
 
@@ -521,7 +523,7 @@ Order domain-validated TLS certificates from Let's Encrypt
 Migrate certificates from {{site.data.keyword.cloudcerts_short}} to {{site.data.keyword.secrets-manager_short}}
 :   Ready to try {{site.data.keyword.secrets-manager_short}} for certificates management? You can now take advantage of automation scripts that can help you to move certificates from {{site.data.keyword.cloudcerts_short}} to {{site.data.keyword.secrets-manager_short}}.
 
-   For more information, check out the [migration scripts in GitHub](https://github.com/ibm-cloud-security/certificate-manager-to-secrets-manager){: external}. 
+   For more information, check out the [migration scripts in GitHub](https://github.com/ibm-cloud-security/certificate-manager-to-secrets-manager){: external}.
 
 
 ## 20 June 2021
@@ -529,12 +531,12 @@ Migrate certificates from {{site.data.keyword.cloudcerts_short}} to {{site.data.
 {: release-note}
 
 Import and manage your existing TLS certificates
-:   Looking for the ability to centralize TLS certificates into a single secrets management service? You can now use {{site.data.keyword.secrets-manager_short}} to import TLS certificates that are issued by external certificate authorities (CA). 
+:   Looking for the ability to centralize TLS certificates into a single secrets management service? You can now use {{site.data.keyword.secrets-manager_short}} to import TLS certificates that are issued by external certificate authorities (CA).
 
-   For more information, check out [Importing TLS certificates](/docs/secrets-manager?topic=secrets-manager-certificates). 
+   For more information, check out [Importing TLS certificates](/docs/secrets-manager?topic=secrets-manager-certificates).
 
 Connect to {{site.data.keyword.secrets-manager_short}} from your VPC network
-:   You can now connect to a {{site.data.keyword.secrets-manager_short}} service instance by using Virtual Private Endpoints (VPE) for VPC. 
+:   You can now connect to a {{site.data.keyword.secrets-manager_short}} service instance by using Virtual Private Endpoints (VPE) for VPC.
 
    To learn how to connect your existing {{site.data.keyword.secrets-manager_short}} instance, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints). For more information about setting up a virtual private endpoint gateway, check out [About virtual private endpoint gateways](/docs/vpc?topic=vpc-about-vpe).
 
@@ -602,7 +604,7 @@ Now available: {{site.data.keyword.secrets-manager_short}} Go and Python SDKs
 :   You can now use the {{site.data.keyword.secrets-manager_full_notm}} Go and Python SDKs to connect to your {{site.data.keyword.secrets-manager_short}} service instance.
 
    For more information, check out the SDK repositories in GitHub:
-   
+
    - [{{site.data.keyword.secrets-manager_full_notm}} Go SDK](https://github.com/IBM/secrets-manager-go-sdk){: external}
    - [{{site.data.keyword.secrets-manager_full_notm}} Python SDK](https://github.com/IBM/secrets-manager-python-sdk){: external}
 
