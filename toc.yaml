@@ -10,7 +10,7 @@ toc:
     product-page: https://ibm.com/products/secrets-manager
     path: secrets-manager
     label: Secrets Manager
-  entries: 
+  entries:
   - navgroup:
       id: learn
       topics:
@@ -195,7 +195,6 @@ toc:
       - topicgroup:
           label: Troubleshooting
           topics:
-          - troubleshooting/support.md
           - troubleshooting/troubleshoot-provision.md
           - troubleshooting/troubleshoot-iam-engine-access.md
           - troubleshooting/troubleshoot-ip-address.md
@@ -205,3 +204,4 @@ toc:
           - troubleshooting/troubleshoot-locked-certificate.md
           - troubleshooting/troubleshoot-delete-group.md
           - troubleshooting/troubleshoot-instance-delete.md
+      - troubleshooting/support.md

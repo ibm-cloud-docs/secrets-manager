@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-29"
 
 keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, lite plan
 
@@ -61,6 +61,8 @@ subcollection: secrets-manager
 Get started with {{site.data.keyword.secrets-manager_full}} by creating a service instance in {{site.data.keyword.cloud_notm}} console, {{site.data.keyword.cloud_notm}} CLI, or API.
 {: shortdesc}
 
+
+
 Provisioning {{site.data.keyword.secrets-manager_short}} in your {{site.data.keyword.cloud_notm}} account can take 5 - 15 minutes to complete as the service creates a single tenant, dedicated instance.
 {: note}
 
@@ -75,7 +77,7 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} from the {{
 2. In the **Create** tab, select the region that represents the geographic area where you want provision your instance.
 3. Review and select a pricing plan.
 
-    You can create only one Trial instance of {{site.data.keyword.secrets-manager_short}} per account. Before you can create a new Trial instance, you must delete the existing Trial instance and its reclamation. 
+    You can create only one Trial instance of {{site.data.keyword.secrets-manager_short}} per account. Before you can create a new Trial instance, you must delete the existing Trial instance and its reclamation.
     {: note}
 
 4. Provide a name for your instance.
@@ -132,7 +134,7 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} by using th
     | Encryption | To provision an instance of {{site.data.keyword.secrets-manager_short}} that uses [customer-managed encryption](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption), append `-p '{"kms_key": "<root_key_crn>"}'`. Replace `<root_key_crn>` with the CRN value for the root key that you want to integrate. |
     {: caption="Description of the information that is required to provision the  {{site.data.keyword.secrets-manager_short}} service using CLI" caption-side="top"}
 
-    You can create only one Trial instance of {{site.data.keyword.secrets-manager_short}} per account. Before you can create a new Trial instance, you must delete the existing Trial instance and its reclamation. 
+    You can create only one Trial instance of {{site.data.keyword.secrets-manager_short}} per account. Before you can create a new Trial instance, you must delete the existing Trial instance and its reclamation.
     {: note}
 
 
@@ -180,7 +182,7 @@ For additional programming languages support, see the [Resource Controller API D
     | Encryption | To provision an instance of {{site.data.keyword.secrets-manager_short}} that uses [customer-managed encryption](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption), keep the `kms_key` parameter, and replace `<root_key_crn>` with the CRN value for the root key that you want to integrate. |
     {: caption="Description of the information that is required to provision the  {{site.data.keyword.secrets-manager_short}} service using API" caption-side="top"}
 
-    You can create only one Trial instance of {{site.data.keyword.secrets-manager_short}} per account. Before you can create a new Trial instance, you must delete the existing Trial instance and its reclamation. 
+    You can create only one Trial instance of {{site.data.keyword.secrets-manager_short}} per account. Before you can create a new Trial instance, you must delete the existing Trial instance and its reclamation.
     {: note}
 
 To update your service plan after you create an instance, see [Updating your service plan](/docs/billing-usage?topic=billing-usage-changing).
@@ -190,4 +192,4 @@ To update your service plan after you create an instance, see [Updating your ser
 ## Upgrading a {{site.data.keyword.secrets-manager_short}} instance to the Standard plan
 {: #upgrade-instance-standard}
 
-When your Trial instance expires, you lose access to your secrets, and integrations. To preserve your data, and prevent any disruptions in your workflow, you must upgrade to the Standard plan before your Trial plan expires. Follow the steps to [update your pricing plan](/docs/billing-usage?topic=billing-usage-changing&interface=ui). You can use the UI, API, and CLI to complete this process. 
+When your Trial instance expires, you lose access to your secrets, and integrations. To preserve your data, and prevent any disruptions in your workflow, you must upgrade to the Standard plan before your Trial plan expires. Follow the steps to [update your pricing plan](/docs/billing-usage?topic=billing-usage-changing&interface=ui). You can use the UI, API, and CLI to complete this process.
