@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-10-28"
+lastupdated: "2024-10-30"
 
 keywords: responsibilities for {{site.data.keyword.secrets-manager_short}}
 
@@ -62,6 +62,8 @@ Learn about the management responsibilities and terms and conditions that you ha
 {: shortdesc}
 
 Review the following sections for the specific responsibilities for you and for {{site.data.keyword.IBM_notm}} when you use {{site.data.keyword.secrets-manager_short}}. For the overall terms of use, see [{{site.data.keyword.cloud}} Terms and Notices](/docs/overview?topic=overview-terms).
+
+
 
 
 ## Incident and operations management
