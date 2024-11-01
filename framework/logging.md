@@ -2,72 +2,36 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-26"
+lastupdated: "2024-11-01"
 
 keywords: logging, activity, monitor app, monitor secrets
 
 subcollection: secrets-manager
+
 ---
 
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:download: .download}
-{:external: target="_blank" .external}
-{:faq: data-hd-content-type='faq'}
-{:gif: data-image-type='gif'}
-{:important: .important}
-{:note: .note}
-{:pre: .pre}
-{:tip: .tip}
-{:preview: .preview}
-{:deprecated: .deprecated}
-{:beta: .beta}
-{:term: .term}
-{:shortdesc: .shortdesc}
-{:script: data-hd-video='script'}
-{:support: data-reuse='support'}
-{:table: .aria-labeledby="caption"}
-{:troubleshoot: data-hd-content-type='troubleshoot'}
-{:help: data-hd-content-type='help'}
-{:tsCauses: .tsCauses}
-{:tsResolve: .tsResolve}
-{:tsSymptoms: .tsSymptoms}
-{:video: .video}
-{:step: data-tutorial-type='step'}
-{:tutorial: data-hd-content-type='tutorial'}
-{:api: .ph data-hd-interface='api'}
-{:cli: .ph data-hd-interface='cli'}
-{:ui: .ph data-hd-interface='ui'}
-{:terraform: .ph data-hd-interface="terraform"}
-{:curl: .ph data-hd-programlang='curl'}
-{:java: .ph data-hd-programlang='java'}
-{:ruby: .ph data-hd-programlang='ruby'}
-{:c#: .ph data-hd-programlang='c#'}
-{:objectc: .ph data-hd-programlang='Objective C'}
-{:python: .ph data-hd-programlang='python'}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:php: .ph data-hd-programlang='PHP'}
-{:swift: .ph data-hd-programlang='swift'}
-{:curl: .ph data-hd-programlang='curl'}
-{:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
-{:go: .ph data-hd-programlang='go'}
-{:unity: .ph data-hd-programlang='unity'}
-{:release-note: data-hd-content-type='release-note'}
+{{site.data.keyword.attribute-definition-list}}
+
 
 # Logging for {{site.data.keyword.secrets-manager_short}}
-{: #service-logs}
+{: #logging}
 
-Use the {{site.data.keyword.la_full}} service to view {{site.data.keyword.secrets-manager_full}} logs for your instance.
+{{site.data.keyword.cloud_notm}} services, such as {{site.data.keyword.secrets-manager_short}}, generate platform logs that you can use to investigate abnormal activity and critical actions in your account, and troubleshoot problems.
 {: shortdesc}
 
-With {{site.data.keyword.la_full_notm}}, administrators, DevOps teams, and developers can review log data, define alerts, and design custom views to monitor application and system logs. For more information, see the [{{site.data.keyword.la_short}} docs](/docs/log-analysis?topic=log-analysis-getting-started).
+You can use {{site.data.keyword.logs_routing_full_notm}}, a platform service, to route platform logs in your account to a destination of your choice by configuring a tenant that defines where platform logs are sent. For more information, see [About Logs Routing](/docs/logs-router?topic=logs-router-about).
+
+You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on platform logs that are generated in your account and routed by {{site.data.keyword.logs_routing_full_notm}} to an {{site.data.keyword.logs_full_notm}} instance.
+
+As of 28 March 2024, the {{site.data.keyword.la_full_notm}} service is deprecated and will no longer be supported as of 30 March 2025. Customers will need to migrate to {{site.data.keyword.logs_full_notm}} before 30 March 2025. During the migration period, customers can use {{site.data.keyword.la_full_notm}} along with {{site.data.keyword.logs_full_notm}}. Logging is the same for both services. For information about migrating from {{site.data.keyword.la_full_notm}} to {{site.data.keyword.logs_full_notm}} and running the services in parallel, see [migration planning](/docs/cloud-logs?topic=cloud-logs-migration-intro).
+{: important}
 
 ## Before you begin
 {: #before-logs}
 
 If you're working with {{site.data.keyword.la_short}} for the first time, be sure that you create an instance in the same location as your {{site.data.keyword.secrets-manager_short}} instance. For more information, see [Configuring platform logs through the Observability dashboard](/docs/log-analysis?topic=log-analysis-config_svc_logs&interface=ui#config_svc_logs_ui).
 
-
+For more information about regions where {{site.data.keyword.secrets-manager_short}} supports logging, check out [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
 
 ## Viewing logs
 {: #view-logs-ui}
@@ -93,8 +57,7 @@ To view {{site.data.keyword.secrets-manager_short}} logs, complete the following
 ## Analyzing logs
 {: #analyze-logs-ui}
 
-You can create views and alerts from all of your {{site.data.keyword.secrets-manager_short}} instances, or from a specific instance.  
-To target a specific instance, replace `host:secrets-manager` with `app:{INSTANCE_CRN}`.
+You can create views and alerts from all of your {{site.data.keyword.secrets-manager_short}} instances, or from a specific instance. To target a specific instance, replace `host:secrets-manager` with `app:{INSTANCE_CRN}`.
 
 ### Query for finding all errors from all instances
 {: #query-all-logs}
