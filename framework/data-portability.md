@@ -71,4 +71,4 @@ Use Private Certificate with [HPCS Key management service](/docs/secrets-manager
 ## Data onwership
 {: #data-portability-data-ownership}
 
-All exported data are classified as Customer content and therefore appliy to them the full customer ownership and licensing rights, as stated in [IBM Cloud Service Agreement](https://www.ibm.com/terms/?id=Z126-6304_WS).
+All exported data are classified as Customer content and therefore appliy to them the full customer ownership and licensing rights, as stated in [IBM Cloud Service Agreement](https://www.ibm.com/support/customer/csol/terms/?id=Z126-6304_WS).
