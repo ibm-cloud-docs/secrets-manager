@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-11-01"
 
 keywords: activity tracker events for Secrets Manager, events, Secrets Manager actions
 
@@ -10,63 +10,78 @@ subcollection: secrets-manager
 
 ---
 
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:download: .download}
-{:external: target="_blank" .external}
-{:faq: data-hd-content-type='faq'}
-{:gif: data-image-type='gif'}
-{:important: .important}
-{:note: .note}
-{:pre: .pre}
-{:tip: .tip}
-{:preview: .preview}
-{:deprecated: .deprecated}
-{:beta: .beta}
-{:term: .term}
-{:shortdesc: .shortdesc}
-{:script: data-hd-video='script'}
-{:support: data-reuse='support'}
-{:table: .aria-labeledby="caption"}
-{:troubleshoot: data-hd-content-type='troubleshoot'}
-{:help: data-hd-content-type='help'}
-{:tsCauses: .tsCauses}
-{:tsResolve: .tsResolve}
-{:tsSymptoms: .tsSymptoms}
-{:video: .video}
-{:step: data-tutorial-type='step'}
-{:tutorial: data-hd-content-type='tutorial'}
-{:api: .ph data-hd-interface='api'}
-{:cli: .ph data-hd-interface='cli'}
-{:ui: .ph data-hd-interface='ui'}
-{:terraform: .ph data-hd-interface="terraform"}
-{:curl: .ph data-hd-programlang='curl'}
-{:java: .ph data-hd-programlang='java'}
-{:ruby: .ph data-hd-programlang='ruby'}
-{:c#: .ph data-hd-programlang='c#'}
-{:objectc: .ph data-hd-programlang='Objective C'}
-{:python: .ph data-hd-programlang='python'}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:php: .ph data-hd-programlang='PHP'}
-{:swift: .ph data-hd-programlang='swift'}
-{:curl: .ph data-hd-programlang='curl'}
-{:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
-{:go: .ph data-hd-programlang='go'}
-{:unity: .ph data-hd-programlang='unity'}
-{:release-note: data-hd-content-type='release-note'}
+{{site.data.keyword.attribute-definition-list}}
 
-# Auditing events for {{site.data.keyword.secrets-manager_short}}
-{: #at-events}
+# Activity tracking events for {{site.data.keyword.secrets-manager_short}}
+{: #at_events}
 
-As a security officer, auditor, or manager, you can use the Activity Tracker service to track how users and applications interact with {{site.data.keyword.secrets-manager_full}}.
+{{site.data.keyword.cloud_notm}} services, such as {{site.data.keyword.secrets-manager_full}}, generate activity tracking events.
 {: shortdesc}
-
-{{site.data.keyword.at_full_notm}} records service and user initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. In addition, you can be alerted about actions as they happen. The events that are collected comply with the Cloud Auditing Data Federation (CADF) standard.
-
-For more information, see the [getting started tutorial for {{site.data.keyword.at_full_notm}}](/docs/activity-tracker?topic=activity-tracker-getting-started).
 
 Audit devices that you can enable with Vault, such as the [`syslog` audit device](https://developer.hashicorp.com/vault/docs/audit/syslog){: external}, are not supported by {{site.data.keyword.secrets-manager_short}}.
 {: note}
+
+Activity tracking events report on activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use the events to investigate abnormal activity and critical actions and to comply with regulatory audit requirements.
+
+You can use {{site.data.keyword.atracker_full_notm}}, a platform service, to route auditing events in your account to destinations of your choice by configuring targets and routes that define where activity tracking events are sent. For more information, see [About {{site.data.keyword.atracker_full_notm}}](/docs/atracker?topic=atracker-about).
+
+You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on events that are generated in your account and routed by {{site.data.keyword.atracker_full_notm}} to an {{site.data.keyword.logs_full_notm}} instance.
+
+As of 28 March 2024, the {{site.data.keyword.at_full_notm}} service is deprecated and will no longer be supported as of 30 March 2025. Customers will need to migrate to {{site.data.keyword.logs_full_notm}} before 30 March 2025. During the migration period, customers can use {{site.data.keyword.at_full_notm}} along with {{site.data.keyword.logs_full_notm}}. Activity tracking events are the same for both services. For information about migrating from {{site.data.keyword.at_full_notm}} to {{site.data.keyword.logs_full_notm}} and running the services in parallel, see [migration planning](/docs/cloud-logs?topic=cloud-logs-migration-intro).
+{: important}
+
+## Activity Tracker supported regions
+{: #at-locations}
+
+For more information about regions where {{site.data.keyword.secrets-manager_short}} supports {{site.data.keyword.at_full_notm}} events, check out [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
+
+## Viewing events
+{: #at-ui}
+
+Events that are generated by an instance of the {{site.data.keyword.secrets-manager_short}} service are automatically forwarded to the {{site.data.keyword.at_full_notm}} service instance that is available in the same location.
+
+{{site.data.keyword.at_full_notm}} can have only one instance per location. To view events, you must access the web UI of the {{site.data.keyword.at_full_notm}} service in the same location where your service instance is available. For more information, see [Launching the UI through the {{site.data.keyword.cloud_notm}} UI](/docs/activity-tracker?topic=activity-tracker-launch#launch_cloud_ui).
+
+## Analyzing events
+{: #at-analyze}
+
+Successful events that are generated by an instance of the {{site.data.keyword.secrets-manager_short}} service contain various fields that can help you to identify the initiator, the target resource, and the outcome of each completed action in your instance. For more information about the components that make up an event, see the [{{site.data.keyword.at_full_notm}} documentation](/docs/activity-tracker?topic=activity-tracker-event).
+
+Due to the sensitivity of secrets, when an {{site.data.keyword.at_full_notm}} event is generated as a result of an API call to the {{site.data.keyword.secrets-manager_short}} service, the generated event does not include the actual contents of a secret. Sensitive data, such as an API key or password, is replaced with identifying information about the secret only, or it is omitted from generated events altogether.
+{: note}
+
+You can create views and alerts from all of your {{site.data.keyword.secrets-manager_short}} instances, or from a specific instance.  
+To target a specific instance, replace `host:secrets-manager` with `app:{INSTANCE_CRN}`.
+
+### Query for finding all create secret actions:
+{: #query-all-at}
+
+Run the following query to find all create secret actions.
+
+```sh
+host:secrets-manager action:secrets-manager.secret.create
+```
+
+The action value can be replaced with any other applicable action.
+{: note}
+
+
+### Query for finding unauthorized access attempts
+{: #query-specific-at}
+
+To see unauthorized access attempts, run the following query.
+
+```sh
+host:secrets-manager reason.reasonType:Unauthorized
+```
+
+To learn more about creating [views](/docs/activity-tracker?topic=activity-tracker-create_alert_ui#create_alert_ui_step1) and [alerts](/docs/activity-tracker?topic=activity-tracker-create_alert_ui#alerts_create_alert), see the {{site.data.keyword.at_full_notm}} documentation.
+{: note}
+
+### Launching {{site.data.keyword.logs_full_notm}} from the Observability page
+{: #log-launch-standalone}
+
+For information on launching the {{site.data.keyword.logs_full_notm}} UI, see [Launching the UI in the {{site.data.keyword.logs_full_notm}} documentation.](/docs/cloud-logs?topic=cloud-logs-instance-launch)
 
 ## Events for secrets
 {: #at-actions-secrets}
@@ -89,9 +104,7 @@ The following table lists the secret actions that generate an event.
 | `secrets-manager.secret-version-metadata.read`   |	Get the metadata of a secret version                          |
 | `secrets-manager.secret-version-data.delete`     |	Delete the data of a secret version                           |
 | `secrets-manager.secret-version-action.create`   |	Create a version action                                       |
-
 {: caption="List of secret events" caption-side="top"}
-
 
 ## Events for secret groups
 {: #at-actions-secret-groups}
@@ -106,7 +119,6 @@ The following table lists the secret group actions that generate an event.
 | `secrets-manager.secret-group.update` | Update a secret group.              |
 | `secrets-manager.secret-group.delete` | Delete a secret group.              |
 {: caption="List of secret group events" caption-side="top"}
-
 
 ## Events for secret locks
 {: #at-actions-secret-locks}
@@ -144,46 +156,3 @@ The following table lists the instance operation actions that generate an event.
 | `secrets-manager.notifications-registration.delete` | Delete an Event Notifications registration. | Manager |
 | `secrets-manager.notifications-registration.test` | Send a test event. | Reader, SecretsReader, Writer, Manager |
 {: caption="List of instance operation events" caption-side="top"}
-
-## Viewing events
-{: #at-ui}
-
-Events that are generated by an instance of the {{site.data.keyword.secrets-manager_short}} service are automatically forwarded to the {{site.data.keyword.at_full_notm}} service instance that is available in the same location.
-
-{{site.data.keyword.at_full_notm}} can have only one instance per location. To view events, you must access the web UI of the {{site.data.keyword.at_full_notm}} service in the same location where your service instance is available. For more information, see [Launching the UI through the IBM Cloud UI](/docs/activity-tracker?topic=activity-tracker-launch#launch_cloud_ui).
-
-## Analyzing events
-{: #at-analyze}
-
-Successful events that are generated by an instance of the {{site.data.keyword.secrets-manager_short}} service contain various fields that can help you to identify the initiator, the target resource, and the outcome of each completed action in your instance. For more information about the components that make up an event, see the [{{site.data.keyword.at_full_notm}} documentation](/docs/activity-tracker?topic=activity-tracker-event).
-
-Due to the sensitivity of secrets, when an {{site.data.keyword.at_full_notm}} event is generated as a result of an API call to the {{site.data.keyword.secrets-manager_short}} service, the generated event does not include the actual contents of a secret. Sensitive data, such as an API key or password, is replaced with identifying information about the secret only, or it is omitted from generated events altogether.
-{: note}
-
-You can create views and alerts from all of your {{site.data.keyword.secrets-manager_short}} instances, or from a specific instance.  
-To target a specific instance, replace `host:secrets-manager` with `app:{INSTANCE_CRN}`.
-
-### Query for finding all create secret actions:
-{: #query-all-at}
-
-Run the following query to find all create secret actions.
-
-```sh
-host:secrets-manager action:secrets-manager.secret.create
-```
-
-The action value can be replaced with any other applicable action.
-{: note}
-
-
-### Query for finding unauthorized access attempts
-{: #query-specific-at}
-
-To see unauthorized access attempts, run the following query.
-
-```sh
-host:secrets-manager reason.reasonType:Unauthorized
-```
-
-To learn more about creating [views](/docs/activity-tracker?topic=activity-tracker-create_alert_ui#create_alert_ui_step1) and [alerts](/docs/activity-tracker?topic=activity-tracker-create_alert_ui#alerts_create_alert), see the {{site.data.keyword.at_full_notm}} documentation.
-{: note}
