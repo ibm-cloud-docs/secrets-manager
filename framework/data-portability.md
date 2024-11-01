@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2024-10-29"
+lastupdated: "2024-11-01"
 
 keywords:
 
@@ -50,7 +50,7 @@ For more information about your responsibilities when using {{site.data.keyword.
 All data available within the service can be accessed using the {{site.data.keyword.secrets-manager_short}} service APIs as described in the [API documentation](/apidocs/secrets-manager/secrets-manager-v2).
 
    - To export a secret group use the [Get a secret group](/apidocs/secrets-manager/secrets-manager-v2#get-secret-group) REST API.
-   - To export a secret use the [Get a secret](h/apidocs/secrets-manager/secrets-manager-v2#get-secret) REST API.
+   - To export a secret use the [Get a secret](/apidocs/secrets-manager/secrets-manager-v2#get-secret) REST API.
    - To export a secret engine configuration use the [Get a configuration](/apidocs/secrets-manager/secrets-manager-v2#get-configuration) REST API.
 
 ## Exported data formats
@@ -66,7 +66,7 @@ The schema of the exported data is described in the {{site.data.keyword.secrets-
 {: #data-portability-non-exportable-data}
 
 The private keys that are internally created to sign Root and Intermediate Certificate Authorities when using the Private Certificate engine are not exportable for security reasons. 
-Use Private Certificate with [HPCS Key management service](docs/secrets-manager?topic=secrets-manager-prepare-create-certificates#prepare-hpcs) to reuse your own private keys in HPCS.
+Use Private Certificate with [HPCS Key management service](/docs/secrets-manager?topic=secrets-manager-prepare-create-certificates#prepare-hpcs) to reuse your own private keys in HPCS.
 
 ## Data onwership
 {: #data-portability-data-ownership}
