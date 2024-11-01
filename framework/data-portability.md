@@ -6,7 +6,7 @@ lastupdated: "2024-11-01"
 
 keywords:
 
-subcollection: repo-name
+subcollection: secrets-manager
 
 ---
 
