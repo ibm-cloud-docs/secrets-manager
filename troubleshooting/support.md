@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-10-29"
+lastupdated: "2024-11-01"
 
 keywords: get help, getting help, getting support
 
@@ -65,4 +65,4 @@ If you have problems or questions when using {{site.data.keyword.secrets-manager
 
 * You can check the status of the {{site.data.keyword.cloud_notm}} platform and resources by going to the [Status page](https://cloud.ibm.com/status){: external}.
 * You can review [Stack Overflow](https://stackoverflow.com/questions/tagged/ibm-cloud+ibm-secrets-manager){: external} to see whether other users ran into the same problem. When using the forum to ask a question, tag your question with "ibm-cloud" and "ibm-secrets-manager" so that it is seen by the {{site.data.keyword.cloud_notm}} development teams.
-* If you still can't resolve the problem, you can open a support case. For information about opening a support case, or about case severities and response times, see [Working with support cases](/docs/get-support?topic=get-support-open-case) or [Escalating support cases](/docs/get-support?topic=get-support-escalation).
+* If you still can't resolve the problem, you can open a support case. For information about opening a support case, or about case severities and response times, see [Working with support cases](/docs/account?topic=account-open-case) or [Escalating support cases](/docs/account?topic=account-managing-support-cases&interface).
