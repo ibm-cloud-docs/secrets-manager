@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-09-16"
+lastupdated: "2024-11-07"
 
 keywords: pricing plan, billing, cost
 
@@ -70,7 +70,7 @@ Pricing in {{site.data.keyword.secrets-manager_full}} is based on the number of 
 The `Trial` plan provides unlimited access to all service capabilities for a limited time of 30 days.  
 {: shortdesc}
 
-When your Trial instance expires, you lose access to your secrets and integrations. To preserve your data, and prevent any disruptions in your workflow, you must upgrade to the Standard plan before your Trial plan expires. Follow these steps to [update your pricing plan](/docs/billing-usage?topic=billing-usage-changing&interface=ui). You can use the UI, API, and CLI to complete this process.
+When your Trial instance expires, you lose access to your secrets and integrations. To preserve your data, and prevent any disruptions in your workflow, you must upgrade to the Standard plan before your Trial plan expires. Follow these steps to [update your pricing plan](/docs/account?topic=account-changing). You can use the UI, API, and CLI to complete this process.
 
 You can create only one Trial instance of Secrets Manager per account. Before you can create a new Trial instance, you must [delete the existing Trial instance and its reclamation](/docs/secrets-manager?topic=secrets-manager-mng-data#service-delete).
 {: note}
