@@ -24,7 +24,7 @@
       },
       {
         "title": "Understanding your responsibilities when using Secrets Manager",
-        "href": "/docs/secrets-manager?topic=secrets-manager-your-id"
+        "href": "/docs/secrets-manager?topic=secrets-manager-understanding-your-responsabilities"
       },
       {
         "title": "Best practices for rotating and locking secrets",
