@@ -66,8 +66,8 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 
 
 
-## 11 November 2024
-{: #secrets-manager-november1124}
+## 19 November 2024
+{: #secrets-manager-november1924}
 {: release-note}
 
 New event notifications for secret types
