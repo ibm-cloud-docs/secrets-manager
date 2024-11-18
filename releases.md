@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-11-07"
+lastupdated: "2024-11-18"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -65,6 +65,16 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
 
+
+## 11 November 2024
+{: #secrets-manager-november1124}
+{: release-note}
+
+New event notifications for secret types
+:   You can now configure Event Notifications to send an alert for all secret types when a secret is created or fails creation. To learn more about the integration, see [Enabling event notifications for {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-event-notifications).
+
+Rotation of intermediate CA certificates
+:   A new configuration `action_type`, `private_cert_configuration_action_rotate_intermediate`, is now available to enable rotation of an intermediate CA's certificate. Learn more about [rotating an intermediate CA](/docs/secrets-manager?topic=secrets-manager-rotating-ca-certificates).
 
 ## 7 October 2024
 {: #secrets-manager-october724}
