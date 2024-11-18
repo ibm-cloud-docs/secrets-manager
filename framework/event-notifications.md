@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-11-13"
+lastupdated: "2024-11-18"
 
 keywords: event notifications for {{site.data.keyword.secrets-manager_short}}, event notifications integration for {{site.data.keyword.secrets-manager_short}}, alerts for {{site.data.keyword.secrets-manager_short}}
 
@@ -126,7 +126,7 @@ The following table lists the {{site.data.keyword.secrets-manager_short}} events
 
 | Event name | Event type | Occurrence | Arbitrary | IAM credentials | Key-value | User credentials | Imported certificates | Private certificates | Public certificates | Service credentials |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Secret created | `com.ibm.cloud.secrets-manager.secret_created` | One time | |![Checkmark icon](../../icons/checkmark-icon.svg) | |![Checkmark icon](../../icons/checkmark-icon.svg) | |![Checkmark icon](../../icons/checkmark-icon.svg) | |![Checkmark icon](../../icons/checkmark-icon.svg) | |![Checkmark icon](../../icons/checkmark-icon.svg) | |![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Secret created | `com.ibm.cloud.secrets-manager.secret_created` | One time | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
 | Secret creation failed | `com.ibm.cloud.secrets-manager.secret_creation_failed` | One time | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | 
 | Secret rotated | `com.ibm.cloud.secrets-manager.secret_rotated` | One time | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
 | Secret rotation failed | `com.ibm.cloud.secrets-manager.secret_rotation_failed` | One time | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
