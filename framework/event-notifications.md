@@ -159,9 +159,9 @@ The following table lists the {{site.data.keyword.secrets-manager_short}} events
 [^na-15]: Event is not applicable because this notification type applies to private certificates only.
 [^na-16]: Event is not applicable because this notification type applies to private certificates only.
 [^na-17]: Event is not applicable because this notification type applies to private certificates only.
-[^na-19]: Event is not applicable because expiration date cannot be blocked.
-[^na-19]: Event is not applicable because expiration date cannot be blocked.
-[^na-20]: Event is not applicable because expiration date cannot be blocked.
+[^na-18]: Event is not applicable because expiration date cannot be blocked in this secret type.
+[^na-19]: Event is not applicable because expiration date cannot be blocked in this secret type.
+[^na-20]: Event is not applicable because expiration date cannot be blocked in this secret type.
 [^man]: You receive a notification that informs you that your manual rotation was not successful.
 [^auto]: When an automatic rotation fails, you are notified daily until it is successful.
 
