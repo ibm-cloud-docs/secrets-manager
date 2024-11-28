@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-11-28"
 
 keywords: set up public certificates, public certificates engine, set up CIS, set up CA, set up Let's Encrypt
 
@@ -65,7 +65,6 @@ In {{site.data.keyword.secrets-manager_short}}, the public certificates engine s
 
 [Ordering a certificate](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates) through {{site.data.keyword.secrets-manager_short}} is an asynchronous process that can take a few minutes to complete.
 {: note}
-
 
 
 ## Supported certificate authorities
