@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-10-08"
+lastupdated: "2024-11-27"
 
 keywords: IAM credentials, dynamic, IAM API key IAM credentials engine
 
@@ -368,20 +368,41 @@ A successful response returns the ID value of the secret, along with other metad
 {: #configure-iam-engine-terraform}
 {: terraform}
 
-The following example shows a query that you can use to configure a secrets engine for your instance when using an IAM service authorization.
+### Using IAM service authorization
+{: #terraform-s2s}
+
+The following example shows a query that you can use to configure the IAM credentials engine for your {{site.data.keyword.secrets-manager_short}} instance when using an IAM service authorization.
 
 ```terraform
-    resource "ibm_sm_iam_credentials_configuration" "iam_credentials_configuration" {
-        instance_id = local.instance_id
-        region = local.region
-        name = "iam_credentials_config"
-        api_key = var.ibmcloud_api_key
+    resource "ibm_iam_authorization_policy" "sm_to_iam_identity" {
+        source_service_name = "secrets-manager"
+        source_service_account = local.source_account_id
+        source_resource_instance_id = local.instance_id
+        target_service_name = "iam-identity"
+        roles = ["Service ID creator", "Operator"]
     }
-```
+
+    resource "ibm_iam_authorization_policy" "sm_to_iam_groups" {
+        source_service_name = "secrets-manager"
+        source_service_account = local.source_account_id
+        source_resource_instance_id = local.instance_id
+        target_service_name = "iam-groups"
+        roles = ["Groups Service Member Manage"]
+    }
+   ```
 {: codeblock}
 
+The **source_resource_instance_id** attribute is optional. If omitted the authorization applies to all {{site.data.keyword.secrets-manager_short}} instances.
+The **source_service_account** attribute is optional. It can be omitted if the source account is the same as the current account.
+{: note}
 
-The following example shows a configuration that you can use to configure the IAM credentials engine by using a Service ID's API key.
+### Using API key
+{: #terraform-apikey}
+
+For step-by-step instructions to create an {{site.data.keyword.cloud_notm}} API key with the correct level of access, switch to the **UI** or **CLI** steps.
+{: tip}
+
+The following example shows a configuration that you can use to configure the IAM credentials engine by using a service ID's API key.
 
 ```terraform
     resource "ibm_sm_iam_credentials_configuration" "iam_credentials_configuration" {
