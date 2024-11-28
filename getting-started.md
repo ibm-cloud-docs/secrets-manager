@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-03-01"
+  years: 2020, 2024
+lastupdated: "2024-11-28"
 
 keywords: secrets management, manage secrets, manage credentials, store username and password, add secrets, add credentials, get started with Secrets Manager
 content-type: tutorial
@@ -125,6 +125,4 @@ After you add a secret to your instance, you can establish a regular cadence for
 Now you can add more secrets and design a secrets management strategy to control who has access to them.
 
 - To find out more about organizing secrets, check out [Best practices for organizing secrets and assigning access](/docs/secrets-manager?topic=secrets-manager-best-practices-organize-secrets).
-
-
-
+- To find out more about rotating secrets, check out [Best practices for rotating secrets](/docs/secrets-manager?topic=secrets-manager-best-practices-rotate-secrets).
