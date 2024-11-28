@@ -1,5 +1,5 @@
 ---
-<stage>
+
 copyright:
 years: 2024
 lastupdated: "2024-11-28"
@@ -244,5 +244,3 @@ Complex changes are enabled and disabled with feature flags to control exposure.
 
 
 Changes that impact customer workloads are detailed in notifications. For more information, see [monitoring notifications and status](/docs/account?topic=account-viewing-cloud-status) for planned maintenance, announcements, and release notes that impact this service.
-
-</stage>
