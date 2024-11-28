@@ -58,7 +58,7 @@ subcollection: content-kit
 
 
 # Understanding high availability and disaster recovery for {{site.data.keyword.secrets-manager_short}}
-{: #secrets-manager-name-ha-dr}
+{: #secrets-manager-ha-dr}
 
 
 
