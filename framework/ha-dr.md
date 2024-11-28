@@ -224,17 +224,11 @@ In the event of a zone failure IBM Cloud will resolve the zone outage and when t
 
 When a region is restored after a failure, IBM will attempt to restore the service instance from the regional state resulting in no loss of data and the service instance restored with the same connection strings.
 
-<stage>
-- RTO = todo
-- RPO = 0 minutes
-</stage>
+
 
 If regional state is corrupted the service will be restored to the state of the last internal backup.  All data associated with the service is backed up once daily by the service in a cross-region Cloud Object Storage bucket managed by the service. There is a potential for 24-hour’s worth of data loss. **These backups are not available for customer managed disaster recovery.** When a service is recovered from backups the service ID for the instance will be restored so clients using the endpoint will not need to be updated with new connection strings (todo verify the connection strings are restored).
 
-<stage>
-- RTO = todo
-- RPO = 24 hours maximum
-</stage>
+
 
 In the event that IBM can not restore the service instance, the customer must restore as described in the disaster recovery section above.
 
