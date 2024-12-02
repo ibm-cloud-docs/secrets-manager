@@ -144,9 +144,9 @@ The repository that contains the source of truth should have point in time recov
 #### Backup and restore customer provided feature
 {: #sm-backup-and-restore-feature}
 
-To manually back up your secrets across regions, you must first have an instance of {[sm-short}] in another region. Then, use the following steps to ensure cross-region availability.
+To manually back up your secrets across regions, you must first have an instance of {{site.data.keyword.secrets-manager_short}} in another region. Then, use the following steps to ensure cross-region availability.
 
-List and download secrets from your instance by using the [{[sm-short}] API](/apidocs/secrets-manager/secrets-manager-v2) or CLI.
+List and download secrets from your instance by using the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager/secrets-manager-v2) or CLI.
 
 If you have existing configurations on secrets engines in your instance, you can also retrieve the information programmatically so that it can be re-created in a new instance. For more information, see the [Get the configuration of a secret type API](/apidocs/secrets-manager/secrets-manager-v2#get-configuration).
 
@@ -157,13 +157,13 @@ Creating an automatic backup of your secrets is possible by automating the manua
 #### Live synchronization customer provided feature
 {: #sm-live-syncrhonization-feature}
 
-It is possible for the customer to create a script or program to download secrets from your primary service instance by using the {[sm-short}] API or and populate the recovery service instance with the data. The script can take advantage of Activity Tracker audit events of the primary instance to keep the recovery instance in sync along with Code Engine. Customer managed backups should be kept to restore from the disaster.
+It is possible for the customer to create a script or program to download secrets from your primary service instance by using the {{site.data.keyword.secrets-manager_short}} API or and populate the recovery service instance with the data. The script can take advantage of Activity Tracker audit events of the primary instance to keep the recovery instance in sync along with Code Engine. Customer managed backups should be kept to restore from the disaster.
 
 Create a script that periodically downloads all of your secrets and then imports them into your backup instance.
 
 Create a destination and subscription in Event Notifications that points to an IBM Cloud Code Engine action. Configure the action to listen for lifecycle events such as secret_created and secret_rotated. Then, when the action receives the event, the action downloads the secret from one instance and adds it to the backup instance.
 
-{[sm-short}] supports notifications for the different secret types it provides. To learn about the various available lifecycle event types, see [Enabling event notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications).
+{{site.data.keyword.secrets-manager_short}} supports notifications for the different secret types it provides. To learn about the various available lifecycle event types, see [Enabling event notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications).
 {: note}
   
 ### Planning for disaster recovery
