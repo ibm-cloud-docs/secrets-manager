@@ -6,7 +6,7 @@ lastupdated: "2024-12-02"
 
 keywords: HA, DR, high availability, disaster recovery, disaster recovery plan, disaster event, recovery time objective, recovery point objective, secrets manager
 
-subcollection: content-kit
+subcollection: secrets-manager
 
 ---
 
@@ -129,7 +129,7 @@ All other disaster recovery options are created and supported by the customer.
 #### Rotation feature
 {: #sm-rotation-feature}
 
-Secret Manager secrets are generally updated via “rotation” where writing a value results in the creation of a new version of the secret. It may be possible to restore data corruption by restoring secrets from older versions in the production instance. Only a fixed number of versions are persisted. See [managing secret versions](docs/secrets-manager?topic=secrets-manager-version-history).
+Secret Manager secrets are generally updated via “rotation” where writing a value results in the creation of a new version of the secret. It may be possible to restore data corruption by restoring secrets from older versions in the production instance. Only a fixed number of versions are persisted. See [managing secret versions](/docs/secrets-manager?topic=secrets-manager-version-history).
 
 
 #### External source of truth customer provided feature
@@ -155,7 +155,7 @@ Add your downloaded secrets to the newly created instance.
 Creating an automatic backup of your secrets is possible by automating the manual flow, which can be done in various ways. Check out some of the following examples to see whether one of them might work for you.
 
 #### Live synchronization customer provided feature
-{: #sm-live syncrhonization-feature}
+{: #sm-live-syncrhonization-feature}
 
 It is possible for the customer to create a script or program to download secrets from your primary service instance by using the {[sm-short}] API or and populate the recovery service instance with the data. The script can take advantage of Activity Tracker audit events of the primary instance to keep the recovery instance in sync along with Code Engine. Customer managed backups should be kept to restore from the disaster.
 
