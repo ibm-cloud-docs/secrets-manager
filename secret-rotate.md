@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-11-28"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -234,8 +234,6 @@ If your {{site.data.keyword.secrets-manager_short}} service instance is enabled 
     To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager/secrets-manager-v2#get-secret) API.
 
 
-
-
 ### Creating new versions of public certificates with your own DNS provider in the UI
 {: #rotate-certificates-manual-ui}
 {: ui}
@@ -341,10 +339,6 @@ Manually rotating an IAM credentials is possible only if **Reuse IAM credentials
 {: note}
 
 The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-version-create-command).
-
-
-
-
 
 ### Rotating imported certificates
 {: #manual-rotate-imported-certificates-cli}

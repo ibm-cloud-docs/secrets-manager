@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-10-03"
+  years: 2024
+lastupdated: "2024-11-28"
 
 keywords: key:value, key/value, key-value, storing key:value secrets
 
@@ -129,7 +129,6 @@ You can store metadata that are relevant to the needs of your organization with 
 {: curl}
 
 
-
 ```sh
 curl -X POST 
     -H "Authorization: Bearer {iam_token}" \
@@ -219,5 +218,3 @@ The following example shows a configuration that you can use to create a key-val
     }
 ```
 {: codeblock}
-
-

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-11-28"
 content-type: tutorial
 services: secrets-manager, cloud-object-storage
 account-plan: paid
@@ -210,7 +210,6 @@ Next, define the access hierarchy that you need to be able to run operations aga
     {: pre}
 
     You use this API key later to enable the {{site.data.keyword.secrets-manager_short}} IAM secrets engine.
-
 
 
 ### Prepare your Cloud Object Storage instance
