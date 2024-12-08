@@ -180,6 +180,8 @@ toc:
           topics:
           - topic: endpoints.md
             navtitle: Regions and endpoints
+          - topic: service-dependency.md
+            navtitle: Service dependency map
           - topic: framework/ha-dr.md
             navtitle: Understanding high availability and disaster recovery
       - topicgroup: 
