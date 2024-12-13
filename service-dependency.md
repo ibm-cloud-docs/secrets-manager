@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-12-08"
+lastupdated: "2024-12-13"
 
 keywords:
 
@@ -38,75 +38,75 @@ The following table provides the dependency listing of this service following a 
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
-|  [IBM Cloud Internet Services](/docs/internet-svcs?topic=internet-svcs-service-dependencies)  | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
-|  IBM Cloud Classic Infrastructure Resource Management  | Availability, Change management, Instance control, Operations | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-|  [IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud - containers-kubernetes](/docs/containers-kubernetes?topic=containers-kubernetes-service-dependencies&interface=ui)  | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
-|  [IBM Cloud Classic DNS Servers](/docs/classic-external-dns?topic=classic-external-dns-service-dependencies)  | Availability, Change management, Instance control | No | Both |  Same data center  |
-|  [IBM Cloud Identity and Access Management](/docs/overview?topic=overview-service-dependencies)  | Access management, Availability, Change management, Instance control, Security compliance | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-|  [IBM Cloud Databases - databases-for-postgresql](/docs/databases-for-postgresql?topic=databases-for-postgresql-service-dependencies&interface=ui)  | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
-|  [IBM Cloud Object Storage](/docs/cloud-object-storage?topic=cloud-object-storage-service-dependencies)  | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-|  IBM Cloud Public IP Address Management  | Availability, Change management, Instance control, Operations | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-|  IBM Cloud Service Endpoints  | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same data center  |
-|  [IBM Cloud Databases - databases-for-postgresql](/docs/databases-for-postgresql?topic=databases-for-postgresql-service-dependencies&interface=ui)  | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
+| IBM Cloud Internet Services | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
+| IBM Cloud Classic Infrastructure Resource Management | Availability, Change management, Instance control, Operations | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
+| IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud - containers-kubernetes | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
+| IBM Cloud Classic DNS Servers | Availability, Change management, Instance control | No | Both |  Same data center  |
+| IBM Cloud Identity and Access Management | Access management, Availability, Change management, Instance control, Security compliance | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
+| IBM Cloud Databases - databases-for-postgresql | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
+| IBM Cloud Object Storage | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
+| IBM Cloud Public IP Address Management | Availability, Change management, Instance control, Operations | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
+| IBM Cloud Service Endpoints | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same data center  |
+| IBM Cloud Databases - databases-for-postgresql | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud Secrets Manager service dependency information - Critical dependencies" caption-side="top"}
 {: tab-title="Critical dependencies"}
 {: tab-group="service-dependency-data-for-secrets-manager"}
 {: class="comparison-tab-table"}
 {: #critical-deps}
-{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers details about the dependency. The column headers identify the dependency. To understand the details about each dependency, navigate to the row to find the depedency that you need more information about interested in."}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers details about the dependency. The column headers identify the dependency. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
-|  [IBM Cloud Databases - databases-for-redis](/docs/databases-for-redis?topic=databases-for-redis-service-dependencies&interface=ui)  | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
-|  [IBM Cloud Hyper Protect Crypto](/docs/hs-crypto?topic=hs-crypto-service-dependencies)  | Availability, Customer responsibility, Instance control, Security compliance | No | Both |  Same region  |
-|  [IBM Key Protect for IBM Cloud](/docs/key-protect?topic=key-protect-service-dependencies)  | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
-|  [IBM Cloud Classic NTP Servers](/docs/classic-external-ntp?topic=classic-external-ntp-service-dependencies)  | Availability, Change management, Instance control | No | Both |  Same data center  |
-|  [IBM Cloud Container Registry](/docs/Registry?topic=Registry-service-dependencies)  | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
-|  [IBM Cloud Console](/docs/overview?topic=overview-service-dependencies)  | Availability, Instance control, Operations, Security compliance | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-|  [IBM Key Protect for IBM Cloud](/docs/key-protect?topic=key-protect-service-dependencies)  | Availability, Change management, Disaster recovery, Instance control, Security compliance | Yes | Both |  Same region  |
+| IBM Cloud Databases - databases-for-redis | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
+| IBM Cloud Hyper Protect Crypto | Availability, Customer responsibility, Instance control, Security compliance | No | Both |  Same region  |
+| IBM Key Protect for IBM Cloud | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
+| IBM Cloud Classic NTP Servers | Availability, Change management, Instance control | No | Both |  Same data center  |
+| IBM Cloud Container Registry | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
+| IBM Cloud Console | Availability, Instance control, Operations, Security compliance | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
+| IBM Key Protect for IBM Cloud | Availability, Change management, Disaster recovery, Instance control, Security compliance | Yes | Both |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud Secrets Manager service dependency information - Significant dependencies" caption-side="top"}
 {: tab-title="Significant dependencies"}
 {: tab-group="service-dependency-data-for-secrets-manager"}
 {: class="comparison-tab-table"}
 {: #significant-deps}
-{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers details about the dependency. The column headers identify the dependency. To understand the details about each dependency, navigate to the row to find the depedency that you need more information about interested in."}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers details about the dependency. The column headers identify the dependency. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
-|  [IBM Cloud Databases - databases-for-redis](/docs/databases-for-redis?topic=databases-for-redis-service-dependencies&interface=ui)  | Change management, configuration-management | No | Both |  Same region  |
-|  IBM GitHub Enterprise  | Change management, configuration-management | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-|  [IBM Cloud Event Notifications](/docs/event-notifications?topic=event-notifications-service-dependencies)  | Change management | No | Both |  Same region  |
-|  Let's Encrypt  | Change management | No | Both |  external  |
-|  [IBM Cloud Continuous Delivery](/docs/ContinuousDelivery?topic=ContinuousDelivery-service-dependencies)  | Change management, configuration-management, Disaster recovery, Operations | No | Both |  Same region  |
-|  [IBM Cloud Activity Tracker event routing](/docs/atracker?topic=atracker-service-dependencies)  | Change management, configuration-management, Security compliance | No | Both |  Same region  |
+| IBM Cloud Databases - databases-for-redis| Change management, configuration-management | No | Both |  Same region  |
+| IBM GitHub Enterprise| Change management, configuration-management | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
+| IBM Cloud Event Notifications| Change management | No | Both |  Same region  |
+| Let's Encrypt| Change management | No | Both |  external  |
+| IBM Cloud Continuous Delivery| Change management, configuration-management, Disaster recovery, Operations | No | Both |  Same region  |
+| IBM Cloud Activity Tracker event routing| Change management, configuration-management, Security compliance | No | Both |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud Secrets Manager service dependency information - Medium dependencies" caption-side="top"}
 {: tab-title="Medium dependencies"}
 {: tab-group="service-dependency-data-for-secrets-manager"}
 {: class="comparison-tab-table"}
 {: #medium-deps}
-{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers details about the dependency. The column headers identify the dependency. To understand the details about each dependency, navigate to the row to find the depedency that you need more information about interested in."}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers details about the dependency. The column headers identify the dependency. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
-|  OSS Platform  | Operations | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-|  [IBM Log Analysis & IBM Cloud Activity Tracker](/docs/cloud-logs?topic=cloud-logs-service-dependencies)  | Operations, Security compliance | No | Both |  Same region  |
-|  [IBM Cloud Business Support Services](/docs/overview?topic=overview-service-dependencies)  | Operations | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-|  SOS SIEM  | Security compliance | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-|  [IBM Cloud CLI ](/docs/cli?topic=cli-service-dependencies)  | none | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-|  [IBM Cloud Global Search and Tagging](/docs/overview?topic=overview-service-dependencies)  | configuration-management | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-|  Segment  | none | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-|  [IBM Cloud Monitoring](/docs/monitoring?topic=monitoring-service-dependencies)  | Operations, Security compliance | No | Both |  Same region  |
-|  [IBM Cloud Business Support Services](/docs/overview?topic=overview-service-dependencies)  | Operations | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
+| OSS Platform| Operations | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
+| IBM Log Analysis & IBM Cloud Activity Tracker| Operations, Security compliance | No | Both |  Same region  |
+| IBM Cloud Business Support Services| Operations | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
+| SOS SIEM| Security compliance | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
+| IBM Cloud CLI | none | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
+| IBM Cloud Global Search and Tagging| configuration-management | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
+| Segment| none | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
+| IBM Cloud Monitoring| Operations, Security compliance | No | Both |  Same region  |
+| IBM Cloud Business Support Services| Operations | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
 {: row-headers}
 {: caption="IBM Cloud Secrets Manager service dependency information - Minimal dependencies" caption-side="top"}
 {: tab-title="Minimal dependencies"}
 {: tab-group="service-dependency-data-for-secrets-manager"}
 {: class="comparison-tab-table"}
 {: #minimal-deps}
-{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers details about the dependency. The column headers identify the dependency. To understand the details about each dependency, navigate to the row to find the depedency that you need more information about interested in."}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers details about the dependency. The column headers identify the dependency. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
 
 This table can be used to answer the following questions:
 
@@ -115,10 +115,7 @@ This table can be used to answer the following questions:
    Services that are regional are not impacted by a severe outage of a single availability zone because of the failover that is built in to default to another zone. For these occurrences, there might be a slight performance impact, if any, while the system fails over to the other location. This also applies to global services where the impact is lowered even more as it can fail over to other regions if necessary. This reduces the frequency at which these items might have the impact that is shown.
    {: note}
 
-- **What services does my service depend on?** The Dependencies column lists the services. These are the major service to service dependencies including major internal dependencies that might not be visible externally. If you select the dependency service, you are directed to more information about the dependencies of that service.
-
-   Additional information is available only for the catalog services. Internal services do not have links to more information.
-   {: note}
+- **What services does my service depend on?** The Dependencies column lists the services. These are the major service to service dependencies including major internal dependencies that might not be visible externally.
 
 - **What function does the dependency impact?** Functions include access management, availability, change management, configuration management, customer responsibility, disaster recovery, instance control, none, operations or security compliance. If the dependency goes offline, these functions might be impacted. Definitions for each available values are as follows:
 
@@ -129,19 +126,19 @@ This table can be used to answer the following questions:
    :   Availability of the service and service instances.
 
    change management
-   :   Deployment, upgrade, patch, etc. of the service and service instances.
+   :   Deployment, upgrade, patch, and so on of the service and service instances.
 
    configuration management
-   :   Deployment, upgrade, patch, etc. of the service and service instances.
+   :   Deployment, upgrade, patch, and so on of the service and service instances.
 
    customer responsibility
-   :   Functions provides by customers to support specific service and service instances function. E.g. Key Protect instances provided by customer to support service BYOK encryption.
+   :   Functions provides by customers to support specific service and service instances function. For example: {{site.data.keyword.keymanagementservicefull_notm}} instances provided by customer to support service BYOK encryption.
 
    disaster recovery
    :   Backup, recovery, restart of the service and service instances in case of disruption.
 
    instance control
-   :   Creation, deletion, start, stop, etc. actions on lifecycle of the service instances.
+   :   Creation, deletion, start, stop actions on lifecycle of the service instances.
 
    none
    :   No function impacted.
@@ -152,14 +149,16 @@ This table can be used to answer the following questions:
    security compliance
    :   Vulnerability management and other security and compliance management of the service and service instances.
 
-- **Where do dependency services need to be deployed with regard to my service?** In the Location of dependency column you can view if the dependency is located in the same region or deployed to a specific data center. You can use this data with the data in the Control or data plane column for a quick reference to identify if your data leaves the region or not in a standard setup.
+- The **Customer provided** column will show if there is any dependency that has been provided by the customer to enable specific functionality. (for example: To properly configure and set up using BYOK into a service, the customer would provision a service like {{site.data.keyword.keymanagementservicefull_notm}}. But there may be other examples like this.) For details on how to enable the features and which services you need to provision, please see the documentation on the service.
+
+- **Where do dependency services need to be deployed regarding my service?** In the Location of dependency column you can view if the dependency is located in the same region or deployed to a specific data center. You can use this data with the data in the Control or data plane column for a quick reference to identify if your data leaves the region or not in a standard setup.
 
    To find where your service can be deployed, see [Service and infrastructure availability by location](/docs/overview?topic=overview-services_region).
 
    The table shows a standard cloud deployment. If a special deployment is used like Fedramp or other region-bound deployment models, the data might differ from the details available in the table. Refer to the specific deployment that you are using for that information.
    {: note}
 
-- **Where are the separate control plane and data plane located, if applicable?** In some cases, the dependency might have a separate control plane and data plane. In these cases, there are separate lines that show the location in relation to the deployed customer instance of the service where these will be provisioned. The lines might have different impacts and different functions. See the Control or data plane column to understand what possible impact this type of outage might have.
+- **Where are the separate control plane and data plane located, if applicable?** Sometimes, the dependency might have a separate control plane and data plane. In these cases, there are separate lines that show the location in relation to the deployed customer instance of the service where these will be provisioned. The lines might have different impacts and different functions. See the Control or data plane column to understand what possible impact this type of outage might have.
 
    Same region means that the dependent services are in the same region as the provisioned instance. Other values might show data center or region names if the service must be used from a specific region, a specific availability zone, or set of availability zones. If a service is tied to a specific region or site, and the region goes offline, the service might go offline as well. It is recommended that you go through the high availability and disaster recovery documentation of the dependency to determine if there are any steps that you should take to mitigate these types of risks.
 
