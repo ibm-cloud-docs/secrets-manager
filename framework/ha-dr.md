@@ -2,7 +2,7 @@
 
 copyright:
 years: 2024
-lastupdated: "2024-12-02"
+lastupdated: "2024-12-13"
 
 keywords: HA, DR, high availability, disaster recovery, disaster recovery plan, disaster event, recovery time objective, recovery point objective, secrets manager
 
@@ -79,7 +79,7 @@ subcollection: secrets-manager
 
 A {{site.data.keyword.secrets-manager_short}} service instance is provisioned across three zones in a multi-zone region with no single point of failure. API requests are routed through a global load balancer to three HA instance nodes each in a different availability zone.
 
-In the event of a HA instance node or availability zone failure, the service will continue to run with API requests being routed through a global load balancer to the surviving HA instance nodes. There may be a short period of time (seconds) between the outage and the global load balancer recognizing the failure, during which time, requests may be sent to the failed instance. Workloads that programmatically access the service instance should follow the [client availability retry logic](/docs/resiliency?topic=resiliency-client-retry-logic-for-ha) to maintain availability. There is no noticeable degradation of service during a zonal failure.
+In the event of a HA instance node or availability zone failure, the service will continue to run with API requests being routed through a global load balancer to the surviving HA instance nodes. There may be a short period of time (seconds) between the outage and the global load balancer recognizing the failure, during which time, requests may be sent to the failed instance. Workloads that programmatically access the service instance should follow the [client availability retry logic](/docs/resiliency?topic=resiliency-high-availability-design#client-retry-logic-for-ha) to maintain availability. There is no noticeable degradation of service during a zonal failure.
 
 {{site.data.keyword.secrets-manager_full}} instances are highly available with no configuration required.
 
