@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-12-13"
+lastupdated: "2024-12-14"
 
 keywords:
 
@@ -43,7 +43,6 @@ The following table provides the dependency listing of this service following a 
 | IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud - containers-kubernetes | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
 | IBM Cloud Classic DNS Servers | Availability, Change management, Instance control | No | Both |  Same data center  |
 | IBM Cloud Identity and Access Management | Access management, Availability, Change management, Instance control, Security compliance | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
-| IBM Cloud Databases - databases-for-postgresql | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
 | IBM Cloud Object Storage | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
 | IBM Cloud Public IP Address Management | Availability, Change management, Instance control, Operations | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
 | IBM Cloud Service Endpoints | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same data center  |
@@ -75,7 +74,6 @@ The following table provides the dependency listing of this service following a 
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
-| IBM Cloud Databases - databases-for-redis| Change management, configuration-management | No | Both |  Same region  |
 | IBM GitHub Enterprise| Change management, configuration-management | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
 | IBM Cloud Event Notifications| Change management | No | Both |  Same region  |
 | Let's Encrypt| Change management | No | Both |  external  |
@@ -93,7 +91,6 @@ The following table provides the dependency listing of this service following a 
 |:---|:---|:---|:---|:---|
 | OSS Platform| Operations | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
 | IBM Log Analysis & IBM Cloud Activity Tracker| Operations, Security compliance | No | Both |  Same region  |
-| IBM Cloud Business Support Services| Operations | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
 | SOS SIEM| Security compliance | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
 | IBM Cloud CLI | none | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
 | IBM Cloud Global Search and Tagging| configuration-management | No | Both |  [Global](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#global-platform)  |
