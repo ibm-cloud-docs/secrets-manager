@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-03-01"
+  years: 2020, 2024
+lastupdated: "2024-12-18"
 
 keywords: secrets management best practice, managing secrets, secrets strategy, secrets best practices, organizing secrets, assigning access to secrets
 
@@ -61,6 +61,15 @@ subcollection: secrets-manager
 With {{site.data.keyword.secrets-manager_full}}, you can design a strategy for organizing and assigning access to your secrets and sensitive data. Review the following suggested guidelines for implementing best practices around your secrets management.
 {: shortdesc}
 
+## Limit Access to Your Secrets
+{: #limit-access-to-secrets}
+
+To ensure the security of your organization's secrets stored in {{site.data.keyword.secrets-manager_short}}, restrict access for non-administrative users and applications.
+
+- Review your IAM settings to confirm that permissive access to the {{site.data.keyword.secrets-manager_short}} service is not allowed.
+- Grant access to secrets for non-administrative users and applications only for the duration necessary to complete their tasks, and promptly revoke access when it is no longer required.
+- When assigning access permissions, adhere to the principle of least privilege. Limit access to specific {{site.data.keyword.secrets-manager_short}} instances or secret groups, and assign only the minimum service role necessary for the required operations. Additionally, you can [configure custom IAM roles](/docs/account?topic=account-custom-roles) to restrict access to a specific set of {{site.data.keyword.secrets-manager_short}} actions tailored to a workload's needs.
+
 ## Review the hierarchy of resources in your account
 {: #best-practices-access-hierarchy}
 
@@ -104,5 +113,3 @@ Use secret groups to narrow the scope of access to specific secrets at an instan
 Add labels so that you can further search by and categorize the secrets in your instance. When you use a consistent labeling schema, you can easily group similar secrets together.
 
 1. Label your secrets by using a consistent schema, such as creating labels to differentiate which secrets are used for a specific purpose. To add labels by using the {{site.data.keyword.secrets-manager_short}} UI, go to the **Secrets** page, and then select a secret to edits its details.
-
-
