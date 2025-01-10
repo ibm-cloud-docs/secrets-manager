@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-10-29"
+  years: 2021, 2025
+lastupdated: "2025-01-09"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, public certificates
 
@@ -323,24 +323,23 @@ To create a public certificate by using a manual DNS provider in the UI, complet
     You can include up to 100 domains, subdomains, or wildcards. The Common Name, or fully qualified domain name of the certificate, can't exceed 64 characters in length. A wildcard can be selected as the Common Name.
 
     1. In the **Common name** section, from your list of domains, select the Common Name of the certificate.
-14. Click **Next**.
-15. Review the details of your certificate.
-16. Click **Add**.
-15. Check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**. 
-16. Click **Challenges** to access the TXT record name and value that are associated with each of your domains. You need them to complete the challenges.
-17. To validate the ownership of your domains, manually add the TXT records that are provided for each of your domains to your DNS provider account. You must address only the challenges that are not validated before the expiration date. 
+15. Click **Next**.
+16. Review the details of your certificate.
+17. Click **Add**.
+18. Check the issuance details of your certificate by clicking the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> View details**. 
+19. Click **Challenges** to access the TXT record name and value that are associated with each of your domains. You need them to complete the challenges.
+20. To validate the ownership of your domains, manually add the TXT records that are provided for each of your domains to your DNS provider account. You must address only the challenges that are not validated before the expiration date. 
 
-   If you order a certificate for a subdomain, for example, `sub1.sub2.domain.com`, you need to add the TXT records to your registered domain `domain.com`.
-    {: note}
+     If you order a certificate for a subdomain, for example, `sub1.sub2.domain.com`, you need to add the TXT records to your registered domain `domain.com`.
+     {: note}
 
-18. Verify that the TXT records that you added to your domains are propagated. Depending on your DNS provider, it can take some time to complete.
-19. After you confirm that the records are propagated, click **Validate** to request Let's Encrypt to validate the challenges to your domains and create a public certificate. 
+21. Verify that the TXT records that you added to your domains are propagated. Depending on your DNS provider, it can take some time to complete.
+22. After you confirm that the records are propagated, click **Validate** to request Let's Encrypt to validate the challenges to your domains and create a public certificate. 
 
-   If the order fails because the TXT records were not successfully propagated, you must start a new order to proceed. 
-   {: note}
+     If the order fails because the TXT records were not successfully propagated, you must start a new order to proceed. 
+     {: note}
 
 20. When your certificate is issued, clean up and remove the TXT records from the domains in your DNS provider account.
-
 
 ### Ordering public certificates with your own DNS provider by using the API
 {: #order-public-cert-manual-api}
