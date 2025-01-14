@@ -175,13 +175,13 @@ toc:
               - link:
                   label: IBM Cloud Secrets backend
                   href: https://github.com/ibm-cloud-security/vault-plugin-secrets-ibmcloud
+      - topic: service-dependency.md
+        navtitle: Service dependency map
       - topicgroup:
           label: Service availability
           topics:
           - topic: endpoints.md
             navtitle: Regions and endpoints
-          - topic: service-dependency.md
-            navtitle: Service dependency map
           - topic: framework/ha-dr.md
             navtitle: Understanding high availability and disaster recovery
       - topicgroup: 
