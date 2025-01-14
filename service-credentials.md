@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-09-08"
+  years: 2020, 2025
+lastupdated: "2025-01-14"
 
 keywords: Service credentials, App ID, App Config, Cloudant, Cloud Object Storage, Event Notifications, Event Streams, etcd, ElasticSearch, PostgreSQL, Redis, MongoDB
 
@@ -221,3 +221,39 @@ curl -X POST
 
 
 A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager/secrets-manager-v2#create-secret).
+
+
+## Creating Service credentials with Terraform
+{: #service-credentials-terraform}
+{: terraform}
+
+You can create Service credentials programmatically by using Terraform for {{site.data.keyword.secrets-manager_short}}.
+The following example shows a configuration that you can use to create Service credentials credentials for Cloud Object Storage.
+
+```terraform
+    resource "ibm_sm_service_credentials_secret" "my_service_credentials_secret" {
+      instance_id = "local.instance_id"
+      region = "local.region"
+      name = "example-service-credentials-secret"
+      secret_group_id = "ibm_sm_secret_group.sm_secret_group_test.secret_group_id"
+      description = "Description of my Service Credentials secret"
+      ttl = "24h"
+      source_service {
+        role = {
+          crn = "crn:v1:bluemix:public:iam::::serviceRole:Writer"
+        },
+        instance = {
+          crn = "crn:v1:bluemix:public:cloud-object-storage:global:a/347df6de25020f0fa8b711c6d9881111:f35e85fc-3d4d-476e-8547-51222e3c1111::"
+        },
+        parameters = {
+          HMAC: true
+        }
+      }
+      rotation {
+        auto_rotate = true
+        interval = 1
+        unit = "day"
+      }
+    }
+```
+{: codeblock}
