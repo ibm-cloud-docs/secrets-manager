@@ -347,7 +347,6 @@ To rotate a certificate by using the {{site.data.keyword.secrets-manager_short}}
 
 ```sh
 certificate=$(awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' cert.pem)
-
 ibmcloud secrets-manager secret-version-create --id SECRET_ID --imported-cert-certificate ${certificate}
 ```
 {: codeblock}
