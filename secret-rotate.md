@@ -355,23 +355,7 @@ ibmcloud secrets-manager secret-version-create --id SECRET_ID --imported-cert-ce
 
 The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-version-create-command).
 
-### Rotating imported certificates with managed CSR
-{: #manual-rotate-imported-certificates-cli-csr}
-{: cli}
 
-To reimport a certificate by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-version-create-command) command. For example, the following command rotates a secret and assigns `new-secret-data` as its new version.
-
-When the imported certificate secret is managing a CSR, the `private_key` field is not allowed.
-{: important}
-
-```sh
-certificate=$(awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' cert.pem)
-intermediate=$(awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' intermediate.pem)
-ibmcloud secrets-manager secret-version-create --id SECRET_ID --imported-cert-certificate ${certificate} --imported-cert-intermediate ${intermediate}
-```
-{: codeblock}
-
-The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-version-create-command).
 
 ### Rotating Public certificates
 {: #manual-rotate-public-certificates-cli}
@@ -630,33 +614,7 @@ Replace new lines in the certificate, intermediate, and private key data with `\
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#create-secret-version).
 
-### Rotating imported certificates with managed CSR
-{: #manual-rotate-imported-cert-api-csr}
-{: api}
 
-You can rotate secrets by calling the {{site.data.keyword.secrets-manager_short}} API.  
-The following example request creates a new version of your secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
-
-When the imported certificate secret is managing a CSR, the `private_key` field is not allowed.
-{: important}
-
-```sh
-curl -X POST \
-   -H "Authorization: Bearer {iam_token}" \
-   -H "Accept: application/json" \
-   -H "Content-Type: application/json" \
-   -d '{
-         "certificate": "-----BEGIN CERTIFICATE-----\nMIIE3jCCBGSgAwIBAgIUZfTbf3adn87l5J2Q2Aw+6Vk/qhowCgYIKoZIzj0EAwIwx\n-----END CERTIFICATE-----",
-         "intermediate": "-----BEGIN CERTIFICATE-----\nMIIE3DCCBGKgAwIBAgIUKncnp6BdSUKAFGBcP4YVp/gTb7gwCgYIKoZIzj0EAwIw\n-----END CERTIFICATE-----"
-         }
-      }' \ 
-   "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/{id}/versions"
-
-```
-{: codeblock}
-{: curl}
-
-A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#create-secret-version).
 
 ## Manually rotating secrets with Terraform
 {: #manual-rotate-terraform}
