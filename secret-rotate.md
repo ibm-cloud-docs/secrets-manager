@@ -347,19 +347,16 @@ To reimport a certificate by using the {{site.data.keyword.secrets-manager_short
 
 
 ```sh
+certificate=$(awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' cert.pem)
+
+
 ibmcloud secrets-manager secret-version-create \    
    --secret-id=SECRET_ID \    
-   --secret-version-prototype='{"certificate": "new-secret-data", "custom_metadata": {"anyKey": "anyValue"}, "version_custom_metadata": {"anyKey": "anyValue"}}'
+   --secret-version-prototype='{"certificate": "${certificate}", "custom_metadata": {"anyKey": "anyValue"}, "version_custom_metadata": {"anyKey": "anyValue"}}'
 ```
 {: codeblock}
 
-Replace new lines in the certificate, intermediate, and private key data with `\n`.
-{: note}
-
-
 The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-version-create-command).
-
-
 
 ### Rotating Public certificates
 {: #manual-rotate-public-certificates-cli}
@@ -617,9 +614,6 @@ Replace new lines in the certificate, intermediate, and private key data with `\
 {: note}
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#create-secret-version).
-
-
-
 
 ## Manually rotating secrets with Terraform
 {: #manual-rotate-terraform}
