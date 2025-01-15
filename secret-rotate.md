@@ -188,7 +188,6 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 {: #manual-rotate-imported-cert-ui}
 {: ui}
 
-**Imported certificfates**  
 When it's time to renew a certificate that was initially imported to the service, you can use the {{site.data.keyword.secrets-manager_short}} UI to manually reimport it. After a certificate is rotated, the previous version is retained in case you need it.
 
 If the certificate that you are rotating was previously imported with an intermediate certificate and a private key, include an intermediate certificate and private key on rotation to avoid service disruptions.
