@@ -348,9 +348,7 @@ To rotate a certificate by using the {{site.data.keyword.secrets-manager_short}}
 ```sh
 certificate=$(awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' cert.pem)
 
-ibmcloud secrets-manager secret-version-create \    
-   --secret-id=SECRET_ID \    
-   --secret-version-prototype='{"certificate": "${certificate}", "custom_metadata": {"anyKey": "anyValue"}, "version_custom_metadata": {"anyKey": "anyValue"}}'
+ibmcloud secrets-manager secret-version-create --id SECRET_ID --imported-cert-certificate ${certificate}
 ```
 {: codeblock}
 
@@ -369,9 +367,7 @@ When the imported certificate secret is managing a CSR, the `private_key` field 
 certificate=$(awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' cert.pem)
 
 
-ibmcloud secrets-manager secret-version-create \    
-   --secret-id=SECRET_ID \    
-   --secret-version-prototype='{"certificate": "${certificate}", "custom_metadata": {"anyKey": "anyValue"}, "version_custom_metadata": {"anyKey": "anyValue"}}'
+ibmcloud secrets-manager secret-version-create --id SECRET_ID --imported-cert-certificate ${certificate}
 ```
 {: codeblock}
 
