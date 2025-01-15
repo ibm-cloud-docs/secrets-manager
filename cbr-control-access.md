@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-10-25"
+  years: 2025
+lastupdated: "2025-01-15"
 
 keywords: context-based restrictions, access allowlist, network security
 
@@ -96,8 +96,8 @@ When a user has instance level IAM access, CBR rules that are applied to specifi
 
 Context-based restrictions protect only the actions that are associated with the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager/secrets-manager-v2). Actions that are associated with the following platform APIs are not protected by context-based restrictions. Refer to the API docs for the specific action IDs.
 
-- [Resource Instance APIs](/apidocs/resource-controller/resource-controller#list-resource-instances)
-- [Resource Keys APIs](/apidocs/resource-controller/resource-controller#list-resource-keys)
+- [Resource Instance APIs](/apidocs/resource-controller/resource-controller)
+- [Resource Keys APIs](/apidocs/resource-controller/resource-controllers)
 - [Resource Bindings APIs](/apidocs/resource-controller/resource-controller#list-resource-bindings)
 - [Resource Aliases APIs](/apidocs/resource-controller/resource-controller#list-resource-aliases)
 - [IAM Policy APIs](/apidocs/iam-policy-management#list-policies)
