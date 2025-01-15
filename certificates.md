@@ -136,18 +136,7 @@ You can import certificate files that are in the `.pem` format. Be sure to [conv
 certificate=$(awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' cert.pem)
 private_key=$(awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' key.pem)
 
-ibmcloud secrets-manager secret-create 
-    --secret-prototype="{
-    "certificate": "${certificate}", 
-    "private_key": "${private_key}", 
-    "description": "Description of my imported certificate.", 
-    "labels": [
-        "dev","us-south"
-        ], 
-    "name": "example-imported-certificate", 
-    "secret_group_id": "default", 
-    "secret_type": "imported_cert", 
-    }
+ibmcloud secrets-manager secret-create --secret-name=example-imported-cert-secret --secret-type=imported_cert --imported-cert-certificate ${certificate} --imported-cert-private-key ${private_key}[](url)
 ```
 {: pre}
 
