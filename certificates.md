@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-29"
+  years: 2020, 2025
+lastupdated: "2025-01-15"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, imported certificates
 
@@ -86,7 +86,6 @@ Before you import a certificate, be sure that you:
 
 You can use {{site.data.keyword.secrets-manager_short}} to store certificate files that are signed and issued by external certificate authorities. After you import your certificate files, you can deploy the certificate to your apps and services, download the certificate, or [rotate it manually](/docs/secrets-manager?topic=secrets-manager-manual-rotation) when it's time to renew. 
 
-
 ### Importing certificates in the UI
 {: #import-certificates-ui}
 {: ui}
@@ -96,28 +95,29 @@ You can import an existing certificate by using the {{site.data.keyword.secrets-
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
-4. From the list of secret types, click the **Import certificate** tile.
+4. From the list of secret types, click the **Imported certificate** tile.
 5. Click **Next**.
-6. Add a name and description to easily identify your certificate.
-6. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
+6. Add a name and description to easily identify your secret.
+7. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
 
     Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
-10. Optional: Add labels to help you to search for similar secrets in your instance.
-11. Optional: Add metadata to your secret or to a specific version of your secret.
+8. Optional: Add labels to help you to search for similar secrets in your instance.
+9. Optional: Add metadata to your secret or to a specific version of your secret.
     1. Upload a file or enter the metadata and the version metadata in JSON format. 
-12. Click **Next**.
-13. Select a certificate file or enter its value.
+10. Click **Next**.
+11. Select the **Import a certificate** tile. 
+12. Select a certificate file or enter its value.
 
     You can store unexpired X.509 certificate files that are in PEM format. If you're working with certificates that are in a different format, you can use command-line utilities to convert your certificates to `.pem`. For more information, see [Why can't I import my certificate?](/docs/secrets-manager?topic=secrets-manager-troubleshoot-pem)
 
-8. Optional: Select a private key file or enter its value.
+13. Optional: Select a private key file or enter its value.
 
     If you choose to store a private key, ensure that it matches to your certificate. The private key must be unencrypted before you can import it to the service.
 
-9. Optional: Select an intermediate certificate file or enter its value.
-10. Click **Next**.
-11. Review the details of your certificate. 
-12. Click **Add**.
+14. Optional: Select an intermediate certificate file or enter its value.
+15. Click **Next**.
+16. Review the details of your certificate. 
+17. Click **Add**.
 
 
 ### Importing certificates from the CLI
@@ -155,7 +155,6 @@ ibmcloud secrets-manager secret-create
 The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-create-command).
 
 
-
 ### Importing certificates with the API
 {: #import-certificates-api}
 {: api}
@@ -165,7 +164,6 @@ You can import certificates programmatically by calling the {{site.data.keyword.
 The following example shows a query that you can use to import an existing certificate. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 
 You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
-{: curl}
 
 You can import certificate files that are in the `.pem` format. Be sure to [convert your PEM files to single-line format](/docs/secrets-manager?topic=secrets-manager-troubleshoot-pem) so that they can be parsed correctly by the {{site.data.keyword.secrets-manager_short}} API.
 {: note}

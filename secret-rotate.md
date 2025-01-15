@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-11-28"
+  years: 2020, 2025
+lastupdated: "2025-01-15"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -152,7 +152,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 7. To rotate the secret immediately, click **Rotate**.  
 8. Optional: Check the version history to view the latest updates.
 
-### Creating new versions of iam credentials
+### Creating new versions of IAM credentials
 {: #manual-rotate-iam-credentials-ui}
 {: ui}
 
@@ -188,7 +188,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 {: #manual-rotate-imported-cert-ui}
 {: ui}
 
-
+**Imported certificfates**  
 When it's time to renew a certificate that was initially imported to the service, you can use the {{site.data.keyword.secrets-manager_short}} UI to manually reimport it. After a certificate is rotated, the previous version is retained in case you need it.
 
 If the certificate that you are rotating was previously imported with an intermediate certificate and a private key, include an intermediate certificate and private key on rotation to avoid service disruptions.
@@ -208,6 +208,24 @@ If the certificate that you are rotating was previously imported with an interme
 
     To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager/secrets-manager-v2#get-secret) API.
 
+
+
+### Creating new versions of private certificates
+{: #manual-rotate-private-cert-ui}
+{: ui}
+
+If your {{site.data.keyword.secrets-manager_short}} service instance is enabled for [private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates), you can manually renew a certificate that was previously issued by a certificate authority that is configured for your service instance.
+
+1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
+3. In the {{site.data.keyword.secrets-manager_short}} UI, go to the **Secrets** list.
+4. In the row for the certificate that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
+5. Optional: Add metadata to your secret or to a specific version of your secret. 
+   1. Upload a file or enter the metadata and the version metadata in JSON format. 
+6. Click **Rotate**.
+7. Redeploy the latest certificate version to your TLS termination point.
+
+    To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager/secrets-manager-v2#get-secret) API.
 
 ### Creating new versions of public certificates
 {: #manual-rotate-public-cert-ui}
@@ -258,25 +276,6 @@ To rotate a public certificate that was created by using a manual DNS provider i
    {: note}
 
 10. When your certificate is issued, clean up and remove the TXT records from the domains in your DNS provider account.
-
-
-### Creating new versions of private certificates
-{: #manual-rotate-private-cert-ui}
-{: ui}
-
-If your {{site.data.keyword.secrets-manager_short}} service instance is enabled for [private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates), you can manually renew a certificate that was previously issued by a certificate authority that is configured for your service instance.
-
-1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
-2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
-3. In the {{site.data.keyword.secrets-manager_short}} UI, go to the **Secrets** list.
-4. In the row for the certificate that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
-5. Optional: Add metadata to your secret or to a specific version of your secret. 
-   1. Upload a file or enter the metadata and the version metadata in JSON format. 
-6. Click **Rotate**.
-7. Redeploy the latest certificate version to your TLS termination point.
-
-    To access the current version, you can [download the certificate](/docs/secrets-manager?topic=secrets-manager-access-secrets) or retrieve it programmatically by using the [Get a secret](/apidocs/secrets-manager/secrets-manager-v2#get-secret) API.
-
 
 ## Manually creating new versions of secrets from the CLI
 {: #manual-rotate-cli}
@@ -359,6 +358,7 @@ Replace new lines in the certificate, intermediate, and private key data with `\
 
 
 The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-version-create-command).
+
 
 
 ### Rotating Public certificates
@@ -617,6 +617,9 @@ Replace new lines in the certificate, intermediate, and private key data with `\
 {: note}
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#create-secret-version).
+
+
+
 
 ## Manually rotating secrets with Terraform
 {: #manual-rotate-terraform}
