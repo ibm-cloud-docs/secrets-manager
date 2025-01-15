@@ -188,7 +188,6 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 {: #manual-rotate-imported-cert-ui}
 {: ui}
 
-**Imported certificfates**  
 When it's time to renew a certificate that was initially imported to the service, you can use the {{site.data.keyword.secrets-manager_short}} UI to manually reimport it. After a certificate is rotated, the previous version is retained in case you need it.
 
 If the certificate that you are rotating was previously imported with an intermediate certificate and a private key, include an intermediate certificate and private key on rotation to avoid service disruptions.
@@ -343,20 +342,20 @@ The command outputs the value of the secret, along with other metadata. For more
 {: #manual-rotate-imported-certificates-cli}
 {: cli}
 
-To reimport a certificate by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-version-create-command) command. For example, the following command rotates a secret and assigns `new-secret-data` as its new version.
+To rotate a certificate by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-version-create-command) command. For example, the following command rotates a secret and assigns `new-secret-data` as its new version.
 
 
 ```sh
 certificate=$(awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' cert.pem)
-
-
-ibmcloud secrets-manager secret-version-create \    
-   --secret-id=SECRET_ID \    
-   --secret-version-prototype='{"certificate": "${certificate}", "custom_metadata": {"anyKey": "anyValue"}, "version_custom_metadata": {"anyKey": "anyValue"}}'
+intermediate=$(awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' intermediate.pem)
+private_key=$(awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' private_key.pem)
+ibmcloud secrets-manager secret-version-create --id SECRET_ID --imported-cert-certificate ${certificate} --imported-cert-intermediate ${intermediate} --imported-cert-private-key ${private_key}
 ```
 {: codeblock}
 
 The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-version-create-command).
+
+
 
 ### Rotating Public certificates
 {: #manual-rotate-public-certificates-cli}
@@ -614,6 +613,8 @@ Replace new lines in the certificate, intermediate, and private key data with `\
 {: note}
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#create-secret-version).
+
+
 
 ## Manually rotating secrets with Terraform
 {: #manual-rotate-terraform}
