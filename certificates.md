@@ -95,29 +95,28 @@ You can import an existing certificate by using the {{site.data.keyword.secrets-
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets** table, click **Add**.
-4. From the list of secret types, click the **Imported certificate** tile.
-5. Click **Next**.
-6. Add a name and description to easily identify your secret.
-7. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
+4. Click **Next**.
+5. Add a name and description to easily identify your secret.
+6. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
 
     Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
-8. Optional: Add labels to help you to search for similar secrets in your instance.
-9. Optional: Add metadata to your secret or to a specific version of your secret.
+7. Optional: Add labels to help you to search for similar secrets in your instance.
+8. Optional: Add metadata to your secret or to a specific version of your secret.
     1. Upload a file or enter the metadata and the version metadata in JSON format. 
-10. Click **Next**.
-11. Select the **Import a certificate** tile. 
-12. Select a certificate file or enter its value.
+9. Click **Next**.
+10. Select the **Import a certificate** tile. 
+11. Select a certificate file or enter its value.
 
     You can store unexpired X.509 certificate files that are in PEM format. If you're working with certificates that are in a different format, you can use command-line utilities to convert your certificates to `.pem`. For more information, see [Why can't I import my certificate?](/docs/secrets-manager?topic=secrets-manager-troubleshoot-pem)
 
-13. Optional: Select a private key file or enter its value.
+12. Optional: Select a private key file or enter its value.
 
     If you choose to store a private key, ensure that it matches to your certificate. The private key must be unencrypted before you can import it to the service.
 
-14. Optional: Select an intermediate certificate file or enter its value.
-15. Click **Next**.
-16. Review the details of your certificate. 
-17. Click **Add**.
+13. Optional: Select an intermediate certificate file or enter its value.
+14. Click **Next**.
+15. Review the details of your certificate. 
+16. Click **Add**.
 
 
 ### Importing certificates from the CLI
