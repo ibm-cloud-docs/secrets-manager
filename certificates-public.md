@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-01-09"
+lastupdated: "2025-01-16"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, public certificates
 
@@ -137,17 +137,18 @@ You can order a certificate by using the {{site.data.keyword.secrets-manager_sho
 
 13. Add the domains to include in your request.
 
-    You can include up to 100 domains, subdomains, or wildcards. The Common Name, or fully qualified domain name of the certificate, can't exceed 64 characters in length. A wildcard can be selected as the Common Name.
-
     1. Click **Select domains**.
     2. From your list of domains, select the Common Name of the certificate.
+   
+       The Common Name is an optional input. If the Common Name is not explicitly specified, Let's encrypt automatically assigns the first alt name that is not longer than 64 chars as the Common Name. If no such alt name is found the certificate will be issued without a Common Name.
+       {: note}
 
-    You can optionally also manually add valid domains using the **Add domains manually** field.
-    {: note}
+       You can optionally also manually add valid domains using the **Add domains manually** field.
+       {: note}
     
-14. Click **Next**.
-15. Review the details of your certificate.
-16. Click **Add**.
+13. Click **Next**.
+14. Review the details of your certificate.
+15. Click **Add**.
 
     When you order a certificate, domain validation takes place to verify the ownership of your selected domains. This process can take a few minutes to complete. After you submit your certificate details, {{site.data.keyword.secrets-manager_short}} sends your request to the selected certificate authority. After a certificate is issued, you can deploy it to your integrated apps, download it, or rotate it manually. Your private key for SSL/TLS is generated directly in {{site.data.keyword.secrets-manager_short}} and stored securely.
     

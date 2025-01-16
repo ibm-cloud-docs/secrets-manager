@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-11-18"
+  years: 2020, 2025
+lastupdated: "2025-01-16"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -65,6 +65,13 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
 
+
+## 13 January 2025
+{: #secrets-manager-january1325}
+{: release-note}
+
+**Common Name** for `public_cert` secret type is now optional.
+:   {{site.data.keyword.secrets-manager_short}} is now aligned with Let's Encrypt latest changes, where the previous 64 chars restriction on the Common Name field is no longer required. If the Common Name of a certificate is not explicitly specified by the user, Let's encrypt will automatically assign the first alt name that is not longer than 64 chars as the Common Name. If no such alt name is found the certificate will be issued without a Common name.
 
 ## 19 November 2024
 {: #secrets-manager-november1924}
