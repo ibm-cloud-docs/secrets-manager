@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-01-09"
+lastupdated: "2025-01-16"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, public certificates
 
@@ -136,8 +136,6 @@ You can order a certificate by using the {{site.data.keyword.secrets-manager_sho
     The configuration that you select determines the DNS provider to validate the ownership of your domains. To view the configurations that are defined for your instance, you can go to **Secrets engines > Public certificates**.  
 
 13. Add the domains to include in your request.
-
-    You can include up to 100 domains, subdomains, or wildcards. The Common Name, or fully qualified domain name of the certificate, can't exceed 64 characters in length. A wildcard can be selected as the Common Name.
 
     1. Click **Select domains**.
     2. From your list of domains, select the Common Name of the certificate.
