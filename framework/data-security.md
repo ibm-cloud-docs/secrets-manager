@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-10"
+  years: 2020, 2025
+lastupdated: "2025-01-20"
 
 keywords: Data security for Secrets Manager, byok, kyok, data storage, data encryption in Secrets Manager, customer managed keys
 
@@ -114,11 +114,15 @@ If you choose to work with a key that you manage, you must ensure that valid IAM
     When you use {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} to create a root key, the service generates cryptographic key material that is rooted in cloud-based HSMs. Be sure that the name of your key does not contain any personal information such as your name or location.
 3. Grant service access to {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}.
 
-    You must be the account owner or an administrator for the instance of the key management service that you're working with. You must also have at least Viewer access for the {{site.data.keyword.secrets-manager_short}} service.
+    You must be the account owner or an administrator for the instance of the key management service that you're working with. You must also have at least Viewer access for the {{site.data.keyword.secrets-manager_short}} service.  
 
     1. Go to **Manage > Access IAM > Authorizations**.
     2. Select the {{site.data.keyword.secrets-manager_short}} service as the source service.
     3. Select the instance of the {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} as the target service.
+
+        It is recommended to follow the least privilege best practice and assign the access only to the specific KMS instance where the root key was created.
+        In the case of {{site.data.keyword.hscrypto}} also add the **Viewer** platform access policy for the instance.
+        {:note }
     4. Assign the Reader role.
     5. Click **Authorize** to confirm the authorization.
 
