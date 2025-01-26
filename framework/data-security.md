@@ -120,7 +120,7 @@ If you choose to work with a key that you manage, you must ensure that valid IAM
     2. Select the {{site.data.keyword.secrets-manager_short}} service as the source service.
     3. Select the instance of the {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} as the target service.
 
-        It is recommended to follow the least privilege best practice and assign the access only to the specific KMS instance where the root key was created.
+        It is recommended to follow the least privilege best practice and assign the access only to the specific KMS instance and root key.
         
         {:note }
     4. Assign the Reader role.
