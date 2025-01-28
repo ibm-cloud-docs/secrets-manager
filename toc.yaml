@@ -17,7 +17,7 @@ toc:
       - getting-started.md
       - topicgroup:
           label: About
-          topics:
+          topics: 
           - topic: pricing.md
             navtitle: Pricing
           - topic: framework/responsibilities.md
@@ -192,7 +192,8 @@ toc:
   - navgroup:
       id: help
       topics:
-      - faqs.md
+      - topic: faqs.md
+        navtitle: FAQ
       - limits.md
       - topicgroup:
           label: Troubleshooting
