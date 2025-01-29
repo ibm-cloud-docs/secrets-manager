@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-01-15"
+lastupdated: "2025-01-29"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, imported certificates
 
@@ -135,7 +135,7 @@ You can import certificate files that are in the `.pem` format. Be sure to [conv
 certificate=$(awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' cert.pem)
 private_key=$(awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' key.pem)
 
-ibmcloud secrets-manager secret-create --secret-name=example-imported-cert-secret --secret-type=imported_cert --imported-cert-certificate ${certificate} --imported-cert-private-key ${private_key}[](url)
+ibmcloud secrets-manager secret-create --secret-name=example-imported-cert-secret --secret-type=imported_cert --imported-cert-certificate ${certificate} --imported-cert-private-key ${private_key}
 ```
 {: pre}
 

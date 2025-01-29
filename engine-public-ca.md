@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-10"
+  years: 2020, 2025
+lastupdated: "2025-01-29"
 
 keywords: certificate authority, connect certificate authority, set up certificate authority, connect CA, set up CA, connect Let's Encrypt, set up Let's Encrypt, add certificate authority configuration, add CA configuration
 
@@ -200,7 +200,16 @@ After you delete a configuration, the certificates that are associated with the 
 6. Enter the name of the configuration to confirm its deletion.
 7. Click **Delete**.
 
+## Deleting a certificate authority configuration from the CLI
+{: #delete-certificate-authority-cli}
+{: cli}
 
+To delete a certificate authority configuration, run the [**`ibmcloud secrets-manager configuration-delete`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-configuration-delete-command) command.
+
+```sh
+ibmcloud secrets-manager configuration-delete my-configuration-name
+```
+{: pre}
 
 ## Deleting a certificate authority configuration with the API
 {: #delete-certificate-authority-api}

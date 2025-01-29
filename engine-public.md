@@ -92,7 +92,7 @@ Certificate authorities can apply a charge when you are ordering or renewing a c
 ### Domain validation
 {: #domain-validation}
 
-{{site.data.keyword.secrets-manager_short}} utilizes Let's Encrypt [DNS-01 challenge](https://letsencrypt.org/docs/challenge-types/#dns-01-challenge) method for domain validation, ensuring that you have control over the domain's DNS configuration. To successfully complete the validation process, public access must be enabled in your DNS provider for the associated domain.
+{{site.data.keyword.secrets-manager_short}} utilizes Let's Encrypt [DNS-01 challenge](https://letsencrypt.org/docs/challenge-types/#dns-01-challenge){: external} method for domain validation, ensuring that you have control over the domain's DNS configuration. To successfully complete the validation process, public access must be enabled in your DNS provider for the associated domain.
 
 ## Supported DNS providers
 {: #connect-dns-provider}
