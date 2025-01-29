@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-11-28"
+  years: 2020, 2025
+lastupdated: "2025-01-29"
 
 keywords: set up public certificates, public certificates engine, set up CIS, set up CA, set up Let's Encrypt
 
@@ -89,6 +89,10 @@ You can grant service access to Let's Encrypt by registering an ACME account and
 Certificate authorities can apply a charge when you are ordering or renewing a certificate. Additionally, various rate limits apply. {{site.data.keyword.secrets-manager_short}} does not control costs or rate limits that are associated with ordering certificates. For more information about rate limits to keep in mind as you order Let's Encrypt certificates, check out the [Let's Encrypt documentation](https://letsencrypt.org/docs/rate-limits/){: external}.
 {: note} 
 
+### Domain validation
+{: #domain-validation}
+
+{{site.data.keyword.secrets-manager_short}} utilizes Let's Encrypt [DNS-01 challenge](https://letsencrypt.org/docs/challenge-types/#dns-01-challenge) method for domain validation, ensuring that you have control over the domain's DNS configuration. To successfully complete the validation process, public access must be enabled in your DNS provider for the associated domain.
 
 ## Supported DNS providers
 {: #connect-dns-provider}
