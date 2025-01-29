@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-15"
+lastupdated: "2025-01-29"
 
 keywords: context-based restrictions, access allowlist, network security
 
@@ -98,8 +98,6 @@ Context-based restrictions protect only the actions that are associated with the
 
 - [Resource Instance APIs](/apidocs/resource-controller/resource-controller)
 - [Resource Keys APIs](/apidocs/resource-controller/resource-controllers)
-- [Resource Bindings APIs](/apidocs/resource-controller/resource-controller#list-resource-bindings)
-- [Resource Aliases APIs](/apidocs/resource-controller/resource-controller#list-resource-aliases)
 - [IAM Policy APIs](/apidocs/iam-policy-management#list-policies)
 - [Global Search APIs](/apidocs/search)
 - Global Tagging [Attach](/apidocs/tagging#attach-tag) and [Detach](/apidocs/tagging#detach-tag) APIs
