@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-01-15"
+lastupdated: "2025-02-05"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -346,9 +346,9 @@ To rotate a certificate by using the {{site.data.keyword.secrets-manager_short}}
 
 
 ```sh
-certificate=$(awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' cert.pem)
-intermediate=$(awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' intermediate.pem)
-private_key=$(awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' private_key.pem)
+certificate=$(cat cert.pem)
+intermediate=$(cat intermediate.pem)
+private_key=$(cat private_key.pem)
 ibmcloud secrets-manager secret-version-create --id SECRET_ID --imported-cert-certificate ${certificate} --imported-cert-intermediate ${intermediate} --imported-cert-private-key ${private_key}
 ```
 {: codeblock}
