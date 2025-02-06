@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2024
-lastupdated: "2024-12-13"
+years: 2025
+lastupdated: "2025-02-06"
 
 keywords: HA, DR, high availability, disaster recovery, disaster recovery plan, disaster event, recovery time objective, recovery point objective, secrets manager
 
@@ -56,26 +56,18 @@ subcollection: secrets-manager
 {:release-note: data-hd-content-type='release-note'}
 
 
-
 # Understanding high availability and disaster recovery for {{site.data.keyword.secrets-manager_short}}
-{: #secrets-manager-ha-dr}
-
-
-
+{: #ha-dr}
 
 
 [High availability](#x2284708){: term} (HA) is the ability for a service to remain operational and accessible in the presence of unexpected failures. [Disaster recovery](#x2113280){: term} is the process of recovering the service instance to a working state.
 {: shortdesc}
-
-
 
 {{site.data.keyword.secrets-manager_short}} is a regional service that fulfills the defined [Service Level Objectives (SLO)](/docs/resiliency?topic=resiliency-slo) with the Standard plan. For more information about the available {{site.data.keyword.cloud_notm}} regions and data centers for {{site.data.keyword.secrets-manager_short}}, see [Service and infrastructure availability by location](/docs/overview?topic=overview-services_region).
 
 
 ## High availability architecture
 {: #sm-ha-architecture}
-
-
 
 A {{site.data.keyword.secrets-manager_short}} service instance is provisioned across three zones in a multi-zone region with no single point of failure. API requests are routed through a global load balancer to three HA instance nodes each in a different availability zone.
 
@@ -85,10 +77,6 @@ In the event of a HA instance node or availability zone failure, the service wil
 
 ## Disaster recovery architecture
 {: #sm-disaster-recovery-intro}
-
-
-
-
 
 To recover from a service instance outage a recovery service instance should be created in a recovery region. In general the recovery service instance should be configured with same data as the source service instance, but there are exceptions to this guidance.
 
@@ -103,8 +91,6 @@ Such an instance should be created before the fact (before any potential disater
 {: #sm-dr-features}
 
 {{site.data.keyword.secrets-manager_short}} supports the following disaster recovery features:
-
-
 
 Plan for the recovery into a recovery region. The recovery instance should align with the workload [disaster recovery approaches within IBM Cloud.](/docs/resiliency?topic=resiliency-dr-approaches) The recovery instance should track data changes to primary service instance for data including groups, secrets, secret versions, certificates, event notifications.
 
@@ -227,7 +213,6 @@ See Recovering from an accidental key loss for authorization in the Key Protect 
 {: #sm-rto-rpo-features}
 
 
-
 | Feature | RTO and RPO |
 | -------------- | -------------- |
 | Restore previous secret version | RTO = minutes, practice and potentially scripting will improve RTO times, RPO = 0. |
@@ -242,18 +227,13 @@ When creating a new service instance the RTO of the workload using {{site.data.k
 ## Change management
 {: #sm-change-management}
 
-
-
 Change management includes tasks such as upgrades, configuration changes, and deletion.
 
 It is recommended that you grant users and processes the IAM roles and actions with the least privilage required for their work. For example, limit the ability to delete production resources.
 
 
-
 ## How {{site.data.keyword.IBM}} helps ensure disaster recovery
 {: #sm-ibm-disaster-recovery}
-
-
 
 {{site.data.keyword.IBM}} takes specific recovery actions in the case of a disaster.
 
@@ -280,11 +260,8 @@ In the event that IBM can not restore the service instance, the customer must re
 ## How {{site.data.keyword.IBM}} maintains services
 {: #sm-ibm-service-maintenance}
 
-
 All upgrades follow the {{site.data.keyword.IBM}} service best practices and have a recovery plan and rollback process in-place. Regular upgrades for new features and maintenance occur as part of normal operations. Such maintenance can occasionally cause short interruption intervals that are handled by [client availability retry logic](/docs/resiliency?topic=resiliency-high-availability-design#client-retry-logic-for-ha). Changes are rolled out sequentially, region by region and zone by zone within a region. Updates are backed out at the first sign of a defect.
 
-
 Complex changes are enabled and disabled with feature flags to control exposure.
-
 
 Changes that impact customer workloads are detailed in notifications. For more information, see [monitoring notifications and status](/docs/account?topic=account-viewing-cloud-status) for planned maintenance, announcements, and release notes that impact this service.
