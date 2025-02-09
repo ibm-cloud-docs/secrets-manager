@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-01-16"
+lastupdated: "2025-02-09"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -65,6 +65,13 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
 
+
+## 3 Feburary 2025
+{: #secrets-manager-february325}
+{: release-note}
+
+**The `com.ibm.cloud.secrets-manager.secret_expired` event is now also log-forwarded.
+:   {{site.data.keyword.secrets-manager_short}} is now forwarding an `INFO` level log for the `com.ibm.cloud.secrets-manager.secret_expired` notification event.
 
 ## 13 January 2025
 {: #secrets-manager-january1325}
