@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-06"
+lastupdated: "2025-02-10"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, imported certificates
 
@@ -391,44 +391,3 @@ ibmcloud secrets-manager secret-metadata --id SECRET_ID
 {: cli}
 
 Add the signed certificate file back to your secret in your {{site.data.keyword.secrets-manager_short}} instance using the process described in [Manually rotating imported certificates](/docs/secrets-manager?topic=secrets-manager-manual-rotation&interface=cli#manual-rotate-imported-certificates-cli-csr).
-
-
-### Creating certificate signing requests with Terraform
-{: #create-csr-terraform}
-{: terraform}
-
-The following example shows how to create a certificate signing request in Terraform.
-
-```terraform
-    resource "ibm_sm_imported_certificate" "sm_imported_certificate_managed_csr" {
-        instance_id = local.instance_id
-        region = local.region
-        name = "test-imported-certificate-managed-csr"
-        secret_group_id = "default"
-          managed_csr {
-              alt_names = "alt1"
-              client_flag = true
-              code_signing_flag = false
-              common_name = "example.com"
-              email_protection_flag = false
-              exclude_cn_from_sans = false
-              key_bits = 2048
-              key_type = "rsa"
-              require_cn = true
-              rotate_keys = false
-              server_flag = true
-          }
-    }
-```
-{: codeblock}
-
-
-### Updating and downloading the certificate signing requests with Terraform
-{: updating-downlading-csr-terraform}
-{: terraform}
-
-### Adding the signed certificate back with Terraform
-{: adding-back-signed-certificate-terraform}
-{: terraform}
-
-Add the signed certificate file back to your secret in your {{site.data.keyword.secrets-manager_short}} instance using the process described in [Manually rotating imported certificates](/docs/secrets-manager?topic=secrets-manager-manual-rotation&interface=terraform#manual-rotate-imported-certificate-terraform-csr).
