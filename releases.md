@@ -71,7 +71,7 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 {: release-note}
 
 Support for CSR in Imported certificates
-You can now use an Imported certificate secret to generate a Certificate Signing Reques (CSR) that you can then externally sign with your Certificate Authority and add it back to your Imported certificate secret.
+:    You can now use an Imported certificate secret to generate a Certificate Signing Reques (CSR) that you can then externally sign with your Certificate Authority and add it back to your Imported certificate secret.
 
 ## 3 Feburary 2025
 {: #secrets-manager-february325}
