@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-09"
+lastupdated: "2025-02-10"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -65,6 +65,13 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
 
+
+## 17 February 2025
+{: #secrets-manager-february1725}
+{: release-note}
+
+Support for CSR in Imported certificates
+You can now use an Imported certificate secret to generate a Certificate Signing Reques (CSR) that you can then externally sign with your Certificate Authority and add it back to your Imported certificate secret.
 
 ## 3 Feburary 2025
 {: #secrets-manager-february325}
