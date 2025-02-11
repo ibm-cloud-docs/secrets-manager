@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-10"
+lastupdated: "2025-02-11"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, imported certificates
 
@@ -285,7 +285,7 @@ curl -X POST
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d '{ 
-            "name": "example-csr,
+            "name": "example-csr",
             "description": "description of my csr.",
             "secret_type": "imported_cert",
             "secret_group_id": "67d025e1-0248-418f-83ba-deb0ebfb9b4a",
@@ -329,7 +329,7 @@ curl -X POST
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d '{ 
-            "name": "example-csr,
+            "name": "example-csr",
             "description": "description of my csr.",
             "secret_type": "imported_cert",
             "secret_group_id": "67d025e1-0248-418f-83ba-deb0ebfb9b4a",
