@@ -2,7 +2,7 @@
 
 copyright:
 years: 2025
-lastupdated: "2025-02-06"
+lastupdated: "2025-02-11"
 
 keywords: HA, DR, high availability, disaster recovery, disaster recovery plan, disaster event, recovery time objective, recovery point objective, secrets manager
 
@@ -85,7 +85,7 @@ Some secrets will need to be adjusted for the recovery region, for example conne
 The Secret Manager service instance may have customer created dependencies on these optional services, make sure these exist in the recovered region.
 
 Such an instance should be created before the fact (before any potential disater) and kept in-sync with the source instance.
-{: #note}
+{: note}
 
 ### Disaster recovery features
 {: #sm-dr-features}
