@@ -73,13 +73,6 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 Support for CSR in Imported certificates
 :    You can now use an Imported certificate secret to generate a Certificate Signing Reques (CSR) that you can then externally sign with your Certificate Authority and add it back to your Imported certificate secret.
 
-## 3 Feburary 2025
-{: #secrets-manager-february325}
-{: release-note}
-
-The `com.ibm.cloud.secrets-manager.secret_expired` event is now also log-forwarded.
-:   {{site.data.keyword.secrets-manager_short}} is now forwarding an `INFO` level log for the `com.ibm.cloud.secrets-manager.secret_expired` notification event.
-
 ## 13 January 2025
 {: #secrets-manager-january1325}
 {: release-note}
