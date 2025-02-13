@@ -85,7 +85,7 @@ The `com.ibm.cloud.secrets-manager.secret_expired` event is now also log-forward
 {: release-note}
 
 **Common Name** for `public_cert` secret type is now optional.
-:   {{site.data.keyword.secrets-manager_short}} is now aligned with Let's Encrypt latest changes, where the previous 64 chars restriction on the Common Name field is no longer required. If the Common Name of a certificate is not explicitly specified by the user, Let's encrypt will automatically assign the first alt name that is not longer than 64 chars as the Common Name. If no such alt name is found the certificate will be issued without a Common name.
+:   {{site.data.keyword.secrets-manager_short}} is now aligned with Let's Encrypt latest changes - You can now order a public certificate protecting your long SAN domain name without the need to specify a Common Name meeting the 64 chars limit. If the Common Name of a certificate is not explicitly specified by the user, Let's encrypt will automatically assign the first alt name that is not longer than 64 chars as the Common Name. If no such alt name is found the certificate will be issued without a Common name.
 
 ## 19 November 2024
 {: #secrets-manager-november1924}
