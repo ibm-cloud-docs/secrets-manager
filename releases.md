@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-10"
+lastupdated: "2025-02-13"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -77,7 +77,7 @@ Support for CSR in Imported certificates
 {: #secrets-manager-february325}
 {: release-note}
 
-**The `com.ibm.cloud.secrets-manager.secret_expired` event is now also log-forwarded.
+The `com.ibm.cloud.secrets-manager.secret_expired` event is now also log-forwarded.
 :   {{site.data.keyword.secrets-manager_short}} is now forwarding an `INFO` level log for the `com.ibm.cloud.secrets-manager.secret_expired` notification event.
 
 ## 13 January 2025
