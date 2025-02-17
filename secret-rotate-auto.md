@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-10"
+  years: 2020, 2025
+lastupdated: "2025-02-06"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -78,7 +78,7 @@ Automatic rotation is supported for [private certificates](/docs/secrets-manager
 
 | Type | Rotation description |
 | --- | --- |
-| [Private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates) | The existing `certificate` value is replaced with new certificate content. The time-to-live (TTL) of the renewed certificate is set according to the [certificate template](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates) that was selected when the certificate was first created. <p class="note">After the time-to-live (TTL) or validity period of a private certificate exceeds the validity period of its issuing certificate authority, the certificate can no longer be rotated automatically.</p>|
+| [Private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates) | The existing `certificate` value is replaced with new certificate content. The time-to-live (TTL) of the renewed certificate is set according to the [certificate template](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates) that was selected when the certificate was first created. Note that after the time-to-live (TTL) or validity period of a private certificate exceeds the validity period of its issuing certificate authority, the certificate can no longer be rotated automatically.|
 | [Public certificates](/docs/secrets-manager?topic=secrets-manager-public-certificates&interface=ui#order-public-certificates) | Public certificates move to the **Active, Rotation pending** status to indicate that the request to renew the certificate is being processed. {{site.data.keyword.secrets-manager_short}} uses DNS validation to verify that you own the domains that are listed as part of the certificate. This process can take a few minutes to complete. If the validation completes successfully, a new certificate is issued and its status changes back to **Active**. If the validation doesn't complete successfully, the status of the certificate changes to **Active, Rotation failed**.|
 | [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | The existing `password` value is replaced with a randomly generated 32-character password that contains uppercase letters, lowercase letters, digits, and symbols. The `username` value does not change.|
 | [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) | The Service ID's API key value is replaced with a new API key. The previous API key remains available for the remaining time in the defined TTL. |

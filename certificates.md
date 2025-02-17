@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-01-29"
+lastupdated: "2025-02-11"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, imported certificates
 
@@ -132,8 +132,8 @@ You can import certificate files that are in the `.pem` format. Be sure to [conv
 
 
 ```sh
-certificate=$(awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' cert.pem)
-private_key=$(awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' key.pem)
+certificate=$(cat cert.pem)
+private_key=$(cat key.pem)
 
 ibmcloud secrets-manager secret-create --secret-name=example-imported-cert-secret --secret-type=imported_cert --imported-cert-certificate ${certificate} --imported-cert-private-key ${private_key}
 ```
@@ -209,3 +209,185 @@ The following example shows a query that you can use to import an existing certi
     }
 ```
 {: codeblock}
+
+## Creating a Certificate Signing Request 
+{: #creating-csr}
+
+You can use an Imported Certificate secret to generate a Certificate Signing Reques (CSR) that you can then externally sign with your Certificate Authority and add it back to your Imported Certificate secret.  
+
+The imported certificate secret is created in **Pre-activation** state. To activate it you should download the CSR file, sign it with your certificate authority and add the signed certificate back as a new secret version.  
+{: important}
+
+### Creating certificate signing requests in the UI 
+{: #create-csr-ui}
+{: ui}
+
+You can create a certificate signing request by using the {{site.data.keyword.secrets-manager_short}} UI.
+
+1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
+3. In the **Secrets** table, click **Add**.
+4. From the list of secret types, click the **Imported certificate** tile.
+5. Click **Next**.
+6. Add a name and description to easily identify your secret.
+7. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
+
+    Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
+8. Optional: Add labels to help you to search for similar secrets in your instance.
+9. Optional: Add metadata to your secret or to a specific version of your secret.
+
+    Upload a file or enter the metadata and the version metadata in JSON format.
+10. Click **Next**.
+11. Select the **Create a Certificate Signing Request (CSR)** tile. 
+12. Add a **common name**. 
+13. Optional: add subject fields.
+14. Optional: Select a **key algorithm**. If not selected, RSA is used as default.
+15. Optional: select a certificate role. 
+16. Click **Next**.
+17. Review the details of your certificate signing request. 
+18. Click **Add**. 
+
+### Updating and downloading the certificate signing requests in the UI 
+{: updating-downlading-csr-ui}
+{: ui}
+
+1. In the row for the secret that you want to update, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) > **Details**.
+2. In the **Details** page use the **Managed CSR** tab to edit the certificate signing request fields.  
+
+     When updating the common name or subject alternative names, keep at least one of the names unchanged to maintain the certificate subject consistent.
+     {: note}
+
+3. Click Update.  
+4. Open the secret the Managed CSR tab and click **Download CSR** to download the certificate signing request file.  
+
+     With the certificate signing request file in hand, you should approach your signing certificate authority and sign your CSR file to obtain the signed certificate.
+     {: important}
+ 
+
+### Adding the signed certificate back in the UI 
+{: adding-back-signed-certificate-ui}
+{: ui}
+
+Add the signed certificate file back to your secret in your {{site.data.keyword.secrets-manager_short}} instance using the process described in [Manually rotating imported certificates with managed CSR](/docs/secrets-manager?topic=secrets-manager-manual-rotation&interface=ui#manual-rotate-imported-cert-ui-csr).
+
+### Creating certificate signing requests with the API
+{: #create-csr-api}
+{: api}
+
+You can create a certificate signing request programmatically by calling the {{site.data.keyword.secrets-manager_short}} API.  
+When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+
+You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
+
+```sh
+curl -X POST  
+    -H "Authorization: Bearer {iam_token}" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{ 
+            "name": "example-csr",
+            "description": "description of my csr.",
+            "secret_type": "imported_cert",
+            "secret_group_id": "67d025e1-0248-418f-83ba-deb0ebfb9b4a",
+            "labels": [
+                "dev",
+                "us-south"
+            ],
+            "managed_csr": {
+              "require_cn": true,
+              "common_name": "example.com",
+              "ip_sans": "127.0.0.1",
+              "uri_sans": "https://www.example.com/test",
+              "other_sans": "2.5.4.5;UTF8:*.example.com",
+              "exclude_cn_from_sans": false
+            },
+            "custom_metadata": {
+                "metadata_custom_key": "metadata_custom_value"
+            },
+            "version_custom_metadata": {
+                "custom_version_key": "custom_version_value"
+            }
+        }' \ 
+    "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets"
+```
+{: codeblock}
+{: curl}
+
+A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager/secrets-manager-v2#create-secret){: external}.
+
+
+### Updating and downloading the certificate signing requests with the API
+{: updating-downlading-csr-api}
+{: api}
+
+You can update a certificate signing request programmatically by calling the {{site.data.keyword.secrets-manager_short}} API.  
+When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+
+```sh
+curl -X POST  
+    -H "Authorization: Bearer {iam_token}" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{ 
+            "name": "example-csr",
+            "description": "description of my csr.",
+            "secret_type": "imported_cert",
+            "secret_group_id": "67d025e1-0248-418f-83ba-deb0ebfb9b4a",
+            "labels": [
+                "dev",
+                "us-south"
+            ],
+            "managed_csr": {
+              "alt_names": "alt1"
+            }
+        }' \ 
+    "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets"
+```
+{: codeblock}
+{: curl}
+
+A successful response returns the ID value of the secret, along with other metadata. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager/secrets-manager-v2#create-secret){: external}.
+
+
+### Adding the signed certificate back with the API
+{: adding-back-signed-certificate-api}
+{: api}
+
+Add the signed certificate file back to your secret in your {{site.data.keyword.secrets-manager_short}} instance using the process described in [Manually rotating imported certificates](/docs/secrets-manager?topic=secrets-manager-manual-rotation&interface=api#manual-rotate-imported-cert-api-csr).
+
+
+### Creating certificate signing requests from the CLI
+{: #create-csr-cli}
+{: cli}
+
+Before you begin, [follow the CLI docs](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli) to set your API endpoint.
+
+To create a certificate signing request by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. For example, the following command creates a certificate signing request with the `--imported-cert-managed-csr` option to add the field `common_name` with value **example.com**. Review the [{{site.data.keyword.secrets-manager_short}} API docs](/apidocs/secrets-manager/secrets-manager-v2#create-secret) for a full list of supported optional subject fields.
+
+```
+ibmcloud secrets-manager secret-create --secret-name=example-imported-cert-csr-secret --secret-type=imported_cert --imported-cert-managed-csr='{"common_name":"example.com"}'
+```
+
+### Updating and downloading the certificate signing requests from the CLI
+{: updating-downlading-csr-cli}
+{: cli}
+
+Before you begin, [follow the CLI docs](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli) to set your API endpoint.
+
+To update a certificate signing request by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-metadata-update`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-metadata-update-command) command. For example, the following command updates a certificate signing request with the `--imported-cert-managed-csr` option to add the field `alt_names` with value **alt1**. Review the [{{site.data.keyword.secrets-manager_short}} API docs](/apidocs/secrets-manager/secrets-manager-v2#create-secret) for a full list of supported optional subject fields.
+
+```
+ibmcloud secrets-manager secret-metadata-update --id SECRET_ID --imported-cert-managed-csr='{"alt_names":"alt1"}'
+```
+
+To get the certificate signing request by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-metadata`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-metadata-command) command.
+
+```
+ibmcloud secrets-manager secret-metadata --id SECRET_ID
+```
+
+### Adding the signed certificate back from the CLI
+{: adding-back-signed-certificate-cli}
+{: cli}
+
+Add the signed certificate file back to your secret in your {{site.data.keyword.secrets-manager_short}} instance using the process described in [Manually rotating imported certificates](/docs/secrets-manager?topic=secrets-manager-manual-rotation&interface=cli#manual-rotate-imported-certificates-cli-csr).

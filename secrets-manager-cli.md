@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-10-08"
+  years: 2025
+lastupdated: "2025-02-17"
 
 subcollection: secrets-manager
 
@@ -62,7 +62,7 @@ keywords: Secrets Manager CLI, Secrets Manager command line, Secrets Manager ter
 You can use the {{site.data.keyword.secrets-manager_full}} command-line interface (CLI) to manage secrets in your {{site.data.keyword.secrets-manager_short}} instance.
 {: shortdesc}
 
-Current version: **`2.0.9`**
+Current version: **`2.0.10`**
 
 ## Prerequisites
 {: #secrets-manager-cli-prereq}
@@ -104,6 +104,16 @@ Current version: **`2.0.9`**
 
     Replace `{instance_ID}` and `{region}` with the values that apply to your {{site.data.keyword.secrets-manager_short}} service instance. To find the endpoint URL that is specific to your instance, you can copy it from the **Endpoints** page in the {{site.data.keyword.secrets-manager_short}} UI. For more information, see [Viewing your endpoint URLs](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls)
 
+
+---
+
+copyright:
+  years: 2025
+lastupdated: "2025-02-17"
+
+keywords: ibm cloud secrets manager api, cli, plugin
+
+---
 
 ## Globals
 {: #secrets-manager-globals}
@@ -357,6 +367,24 @@ Example `SecretGroup` collection response
 ```
 {: screen}
 
+#### Default JMESPath
+{: #secrets-manager-secret-groups-default-jmespath}
+
+A JMESPath query will be applied to this output of this command by default, if one is not provided by the user. The exact query will depend on the scenario and the output format requested.
+You can see the condition for each default JMESPath query in the following table:
+
+| Response | Output | Query |
+| -------- | ------ | ----- |
+| Success | Default | - |
+|  | Table | `secret_groups[*]` |
+| Error | Default | - |
+|  | Table | `secret_groups[*]` |
+| All pages | Default | - |
+|  | Table | `secret_groups[*]` |
+{: caption="Table 1. Default JMESPath" caption-side="bottom"}
+
+If a custom JMESPath query is provided, it will replace any of the JMESPath in the table above.
+
 ### `ibmcloud secrets-manager secret-group`
 {: #secrets-manager-cli-secret-group-command}
 
@@ -506,7 +534,7 @@ Use this operation to either generate or import an existing secret, such as a TL
 To learn more about the types of secrets that you can create with Secrets Manager, check out the [docs](/docs/secrets-manager?topic=secrets-manager-what-is-secret).
 
 ```sh
-ibmcloud secrets-manager secret-create [--secret-prototype SECRET-PROTOTYPE | --secret-custom-metadata SECRET-CUSTOM-METADATA --secret-description SECRET-DESCRIPTION --secret-expiration-date SECRET-EXPIRATION-DATE --secret-labels SECRET-LABELS --secret-name SECRET-NAME --secret-group-id SECRET-GROUP-ID --secret-type SECRET-TYPE --arbitrary-payload ARBITRARY-PAYLOAD --secret-version-custom-metadata SECRET-VERSION-CUSTOM-METADATA --secret-ttl SECRET-TTL --iam-credentials-access-groups IAM-CREDENTIALS-ACCESS-GROUPS --iam-credentials-service-id IAM-CREDENTIALS-SERVICE-ID --iam-credentials-account-id IAM-CREDENTIALS-ACCOUNT-ID --iam-credentials-reuse-apikey=IAM-CREDENTIALS-REUSE-APIKEY --secret-rotation SECRET-ROTATION --imported-cert-certificate IMPORTED-CERT-CERTIFICATE --imported-cert-intermediate IMPORTED-CERT-INTERMEDIATE --imported-cert-private-key IMPORTED-CERT-PRIVATE-KEY --kv-data KV-DATA --private-cert-template-name PRIVATE-CERT-TEMPLATE-NAME --certificate-common-name CERTIFICATE-COMMON-NAME --certificate-alt-names CERTIFICATE-ALT-NAMES --private-cert-ip-sans PRIVATE-CERT-IP-SANS --private-cert-uri-sans PRIVATE-CERT-URI-SANS --private-cert-other-sans PRIVATE-CERT-OTHER-SANS --private-cert-csr PRIVATE-CERT-CSR --private-cert-format PRIVATE-CERT-FORMAT --private-cert-private-key-format PRIVATE-CERT-PRIVATE-KEY-FORMAT --private-cert-exclude-cn-from-sans=PRIVATE-CERT-EXCLUDE-CN-FROM-SANS --public-cert-key-algorithm PUBLIC-CERT-KEY-ALGORITHM --public-cert-ca PUBLIC-CERT-CA --public-cert-dns PUBLIC-CERT-DNS --public-cert-bundle-ca=PUBLIC-CERT-BUNDLE-CA --secret-source-service SECRET-SOURCE-SERVICE --username-password-username USERNAME-PASSWORD-USERNAME --username-password-password USERNAME-PASSWORD-PASSWORD --username-password-policy USERNAME-PASSWORD-POLICY]
+ibmcloud secrets-manager secret-create [--secret-prototype SECRET-PROTOTYPE | --secret-custom-metadata SECRET-CUSTOM-METADATA --secret-description SECRET-DESCRIPTION --secret-expiration-date SECRET-EXPIRATION-DATE --secret-labels SECRET-LABELS --secret-name SECRET-NAME --secret-group-id SECRET-GROUP-ID --secret-type SECRET-TYPE --arbitrary-payload ARBITRARY-PAYLOAD --secret-version-custom-metadata SECRET-VERSION-CUSTOM-METADATA --secret-ttl SECRET-TTL --iam-credentials-access-groups IAM-CREDENTIALS-ACCESS-GROUPS --iam-credentials-service-id IAM-CREDENTIALS-SERVICE-ID --iam-credentials-account-id IAM-CREDENTIALS-ACCOUNT-ID --iam-credentials-reuse-apikey=IAM-CREDENTIALS-REUSE-APIKEY --secret-rotation SECRET-ROTATION --imported-cert-certificate IMPORTED-CERT-CERTIFICATE --imported-cert-intermediate IMPORTED-CERT-INTERMEDIATE --imported-cert-private-key IMPORTED-CERT-PRIVATE-KEY --imported-cert-managed-csr IMPORTED-CERT-MANAGED-CSR --kv-data KV-DATA --private-cert-template-name PRIVATE-CERT-TEMPLATE-NAME --certificate-common-name CERTIFICATE-COMMON-NAME --certificate-alt-names CERTIFICATE-ALT-NAMES --private-cert-ip-sans PRIVATE-CERT-IP-SANS --private-cert-uri-sans PRIVATE-CERT-URI-SANS --private-cert-other-sans PRIVATE-CERT-OTHER-SANS --private-cert-csr PRIVATE-CERT-CSR --private-cert-format PRIVATE-CERT-FORMAT --private-cert-private-key-format PRIVATE-CERT-PRIVATE-KEY-FORMAT --private-cert-exclude-cn-from-sans=PRIVATE-CERT-EXCLUDE-CN-FROM-SANS --public-cert-key-algorithm PUBLIC-CERT-KEY-ALGORITHM --public-cert-ca PUBLIC-CERT-CA --public-cert-dns PUBLIC-CERT-DNS --public-cert-bundle-ca=PUBLIC-CERT-BUNDLE-CA --secret-source-service SECRET-SOURCE-SERVICE --username-password-username USERNAME-PASSWORD-USERNAME --username-password-password USERNAME-PASSWORD-PASSWORD --username-password-policy USERNAME-PASSWORD-POLICY]
 ```
 
 
@@ -542,7 +570,7 @@ ibmcloud secrets-manager secret-create [--secret-prototype SECRET-PROTOTYPE | --
     The maximum length is `256` characters. The minimum length is `2` characters. The value must match regular expression `/^[A-Za-z0-9_][A-Za-z0-9_]*(?:_*-*\\.*[A-Za-z0-9]*)*[A-Za-z0-9]+$/`.
 
 `--secret-group-id` (string)
-:   A v4 UUID identifier, or `default` secret group. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
+:   A UUID identifier, or `default` secret group. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
 
     The maximum length is `36` characters. The minimum length is `7` characters. The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|default)$/`.
 
@@ -574,7 +602,7 @@ ibmcloud secrets-manager secret-create [--secret-prototype SECRET-PROTOTYPE | --
 `--iam-credentials-service-id` (string)
 :   The service ID under which the API key is created. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
 
-    The maximum length is `50` characters. The minimum length is `40` characters. The value must match regular expression `/^[A-Za-z0-9][A-Za-z0-9]*(?:-?[A-Za-z0-9]+)*$/`.
+    The maximum length is `46` characters. The minimum length is `46` characters. The value must match regular expression `/^ServiceId-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/`.
 
 `--iam-credentials-account-id` (string)
 :   The ID of the account in which the IAM credentials are created. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
@@ -603,6 +631,11 @@ ibmcloud secrets-manager secret-create [--secret-prototype SECRET-PROTOTYPE | --
 :   (Optional) The PEM-encoded private key to associate with the certificate. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
 
     The maximum length is `100000` characters. The minimum length is `50` characters. The value must match regular expression `/(-{5}BEGIN.+?-{5}[\\s\\S]+-{5}END.+?-{5}[\\s]*)/`.
+
+`--imported-cert-managed-csr` ([`ImportedCertificateManagedCsr`](#cli-imported-certificate-managed-csr-example-schema))
+:   The data specified to create the CSR and the private key. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
+
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--imported-cert-managed-csr=@path/to/file.json`.
 
 `--kv-data` (generic map)
 :   The payload data of a key-value secret. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
@@ -730,7 +763,7 @@ ibmcloud secrets-manager secrets [--offset OFFSET] [--limit LIMIT] [--sort SORT]
 `--offset` (int64)
 :   The number of secrets to skip.
 
-    The default value is `0`. The minimum value is `0`.
+    The default value is `0`. The maximum value is `10000000`. The minimum value is `0`.
 
 `--limit` (int64)
 :   The number of secrets to list.
@@ -882,6 +915,24 @@ Example secret metadata collection response
 ```
 {: screen}
 
+#### Default JMESPath
+{: #secrets-manager-secrets-default-jmespath}
+
+A JMESPath query will be applied to this output of this command by default, if one is not provided by the user. The exact query will depend on the scenario and the output format requested.
+You can see the condition for each default JMESPath query in the following table:
+
+| Response | Output | Query |
+| -------- | ------ | ----- |
+| Success | Default | - |
+|  | Table | `secrets[*].{Name:name,ID:id,Secret_Type:secret_type,secret_group_id:secret_group_id,State:state_description,Locks:locks_total,Expiration:expiration_date}` |
+| Error | Default | - |
+|  | Table | `secrets[*].{Name:name,ID:id,Secret_Type:secret_type,secret_group_id:secret_group_id,State:state_description,Locks:locks_total,Expiration:expiration_date}` |
+| All pages | Default | - |
+|  | Table | `secrets[*].{Name:name,ID:id,Secret_Type:secret_type,secret_group_id:secret_group_id,State:state_description,Locks:locks_total,Expiration:expiration_date}` |
+{: caption="Table 1. Default JMESPath" caption-side="bottom"}
+
+If a custom JMESPath query is provided, it will replace any of the JMESPath in the table above.
+
 ### `ibmcloud secrets-manager secret`
 {: #secrets-manager-cli-secret-command}
 
@@ -971,7 +1022,7 @@ ibmcloud secrets-manager secret-metadata \
 Update the metadata of a secret, such as its name or description.
 
 ```sh
-ibmcloud secrets-manager secret-metadata-update --id ID [--name NAME] [--description DESCRIPTION] [--labels LABELS] [--custom-metadata CUSTOM-METADATA] [--expiration-date EXPIRATION-DATE] [--ttl TTL] [--rotation ROTATION] [--password-generation-policy PASSWORD-GENERATION-POLICY]
+ibmcloud secrets-manager secret-metadata-update --id ID [--name NAME] [--description DESCRIPTION] [--labels LABELS] [--custom-metadata CUSTOM-METADATA] [--expiration-date EXPIRATION-DATE] [--ttl TTL] [--rotation ROTATION] [--imported-cert-managed-csr IMPORTED-CERT-MANAGED-CSR] [--password-generation-policy PASSWORD-GENERATION-POLICY]
 ```
 
 
@@ -1016,6 +1067,9 @@ ibmcloud secrets-manager secret-metadata-update --id ID [--name NAME] [--descrip
 
 `--rotation` ([`RotationPolicy`](#cli-rotation-policy-example-schema))
 :   This field indicates whether Secrets Manager rotates your secrets automatically. Supported secret types: username_password, private_cert, public_cert, iam_credentials.
+
+`--imported-cert-managed-csr` ([`ImportedCertificateManagedCsr`](#cli-imported-certificate-managed-csr-example-schema))
+:   The data specified to create the CSR and the private key.
 
 `--password-generation-policy` ([`PasswordGenerationPolicyPatch`](#cli-password-generation-policy-patch-example-schema))
 :   Policy patch for auto-generated passwords. Policy properties that are included in the patch are updated.
@@ -1164,7 +1218,7 @@ ibmcloud secrets-manager secret-version-create --secret-id SECRET-ID [--secret-v
     Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--secret-version-version-custom-metadata=@path/to/file.json`.
 
 `--secret-version-restore-from-version` (string)
-:   A v4 UUID identifier, or `current` or `previous` secret version aliases. This option provides a value for a sub-field of the JSON option 'secret-version-prototype'. It is mutually exclusive with that option.
+:   A UUID identifier, or `current` or `previous` secret version aliases. This option provides a value for a sub-field of the JSON option 'secret-version-prototype'. It is mutually exclusive with that option.
 
     The maximum length is `36` characters. The minimum length is `7` characters. The value must match regular expression `/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|current|previous)$/`.
 
@@ -1279,6 +1333,24 @@ Example secret version metadata collection response
 }
 ```
 {: screen}
+
+#### Default JMESPath
+{: #secrets-manager-secret-versions-default-jmespath}
+
+A JMESPath query will be applied to this output of this command by default, if one is not provided by the user. The exact query will depend on the scenario and the output format requested.
+You can see the condition for each default JMESPath query in the following table:
+
+| Response | Output | Query |
+| -------- | ------ | ----- |
+| Success | Default | - |
+|  | Table | `versions[*]` |
+| Error | Default | - |
+|  | Table | `versions[*]` |
+| All pages | Default | - |
+|  | Table | `versions[*]` |
+{: caption="Table 1. Default JMESPath" caption-side="bottom"}
+
+If a custom JMESPath query is provided, it will replace any of the JMESPath in the table above.
 
 ### `ibmcloud secrets-manager secret-version`
 {: #secrets-manager-cli-secret-version-command}
@@ -1513,7 +1585,7 @@ ibmcloud secrets-manager secrets-locks [--offset OFFSET] [--limit LIMIT] [--sear
 `--offset` (int64)
 :   The number of secrets to skip.
 
-    The default value is `0`. The minimum value is `0`.
+    The default value is `0`. The maximum value is `10000000`. The minimum value is `0`.
 
 `--limit` (int64)
 :   The number of secrets to list.
@@ -1582,6 +1654,24 @@ Example response for listing all Secrets and locks
 ```
 {: screen}
 
+#### Default JMESPath
+{: #secrets-manager-secrets-locks-default-jmespath}
+
+A JMESPath query will be applied to this output of this command by default, if one is not provided by the user. The exact query will depend on the scenario and the output format requested.
+You can see the condition for each default JMESPath query in the following table:
+
+| Response | Output | Query |
+| -------- | ------ | ----- |
+| Success | Default | - |
+|  | Table | `secrets_locks[*]` |
+| Error | Default | - |
+|  | Table | `secrets_locks[*]` |
+| All pages | Default | - |
+|  | Table | `secrets_locks[*]` |
+{: caption="Table 1. Default JMESPath" caption-side="bottom"}
+
+If a custom JMESPath query is provided, it will replace any of the JMESPath in the table above.
+
 ### `ibmcloud secrets-manager secret-locks`
 {: #secrets-manager-cli-secret-locks-command}
 
@@ -1604,7 +1694,7 @@ ibmcloud secrets-manager secret-locks --id ID [--offset OFFSET] [--limit LIMIT] 
 `--offset` (int64)
 :   The number of locks to skip.
 
-    The default value is `0`. The minimum value is `0`.
+    The default value is `0`. The maximum value is `1000`. The minimum value is `0`.
 
 `--limit` (int64)
 :   The number of secrets with locks to list.
@@ -1742,6 +1832,7 @@ Example of response body to create secret locks
 {
   "secret_id" : "0cf4addb-7a90-410b-a3a7-a15bbe2b7909",
   "secret_group_id" : "d8371728-95c8-4c12-b2af-1af98adb9e41",
+  "secret_type" : "arbitrary",
   "versions" : [ {
     "version_id" : "7bf3814d-58f8-4df8-9cbd-f6860e4ca973",
     "version_alias" : "current",
@@ -1805,6 +1896,7 @@ Example of response body to create secret locks
 {
   "secret_id" : "0cf4addb-7a90-410b-a3a7-a15bbe2b7909",
   "secret_group_id" : "d8371728-95c8-4c12-b2af-1af98adb9e41",
+  "secret_type" : "arbitrary",
   "versions" : [ {
     "version_id" : "7bf3814d-58f8-4df8-9cbd-f6860e4ca973",
     "version_alias" : "current",
@@ -1847,7 +1939,7 @@ ibmcloud secrets-manager secret-version-locks --secret-id SECRET-ID --id ID [--o
 `--offset` (int64)
 :   The number of locks to skip.
 
-    The default value is `0`. The minimum value is `0`.
+    The default value is `0`. The maximum value is `1000`. The minimum value is `0`.
 
 `--limit` (int64)
 :   The number of secrets with locks to list.
@@ -1982,6 +2074,7 @@ Example of response body to create secret locks
 {
   "secret_id" : "0cf4addb-7a90-410b-a3a7-a15bbe2b7909",
   "secret_group_id" : "d8371728-95c8-4c12-b2af-1af98adb9e41",
+  "secret_type" : "arbitrary",
   "versions" : [ {
     "version_id" : "7bf3814d-58f8-4df8-9cbd-f6860e4ca973",
     "version_alias" : "current",
@@ -2051,6 +2144,7 @@ Example of response body to create secret locks
 {
   "secret_id" : "0cf4addb-7a90-410b-a3a7-a15bbe2b7909",
   "secret_group_id" : "d8371728-95c8-4c12-b2af-1af98adb9e41",
+  "secret_type" : "arbitrary",
   "versions" : [ {
     "version_id" : "7bf3814d-58f8-4df8-9cbd-f6860e4ca973",
     "version_alias" : "current",
@@ -2217,8 +2311,12 @@ ibmcloud secrets-manager configuration-create [--configuration-prototype CONFIGU
 `--private-cert-private-key-bits` (int64)
 :   The number of bits to use to generate the private key. This option provides a value for a sub-field of the JSON option 'configuration-prototype'. It is mutually exclusive with that option.
 
+    The maximum value is `4096`. The minimum value is `224`.
+
 `--private-cert-max-path-length` (int64)
 :   The maximum path length to encode in the generated certificate. `-1` means no limit. This option provides a value for a sub-field of the JSON option 'configuration-prototype'. It is mutually exclusive with that option.
+
+    The maximum value is `10`. The minimum value is `-1`.
 
 `--private-cert-exclude-cn-from-sans` (bool)
 :   This parameter controls whether the common name is excluded from Subject Alternative Names (SANs). This option provides a value for a sub-field of the JSON option 'configuration-prototype'. It is mutually exclusive with that option.
@@ -2424,7 +2522,7 @@ ibmcloud secrets-manager configurations [--offset OFFSET] [--limit LIMIT] [--sor
 `--offset` (int64)
 :   The number of configurations to skip.
 
-    The default value is `0`. The minimum value is `0`.
+    The default value is `0`. The maximum value is `1000`. The minimum value is `0`.
 
 `--limit` (int64)
 :   The number of configurations to list.
@@ -2543,6 +2641,24 @@ Example response for configuring metadata collection
 }
 ```
 {: screen}
+
+#### Default JMESPath
+{: #secrets-manager-configurations-default-jmespath}
+
+A JMESPath query will be applied to this output of this command by default, if one is not provided by the user. The exact query will depend on the scenario and the output format requested.
+You can see the condition for each default JMESPath query in the following table:
+
+| Response | Output | Query |
+| -------- | ------ | ----- |
+| Success | Default | - |
+|  | Table | `configurations[*].{Created_At:created_at,Name:name,Config_Type:config_type,Secret_Type:secret_type,Created_By:created_by,Updated_At:updated_at}` |
+| Error | Default | - |
+|  | Table | `configurations[*].{Created_At:created_at,Name:name,Config_Type:config_type,Secret_Type:secret_type,Created_By:created_by,Updated_At:updated_at}` |
+| All pages | Default | - |
+|  | Table | `configurations[*].{Created_At:created_at,Name:name,Config_Type:config_type,Secret_Type:secret_type,Created_By:created_by,Updated_At:updated_at}` |
+{: caption="Table 1. Default JMESPath" caption-side="bottom"}
+
+If a custom JMESPath query is provided, it will replace any of the JMESPath in the table above.
 
 ### `ibmcloud secrets-manager configuration`
 {: #secrets-manager-cli-configuration-command}
@@ -2702,6 +2818,8 @@ ibmcloud secrets-manager configuration-update --name NAME [--api-key API-KEY] [-
 
 `--private-cert-private-key-bits` (int64)
 :   The number of bits to use to generate the private key.
+
+    The maximum value is `4096`. The minimum value is `224`.
 
 `--private-cert-key-usage` ([]string)
 :   The allowed key usage constraint to define for private certificates.
@@ -2937,6 +3055,8 @@ ibmcloud secrets-manager configuration-action-create --name NAME [--config-actio
 
 `--private-cert-max-path-length` (int64)
 :   The maximum path length to encode in the generated certificate. `-1` means no limit. This option provides a value for a sub-field of the JSON option 'config-action-prototype'. It is mutually exclusive with that option.
+
+    The maximum value is `10`. The minimum value is `-1`.
 
 `--private-cert-exclude-cn-from-sans` (bool)
 :   This parameter controls whether the common name is excluded from Subject Alternative Names (SANs). This option provides a value for a sub-field of the JSON option 'config-action-prototype'. It is mutually exclusive with that option.
@@ -3188,6 +3308,44 @@ The following example shows the format of the ConfigurationPrototype object.
   "name" : "example-cloud-internet-services-config",
   "cloud_internet_services_apikey" : "5ipu_ykv0PMp2MhxQnDMn7VzrkSlBwi3BOI8uthi_EXZ",
   "cloud_internet_services_crn" : "crn:v1:bluemix:public:internet-svcs:global:a/128e84fcca45c1224aae525d31ef2b52:009a0357-1460-42b4-b903-10580aba7dd8::"
+}
+```
+{: codeblock}
+
+### ImportedCertificateManagedCsr
+{: #cli-imported-certificate-managed-csr-example-schema}
+
+The following example shows the format of the ImportedCertificateManagedCsr object.
+
+```json
+
+{
+  "ou" : [ "exampleString", "anotherExampleString" ],
+  "organization" : [ "exampleString", "anotherExampleString" ],
+  "country" : [ "exampleString", "anotherExampleString" ],
+  "locality" : [ "exampleString", "anotherExampleString" ],
+  "province" : [ "exampleString", "anotherExampleString" ],
+  "street_address" : [ "exampleString", "anotherExampleString" ],
+  "postal_code" : [ "exampleString", "anotherExampleString" ],
+  "require_cn" : true,
+  "common_name" : "example.com",
+  "alt_names" : "alt-name-1,alt-name-2",
+  "ip_sans" : "1.1.1.1,2.2.2.2",
+  "uri_sans" : "exampleString",
+  "other_sans" : "2.5.4.5;UTF8:*.example.com",
+  "exclude_cn_from_sans" : true,
+  "user_ids" : "user-1,user-2",
+  "server_flag" : true,
+  "client_flag" : true,
+  "code_signing_flag" : true,
+  "email_protection_flag" : true,
+  "key_type" : "rsa",
+  "key_bits" : 4096,
+  "key_usage" : "DigitalSignature,KeyAgreement,KeyEncipherment",
+  "ext_key_usage" : "ServerAuth,ClientAuth,EmailProtection",
+  "policy_identifiers" : "exampleString",
+  "ext_key_usage_oids" : "exampleString",
+  "rotate_keys" : true
 }
 ```
 {: codeblock}

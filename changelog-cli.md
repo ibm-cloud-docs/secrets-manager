@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-08"
+  years: 2020, 2025
+lastupdated: "2025-02-10"
 
 keywords: change log for Secrets Manager CLI, CLI changelog, updates to Secrets Manager CLI
 
@@ -62,6 +62,12 @@ In this change log, you can learn about the latest changes, improvements, and up
 {: shortdesc}
 
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
+
+## Version 2.0.10
+{: #2.0.10}
+
+Version 2.0.10 was released on 18 February 2025. This release includes the following updates:
+- A new flag option `--imported-cert-managed-csr` was added to support the Imported certificated with Managed CSR feature.
 
 ## Version 2.0.9
 {: #2.0.9}

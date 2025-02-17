@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-04"
+  years: 2020, 2025
+lastupdated: "2025-02-10"
 
 keywords: change log for Secrets Manager APIs, API changelog, updates to Secrets Manager APIs
 
@@ -62,6 +62,11 @@ In this change log, you can learn about the latest changes, improvements, and up
 {: shortdesc}
 
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
+
+## 17 February 2025
+{: #2024-02-17-api}
+
+- A new field `managed_csr` was added to support the Imported certificated with Managed CSR feature.
 
 ## 7 October 2024
 {: #2024-10-07-api}
