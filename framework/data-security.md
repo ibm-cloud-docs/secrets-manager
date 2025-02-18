@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-01-20"
+lastupdated: "2025-02-18"
 
 keywords: Data security for Secrets Manager, byok, kyok, data storage, data encryption in Secrets Manager, customer managed keys
 
@@ -117,24 +117,28 @@ If you choose to work with a key that you manage, you must ensure that valid IAM
     You must be the account owner or an administrator for the instance of the key management service that you're working with. You must also have at least Viewer access for the {{site.data.keyword.secrets-manager_short}} service.  
 
     1. Go to **Manage > Access IAM > Authorizations**.
-    2. Select the {{site.data.keyword.secrets-manager_short}} service as the source service.
-    3. Select the instance of the {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} as the target service.
+    2. Select the **Source account**
+         * Select **This account** if planning to provision a {{site.data.keyword.secrets-manager_short}} instance in this account.
+         * Select **Specific account** and provide the ID of your source account where you plan to provision your {{site.data.keyword.secrets-manager_short}} instance.
+    3. Select the specific instance of the {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} that contains your root key as the target service.
+    4. To scope the authorization:
+         * All keys in a **Key ring** - click on **Add a condition**, select **Key ring ID**, and provide the ID of your key ring. 
+         * A specific encryption key - click on **Add a condition**, select **Resource Type**, and provide value **key**. Next click on **Add a condition**, select **Resource ID** and provide the ID of your encryption key.
+    5. Assign the **Reader** role.
+    6. Click **Authorize** to confirm the authorization.
 
-        It is recommended to follow the least privilege best practice and assign the access only to the specific KMS instance and root key.
+    If using {{site.data.keyword.hscrypto}}, add a second IAM authorization that will assign the **Viewer** platform access policy for your {{site.data.keyword.hscrypto}} instance.
         
-        {:note }
-    4. Assign the Reader role.
+    1. Go to **Manage > Access IAM > Authorizations**.
+    2. Select the {{site.data.keyword.secrets-manager_short}} service as the source service.
+    3. Select the specific instance {{site.data.keyword.hscrypto}} that contains your root key as the target service.
+    4. Assign the **Viewer** role.
     5. Click **Authorize** to confirm the authorization.
-
+          
     If you choose to [delete your {{site.data.keyword.secrets-manager_short}} instance later](#service-delete), this authorization is also deleted by IAM.
     {: note}
 
-4. Create an instance of the {{site.data.keyword.secrets-manager_short}} service.
-
-    1. Select the region that corresponds to the region for the instance of the key management service that you created previously.
-    2. Select your {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance.
-    3. Select the **Root key** that you previously authorized.
-    4. Click **Create**.
+4. [Create your {{site.data.keyword.secrets-manager_short}} instance](/docs/secrets-manager?topic=secrets-manager-create-instance) using the root key that you previously authorized.
 
 ## Deleting your data in {{site.data.keyword.secrets-manager_short}}
 {: #data-delete}
