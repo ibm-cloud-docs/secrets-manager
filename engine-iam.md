@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-11-27"
+  years: 2020, 2025
+lastupdated: "2025-02-21"
 
 keywords: IAM credentials, dynamic, IAM API key IAM credentials engine
 
@@ -80,7 +80,7 @@ If configuring the IAM credentials engine with an API key, you need a [service I
 - [**Operator** platform role](/docs/account?topic=account-account-services#identity-service-account-management) on the IAM Identity Service.
 - [**Service ID creator** service role](/docs/account?topic=account-account-services#identity-service-account-management) on the IAM Identity Service. The service ID creator service role is only required when you disable the creation of service IDs in your IAM settings.
 
-If configuring the IAM credenials engine with IAM service authorization, {{site.data.keyword.secrets-manager_short}} adds the following two authorization policies on your behalf.
+If configuring the IAM credentials engine with IAM service authorization, {{site.data.keyword.secrets-manager_short}} adds the following two authorization policies on your behalf.
 - [**Groups Service Member Manage** platform role](/docs/account?topic=account-account-services#access-groups-account-management) on the IAM Access Groups Service service.
 - [**Operator** platform role](/docs/account?topic=account-account-services#identity-service-account-management) for IAM Identity Service service.
 - [**Service ID creator** service role](/docs/account?topic=account-account-services#identity-service-account-management) on the IAM Identity Service. The service ID creator service role is only required when you disable the creation of service IDs in your IAM settings.
@@ -98,13 +98,13 @@ If the account in which you want to generate IAM credentials allows access from 
 
 Complete the following steps to configure the IAM credentials engine using IAM service authorization.
 
-To manage IAM credenials from the same {{site.data.keyword.cloud_notm}} account as your {{site.data.keyword.secrets-manager_short}} instance:
+To manage IAM credentials from the same {{site.data.keyword.cloud_notm}} account as your {{site.data.keyword.secrets-manager_short}} instance:
 
 1. In the **Secrets engines** page, click the **IAM credentials** tab.
 2. Click **Authorize**.
 3. Click **Configure**.
 
-To manage IAM credenials from another {{site.data.keyword.cloud_notm}} account, manually create the IAM service authorizations.
+To manage IAM credentials from another {{site.data.keyword.cloud_notm}} account, manually create the IAM service authorizations.
 
 For the **IAM Identity Service service** authorization policy:
 1. In the account where you'd like to manage the IAM credentials, go to **Manage > Access (IAM)**.
@@ -149,7 +149,7 @@ Complete the following steps to configure the IAM credentials engine using a Ser
 
 Complete the following steps to configure the IAM credentials engine by using an IAM service authorization.
 
-To manage IAM credenials from the same {{site.data.keyword.cloud_notm}} account as your {{site.data.keyword.secrets-manager_short}} instance, run the following commands to add the required IAM service authorization policies:
+To manage IAM credentials from the same {{site.data.keyword.cloud_notm}} account as your {{site.data.keyword.secrets-manager_short}} instance, run the following commands to add the required IAM service authorization policies:
 
 ```sh
 ibmcloud iam authorization-policy-create secrets-manager iam-identity "Service ID Creator, Operator" --source-service-instance-id SOURCE_SERVICE_INSTANCE_GUID
@@ -159,7 +159,7 @@ ibmcloud iam authorization-policy-create secrets-manager iam-groups "Groups Serv
 
 - Replace **SOURCE_SERVICE_INSTANCE_GUID** with the {{site.data.keyword.secrets-manager_short}} instance service ID. If not provided, the authorization applies to all {{site.data.keyword.secrets-manager_short}} instances
 
-To manage IAM credenials from another {{site.data.keyword.cloud_notm}} account: also include the **ACCOUNT_GUID** parameter.
+To manage IAM credentials from another {{site.data.keyword.cloud_notm}} account: also include the **ACCOUNT_GUID** parameter.
 
 1. Login to the {{site.data.keyword.cloud_notm}} account with the service IDs you'd like to manage.
 2. Run the following commands add the required IAM service authorization policies:
@@ -339,7 +339,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H "Authorization: Bearer $
 {: curl}
 
 The **serviceInstance** attribute is optional. If omitted the authorization applies to all {{site.data.keyword.secrets-manager_short}} instances.
-The **SOURCE_ACCOOUNT_ID** and **TARGET_ACCOUNT_ID** are required wether creating the authorization for the current account or a specific account.
+The **SOURCE_ACCOOUNT_ID** and **TARGET_ACCOUNT_ID** are required whether creating the authorization for the current account or a specific account.
 {: note}
 
 ### Using API key
@@ -418,7 +418,7 @@ The following example shows a configuration that you can use to configure the IA
 {: #get-iam-engine-value-ui}
 {: ui}
 
-You can retrieve an engine's configuration by using the {{site.data.keyword.secrets-manager_short}} UI. Retreiving a configuration is valid only when configuring the IAM credentials engine with an API key.
+You can retrieve an engine's configuration by using the {{site.data.keyword.secrets-manager_short}} UI. Retrieving a configuration is valid only when configuring the IAM credentials engine with an API key.
 
 1. In the **IAM credentials** secret engine, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) to open a list of options for your engine configuration.
 2. To view the configuration value, click **View configuration**.
@@ -432,7 +432,7 @@ The secret value is displayed for 15 seconds, then the dialog closes.
 {: #get-iam-engine-value-cli}
 {: cli}
 
-You can retrieve an engine's configuration by using the {{site.data.keyword.secrets-manager_short}} CLI. In the following example command, replace the engine configuration name with your configuration's name. Retreiving a configuration is valid only when configuring the IAM credentials engine with an API key.
+You can retrieve an engine's configuration by using the {{site.data.keyword.secrets-manager_short}} CLI. In the following example command, replace the engine configuration name with your configuration's name. Retrieving a configuration is valid only when configuring the IAM credentials engine with an API key.
 
 ```sh
 ibmcloud secrets-manager configuration --name EXAMPLE_CONFIG --service-url https://{instance_ID}.{region}.secrets-manager.appdomain.cloud
@@ -446,7 +446,7 @@ Replace `{instance_ID}` and `{region}` with the values that apply to your {{site
 {: #get-iam-engine-value-api}
 {: api}
 
-You can retrieve an engine's configuration by using the {{site.data.keyword.secrets-manager_short}} API. In the following example request, replace the engine configuration name with your configuration's name. Retreiving a configuration is valid only when configuring the IAM credentials engine with an API key.
+You can retrieve an engine's configuration by using the {{site.data.keyword.secrets-manager_short}} API. In the following example request, replace the engine configuration name with your configuration's name. Retrieving a configuration is valid only when configuring the IAM credentials engine with an API key.
 
 ```sh
 curl -X GET --location --header "Authorization: Bearer {iam_token}" \
