@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-01-16"
+lastupdated: "2025-02-21"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, public certificates
 
@@ -602,7 +602,7 @@ To create a public certificate by using Akamai as your DNS provider, complete th
       {: pre}
 
 
-The newly-created TXT records that are in the relevant domains in Akamai are not automatically deleted. 
+The newly created TXT records that are in the relevant domains in Akamai are not automatically deleted. 
 {: note}
 
 
@@ -733,6 +733,6 @@ Alternatively, you can call the {{site.data.keyword.secrets-manager_short}} [Cre
    {: codeblock}
    {: curl}
 
-6. After your certificate is issued (its state is `active`), you must run the Terraform command `terraform apply` again in order to update your public certificate’s Terraform resource and to use your newly issued certificate.
+6. After your certificate is issued (its state is `active`), you must run the Terraform command `terraform apply` again to update your public certificate’s Terraform resource and to use your newly issued certificate.
 
 7. Clean up and remove the TXT records from the domains in your DNS provider account.

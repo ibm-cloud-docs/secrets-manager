@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-10"
+  years: 2020, 2025
+lastupdated: "2025-02-21"
 
 keywords: secrets management best practice, rotating secrets, secret rotation, locking secrets, automatic rotation
 
@@ -112,7 +112,7 @@ Use locks to plan for periodic rotation of secrets. When you create and remove l
 
     You can think of a lock as a kind of mapping that you can create between a secret and the client or application that consumes it. If a secret has a lock attached to it, it means that shouldn't be modified because it's currently in use by your application.
     
-    A secret can be unlocked and able to be deleted or modified only after all of its associated locks are removed.
+    A secret can be unlocked and able to be deleted or modified only after all its associated locks are removed.
     {: note}
 
 2. Build an automated flow that can help you to safely delete old or expired secrets from your instance only after your applications have picked up the latest secret versions. For example, consider the following scenario:

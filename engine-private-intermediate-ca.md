@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-10"
+  years: 2020, 2025
+lastupdated: "2025-02-21"
 
 keywords: intermediate certificate authority, intermediate CA, internal signing, external signing
 
@@ -376,7 +376,7 @@ Copy the value of the `certificate` field from the response to use it in the nex
 ### Step 3: Import a signed intermediate CA into your intermediate CA configuration
 {: #intermediate-ca-set-signed-api}
 
-After you sign an intermediate CA certificate by using an external parent CA, you can import it into your intermediate CA configuration by using the `set-signed` action. The following example shows a query that you can use to import the externally-signed certificate. 
+After you sign an intermediate CA certificate by using an external parent CA, you can import it into your intermediate CA configuration by using the `set-signed` action. The following example shows a query that you can use to import the externally signed certificate. 
 
 ```sh
 curl -X POST 
@@ -628,7 +628,7 @@ The `ibm_sm_private_certificate_configuration_action_set_signed` resource import
 ```
 {: codeblock}
 
-In this example, we use external signing because the root CA is in another {{site.data.keyword.secrets-manager_short}} instance. In order to use a parent CA from an external PKI system, use another method to sign the CSR, instead of the `ibm_sm_private_certificate_configuration_action_sign_csr` resource. For example, you may use the `tls_locally_signed_cert` resource from the `tls` provider.
+In this example, we use external signing because the root CA is in another {{site.data.keyword.secrets-manager_short}} instance. To use a parent CA from an external PKI system, use another method to sign the CSR, instead of the `ibm_sm_private_certificate_configuration_action_sign_csr` resource. For example, you may use the `tls_locally_signed_cert` resource from the `tls` provider.
 {: note}
 
 If you are bringing your own HSM, include the following in the configuration:
