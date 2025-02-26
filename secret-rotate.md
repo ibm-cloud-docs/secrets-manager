@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-10"
+lastupdated: "2025-02-26"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -391,6 +391,21 @@ ibmcloud secrets-manager secret-version-create --id SECRET_ID --imported-cert-ce
 
 The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-version-create-command).
 
+### Rotating Private certificates
+{: #manual-rotate-private-certificates-cli}
+{: cli}
+
+To create a new private certificate secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-version-create-command) command.
+
+```sh
+ibmcloud secrets-manager secret-version-create \
+   --secret-id SECRET_ID
+   --secret-version-prototype '{"csr":"..."} # Keep empty JSON if not needed
+```
+{: codeblock}
+
+The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-version-create-command).
+
 ### Rotating Public certificates
 {: #manual-rotate-public-certificates-cli}
 {: cli}
@@ -674,6 +689,77 @@ curl -X POST \
 ```
 {: codeblock}
 {: curl}
+
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#create-secret-version).
+
+
+### Rotating public certificates
+{: #manual-rotate-public-cert-api}
+{: api}
+
+You can rotate secrets by calling the {{site.data.keyword.secrets-manager_short}} API.
+
+The following example request creates a new version of your secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+
+You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
+{: curl}
+
+
+```sh
+curl -X POST \
+   -H "Authorization: Bearer {iam_token}" \
+   -H "Accept: application/json" \
+   -H "Content-Type: application/json" \
+   -d '{
+        "rotation": {
+          "rotate_keys": true # or false
+        },
+        "version_custom_metadata": {
+            "custom_version_key": "custom_version_value"
+        }
+      }' \ 
+   "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/{id}/versions"
+
+```
+{: codeblock}
+{: curl}
+
+Replace new lines in the certificate, intermediate, and private key data with `\n`.
+{: note}
+
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#create-secret-version).
+
+### Rotating private certificates
+{: #manual-rotate-private-cert-api}
+{: api}
+
+You can rotate secrets by calling the {{site.data.keyword.secrets-manager_short}} API.
+
+The following example request creates a new version of your secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+
+You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
+{: curl}
+
+
+```sh
+curl -X POST \
+   -H "Authorization: Bearer {iam_token}" \
+   -H "Accept: application/json" \
+   -H "Content-Type: application/json" \
+   -d '{
+        "csr": '{}' # Keep empty if not required
+        "version_custom_metadata": {
+            "custom_version_key": "custom_version_value"
+        }
+      }' \ 
+   "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/{id}/versions"
+
+```
+{: codeblock}
+{: curl}
+
+Replace new lines in the certificate, intermediate, and private key data with `\n`.
+{: note}
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#create-secret-version).
 
