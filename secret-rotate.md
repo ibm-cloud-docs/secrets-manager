@@ -400,7 +400,7 @@ To create a new private certificate secret by using the {{site.data.keyword.secr
 ```sh
 ibmcloud secrets-manager secret-version-create \
    --secret-id SECRET_ID
-   --secret-version-prototype '{"csr":"..."} # Keep empty JSON if not needed
+   --secret-version-prototype '{"csr":"..."}' # Keep empty JSON if not needed
 ```
 {: codeblock}
 
