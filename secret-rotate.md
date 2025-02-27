@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-26"
+lastupdated: "2025-02-27"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -350,7 +350,7 @@ ibmcloud secrets-manager secret-version-create \
 ```
 {: codeblock}
 
-Manually rotating an IAM credentials is possible only if **Reuse IAM credentials** is set to **Off**.
+Manually rotating an IAM credentials is possible only if **Reuse IAM credentials** is set to **On**.
 {: note}
 
 The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-version-create-command).
