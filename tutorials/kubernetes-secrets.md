@@ -2,8 +2,8 @@
 
 
 copyright:
-  years: 2024
-lastupdated: "2024-11-07"
+  years: 2025
+lastupdated: "2025-03-02"
 
 keywords: tutorial, Secrets Manager
 
@@ -274,12 +274,21 @@ A trusted profile enables the External Secrets operator to read from {{site.data
 
 3. Authorize the Kubernetes cluster to use the trusted profile.
 
+    For Kubernetes:
+
     ```sh
     ibmcloud iam trusted-profile-rule-create 'External Secrets' --name kubernetes --type Profile-CR --conditions claim:namespace,operator:EQUALS,value:external-secrets --conditions claim:name,operator:EQUALS,value:external-secrets --conditions claim:crn,operator:EQUALS,value:$CLUSTER_CRN --cr-type IKS_SA
     ```
     {: pre}
+    
+    For OpenShift:
 
-4. Create an access policy that allows the trusted profile to read secrets from your {{site.data.keyword.secrets-manager_short}} instance.
+    ```sh
+    ibmcloud iam trusted-profile-rule-create 'External Secrets' --name kubernetes --type Profile-CR --conditions claim:namespace,operator:EQUALS,value:external-secrets-operator --conditions claim:name,operator:EQUALS,value:cluster-external-secrets --conditions claim:crn,operator:EQUALS,value:$CLUSTER_CRN --cr-type IKS_SA
+    ```
+    {: pre}
+
+5. Create an access policy that allows the trusted profile to read secrets from your {{site.data.keyword.secrets-manager_short}} instance.
 
     ```sh
     ibmcloud iam trusted-profile-policy-create 'External Secrets' --roles SecretsReader --service-instance $SECRETS_MANAGER_CRN --service-name secrets-manager
