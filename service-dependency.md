@@ -78,7 +78,7 @@ The following table provides the dependency listing of this service following a 
 | IBM Cloud Event Notifications| Change management | No | Both |  Same region  |
 | Let's Encrypt| Change management | No | Both |  external  |
 | IBM Cloud Continuous Delivery| Change management, configuration-management, Disaster recovery, Operations | No | Both |  Same region  |
-| IBM Cloud Activity Tracker event routing| Change management, configuration-management, Security compliance | No | Both |  Same region  |
+| IBM Cloud Logs event routing| Change management, configuration-management, Security compliance | No | Both |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud Secrets Manager service dependency information - Medium dependencies" caption-side="top"}
 {: tab-title="Medium dependencies"}

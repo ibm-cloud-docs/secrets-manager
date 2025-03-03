@@ -2,7 +2,7 @@
 
 copyright:
 years: 2025
-lastupdated: "2025-02-11"
+lastupdated: "2025-03-03"
 
 keywords: HA, DR, high availability, disaster recovery, disaster recovery plan, disaster event, recovery time objective, recovery point objective, secrets manager
 
@@ -143,7 +143,7 @@ Creating an automatic backup of your secrets is possible by automating the manua
 #### Live synchronization customer provided feature
 {: #sm-live-syncrhonization-feature}
 
-It is possible for the customer to create a script or program to download secrets from your primary service instance by using the {{site.data.keyword.secrets-manager_short}} API or and populate the recovery service instance with the data. The script can take advantage of Activity Tracker audit events of the primary instance to keep the recovery instance in sync along with Code Engine. Customer managed backups should be kept to restore from the disaster.
+It is possible for the customer to create a script or program to download secrets from your primary service instance by using the {{site.data.keyword.secrets-manager_short}} API or and populate the recovery service instance with the data. The script can take advantage of [IBM Cloud Logs](/cloud-logs?topic=cloud-logs-getting-started) audit events of the primary instance to keep the recovery instance in sync along with Code Engine. Customer managed backups should be kept to restore from the disaster.
 
 Create a script that periodically downloads all of your secrets and then imports them into your backup instance.
 
