@@ -48,6 +48,8 @@ toc:
           - provision.md
           - assign-access.md
           - developer-tools.md
+          - topic: terraform-setup.md
+            navtitle: Setting up Terraform
       - topicgroup:
           label: Working with secrets
           topics:
@@ -123,8 +125,6 @@ toc:
           - framework/at-events.md
           - framework/logging.md
           - monitor-metrics.md
-      - topic: terraform-setup.md
-        navtitle: Setting up Terraform
       - topicgroup:
           label: Enhancing security
           topics:
@@ -154,7 +154,7 @@ toc:
             navtitle: CLI change log
           - link:
               label: Terraform
-              href: https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/secrets_manager_secret
+              href: https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/sm_secrets
           - topicgroup:
               label: Vault
               topics:
