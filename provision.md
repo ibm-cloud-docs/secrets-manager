@@ -178,7 +178,7 @@ For additional programming languages support, see the [Resource Controller API D
     | Instance name (`name`) | A unique alias for your service instance. |
     | Target (`region`) | The region the instance should be provisioned in. Supported regions: |
     | Pricing plan (`plan`) | The pricing plan that you want to use, provided as a plan ID. Use `869c191a-3c2a-4faf-98be-18d48f95ba1f` for `trial` or `7713c3a8-3be8-4a9a-81bb-ee822fcaac3d` for `standard`. |
-    |  Endpoints | If you need to provision an instance of {{site.data.keyword.secrets-manager_short}} that uses [private endpoints only](/docs/secrets-manager?topic=secrets-manager-service-connection), use `allowed_network` parameter with the `private-only` value. Alternatively, to have both public and private endpoints, use `publi-and-private` as the value. |
+    |  Endpoints | If you need to provision an instance of {{site.data.keyword.secrets-manager_short}} that uses [private endpoints only](/docs/secrets-manager?topic=secrets-manager-service-connection), use the `allowed_network` parameter with the `private-only` value. Alternatively, to have both public and private endpoints, use `public-and-private` as the value. |
     | Encryption | To provision an instance of {{site.data.keyword.secrets-manager_short}} that uses [customer-managed encryption](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption), keep the `kms_key` parameter, and replace `<root_key_crn>` with the CRN value for the root key that you want to integrate. |
     {: caption="Description of the information that is required to provision the  {{site.data.keyword.secrets-manager_short}} service using API" caption-side="top"}
 
