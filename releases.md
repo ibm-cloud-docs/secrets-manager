@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-01"
+lastupdated: "2025-04-06"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -70,9 +70,8 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 {: #secrets-manager-april725}
 {: release-note}
 
-Default endpoints chage for new service instance provisioning
-:   The default endpoint used for new service instances is now set to `private-only`. Learn more about available options in [Setting up the service](/docs/secrets-manager?topic=secrets-manager-create-instance).
-
+Change in default endpoints value for newly provisioned service instances
+:   The default endpoints value used for newly provisioned service instances is now set to `private-only`. Learn more about available options in [Setting up the service](/docs/secrets-manager?topic=secrets-manager-create-instance).
 
 ## 3 March 2025
 {: #secrets-manager-march325}
