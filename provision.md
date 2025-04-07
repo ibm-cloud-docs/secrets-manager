@@ -198,8 +198,8 @@ To update your service plan after you create an instance, see [Updating your ser
  - **`plan`**: either `Standard` or `Trial`
 
 Include the following inside `parameters` for further customization.
- - **`allowed_network`**: either `private-only` or `public-and-private`. If not included, default is `private-only`
- - **`kms_key`**: root key CRN from either Key Protect or Hyper Protect Crypto Services service instance. If not included, a provider-managed root key will be used
+ - **`allowed_network`**: Either `private-only` or `public-and-private`. If not included, default is `private-only`
+ - **`kms_key`**: Root key CRN from either Key Protect or Hyper Protect Crypto Services instance. If not included, default is root key that is managed by {{site.data.keyword.secrets-manager_short}}
 
 ## Upgrading a {{site.data.keyword.secrets-manager_short}} instance to the Standard plan
 {: #upgrade-instance-standard}
