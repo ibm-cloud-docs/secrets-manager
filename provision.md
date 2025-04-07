@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-02"
+lastupdated: "2025-04-07"
 
 keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, lite plan
 
@@ -188,6 +188,18 @@ For additional programming languages support, see the [Resource Controller API D
 To update your service plan after you create an instance, see [Updating your service plan](/docs/account?topic=account-changing).
 {: tip}
 
+## Creating a {{site.data.keyword.secrets-manager_short}} instance using Terraform
+{: #create-instance-terraform}
+{: terraform}
+
+ To create an instance of {{site.data.keyword.secrets-manager_short}} using Terraform, include the following parameters in your `ibm_resource_instance` resource for {{site.data.keyword.secrets-manager_short}}.
+
+ - **`service`**: `secrets-manager`
+ - **`plan`**: either `Standard` or `Trial`
+
+Include the following inside `parameters` for further customization.
+ - **`allowed_network`**: either `private-only` or `public-and-private`. If not included, default is `private-only`
+ - **`kms_key`**: root key CRN from either Key Protect or Hyper Protect Crypto Services service instance. If not included, a provider-managed root key will be used
 
 ## Upgrading a {{site.data.keyword.secrets-manager_short}} instance to the Standard plan
 {: #upgrade-instance-standard}
