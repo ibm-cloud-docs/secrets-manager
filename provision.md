@@ -195,11 +195,26 @@ To update your service plan after you create an instance, see [Updating your ser
  To create an instance of {{site.data.keyword.secrets-manager_short}} using Terraform, include the following parameters in your `ibm_resource_instance` resource for {{site.data.keyword.secrets-manager_short}}.
 
  - **`service`**: `secrets-manager`
- - **`plan`**: either `Standard` or `Trial`
+ - **`plan`**: either `Standard` or `Trial`. [Learn more](/docs/secrets-manager?topic=secrets-manager-pricing) about the service plans
 
 Include the following inside `parameters` for further customization.
  - **`allowed_network`**: Either `private-only` or `public-and-private`. If not included, default is `private-only`
  - **`kms_key`**: Root key CRN from either Key Protect or Hyper Protect Crypto Services instance. If not included, default is root key that is managed by {{site.data.keyword.secrets-manager_short}}
+
+An example resource would look like the following.
+
+```terraform
+resource "ibm_resource_instance" "sm_instance" {
+  name              = "demo-sm-instance"
+  service           = "secrets-manager"
+  plan              = "standard"
+  location          = "us-south"
+
+  parameters = {
+    "allowed_network" : "public-and-private"
+  }
+}
+```
 
 ## Upgrading a {{site.data.keyword.secrets-manager_short}} instance to the Standard plan
 {: #upgrade-instance-standard}
