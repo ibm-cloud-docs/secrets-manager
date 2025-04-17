@@ -228,10 +228,10 @@ The following limits apply to service credentials.
 | Version custom metadata | 10 KB |
 {: caption="Service credential limits" caption-side="top"}
 
-### Limits for custom credentials
+#### Limits for custom credentials
 {: #custom-creds-limits}
 
-Constraints and limits
+The following limits apply to custom credentials.
 
 | Issue | Workaround |
 | --- | --- |
