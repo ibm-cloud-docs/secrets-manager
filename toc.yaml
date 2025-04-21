@@ -75,6 +75,7 @@ toc:
                 navtitle: Service credentials
           - secret-access.md
           - secret-locks.md
+          - secret-tasks.md
           - topicgroup:
               label: Rotating secrets
               topics:
