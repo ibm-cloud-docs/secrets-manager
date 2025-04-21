@@ -275,6 +275,19 @@ Check out the following image to see how a secret is structured.
     ```
     {: screen}
 
+    The following truncated example shows how secret data is represented for a `custom_credentials` secret.
+
+    ```json
+    {
+        "name": "my-secret",
+        "secret_type": "custom_credential",
+        ...
+        "credentials_content": {
+            "key": "The quick brown fox jumped over the lazy dog."
+            }
+    }
+    ```
+    {: screen}
 
 ## Secret states and transitions
 {: #secret-states-transitions}
