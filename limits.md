@@ -233,7 +233,7 @@ The following limits apply to service credentials.
 
 The following limits apply to custom credentials.
 
-| Attribute | Workaround |
+| Attribute | Limit |
 | --- | --- |
 | Name | 2 - 256 characters  \n  \n The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
 | Description | 2 - 1024 characters |
