@@ -114,7 +114,7 @@ Depending on the type of secret that you're working with in the service, an even
 | Secret version data deleted | `com.ibm.cloud.secrets-manager.secret_version_data_deleted` | | An event is sent when a secret version's data is deleted. | `low` |
 | Secret task created | `com.ibm.cloud.secrets-manager.secret_task_created` | | An event is sent when a task is created for a secret. | `low` |
 | Secret task succeeded | `com.ibm.cloud.secrets-manager.secret_task_succeeded` | | An event is sent when a task is successfully completed. | `low` |
-| Secret task failed | `com.ibm.cloud.secrets-manager.secret_task_failed` | | An event is sent when a task is completed with failure. | `high` |
+| Secret task failed | `com.ibm.cloud.secrets-manager.secret_task_failed` | | An event is sent when a task fails. | `high` |
 | Secret task deleted | `com.ibm.cloud.secrets-manager.secret_task_deleted` | | An event is sent when a task is deleted. | `low` |
 | Test event | `com.ibm.cloud.secrets-manager.test_event` | | An event is sent when a test notification is forwarded to {{site.data.keyword.en_short}}. | `low` |
 {: caption="Actions that generate event notifications" caption-side="bottom"}
