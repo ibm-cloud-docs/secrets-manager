@@ -255,4 +255,4 @@ The following limits apply to custom credentials.
 | Avoid using personal identifiers (e.g., email addresses, social security numbers) or confidential data as input parameters and as credential IDs. {{site.data.keyword.secrets-manager_short}} treats the input parameters and credential ID as metadata, not as sensitive secret data. | Use parameter type secret_id to pass a reference to a secret managed in {{site.data.keyword.secrets-manager_short}} containing the confidential data. Then in the credentials provider job retrieve the secret to access its confidential data. 
 | Updates made to a secret ttl and parameters fields are applied to a new version of the secret. Rotate the secret to create a new version in order to apply the changes. |
 | Deleting a {{site.data.keyword.secrets-manager_short}} instance will not bulk delete the managed third-party credentials. | When planning to permanently delete a {{site.data.keyword.secrets-manager_short}} instance first delete all its secrets. |
-{: caption="Service credential limits" caption-side="top"}
+{: caption="Custom credential limits" caption-side="top"}
