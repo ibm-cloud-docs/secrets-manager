@@ -233,6 +233,17 @@ The following limits apply to service credentials.
 
 The following limits apply to custom credentials.
 
+| Attribute | Workaround |
+| --- | --- |
+| Name | 2 - 256 characters  \n  \n The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
+| Description | 2 - 1024 characters |
+| Labels | 2 - 64 characters  \n  \n 30 labels per secret |
+| Versions | For auditing purposes, the service retains the metadata of up to 50 versions for each secret, which you can review as part of a secret's [version history](/docs/secrets-manager?topic=secrets-manager-version-history). |
+| Locks | 1000 |
+| Custom metadata | 10 KB |
+| Version custom metadata | 10 KB |
+{: caption="Custom credential limits" caption-side="top"}
+
 | Issue | Workaround |
 | --- | --- |
 | Name | 2 - 256 characters  \n  \n The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
