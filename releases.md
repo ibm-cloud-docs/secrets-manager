@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-09"
+lastupdated: "2025-04-22"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -65,6 +65,13 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
 
+
+## 5 May 2025
+{: #secrets-manager-may525}
+{: release-note}
+
+Introducing a new secret type - custom credentials
+:   The custom credentials secret type allows {{site.data.keyword.secrets-manager_short}} users to manage the lifecycle of credentials for external systems (e.g., Artifactory, PagerDuty) using {{site.data.keyword.secrets-manager_short}} APIs and integrations. To create custom credentials secrets, you use an  {{site.data.keyword.codeenginefull}} job to handle the interface between {{site.data.keyword.secrets-manager_short}} and the external service.
 
 ## 7 April 2025
 {: #secrets-manager-april725}
