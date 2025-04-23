@@ -280,7 +280,7 @@ Check out the following image to see how a secret is structured.
     ```json
     {
         "name": "my-secret",
-        "secret_type": "custom_credential",
+        "secret_type": "custom_credentials",
         ...
         "credentials_content": {
             "key": "The quick brown fox jumped over the lazy dog."
