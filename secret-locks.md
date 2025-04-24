@@ -91,7 +91,7 @@ Locking a secret prevents any operation that can result in modifying or deleting
    If you're working with [dynamic secrets](#x9968958){: term}, such as IAM credentials, locking your secrets also means that by default, those secrets can't be read or accessed. For more information, see [Why can't I read a locked IAM credentials secret?](/docs/secrets-manager?topic=secrets-manager-locked-iam-credentials)
    {: note}
 
-  A custom credentials secret can be locked only once all task activities have finished
+  A custom credentials secret can be locked only once all its tasks completed.
   {: note}
 
 - If a locked secret reaches its expiration date, it stays in the **Active** state and its data remains accessible to your applications. {{site.data.keyword.secrets-manager_short}} moves the secret to the **Destroyed** state and permanently deletes the expired secret data only after all locks on the secret are removed.
