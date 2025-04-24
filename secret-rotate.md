@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-27"
+lastupdated: "2025-04-24"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -83,9 +83,10 @@ All the secrets that you store in {{site.data.keyword.secrets-manager_short}} ca
 | [Private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates) | Private certificates are immediately replaced with a certificate that is signed by its parent or issuing certificate authority.|
 | [Public certificates](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates) | Public certificates move to the **Active, Rotation pending** status to indicate that a request to rotate a certificate is being processed. {{site.data.keyword.secrets-manager_short}} sends the request to the configured certificate authority (CA), for example Let's Encrypt, to validate the ownership of your domains. If the validation completes successfully, a new certificate is issued. |
 | [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | Passwords that are associated with user credentials secrets are immediately replaced with the data that you provide on rotation. |
-| [Service credentials](/docs/secrets-manager?topic=secrets-manager-service-credentials) | The Service credential is replaced with a new one. The previous credential remains available for the remaining time in the defined TTL. |
-{: caption="Describes how {{site.data.keyword.secrets-manager_short}} evaluates manual rotation by secret type" caption-side="top"}
+| [Service credentials](/docs/secrets-manager?topic=secrets-manager-service-credentials) | The Service credentials secret is replaced with a new one. The previous secretremains available for the remaining time in the defined TTL. |
+| [Custom credentials](/docs/secrets-manager?topic=secrets-manager-custom-credentials) | The Custom credentials secret is replaced with a new one. The previous secret remains available for the remaining time in the defined TTL. |
 
+{: caption="Describes how {{site.data.keyword.secrets-manager_short}} evaluates manual rotation by secret type" caption-side="top"}
 
 Note that in the case of service credentials created for Databases, if in addition to the credential you are also altering the database permissions for the created credential, these will not be synced once the service credential was rotated. When rotating a Databases service credential, this is considered an identity rotation.
 {: important}
