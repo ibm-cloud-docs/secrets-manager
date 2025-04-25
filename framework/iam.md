@@ -95,6 +95,7 @@ If a specific role and its actions don't fit the use case that you're looking to
 | SecretsReader | As a secrets reader, you can complete read-only actions, and you can also access the secret data that is associated with a secret. A secrets reader can't create secrets or modify the value of an existing secret. |
 | Writer | As a writer, you have permissions beyond the secrets reader role, including the ability to create and edit secrets. Writers can't create secret groups, or configure secrets engines. |
 | Manager | As a manager, you have permissions beyond the writer role to complete privileged actions, such as the ability to manage secret groups, and configure secrets engines. |
+| SecretTaskUpdater	| As a secret task updater, you can update a secret task. Secret Task Updaters cannot perform any other operations. |
 {: caption="Service roles - {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
 {: #service-roles-table1}
 {: tab-title="Service roles"}
@@ -141,10 +142,10 @@ If a specific role and its actions don't fit the use case that you're looking to
 | `secrets-manager.notifications-registration.read` | Get Event Notifications registration details. | Reader, SecretsReader, Writer, Manager |
 | `secrets-manager.notifications-registration.delete` | Delete an Event Notifications registration. | Manager |
 | `secrets-manager.notifications-registration.test` | Send a test event. | Reader, SecretsReader, Writer, Manager |
-| `secrets-manager.secret-tasks.list` | List secret tasks | Writer, Manager |
+| `secrets-manager.secret-tasks.list` | List secret tasks. | Reader, SecretsReader, Writer, Manager |
 | `secrets-manager.secret-task.read` | Get a secret's task. | Reader, SecretsReader, Writer, Manager |
-| `secrets-manager.secret-task.update` | Update a secret's task. | Writer, Manager |
-| `secrets-manager.secret-task.delete` | Delete a secret's task. | Writer, Manager |
+| `secrets-manager.secret-task.update` | Update a secret's task. | SecretTaskUpdater |
+| `secrets-manager.secret-task.delete` | Delete a secret's task. | Manager |
 {: caption="Service actions - {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
 {: #actions-table1}
 {: tab-title="Actions"}
