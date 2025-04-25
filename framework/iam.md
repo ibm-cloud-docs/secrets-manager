@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-10"
+  years: 2020, 2025
+lastupdated: "2025-04-25"
 
 keywords: IAM access for Secrets Manager, permissions for Secrets Manager, identity and access management for Secrets Manager, roles for Secrets Manager, actions for Secrets Manager, assigning access for Secrets Manager
 
@@ -141,6 +141,10 @@ If a specific role and its actions don't fit the use case that you're looking to
 | `secrets-manager.notifications-registration.read` | Get Event Notifications registration details. | Reader, SecretsReader, Writer, Manager |
 | `secrets-manager.notifications-registration.delete` | Delete an Event Notifications registration. | Manager |
 | `secrets-manager.notifications-registration.test` | Send a test event. | Reader, SecretsReader, Writer, Manager |
+| `secrets-manager.secret-tasks.list` | List secret tasks | Writer, Manager |
+| `secrets-manager.secret-task.read` | Get a secret's task. | Reader, SecretsReader, Writer, Manager |
+| `secrets-manager.secret-task.update` | Update a secret's task. | Writer, Manager |
+| `secrets-manager.secret-task.delete` | Delete a secret's task. | Writer, Manager |
 {: caption="Service actions - {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
 {: #actions-table1}
 {: tab-title="Actions"}
@@ -153,6 +157,3 @@ If a specific role and its actions don't fit the use case that you're looking to
 {: #iam-assign-access}
 
 You can use the {{site.data.keyword.cloud_notm}} console, CLI, or APIs to assign different levels of access to {{site.data.keyword.secrets-manager_short}} resources in your account. You can assign access at the instance level, or you can narrow access to a secret group that contains one or more secrets. For more information, see [Assigning access to {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-assign-access).
-
-To learn about using the {{site.data.keyword.cloud_notm}} CLI to assign access, check out the [{{site.data.keyword.cloud_notm}} CLI reference](/docs/cli?topic=cli-ibmcloud_commands_iam). When you create an access policy for {{site.data.keyword.secrets-manager_short}} by using the {{site.data.keyword.cloud_notm}} CLI or APIs, use `secrets-manager` for the service name in the CLI command or API call.
-{: tip}
