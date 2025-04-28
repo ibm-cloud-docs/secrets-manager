@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-21"
+lastupdated: "2025-04-28"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -280,7 +280,7 @@ Check out the following image to see how a secret is structured.
     ```json
     {
         "name": "my-secret",
-        "secret_type": "custom_credentials",
+        "secret_type": "custom_credential",
         ...
         "credentials_content": {
             "key": "The quick brown fox jumped over the lazy dog."
