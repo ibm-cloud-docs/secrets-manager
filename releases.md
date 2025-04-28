@@ -69,7 +69,7 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 {: release-note}
 
 Introducing a new secret type - custom credentials
-:   The custom credentials secret type allows {{site.data.keyword.secrets-manager_short}} users to manage the lifecycle of credentials for external systems (e.g., Artifactory, PagerDuty) using {{site.data.keyword.secrets-manager_short}} APIs and integrations. To create custom credentials secrets, you use an  {{site.data.keyword.codeenginefull}} job to handle the interface between {{site.data.keyword.secrets-manager_short}} and the external service.
+:   The [custom credentials secret type](/docs/secrets-manager?topic=secrets-manager-custom-credentials) allows {{site.data.keyword.secrets-manager_short}} users to manage the lifecycle of credentials for external systems (e.g., Artifactory, PagerDuty) using {{site.data.keyword.secrets-manager_short}} APIs and integrations. To create custom credentials secrets, you use an  {{site.data.keyword.codeenginefull}} job to handle the interface between {{site.data.keyword.secrets-manager_short}} and the external service.
 
 ## 7 April 2025
 {: #secrets-manager-april725}
