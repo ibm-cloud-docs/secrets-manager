@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-22"
+lastupdated: "2025-04-28"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -64,8 +64,6 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
-
-
 ## 5 May 2025
 {: #secrets-manager-may525}
 {: release-note}
@@ -100,6 +98,8 @@ Support for CSR in Imported certificates
 
 **Common Name** for `public_cert` secret type is now optional.
 :   You can now order a public certificate protecting your long SAN domain name without the need to specify a Common Name meeting the 64 chars limit.. If the Common Name of a certificate is not explicitly specified by the user, Let's encrypt will automatically assign the first alt name that is not longer than 64 chars as the Common Name. If no such alt name is found the certificate will be issued without a Common name.
+
+
 
 ## 19 November 2024
 {: #secrets-manager-november1924}
