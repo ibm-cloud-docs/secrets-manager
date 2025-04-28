@@ -15,26 +15,26 @@ subcollection: secrets-manager
 # Creating custom credentials secrets
 {: #custom-credentials}
 
-The custom credentials secret type enables {{site.data.keyword.secrets-manager_full}} users to securely manage credentials for external systems (such as Artifactory or PagerDuty) through {{site.data.keyword.secrets-manager_short}} APIs and integrations. To create these secrets, you deploy an  {{site.data.keyword.codeenginefull}} job that acts as a bridge between {{site.data.keyword.secrets-manager_short}} and the external service. These jobs run on a fixed schedule and manage credentials asynchronously using [secret tasks](/docs/secrets-manager?topic=secrets-manager-secret-tasks).
+The custom credentials secret type enables {{site.data.keyword.secrets-manager_full}} users to securely manage credentials for external systems (such as Artifactory or PagerDuty) through {{site.data.keyword.secrets-manager_short}} APIs and integrations. To create these secrets, you deploy an  {{site.data.keyword.codeenginefull}} job that acts as a bridge between {{site.data.keyword.secrets-manager_short}} and the external service. These jobs run on a fixed schedule and manage credentials asynchronously by using [secret tasks](/docs/secrets-manager?topic=secrets-manager-secret-tasks).
 {: shortdesc}
 
-The process for creating custom credentials is asynchronous by design. When a new secret is added, it initially enters a **pre-activation** state. If the secret is successfully created in the external credentials provider, its state automatically transitions to **active** within {{site.data.keyword.secrets-manager_short}}.
+The process for creating custom credentials is asynchronous by design. When a new secret is added, it initially enters a **pre-activation** state. If the secret is successfully created in the external credentials provider, its state automatically becomes **active** within {{site.data.keyword.secrets-manager_short}}.
 
-The Custom credentials secrets creation process is asynchronious. Once a secret was added, it begins in `pre-activation` state and if created successfully in the credentials provider, it will then change its state to `active` in {{site.data.keyword.secrets-manager_short}}.
+The custom credentials secrets creation process is asynchronous. After a secret is added, it begins in `pre-activation` state and if created successfully in the credentials provider, its state changes to `active` in {{site.data.keyword.secrets-manager_short}}.
 {: note}
 
 ## Before you begin
 {: #before-custom-credentials}
 
-Before you get started, be sure that you have:
+Before you get started, make sure that you have:
 - The required level of access. To create or add secrets, you need the [**Writer** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam).
 - Configured your instance to create custom credentials secrets by [creating a {{site.data.keyword.codeengineshort}} job and custom credentials engine configuration](/docs/secrets-manager?topic=secrets-manager-custom-credentials-prepare).
 
-## Creating a custom credentials secret in the UI
+## Creating a custom credentials secret in the console
 {: #custom-credentials-secret-ui}
 {: ui}
 
-From the **Add a secret** screen, select **Custom credentials**. Here you can give your secret a name and an optional description and choose a [secret group](/docs/secrets-manager?topic=secrets-manager-secret-groups) and an optional label. In the next screen, select the relevant configuration that you want to use (you can also choose to create a new one). Provide the value of the presented parameters. On the next screen, you can give your secret an optional **Lease duration**, which determines how long the secret lasts or a rotation schedule for the secret. Check to make sure that the values on the **Review** screen are correct. If everything is correct, you can create your secret.
+To add a secret:
 
 1. In the **Secrets** table, click **Add**.
 2. From the list of secret types, click the **Custom credentials** tile.
@@ -46,17 +46,17 @@ From the **Add a secret** screen, select **Custom credentials**. Here you can gi
     1. Upload a file or enter the metadata and the version metadata in JSON format.  
 8. Click **Next**.
 9. Select the custom credentials engine configuration to use for this secret.
-10. Enter the require values under **Parameters**.
+10. Enter the required values under **Parameters**.
 11. Click **Next**.
 12. Optional: Enable least duration and automatic rotation of your secret.
 13. Click **Next**.
 18. Review the details of your secret. 
 19. Click **Add**.
 
-You can change the value of the parameters later. The change will take place once a new secret version is created. You cannot add or subtract new parameters without creating a new configuration.
+You can change the value of the parameters later. The change takes place after a new secret version is created. You cannot add or subtract new parameters without creating a new configuration.
 {: note}
 
-## Viewing and updating secret details in the UI
+## Viewing and updating secret details in the console
 {: #custom-credentials-view-update-ui}
 {: ui}
 
@@ -128,14 +128,14 @@ curl -X POST
 {: codeblock}
 {: curl}
 
-## Creating a custom credentials secret using Terraform
+## Creating a custom credentials secret by using Terraform
 {: #custom-credentials-secret-terraform}
 {: terraform}
 
 You can create custom credentials secrets programmatically by using Terraform for {{site.data.keyword.secrets-manager_short}}.
 The following example shows a configuration that you can use to create a custom credentials secret.
 
-Creating custom credentials secrets is an asynchronous process that can potentially take a long time depending on the use-case, therefore when planning to use Terraform potential delays should be taken into account.
+Creating custom credentials secrets is an asynchronous process that can potentially take a long time depending on the use-case, therefore when planning to use Terraform potential delays should be considered.
 {: note}
 
 ```terraform

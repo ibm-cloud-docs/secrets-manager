@@ -17,11 +17,11 @@ subcollection: secrets-manager
 
 You can enable your {{site.data.keyword.secrets-manager_short}} service instance to create custom credentials secrets by adding a custom credentials engine configuration.
 
-In {{site.data.keyword.secrets-manager_short}}, the custom credentials engine configuration acts as the back end for the `custom_credentials` secret type. Custom credentials can represent various types of secrets, implemented using a credentials provider.
+In {{site.data.keyword.secrets-manager_short}}, the custom credentials engine configuration acts as the back end for the `custom_credentials` secret type. Custom credentials can represent various types of secrets, implemented by using a credentials provider.
 
 A credentials provider is an  {{site.data.keyword.codeenginefull}} job that implements a {{site.data.keyword.secrets-manager_short}} interface. It is typically designed to create and delete credentials for a third-party system.
 
-This model enables cloud developers to extend {{site.data.keyword.secrets-manager_short}} by supporting additional secret types. Developers can then create and manage these secrets alongside the built-in secret types, ensuring a uniform lifecycle management experience.
+This model enables cloud developers to extend {{site.data.keyword.secrets-manager_short}} by supporting additional secret types. Developers can then create and manage these secrets alongside the built-in secret types, can ensure a uniform lifecycle management experience.
 
 ## Before you begin
 {: #custom-credentials-prepare-before-begin}
@@ -33,4 +33,4 @@ Make sure to review [security-related pre-requisites](/docs/secrets-manager?topi
 ## Next steps
 {: #custom-credentials-prepare-next-steps}
 
-Once you have completed your prerequisites, you can move on to [creating a {{site.data.keyword.codeengineshort}} project and job](/docs/secrets-manager?topic=secrets-manager-engine-custom-ce-job)
+After you have completed your prerequisites, you can start [creating a {{site.data.keyword.codeengineshort}} project and job](/docs/secrets-manager?topic=secrets-manager-engine-custom-ce-job)

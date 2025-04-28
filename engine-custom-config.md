@@ -15,37 +15,37 @@ subcollection: secrets-manager
 # Creating a custom credentials engine configuration
 {: #custom-credentials-config}
 
-Once you have created your  {{site.data.keyword.codeenginefull}} project and job, you can create your custom credentials engine configuration.
-The engine configuration references your Code Engine project, and the specific Code Engine job in the project, that you'd like to use for a custom credential secret.
+After you have created your  {{site.data.keyword.codeenginefull}} project and job, you can create your custom credentials engine configuration. The engine configuration references your {{site.data.keyword.codeengineshort}} project and the specific {{site.data.keyword.codeengineshort}} job in the project that you'd like to use for a custom credential secret.
 
-Custom credentials have various limitations. You can read about these in the [Known issues and limitations page](/docs/secrets-manager?topic=secrets-manager-known-issues-and-limits#custom-creds-limits).
+Custom credentials have various limitations. You can read about them in the [Known issues and limitations page](/docs/secrets-manager?topic=secrets-manager-known-issues-and-limits#custom-creds-limits).
 
 ## Before you begin
 {: #custom-credentials-config-before-begin}
 
-Make sure to meet the following pre-requisites:
+Make sure to complete these prerequisites:
+
 * Create a {{site.data.keyword.codeengineshort}} project and job.
 * Create an [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) secret that allows {{site.data.keyword.codeengineshort}} access to {{site.data.keyword.secrets-manager_short}}. The credential and IAM authorization allow {{site.data.keyword.codeengineshort}} to return information back to {{site.data.keyword.secrets-manager_short}} and make necessary updates to {{site.data.keyword.secrets-manager_short}} relevant to your custom credentials secret. The IAM credentials secret must:
     * Have an auto rotation policy set.
     * Be associated with a service ID or access group that has the following permissions:
       - `secrets-manager.secret-task.update` on the secret group where the custom credential is created.
-      - If applicable, `secrets-manager.secret.read` on any secret group that contains any reference secrets that are needed for the {{site.data.keyword.codeengineshort}} job to perform its actions.
-    * Alternatively, configure a Trusted Profile for authentication. Refer to the [{{site.data.keyword.codeengineshort}} documentation](/docs/codeengine?topic=codeengine-trusted-profiles) for setup details.
-* Create an IAM service authorization between {{site.data.keyword.secrets-manager_short}} as the Source and {{site.data.keyword.codeengineshort}} project as the Target
+      - If applicable, `secrets-manager.secret.read` on any secret group that contains any reference secrets that are needed for the {{site.data.keyword.codeengineshort}} job to complete its actions.
+    * Alternatively, configure a trusted profile for authentication. Refer to the [{{site.data.keyword.codeengineshort}} documentation](/docs/codeengine?topic=codeengine-trusted-profiles) for setup details.
+* Create an IAM service authorization between {{site.data.keyword.secrets-manager_short}} as the **Source** and {{site.data.keyword.codeengineshort}} project as the **Target**.
 
-## Creating your custom credentials engine configuration in the UI
+## Creating your custom credentials engine configuration in the console
 {: #custom-credentials-config-ui}
 {: ui}
 
-Navigate to the **Custom credentials** screen inside the **Secret engines** navigation. There, create the configuration for your custom credentials by entering the relevant information in the console.
+Navigate to the **Custom credentials** screen inside the **Secret engines** navigation, then create the configuration for your custom credentials by entering the relevant information in the console.
 
 1. In the **Secrets engines** page, click the **Custom credentials** tab.
-2. Click on **Add configuration**
+2. Click **Add configuration**
 
    1. Provide a configuration name.
-   2. Select the region your Code Engine project was created at.
+   2. Select the region where your {{site.data.keyword.codeengineshort}} project was created.
    3. Select the job that was created for this custom credentials secret.
-   4. When creating the configuration you will be promoted to create an IAM service authorization between {{site.data.keyword.secrets-manager_short}} as Source and {{site.data.keyword.codeengineshort}} as Target, if not previously created
+   4. When creating the configuration you are prompted to create an IAM service authorization between {{site.data.keyword.secrets-manager_short}} as **Source** and {{site.data.keyword.codeengineshort}} as **Target**, if not previously created.
    5. Select the IAM Credentials secret you have previously created or create one in-context.
 3. Click **Add**.
 
@@ -53,7 +53,7 @@ Navigate to the **Custom credentials** screen inside the **Secret engines** navi
 {: #custom-credentials-config-api}
 {: api}
 
-You can create a custom credentials engine configuration programmatically by calling the {{site.data.keyword.secrets-manager_short}} API. When you call the API, replace the `api_key_ref` and `code_engine` variables, and the IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. You can optionally supply a `task_timeout` param to customize the task timeout.
+You can create a custom credentials engine configuration programmatically by calling the {{site.data.keyword.secrets-manager_short}} API. When you call the API, replace the `api_key_ref` and `code_engine` variables, and the IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. You can optionally supply a `task_timeout` parameter to customize the task timeout.
 
 ```sh
 curl -X POST 
@@ -92,7 +92,7 @@ ibmcloud secrets-manager configuration-create --config-type=custom_credentials_c
 {: #custom-credentials-config-terraform}
 {: terraform}
 
-You can create a custom creentials engine configuration by using Terraform for {{site.data.keyword.secrets-manager_short}}.
+You can create a custom credentials engine configuration by using Terraform for {{site.data.keyword.secrets-manager_short}}.
 
 ```terraform
 resource "ibm_sm_custom_credentials_configuration" "sm_custom_credentials_configuration_instance" {
@@ -111,4 +111,5 @@ resource "ibm_sm_custom_credentials_configuration" "sm_custom_credentials_config
 
 ## Next steps
 {: #custom-credentials-config-next-steps}
+
 Once you have created your custom credentials engine configuration, you can now create a [custom credentials secret](/docs/secrets-manager?topic=secrets-manager-custom-credentials).
