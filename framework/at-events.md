@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-04-30"
 
 keywords: activity tracking events for Secrets Manager, events, Secrets Manager actions
 
@@ -15,7 +15,7 @@ subcollection: secrets-manager
 # Activity tracking events for {{site.data.keyword.secrets-manager_short}}
 {: #at_events}
 
-{{site.data.keyword.cloud_notm}} services, such as {{site.data.keyword.secrets-manager_full}}, generate activity tracking events.
+{{site.data.keyword.cloud_notm}} services, such as {{site.data.keyword.secrets-manager_full}}, generate activity tracking events. 
 {: shortdesc}
 
 Audit devices that you can enable with Vault, such as the [`syslog` audit device](https://developer.hashicorp.com/vault/docs/audit/syslog){: external}, are not supported by {{site.data.keyword.secrets-manager_short}}.
@@ -23,22 +23,22 @@ Audit devices that you can enable with Vault, such as the [`syslog` audit device
 
 Activity tracking events report on activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use the events to investigate abnormal activity and critical actions and to comply with regulatory audit requirements.
 
-You can use {{site.data.keyword.atracker_full_notm}}, a platform service, to route auditing events in your account to destinations of your choice by configuring targets and routes that define where activity tracking events are sent. For more information, see [About {{site.data.keyword.atracker_full_notm}}](/docs/atracker?topic=atracker-about).
+You can use {{site.data.keyword.logs_full_notm}}, a platform service, to route auditing events in your account to destinations of your choice by configuring targets and routes that define where activity tracking events are sent. For more information, see [About {{site.data.keyword.logs_full_notm}}](/docs/cloud-logs?topic=cloud-logs-about-cl).
 
-You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on events that are generated in your account and routed by {{site.data.keyword.atracker_full_notm}} to an {{site.data.keyword.logs_full_notm}} instance.
+You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on events that are generated in your account and routed to an {{site.data.keyword.logs_full_notm}} instance.
 
 ## Locations where activity tracking events are generated
 {: #at-locations}
 
-{{site.data.keyword.secrets-manager_short}} sends activity tracking events by {{site.data.keyword.atracker_full_notm}} in the regions that are indicated in the following table.
+{{site.data.keyword.secrets-manager_short}} sends activity tracking events to {{site.data.keyword.logs_full_notm}} in the regions that are indicated in the following table.
 
 | Dallas (`us-south`) | Washington (`us-east`)  | Toronto (`ca-tor`) | Sao Paulo (`br-sao`) |
 |---------------------|-------------------------|-------------------|----------------------|
 | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
 {: caption="Regions where activity tracking events are sent in Americas locations" caption-side="top"}
-{: #atracker-table-1}
+{: #logs-table-1}
 {: tab-title="Americas"}
-{: tab-group="atracker"}
+{: tab-group="logs"}
 {: class="simple-tab-table"}
 {: row-headers}
 
@@ -46,9 +46,9 @@ You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on event
 |---------------------|------------------|------------------|--------------------|
 | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [No]{: tag-red} |
 {: caption="Regions where activity tracking events are sent in Asia Pacific locations" caption-side="top"}
-{: #atracker-table-2}
+{: #logs-table-2}
 {: tab-title="Asia Pacific"}
-{: tab-group="atracker"}
+{: tab-group="logs"}
 {: class="simple-tab-table"}
 {: row-headers}
 
@@ -58,14 +58,14 @@ You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on event
 {: caption="Regions where activity tracking events are sent in Europe locations" caption-side="top"}
 {: #atracker-table-3}
 {: tab-title="Europe"}
-{: tab-group="atracker"}
+{: tab-group="logs"}
 {: class="simple-tab-table"}
 {: row-headers}
 
 ## Viewing activity tracking events for {{site.data.keyword.secrets-manager_short}}
 {: #at-viewing}
 
-You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on events that are generated in your account and routed by {{site.data.keyword.atracker_full_notm}} to an {{site.data.keyword.logs_full_notm}} instance.
+You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on events that are generated in your account and routed to an {{site.data.keyword.logs_full_notm}} instance.
 
 ### Launching {{site.data.keyword.logs_full_notm}} from the Observability page
 {: #log-launch-standalone}
