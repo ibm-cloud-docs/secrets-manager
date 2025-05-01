@@ -2,7 +2,7 @@
 
 copyright:
 years: 2025
-lastupdated: "2025-03-03"
+lastupdated: "2025-05-01"
 
 keywords: HA, DR, high availability, disaster recovery, disaster recovery plan, disaster event, recovery time objective, recovery point objective, secrets manager
 
@@ -255,7 +255,7 @@ If regional state is corrupted the service will be restored to the state of the 
 - RTO = 2 hours
 - RPO = 24 hours maximum
 
-In the event that IBM can not restore the service instance, the customer must restore as described in the disaster recovery section above.
+In the event that IBM can not restore the service instance, the customer must restore as described in the disaster recovery section.
 
 ## How {{site.data.keyword.IBM}} maintains services
 {: #sm-ibm-service-maintenance}
