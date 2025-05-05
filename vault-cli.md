@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-01-07"
+  years: 2020, 2025
+lastupdated: "2025-04-21"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -874,7 +874,7 @@ The command to create a `service-credentials` secret returns the following outpu
 ### List secrets
 {: #vault-cli-list-static-secrets}
 
-Use the following commands to list the static secrets in your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for **`SECRET_TYPE`** are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, `service_credentials`, and `username_password`.
+Use the following commands to list the static secrets in your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for **`SECRET_TYPE`** are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, `service_credentials`, `custom_credentials`, and `username_password`.
 
 List secrets by type.
 ```sh
@@ -968,7 +968,7 @@ If the secrets belong to a secret group, the `data.secrets.secret_group_id` valu
 ### Get a secret
 {: #vault-cli-get-static-secret}
 
-Use the following commands to retrieve a secret and its details. Allowable values for **`SECRET_TYPE`** are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, `service_credentials`, and `username_password`.
+Use the following commands to retrieve a secret and its details. Allowable values for **`SECRET_TYPE`** are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, `service_credentials`, `custom_credentials`, and `username_password`.
 Either Secret ID or Secret Name can be used for retrieving the secret.
 
 Get a secret.
@@ -1048,7 +1048,7 @@ The command returns the following output:
 ### Update a secret
 {: #vault-cli-update-static-secret}
 
-Use this command to update the metadata of a secret, such as its name or description. Allowable values for **`SECRET_TYPE`** are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, `service_credentials`, and `username_password`.
+Use this command to update the metadata of a secret, such as its name or description. Allowable values for **`SECRET_TYPE`** are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, `service_credentials`, `custom_credentials`, and `username_password`.
 
 ```sh
 vault write [-format=FORMAT] ibmcloud/SECRET_TYPE/secrets/SECRET_ID/metadata name=NAME [description="DESCRIPTION"][expiration_date=EXPIRATION] [labels=LABEL,LABEL]
@@ -1238,7 +1238,7 @@ vault write -format=json ibmcloud/service_credentials/secrets/1a3f9fbc-58d4-ac68
 ### Rotate a secret
 {: #vault-cli-rotate-static-secret}
 
-Use this command to rotate a secret. Allowable values for **`SECRET_TYPE`** are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, `service_credentials`, and `username_password`.
+Use this command to rotate a secret. Allowable values for **`SECRET_TYPE`** are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, `service_credentials`, `custom_credentials`, and `username_password`.
 
 ```sh
 vault write [-format=FORMAT] [-force] ibmcloud/SECRET_TYPE/secrets/SECRET_ID/rotate [payload="SECRET_DATA"] [password=PASSWORD] [certificate=CERTIFICATE_DATA] [private_key=PRIVATE_KEY_DATA] [intermediate=INTERMEDIATE_CERTIFICATE_DATA]
@@ -1444,7 +1444,7 @@ The command to manually rotate a set of service credentials returns the followin
 ### Delete a secret
 {: #vault-cli-delete-static-secret}
 
-Use this command to delete a secret. Allowable values for **`SECRET_TYPE`** are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, `service_credentials`, and `username_password`.
+Use this command to delete a secret. Allowable values for **`SECRET_TYPE`** are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, `service_credentials`, `custom_credentials`, and `username_password`.
 
 Delete a secret in the `default` secret group.
 
@@ -2327,4 +2327,3 @@ The command returns the following output:
 }
 ```
 {: screen}
-

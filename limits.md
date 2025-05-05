@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-01-16"
+lastupdated: "2025-04-29"
 
-keywords: known issues for Secrets Manager, known limitations for Secrets Manager
+keywords: known issues for {{site.data.keyword.secrets-manager_short}}, known limitations for {{site.data.keyword.secrets-manager_short}}
 
 subcollection: secrets-manager
 
@@ -227,3 +227,36 @@ The following limits apply to service credentials.
 | Custom metadata | 10 KB |
 | Version custom metadata | 10 KB |
 {: caption="Service credential limits" caption-side="top"}
+
+#### Limits for custom credentials
+{: #custom-creds-limits}
+
+The following limits apply to custom credentials.
+
+| Attribute | Limit |
+| --- | --- |
+| Name | 2 - 256 characters  \n  \n The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
+| Description | 2 - 1024 characters |
+| Labels | 2 - 64 characters  \n  \n 30 labels per secret |
+| Versions | For auditing purposes, the service retains the metadata of up to 50 versions for each secret, which you can review as part of a secret's [version history](/docs/secrets-manager?topic=secrets-manager-version-history). |
+| Locks | 1000 |
+| Custom metadata | 10 KB |
+| Version custom metadata | 10 KB |
+{: caption="Custom credential limits" caption-side="top"}
+
+| Issue | Workaround |
+| --- | --- |
+| There is a global one-to-one mapping of custom credentials configurations to a credentials provider {{site.data.keyword.codeengineshort}} job. | Replicate your credentials provider job. |
+| A custom credentials configuration cannot be updated to reference a different credentials provider {{site.data.keyword.codeengineshort}} job. | Create a new custom credentials configuration. |
+| A custom credentials configuration cannot be updated to change or remove a referenced IAM Credentials secret. | Create a new custom credentials configuration. |
+| A custom credentials configuration schema (parameters and credentials) is mapped to the credentials provider {{site.data.keyword.codeengineshort}} job environment variables at {{site.data.keyword.secrets-manager_short}} configuration creation time. | Create a new custom credentials configuration to accommodate updates to a credentials provider’s environment variables. |
+| {{site.data.keyword.secrets-manager_short}} configures {{site.data.keyword.codeengineshort}} jobs to immediately remove completed job runs to avoid {{site.data.keyword.codeengineshort}} rate limits. | You can change the value of the job variable CE_REMOVE_COMPLETED_JOBS to a value such as ‘3d’ in the {{site.data.keyword.codeengineshort}} UI to review completed job runs and their logs during development time. |
+| A {{site.data.keyword.secrets-manager_short}} instance can be configured with up to 10 custom credentials configurations. | Create a new {{site.data.keyword.secrets-manager_short}} instance. |
+| A custom credentials secret maintains a history of 100 tasks. | Refer to {{site.data.keyword.atracker_full_notm}} in {{site.data.keyword.logs_full_notm}} to review task history. |
+|{{site.data.keyword.secrets-manager_short}} will apply daily retries for failed ‘delete credentials’ tasks for up to 10 days. | Monitor Event Notifications and logs for failed task events and periodically check your external credentials provider for stale or expired credentials. |
+| {{site.data.keyword.secrets-manager_short}}’s secret tasks are throttled to avoid overloading {{site.data.keyword.codeengineshort}}. Slowness may be experienced during operations that change custom credentials secret states when dealing with a large queue. | Design your workloads that consume custom credentials to expect possible delays until secrets are rotated. 
+| Secret lock mode remove_previous_and_delete is not supported. | Use lock mode remove_previous and call the delete secret version data api, specifying secret version id=previous. |
+| Avoid using personal identifiers (e.g., email addresses, social security numbers) or confidential data as input parameters and as credential IDs. {{site.data.keyword.secrets-manager_short}} treats the input parameters and credential ID as metadata, not as sensitive secret data. | Use parameter type secret_id to pass a reference to a secret managed in {{site.data.keyword.secrets-manager_short}} containing the confidential data. Then in the credentials provider job retrieve the secret to access its confidential data. 
+| Updates made to a secret ttl and parameters fields are applied to a new version of the secret. | Rotate the secret to create a new version in order to apply the changes. |
+| Deleting a {{site.data.keyword.secrets-manager_short}} instance will not bulk delete the managed third-party credentials. | When planning to permanently delete a {{site.data.keyword.secrets-manager_short}} instance first delete all its secrets. |
+{: caption="Custom credential limits" caption-side="top"}

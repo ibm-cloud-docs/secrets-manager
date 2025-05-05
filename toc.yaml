@@ -73,8 +73,11 @@ toc:
                 navtitle: User credentials
               - topic: service-credentials.md
                 navtitle: Service credentials
+              - topic: custom-credentials.md
+                navtitle: Custom credentials
           - secret-access.md
           - secret-locks.md
+          - secret-tasks.md
           - topicgroup:
               label: Rotating secrets
               topics:
@@ -94,6 +97,12 @@ toc:
           - engine-what-is.md
           - topic: engine-iam.md
             navtitle: IAM credentials
+          - topicgroup:
+              label: Custom credentials
+              topics:
+              - engine-custom-prepare.md
+              - engine-custom-ce-job.md
+              - engine-custom-config.md
           - topicgroup:
               label: Public certificates
               topics:

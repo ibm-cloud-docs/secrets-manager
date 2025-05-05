@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-27"
+lastupdated: "2025-04-24"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -83,9 +83,10 @@ All the secrets that you store in {{site.data.keyword.secrets-manager_short}} ca
 | [Private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates) | Private certificates are immediately replaced with a certificate that is signed by its parent or issuing certificate authority.|
 | [Public certificates](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates) | Public certificates move to the **Active, Rotation pending** status to indicate that a request to rotate a certificate is being processed. {{site.data.keyword.secrets-manager_short}} sends the request to the configured certificate authority (CA), for example Let's Encrypt, to validate the ownership of your domains. If the validation completes successfully, a new certificate is issued. |
 | [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | Passwords that are associated with user credentials secrets are immediately replaced with the data that you provide on rotation. |
-| [Service credentials](/docs/secrets-manager?topic=secrets-manager-service-credentials) | The Service credential is replaced with a new one. The previous credential remains available for the remaining time in the defined TTL. |
-{: caption="Describes how {{site.data.keyword.secrets-manager_short}} evaluates manual rotation by secret type" caption-side="top"}
+| [Service credentials](/docs/secrets-manager?topic=secrets-manager-service-credentials) | The Service credentials secret is replaced with a new one. The previous secretremains available for the remaining time in the defined TTL. |
+| [Custom credentials](/docs/secrets-manager?topic=secrets-manager-custom-credentials) | The Custom credentials secret is replaced with a new one. The previous secret remains available for the remaining time in the defined TTL. |
 
+{: caption="Describes how {{site.data.keyword.secrets-manager_short}} evaluates manual rotation by secret type" caption-side="top"}
 
 Note that in the case of service credentials created for Databases, if in addition to the credential you are also altering the database permissions for the created credential, these will not be synced once the service credential was rotated. When rotating a Databases service credential, this is considered an identity rotation.
 {: important}
@@ -173,6 +174,21 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 {: ui}
 
 You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotate the password values that are associated with a Service credentials secret.
+
+1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
+3. In the {{site.data.keyword.secrets-manager_short}} UI, go to the **Secrets** list.
+4. In the row for the secret that you want to rotate, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Rotate**.
+5. Optional: Add metadata to your secret or to a specific version of your secret. 
+   1. Upload a file or enter the metadata and the version metadata in JSON format. 
+6. To rotate the secret immediately, click **Rotate**.  
+7. Optional: Check the version history to view the latest updates.
+
+### Creating new versions of custom credentials
+{: #manual-rotate-custom-credentials-ui}
+{: ui}
+
+You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotate the password values that are associated with a Custom credentials secret.
 
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
@@ -311,6 +327,36 @@ ibmcloud secrets-manager secret-version-create \
    --secret-id=SECRET_ID \    
    --secret-version-prototype='{"payload": "updated secret credentials", "custom_metadata": {"anyKey": "anyValue"}, "version_custom_metadata": {"anyKey": "anyValue"}}'
 
+```
+{: codeblock}
+
+
+The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-version-create-command).
+
+### Rotating service credentials secrets
+{: #manual-rotate-service-credentials-cli}
+{: cli}
+
+To rotate a service credentials secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-version-create-command) command. For example, the following command rotates a secret and assigns `new-secret-data` as its new version.
+
+
+```sh
+ibmcloud secrets-manager secret-version-create --secret-id=SECRET_ID
+```
+{: codeblock}
+
+
+The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-version-create-command).
+
+### Rotating custom credenetials secrets
+{: #manual-rotate-custom-credentials-cli}
+{: cli}
+
+To rotate a custom credentials secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-version-create-command) command. For example, the following command rotates a secret and assigns `new-secret-data` as its new version.
+
+
+```sh
+ibmcloud secrets-manager secret-version-create --secret-id=SECRET_ID
 ```
 {: codeblock}
 
@@ -594,6 +640,39 @@ A successful response returns the ID value for the secret, along with other meta
 
 ### Rotating Service credentials
 {: #manual-rotate-service-credentials-api}
+{: api}
+
+You can rotate secrets by calling the {{site.data.keyword.secrets-manager_short}} API.
+
+The following example request creates a new version of your secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+
+You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
+{: curl}
+
+
+```sh
+curl -X POST \
+   -H "Authorization: Bearer {iam_token}" \
+   -H "Accept: application/json" \
+   -H "Content-Type: application/json" \
+   -d '{ 
+      "custom_metadata": { 
+         "metadata_custom_key": "metadata_custom_value" 
+         }, 
+      "version_custom_metadata": { 
+         "custom_version_key": "custom_version_value" 
+         } 
+      }' \ 
+   "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/{id}/versions"
+
+```
+{: codeblock}
+{: curl}
+
+A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#create-secret-version).
+
+### Rotating Custom credentials
+{: #manual-rotate-custom-credentials-api}
 {: api}
 
 You can rotate secrets by calling the {{site.data.keyword.secrets-manager_short}} API.

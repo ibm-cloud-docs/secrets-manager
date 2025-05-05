@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-10-03"
+  years: 2020, 2025
+lastupdated: "2025-04-24"
 
 keywords: delete secret, remove secret, destroy secret
 
@@ -82,11 +82,19 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually delet
 5. Enter the name of the secret to confirm its deletion.
 6. Click **Delete**.
 
+If attempting to delete a custom credentials secret, note that it cannot be deleted if it has a secret version that still needs to be deleted in the credentials provider.  
+You can force delete it by ticking the force delete checkbox.
+{: note}
+
 ## Deleting secrets from the CLI
 {: #delete-secret-cli}
 {: cli}
 
 To delete a secret, run the [**`ibmcloud secrets-manager secret-delete`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-delete-command) command.
+
+If attempting to delete a custom credentials secret, note that it cannot be deleted if it has a secret version that still needs to be deleted in the credentials provider.  
+You can force delete it using the `--force-delete` option.
+{: note}
 
 
 ```sh
@@ -103,9 +111,12 @@ For more information about the command options, see [**`ibmcloud secrets-manager
 You can delete secrets by calling the {{site.data.keyword.secrets-manager_short}} API.
 
 The following example request deletes a secret and its contents. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+
+If attempting to delete a custom credentials secret, note that it cannot be deleted if it has a secret version that still needs to be deleted in the credentials provider.  
+You can force delete it using `force_delete` option.
+{: note}
+
 {: curl}
-
-
 ``` sh
 curl -X DELETE  
   --H "Authorization: Bearer {iam_token}" \ 

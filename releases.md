@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-09"
+lastupdated: "2025-05-01"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -64,7 +64,12 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
+## 5 May 2025
+{: #secrets-manager-may525}
+{: release-note}
 
+Introducing a new secret type - custom credentials
+:   The [custom credentials secret type](/docs/secrets-manager?topic=secrets-manager-custom-credentials) allows {{site.data.keyword.secrets-manager_short}} users to manage the lifecycle of credentials for external systems (e.g., Artifactory, PagerDuty) using {{site.data.keyword.secrets-manager_short}} APIs and integrations. To create custom credentials secrets, you use an  {{site.data.keyword.codeenginefull}} job to handle the interface between {{site.data.keyword.secrets-manager_short}} and the external service.
 
 ## 7 April 2025
 {: #secrets-manager-april725}
@@ -93,6 +98,8 @@ Support for CSR in Imported certificates
 
 **Common Name** for `public_cert` secret type is now optional.
 :   You can now order a public certificate protecting your long SAN domain name without the need to specify a Common Name meeting the 64 chars limit.. If the Common Name of a certificate is not explicitly specified by the user, Let's encrypt will automatically assign the first alt name that is not longer than 64 chars as the Common Name. If no such alt name is found the certificate will be issued without a Common name.
+
+
 
 ## 19 November 2024
 {: #secrets-manager-november1924}
@@ -406,7 +413,7 @@ CLI plug-in version 0.1.19
 {: release-note}
 
 Create private SSL/TLS certificates for your applications
-:   You can now use {{site.data.keyword.secrets-manager_short}} to set up a private certificate authority (CA) that you can use to issue SSL/TLS certificates to your internal applications. By configuring root and intermediate CAs for your instance, you can establish a valid chain of trust for your certificates. To find out more about this release, [check out the announcement blog](https://www.ibm.com/blog/announcement/create-private-tls-certificates-with-ibm-cloud-secrets-manager/){: external}.
+:   You can now use {{site.data.keyword.secrets-manager_short}} to set up a private certificate authority (CA) that you can use to issue SSL/TLS certificates to your internal applications. By configuring root and intermediate CAs for your instance, you can establish a valid chain of trust for your certificates.
 
   - [Preparing to create private certificates](/docs/secrets-manager?topic=secrets-manager-prepare-create-certificates)
   - [Creating root certificate authorities](/docs/secrets-manager?topic=secrets-manager-root-certificate-authorities)
@@ -438,7 +445,7 @@ Integrations with {{site.data.keyword.containershort}} and {{site.data.keyword.o
 {: release-note}
 
 Standard and Trial pricing plans
-:   You can now create an unlimited number of {{site.data.keyword.secrets-manager_short}} service instances by choosing the Standard pricing plan. For more information about pricing in {{site.data.keyword.secrets-manager_short}}, check out the [announcement blog](https://www.ibm.com/blog/announcement/ibm-cloud-secrets-manager-new-pricing-model/){: external}.
+:   You can now create an unlimited number of {{site.data.keyword.secrets-manager_short}} service instances by choosing the Standard pricing plan.
 
    If you're an existing {{site.data.keyword.secrets-manager_short}} Lite plan user, be sure to upgrade your instance to the Standard plan before 22 May 2022 if you'd like to maintain access. For more information, see the previous [release note](#secrets-manager-feb2322).
    {: important}
@@ -548,7 +555,7 @@ Order domain-validated TLS certificates from Let's Encrypt
    - {{site.data.keyword.cloud_notm}} Internet Services (CIS)
    - {{site.data.keyword.cloud_notm}} classic infrastructure (SoftLayer)
 
-   For more information, see [Ordering domain-validated certificates from third-parties](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates) or check out the [announcement blog](https://www.ibm.com/blog/announcement/now-available-order-domain-validated-tls-certificates-with-single-tenant-ibm-cloud-secrets-manager/){: external}.
+   For more information, see [Ordering domain-validated certificates from third-parties](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates).
 
 
 ## 30 August 2021
@@ -596,8 +603,6 @@ Upcoming updates to supported cipher suites
 Manage secrets in your {{site.data.keyword.contdelivery_short}} toolchain
 :   You can now configure {{site.data.keyword.secrets-manager_short}} to securely manage secrets that are part of your {{site.data.keyword.contdelivery_short}} toolchain.
 
-   For more information, check out the [announcement blog](https://www.ibm.com/blog/manage-secrets-in-continuous-delivery-with-ibm-cloud-secrets-manager/){: external}.
-
 ## 22 March 2021
 {: #secrets-manager-mar2221}
 {: release-note}
@@ -612,7 +617,7 @@ Reuse API keys for IAM credential secrets
 
    For more information, see [Creating IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials#iam-credentials-ui).
 
-Analyze {{site.data.keyword.secrets-manager_short}} logs with {{site.data.keyword.la_full_notm}}
+Analyze {{site.data.keyword.secrets-manager_short}} logs with {{site.data.keyword.logs_full_notm}}
 :   {{site.data.keyword.secrets-manager_short}} is now integrated {{site.data.keyword.logs_full_notm}} so that you can diagnose issues and analyze logs that are generated by your {{site.data.keyword.secrets-manager_short}} service instance.
 
    For more information, see [Viewing logs for {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-logging).
@@ -650,8 +655,6 @@ Now available: {{site.data.keyword.secrets-manager_short}} Go and Python SDKs
 
 Announcing {{site.data.keyword.secrets-manager_short}} general availability
 :   {{site.data.keyword.secrets-manager_short}} is now generally available in the {{site.data.keyword.cloud_notm}} catalog!
-
-   To find out more about this release, check out the [announcement blog](https://www.ibm.com/blog/announcement/ibm-cloud-secrets-manager-is-now-generally-available/){: external}.
 
 ## 15 December 2020
 {: #secrets-manager-dec1520}
@@ -693,8 +696,6 @@ Now available: {{site.data.keyword.cloud_notm}} plug-ins for Vault
    - To set up authentication between Vault and your {{site.data.keyword.cloud_notm}} account, you can use the [{{site.data.keyword.cloud_notm}} Auth Method plug-in for Vault](https://github.com/ibm-cloud-security/vault-plugin-auth-ibmcloud){: external}.
    - To dynamically create API keys for {{site.data.keyword.cloud_notm}} service IDs, you can use the [{{site.data.keyword.cloud_notm}} Secrets Backend plug-in for Vault](https://github.com/ibm-cloud-security/vault-plugin-secrets-ibmcloud){: external}.
 
-   For more information, check out the [announcement blog](https://www.ibm.com/blog/announcement/hashicorp-enterprise-vault-plugins-for-ibm-cloud/){: external}
-
 ## 9 November 2020
 {: #secrets-manager-nov0920}
 {: release-note}
@@ -720,5 +721,3 @@ Introducing {{site.data.keyword.secrets-manager_short}}
    - IAM credentials, which consist of a service ID and API key that are generated dynamically on your behalf.
    - Arbitrary secrets, such as custom credentials that can be used to store any type of structured or unstructured data.
    - User credentials, such as usernames and passwords that you can use to log in to applications.
-
-   To find out more about capabilities and use cases for {{site.data.keyword.secrets-manager_short}}, check out the [announcement blog](https://www.ibm.com/blog/announcement/introducing-ibm-cloud-secrets-manager-beta/){: external}.
