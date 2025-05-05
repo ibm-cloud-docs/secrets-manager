@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-21"
+lastupdated: "2025-05-05"
 
 keywords: change log for Secrets Manager CLI, CLI changelog, updates to Secrets Manager CLI
 
@@ -62,6 +62,12 @@ In this change log, you can learn about the latest changes, improvements, and up
 {: shortdesc}
 
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
+
+## Version 2.0.11
+{: #2.0.11}
+
+Version 2.0.11 was released on 5 May 2025. This release includes the following updates:
+- Support for the custom credentials secret type.
 
 ## Version 2.0.10
 {: #2.0.10}
