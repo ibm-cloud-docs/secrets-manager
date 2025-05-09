@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-10"
+  years: 2020, 2025
+lastupdated: "2025-05-09"
 
 keywords: Vault CLI, configure the Vault CLI, use Secrets Manager with Vault CLI, CLI commands, log in to Vault
 
@@ -66,7 +66,7 @@ All operations follow the guidelines that are available for the Vault CLI. To le
 ## Prerequisites
 {: #configure-vault-cli-prereqs}
 
-- [Download and install the Vault CLI](https://developer.hashicorp.com/vault/docs/install){: external}.
+- [Download and install the Vault CLI](https://developer.hashicorp.com/vault/docs/get-vault){: external}.
 - [Create an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-manapikey) or generate an {{site.data.keyword.cloud_notm}} IAM access token.
 
     By providing your account credentials, Vault can understand who you are and whether you have the correct level of access to run specific Vault commands against your {{site.data.keyword.secrets-manager_short}} instance.
