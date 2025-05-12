@@ -129,12 +129,12 @@ To programmatically create the URL use the following URL pattern. Then, URL enco
 
 Create secret panel:
 ```
-https://CLOUD_ENV/services/secrets-manager/INSTANCE_CRN?paneId=manageSecrets#/manageSecrets/addSecret/SECRET_TYPE
+https://cloud.ibm.com/services/secrets-manager/INSTANCE_CRN?paneId=manageSecrets#/manageSecrets/addSecret/SECRET_TYPE
 ```
 
 [List of programmatic secret type names](/docs/secrets-manager?topic=secrets-manager-what-is-secret#secret-types).
 
 Secret details panel:
 ```
-https://CLOUD_ENV/services/secrets-manager/INSTANCE_CRN?paneId=manageSecrets#/manageSecrets/editSecret/SECRET_ID
+https://cloud.ibm.com/services/secrets-manager/INSTANCE_CRN?paneId=manageSecrets#/manageSecrets/editSecret/SECRET_ID
 ```
