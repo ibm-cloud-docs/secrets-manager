@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-05-09"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -191,7 +191,7 @@ If you prefer to schedule your custom credentials secert to be automatically rot
 If you need more control over the rotation frequency of a secret, you can use the {{site.data.keyword.secrets-manager_short}} API to set a custom interval by using `day` or `month` units of time. For more information, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#update-secret-metadata).
 {: tip}
 
-1. If you're [adding a secret](/docs/secrets-manager?topic=secrets-manager-custom-credentials#custom-credentials-ui), enable the rotation option by selecting a 30, 60, or 90-day rotation interval.
+1. If you're [adding a secret](/docs/secrets-manager?topic=secrets-manager-custom-credentials), enable the rotation option by selecting a 30, 60, or 90-day rotation interval.
 2. If you're editing an existing secret, enable automatic rotation by updating its details.
     1. In the **Secrets** table, view a list of your existing secrets.
     2. In the row for the secret that you want to edit, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Edit details**.

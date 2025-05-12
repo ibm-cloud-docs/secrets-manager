@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-17"
+  years: 2020, 2025
+lastupdated: "2025-05-12"
 
 keywords: Secrets Manager developer tools, integrate with application, API, SDK, CLI
 
@@ -119,3 +119,22 @@ For more information, check out the following resources:
 
 - [Vault API reference](/docs/secrets-manager?topic=secrets-manager-vault-api)
 - [Vault CLI reference](/docs/secrets-manager?topic=secrets-manager-vault-cli)
+
+### Integrating with the service UI
+{: #service-ui-integration}
+
+You can also link to pages of {{site.data.keyword.secrets-manager_short}}, such as the Create secret panel for a particular secret type, or the details panel of a secret.
+
+To programmatically create the URL use the following URL pattern. Then, URL encode it and embed in your code.
+
+Create secret panel:
+```
+https://CLOUD_ENV/services/secrets-manager/INSTANCE_CRN?paneId=manageSecrets#/manageSecrets/addSecret/SECRET_TYPE
+```
+
+[List of programmatic secret type names](/docs/secrets-manager?topic=secrets-manager-what-is-secret#secret-types).
+
+Secret details panel:
+```
+https://CLOUD_ENV/services/secrets-manager/INSTANCE_CRN?paneId=manageSecrets#/manageSecrets/editSecret/SECRET_ID
+```

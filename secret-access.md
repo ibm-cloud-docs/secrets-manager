@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-18"
+  years: 2020, 2025
+lastupdated: "2025-05-09"
 
 keywords: access secret, retrieve secret, read secret, get secret value, get secrets, view secrets, search secrets, read secrets, get secret value
 
@@ -245,3 +245,12 @@ curl -X GET
 ```
 {: codeblock}
 {: curl}
+
+### Linking directly to a secret
+{: #get-secert-link}
+{: ui}
+
+You can copy a link that points directly to a secret's details panel.
+
+1. In the **Secrets** table, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) to open a list of options for your secret.
+2. To copy a link to the secret, click **Copy secret URL**.
