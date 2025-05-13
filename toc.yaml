@@ -177,13 +177,6 @@ toc:
                 navtitle: Setting up the Vault CLI
               - topic: vault-cli.md
                 navtitle: Vault CLI
-              links:
-              - link:
-                  label: IBM Cloud Auth method
-                  href: https://github.com/ibm-cloud-security/vault-plugin-auth-ibmcloud
-              - link:
-                  label: IBM Cloud Secrets backend
-                  href: https://github.com/ibm-cloud-security/vault-plugin-secrets-ibmcloud
       - topic: service-dependency.md
         navtitle: Service dependency map
       - topicgroup:
