@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-05-19"
 
 keywords: faqs, Frequently Asked Questions, question, Secrets Manager, dynamic what is a secret, what is an arbitrary secret, what is an IAM credential, arbitrary secret, IAM credential, what happens when secret expires
 
@@ -130,24 +130,6 @@ There are a few key differences between using {{site.data.keyword.keymanagements
 {: faq}
 
 With {{site.data.keyword.secrets-manager_short}}, you can centrally manage secrets for your services or apps in a dedicated, single tenant instance. To control who on your team has access to specific secrets, you can create secret groups that map to [Identity and Access Management (IAM)](/docs/secrets-manager?topic=secrets-manager-iam) access policies in your {{site.data.keyword.cloud_notm}} account. And, you can use {{site.data.keyword.logs_full_notm}} to track how users and applications interact with your {{site.data.keyword.secrets-manager_short}} instance.
-
-## Are community plug-ins for Vault supported by {{site.data.keyword.secrets-manager_short}}?
-{: #faq-vault-community-plugins}
-{: faq}
-
-Currently, {{site.data.keyword.secrets-manager_short}} offers foundational capabilities that don't exist in upstream Vault but are required to support operations for {{site.data.keyword.secrets-manager_short}} as a managed service. These capabilities include a set of secrets engines to support secrets of various types in {{site.data.keyword.secrets-manager_short}}, and an {{site.data.keyword.cloud_notm}} Auth method that handles authentication between Vault and your {{site.data.keyword.cloud_notm}} account.
-
-{{site.data.keyword.secrets-manager_short}} will continue to align with upstream Vault capabilities and plug-ins as it extends its support for more secrets engines in coming quarters. Keep in mind that plug-ins or components that are offered by the open source Vault community might not work with {{site.data.keyword.secrets-manager_short}}, unless they are written against a [secret type](/docs/secrets-manager?topic=secrets-manager-what-is-secret#secret-types) that {{site.data.keyword.secrets-manager_short}} currently supports.
-
-
-## Can I manage {{site.data.keyword.cloud_notm}} secrets by using an on-premises Vault?
-{: #faq-ibm-cloud-plugins-for-vault}
-{: faq}
-
-If you're looking to manage {{site.data.keyword.cloud_notm}} secrets through the full Vault native experience, you can use the stand-alone {{site.data.keyword.cloud_notm}} plug-ins for Vault. These open source plug-ins can be used independently from each other so that you can manage {{site.data.keyword.cloud_notm}} secrets through your on-premises Vault server.
-
-- To set up authentication between Vault and your {{site.data.keyword.cloud_notm}} account, you can use the [{{site.data.keyword.cloud_notm}} Auth Method plug-in for Vault](https://github.com/ibm-cloud-security/vault-plugin-auth-ibmcloud){: external}.
-- To dynamically create API keys for {{site.data.keyword.cloud_notm}} service IDs, you can use the [{{site.data.keyword.cloud_notm}} Secrets Backend plug-in for Vault](https://github.com/ibm-cloud-security/vault-plugin-secrets-ibmcloud){: external}.
 
 ## I'm not familiar with Vault. Can I still use {{site.data.keyword.secrets-manager_short}}?
 {: #faq-vault-secrets-manager}
