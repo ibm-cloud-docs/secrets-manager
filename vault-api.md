@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-10"
+  years: 2020, 2025
+lastupdated: "2025-05-19"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -66,11 +66,11 @@ To use the standard REST API for {{site.data.keyword.secrets-manager_short}}, ch
 ## Overview
 {: #vault-api-overview}
 
-{{site.data.keyword.secrets-manager_short}} uses a custom version of open source HashiCorp Vault. This custom version adds the {{site.data.keyword.cloud_notm}} IAM Auth method and a set of secrets engines to support operations in {{site.data.keyword.secrets-manager_short}} for various secret types.
+{{site.data.keyword.secrets-manager_short}} uses HashiCorp Vault with added support for {{site.data.keyword.cloud_notm}} IAM Auth method and a set of secrets engines to support operations in {{site.data.keyword.secrets-manager_short}} for various secret types.
 
 All operations follow the REST API standards that are available for the Vault HTTP APIs. For more information about how to authenticate and use the Vault HTTP APIs, check out the [Vault documentation](https://developer.hashicorp.com/vault/api-docs){: external}.
 
-{{site.data.keyword.secrets-manager_short}} limits Vault access to only specific paths that help you to work with secrets and log in to your instance. All other paths return an HTTP `403 Forbidden` response status code. Plug-ins and other components that are offered by the open source Vault community might not be accessible by {{site.data.keyword.secrets-manager_short}}. For more information, see the [FAQs](/docs/secrets-manager?topic=secrets-manager-faqs#faq-differences-vault).
+{{site.data.keyword.secrets-manager_short}} limits Vault access to only specific paths that help you to work with secrets and log in to your instance. All other paths return an HTTP `403 Forbidden` response status code. Plug-ins and other components that are offered by HashiCorp Vault might not be accessible by {{site.data.keyword.secrets-manager_short}}. For more information, see the [FAQs](/docs/secrets-manager?topic=secrets-manager-faqs#faq-differences-vault).
 {: important}
 
 ### Endpoint URLs

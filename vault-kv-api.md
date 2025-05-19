@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-10-10"
+  years: 2025
+lastupdated: "2025-05-19"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager, KV, key-value, KV APIs
 
@@ -66,7 +66,7 @@ With {{site.data.keyword.secrets-manager_full}}, you can manage multiple version
 
 If you already use the Vault API, you can use its API format and guidelines to interact with {{site.data.keyword.secrets-manager_short}}. {{site.data.keyword.secrets-manager_short}} supports KV version 2 only. The endpoints for the key-value secrets engine that are defined in the [Vault documentation](https://developer.hashicorp.com/vault/api-docs/secret/kv/kv-v2#kv-secrets-engine-version-2-api){: external} are compatible with the CLI and other applicable tools. 
 
-For more information about authentication and the custom version of open source HashiCorp Vault that {{site.data.keyword.secrets-manager_short}} uses, see [Vault API](/docs/secrets-manager?topic=secrets-manager-vault-api).
+For more information about authentication, see [Vault API](/docs/secrets-manager?topic=secrets-manager-vault-api).
 
 To use the standard REST API for Secrets Manager, check out the [{{site.data.keyword.secrets-manager_short}} API reference](/apidocs/secrets-manager/secrets-manager-v2){: external}.
 
