@@ -112,6 +112,9 @@ For more information about using {{site.data.keyword.secrets-manager_short}} API
 
 Already using HashiCorp Vault? You can interact with your {{site.data.keyword.secrets-manager_short}} service instance by using the Vault HTTP API or CLI format.
 
+{{site.data.keyword.secrets-manager_short}} doesn't support all components that are available for Vault. Instead, the service builds on HashiCorp Vault with custom plugins to support the operations in {{site.data.keyword.secrets-manager_short}} for various secret types.
+{:note}
+
 For more information, check out the following resources:
 
 - [Vault API reference](/docs/secrets-manager?topic=secrets-manager-vault-api)
