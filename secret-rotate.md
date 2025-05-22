@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-05-22"
 
 keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
 
@@ -341,7 +341,7 @@ To rotate a service credentials secret by using the {{site.data.keyword.secrets-
 
 
 ```sh
-ibmcloud secrets-manager secret-version-create --secret-id=SECRET_ID
+ibmcloud secrets-manager secret-version-create --secret-id SECRET_ID
 ```
 {: codeblock}
 
@@ -356,7 +356,7 @@ To rotate a custom credentials secret by using the {{site.data.keyword.secrets-m
 
 
 ```sh
-ibmcloud secrets-manager secret-version-create --secret-id=SECRET_ID
+ibmcloud secrets-manager secret-version-create --secret-id SECRET_ID
 ```
 {: codeblock}
 
@@ -371,7 +371,7 @@ To rotate a user credential secret by using the {{site.data.keyword.secrets-mana
 
 ```sh
 ibmcloud secrets-manager secret-version-create \    
-   --secret-id=SECRET_ID \    
+   --secret-id SECRET_ID \    
    --secret-version-prototype='{"password": "new-password", "custom_metadata": {"anyKey": "anyValue"}, "version_custom_metadata": {"anyKey": "anyValue"}}'
 
 ```
@@ -392,7 +392,7 @@ To rotate an IAM credential secret by using the {{site.data.keyword.secrets-mana
 
 ```sh
 ibmcloud secrets-manager secret-version-create \    
-   --secret-id=SECRET_ID
+   --secret-id SECRET_ID
 ```
 {: codeblock}
 
@@ -412,7 +412,7 @@ To rotate a certificate by using the {{site.data.keyword.secrets-manager_short}}
 certificate=$(cat cert.pem)
 intermediate=$(cat intermediate.pem)
 private_key=$(cat private_key.pem)
-ibmcloud secrets-manager secret-version-create --id SECRET_ID --imported-cert-certificate ${certificate} --imported-cert-intermediate ${intermediate} --imported-cert-private-key ${private_key}
+ibmcloud secrets-manager secret-version-create --secret-id SECRET_ID --imported-cert-certificate ${certificate} --imported-cert-intermediate ${intermediate} --imported-cert-private-key ${private_key}
 ```
 {: codeblock}
 
@@ -431,7 +431,7 @@ When the imported certificate secret is managing a CSR, the `private_key` field 
 ```sh
 certificate=$(cat cert.pem)
 intermediate=$(cat intermediate.pem)
-ibmcloud secrets-manager secret-version-create --id SECRET_ID --imported-cert-certificate ${certificate} --imported-cert-intermediate ${intermediate}
+ibmcloud secrets-manager secret-version-create --secret-id SECRET_ID --imported-cert-certificate ${certificate} --imported-cert-intermediate ${intermediate}
 ```
 {: codeblock}
 
