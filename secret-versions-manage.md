@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-21"
+lastupdated: "2025-05-28"
 
 keywords: secret version history, view versions, secret versions
 
@@ -59,6 +59,8 @@ subcollection: secrets-manager
 {: #version-history}
 
 When you rotate a secret in {{site.data.keyword.secrets-manager_full}}, you create a new version of its value. You can use {{site.data.keyword.secrets-manager_full}} to view the version history and update version metadata of secrets. If you accidentally replace or overwrite a secret, you can also restore it to a previous version.
+
+
 {: shortdesc}
 
 ## Before you begin
@@ -72,6 +74,8 @@ Before you get started, be sure that you have the required level of access. To u
 
 When you rotate a secret in {{site.data.keyword.secrets-manager_full}}, you create a new version of its value. You can quickly examine the version history of your secrets by using the UI or API.
 
+{{site.data.keyword.secrets-manager_short}} retains up to 50 versions of a secret for auditing purposes, including secret metadata. However only the current and immediately prior version include the secret data, earlier versions do not.
+{: important}
 
 ## Viewing version history in the UI
 {: #versions-ui}
@@ -83,12 +87,6 @@ If you're auditing the version history of a secret, you can use the {{site.data.
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the {{site.data.keyword.secrets-manager_short}} UI, go to your **Secrets** list.
 4. In the row for the secret that you want to inspect, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history**.
-
-    If the secret was rotated previously, the page displays information about the current and previous versions, for example the date that each version was created. Up to 50 versions can be listed for a secret.
-
-    If you're inspecting the version history of a public or imported certificate, you can also [download the certificate contents](/docs/secrets-manager?topic=secrets-manager-access-secrets#download-certificate-ui).
-    {: tip}
-
 5. Optional: Update the metadata of the specific version of the secret that you are viewing.
     1. To update the metadata of your secret version, upload a file or enter the metadata and the version metadata in JSON format. 
     2. Click **Update**.
@@ -107,7 +105,7 @@ ibmcloud secrets-manager secret-versions --secret-id SECRET-ID
 {: pre}
 
 
-The command outputs information about the current and previous versions. For example, the date that each version was created. Up to 50 versions can be listed for a secret. For more information about the command options, see [**`ibmcloud secrets-manager secret-versions`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-versions-command).
+The command outputs information about the current and previous versions. For example, the date that each version was created. For more information about the command options, see [**`ibmcloud secrets-manager secret-versions`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-versions-command).
 
 ## Listing secret versions with the API
 {: #versions-api}
@@ -163,7 +161,7 @@ A successful response returns metadata details about each secret version.
 
 The `downloaded` property indicates whether the data for each secret version was already read or accessed. If the `payload_available` field has a value of `true`, it means that you're able to access or [restore the secret data of that version](/docs/secrets-manager?topic=secrets-manager-version-history&interface=api#restore-secret-api). For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager/secrets-manager-v2).
 
-You can store metadata that is relevant to the needs of your organization with the `version_custom_metadata` request parameter. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager/secrets-manager-v2).
+You can store metadata that is relevant to the needs of your organization with the `version_custom_metadata` request parameter. The custom metadata of your secret is stored as all other metadata, and you must not include confidential data. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager/secrets-manager-v2).
 
 ## Updating secret versions metadata in the UI
 {: #versions-metadata-ui}
@@ -177,7 +175,7 @@ To update the metadata of a secret version, complete the following steps.
 3. In the {{site.data.keyword.secrets-manager_short}} UI, go to your **Secrets** list.
 4. In the row for the secret that you want to inspect, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Version history**.
 
-    If the secret was rotated previously, the page displays information about the current and previous versions, for example the date that each version was created. Up to 50 versions can be listed for a secret.
+    If the secret was rotated previously, the page displays information about the current and previous versions, for example the date that each version was created.
     {: tip}
 
 5. Upload a file or enter the metadata and the version metadata in JSON format. 
@@ -247,7 +245,7 @@ A successful response returns metadata details about each secret version.
 
 The `downloaded` property indicates whether the data for each secret version was already read or accessed. If the `payload_available` field has a value of `true`, it means that you're able to access or [restore the secret data of that version](/docs/secrets-manager?topic=secrets-manager-version-history&interface=api#restore-secret-api). 
 
-You can store metadata that is relevant to the needs of your organization with the `version_custom_metadata` request parameter. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager/secrets-manager-v2)
+You can store metadata that is relevant to the needs of your organization with the `version_custom_metadata` request parameter. The custom metadata of your secret is stored as all other metadata, and you must not include confidential data. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager/secrets-manager-v2)
 
 ## Restoring secrets to a previous version
 {: #restore-secrets}
@@ -258,7 +256,7 @@ Accidentally replace or overwrite an existing secret? You can use {{site.data.ke
 When you restore a secret to its previous version, a new version of the secret is created. For example, if the current version of your secret is 3, and you roll back to version 2, the data that was restored from version 2 becomes version 4.
 
 You can restore one version back on [supported secret types](/docs/secrets-manager?topic=secrets-manager-automatic-rotation&interface=ui#before-auto-rotate-supported-secret-types). For auditing purposes, the service retains the metadata of up to 50 versions for each secret, which you can review as part of a secret's [version history](/docs/secrets-manager?topic=secrets-manager-version-history).
-{: note}
+{: important}
 
 ### Supported secret types
 {: #supported-secret-types}
