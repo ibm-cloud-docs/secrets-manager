@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-07"
+lastupdated: "2025-05-30"
 
-keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, lite plan
+keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, trial plan
 
 subcollection: secrets-manager
 
