@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-10"
+  years: 2020, 2025
+lastupdated: "2025-05-30"
 
 keywords: isolation for {{site.data.keyword.secrets-manager_short}}, service endpoints for {{site.data.keyword.secrets-manager_short}}, private network for {{site.data.keyword.secrets-manager_short}}, network isolation in {{site.data.keyword.secrets-manager_short}}, non-public routes for {{site.data.keyword.secrets-manager_short}}, private connection for {{site.data.keyword.secrets-manager_short}}
 
@@ -147,7 +147,7 @@ After your account is enabled for VRF and service endpoints, you can provision a
 4. Create a private {{site.data.keyword.secrets-manager_short}} service instance by running the following command.
 
     ```sh
-    ibmcloud resource service-instance-create <instance_name> secrets-manager lite <region> -p '{"allowed_network": "<connectivity-option>"}'
+    ibmcloud resource service-instance-create <instance_name> secrets-manager trial <region> -p '{"allowed_network": "<connectivity-option>"}'
     ```
     {: pre}
 
