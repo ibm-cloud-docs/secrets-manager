@@ -86,7 +86,7 @@ The following table lists the services that can be authorized to work with {{sit
 
 Typically to authorize a supported {{site.data.keyword.cloud_notm}} service to access your {{site.data.keyword.secrets-manager_short}} instance, you can [create an authorization between the services](/docs/account?topic=account-serviceauth). Be sure that you have the [**SecretsReader** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam) on your {{site.data.keyword.secrets-manager_short}} instance.
 
-Be sure to review the documentation of the integrating service for specific instructions.
+Be sure to review the documentation of the integrating service for specific instructions. If in doubt, open a support ticket for the integrating service from the list above.
 {: important} 
 
 Follow these instructions when both the integrating service and {{site.data.keyword.secrets-manager_short}} are in the same account.  
