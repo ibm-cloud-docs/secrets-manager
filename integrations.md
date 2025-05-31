@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-12"
+lastupdated: "2025-05-31"
 
 keywords: Secrets Manager integrations, enable integration, create authorization, service to service, grant access between services, using Secrets Manager with other services, authorize Secrets Manager
 
@@ -84,7 +84,15 @@ The following table lists the services that can be authorized to work with {{sit
 ## Authorizing an {{site.data.keyword.cloud_notm}} service to access {{site.data.keyword.secrets-manager_short}}
 {: #create-authorization}
 
-To authorize a supported {{site.data.keyword.cloud_notm}} service to access your {{site.data.keyword.secrets-manager_short}} instance, you can [create an authorization between the services](/docs/account?topic=account-serviceauth). Be sure that you have the [**SecretsReader** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam) on your {{site.data.keyword.secrets-manager_short}} instance.
+Typically to authorize a supported {{site.data.keyword.cloud_notm}} service to access your {{site.data.keyword.secrets-manager_short}} instance, you can [create an authorization between the services](/docs/account?topic=account-serviceauth). Be sure that you have the [**SecretsReader** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam) on your {{site.data.keyword.secrets-manager_short}} instance.
+
+Be sure to review the documentation of the integrating service for specific instructions. If in doubt, open a support ticket for the integrating service from the list above.
+{: important} 
+
+Follow these instructions when both the integrating service and {{site.data.keyword.secrets-manager_short}} are in the same account.  
+
+When the integrating service is in another account, create the IAM authorization in the account where {{site.data.keyword.secrets-manager_short}} is in, and provide the account ID and instance ID of the integrating service under Source.
+{: tip} 
 
 1. In the console, click **Manage > Access (IAM)**, and select **Authorizations**.
 2. Click **Create**.
