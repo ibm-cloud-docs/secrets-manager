@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-29"
+  years: 2020, 2025
+lastupdated: "2025-06-15"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -344,7 +344,7 @@ A successful request returns the ID value of the secret, along with other metada
 
 You can create IAM credentials programmatically by using Terraform for {{site.data.keyword.secrets-manager_short}}.
 
-You must add a `depends_on` Terraform meta-argument and refer it to your IAM configuration resource. The `depends_on` meta-argument instructs Terraform to complete all actions on the IAM configuration before you perform actions on the IAM credentials secrets.
+You must add a `depends_on` Terraform meta-argument and refer it to your IAM configuration resource. The `depends_on` meta-argument instructs Terraform to complete all actions on the IAM configuration before you perform actions on the IAM credentials secrets. When creating a cross-account IAM credentials secret, include the `account_id` property, pointing to the IBM Cloud account where the Service ID was created at.
 
 The following example shows a configuration that you can use to create IAM credentials.
 
