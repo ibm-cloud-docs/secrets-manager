@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-06-16"
 
 keywords: Secrets Manager custom credentials, Secrets Manager third-party
 
@@ -53,6 +53,22 @@ To enhance security:
 {: #credentials-provider-error-handling}
 
 If the credentials provider job is unable to create or delete the credentials, it should update {{site.data.keyword.secrets-manager_short}} with an application error code and a user facing error message. This error is displayed in the {{site.data.keyword.secrets-manager_short}} console for the failed task and allow the user to apply a corrective action.
+
+## Troubleshooting
+{: #credentials-provider-troubleshooting}
+
+By default, {{site.data.keyword.secrets-manager_short}} configures {{site.data.keyword.codeengineshort}} to immediately remove completed jobs. This prevents job run accumulation and helps avoid exceeding quota limits over time.
+However, during development, you may want to retain completed jobs to review their configuration and logs.
+
+To retain completed jobs using the {{site.data.keyword.codeengineshort}} UI:
+1. In the {{site.data.keyword.cloud_notm}} Console, navigate to Containers → Projects, and open your credentials provider project.
+2. Within the project page, go to Jobs, click the **Jobs tab**, and select your job.
+3. In the Configuration page, open the Environment variables tab.
+4. Locate the `CE_REMOVE_COMPLETED_JOBS` variable and click on its row to edit.
+5. In the Edit environment variable panel, change the value from `IMMEDIATELY` to `3d`, then click Done.
+6. Return to the Environment variables page and click **Deploy** (top right) to apply the changes. Completed job runs will now be retained for **3 days**.
+
+For troubleshooting jobs in a production environment, it is recommended to integrate {{site.data.keyword.codeengineshort}} with Cloud Logs. Refer to the documentation of both services for setup instructions.
 
 ## Next steps
 {: #custom-credentials-ce-job-next-steps}
