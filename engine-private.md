@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-10"
+  years: 2020, 2025
+lastupdated: "2025-06-24"
 
 keywords: create certificate authority, create root CA, create intermediate CA, set up PKI, set up private certificates, private certificates engine
 
@@ -164,17 +164,17 @@ You should have an instance of HPCS provisioned in your account. In your HPCS in
 Follow the instructions in HPCS documentation for setting up a PKCS #11 Normal user type.
 
 1. Create custom IAM roles
-   1. [Create a custom role for performing crypto operations](/docs/hs-crypto?topic=hs-crypto-best-practice-pkcs11-access#create-crypto-operator)
+   1. [Create a custom role for performing crypto operations](/docs/hs-crypto?topic=hs-crypto-best-practice-pkcs11-access#step1-create-custom-roles)
    2. [Create a custom role for managing keys](/docs/hs-crypto?topic=hs-crypto-best-practice-pkcs11-access#create-manage-key-operator)
 
 2. Create IAM service ID
-   1. [Create service ID for the normal user](/docs/hs-crypto?topic=hs-crypto-best-practice-pkcs11-access#create-service-id-api-key-normal-user)
+   1. [Create service ID for the normal user](/docs/hs-crypto?topic=hs-crypto-best-practice-pkcs11-access#step2-create-service-id-api-key)
 
   Note: do not create an API key for the Service ID. The API key will be created and managed by {{site.data.keyword.secrets-manager_short}}
 {: note}
 
 3. Assign IAM roles to the service ID
-   1. [Assign the custom roles to the service ID](/docs/hs-crypto?topic=hs-crypto-best-practice-pkcs11-access#assign-custom-role-normal-user-service)
+   1. [Assign the custom roles to the service ID](/docs/hs-crypto?topic=hs-crypto-best-practice-pkcs11-access#create-service-id-api-key-normal-user)
    2. Assign a Viewer role to the service ID for the HPCS instance.
 
 In your {{site.data.keyword.secrets-manager_short}} instance:
