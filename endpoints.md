@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-10"
+  years: 2020, 2025
+lastupdated: "2025-07-04"
 
 keywords: Secrets Manager availability, regions, Secrets Manager endpoints, Vault endpoint
 
@@ -82,33 +82,11 @@ You can create {{site.data.keyword.secrets-manager_short}} resources in one of t
 
 You can use the {{site.data.keyword.secrets-manager_short}} APIs to manage your secrets programmatically. {{site.data.keyword.secrets-manager_short}} offers two connectivity options for interacting with its service APIs.
 
-Public endpoints
-:   By default, you can connect to resources in your account over the {{site.data.keyword.cloud_notm}} public network. Your data is encrypted in transit by using the Transport Security Layer (TLS) 1.2 protocol.
-
 Private endpoints
-:   To further secure your connection, you can also enable [virtual routing and forwarding (VRF) and service endpoints](/docs/account?topic=account-vrf-service-endpoint) for your infrastructure account. When you enable VRF for your account, you can [connect to {{site.data.keyword.secrets-manager_short}} by using a private IP](/docs/secrets-manager?topic=secrets-manager-service-connection) that is accessible only through the {{site.data.keyword.cloud_notm}} private network.
+:   By default, a {{site.data.keyword.secrets-manager_short}} instance will have only a private endpoint. As pre-requisite for private endpoints enable [virtual routing and forwarding (VRF) and service endpoints](/docs/account?topic=account-vrf-service-endpoint) for your infrastructure account. When you enable VRF for your account, you can [connect to {{site.data.keyword.secrets-manager_short}} by using a private IP](/docs/secrets-manager?topic=secrets-manager-service-connection) that is accessible only through the {{site.data.keyword.cloud_notm}} private network.
 
-### Public endpoints
-{: #public-endpoints}
-
-If you are managing your {{site.data.keyword.secrets-manager_short}} resources over a public network, see the following table to determine the API endpoints to use when you connect to the {{site.data.keyword.secrets-manager_short}} API.
-
-| Region        | Endpoint URL             |
-| ------------- | ---------------------------- |
-| Dallas        | `https://{instance_ID}.us-south.secrets-manager.appdomain.cloud` |
-| Frankfurt     | `https://{instance_ID}.eu-de.secrets-manager.appdomain.cloud`    |
-| London        | `https://{instance_ID}.eu-gb.secrets-manager.appdomain.cloud`    |
-| Madrid        | `https://{instance_ID}.eu-es.secrets-manager.appdomain.cloud`    |
-| Osaka         | `https://{instance_ID}.jp-osa.secrets-manager.appdomain.cloud`   |
-| Sao Paulo     | `https://{instance_ID}.br-sao.secrets-manager.appdomain.cloud`   |
-| Sydney        | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud`   |
-| Tokyo         | `https://{instance_ID}.jp-tok.secrets-manager.appdomain.cloud`   |
-| Toronto       | `https://{instance_ID}.ca-tor.secrets-manager.appdomain.cloud`   |
-| Washington DC | `https://{instance_ID}.us-east.secrets-manager.appdomain.cloud`  |
-{: caption="Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
-
-Ready to try the APIs? To interact with a Swagger UI from your browser, add `api/v2/swagger-ui` to your service endpoint URL. For example, `https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/swagger-ui`.
-{: tip}
+Public endpoints
+:   Use public endpoints to connect to {{site.data.keyword.secrets-manager_short}} in your account over the {{site.data.keyword.cloud_notm}} public network. Your data is encrypted in transit by using the Transport Security Layer (TLS) 1.2 protocol. When a {{site.data.keyword.secrets-manager_short}} instance is configured with public endpoints, it also has a private endpoint in addition by default.
 
 ### Private endpoints
 {: #private-endpoints}
@@ -132,6 +110,26 @@ To learn how to configure your {{site.data.keyword.secrets-manager_short}} insta
 | Washington DC | `https://{instance_ID}.private.us-east.secrets-manager.appdomain.cloud`  |
 {: caption="Private endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
 
+### Public endpoints
+{: #public-endpoints}
+
+| Region        | Endpoint URL             |
+| ------------- | ---------------------------- |
+| Dallas        | `https://{instance_ID}.us-south.secrets-manager.appdomain.cloud` |
+| Frankfurt     | `https://{instance_ID}.eu-de.secrets-manager.appdomain.cloud`    |
+| London        | `https://{instance_ID}.eu-gb.secrets-manager.appdomain.cloud`    |
+| Madrid        | `https://{instance_ID}.eu-es.secrets-manager.appdomain.cloud`    |
+| Osaka         | `https://{instance_ID}.jp-osa.secrets-manager.appdomain.cloud`   |
+| Sao Paulo     | `https://{instance_ID}.br-sao.secrets-manager.appdomain.cloud`   |
+| Sydney        | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud`   |
+| Tokyo         | `https://{instance_ID}.jp-tok.secrets-manager.appdomain.cloud`   |
+| Toronto       | `https://{instance_ID}.ca-tor.secrets-manager.appdomain.cloud`   |
+| Washington DC | `https://{instance_ID}.us-east.secrets-manager.appdomain.cloud`  |
+{: caption="Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
+
+Ready to try the APIs? To interact with a Swagger UI from your browser, add `api/v2/swagger-ui` to your service endpoint URL. For example, `https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/swagger-ui`.
+{: tip}
+
 ### Viewing your endpoint URLs
 {: #view-endpoint-urls}
 
@@ -145,7 +143,6 @@ curl -X GET
 "https://{region}.secrets-manager.cloud.ibm.com/api/v1/instances/{url_encoded_instance_CRN}/endpoints"
 ```
 {: pre}
-
 
 
 Replace the variables in the example request according to the following table.
