@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-05"
+lastupdated: "2025-07-07"
 
 keywords: known issues for {{site.data.keyword.secrets-manager_short}}, known limitations for {{site.data.keyword.secrets-manager_short}}
 
@@ -91,6 +91,7 @@ The following limits apply per {{site.data.keyword.cloud_notm}} account.
 | Resource | Limit|
 | --- | --- |
 | {{site.data.keyword.secrets-manager_short}} service instances | Trial plan: 1 per {{site.data.keyword.cloud_notm}} account at any time  \nStandard plan: No limit on number of instances per account |
+| {{site.data.keyword.secrets-manager_short}} service instances | Standard plan: 10 per {{site.data.keyword.cloud_notm}} account per day  \nStandard plan: No limit on number of instances per account |
 {: caption="{{site.data.keyword.secrets-manager_short}} limits per account" caption-side="top"}
 
 ### Instance limits
