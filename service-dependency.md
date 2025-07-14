@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-03-28"
+lastupdated: "2025-07-14"
 
 keywords:
 
@@ -39,14 +39,14 @@ The following table provides the dependency listing of this service following a 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
 | IBM Cloud Internet Services | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
-| IBM Cloud Classic Infrastructure Resource Management | Availability, Change management, Instance control, Operations | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| IBM Cloud Identity and Access Management | Access management, Availability, Change management, Instance control, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| IBM Cloud Databases - databases-for-postgresql | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
 | IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud - containers-kubernetes | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
 | IBM Cloud Classic DNS Servers | Availability, Change management, Instance control | No | Both |  Same data center  |
-| IBM Cloud Identity and Access Management | Access management, Availability, Change management, Instance control, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| IBM Cloud Service Endpoints | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same data center  |
 | IBM Cloud Object Storage | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
 | IBM Cloud Public IP Address Management | Availability, Change management, Instance control, Operations | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
-| IBM Cloud Service Endpoints | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same data center  |
-| IBM Cloud Databases - databases-for-postgresql | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
+| IBM Cloud Classic Infrastructure Resource Management | Availability, Change management, Instance control, Operations | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 {: row-headers}
 {: caption="IBM Cloud Secrets Manager service dependency information - Critical dependencies" caption-side="top"}
 {: tab-title="Critical dependencies"}
@@ -58,13 +58,14 @@ The following table provides the dependency listing of this service following a 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
 | IBM Cloud Databases - databases-for-redis | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
+| IBM Cloud Code Engine | Availability | Yes | Both |  customer-selected  |
 | IBM Cloud Hyper Protect Crypto | Availability, Customer responsibility, Instance control, Security compliance | No | Both |  Same region  |
 | IBM Key Protect for IBM Cloud | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
-| IBM Cloud Classic NTP Servers | Availability, Change management, Instance control | No | Both |  Same data center  |
 | IBM Cloud Global Resource Catalog | Change management, Instance control | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | IBM Cloud Container Registry | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
 | IBM Cloud Console | Availability, Instance control, Operations, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | IBM Key Protect for IBM Cloud | Availability, Change management, Disaster recovery, Instance control, Security compliance | Yes | Both |  Same region  |
+| IBM Cloud Classic NTP Servers | Availability, Change management, Instance control | No | Both |  Same data center  |
 {: row-headers}
 {: caption="IBM Cloud Secrets Manager service dependency information - Significant dependencies" caption-side="top"}
 {: tab-title="Significant dependencies"}
