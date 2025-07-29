@@ -68,7 +68,7 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 {: #secrets-manager-july2925}
 {: release-note}
 
-Madrid availability
+Montreal availability
 :   You can now create a {{site.data.keyword.secrets-manager_short}} service instance in the Montreal  (`ca-mon`) region.
 
    For more information, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
