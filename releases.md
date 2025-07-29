@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-01"
+lastupdated: "2025-07-29"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -63,6 +63,15 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 {: shortdesc}
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
+
+##  29 July 2025
+{: #secrets-manager-july0725}
+{: release-note}
+
+Madrid availability
+:   You can now create a {{site.data.keyword.secrets-manager_short}} service instance in the Montreal  (`ca-mon`) region.
+
+   For more information, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
 
 ## 5 May 2025
 {: #secrets-manager-may525}
