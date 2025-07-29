@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-07-29"
 
 keywords: activity tracking events for Secrets Manager, events, Secrets Manager actions
 
@@ -32,9 +32,9 @@ You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on event
 
 {{site.data.keyword.secrets-manager_short}} sends activity tracking events to {{site.data.keyword.logs_full_notm}} in the regions that are indicated in the following table.
 
-| Dallas (`us-south`) | Washington (`us-east`)  | Toronto (`ca-tor`) | Sao Paulo (`br-sao`) |
-|---------------------|-------------------------|-------------------|----------------------|
-| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
+| Dallas (`us-south`) | Washington (`us-east`)  | Toronto (`ca-tor`) | Montreal (`ca-mon`) | Sao Paulo (`br-sao`) |
+|---------------------|-------------------------|-------------------|----------------------|----------------------|
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
 {: caption="Regions where activity tracking events are sent in Americas locations" caption-side="top"}
 {: #logs-table-1}
 {: tab-title="Americas"}

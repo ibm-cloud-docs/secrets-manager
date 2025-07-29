@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-19"
+lastupdated: "2025-07-29"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -91,6 +91,7 @@ The following table lists the endpoint URLs by region that can be used to intera
 | Sydney        | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud`   |
 | Tokyo         | `https://{instance_ID}.jp-tok.secrets-manager.appdomain.cloud`   |
 | Toronto       | `https://{instance_ID}.ca-tor.secrets-manager.appdomain.cloud`   |
+| Montreal      | `https://{instance_ID}.ca-mon.secrets-manager.appdomain.cloud`   |
 | Washington DC | `https://{instance_ID}.us-east.secrets-manager.appdomain.cloud`  |
 {: caption="Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
 {: #public-endpoints-vault}
@@ -109,6 +110,7 @@ The following table lists the endpoint URLs by region that can be used to intera
 | Sydney        | `https://{instance_ID}.private.au-syd.secrets-manager.appdomain.cloud`   |
 | Tokyo         | `https://{instance_ID}.private.jp-tok.secrets-manager.appdomain.cloud`   |
 | Toronto       | `https://{instance_ID}.private.ca-tor.secrets-manager.appdomain.cloud`   |
+| Montreal      | `https://{instance_ID}.private.ca-mon.secrets-manager.appdomain.cloud`   |
 | Washington DC | `https://{instance_ID}.private.us-east.secrets-manager.appdomain.cloud`  |
 {: caption="Private endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
 {: #private-endpoints-vault}
