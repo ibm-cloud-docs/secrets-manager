@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-08-21"
+lastupdated: "2025-08-25"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -66,6 +66,12 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 
 
 
+## 25 August 2025
+{: #secrets-manager-august2525}
+{: release-note}
+
+New Secret Access Tracking
+:   You can now view when a secret was last accessed in Secrets Manager. The new **Last Accessed** field is available in the service UI, and the `retrieved_at` field is accessible via the API. This enhancement provides greater visibility into secret usage, helping you monitor and manage your secrets more effectively.
 
 ##  29 July 2025
 {: #secrets-manager-july2925}
