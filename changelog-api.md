@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-21"
+lastupdated: "2025-08-25"
 
 keywords: change log for Secrets Manager APIs, API changelog, updates to Secrets Manager APIs
 
@@ -62,6 +62,11 @@ In this change log, you can learn about the latest changes, improvements, and up
 {: shortdesc}
 
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
+
+## 25 August 2025
+{: #2025-08-25-api}
+
+- A new field `retrieved_at` was added to identify when a secret was last accessed.
 
 ## 17 February 2025
 {: #2024-02-17-api}

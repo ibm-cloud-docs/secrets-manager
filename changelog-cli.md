@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-05"
+lastupdated: "2025-08-25"
 
 keywords: change log for Secrets Manager CLI, CLI changelog, updates to Secrets Manager CLI
 
@@ -62,6 +62,12 @@ In this change log, you can learn about the latest changes, improvements, and up
 {: shortdesc}
 
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
+
+## Version 2.0.12
+{: #2.0.12}
+
+Version 2.0.12 was released on 25 August 2025. This release includes the following updates:
+- A new field `retrieved_at` was added to identify when a secret was last accessed.
 
 ## Version 2.0.11
 {: #2.0.11}

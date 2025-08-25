@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-07-29"
+lastupdated: "2025-08-25"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -64,12 +64,21 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
+
+
+## 25 August 2025
+{: #secrets-manager-august2525}
+{: release-note}
+
+New Secret Access Tracking
+:   You can now view when was tue secret data last accessed in {{site.data.keyword.secrets-manager_short}}. The new **Last Accessed** field is available in the service UI, and the `retrieved_at` field is accessible via the API. This enhancement provides greater visibility into secret usage, helping you monitor and manage your secrets more effectively.
+
 ##  29 July 2025
 {: #secrets-manager-july2925}
 {: release-note}
 
 Montreal availability
-:   You can now create a {{site.data.keyword.secrets-manager_short}} service instance in the Montreal  (`ca-mon`) region.
+:   You can now create a {{site.data.keyword.secrets-manager_short}} service instance in the Montreal (`ca-mon`) region.
 
    For more information, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
 
@@ -107,8 +116,6 @@ Support for CSR in Imported certificates
 
 **Common Name** for `public_cert` secret type is now optional.
 :   You can now order a public certificate protecting your long SAN domain name without the need to specify a Common Name meeting the 64 chars limit.. If the Common Name of a certificate is not explicitly specified by the user, Let's encrypt will automatically assign the first alt name that is not longer than 64 chars as the Common Name. If no such alt name is found the certificate will be issued without a Common name.
-
-
 
 ## 19 November 2024
 {: #secrets-manager-november1924}
