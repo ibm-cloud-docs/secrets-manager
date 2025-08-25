@@ -71,7 +71,7 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 {: release-note}
 
 New Secret Access Tracking
-:   You can now view when a secret was last accessed in {{site.data.keyword.secrets-manager_short}}. The new **Last Accessed** field is available in the service UI, and the `retrieved_at` field is accessible via the API. This enhancement provides greater visibility into secret usage, helping you monitor and manage your secrets more effectively.
+:   You can now view when was tue secret data last accessed in {{site.data.keyword.secrets-manager_short}}. The new **Last Accessed** field is available in the service UI, and the `retrieved_at` field is accessible via the API. This enhancement provides greater visibility into secret usage, helping you monitor and manage your secrets more effectively.
 
 ##  29 July 2025
 {: #secrets-manager-july2925}
