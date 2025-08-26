@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-07"
+lastupdated: "2025-08-25"
 
 subcollection: secrets-manager
 
@@ -62,7 +62,7 @@ keywords: Secrets Manager CLI, Secrets Manager command line, Secrets Manager ter
 You can use the {{site.data.keyword.secrets-manager_full}} command-line interface (CLI) to manage secrets in your {{site.data.keyword.secrets-manager_short}} instance.
 {: shortdesc}
 
-Current version: **`2.0.11`**
+Current version: **`2.0.12`**
 
 ## Prerequisites
 {: #secrets-manager-cli-prereq}
@@ -106,6 +106,7 @@ Current version: **`2.0.11`**
 
 
 
+
 ## Globals
 {: #secrets-manager-globals}
 
@@ -136,7 +137,7 @@ ibmcloud secrets-manager docs
 :   The Secrets Manager Instance ID assigned by the service provider.
 
 `--region` (string)
-:   The region where you provisioned your Secrets Manager Instance. Available values: us-south, us-east, au-syd, jp-osa, jp-tok, eu-de, eu-gb, eu-es, ca-tor, br-sao.
+:   The region where you provisioned your Secrets Manager Instance. Available values: us-south, us-east, au-syd, jp-osa, jp-tok, eu-de, eu-gb, eu-es, ca-tor, ca-mon, br-sao.
 
 `--output` (string)
 :   Choose an output format - can be 'json', 'yaml', or 'table'. Defaults to 'table'.
@@ -774,7 +775,7 @@ ibmcloud secrets-manager secrets [--offset OFFSET] [--limit LIMIT] [--sort SORT]
 `--sort` (string)
 :   Sort a collection of secrets by the specified field in ascending order. To sort in descending order use the `-` character.
 
-    The maximum length is `17` characters. The minimum length is `2` characters. The value must match regular expression `/^-?(id|created_at|updated_at|expiration_date|secret_type|name)$/`.
+    The maximum length is `17` characters. The minimum length is `2` characters. The value must match regular expression `/^-?(id|created_at|updated_at|retrieved_at|expiration_date|secret_type|name)$/`.
 
 `--search` (string)
 :   Filter secrets that contain the specified string in one or more of these fields: "id", "name", "description","labels", "secret_type".
