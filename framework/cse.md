@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-30"
+lastupdated: "2025-09-01"
 
 keywords: isolation for {{site.data.keyword.secrets-manager_short}}, service endpoints for {{site.data.keyword.secrets-manager_short}}, private network for {{site.data.keyword.secrets-manager_short}}, network isolation in {{site.data.keyword.secrets-manager_short}}, non-public routes for {{site.data.keyword.secrets-manager_short}}, private connection for {{site.data.keyword.secrets-manager_short}}
 
@@ -85,9 +85,7 @@ After your account is enabled for VRF and service endpoints, you can provision a
 6. Determine an option for managing encryption for your instance.
 
     You can enhance the security of your secrets at rest by integrating with a key management service. For more information about customer-managed encryption, check out [Protecting your sensitive data in {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption).
-7. From the list of endpoint options, select **Public and private** or **Private only**.
-
-    By default, {{site.data.keyword.secrets-manager_short}} instances accept API requests from both public and private endpoints. To limit access to your instance to take place only through a private network, select the **Private only** option.
+7. By default, newly provisioned {{site.data.keyword.secrets-manager_short}} instances accept API requests from **private-only** endpoints
 8. Click **Create**.
 
     Provisioning a {{site.data.keyword.secrets-manager_short}} instance can take 5 - 15 minutes to complete.
@@ -154,7 +152,7 @@ After your account is enabled for VRF and service endpoints, you can provision a
     | Variable | Description |
     | -------- | ----------- |
     | `region` | The region abbreviation, such as `us-south` that represents the geographic area where you want your {{site.data.keyword.secrets-manager_short}} to be handled and processed. For a complete list of supported regions, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints). |
-    | `connectivity-option` | The network connectivity option that you want to allow for your instance.  \n  \n To allow access to the instance over both public and private service endpoints, use `public-and-private`. To limit API requests to the instance to take place only through a private network, use `private-only`. Keep in mind that the {{site.data.keyword.secrets-manager_short}} service UI is not accessible for `private-only` instances. |
+    | `connectivity-option` | The network connectivity option that you want to allow for your instance.  \n  \n To allow access to the instance over both public and private service endpoints, use `public-and-private`. To limit API requests to the instance to take place only through a private network, use `private-only`. This is also the default option. |
     {: caption="Variable descriptions" caption-side="top"}
 
 
@@ -168,8 +166,29 @@ After your account is enabled for VRF and service endpoints, you can provision a
     Provisioning a {{site.data.keyword.secrets-manager_short}} instance can take 5 - 15 minutes to complete.
     {: note}
 
+## Connect to a private-only instance from outside of the IBM Cloud internal network
+{: #connect-to-sm-privately }
 
-## Viewing your endpoint URLs
-{: #endpoint-view}
+When using a {{site.data.keyword.secrets-manager_short}} instance with a private-only endpoint, connecting to the instance is possible only through the IBM Cloud internal network, using existing service integrations or VMs.  
+To connect to a private-only instance for example from a local workstation, select one of the following available options.
 
-The service endpoint URLs are different for private and public network connections. You can find your service endpoint URLs in the **Endpoints** page of the {{site.data.keyword.secrets-manager_short}} UI. For more information about retrieving your service endpoint URLs programmatically, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls).
+### Connect using a VM
+{: #connect-to-sm-privately-vm }
+
+Use this option for {{site.data.keyword.secrets-manager_short}} instances provisioned in IBM Cloud Classic data centers, such as Dallas, Washington, Sao Paulo, London, Frankfurt, Madrid, Sydney, Tokyo, and Osaka.
+
+1. From the [IBM Cloud catalog](https://cloud.ibm.com/catalog), search for "Virtual Server" and provision a virtual machine matching your requirements
+2. From your local workstation, login to the VM using the VM's provided credentials
+3. From within the VM, login to IBM Cloud and use your {{site.data.keyword.secrets-manager_short}} instance via API or CLI
+
+### Connect using a VPE gateway
+{: #connect-to-sm-privately-vpe-gateway }
+
+Use of this option is required for {{site.data.keyword.secrets-manager_short}} instances provisioned in IBM Cloud Next Generation data centers, such as Montreal, Chennai and Mumbai. It can be used for other regions as well.
+
+1. [Create a VPE gateway](https://cloud.ibm.com/infrastructure/network/endpointGateways)
+2. Attach the VPE to a new or existing VPC
+3. Add your {{site.data.keyword.secrets-manager_short}} instance to the VPC
+4. Create a VSI in the same VPC and set it up
+5. From your local workstation, login to the VSI
+6. From within the VSI, login to IBM Cloud and use your {{site.data.keyword.secrets-manager_short}} instance via API or CLI 
