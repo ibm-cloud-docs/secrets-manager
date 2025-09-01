@@ -167,13 +167,13 @@ After your account is enabled for VRF and service endpoints, you can provision a
     {: note}
 
 ## Connect to a private-only instance from outside of the IBM Cloud internal network
-{: #connect-to-sm-privately }
+{: #connect-to-sm-privately}
 
 When using a {{site.data.keyword.secrets-manager_short}} instance with a private-only endpoint, connecting to the instance is possible only through the IBM Cloud internal network, using existing service integrations or VMs.  
 To connect to a private-only instance for example from a local workstation, select one of the following available options.
 
 ### Connect using a VM
-{: #connect-to-sm-privately-vm }
+{: #connect-to-sm-privately-vm}
 
 Use this option for {{site.data.keyword.secrets-manager_short}} instances provisioned in IBM Cloud Classic data centers, such as Dallas, Washington, Sao Paulo, London, Frankfurt, Madrid, Sydney, Tokyo, and Osaka.
 
@@ -182,7 +182,7 @@ Use this option for {{site.data.keyword.secrets-manager_short}} instances provis
 3. From within the VM, login to IBM Cloud and use your {{site.data.keyword.secrets-manager_short}} instance via API or CLI
 
 ### Connect using a VPE gateway
-{: #connect-to-sm-privately-vpe-gateway }
+{: #connect-to-sm-privately-vpe-gateway}
 
 Use of this option is required for {{site.data.keyword.secrets-manager_short}} instances provisioned in IBM Cloud Next Generation data centers, such as Montreal, Chennai and Mumbai. It can be used for other regions as well.
 

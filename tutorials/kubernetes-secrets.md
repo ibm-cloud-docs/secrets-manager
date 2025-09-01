@@ -3,7 +3,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-03-04"
+lastupdated: "2025-09-01"
 
 keywords: tutorial, Secrets Manager
 
@@ -95,7 +95,7 @@ This scenario features a third-party tool that can impact the compliance readine
 
 Before you get started, be sure that you have [**Administrator** platform access](/docs/account?topic=account-assign-access-resources#assign-new-access) so that you can create account credentials and provision resources. You also need the following prerequisites:
 
-- [Download and install the IBM Cloud CLI](https://cloud.ibm.com/docs/cli).
+- [Download and install the IBM Cloud CLI](/docs/cli).
 - [Install the {{site.data.keyword.secrets-manager_short}} CLI plug-in](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli).
 - [Install the Kubernetes CLI (`kubectl`)](https://kubernetes.io/docs/tasks/tools/){: external}.
 - [Download and install jq](https://stedolan.github.io/jq/){: external}.

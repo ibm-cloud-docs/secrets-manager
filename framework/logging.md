@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-09-01"
 
 keywords: logging, activity, monitor app, monitor secrets
 
@@ -41,7 +41,7 @@ Only the following logs are being forwarded: All logs with the `ERROR` log level
 To view {{site.data.keyword.secrets-manager_short}} logs, complete the following steps:
 
 1. Log in to the {{site.data.keyword.cloud_notm}} console.
-2. Go to **IBM Cloud > Observability** to access your [Observability dashboard](https://{DomainName}/observe){: external}.
+2. Go to **IBM Cloud > Observability** to access your [Observability dashboard](https://{DomainName}/observe/overview){: external}.
 3. From the navigation menu, click **Logging**.
 4. Select an {{site.data.keyword.logs_full_notm}} instance, and click **Open Dashboard**.
 
