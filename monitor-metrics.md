@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-10-10"
+  years: 2025
+lastupdated: "2025-09-06"
 
 keywords: monitoring, metrics, operational metrics
 
@@ -93,7 +93,7 @@ To enable platform metrics in a region, complete the following steps:
 
 2. Go to the [Monitoring](/observe/monitoring) dashboard.
 
-3. Click on **Configure platform metrics.**
+3. Click **Configure platform metrics.**
 
 4. Select the region where the {{site.data.keyword.secrets-manager_short}} instance was created.
 
@@ -201,7 +201,7 @@ You can scope down your metrics by using scope filters, which are more granular 
 After configuring your {{site.data.keyword.mon_short}} instance to receive platform metrics, follow these steps:
 
 1. Go to the [Monitoring](/observe/monitoring){: external} dashboard and find your monitoring instance that is configured to receive platform metrics.
-2. Click on the **View {{site.data.keyword.mon_short}}** button in the **View Dashboard** column of the monitoring instance.
+2. Click the **View {{site.data.keyword.mon_short}}** button in the **View Dashboard** column of the monitoring instance.
 3. Once you are in the {{site.data.keyword.mon_short}} platform, click **Dashboards** to open up the side menu.
 4. Select **{{site.data.keyword.secrets-manager_short}}** under the **IBM** section to view the dashboard.
 
@@ -213,8 +213,8 @@ To see metrics for one or more instances, select from the **ibm_service_instance
 
 After configuring your {{site.data.keyword.mon_short}} instance to receive platform metrics, you can open the dashboard directly from your {{site.data.keyword.secrets-manager_short}} instance.
 
-1. Click on the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg)
-2. Click on the **Monitoring** option to open the dashboard
+1. Click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg)
+2. Click the **Monitoring** option to open the dashboard
 
 ## Setting alerts
 {: #set-monitor-alerts}

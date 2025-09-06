@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-21"
+lastupdated: "2025-09-06"
 
 keywords: IAM credentials, dynamic, IAM API key IAM credentials engine
 
@@ -66,7 +66,7 @@ In {{site.data.keyword.secrets-manager_short}}, the IAM credentials engine serve
 When using an API key for the engine configuration, the access token that is generated lasts for 60 minutes and will continue to work even if the API key is deleted from IAM. This can be modified by changing the token expiration in IAM settings. [Learn more](/docs/account?topic=account-token-limit). Note that if the entity that is related to the API key is deleted, the token is invalidated immediately.
 {: note}
 
-When using IAM service authorization for the engine configuration, you can create and manage IAM credential secrets in the same {{site.data.keyword.cloud_notm}} account as the {{site.data.keyword.secrets-manager_short}} instance, as well as from other accounts. API key configuation works only with the account the {{site.data.keyword.secrets-manager_short}} instance belongs to.
+When using IAM service authorization for the engine configuration, you can create and manage IAM credential secrets in the same {{site.data.keyword.cloud_notm}} account as the {{site.data.keyword.secrets-manager_short}} instance, as well as from other accounts. API key configuration works only with the account the {{site.data.keyword.secrets-manager_short}} instance belongs to.
 {: tip}
 
 ## Before you begin
@@ -109,10 +109,10 @@ To manage IAM credentials from another {{site.data.keyword.cloud_notm}} account,
 For the **IAM Identity Service service** authorization policy:
 1. In the account where you'd like to manage the IAM credentials, go to **Manage > Access (IAM)**.
 2. Select **Authorizations** from the left pane menu.
-3. Click on **Create**.
+3. Click **Create**.
 4. Under Source select **Specific account** and provide the account ID the {{site.data.keyword.secrets-manager_short}} instance belongs to.
      - Service: **{{site.data.keyword.secrets-manager_short}}**.
-     - Resources: **Specific resources > Service instance** and provide the servce instance ID for your {{site.data.keyword.secrets-manager_short}} instance.
+     - Resources: **Specific resources > Service instance** and provide the service instance ID for your {{site.data.keyword.secrets-manager_short}} instance.
 5. Under Target select
      - Service: **IAM Identity Service**  
      - Resources: **All**
@@ -121,7 +121,7 @@ For the **IAM Identity Service service** authorization policy:
 For the **IAM Access Groups Service service** authorization policy:
 1. In the account where you'd like to manage the IAM credentials, go to **Manage > Access (IAM)**.
 2. Select **Authorizations** from the left pane menu.
-3. Click on **Create**.
+3. Click **Create**.
 4. Under Source select **Specific account** and provide the account ID the {{site.data.keyword.secrets-manager_short}} instance belongs to.
      - Service: **{{site.data.keyword.secrets-manager_short}}**.
      - Resources: **Specific resources > Service instance** and provide the servce instance ID for your {{site.data.keyword.secrets-manager_short}} instance.

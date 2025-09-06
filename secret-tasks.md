@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-09-06"
 
 keywords: Secrets Manager custom credentials, secret tasks
 
@@ -10,7 +10,7 @@ subcollection: secrets-manager
 
 ---
 
-{{site.data.keyword.attribute-definition-list}}
+{{site.data.keyword.attribute-definition-list}}"
 
 # Secret tasks
 {: #secret-tasks}
@@ -39,8 +39,8 @@ Tasks have different **statuses**, **types**, and record of **values** associate
 
 | Status | Description |
 | ----- | :----- |
-| `create_credentials` | This type represents a task that creates credentials. Can be triggered as a result of secret creation or a rotation. |
-| `delete_credentials` | This type represents a task that deletes previously created credentials. It can be triggered as a result of deleting the secret, the expiration or deletion a specific version, or by rotation. | 
+| `create_credentials` | This type represents a task that creates credentials. Can be triggered because of secret creation or a rotation. |
+| `delete_credentials` | This type represents a task that deletes previously created credentials. It can be triggered because of deleting the secret, the expiration or deletion a specific version, or by rotation. | 
 {: caption="Available task types" caption-side="top"}
 {: #task-types-table1}
 {: tab-title="Task types"}
@@ -51,11 +51,11 @@ Tasks have different **statuses**, **types**, and record of **values** associate
 
 | Status | Description |
 | ----- | :----- |
-| `secret_creation`	| This task was triggered as a result of the creation of the secret. |
-| `manual_secret_rotation` |	This task was triggered as a result of a manual rotation. |
-| `automatic_secret_rotation` |	This task was triggered as a result of an automatic (periodic) rotation. |
-| `secret_version_expiration`	| This task was triggered as a result of an expiration of a secret version. |
-| `secret_version_data_deletion` |	This task was triggered as a result of deleting a secret. |
+| `secret_creation`	| This task was triggered because of the creation of the secret. |
+| `manual_secret_rotation` |	This task was triggered because of a manual rotation. |
+| `automatic_secret_rotation` |	This task was triggered because of an automatic (periodic) rotation. |
+| `secret_version_expiration`	| This task was triggered because of an expiration of a secret version. |
+| `secret_version_data_deletion` |	This task was triggered because of deleting a secret. |
 {: caption="Available task record values" caption-side="top"}
 {: #task-record-values-table1}
 {: tab-title="Task record values"}
@@ -77,7 +77,7 @@ To delete a secret task:
 
 1. In the **Secrets** table, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) to open a list of options for your secret.
 2. Click **Tasks** to view all tasks.
-3. Tick the checkbox fora task to delete and click on **Delete selected**.
+3. Tick the checkbox for a task to delete and click  **Delete selected**.
 
 ## Working with secret tasks from CLI
 {: #custom-credentials-tasks-cli}

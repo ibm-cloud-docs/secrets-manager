@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2024-11-01"
+lastupdated: "2025-09-06"
 
 keywords:
 
@@ -33,7 +33,7 @@ The customer then is responsible for the use of the exported data and configurat
 This can involve:
 
 - the planning and execution for setting up alternate infrastructure on on different cloud providers or on-prem software that provide similar capabilities to the IBM services
-- the planning and execution for the porting of the required application code on the alternate infrastructure, including the adaptation of customer's application code, deployment automation, etc.
+- the planning and execution for the porting of the required application code on the alternate infrastructure, including the adaptation of customer's application code, deployment automation, and so on.
 - the conversion of the exported data and configuration to format required by the alternate infrastructure and adapted applications
 
 
@@ -71,4 +71,4 @@ Use Private Certificate with [HPCS Key management service](/docs/secrets-manager
 ## Data onwership
 {: #data-portability-data-ownership}
 
-All exported data are classified as Customer content and therefore appliy to them the full customer ownership and licensing rights, as stated in [IBM Cloud Service Agreement](https://www.ibm.com/support/customer/csol/terms/?id=Z126-6304_WS).
+All exported data are classified as Customer content and therefore apply to them the full customer ownership and licensing rights, as stated in [IBM Cloud Service Agreement](https://www.ibm.com/support/customer/csol/terms/?id=Z126-6304_WS).

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-08-12"
+  years: 2025
+lastupdated: "2025-09-06"
 
 keywords: terraform, {{site.data.keyword.secrets-manager_short}}
 
@@ -154,9 +154,9 @@ The Terraform state file is a record of all resources that Terraform manages. Yo
 
 When you are using the {{site.data.keyword.secrets-manager_short}} Terraform provider, a drift might occur in cases such as:
 
-- Secret expiration
-- Secret auto-rotation
-- External changes to Secret Manager resources that are controlled by Terraform
+* Secret expiration
+* Secret auto-rotation
+* External changes to Secret Manager resources that are controlled by Terraform
 
 When you are designing your Terraform project, follow Terraform best practices for managing drift and lifecycle changes to avoid unintentional destruction or recreation of {{site.data.keyword.secrets-manager_short}} resources.
 {: note}
@@ -166,5 +166,3 @@ When you are designing your Terraform project, follow Terraform best practices f
 {: #terraform-setup-next}
 
 Now that you successfully created your first {{site.data.keyword.secrets-manager_short}} service instance with Terraform on {{site.data.keyword.cloud_notm}}, You can review the {{site.data.keyword.secrets-manager_short}} resources and data sources in the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/sm_secrets){: external}. You can also review how to manage your {{site.data.keyword.secrets-manager_short}} resources by following the Terraform steps that are included in the How to section. For example, you can follow the directions on how to create [arbitrary secrets](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets) by using Terraform.
-
-

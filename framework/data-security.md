@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-24"
+lastupdated: "2025-09-06"
 
 keywords: Data security for Secrets Manager, byok, kyok, data storage, data encryption in Secrets Manager, customer managed keys
 
@@ -122,8 +122,8 @@ If you choose to work with a key that you manage, you must ensure that valid IAM
          * Select **Specific account** and provide the ID of your source account where you plan to provision your {{site.data.keyword.secrets-manager_short}} instance.
     3. Select the specific instance of the {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} that contains your root key as the target service.
     4. To scope the authorization:
-         * All keys in a **Key ring** - click on **Add a condition**, select **Key ring ID**, and provide the ID of your key ring. 
-         * A specific encryption key - click on **Add a condition**, select **Resource Type**, and provide value **key**. Next click on **Add a condition**, select **Resource ID** and provide the ID of your encryption key.
+         * All keys in a **Key ring**: click **Add a condition**, select **Key ring ID**, and provide the ID of your key ring. 
+         * A specific encryption key: click **Add a condition**, select **Resource Type**, and provide value **key**. Next click **Add a condition**, select **Resource ID** and provide the ID of your encryption key.
     5. Assign the **Reader** role.
     6. Click **Authorize** to confirm the authorization.
 

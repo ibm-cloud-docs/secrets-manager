@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-08-25"
+lastupdated: "2025-09-06"
 
 keywords: known issues for {{site.data.keyword.secrets-manager_short}}, known limitations for {{site.data.keyword.secrets-manager_short}}
 
@@ -257,7 +257,7 @@ The following limits apply to custom credentials.
 |{{site.data.keyword.secrets-manager_short}} will apply daily retries for failed ‘delete credentials’ tasks for up to 10 days. | Monitor Event Notifications and logs for failed task events and periodically check your external credentials provider for stale or expired credentials. |
 | {{site.data.keyword.secrets-manager_short}}’s secret tasks are throttled to avoid overloading {{site.data.keyword.codeengineshort}}. Slowness may be experienced during operations that change custom credentials secret states when dealing with a large queue. | Design your workloads that consume custom credentials to expect possible delays until secrets are rotated. 
 | Secret lock mode remove_previous_and_delete is not supported. | Use lock mode remove_previous and call the delete secret version data api, specifying secret version id=previous. |
-| Avoid using personal identifiers (e.g., email addresses, social security numbers) or confidential data as input parameters and as credential IDs. {{site.data.keyword.secrets-manager_short}} treats the input parameters and credential ID as metadata, not as sensitive secret data. | Use parameter type secret_id to pass a reference to a secret managed in {{site.data.keyword.secrets-manager_short}} containing the confidential data. Then in the credentials provider job retrieve the secret to access its confidential data. 
-| Updates made to a secret ttl and parameters fields are applied to a new version of the secret. | Rotate the secret to create a new version in order to apply the changes. |
+| Avoid using personal identifiers (for example, email addresses, social security numbers) or confidential data as input parameters and as credential IDs. {{site.data.keyword.secrets-manager_short}} treats the input parameters and credential ID as metadata, not as sensitive secret data. | Use parameter type secret_id to pass a reference to a secret managed in {{site.data.keyword.secrets-manager_short}} containing the confidential data. Then in the credentials provider job retrieve the secret to access its confidential data. 
+| Updates made to a secret ttl and parameters fields are applied to a new version of the secret. | Rotate the secret to create a new version to apply the changes. |
 | Deleting a {{site.data.keyword.secrets-manager_short}} instance will not bulk delete the managed third-party credentials. | When planning to permanently delete a {{site.data.keyword.secrets-manager_short}} instance first delete all its secrets. |
 {: caption="Custom credential limits" caption-side="top"}

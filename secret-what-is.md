@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-08-21"
+lastupdated: "2025-09-06"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -123,7 +123,7 @@ Review the following table to understand the types of static and dynamic secrets
 | [Custom credentials](/docs/secrets-manager?topic=secrets-manager-custom-credentials) | `custom_credentials` | Static | A JSON containing user-defined sensitive data such as keys, certificates, URLs, passwords, and any kind of artbitrary pieces of data as determined the credentials provider. |
 {: caption="Secret types in {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
 
-_* Requires an [engine configuration](/docs/secrets-manager?topic=secrets-manager-secrets-engines) before secrets can be created in the service._
+_*Requires an [engine configuration](/docs/secrets-manager?topic=secrets-manager-secrets-engines) before secrets can be created in the service._
 
 
 ### Supported features by secret type

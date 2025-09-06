@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-11"
+lastupdated: "2025-09-06"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, imported certificates
 
@@ -213,7 +213,7 @@ The following example shows a query that you can use to import an existing certi
 ## Creating a Certificate Signing Request 
 {: #creating-csr}
 
-You can use an Imported Certificate secret to generate a Certificate Signing Reques (CSR) that you can then externally sign with your Certificate Authority and add it back to your Imported Certificate secret.  
+You can use an Imported Certificate secret to generate a Certificate Signing Request (CSR) that you can then externally sign with your Certificate Authority and add it back to your Imported Certificate secret.  
 
 The imported certificate secret is created in **Pre-activation** state. To activate it you should download the CSR file, sign it with your certificate authority and add the signed certificate back as a new secret version.  
 {: important}
