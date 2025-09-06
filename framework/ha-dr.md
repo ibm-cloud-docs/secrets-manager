@@ -2,7 +2,7 @@
 
 copyright:
 years: 2025
-lastupdated: "2025-05-01"
+lastupdated: "2025-09-06"
 
 keywords: HA, DR, high availability, disaster recovery, disaster recovery plan, disaster event, recovery time objective, recovery point objective, secrets manager
 
@@ -84,7 +84,7 @@ Some secrets will need to be adjusted for the recovery region, for example conne
 
 The Secret Manager service instance may have customer created dependencies on these optional services, make sure these exist in the recovered region.
 
-Such an instance should be created before the fact (before any potential disater) and kept in-sync with the source instance.
+Such an instance should be created before the fact (before any potential disaster) and kept in-sync with the source instance.
 {: note}
 
 ### Disaster recovery features
@@ -176,7 +176,7 @@ The following information can help you create and continuously practice your pla
 
 
 
-The following check list associated with each feature can help you create and practice your plan.
+The following checklist associated with each feature can help you create and practice your plan.
 
 - Rotation
    - Create a test resource instance and practice rotating secrets versions and restoring a secret version.
@@ -200,7 +200,7 @@ Disaster recovery steps must be practiced on a regular basis. When building your
 
 ### Customer recovery from BYOK loss
 
-If your service instance was provisioned by using the root key from either {{site.data.keyword.keymanagementservicefull}} or {{site.data.keyword.hscrypto}} and you accidentally deleted the root key, open a support case for the respective service, and include the following information:
+If your service instance was provisioned by using the root key from either {{site.data.keyword.keymanagementservicefull}} or {{site.data.keyword.hscrypto}} and you accidentally deleted the root key, open a support case for the service, and include the following information:
 - Your service instance's CRN
 - Your backup Key Protect or HPCS instance's CRN
 - The new Key Protect or HPCS root key ID
@@ -229,7 +229,7 @@ When creating a new service instance the RTO of the workload using {{site.data.k
 
 Change management includes tasks such as upgrades, configuration changes, and deletion.
 
-It is recommended that you grant users and processes the IAM roles and actions with the least privilage required for their work. For example, limit the ability to delete production resources.
+It is recommended that you grant users and processes the IAM roles and actions with the least privilege required for their work. For example, limit the ability to delete production resources.
 
 
 ## How {{site.data.keyword.IBM}} helps ensure disaster recovery
@@ -240,7 +240,7 @@ It is recommended that you grant users and processes the IAM roles and actions w
 ### How {{site.data.keyword.IBM}} recovers from zone failures
 {: #sm-ibm-zone-failure}
 
-In the event of a zone failure IBM Cloud will resolve the zone outage and when the zone comes back on-line, the global load balancer will resume sending API requests to the restored instance node without need for customer action.
+In the event of a zone failure IBM Cloud will resolve the zone outage and when the zone comes back online, the global load balancer will resume sending API requests to the restored instance node without need for customer action.
 
 ### How {{site.data.keyword.IBM}} recovers from regional failures
 {: #sm-ibm-regional-failure}
@@ -255,7 +255,7 @@ If regional state is corrupted the service will be restored to the state of the 
 - RTO = 2 hours
 - RPO = 24 hours maximum
 
-In the event that IBM can not restore the service instance, the customer must restore as described in the disaster recovery section.
+In the event that IBM cannot restore the service instance, the customer must restore as described in the disaster recovery section.
 
 ## How {{site.data.keyword.IBM}} maintains services
 {: #sm-ibm-service-maintenance}

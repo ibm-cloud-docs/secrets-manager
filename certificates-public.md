@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-02-21"
+lastupdated: "2025-09-06"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, public certificates
 
@@ -548,7 +548,7 @@ To create a public certificate by using Akamai as your DNS provider, complete th
 
 1. Create a certificate authority (CA) configuration by following the steps that are defined in [Adding a CA configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority).
 2. Create a new public certificate by specifying `akamai` as your DNS configuration. 
-3. Use one of the following Akamai's authentication methods. You can use an `edgerc` file or directly provide your Akamai authentication credentials.  [Learn more about Akamai's authentication credentials](https://techdocs.akamai.com/developer/docs/set-up-authentication-credentials).
+3. Use one of the following Akamai's authentication methods. You can use an `edgerc` file or directly provide your Akamai authentication credentials.  [Learn more about Akamai's authentication credentials](https://techdocs.akamai.com/developer/docs/edgegrid).
 
 	1. Provide the path to your `.edgerc` file and the relevant `config_section`.
 

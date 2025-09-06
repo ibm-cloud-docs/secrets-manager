@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-01-14"
+lastupdated: "2025-09-06"
 
 keywords: Service credentials, App ID, App Config, Cloudant, Cloud Object Storage, Event Notifications, Event Streams, etcd, ElasticSearch, PostgreSQL, Redis, MongoDB
 
@@ -106,7 +106,7 @@ The service credential secret that is created by {{site.data.keyword.secrets-man
 ### Assigning IAM service access role for Service credentials
 {: #service-credentials-iam-access-role}
 
-In order to create a service credential, an **IAM service access role** must be selected. The available roles to select from may differ between the supported services. [See list of supported services](/docs/secrets-manager?topic=secrets-manager-service-credentials#service-credentials-supported-services) for related documentation. The selected role is then attached to an **IAM Service ID** that can be either an existing Service ID, or an auto-generated one.
+To create a service credential, an **IAM service access role** must be selected. The available roles to select from may differ between the supported services. [See list of supported services](/docs/secrets-manager?topic=secrets-manager-service-credentials#service-credentials-supported-services) for related documentation. The selected role is then attached to an **IAM Service ID** that can be either an existing Service ID, or an auto-generated one.
 
 The  Service ID continues to be used once secret rotation takes place. If deleting a secret, a pre-existing Service ID will not be deleted, however an auto-generated Service ID will be deleted.
 {: note}
@@ -144,7 +144,7 @@ To create Service credentials by using the {{site.data.keyword.secrets-manager_s
 9. Select the desired service and service instance to create a credential for
 
    If this is the first time the service instance is selected or a service CRN was provided, first authorize {{site.data.keyword.secrets-manager_short}} to access it
-   1. Click on **Authorize** and select **Key Manager**
+   1. Click **Authorize** and select **Key Manager**
    
 10. Click **Next**.
 11. Provide the requested input, depending on the selected service. 

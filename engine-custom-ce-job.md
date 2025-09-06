@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-16"
+lastupdated: "2025-09-06"
 
 keywords: Secrets Manager custom credentials, Secrets Manager third-party
 
@@ -64,9 +64,9 @@ To retain completed jobs using the {{site.data.keyword.codeengineshort}} UI:
 1. In the {{site.data.keyword.cloud_notm}} Console, navigate to Containers → Projects, and open your credentials provider project.
 2. Within the project page, go to Jobs, click the **Jobs tab**, and select your job.
 3. In the Configuration page, open the Environment variables tab.
-4. Locate the `CE_REMOVE_COMPLETED_JOBS` variable and click on its row to edit.
+4. Locate the `CE_REMOVE_COMPLETED_JOBS` variable and click its row to edit.
 5. In the Edit environment variable panel, change the value from `IMMEDIATELY` to `3d`, then click Done.
-6. Return to the Environment variables page and click **Deploy** (top right) to apply the changes. Completed job runs will now be retained for **3 days**.
+6. Return to the Environment variables page and click **Deploy** to apply the changes. Completed job runs will now be retained for **3 days**.
 
 For troubleshooting jobs in a production environment, it is recommended to integrate {{site.data.keyword.codeengineshort}} with Cloud Logs. Refer to the documentation of both services for setup instructions.
 

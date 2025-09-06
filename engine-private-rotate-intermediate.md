@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-21"
+  years: 2020, 2025
+lastupdated: "2025-09-06"
 
 keywords: intermediate certificate authority, intermediate CA, rotate
 
@@ -77,7 +77,7 @@ It is therefore recommended that you set a long validity period for your root CA
 1. Notify your PKI users about the upcoming rotation plan. The time when the new root CA will be available for download, the time when new leaf certificates will be issued using the new CA chain, and the time when the existing root CA certificate will expire.
 2. Follow the [Creating root certificate authorities process](/docs/secrets-manager?topic=secrets-manager-root-certificate-authorities) to create a new root CA.
 3. Follow the [Creating intermediate certificate authorities process](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities) to create your CA chain signed with your new root CA.
-4. Distribute the new root CA to allow all consumers to install it in their trust store alongside the existing root CA.
+4. Distribute the new root CA to allow all consumers to install it in their truststore alongside the existing root CA.
 5. Monitor your rotation plan and notify your PKI users about each upcoming milestone event.
 
 ## Rotating an intermediate CA
@@ -89,7 +89,7 @@ It is therefore recommended that you set a long validity period for your root CA
 Notify your PKI users about the upcoming intermediate CA rotation ahead of time.  
 
 An intermediate CA can be rotated inline in case it is not in use to sign other intermediate CAs.  
-In case you have a multi-tier intermediate CA chain, you should create a new intermediate CAs chain alongside the existing one ahead of time and migrate your PKI consumers to use the new chain.
+In case you have a multitiered intermediate CA chain, you should create a new intermediate CAs chain alongside the existing one ahead of time and migrate your PKI consumers to use the new chain.
 
 ### Rotating an intermediate CA inline
 {: #rotating-intermdiate-ca-inline}
@@ -107,7 +107,7 @@ You can rotate the intermediate CA certificate using the {{site.data.keyword.sec
 2. From the list of services, select your {{site.data.keyword.secrets-manager_short}} instance.
 3. In the **Secrets engines** page, click the **Private certificates** tab.
 4. In the row for the intermediate CA certificate that you want to rotate, click the **Details** menu ![Actions icon](../icons/actions-icon-vertical.svg).
-5. Click on the **Actions** button.
+5. Click the **Actions** button.
 6. Select the **Rotate** action and confirm.
 
 ### Rotating using CLI

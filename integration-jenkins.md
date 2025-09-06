@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-08-12"
+  years: 2025
+lastupdated: "2025-09-06"
 
 keywords: migration, integrations, vault jenkins plug-in, ansible, tool integrations
 
@@ -87,7 +87,7 @@ By following these steps, you can integrate {{site.data.keyword.secrets-manager_
 ## Updating the plug-in's Vault token
 {: #integration-jenkins-token}
 
-You can configure a `vault-refresh` job to run periodically in order to refresh the Vault token before it expires. 
+You can configure a `vault-refresh` job to run periodically to refresh the Vault token before it expires. 
 
 1. Create a periodically repeated job to refresh the token. The token uses the Jenkins CLI command `update-credentials-by-xml` to update the value of the token credential that you defined as a placeholder value in step 2 of the [Setting up](/docs/secrets-manager?topic=secrets-manager-integration-jenkins#integration-jenkins-setup) section.
 2. Create a Jenkins job with the name `vault-refresh`, for example. 
@@ -119,5 +119,3 @@ For more information about the {{site.data.keyword.secrets-manager_short}} authe
 {: #integration-jenkins-next}
 
 Now that you integrated your Jenkins job by using the Vault plug-in, you can fetch secrets from {{site.data.keyword.secrets-manager_short}} and add the environment variables as usual, without additional code changes.
-
-
