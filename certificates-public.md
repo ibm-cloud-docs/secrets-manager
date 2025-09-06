@@ -342,6 +342,7 @@ To create a public certificate by using a manual DNS provider in the UI, complet
 
 20. When your certificate is issued, clean up and remove the TXT records from the domains in your DNS provider account.
 
+
 ### Ordering public certificates with your own DNS provider by using the API
 {: #order-public-cert-manual-api}
 {: api}
@@ -461,17 +462,13 @@ To create a public certificate by using a manual DNS provider, complete the foll
    ```
    {: screen}
 
-
 3. Complete the challenges that are marked as `pending` before they expire by adding the TXT records that are specified in the challenge to your domain in your DNS provider account to verify your ownership of the domain.
 
    If you order a certificate for subdomains, for example, `sub1.sub2.domain.com`, you need to add the TXT records to your registered domain `domain.com`.
    {: note}
-
-
-4. Validate that the TXT records that you added are propagated. Depending on your DNS provider, it can take some time to complete.
-
-
-5. After the records are propagated, call the {{site.data.keyword.secrets-manager_short}} [Create a secret action](/apidocs/secrets-manager/secrets-manager-v2#create-secret-action) API to request Let's Encrypt to validate the challenges to your domain and create a public certificate. 
+   
+5. Validate that the TXT records that you added are propagated. Depending on your DNS provider, it can take some time to complete.
+6. After the records are propagated, call the {{site.data.keyword.secrets-manager_short}} [Create a secret action](/apidocs/secrets-manager/secrets-manager-v2#create-secret-action) API to request Let's Encrypt to validate the challenges to your domain and create a public certificate. 
 
    ```sh
     curl -X POST 
@@ -490,9 +487,7 @@ To create a public certificate by using a manual DNS provider, complete the foll
    If you need to update your certificate later, you can use the [Create a secret action](/apidocs/secrets-manager/secrets-manager-v2#create-secret-action) API but with the action `rotate`. However, you can't automatically rotate manual DNS provider certificates in {{site.data.keyword.secrets-manager_short}}.
    {: note}
 
-
-6. When your certificate is issued, clean up and remove the TXT records from the domains in your DNS provider account.
-
+7. When your certificate is issued, clean up and remove the TXT records from the domains in your DNS provider account.
 
 Want to automate the creation of your public certificates? If your domains are configured through a DNS provider, you can create a script to complete the challenges. Some DNS providers offer an API that checks whether the new records are fully transmitted. If your DNS provider doesn't offer this option, you can configure your client to wait for a specified amount of time, sometimes up to an hour. In {{site.data.keyword.secrets-manager_short}}, after you call `validate-dns-challenges`, you can check the status of the certificate issuance by obtaining your certificate metadata. When the `IssuanceInfo.State` field that is returned changes to `active`, the certificate is issued. 
 {: tip}
@@ -572,8 +567,8 @@ To create a public certificate by using Akamai as your DNS provider, complete th
 					}
 			}
 
-      ```
-      {: pre}
+               ```
+               {: pre}
   
 	2. Provide your Akamai's authentication credentials.
 
@@ -598,8 +593,8 @@ To create a public certificate by using Akamai as your DNS provider, complete th
 						rotate_keys = false
 					}
 			}
-      ```
-      {: pre}
+                 ```
+                 {: pre}
 
 
 The newly created TXT records that are in the relevant domains in Akamai are not automatically deleted. 
@@ -611,10 +606,9 @@ The newly created TXT records that are in the relevant domains in Akamai are not
 {: terraform}
 
 1. Create a certificate authority (CA) configuration by following the steps that are defined in [Adding a CA configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority&interface=ui).
-
 2. Create a new public certificate by specifying `manual` as your DNS configuration.
 
-```terraform
+   ```terraform
     resource "ibm_sm_public_certificate" "sm_public_certificate" {
         instance_id = local.instance_id
         region = local.region
@@ -628,8 +622,8 @@ The newly created TXT records that are in the relevant domains in Akamai are not
         }
     }
 
-```
-{: codeblock}
+   ```
+   {: codeblock}
 
    Example response:
    
@@ -706,33 +700,32 @@ The newly created TXT records that are in the relevant domains in Akamai are not
 5. After the records are propagated, request Let's Encrypt to validate the challenges to your domain and create a public certificate. 
 You can do this by using the Terraform’s [ibm_sm_public_certificate_action_validate_manual_dns](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/sm_public_certificate_action_validate_manual_dns) resource, as shown in the following example of a configuration:
 
-```terraform
+   ```terraform
     resource "ibm_sm_public_certificate_action_validate_manual_dns" "sm_public_certificate_action_validate_manual_dns_instance" {
         instance_id = local.instance_id
         region = local.region
         secret_id = ibm_sm_public_certificate.sm_public_certificate.secret_id
     }
-```
-{: codeblock}
-
-You can use [Terraform’s `depends_on` meta-argument](https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on) to insure Terraform’s configuration is being created in the correct logical order as shown in these instructions.   
-{: tip}
-
-Alternatively, you can call the {{site.data.keyword.secrets-manager_short}} [Create a secret action](/apidocs/secrets-manager/secrets-manager-v2#create-secret-action) API to request Let's Encrypt to validate the challenges to your domain and create a public certificate.
-
-   ```sh
-    curl -X POST 
-    --header "Authorization: Bearer {iam_token}" 
-    --header "Accept: application/json" 
-    --header "Content-Type: application/json" 
-    --data '{ 
-        "action_type": "public_cert_action_validate_dns_challenge"
-    }'\ 
-    "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/{id}/actions"
    ```
    {: codeblock}
-   {: curl}
+
+   You can use [Terraform’s `depends_on` meta-argument](https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on) to insure Terraform’s configuration is being created in the correct logical order as shown in these instructions.   
+   {: tip}
+
+   Alternatively, you can call the {{site.data.keyword.secrets-manager_short}} [Create a secret action](/apidocs/secrets-manager/secrets-manager-v2#create-secret-action) API to request Let's Encrypt to validate the challenges to your domain and create a public certificate.
+
+      ```sh
+       curl -X POST 
+       --header "Authorization: Bearer {iam_token}" 
+       --header "Accept: application/json" 
+       --header "Content-Type: application/json" 
+       --data '{ 
+          "action_type": "public_cert_action_validate_dns_challenge"
+       }'\ 
+       "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/{id}/actions"
+      ```
+      {: codeblock}
+      {: curl}
 
 6. After your certificate is issued (its state is `active`), you must run the Terraform command `terraform apply` again to update your public certificate’s Terraform resource and to use your newly issued certificate.
-
 7. Clean up and remove the TXT records from the domains in your DNS provider account.
