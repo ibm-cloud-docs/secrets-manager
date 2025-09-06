@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-19"
+lastupdated: "2025-09-06"
 
 keywords: Secrets Manager developer tools, integrate with application, API, SDK, CLI
 
@@ -113,7 +113,7 @@ For more information about using {{site.data.keyword.secrets-manager_short}} API
 Already using HashiCorp Vault? You can interact with your {{site.data.keyword.secrets-manager_short}} service instance by using the Vault HTTP API or CLI format.
 
 {{site.data.keyword.secrets-manager_short}} doesn't support all components that are available for Vault. Instead, the service builds on HashiCorp Vault with custom plugins to support the operations in {{site.data.keyword.secrets-manager_short}} for various secret types.
-{:note}
+{: note}
 
 For more information, check out the following resources:
 
@@ -128,13 +128,13 @@ You can also link to pages of {{site.data.keyword.secrets-manager_short}}, such 
 To programmatically create the URL use the following URL pattern. Then, URL encode it and embed in your code.
 
 Create secret panel:
-```
+```sh
 https://cloud.ibm.com/services/secrets-manager/INSTANCE_CRN?paneId=manageSecrets#/manageSecrets/addSecret/SECRET_TYPE
 ```
 
 [List of programmatic secret type names](/docs/secrets-manager?topic=secrets-manager-what-is-secret#secret-types).
 
 Secret details panel:
-```
+```sh
 https://cloud.ibm.com/services/secrets-manager/INSTANCE_CRN?paneId=manageSecrets#/manageSecrets/editSecret/SECRET_ID
 ```
