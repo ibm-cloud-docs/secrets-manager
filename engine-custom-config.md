@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-09-08"
 
 keywords: Secrets Manager custom credentials, Secrets Manager third-party
 
@@ -44,9 +44,9 @@ Navigate to the **Custom credentials** screen inside the **Secret engines** navi
 
    1. Provide a configuration name.
    2. Select the region where your {{site.data.keyword.codeengineshort}} project was created.
-   3. Select the job that was created for this custom credentials secret.
+   3. Select the project and job that was created for this custom credentials secret. If the project and job are in another account, enter the respective project ID and job name.
    4. When creating the configuration you are prompted to create an IAM service authorization between {{site.data.keyword.secrets-manager_short}} as **Source** and {{site.data.keyword.codeengineshort}} as **Target**, if not previously created.
-   5. Select the IAM Credentials secret you have previously created or create one in-context.
+   5. Optionally select the IAM Credentials secret you have previously created or create one in-context.
 3. Click **Add**.
 
 ## Creating your custom credentials engine configuration using the API
