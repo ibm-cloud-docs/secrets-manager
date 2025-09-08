@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-06"
+lastupdated: "2025-09-08"
 
 keywords: Secrets Manager custom credentials, secret tasks
 
@@ -10,7 +10,7 @@ subcollection: secrets-manager
 
 ---
 
-{{site.data.keyword.attribute-definition-list}}"
+{{site.data.keyword.attribute-definition-list}}
 
 # Secret tasks
 {: #secret-tasks}
