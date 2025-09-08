@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-06"
+lastupdated: "2025-09-08"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, public certificates
 
@@ -709,7 +709,7 @@ You can do this by using the Terraform’s [ibm_sm_public_certificate_action_val
    ```
    {: codeblock}
 
-   You can use [Terraform’s `depends_on` meta-argument](https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on) to insure Terraform’s configuration is being created in the correct logical order as shown in these instructions.   
+   You can use [Terraform’s `depends_on` meta-argument](https://developer.hashicorp.com/terraform/language/meta-arguments) to insure Terraform’s configuration is being created in the correct logical order as shown in these instructions.   
    {: tip}
 
    Alternatively, you can call the {{site.data.keyword.secrets-manager_short}} [Create a secret action](/apidocs/secrets-manager/secrets-manager-v2#create-secret-action) API to request Let's Encrypt to validate the challenges to your domain and create a public certificate.
