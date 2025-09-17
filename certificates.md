@@ -97,7 +97,7 @@ You can import an existing certificate by using the {{site.data.keyword.secrets-
 3. In the **Secrets** table, click **Add**.
 4. Click **Next**.
 5. Add a name and description to easily identify your secret.
-6. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
+6. Select the secret group that you want to assign to the secret.
 
     Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 7. Optional: Add labels to help you to search for similar secrets in your instance.
@@ -350,7 +350,7 @@ A successful response returns the ID value of the secret, along with other metad
 
 
 ### Adding the signed certificate back with the API
-{: adding-back-signed-certificate-api}
+{: #adding-back-signed-certificate-api}
 {: api}
 
 Add the signed certificate file back to your secret in your {{site.data.keyword.secrets-manager_short}} instance using the process described in [Manually rotating imported certificates](/docs/secrets-manager?topic=secrets-manager-manual-rotation&interface=api#manual-rotate-imported-cert-api-csr).
@@ -369,7 +369,7 @@ ibmcloud secrets-manager secret-create --secret-name example-imported-cert-csr-s
 ```
 
 ### Updating and downloading the certificate signing requests from the CLI
-{: updating-downlading-csr-cli}
+{: #updating-downlading-csr-cli}
 {: cli}
 
 Before you begin, [follow the CLI docs](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli) to set your API endpoint.
@@ -387,7 +387,7 @@ ibmcloud secrets-manager secret-metadata --id SECRET_ID
 ```
 
 ### Adding the signed certificate back from the CLI
-{: adding-back-signed-certificate-cli}
+{: #adding-back-signed-certificate-cli}
 {: cli}
 
 Add the signed certificate file back to your secret in your {{site.data.keyword.secrets-manager_short}} instance using the process described in [Manually rotating imported certificates](/docs/secrets-manager?topic=secrets-manager-manual-rotation&interface=cli#manual-rotate-imported-certificates-cli-csr).

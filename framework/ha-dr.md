@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-06"
+lastupdated: "2025-09-17"
 
 keywords: HA, DR, high availability, disaster recovery, disaster recovery plan, disaster event, recovery time objective, recovery point objective, secrets manager
 
@@ -194,11 +194,12 @@ The following checklist associated with each feature can help you create and pra
    - Verify regional specific secrets are available in the recovery service instance.
 
 
-To find out more about responsibility ownership between the customer and {{site.data.keyword.cloud_notm}} for using {{site.data.keyword.secrets-manager_short}}, see [link to your products Shared responsibilities topic](). 
+To find out more about responsibility ownership between the customer and {{site.data.keyword.cloud_notm}} for using {{site.data.keyword.secrets-manager_short}}, see [Understanding your responsibilities when using Secrets Manager](/docs/secrets-manager?topic=secrets-manager-understanding-your-responsabilities). 
 
 Disaster recovery steps must be practiced on a regular basis. When building your plan consider the following failure scenarios and resolution.
 
 ### Customer recovery from BYOK loss
+{: #recovery-byok-loss}
 
 If your service instance was provisioned by using the root key from either {{site.data.keyword.keymanagementservicefull}} or {{site.data.keyword.hscrypto}} and you accidentally deleted the root key, open a support case for the service, and include the following information:
 - Your service instance's CRN
@@ -227,10 +228,8 @@ When creating a new service instance the RTO of the workload using {{site.data.k
 ## Change management
 {: #sm-change-management}
 
-Change management includes tasks such as upgrades, configuration changes, and deletion.
-
+Change management includes tasks such as upgrades, configuration changes, and deletion.  
 It is recommended that you grant users and processes the IAM roles and actions with the least privilege required for their work. For example, limit the ability to delete production resources.
-
 
 ## How {{site.data.keyword.IBM}} helps ensure disaster recovery
 {: #sm-ibm-disaster-recovery}
@@ -250,7 +249,7 @@ When a region is restored after a failure, IBM will attempt to restore the servi
 - RTO = few minutes
 - RPO = 0 minutes
 
-If regional state is corrupted the service will be restored to the state of the last internal backup.  All data associated with the service is backed up once daily by the service in a cross-region Cloud Object Storage bucket managed by the service. There is a potential for 24-hour’s worth of data loss. **These backups are not available for customer managed disaster recovery.** When a service is recovered from backups the instance ID will be restored as well so clients using the endpoint will not need to be updated with new connection strings.
+If regional state is corrupted the service will be restored to the state of the last internal backup. All data associated with the service is backed up once daily by the service in a cross-region Cloud Object Storage bucket managed by the service. There is a potential for 24-hour’s worth of data loss. **These backups are not available for customer managed disaster recovery.** When a service is recovered from backups the instance ID will be restored as well so clients using the endpoint will not need to be updated with new connection strings.
 
 - RTO = 2 hours
 - RPO = 24 hours maximum

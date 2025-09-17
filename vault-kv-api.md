@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-19"
+lastupdated: "2025-09-17"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager, KV, key-value, KV APIs
 
@@ -143,7 +143,7 @@ A request to update a key-value secret in the `default` secret group returns the
 Get a version of a key-value secret. A successful request returns the secret data that is associated with the specified version of your secret, along with other metadata. 
 
 ### Example request
-{: kv-version-request}
+{: #kv-version-request}
 
 ```sh
 curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/data/{secret_name}?version={version}' \
