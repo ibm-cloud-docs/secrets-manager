@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-09-17"
 
 keywords: Secrets Manager custom credentials, Secrets Manager third-party
 
@@ -78,7 +78,7 @@ Before you begin, [follow the CLI docs](/docs/secrets-manager?topic=secrets-mana
 To create a custom credentials secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. 
 
 ```sh 
-ibmcloud secrets-manager secret-create --secret-type custom_credentials --secret-name "example-custom-credential-secret" --secret-description "Description of my custom credential secret" --secret-rotation '{"auto_rotate": true,"interval": 30,"unit": "day"}' --custom-credentials-paramters '{"my_input_parameter":"my_param_value"}' --custom-credentials-configuration '{"my_custom_credential_config"}' --secret-custom-metadata '{"metadata_custom_key": "metadata_custom_value"},"version_custom_metadata": {"custom_version_key": "custom_version_value"}}'
+ibmcloud secrets-manager secret-create --secret-type custom_credentials --secret-name "example-custom-credential-secret" --secret-description "Description of my custom credential secret" --secret-rotation '{"auto_rotate": true,"interval": 30,"unit": "day"}' --custom-credentials-parameters '{"my_input_parameter":"my_param_value"}' --custom-credentials-configuration '{"my_custom_credential_config"}' --secret-custom-metadata '{"metadata_custom_key": "metadata_custom_value"},"version_custom_metadata": {"custom_version_key": "custom_version_value"}}'
 ```
 {: pre}
 
