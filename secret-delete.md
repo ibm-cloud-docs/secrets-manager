@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-09-17"
 
 keywords: delete secret, remove secret, destroy secret
 
@@ -116,7 +116,6 @@ If attempting to delete a custom credentials secret, note that it cannot be dele
 You can force delete it using `force_delete` option.
 {: note}
 
-{: curl}
 ``` sh
 curl -X DELETE  
   --H "Authorization: Bearer {iam_token}" \ 
