@@ -97,7 +97,7 @@ You can import an existing certificate by using the {{site.data.keyword.secrets-
 3. In the **Secrets** table, click **Add**.
 4. Click **Next**.
 5. Add a name and description to easily identify your secret.
-6. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
+6. Select the secret group that you want to assign to the secret.
 
     Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 7. Optional: Add labels to help you to search for similar secrets in your instance.
