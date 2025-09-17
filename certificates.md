@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-06"
+lastupdated: "2025-09-17"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, imported certificates
 
@@ -135,7 +135,7 @@ You can import certificate files that are in the `.pem` format. Be sure to [conv
 certificate=$(cat cert.pem)
 private_key=$(cat key.pem)
 
-ibmcloud secrets-manager secret-create --secret-name=example-imported-cert-secret --secret-type=imported_cert --imported-cert-certificate ${certificate} --imported-cert-private-key ${private_key}
+ibmcloud secrets-manager secret-create --secret-name example-imported-cert-secret --secret-type imported_cert --imported-cert-certificate ${certificate} --imported-cert-private-key ${private_key}
 ```
 {: pre}
 
@@ -365,7 +365,7 @@ Before you begin, [follow the CLI docs](/docs/secrets-manager?topic=secrets-mana
 To create a certificate signing request by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. For example, the following command creates a certificate signing request with the `--imported-cert-managed-csr` option to add the field `common_name` with value **example.com**. Review the [{{site.data.keyword.secrets-manager_short}} API docs](/apidocs/secrets-manager/secrets-manager-v2#create-secret) for a full list of supported optional subject fields.
 
 ```
-ibmcloud secrets-manager secret-create --secret-name=example-imported-cert-csr-secret --secret-type=imported_cert --imported-cert-managed-csr='{"common_name":"example.com"}'
+ibmcloud secrets-manager secret-create --secret-name example-imported-cert-csr-secret --secret-type imported_cert --imported-cert-managed-csr '{"common_name":"example.com"}'
 ```
 
 ### Updating and downloading the certificate signing requests from the CLI
@@ -377,7 +377,7 @@ Before you begin, [follow the CLI docs](/docs/secrets-manager?topic=secrets-mana
 To update a certificate signing request by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-metadata-update`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-metadata-update-command) command. For example, the following command updates a certificate signing request with the `--imported-cert-managed-csr` option to add the field `alt_names` with value **alt1**. Review the [{{site.data.keyword.secrets-manager_short}} API docs](/apidocs/secrets-manager/secrets-manager-v2#create-secret) for a full list of supported optional subject fields.
 
 ```
-ibmcloud secrets-manager secret-metadata-update --id SECRET_ID --imported-cert-managed-csr='{"alt_names":"alt1"}'
+ibmcloud secrets-manager secret-metadata-update --id SECRET_ID --imported-cert-managed-csr '{"alt_names":"alt1"}'
 ```
 
 To get the certificate signing request by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-metadata`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-metadata-command) command.
