@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-28"
+lastupdated: "2025-09-17"
 
 keywords: secret version history, view versions, secret versions
 
@@ -205,8 +205,6 @@ ibmcloud secrets-manager secret-version-metadata-update --secret-id SECRET-ID --
 If you're updating the metadata of a secret version, you can use the {{site.data.keyword.secrets-manager_short}} API.
 
 The following example request updates metadata properties for each version. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. The options for `{secret_type}` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, `service_credentials`, `custom_credentials`, and `username_password`.
-{: curl}
-
 
 ```sh
 curl -X PATCH  
@@ -219,9 +217,7 @@ curl -X PATCH
 {: codeblock}
 {: curl}
 
-
 A successful response returns metadata details about each secret version.
-
 
 ```json
 {
@@ -289,7 +285,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} CLI to restore a sec
 
 The following example command restores the previous version of a secret. When you call the command, replace the SECRET_ID variable with the value that is specific to your {{site.data.keyword.secrets-manager_short}} instance.
 
-```bash
+```sh
 ibmcloud sm secret-version-create --secret-d SECRET_ID --secret-version-restore-from-version "previous"
 ```
 {: pre}
@@ -312,7 +308,7 @@ To list the versions of a secret and obtain the ID of each version, use the [Lis
 {: tip}
 
 
-```bash
+```sh
 curl -X POST 
   --H "Authorization: Bearer {iam_token}" \
   --H "Accept: application/json" \
