@@ -350,7 +350,7 @@ A successful response returns the ID value of the secret, along with other metad
 
 
 ### Adding the signed certificate back with the API
-{: adding-back-signed-certificate-api}
+{: #adding-back-signed-certificate-api}
 {: api}
 
 Add the signed certificate file back to your secret in your {{site.data.keyword.secrets-manager_short}} instance using the process described in [Manually rotating imported certificates](/docs/secrets-manager?topic=secrets-manager-manual-rotation&interface=api#manual-rotate-imported-cert-api-csr).
@@ -369,7 +369,7 @@ ibmcloud secrets-manager secret-create --secret-name example-imported-cert-csr-s
 ```
 
 ### Updating and downloading the certificate signing requests from the CLI
-{: updating-downlading-csr-cli}
+{: #updating-downlading-csr-cli}
 {: cli}
 
 Before you begin, [follow the CLI docs](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli) to set your API endpoint.
@@ -387,7 +387,7 @@ ibmcloud secrets-manager secret-metadata --id SECRET_ID
 ```
 
 ### Adding the signed certificate back from the CLI
-{: adding-back-signed-certificate-cli}
+{: #adding-back-signed-certificate-cli}
 {: cli}
 
 Add the signed certificate file back to your secret in your {{site.data.keyword.secrets-manager_short}} instance using the process described in [Manually rotating imported certificates](/docs/secrets-manager?topic=secrets-manager-manual-rotation&interface=cli#manual-rotate-imported-certificates-cli-csr).

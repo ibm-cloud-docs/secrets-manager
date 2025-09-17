@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-06"
+lastupdated: "2025-09-17"
 
 keywords: Secrets Manager custom credentials, Secrets Manager third-party
 
@@ -34,7 +34,7 @@ A typical job flow involves:
 
 The following {{site.data.keyword.codeengineshort}} job flow diagram illustrates this lifecycle.
 
-![The diagram shows the lifecycle of a {{site.data.keyword.codeengineshort}} credentials provider job.](/images/custom-credentials-ce-job-lifecycle-diagram.drawio.svg){: caption="{{site.data.keyword.codeengineshort}} job lifecycle" caption-side="bottom"}
+![The diagram shows the lifecycle of a {{site.data.keyword.codeengineshort}} credentials provider job](/images/custom-credentials-ce-job-lifecycle-diagram.drawio.svg){: caption="{{site.data.keyword.codeengineshort}} job lifecycle" caption-side="bottom"}
 
 {{site.data.keyword.secrets-manager_short}} retries daily (for up to 10 days) to delete credentials after a failed deletion attempt. Request retries are recommended when applicable but omitted in the flow diagram for clarity. A `400` or `404` status response to the **Secret task update** request indicates that the secret task cannot be updated by a retry.
 {: note}
