@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-06"
+lastupdated: "2025-09-18"
 
 keywords: monitoring, metrics, operational metrics
 
@@ -101,7 +101,7 @@ To enable platform metrics in a region, complete the following steps:
 
 6. Click **Configure.**
 
-You can also reach this location by clicking on the **Actions** dropdown in your {{site.data.keyword.secrets-manager_short}} instance, followed by clicking on **Add monitoring**.
+You can also reach this location by clicking on the **Actions** drop down menu in your {{site.data.keyword.secrets-manager_short}} instance, followed by clicking on **Add monitoring**.
 
 ## {{site.data.keyword.secrets-manager_short}} metrics details
 {: #sm-metrics}
@@ -115,8 +115,8 @@ The total amount of secrets and secret groups in the instance
 
 |Metric Name|Description|Metric Type|Value Type|
 |--- |--- |--- |--- |
-|ibm_sm_secrets_count|Total amount of secrets|Gauge|None|
-|ibm_sm_secret_groups_count|Total amount of secret groups|Gauge|None|
+|`ibm_sm_secrets_count`|Total amount of secrets|Gauge|None|
+|`ibm_sm_secret_groups_count`|Total amount of secret groups|Gauge|None|
 {: caption="Describes the API Hits metrics." caption-side="bottom"}
 
 ### Total requests
@@ -126,12 +126,12 @@ The type and amount of API requests being made to your {{site.data.keyword.secre
 
 |Metric Name|Description|Metric Type|Value Type|
 |--- |--- |--- |--- |
-|ibm_sm_delete_private_requests_count|Total amount of delete requests in private network|Gauge|None|
-|ibm_sm_delete_public_requests_count|Total amount of delete requests in public network|Gauge|None|
-|ibm_sm_read_private_requests_count|Total amount of read requests in private network|Gauge|None|
-|ibm_sm_read_public_requests_count|Total amount of read requests in public network|Gauge|None|
-|ibm_sm_write_private_requests_count|Total amount of write requests in private network|Gauge|None|
-|ibm_sm_write_public_requests_count|Total amount of write requests in public network|Gauge|None|
+|`ibm_sm_delete_private_requests_count`|Total amount of delete requests in private network|Gauge|None|
+|`ibm_sm_delete_public_requests_count`|Total amount of delete requests in public network|Gauge|None|
+|`ibm_sm_read_private_requests_count`|Total amount of read requests in private network|Gauge|None|
+|`ibm_sm_read_public_requests_count`|Total amount of read requests in public network|Gauge|None|
+|`ibm_sm_write_private_requests_count`|Total amount of write requests in private network|Gauge|None|
+|`ibm_sm_write_public_requests_count`|Total amount of write requests in public network|Gauge|None|
 {: caption="Describes the API Hits metrics." caption-side="bottom"}
 
 ### Error count
@@ -141,8 +141,8 @@ This metric gathers the number of `4xx` and `5xx` errors encountered from all AP
 
 |Metric Name|Description|Metric Type|Value Type|
 |--- |--- |--- |--- |
-|ibm_sm_4xx_errors_count|Total amount of 4xx errors|Gauge|None|
-|ibm_sm_5xx_errors_count|Total amount of 5xx errors|Gauge|None|
+|`ibm_sm_4xx_errors_count`|Total amount of 4xx errors|Gauge|None|
+|`ibm_sm_5xx_errors_count`|Total amount of 5xx errors|Gauge|None|
 {: caption="Describes the API Hits metrics." caption-side="bottom"}
 
 ## Latency
@@ -155,15 +155,15 @@ The latency is calculated by getting the average of all requests of the same typ
 
 |Metric Name|Description|Metric Type|Value Type|
 |--- |--- |--- |--- |
-|ibm_sm_latency_delete_avg_ms|Delete operation average response time|Gauge|Milliseconds|
-|ibm_sm_latency_delete_max_ms|Delete operation maximum response time|Gauge|Milliseconds|
-|ibm_sm_latency_delete_min_ms|Delete operation minimum response time|Gauge|Milliseconds|
-|ibm_sm_latency_read_avg_ms|Read operation average response time|Gauge|Milliseconds|
-|ibm_sm_latency_read_max_ms|Read operation maximum response time|Gauge|Milliseconds|
-|ibm_sm_latency_read_min_ms|Read operation minimum response time|Gauge|Milliseconds|
-|ibm_sm_latency_write_avg_ms|Write operation average response time|Gauge|Milliseconds|
-|ibm_sm_latency_write_max_ms|Write operation maximum response time|Gauge|Milliseconds|
-|ibm_sm_latency_write_min_ms|Write operation minimum response time|Gauge|Milliseconds|
+|`ibm_sm_latency_delete_avg_ms`|Delete operation average response time|Gauge|Milliseconds|
+|`ibm_sm_latency_delete_max_ms`|Delete operation maximum response time|Gauge|Milliseconds|
+|`ibm_sm_latency_delete_min_ms`|Delete operation minimum response time|Gauge|Milliseconds|
+|`ibm_sm_latency_read_avg_ms`|Read operation average response time|Gauge|Milliseconds|
+|`ibm_sm_latency_read_max_ms`|Read operation maximum response time|Gauge|Milliseconds|
+|`ibm_sm_latency_read_min_ms`|Read operation minimum response time|Gauge|Milliseconds|
+|`ibm_sm_latency_write_avg_ms`|Write operation average response time|Gauge|Milliseconds|
+|`ibm_sm_latency_write_max_ms`|Write operation maximum response time|Gauge|Milliseconds|
+|`ibm_sm_latency_write_min_ms`|Write operation minimum response time|Gauge|Milliseconds|
 {: caption="Describes the Latency metrics." caption-side="bottom"}
 
 ## Attributes for segmentation
@@ -173,11 +173,11 @@ You can filter your metrics by using segmentation attributes.
 
 |Attribute Name|Description|
 |--- |--- |
-|ibm_ctype|public, dedicated, or local.|
-|ibm_location|Location of the {{site.data.keyword.secrets-manager_short}} service instance.|
-|ibm_scope|The account, organization, or space GUID associated with the metric.|
-|ibm_service_instance|{{site.data.keyword.secrets-manager_short}} service instance ID.|
-|ibm_service_name|secrets-manager.|
+|`ibm_ctype`|public, dedicated, or local.|
+|`ibm_location`|Location of the {{site.data.keyword.secrets-manager_short}} service instance.|
+|`ibm_scope`|The account, organization, or space GUID associated with the metric.|
+|`ibm_service_instance`|{{site.data.keyword.secrets-manager_short}} service instance ID.|
+|`ibm_service_name`|secrets-manager.|
 {: caption="Describes the attributes use for segmenting metrics." caption-side="bottom"}
 
 ## Metrics filter attributes
@@ -187,9 +187,9 @@ You can scope down your metrics by using scope filters, which are more granular 
 
 |Attribute Name|Description|
 |--- |--- |
-|ibm_scope|The account, organization, or space GUID associated with the metric.|
-|ibm_location|The location of the instance.|
-|ibm_service_instance|The service instance id associated with the metric.|
+|`ibm_scope`|The account, organization, or space GUID associated with the metric.|
+|`ibm_location`|The location of the instance.|
+|`ibm_service_instance`|The service instance id associated with the metric.|
 {: caption="Describes the scope filters for {{site.data.keyword.secrets-manager_short}} metrics." caption-side="bottom"}
 
 ## Default dashboards
@@ -205,7 +205,7 @@ After configuring your {{site.data.keyword.mon_short}} instance to receive platf
 3. Once you are in the {{site.data.keyword.mon_short}} platform, click **Dashboards** to open up the side menu.
 4. Select **{{site.data.keyword.secrets-manager_short}}** under the **IBM** section to view the dashboard.
 
-To see metrics for one or more instances, select from the **ibm_service_instance** dropdown in the {{site.data.keyword.secrets-manager_short}} dashboard.
+To see metrics for one or more instances, select from the **`ibm_service_instance`** dropdown in the {{site.data.keyword.secrets-manager_short}} dashboard.
 {: note}
 
 ### Opening the {{site.data.keyword.mon_short}} dashboard from {{site.data.keyword.secrets-manager_short}}
