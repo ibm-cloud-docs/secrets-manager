@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-09"
+lastupdated: "2025-09-18"
 
 keywords: access secret, retrieve secret, read secret, get secret value, get secrets, view secrets, search secrets, read secrets, get secret value
 
@@ -83,12 +83,12 @@ The secret value is displayed for 15 seconds, then the dialog closes.
 After your secret has been rotated, you can view the previous secret value from the **Version history** option.
 {: tip}
 
-You can also retieve a secret's details such as expiration date, and rotation interval or state.
+You can also retrieve a secret's details such as expiration date, rotation interval, or state.
 
 1. In the **Secrets** table, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) to open a list of options for your secret.
 2. To view the secret value, click **Details**.
 
-You can further filter retrieved secrets from the filter option in the Secrets table, and select a secret group and/or secret type.
+You can further filter retrieved secrets from the filter option in the Secrets table, and select a secret group, secret type, or both.
 {: note}
 
 
