@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-17"
+lastupdated: "2025-09-18"
 
 keywords: HA, DR, high availability, disaster recovery, disaster recovery plan, disaster event, recovery time objective, recovery point objective, secrets manager
 
@@ -71,7 +71,7 @@ subcollection: secrets-manager
 
 A {{site.data.keyword.secrets-manager_short}} service instance is provisioned across three zones in a multi-zone region with no single point of failure. API requests are routed through a global load balancer to three HA instance nodes each in a different availability zone.
 
-In the event of a HA instance node or availability zone failure, the service will continue to run with API requests being routed through a global load balancer to the surviving HA instance nodes. There may be a short period of time (seconds) between the outage and the global load balancer recognizing the failure, during which time, requests may be sent to the failed instance. Workloads that programmatically access the service instance should follow the [client availability retry logic](/docs/resiliency?topic=resiliency-high-availability-design#client-retry-logic-for-ha) to maintain availability. There is no noticeable degradation of service during a zonal failure.
+If an availability zone experiences failures, the service will continue to run with API requests being routed through a global load balancer to the surviving HA instance nodes. There may be a short period of time (seconds) between the outage and the global load balancer recognizing the failure, during which time, requests may be sent to the failed instance. Workloads that programmatically access the service instance should follow the [client availability retry logic](/docs/resiliency?topic=resiliency-high-availability-design#client-retry-logic-for-ha) to maintain availability. There is no noticeable degradation of service during a zonal failure.
 
 {{site.data.keyword.secrets-manager_full}} instances are highly available with no configuration required.
 
@@ -123,9 +123,9 @@ Secret Manager secrets are generally updated via “rotation” where writing a 
 
 The customer must create and use some combination of terraform, script or program as the source of truth. First update the source of truth and then use the source of truth to create/update the primary service instance and the recovery service instance. The source must be available to the restore version and is a single point of failure.
 
-In the event of a customer declared disaster in the primary instance the service in the recovery region will be used (Minimal Operation) or the created (Zero Footprint). Redirect your workload components to the recovered instance or optionally insert into the retry code within your application to redirect requests to the second instance (Minimal Operation). 
+If a customer declared disaster in the primary instance the service in the recovery region will be used (Minimal Operation) or the created (Zero Footprint). Redirect your workload components to the recovered instance or optionally insert into the retry code within your application to redirect requests to the second instance (Minimal Operation). 
 
-The repository that contains the source of truth should have point in time recovery like {{site.data.keyword.cos_short}} versioned buckets or Github repositories.
+The repository that contains the source of truth should have point-in-time recovery such as {{site.data.keyword.cos_short}} buckets with versioning, or Github repositories.
 
 #### Backup and restore customer provided feature
 {: #sm-backup-and-restore-feature}
@@ -138,16 +138,16 @@ If you have existing configurations on secrets engines in your instance, you can
 
 Add your downloaded secrets to the newly created instance.
 
-Creating an automatic backup of your secrets is possible by automating the manual flow, which can be done in various ways. Check out some of the following examples to see whether one of them might work for you.
+Creating an automatic backup of your secrets is possible by automating the manual flow, which can be done in various ways. Review the following examples to see whether one of them might work for you.
 
 #### Live synchronization customer provided feature
 {: #sm-live-syncrhonization-feature}
 
 It is possible for the customer to create a script or program to download secrets from your primary service instance by using the {{site.data.keyword.secrets-manager_short}} API or and populate the recovery service instance with the data. The script can take advantage of [IBM Cloud Logs](/cloud-logs?topic=cloud-logs-getting-started) audit events of the primary instance to keep the recovery instance in sync along with Code Engine. Customer managed backups should be kept to restore from the disaster.
 
-Create a script that periodically downloads all of your secrets and then imports them into your backup instance.
+Create a script that periodically downloads your secrets and then imports them into your backup instance.
 
-Create a destination and subscription in Event Notifications that points to an IBM Cloud Code Engine action. Configure the action to listen for lifecycle events such as secret_created and secret_rotated. Then, when the action receives the event, the action downloads the secret from one instance and adds it to the backup instance.
+Create a destination and subscription in Event Notifications that points to an IBM Cloud Code Engine action. Configure the action to listen for lifecycle events such as `secret_created` and `secret_rotated`. Then, when the action receives the event, the action downloads the secret from one instance and adds it to the backup instance.
 
 {{site.data.keyword.secrets-manager_short}} supports notifications for the different secret types it provides. To learn about the various available lifecycle event types, see [Enabling event notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications).
 {: note}
@@ -171,10 +171,6 @@ The disaster recovery steps must be practiced regularly. As you build your plan,
 
 ## Your responsibilities for HA and DR
 {: #sm-feature-responsibilities}
-
-The following information can help you create and continuously practice your plan for HA and DR.
-
-
 
 The following checklist associated with each feature can help you create and practice your plan.
 
@@ -239,7 +235,7 @@ It is recommended that you grant users and processes the IAM roles and actions w
 ### How {{site.data.keyword.IBM}} recovers from zone failures
 {: #sm-ibm-zone-failure}
 
-In the event of a zone failure IBM Cloud will resolve the zone outage and when the zone comes back online, the global load balancer will resume sending API requests to the restored instance node without need for customer action.
+In case of a zone failure IBM Cloud will resolve the zone outage and when the zone comes back online, the global load balancer will resume sending API requests to the restored instance node without need for customer action.
 
 ### How {{site.data.keyword.IBM}} recovers from regional failures
 {: #sm-ibm-regional-failure}
@@ -254,7 +250,7 @@ If regional state is corrupted the service will be restored to the state of the 
 - RTO = 2 hours
 - RPO = 24 hours maximum
 
-In the event that IBM cannot restore the service instance, the customer must restore as described in the disaster recovery section.
+In case that IBM cannot restore the service instance, the customer must restore as described in the disaster recovery section.
 
 ## How {{site.data.keyword.IBM}} maintains services
 {: #sm-ibm-service-maintenance}
