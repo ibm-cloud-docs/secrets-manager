@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-06"
+lastupdated: "2025-09-18"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -71,7 +71,7 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 {: release-note}
 
 New Secret Access Tracking
-:   You can now view when was tue secret data last accessed in {{site.data.keyword.secrets-manager_short}}. The new **Last Accessed** field is available in the service UI, and the `retrieved_at` field is accessible via the API. This enhancement provides greater visibility into secret usage, helping you monitor and manage your secrets more effectively.
+:   You can now view when was the secret data last accessed in {{site.data.keyword.secrets-manager_short}}. The new **Last Accessed** field is available in the service UI, and the `retrieved_at` field is accessible via the API. This enhancement provides greater visibility into secret usage, helping you monitor and manage your secrets more effectively.
 
 ##  29 July 2025
 {: #secrets-manager-july2925}
@@ -87,7 +87,7 @@ Montreal availability
 {: release-note}
 
 Introducing a new secret type - custom credentials
-:   The [custom credentials secret type](/docs/secrets-manager?topic=secrets-manager-custom-credentials) allows {{site.data.keyword.secrets-manager_short}} users to manage the lifecycle of credentials for external systems (e.g., Artifactory, PagerDuty) using {{site.data.keyword.secrets-manager_short}} APIs and integrations. To create custom credentials secrets, you use an  {{site.data.keyword.codeenginefull}} job to handle the interface between {{site.data.keyword.secrets-manager_short}} and the external service.
+:   The [custom credentials secret type](/docs/secrets-manager?topic=secrets-manager-custom-credentials) allows {{site.data.keyword.secrets-manager_short}} users to manage the lifecycle of credentials for external systems (for example Artifactory, PagerDuty) using {{site.data.keyword.secrets-manager_short}} APIs and integrations. To create custom credentials secrets, you use an  {{site.data.keyword.codeenginefull}} job to handle the interface between {{site.data.keyword.secrets-manager_short}} and the external service.
 
 ## 7 April 2025
 {: #secrets-manager-april725}
@@ -115,7 +115,7 @@ Support for CSR in Imported certificates
 {: release-note}
 
 **Common Name** for `public_cert` secret type is now optional.
-:   You can now order a public certificate protecting your long SAN domain name without the need to specify a Common Name meeting the 64 chars limit.. If the Common Name of a certificate is not explicitly specified by the user, Let's encrypt will automatically assign the first alt name that is not longer than 64 chars as the Common Name. If no such alt name is found the certificate will be issued without a Common name.
+:   You can now order a public certificate protecting your long SAN domain name without the need to specify a Common Name meeting the 64 chars limit. If the Common Name of a certificate is not explicitly specified by the user, Let's encrypt will automatically assign the first alt name that is not longer than 64 chars as the Common Name. If no such alt name is found the certificate will be issued without a Common name.
 
 ## 19 November 2024
 {: #secrets-manager-november1924}
@@ -129,7 +129,7 @@ New event notifications for secret types
 {: release-note}
 
 Rotation of intermediate CA certificates
-:   A new configuration `action_type`, `private_cert_configuration_action_rotate_intermediate`, is now available to enable rotation of an intermediate CA's certificate. Learn more about [rotating an intermediate CA](/docs/secrets-manager?topic=secrets-manager-rotating-ca-certificates).
+:   A new configuration `action_type`, `private_cert_configuration_action_rotate_intermediate`, is now available to enable rotation of an intermediate CA certificate. Learn more about [rotating an intermediate CA](/docs/secrets-manager?topic=secrets-manager-rotating-ca-certificates).
 
 ## 23 September 2024
 {: #secrets-manager-september2324}
@@ -226,10 +226,10 @@ Updated {{site.data.keyword.secrets-manager_short}} UI
 
     * New flow for adding secrets
     * New Secrets Details side panel
-    * Ability to get a secret engine's configuration value for public_cert, private_cert, and iam_credentials
-    * Ability to get a secret engine's configuration code snippet for public_cert, private_cert, and iam_credentials
+    * Ability to get a secret engine's configuration value for `public_cert`, `private_cert`, and `iam_credentials`
+    * Ability to get a secret engine's configuration code snippet for `public_cert`, `private_cert`, and `iam_credentials`
     * Ability to get the secret value of the current and previous secret versions
-    * IAM credentials now display an expiration date in the Secrets table when the reuse apikey is set to true
+    * IAM credentials now display an expiration date in the Secrets table when the reuse ap ikey is set to true
     * Improvements to the IAM Credentials secret engine page:
       * Ability to delete a configuration if all IAM credential secrets are first deleted
       * Look and feel enhancements
@@ -273,7 +273,7 @@ Now available: API, SDK, CLI, and Terraform v2.0
    * The actions to list Secrets and get secret metadata return the `versions_total field`. The version's content is not included.
    * Current and previous secret versions can be referenced by using the `current` and `previous` aliases in version APIs.
    * The secret lock mode names `exclusive` and `exclusive_delete` are replaced by `remove_previous` and `remove_previous_and delete`. The modes still perform the same action, only the names changed.
-   * CLI commands to create secret/group/configuration require JSON input instead of param flags.
+   * CLI commands to create secret/group/configuration require JSON input instead of parameter flags.
    * CLI command names for configurations and locks slightly changed.
 
    For more information, check out the [API docs](/apidocs/secrets-manager/secrets-manager-v2#introduction).
@@ -523,7 +523,7 @@ Pricing plan updates coming soon in {{site.data.keyword.secrets-manager_short}}
 {: release-note}
 
 Enable lifecycle notifications for your certificates
-:   You can now integrate with the [{{site.data.keyword.en_short}}](/catalog/services/event-notifications){: external} service so that you can manage and route all of your {{site.data.keyword.secrets-manager_short}} alerts to your preferred destinations.
+:   You can now integrate with the [{{site.data.keyword.en_short}}](/catalog/services/event-notifications){: external} service so that you can manage and route all {{site.data.keyword.secrets-manager_short}} alerts to your preferred destinations.
 
    Currently, {{site.data.keyword.secrets-manager_short}} supports notifications for certificates only. For more information, see [Enabling event notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications).
    {: note}
@@ -554,7 +554,7 @@ Restore secrets to a previous version
    Currently, you can restore 1 version back for IAM credentials and public certificate secrets only. For more information, see [Restoring secrets to a previous version](/docs/secrets-manager?topic=secrets-manager-version-history&interface=ui#restore-secrets).
    {: note}
 
-Rotate IAM credentials on-demand
+Rotate IAM credentials on demand
 :   You can now rotate IAM credentials manually by using the UI or APIs. For more information, see [Rotating secrets manually](/docs/secrets-manager?topic=secrets-manager-manual-rotation).
 
 
