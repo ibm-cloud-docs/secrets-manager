@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-22"
+lastupdated: "2025-09-18"
 
-keywords: rotate, manually rotate, renew, reimport, reorder, manual rotation
+keywords: rotate, manually rotate, renew, import, reorder, manual rotation
 
 subcollection: secrets-manager
 
@@ -72,18 +72,18 @@ Before you get started, be sure that you have the required level of access. To r
 ### Supported secret types
 {: #manual-rotate-by-type}
 
-All the secrets that you store in {{site.data.keyword.secrets-manager_short}} can be rotated and replaced on-demand. How {{site.data.keyword.secrets-manager_short}} evaluates a request to rotate a secret depends on the secret type.
+All the secrets that you store in {{site.data.keyword.secrets-manager_short}} can be rotated and replaced on demand. How {{site.data.keyword.secrets-manager_short}} evaluates a request to rotate a secret depends on the secret type.
 
 | Type | Rotation description |
 | --- | --- |
 | [Arbitrary secrets](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets) | Arbitrary secrets are immediately replaced with the data that you provide on rotation. |
 | [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) |IAM credentials, which consist of a service ID and API key, are immediately regenerated according to their initial configuration. If the IAM credentials secret was created by using an existing service ID in the account, only the API key is regenerated as part of a manual rotation. In contrast, if the secret was created by selecting an access group, both the service ID and API key values are regenerated when they're manually rotated. Important: the **Reuse IAM credentials until lease expires** (`reuse_api_key`) option for an IAM credentials secret impacts whether it can be rotated manually. If this field is `false` or set to **Off** in the UI, manual rotation isn't supported. The API key that is dynamically generated for the secret on each read is already a single-use, ephemeral value.|
-| [Imported certificates](/docs/secrets-manager?topic=secrets-manager-certificates#import-certificates) | Certificates that were initially imported to a service instance are immediately replaced with the data that you reimport on rotation. |
+| [Imported certificates](/docs/secrets-manager?topic=secrets-manager-certificates#import-certificates) | Certificates that were initially imported to a service instance are immediately replaced with the data that you import on rotation. |
 | [Key-value secrets](/docs/secrets-manager?topic=secrets-manager-key-value) | Key-value secrets are immediately replaced with the data that you provide on rotation. |
 | [Private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates) | Private certificates are immediately replaced with a certificate that is signed by its parent or issuing certificate authority.|
 | [Public certificates](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates) | Public certificates move to the **Active, Rotation pending** status to indicate that a request to rotate a certificate is being processed. {{site.data.keyword.secrets-manager_short}} sends the request to the configured certificate authority (CA), for example Let's Encrypt, to validate the ownership of your domains. If the validation completes successfully, a new certificate is issued. |
 | [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | Passwords that are associated with user credentials secrets are immediately replaced with the data that you provide on rotation. |
-| [Service credentials](/docs/secrets-manager?topic=secrets-manager-service-credentials) | The Service credentials secret is replaced with a new one. The previous secretremains available for the remaining time in the defined TTL. |
+| [Service credentials](/docs/secrets-manager?topic=secrets-manager-service-credentials) | The Service credentials secret is replaced with a new one. The previous secret remains available for the remaining time in the defined TTL. |
 | [Custom credentials](/docs/secrets-manager?topic=secrets-manager-custom-credentials) | The Custom credentials secret is replaced with a new one. The previous secret remains available for the remaining time in the defined TTL. |
 
 {: caption="Describes how {{site.data.keyword.secrets-manager_short}} evaluates manual rotation by secret type" caption-side="top"}
@@ -204,7 +204,7 @@ You can use the {{site.data.keyword.secrets-manager_short}} UI to manually rotat
 {: #manual-rotate-imported-cert-ui}
 {: ui}
 
-When it's time to renew a certificate that was initially imported to the service, you can use the {{site.data.keyword.secrets-manager_short}} UI to manually reimport it. After a certificate is rotated, the previous version is retained in case you need it.
+When it's time to renew a certificate that was initially imported to the service, you can use the {{site.data.keyword.secrets-manager_short}} UI to manually import it. After a certificate is rotated, the previous version is retained in case you need it.
 
 If the certificate that you are rotating was previously imported with an intermediate certificate and a private key, include an intermediate certificate and private key on rotation to avoid service disruptions.
 {: important}
@@ -348,7 +348,7 @@ ibmcloud secrets-manager secret-version-create --secret-id SECRET_ID
 
 The command outputs the value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-version-create-command).
 
-### Rotating custom credenetials secrets
+### Rotating custom credentials secrets
 {: #manual-rotate-custom-credentials-cli}
 {: cli}
 
@@ -423,7 +423,7 @@ The command outputs the value of the secret, along with other metadata. For more
 {: #manual-rotate-imported-certificates-cli-csr}
 {: cli}
 
-To reimport a certificate by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-version-create-command) command. For example, the following command rotates a secret and assigns `new-secret-data` as its new version.
+To import again a certificate by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-version-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-version-create-command) command. For example, the following command rotates a secret and assigns `new-secret-data` as its new version.
 
 When the imported certificate secret is managing a CSR, the `private_key` field is not allowed.
 {: important}
