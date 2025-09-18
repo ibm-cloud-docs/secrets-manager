@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-07-29"
+lastupdated: "2025-09-18"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -2842,7 +2842,7 @@ Delete one or more locks that are associated with the current version of a secre
 
 A successful request deletes the locks that you specify. To remove all locks, you can pass `{"locks": ["*"]}` in the request body. Otherwise, specify the names of the locks that you want to delete. For example, `{"locks": ["lock1", "lock2"]}`.
 
-A secret is considered unlocked and able to be revoked or deleted only after all of its locks are removed. To understand whether a secret contains locks, check the `locks_total` field that is returned as part of the metadata of your secret.
+A secret is considered unlocked and able to be revoked or deleted only after all its locks are removed. To understand whether a secret contains locks, check the `locks_total` field that is returned as part of the metadata of your secret.
 {: note}
 
 #### Example request
@@ -3168,7 +3168,7 @@ Delete one or more locks that are associated with the specified secret version.
 
 A successful request deletes the locks that you specify. To remove all locks, you can pass `{"locks": ["*"]}` in in the request body. Otherwise, specify the names of the locks that you want to delete. For example, `{"locks": ["lock-1", "lock-2"]}`.
 
-A secret is considered unlocked and able to be revoked or deleted only after all of its locks are removed. To understand whether a secret contains locks, check the `locks_total` field that is returned as part of the metadata of your secret.
+A secret is considered unlocked and able to be revoked or deleted only after all its locks are removed. To understand whether a secret contains locks, check the `locks_total` field that is returned as part of the metadata of your secret.
 {: note}
 
 #### Example request

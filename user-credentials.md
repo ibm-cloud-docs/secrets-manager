@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-29"
+  years: 2020, 2025
+lastupdated: "2025-09-18"
 
 keywords: username, password, user credentials, store password
 
@@ -237,9 +237,9 @@ You can store a username and password programmatically by using Terraform for {{
 
 You can either provide a password by setting the optional `password` argument in the Terraform configuration or choose to generate a random password. If you omit the `password` argument, {{site.data.keyword.secrets-manager_short}} generates a 32-character random password that contains uppercase letters, lowercase letters, digits, and symbols. You can choose to further customize the generated password by configuring its length (12-256 characters), and whether to include numbers, symbols, and upper-case letters.
 
-If you configure the secret with an automatic rotation policy it is recommended to omit the `password` argument to have the initial password also generated automatically. This is to avoid a Terraform drift situation, where after automatic rotation has occured, Terraform detects that the password had been changed outside of Terraform. 
+If you configure the secret with an automatic rotation policy it is recommended to omit the `password` argument to have the initial password also generated automatically. This is to avoid a Terraform drift situation, where after automatic rotation has occurred, Terraform detects that the password had been changed outside of Terraform. 
 
-The following example shows a query that you can use to create a username and password secret with a randomly-generated password and auto-rotation enabled. This example also shows how to specify a non-default password generation policy for thr secret.
+The following example shows a query that you can use to create a username and password secret with a randomly generated password and auto-rotation enabled. This example also shows how to specify a non-default password generation policy for the secret.
 
 ```terraform
     resource "ibm_sm_username_password_secret" "test_username_password_secret" {
