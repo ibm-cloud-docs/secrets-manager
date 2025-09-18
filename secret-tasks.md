@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-08"
+lastupdated: "2025-09-18"
 
 keywords: Secrets Manager custom credentials, secret tasks
 
@@ -24,8 +24,8 @@ Tasks have different **statuses**, **types**, and record of **values** associate
 
 | Status | Description |
 | ----- | :----- |
-| `queued` |	The task has been created and is waiting in the queue to start processing. Queued tasks may be cancelled by deleting them. |
-| `processing` |	The task is now running. In case of a custom credentials secret type a {{site.data.keyword.codeengineshort}} job run has started and the task is waiting for the job to return or for the timeout to elapse. Processing tasks may be cancelled by deleting them. |
+| `queued` |	The task has been created and is waiting in the queue to start processing. Queued tasks may be canceled by deleting them. |
+| `processing` |	The task is now running. In case of a custom credentials secret type a {{site.data.keyword.codeengineshort}} job run has started and the task is waiting for the job to return or for the timeout to elapse. Processing tasks may be canceled by deleting them. |
 | `credentials_created`	| The creation task has been successfully completed. In case of a custom credentials secret type the {{site.data.keyword.codeengineshort}} job reporting success to {{site.data.keyword.secrets-manager_short}}. Tasks with this status do not accept further updates. |
 | `credentials_deleted`	| The deletion task has been successfully completed. In case of a custom credentials secret type the {{site.data.keyword.codeengineshort}} job. Tasks with this status do not accept further updates. |
 | `failed` | The task timeout elapsed or the credentials provider updated the task with an error. In case of a custom credentials secret type the {{site.data.keyword.codeengineshort}} job has returned to Secrets Manager with an error. Tasks with this status do not accept further updates. |

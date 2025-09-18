@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-03-27"
+  years: 2020, 2025
+lastupdated: "2025-09-18"
 
 keywords: update
 
@@ -62,7 +62,7 @@ With {{site.data.keyword.secrets-manager_full}}, you can update an existing secr
 Note that not all secret types support all options.
 {: shortdesc}
 
-When changing an IAM credential's or Service crednetial's secret TTL, it will be applied only on the next secret version rotation.
+When changing the TTL of an `iam_credentials` or `service_credentials` secret, it will be applied only on the next secret version rotation.
 {: note}
 
 
@@ -77,7 +77,7 @@ Before you get started, be sure that you have the required level of access. To u
 {: ui}
 
 1. In the row for the secret that you want to update, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) > **Details**.
-2. To update a secret's General, Expiration, or Metadata details, click the respective tab.
+2. To update a secret's General, Expiration, or Metadata details, click the relevant tab.
 
 
 ## Updating a secret metadata using CLI
