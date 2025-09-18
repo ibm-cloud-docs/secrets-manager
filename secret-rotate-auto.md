@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-17"
+lastupdated: "2025-09-18"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -124,7 +124,7 @@ If you prefer to schedule your public SSL/TLS certificates to be automatically r
 1. If you're [ordering a public certificate](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates), enable the rotation options.
    
    1. To rotate the certificate automatically, switch the rotation toggle to **On**. Your certificate is automatically reordered 31 days before its expiration date.
-   2. To request a new private key for the certificate on each rotation, switch the rekey toggle to **On**.
+   2. To request a new private key for the certificate on each rotation, switch the re-key toggle to **On**.
 2. If you're editing an existing public certificate, schedule automatic rotation by updating its details.
    1. In the **Secrets** table, view a list of your existing Public certificates.
    2. In the row for the certificate that you want to edit, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Edit details**.
@@ -186,7 +186,7 @@ If you need more control over the rotation frequency of a secret, you can use th
 {: #schedule-auto-rotate-custom-credentials-ui}
 {: ui}
 
-If you prefer to schedule your custom credentials secert to be automatically rotated at regular intervals, you can enable automatic rotation for your Custom credentials secret at their creation. You can also enable auto rotation by editing the details of an existing secret. Choose between a 30, 60, or 90-day rotation interval.
+If you prefer to schedule your `custom_credentials` secret to be automatically rotated at regular intervals, you can enable automatic rotation for your `custom_credentials` secret at their creation. You can also enable auto rotation by editing the details of an existing secret. Choose between a 30, 60, or 90-day rotation interval.
 
 If you need more control over the rotation frequency of a secret, you can use the {{site.data.keyword.secrets-manager_short}} API to set a custom interval by using `day` or `month` units of time. For more information, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#update-secret-metadata).
 {: tip}
@@ -445,9 +445,7 @@ The defined rotation interval cannot be higher than the defined time-to-live.
 {: #schedule-auto-rotate-custom-credentials-api}
 {: api}
 
-The following example request creates an automatic rotation policy for a Custom credentials (`custom_credentials`) secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
-{: curl}
-
+The following example request creates an automatic rotation policy for a `custom_credentials` secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 
 ```sh
 curl -X PATCH 
