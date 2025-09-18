@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-10"
+  years: 2020, 2025
+lastupdated: "2025-09-18"
 
 keywords: secret groups, assign secret access, iam roles, secrets policies, organize secrets
 
@@ -65,7 +65,7 @@ Similar to the way that [resource groups](#x2161955){: term} help to ensure corr
 
 ![The image shows two examples of a secret group and how they're mapped to access groups. One where the reader role is assigned and one where the manager role is assigned. The content is explained fully in the surrounding text.](/images/secret-group.svg){: caption="Assigning access to secret groups" caption-side="bottom"}
 
-As shown in the previous image, users with *Reader* access to a secret group can see that the group exists and understand which secrets are assigned to it. Users with *Writer* access can view and edit the secret group and secrets themselves. By design, the default secret group inherits all of the same permissions that are set for the instance.
+As shown in the previous image, users with *Reader* access to a secret group can see that the group exists and understand which secrets are assigned to it. Users with *Writer* access can view and edit the secret group and secrets themselves. By design, the default secret group inherits the same permissions that are set for the instance.
 
 You can choose to group your secrets by phase of development, specific to the type of roles that people on your team have, or in any way that might help you. Each secret can be mapped to one group only and the mapping occurs at the time of secret creation.
 
