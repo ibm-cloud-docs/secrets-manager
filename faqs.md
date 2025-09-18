@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-19"
+lastupdated: "2025-09-18"
 
 keywords: faqs, Frequently Asked Questions, question, Secrets Manager, dynamic what is a secret, what is an arbitrary secret, what is an IAM credential, arbitrary secret, IAM credential, what happens when secret expires
 
@@ -123,7 +123,7 @@ Both the Reader and SecretsReader roles help you to assign read-only access to {
 {: #faq-differences-key-protect}
 {: faq}
 
-There are a few key differences between using {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.secrets-manager_short}} to store your sensitive data. {{site.data.keyword.secrets-manager_short}} offers flexibility with the types of secrets that you can create and lease to applications and services on-demand. Whereas, {{site.data.keyword.keymanagementserviceshort}} delivers on encryption keys that are rooted in FIPS 140-2 Level 3 [hardware security modules (HSMs)](#x6704988){: term}.
+There are a few key differences between using {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.secrets-manager_short}} to store your sensitive data. {{site.data.keyword.secrets-manager_short}} offers flexibility with the types of secrets that you can create and lease to applications and services on demand. Whereas, {{site.data.keyword.keymanagementserviceshort}} delivers on encryption keys that are rooted in FIPS 140-2 Level 3 [hardware security modules (HSMs)](#x6704988){: term}.
 
 ## How is {{site.data.keyword.secrets-manager_short}} different from Vault?
 {: #faq-differences-vault}
