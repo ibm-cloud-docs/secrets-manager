@@ -3,7 +3,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-06"
+lastupdated: "2025-09-18"
 
 keywords: tutorial, Secrets Manager
 
@@ -98,7 +98,7 @@ Before you get started, be sure that you have [**Administrator** platform access
 - [Download and install the IBM Cloud CLI](/docs/cli).
 - [Install the {{site.data.keyword.secrets-manager_short}} CLI plug-in](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli).
 - [Install the Kubernetes CLI (`kubectl`)](https://kubernetes.io/docs/tasks/tools/){: external}.
-- [Download and install jq](https://stedolan.github.io/jq/){: external}.
+- [Download and install `jq`](https://stedolan.github.io/jq/){: external}.
 
     `jq` helps you slice and filter JSON data. You use `jq` in this tutorial to grab and use stored environment variables.
 

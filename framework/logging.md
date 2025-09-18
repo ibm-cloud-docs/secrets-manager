@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-06"
+lastupdated: "2025-09-18"
 
 keywords: logging, activity, monitor app, monitor secrets
 
@@ -54,12 +54,12 @@ To view {{site.data.keyword.secrets-manager_short}} logs, complete the following
 ## Analyzing logs
 {: #analyze-logs-ui}
 
-You can create views and alerts from all of your {{site.data.keyword.secrets-manager_short}} instances, or from a specific instance. To target a specific instance, replace `host:secrets-manager` with `app:{INSTANCE_CRN}`.
+You can create views and alerts from your {{site.data.keyword.secrets-manager_short}} instances, or from a specific instance. To target a specific instance, replace `host:secrets-manager` with `app:{INSTANCE_CRN}`.
 
 ### Query for finding all errors from all instances
 {: #query-all-logs}
 
-Run the following query to find all errors from all of your instances.
+Run the following query to find all errors in your instances.
 
 ```sh
 host:secrets-manager

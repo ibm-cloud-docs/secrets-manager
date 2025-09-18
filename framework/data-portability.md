@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2025-09-06"
+lastupdated: "2025-09-18"
 
 keywords:
 
@@ -68,7 +68,7 @@ The schema of the exported data is described in the {{site.data.keyword.secrets-
 The private keys that are internally created to sign Root and Intermediate Certificate Authorities when using the Private Certificate engine are not exportable for security reasons. 
 Use Private Certificate with [HPCS Key management service](/docs/secrets-manager?topic=secrets-manager-prepare-create-certificates#prepare-hpcs) to reuse your own private keys in HPCS.
 
-## Data onwership
+## Data ownership
 {: #data-portability-data-ownership}
 
 All exported data are classified as Customer content and therefore apply to them the full customer ownership and licensing rights, as stated in [IBM Cloud Service Agreement](https://www.ibm.com/support/customer/csol/terms/?id=Z126-6304_WS).

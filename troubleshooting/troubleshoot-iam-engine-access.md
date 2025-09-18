@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-10"
+  years: 2020, 2025
+lastupdated: "2025-09-18"
 
 keywords: unable to configure IAM credentials engine, can't create API key, access required for IAM credentials engine
 
@@ -77,7 +77,7 @@ You're not authorized to complete this action. To verify your permissions, conta
 
 You verify with an account owner that you already have [**Manager** service access](/docs/secrets-manager?topic=secrets-manager-iam#iam-roles-actions) to {{site.data.keyword.secrets-manager_short}}, but you're still unable to configure the IAM credentials engine for the instance.
 
-You need additional permissions to [create service ID API keys](/docs/account?topic=account-account-services#identity-service-account-management) in the account. In some cases, API key and service ID creation might also be restricted on the account.
+You need additional permissions to [create service ID API keys](/docs/account?topic=account-account-services#identity-service-account-management) in the account. Sometimes, API key and service ID creation might also be restricted on the account.
 {: tsCauses}
 
 First, verify with the account owner that you're assigned the following IAM permissions:

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-03-03"
+lastupdated: "2025-09-18"
 
 keywords: responsibilities for {{site.data.keyword.secrets-manager_short}}
 
@@ -77,7 +77,7 @@ Incident and operations management includes tasks such as monitoring, event mana
 | Monitor the system | Provide integration with select third-party partnership technologies, such as [{{site.data.keyword.cloud_notm}} Logs](/cloud-logs?topic=cloud-logs-getting-started). | Use the provided tools to review instance logs and activities. |
 | Incident management | Provide notifications for planned maintenance, security bulletins, or unplanned outages.  | Set preferences to receive emails about platform notifications, and monitor the {{site.data.keyword.cloud_notm}} status page for general announcements. |
 {: row-headers}
-{: caption="Responsibilites for incident and operations" caption-side="bottom"}
+{: caption="Responsibilities for incident and operations" caption-side="bottom"}
 {: summary="The rows are read from left to right. The first column describes the task that the customer or IBM might be responsibility for. The second column describes {{site.data.keyword.IBM_notm}} responsibilities for that task. The third column describes your responsibilities as the customer for that task."}
 
 
@@ -90,7 +90,7 @@ Change management includes tasks such as deployment, configuration, upgrades, pa
 |------|-------------------------------------------------|-----------------------|
 | Updates, fixes, and new features | IBM provides regular updates and bug fixes, as well as new features following a continuous delivery model in a manner transparent to the customer. | |
 {: row-headers}
-{: caption="Responsibilites for change management" caption-side="bottom"}
+{: caption="Responsibilities for change management" caption-side="bottom"}
 {: summary="The rows are read from left to right. The first column describes the task that the customer or IBM might be responsibility for. The second column describes {{site.data.keyword.IBM_notm}} responsibilities for that task. The third column describes your responsibilities as the customer for that task."}
 
 
@@ -103,7 +103,7 @@ Identity and access management includes tasks such as authentication, authorizat
 |----------|-----------------------|--------|
 | Restricting access | Provide the ability to control user access based on role. | Use Identity and Access Management (IAM) to assign access. |
 {: row-headers}
-{: caption="Responsibilites for identity and access management" caption-side="bottom"}
+{: caption="Responsibilities for identity and access management" caption-side="bottom"}
 {: summary="The rows are read from left to right. The first column describes the task that the customer or IBM might be responsibility for. The second column describes {{site.data.keyword.IBM_notm}} responsibilities for that task. The third column describes your responsibilities as the customer for that task."}
 
 ## Security and regulation compliance
@@ -115,7 +115,7 @@ Security and regulation compliance includes tasks such as security controls impl
 |----------|-----------------------|--------|
 | Meet security and compliance objectives | Provide a secure service that complies with key standards. For more information about data security, see [How do I know that my data is safe](/docs/overview?topic=overview-security)?  | |
 {: row-headers}
-{: caption="Responsibilites for security and regulation compliance" caption-side="bottom"}
+{: caption="Responsibilities for security and regulation compliance" caption-side="bottom"}
 {: summary="The rows are read from left to right. The first column describes the task that the customer or IBM might be responsibility for. The second column describes {{site.data.keyword.IBM_notm}} responsibilities for that task. The third column describes your responsibilities as the customer for that task."}
 
 ## Disaster recovery
@@ -127,5 +127,5 @@ Disaster recovery includes tasks such as providing dependencies on disaster reco
 |----------|-----------------------|--------|
 | Back up of instance configuration and secrets | Conduct backups of instance configurations and secrets | Consider a secondary instance in a different region.  |
 {: row-headers}
-{: caption="Responsibilites for disaster recovery" caption-side="bottom"}
+{: caption="Responsibilities for disaster recovery" caption-side="bottom"}
 {: summary="The rows are read from left to right. The first column describes the task that the customer or IBM might be responsibility for. The second column describes {{site.data.keyword.IBM_notm}} responsibilities for that task. The third column describes your responsibilities as the customer for that task."}

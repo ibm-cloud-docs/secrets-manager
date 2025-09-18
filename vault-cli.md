@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-19"
+lastupdated: "2025-09-18"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -87,10 +87,10 @@ You need the [**Manager** service role](/docs/secrets-manager?topic=secrets-mana
 #### Command options
 {: #vault-cli-write-token-config-options}
 
-token_ttl
+`token_ttl`
 :   The initial time-to-live (TTL) of the login token to generate. Default is `1h`.
 
-token_max_ttl
+`token_max_ttl`
 :   The maximum lifespan of the login token. Default is `24h`. This value can't exceed the Vault `MaxLeaseTTL` value.
 
 #### Examples
@@ -454,52 +454,52 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
 {: #vault-cli-create-static-secret-options}
 
 
-name
+`name`
 :   The human-readable alias that you want to assign to the secret. Required.
 
-description
+`description`
 :   An extended description to assign to the secret.
 
-expiration_date
+`expiration_date`
 :   The expiration date that you want to assign to the secret. Supported for the `arbitrary` and `username_password` secret types. The date format follows [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).
 
-labels
+`labels`
 :   Labels that you can use to group and search for similar secrets in your instance.
 
-payload
+`payload`
 :   The data that you want to store for `arbitrary` or `kv` secrets. Only text-based payloads are supported for `arbitrary` secrets. The key-value secrets engine can store secrets in complex JSON format. With your key-value secret, you can integrate with tools that are compatible with the HashiCorp Vault KV (Version 2) CLI commands. Learn more about [managing key-value secrets](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv-cli) with the Vault CLI. 
 
-username
+`username`
 :   The username that you want to assign to a `username_password` secret.
 
-password
+`password`
 :   The password that you want assign to a `username_password` secret.
 
-certificate
+`certificate`
 :   The certificate data that you want to store for an `imported_cert` secret. Supported file type is `.pem`.
 
-private_key
+`private_key`
 :   The private key data to store for an `imported_cert` secret. Supported file type is `.pem`.
 
-intermediate
+`intermediate`
 :   Intermediate certificate data to store for an `imported_cert` secret. Supported file type is `.pem`.
 
-ca
+`ca`
 :   The [certificate authority configuration](/docs/secrets-manager?topic=secrets-manager-add-certificate-authority) to be used for ordering a `public_cert` secret.
 
-dns
+`dns`
 :   The [DNS provider configuration](/docs/secrets-manager?topic=secrets-manager-add-dns-provider) to be used for ordering a `public_cert` secret.
 
-key_algorithm
+`key_algorithm`
 :   The key algorithm to be used for signing and issuing a `public_cert` secret. Allowable values include: `RSA2048`, `RSA4096`, `ECDSA256`, `ECDSA384`
 
-certificate_template
+`certificate_template`
 :   The [certificate template](/docs/secrets-manager?topic=secrets-manager-certificate-templates) to be used for creating a `private_cert` secret. 
 
-common_name
+`common_name`
 :   The common name to be used for creating a `private_cert` secret. Depending on the certificate template that you choose, some restrictions on the common name for your private certificate might apply. 
 
--format
+`format`
 :   Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
 
 

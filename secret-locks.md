@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-09-18"
 
 keywords: secret locks, lock secret, prevent deletion, prevent rotation, unlock secret, create lock, delete lock
 
@@ -373,7 +373,7 @@ For more information about the required and optional request parameters, see the
 ## Unlocking secrets
 {: #delete-secret-locks}
 
-A secret is considered unlocked and able to be modified or deleted only after all of its associated locks are removed. You can use the {{site.data.keyword.secrets-manager_short}} UI or APIs to delete locks that are associated with a secret.
+A secret is considered unlocked and able to be modified or deleted only after all its associated locks are removed. You can use the {{site.data.keyword.secrets-manager_short}} UI or APIs to delete locks that are associated with a secret.
 
 ### Deleting locks in the UI
 {: #delete-lock-ui}
