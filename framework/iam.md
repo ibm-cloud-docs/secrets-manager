@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-25"
+lastupdated: "2025-09-18"
 
 keywords: IAM access for Secrets Manager, permissions for Secrets Manager, identity and access management for Secrets Manager, roles for Secrets Manager, actions for Secrets Manager, assigning access for Secrets Manager
 
@@ -61,7 +61,7 @@ subcollection: secrets-manager
 Access to {{site.data.keyword.secrets-manager_full}} service instances for users in your account is controlled by {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM). Every user that accesses the {{site.data.keyword.secrets-manager_short}} service in your account must be assigned an access policy with an IAM role. The policy determines which actions a user can perform within the context of {{site.data.keyword.secrets-manager_short}}.
 {: shortdesc} 
 
-IAM access policies enable access to be granted at different levels. Some of the options include the following actions: 
+IAM access policies enable access to be granted at different levels. Some options include the following actions: 
 
 - Access across all {{site.data.keyword.secrets-manager_short}} service instances in your account
 - Access to an individual {{site.data.keyword.secrets-manager_short}} instance in your account
@@ -95,7 +95,7 @@ If a specific role and its actions don't fit the use case that you're looking to
 | SecretsReader | As a secrets reader, you can complete read-only actions, and you can also access the secret data that is associated with a secret. A secrets reader can't create secrets or modify the value of an existing secret. |
 | Writer | As a writer, you have permissions beyond the secrets reader role, including the ability to create and edit secrets. Writers can't create secret groups, or configure secrets engines. |
 | Manager | As a manager, you have permissions beyond the writer role to complete privileged actions, such as the ability to manage secret groups, and configure secrets engines. |
-| SecretTaskUpdater	| As a secret task updater, you can update a secret task. Secret Task Updaters cannot perform any other operations. |
+| SecretTaskUpdater	| As a secret task updater, you can update a secret task. This role cannot perform any other operations. |
 {: caption="Service roles - {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
 {: #service-roles-table1}
 {: tab-title="Service roles"}
