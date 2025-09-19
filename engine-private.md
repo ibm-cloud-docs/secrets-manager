@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-24"
+lastupdated: "2025-09-19"
 
 keywords: create certificate authority, create root CA, create intermediate CA, set up PKI, set up private certificates, private certificates engine
 
@@ -263,6 +263,6 @@ To verify that the CA chain is from the context of a leaf certificate, you can c
 
 Now you're ready to create certificate authorities for your instance.
 
-- [Create a root certificate authority](/docs/secrets-manager?topic=secrets-manager-root-certificate-authorities)
-- [Create an intermediate certificate authority](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities)
-- [Add a certificate template](/docs/secrets-manager?topic=secrets-manager-certificate-templates)
+  - [Create a root certificate authority](/docs/secrets-manager?topic=secrets-manager-root-certificate-authorities)
+  - [Create an intermediate certificate authority](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities)
+  - [Add a certificate template](/docs/secrets-manager?topic=secrets-manager-certificate-templates)
