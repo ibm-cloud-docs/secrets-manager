@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-19"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -229,7 +229,7 @@ Updated {{site.data.keyword.secrets-manager_short}} UI
     * Ability to get a secret engine's configuration value for `public_cert`, `private_cert`, and `iam_credentials`
     * Ability to get a secret engine's configuration code snippet for `public_cert`, `private_cert`, and `iam_credentials`
     * Ability to get the secret value of the current and previous secret versions
-    * IAM credentials now display an expiration date in the Secrets table when the reuse ap ikey is set to true
+    * IAM credentials now display an expiration date in the Secrets table when the reuse API key is set to `true`
     * Improvements to the IAM Credentials secret engine page:
       * Ability to delete a configuration if all IAM credential secrets are first deleted
       * Look and feel enhancements
@@ -554,7 +554,7 @@ Restore secrets to a previous version
    Currently, you can restore 1 version back for IAM credentials and public certificate secrets only. For more information, see [Restoring secrets to a previous version](/docs/secrets-manager?topic=secrets-manager-version-history&interface=ui#restore-secrets).
    {: note}
 
-Rotate IAM credentials on demand
+Rotate IAM credentials
 :   You can now rotate IAM credentials manually by using the UI or APIs. For more information, see [Rotating secrets manually](/docs/secrets-manager?topic=secrets-manager-manual-rotation).
 
 
