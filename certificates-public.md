@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-17"
+lastupdated: "2025-09-19"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, public certificates
 
@@ -127,9 +127,9 @@ You can order a certificate by using the {{site.data.keyword.secrets-manager_sho
 
 11. Optional: Enable advanced options for the certificate.
 
-    1. To bundle your issued certificate with intermediate certificates, switch the bundle toggle to **On**. After your certificates are bundled, they can no longer be unbundled. If you choose not to bundle the certificates, this cannot be changed afterwards, only by creating a new secret.
+    1. To bundle your issued certificate with intermediate certificates, switch the bundle toggle to **On**. After your certificates are bundled, they can no longer be unbundled. If you choose not to bundle the certificates, this cannot be changed afterward, only by creating a new secret.
     2. To enable automatic rotation for the certificate, switch the rotation toggle to **On**. Your certificate is rotated 31 days before it expires.
-    3. To request a new private key with the certificate on each rotation, switch the rekey toggle to **On**.
+    3. To request a new private key with the certificate on each rotation, switch the re-key toggle to **On**.
    
 12. Select a DNS provider configuration.
 
@@ -316,8 +316,8 @@ To create a public certificate by using a manual DNS provider in the UI, complet
     The key algorithm that you select determines the encryption algorithm (`RSA` or `ECDSA`) and key size to use to generate keys and sign certificates. For longer living certificates, it is recommended to use longer key lengths to provide more encryption protection. Options include `RSA2048`, `RSA4096`, `ECDSA256`, and `ECDSA384`.
 
 12. Optional: Enable advanced options for the certificate.
-    1. To bundle your issued certificate with intermediate certificates, switch the bundle toggle to **On**. After your certificates are bundled, they can no longer be unbundled. If you choose not to bundle the certificates, this cannot be changed afterwards, only by creating a new secret.
-    2. To request a new private key with the certificate on each rotation, switch the rekey toggle to **On**.
+    1. To bundle your issued certificate with intermediate certificates, switch the bundle toggle to **On**. After your certificates are bundled, they can no longer be unbundled. If you choose not to bundle the certificates, this cannot be changed afterward, only by creating a new secret.
+    2. To request a new private key with the certificate on each rotation, switch the re-key toggle to **On**.
 13. Select **Manual** as your DNS provider.
 14. Add the domains to include in your request.
 
@@ -698,7 +698,7 @@ The newly created TXT records that are in the relevant domains in Akamai are not
 4. Validate that the TXT records that you added are propagated. Depending on your DNS provider, it can take some time to complete.
 
 5. After the records are propagated, request Let's Encrypt to validate the challenges to your domain and create a public certificate. 
-You can do this by using the Terraform’s [ibm_sm_public_certificate_action_validate_manual_dns](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/sm_public_certificate_action_validate_manual_dns) resource, as shown in the following example of a configuration:
+You can do this by using the Terraform’s [`ibm_sm_public_certificate_action_validate_manual_dns`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/sm_public_certificate_action_validate_manual_dns) resource, as shown in the following example of a configuration:
 
    ```terraform
     resource "ibm_sm_public_certificate_action_validate_manual_dns" "sm_public_certificate_action_validate_manual_dns_instance" {

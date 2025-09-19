@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-01-29"
+lastupdated: "2025-09-19"
 
 keywords: set up public certificates, public certificates engine, set up CIS, set up CA, set up Let's Encrypt
 
@@ -92,7 +92,7 @@ Certificate authorities can apply a charge when you are ordering or renewing a c
 ### Domain validation
 {: #domain-validation}
 
-{{site.data.keyword.secrets-manager_short}} utilizes Let's Encrypt [DNS-01 challenge](https://letsencrypt.org/docs/challenge-types/#dns-01-challenge){: external} method for domain validation, ensuring that you have control over the domain's DNS configuration. To successfully complete the validation process, public access must be enabled in your DNS provider for the associated domain.
+{{site.data.keyword.secrets-manager_short}} utilizes Let's Encrypt [DNS-01 challenge](https://letsencrypt.org/docs/challenge-types/#dns-01-challenge){: external} method for domain validation, ensuring that you have control over the domain's DNS configuration. To complete the validation process, public access must be enabled in your DNS provider for the associated domain.
 
 ## Supported DNS providers
 {: #connect-dns-provider}
@@ -117,7 +117,7 @@ If you're working with a CIS instance that is located in another account, you ca
 #### Granting service access to CIS
 {: #authorize-domains}
 
-You can grant {{site.data.keyword.secrets-manager_short}} the ability to access your CIS instance and all of its domains by creating a service authorization between the services.
+You can grant {{site.data.keyword.secrets-manager_short}} the ability to access your CIS instance and all its domains by creating a service authorization between the services.
 
 To create a service authorization, you can use the **Access (IAM)** section of the console.
 
@@ -181,7 +181,7 @@ You can view and access your classic infrastructure credentials from the **Acces
 1. In the console, go to **Manage > Access (IAM) > Users**, then select the user's name.
 2. In the VPN password section, copy the **Username** value.
 
-   In most cases, your classic infrastructure username is your `<account_id>_<email_address>`. This username is also your VPN username for the account.
+   Usually, your classic infrastructure username is your `<account_id>_<email_address>`. This username is also your VPN username for the account.
 
 3. In the API keys section, [create a classic infrastructure API key](/docs/account?topic=account-classic_keys) or find your existing key.
 4. Click the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg) **> Details** to copy the API key value.

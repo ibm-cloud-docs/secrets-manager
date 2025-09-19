@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-22"
+lastupdated: "2025-09-19"
 
 keywords: event notifications for {{site.data.keyword.secrets-manager_short}}, event notifications integration for {{site.data.keyword.secrets-manager_short}}, alerts for {{site.data.keyword.secrets-manager_short}}
 
@@ -389,7 +389,7 @@ Review following table for more information about event notification properties.
 | ---- | ---- |
 | `event_sub_type` | The subtype that corresponds with the [type of event](#event-notifications-list) that triggered a notification. |
 | `event_type` | The [type of event](#event-notifications-list) that triggered a notification. |
-| `secret_type` | The type of secret that is associated with the event.  \n  \n Possible values include: imported_cert, private_cert, public_cert|
+| `secret_type` | The type of secret that is associated with the event.  \n  \n Possible values include: `imported_cert`, `private_cert`, `public_cert`|
 | `secrets[]` | A list of objects that contain the metadata properties of a secret that is associated with the event. The properties that are listed vary depending on the secret type.  \n  \n Properties that are sent for all secret types include:  \n - `event_time`: The date and time the event was generated.  \n - `event_triggered_by`: The entity that triggered the event. This can be the {{site.data.keyword.secrets-manager_short}} service or an IBM ID.  \n - `secret_group_id`: The ID of the secret group.  \n - `secret_id`: The ID that uniquely identifies the secret.  \n - `secret_name`: The name of the secret.  \n  \n Events for `imported_cert`, `private_cert`, and `public_cert` secrets also contain:  \n - `domains`: The domains that are associated with the certificate.  \n - `serial_number`: The serial number that is associated with the certificate.  \n  \n Failure events can also contain:  \n - `failure_reason`: The reason for the operation failure. |
 | `tasks[]` | A list of objects that contain the metadata properties of a secret task that is associated with the event. \n  \n Properties that are sent for all secret types include:  \n - `event_time`: The date and time the event was generated.  \n - `event_triggered_by`: The entity that triggered the event. This can be the {{site.data.keyword.secrets-manager_short}} service or an IBM ID.  \n - `secret_group_id`: The ID of the secret group.  \n - `secret_id`: The ID that uniquely identifies the secret.  \n - `secret_name`: The name of the secret.  \n - `task_id`: The ID that uniquely identifies the secret task.  \n - `secret_status`: The status of the secret task.  \n - `task_trigger`: The trigger for this task creation.  \n - `task_type`: The type of the secret task.  \n  \n Failure events can also contain:  \n - `failure_reason`: The reason for the operation failure. |
 | `source_instance_api_private_url` | The [private endpoint URL](/docs/secrets-manager?topic=secrets-manager-endpoints#service-endpoints) that is assigned to your {{site.data.keyword.secrets-manager_short}} service instance.|

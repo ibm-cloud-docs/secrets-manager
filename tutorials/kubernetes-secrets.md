@@ -3,7 +3,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-19"
 
 keywords: tutorial, Secrets Manager
 
@@ -102,8 +102,6 @@ Before you get started, be sure that you have [**Administrator** platform access
 
     `jq` helps you slice and filter JSON data. You use `jq` in this tutorial to grab and use stored environment variables.
 
-
-
 ## Set up your environment
 {: #tutorial-kubernetes-secrets-set-up-env}
 {: step}
@@ -111,7 +109,6 @@ Before you get started, be sure that you have [**Administrator** platform access
 To work with {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.containershort}}, you need to create a cluster and a {{site.data.keyword.secrets-manager_short}} instance in your {{site.data.keyword.cloud_notm}} account. You also need to configure permissions so that you can run operations against both services.
 
 In this step, you set up an access environment by creating a service ID and an {{site.data.keyword.cloud_notm}} API key. At the end of the tutorial, you can easily remove your resources if you no longer need them. Alternatively, you can use a [trusted profile](#tutorial-kubernetes-secrets-trusted-profile) to authorize the External Secrets operator.
-
 
 ### Create a service ID and API key
 {: #tutorial-external-kubernetes-secrets-access}

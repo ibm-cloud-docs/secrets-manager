@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-06"
+lastupdated: "2025-09-19"
 
 keywords: IAM credentials, dynamic, IAM API key IAM credentials engine
 
@@ -124,7 +124,7 @@ For the **IAM Access Groups Service service** authorization policy:
 3. Click **Create**.
 4. Under Source select **Specific account** and provide the account ID the {{site.data.keyword.secrets-manager_short}} instance belongs to.
      - Service: **{{site.data.keyword.secrets-manager_short}}**.
-     - Resources: **Specific resources > Service instance** and provide the servce instance ID for your {{site.data.keyword.secrets-manager_short}} instance.
+     - Resources: **Specific resources > Service instance** and provide the service instance ID for your {{site.data.keyword.secrets-manager_short}} instance.
 5. Under Target  select
      - Service: **IAM Access Groups Service**  
      - Resources: **All**
@@ -338,8 +338,8 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H "Authorization: Bearer $
 {: codeblock}
 {: curl}
 
-The **serviceInstance** attribute is optional. If omitted the authorization applies to all {{site.data.keyword.secrets-manager_short}} instances.
-The **SOURCE_ACCOOUNT_ID** and **TARGET_ACCOUNT_ID** are required whether creating the authorization for the current account or a specific account.
+The **`serviceInstance`** attribute is optional. If omitted the authorization applies to all {{site.data.keyword.secrets-manager_short}} instances.
+The **`SOURCE_ACCOOUNT_ID`** and **`TARGET_ACCOUNT_ID`** are required whether creating the authorization for the current account or a specific account.
 {: note}
 
 ### Using API key
@@ -392,8 +392,8 @@ The following example shows a query that you can use to configure the IAM creden
    ```
 {: codeblock}
 
-The **source_resource_instance_id** attribute is optional. If omitted the authorization applies to all {{site.data.keyword.secrets-manager_short}} instances.
-The **source_service_account** attribute is optional. It can be omitted if the source account is the same as the current account.
+The **`source_resource_instance_id`** attribute is optional. If omitted the authorization applies to all {{site.data.keyword.secrets-manager_short}} instances.
+The **`source_service_account`** attribute is optional. It can be omitted if the source account is the same as the current account.
 {: note}
 
 ### Using API key

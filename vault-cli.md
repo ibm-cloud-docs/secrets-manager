@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-19"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -1063,19 +1063,19 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
 #### Command options
 {: #vault-cli-update-static-secret-options}
 
-name
+`name`
 :   The human-readable alias that you want to assign to the secret.
 
-description
+`description`
 :   An extended description to assign to the secret.
 
-expiration_date
+`expiration_date`
 :   The expiration date that you want to assign to the secret. The date format follows [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339).
 
-labels
+`labels`
 :   Labels that you can use to group and search for similar secrets in your instance.
 
--format
+`format`
 :   Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
 
 #### Examples
@@ -1254,25 +1254,25 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
 #### Command options
 {: #vault-cli-rotate-static-secret-options}
 
-payload
+`payload`
 :   The new data to store for an `arbitrary` secret. Only text-based payloads are supported. If you need to store a binary file, be sure to base64 encode it before you save it to {{site.data.keyword.secrets-manager_short}}. For more information, see [Examples](#vault-cli-create-static-secret-examples).
 
-password
+`password`
 :   The new password to assign to a `username_password` secret.
 
-certificate
+`certificate`
 :   The new certificate data to store for an `imported_cert` secret. Supported file type is `.pem`.
 
-private_key
+`private_key`
 :   The new private key data to store for an `imported_cert` secret. Supported file type is `.pem`.
 
-intermediate
+`intermediate`
 :   The new intermediate certificate data to store for an `imported_cert` secret. Supported file type is `.pem`.
 
--format
+`format`
 :   Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
 
--force
+`force`
 :   Replaces the password that is stored for a `username_password` secret with a randomly generated, 32-character password that contains uppercase letters, lowercase letters, digits, and symbols.
 
 
@@ -1524,28 +1524,28 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
 #### Command options
 {: #vault-cli-create-role-options}
 
-SECRET_TYPE
+`SECRET_TYPE`
 :   The type of secret that you want to create. Currently, `iam_credentials` is supported.
 
-SECRET_GROUP_ID
+`SECRET_GROUP_ID`
 :   The ID of the secret group that you want to assign to the role and its credentials.
 
-ROLE_NAME
+`ROLE_NAME`
 :   The human-readable alias that you want to assign to the role and its credentials.
 
-access_groups
+`access_groups`
 :   The ID of the access group that determines the scope of access to assign to the role and its credentials.
 
-ttl
+`ttl`
 :   The time-to-live (TTL) that determines how long a role's generated-credentials can exist. Use a duration string such as `300s` or `1h30m`. Valid time units are `s`, `m`, and `h`.
 
-description
+`description`
 :   An extended description to assign to the role and its credentials.
 
-labels
+`labels`
 :   Labels that you can use to group and search for similar secrets in your instance.
 
--format
+`format`
 :   Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
 
 

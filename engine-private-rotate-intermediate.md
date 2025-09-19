@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-06"
+lastupdated: "2025-09-19"
 
 keywords: intermediate certificate authority, intermediate CA, rotate
 
@@ -58,7 +58,7 @@ subcollection: secrets-manager
 # Rotating certificate authorities certificates
 {: #rotating-ca-certificates}
 
-Managing your public key infrastructure (PKI) with {{site.data.keyword.secrets-manager_full}} should take into consideration the life-cycle of the CA chain certificates. Those certificates should be periodically rotated and distributed prior to their expiration to maintain uninterrupted TLS workflows for their consumers. 
+Managing your public key infrastructure (PKI) with {{site.data.keyword.secrets-manager_full}} should take into consideration the life-cycle of the CA chain certificates. Those certificates should be periodically rotated and distributed before their expiration to maintain uninterrupted TLS workflows for their consumers. 
 
 ## Rotating a root CA
 {: #rotating-root-ca}
@@ -68,7 +68,7 @@ Managing your public key infrastructure (PKI) with {{site.data.keyword.secrets-m
 
 Rotating the root certificate authority is a major change that can impact your entire public-key infrastructure and should be carefully planned ahead of time.
 
-You should plan a time period when both the existing and new root CA certificates overlap to allow the new root CA certificate to be distributed to all consumers.  
+You should plan for a time when both the existing and new root CA certificates overlap to allow the new root CA certificate to be distributed to all consumers.  
 It is therefore recommended that you set a long validity period for your root CA certificate. In {{site.data.keyword.secrets-manager_short}}, the default TTL for root certificates is 10 years.
 
 ### Rotating your root CA
