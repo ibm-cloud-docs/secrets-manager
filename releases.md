@@ -456,6 +456,7 @@ CLI plug-in version 1.1.18
 Integrations with {{site.data.keyword.containershort}} and {{site.data.keyword.openshiftshort}}
 :   You can now use {{site.data.keyword.secrets-manager_short}} to centrally manage Ingress subdomain certificates and other secrets for your Kubernetes or {{site.data.keyword.openshiftshort}} clusters. To learn more about this integration, check out the [{{site.data.keyword.containershort}}](/docs/containers?topic=containers-managed-ingress-setup){: external} or [{{site.data.keyword.openshiftshort}} documentation](/docs/openshift?topic=openshift-ingress-roks4){: external}.
 
+
 ## 23 March 2022
 {: #secrets-manager-mar2322}
 {: release-note}
@@ -463,13 +464,14 @@ Integrations with {{site.data.keyword.containershort}} and {{site.data.keyword.o
 Standard and Trial pricing plans
 :   You can now create an unlimited number of {{site.data.keyword.secrets-manager_short}} service instances by choosing the Standard pricing plan.
 
-   If you're an existing {{site.data.keyword.secrets-manager_short}} Lite plan user, be sure to upgrade your instance to the Standard plan before 22 May 2022 if you'd like to maintain access. For more information, see the previous [release note](#secrets-manager-feb2322).
-   {: important}
+    If you're an existing {{site.data.keyword.secrets-manager_short}} Lite plan user, be sure to upgrade your instance to the Standard plan before 22 May 2022 if you'd like to maintain access. For more information, see the previous [release note](#secrets-manager-feb2322).
+    {: important}
 
 Osaka and Toronto availability
 :   You can now create a {{site.data.keyword.secrets-manager_short}} service instance in the Osaka (`jp-osa`) and Toronto (`ca-tor`) regions.
 
-   For more information, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
+    For more information, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
+
 
 ## 28 February 2022
 {: #secrets-manager-feb2822}
@@ -478,7 +480,8 @@ Osaka and Toronto availability
 Sao Paulo availability
 :   You can now create a {{site.data.keyword.secrets-manager_short}} service instance in the Sao Paulo (`br-sao`) region.
 
-   For more information, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
+    For more information, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
+
 
 ## 23 February 2022
 {: #secrets-manager-feb2322}
@@ -490,8 +493,7 @@ Pricing plan updates coming soon in {{site.data.keyword.secrets-manager_short}}
    **Types of plans:**
 
    When you provision an instance of the service after the 23 March, you can choose either a Trial or Standard plan.
-
-
+   
    * **Trial**: To try out the service, you can provision an instance of the service to access all the features that {{site.data.keyword.secrets-manager_short}} offers for a limited time. After the trial period, all functionality is disabled but the instance remains in your account for an additional 30 days, during which you can choose to upgrade your plan. If you choose not to, the instance and its data are automatically removed from your account without any action on your part.
 
    You can have one instance of the service on the trial plan that is provisioned in your account at any time.
@@ -504,15 +506,9 @@ Pricing plan updates coming soon in {{site.data.keyword.secrets-manager_short}}
 
    Be sure to keep the following dates in mind:
 
-
    * **23 March 2022**: Instances of {{site.data.keyword.secrets-manager_short}} on the Lite plan will be deprecated. As an existing user, you can continue to use the service without interruption, but you should upgrade your instances to the Standard plan as soon as you can after this date.
-
-
    * **22 May 2022**: Instances of {{site.data.keyword.secrets-manager_short}} on the Lite plan will be disabled and functionality is removed. However, the instance remains in your account for an additional 30 days, during which you can choose to upgrade your plan.
-
-
    * **21 June 2022**: If you have chosen not to upgrade your plan, the instances of the service and their data will be removed from your account.
-
 
    Users will have the option to upgrade their service starting 23 March 2022. To ensure that your service functionality is not disrupted, be sure to upgrade to a Standard plan before 22 May 2022.
    {: important}
@@ -523,7 +519,7 @@ Pricing plan updates coming soon in {{site.data.keyword.secrets-manager_short}}
 {: release-note}
 
 Enable lifecycle notifications for your certificates
-:   You can now integrate with the [{{site.data.keyword.en_short}}](/catalog/services/event-notifications){: external} service so that you can manage and route all {{site.data.keyword.secrets-manager_short}} alerts to your preferred destinations.
+:  You can now integrate with the [{{site.data.keyword.en_short}}](/catalog/services/event-notifications){: external} service so that you can manage and route all {{site.data.keyword.secrets-manager_short}} alerts to your preferred destinations.
 
    Currently, {{site.data.keyword.secrets-manager_short}} supports notifications for certificates only. For more information, see [Enabling event notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications).
    {: note}
