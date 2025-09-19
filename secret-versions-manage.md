@@ -125,7 +125,6 @@ curl -X GET
 
 A successful response returns metadata details about each secret version.
 
-
 ```json
 {
   "versions": [
