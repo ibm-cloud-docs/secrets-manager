@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-09"
+lastupdated: "2025-09-19"
 
 keywords: Vault CLI, configure the Vault CLI, use Secrets Manager with Vault CLI, CLI commands, log in to Vault
 
@@ -70,7 +70,7 @@ All operations follow the guidelines that are available for the Vault CLI. To le
 - [Create an {{site.data.keyword.cloud_notm}} API key](/docs/account?topic=account-manapikey) or generate an {{site.data.keyword.cloud_notm}} IAM access token.
 
     By providing your account credentials, Vault can understand who you are and whether you have the correct level of access to run specific Vault commands against your {{site.data.keyword.secrets-manager_short}} instance.
-- Optional: [Download and install jq](https://stedolan.github.io/jq/){: external}.
+- Optional: [Download and install `jq`](https://stedolan.github.io/jq/){: external}.
 
     `jq` helps you slice up JSON data. You use `jq` in this tutorial to grab and use an access token that's returned when you call the IAM Identity Service API.
 
