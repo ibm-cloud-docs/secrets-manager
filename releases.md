@@ -415,8 +415,8 @@ Integration with {{site.data.keyword.alb_full}}
 Updated {{site.data.keyword.secrets-manager_short}} event notifications
 :   Previously, notifications for {{site.data.keyword.secrets-manager_short}} were supported for certificates only. Now, you can be notified when other types of secrets in your instance are expired or soon to expire.
 
-  - `secret_about_to_expire`: Now available for arbitrary secrets, IAM credentials, and user credentials.
-  - `secret_expired`: Now available for arbitrary secrets, IAM credentials, and user credentials.
+    - `secret_about_to_expire`: Now available for arbitrary secrets, IAM credentials, and user credentials.
+    - `secret_expired`: Now available for arbitrary secrets, IAM credentials, and user credentials.
 
     For more information about using {{site.data.keyword.en_short}} to enable lifecycle notifications for your {{site.data.keyword.secrets-manager_short}} instance, see [Enabling event notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications).
 
@@ -431,17 +431,17 @@ CLI plug-in version 0.1.19
 Create private SSL/TLS certificates for your applications
 :   You can now use {{site.data.keyword.secrets-manager_short}} to set up a private certificate authority (CA) that you can use to issue SSL/TLS certificates to your internal applications. By configuring root and intermediate CAs for your instance, you can establish a valid chain of trust for your certificates.
 
-  - [Preparing to create private certificates](/docs/secrets-manager?topic=secrets-manager-prepare-create-certificates)
-  - [Creating root certificate authorities](/docs/secrets-manager?topic=secrets-manager-root-certificate-authorities)
-  - [Creating intermediate certificate authorities](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities)
-  - [Adding certificate templates](/docs/secrets-manager?topic=secrets-manager-certificate-templates)
-  - [Creating private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates)
+    - [Preparing to create private certificates](/docs/secrets-manager?topic=secrets-manager-prepare-create-certificates)
+    - [Creating root certificate authorities](/docs/secrets-manager?topic=secrets-manager-root-certificate-authorities)
+    - [Creating intermediate certificate authorities](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities)
+    - [Adding certificate templates](/docs/secrets-manager?topic=secrets-manager-certificate-templates)
+    - [Creating private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates)
 
 New {{site.data.keyword.secrets-manager_short}} event notifications
 :   The following {{site.data.keyword.secrets-manager_short}} events can now be forwarded to a connected {{site.data.keyword.en_short}} instance.
 
-  - `secret_deleted`: Currently supported for imported certificates, private certificates, and public certificates.
-  - `secret_revoked`: Currently supported for private certificates only.
+    - `secret_deleted`: Currently supported for imported certificates, private certificates, and public certificates.
+    - `secret_revoked`: Currently supported for private certificates only.
 
     For more information about using {{site.data.keyword.en_short}} to enable lifecycle notifications for your {{site.data.keyword.secrets-manager_short}} instance, see [Enabling event notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications).
 
@@ -490,28 +490,27 @@ Sao Paulo availability
 Pricing plan updates coming soon in {{site.data.keyword.secrets-manager_short}}
 :   On 23 March 2022, {{site.data.keyword.secrets-manager_short}} will introduce Standard and Trial pricing plans. With the introduction of the new plans, the current Lite plan option is deprecated. 
 
-   **Types of plans:**
+    **Types of plans:**
 
-   When you provision an instance of the service after the 23 March, you can choose either a Trial or Standard plan.
+    When you provision an instance of the service after the 23 March, you can choose either a Trial or Standard plan.
    
-   * **Trial**: To try out the service, you can provision an instance of the service to access all the features that {{site.data.keyword.secrets-manager_short}} offers for a limited time. After the trial period, all functionality is disabled but the instance remains in your account for an additional 30 days, during which you can choose to upgrade your plan. If you choose not to, the instance and its data are automatically removed from your account without any action on your part.
+      * **Trial**: To try out the service, you can provision an instance of the service to access all the features that {{site.data.keyword.secrets-manager_short}} offers for a limited time. After the trial period, all functionality is disabled but the instance remains in your account for an additional 30 days, during which you can choose to upgrade your plan. If you choose not to, the instance and its data are automatically removed from your account without any action on your part.
 
-   You can have one instance of the service on the trial plan that is provisioned in your account at any time.
-   {: note}
+      You can have one instance of the service on the trial plan that is provisioned in your account at any time.
+      {: note}
 
-   * **Standard**: When you're ready to upgrade, you get unlimited access to all the features that the service offers. The number of instances that your teams can provision is unlimited. With the Standard plan, you are charged per secret and per instance that is provisioned. To view the most current pricing information, see the {{site.data.keyword.secrets-manager_short}} UI.
-
+      * **Standard**: When you're ready to upgrade, you get unlimited access to all the features that the service offers. The number of instances that your teams can provision is unlimited. With the Standard plan, you are charged per secret and per instance that is provisioned. To view the most current pricing information, see the {{site.data.keyword.secrets-manager_short}} UI.
 
    **Important dates:**
 
    Be sure to keep the following dates in mind:
 
-   * **23 March 2022**: Instances of {{site.data.keyword.secrets-manager_short}} on the Lite plan will be deprecated. As an existing user, you can continue to use the service without interruption, but you should upgrade your instances to the Standard plan as soon as you can after this date.
-   * **22 May 2022**: Instances of {{site.data.keyword.secrets-manager_short}} on the Lite plan will be disabled and functionality is removed. However, the instance remains in your account for an additional 30 days, during which you can choose to upgrade your plan.
-   * **21 June 2022**: If you have chosen not to upgrade your plan, the instances of the service and their data will be removed from your account.
+     * **23 March 2022**: Instances of {{site.data.keyword.secrets-manager_short}} on the Lite plan will be deprecated. As an existing user, you can continue to use the service without interruption, but you should upgrade your instances to the Standard plan as soon as you can after this date.
+     * **22 May 2022**: Instances of {{site.data.keyword.secrets-manager_short}} on the Lite plan will be disabled and functionality is removed. However, the instance remains in your account for an additional 30 days, during which you can choose to upgrade your plan.
+     * **21 June 2022**: If you have chosen not to upgrade your plan, the instances of the service and their data will be removed from your account.
 
-   Users will have the option to upgrade their service starting 23 March 2022. To ensure that your service functionality is not disrupted, be sure to upgrade to a Standard plan before 22 May 2022.
-   {: important}
+     Users will have the option to upgrade their service starting 23 March 2022. To ensure that your service functionality is not disrupted, be sure to upgrade to a Standard plan before 22 May 2022.
+     {: important}
 
 
 ## 3 February 2022
