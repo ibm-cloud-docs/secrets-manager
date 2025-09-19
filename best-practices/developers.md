@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: "2023"
-lastupdated: "2023-07-20"
+  years: 2020, 2025
+lastupdated: "2025-09-19"
 
 keywords: secrets management best practice, secrets best practices, coding, developers
 
@@ -61,7 +61,7 @@ subcollection: secrets-manager
 Review the following suggested guidelines for implementing best practices around your secrets management with {{site.data.keyword.secrets-manager_full}}.
 {: shortdesc}
 
-- {{site.data.keyword.secrets-manager_full}} is a regional service. Provision {{site.data.keyword.secrets-manager_short}} instances per region to spread your workloads and limit the blast radius in case of a regional outage.
+- {{site.data.keyword.secrets-manager_full}} is a regional service. Provision {{site.data.keyword.secrets-manager_short}} instances per region to spread your workloads and limit the impact of a regional outage.
 - {{site.data.keyword.secrets-manager_short}} is a single-tenant service. CPU and memory limits are applied per {{site.data.keyword.secrets-manager_short}} instance. Those limits restrict the API request rates based on the usage pattern. As a rule of thumb, it is recommended to keep the rate below 20 req/s. Additionally, limit the number of unique clients that make requests to a single {{site.data.keyword.secrets-manager_short}} instance.
 - Use {{site.data.keyword.secrets-manager_short}} as a cold storage. Apply caching and throttling to regulate the rate of requests to a {{site.data.keyword.secrets-manager_short}} instance.
 - In case requests fail with timeouts or 429 or 503 HTTP status codes, apply exponential backoff retries within the described rate limits.
