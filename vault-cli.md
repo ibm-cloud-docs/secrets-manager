@@ -1066,7 +1066,7 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
 `name`
 :   The human-readable alias that you want to assign to the secret.
 
-`description
+`description`
 :   An extended description to assign to the secret.
 
 `expiration_date`
