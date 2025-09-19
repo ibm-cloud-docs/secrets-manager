@@ -245,11 +245,11 @@ You can create an intermediate CA certificate that uses external signing in the 
 8. [Select the key algorithm](/docs/secrets-manager?topic=secrets-manager-prepare-create-certificates#choose-key-algorithm) that you want to use to generate the public and private key for your CA certificate.
 9. Determine whether to enable certificate revocation list (CRL) building and distribution points for your CA certificate.
 
-    A CRL is a list of certificates that have been revoked by the issuing certificate authority before their scheduled expiration date. A certificate that is listed as part of a CRL can no longer be trusted by applications. 
+     A CRL is a list of certificates that have been revoked by the issuing certificate authority before their scheduled expiration date. A certificate that is listed as part of a CRL can no longer be trusted by applications. 
     
-    1. To build a CRL for your intermediate CA with each certificate request, set the **CRL building** option to **Enabled**.
-    2. To encode the URL of the revocation list in the intermediate CA certificate, set the **CRL distribution points** option to **Enabled**.
-    3. Select a time-to-live (TTL) of the generated CRL. The TTL determines how long the CRL remains valid.
+     1. To build a CRL for your intermediate CA with each certificate request, set the **CRL building** option to **Enabled**.
+     2. To encode the URL of the revocation list in the intermediate CA certificate, set the **CRL distribution points** option to **Enabled**.
+     3. Select a time-to-live (TTL) of the generated CRL. The TTL determines how long the CRL remains valid.
 
 10. Review your selections. To create the intermediate CA, click **Create**.
 
@@ -692,7 +692,6 @@ curl -X GET --location --header "Authorization: Bearer {iam_token}" \
 Replace `{instance_ID}` and `{region}` with the values that apply to your {{site.data.keyword.secrets-manager_short}} service instance. To find the endpoint URL that is specific to your instance, you can copy it from the **Endpoints** page in the {{site.data.keyword.secrets-manager_short}} UI. For more information, see [Viewing your endpoint URLs](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls)
 
 A successful response returns the value of the engine configuration, along with other metadata. For more information about the required and optional request parameters, see [Get a secret](/apidocs/secrets-manager/secrets-manager-v2#get-configuration){: external}.
-
 
 ## Next steps
 {: #intermediate-ca-next-steps}
