@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-06"
+lastupdated: "2025-09-19"
 
 keywords: root certificate authority, root CA, internal signing, external signing
 
@@ -340,4 +340,4 @@ A successful response returns the value of the engine configuration, along with 
 ## Next steps
 {: #root-ca-next-steps}
 
-- [Create an intermediate certificate authority](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities)
+  - [Create an intermediate certificate authority](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities)
