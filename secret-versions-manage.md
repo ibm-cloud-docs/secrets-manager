@@ -121,6 +121,7 @@ curl -X GET
   "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/{id}/versions"
 ```
 {: codeblock}
+{: curl}
 
 A successful response returns metadata details about each secret version.
 
@@ -210,6 +211,7 @@ curl -X PATCH
   "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets/{id}/versions/{version_id}/metadata"
 ```
 {: codeblock}
+{: curl}
 
 A successful response returns metadata details about each secret version.
 
@@ -320,7 +322,7 @@ curl -X POST
 
 ```
 {: codeblock}
-
+{: curl}
 
 Currently, you can restore only one version back for IAM credentials and imported certificate secrets. A secret version can be restored only if the defined time-to-live (TTL) or lease duration was not reached.
 {: note}
