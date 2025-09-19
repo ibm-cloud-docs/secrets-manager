@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-10"
+lastupdated: "2025-09-19"
 
 keywords: context-based restrictions, access allowlist, network security
 
@@ -126,7 +126,7 @@ If you created an {{site.data.keyword.cloud_notm}} virtual server on classic inf
 
 You can create network zones by using the create-zone command. For more information, see the [API docs](/apidocs/context-based-restrictions#create-zone). You can add {{site.data.keyword.secrets-manager_short}} to network zones as a service reference to allow {{site.data.keyword.secrets-manager_short}} to access resources and services in your account that are the subject of a rule.
 
-The serviceRef attribute for {{site.data.keyword.secrets-manager_short}} is `secrets-manager`. {: tip} 
+The `serviceRef` attribute for {{site.data.keyword.secrets-manager_short}} is `secrets-manager`. {: tip} 
 
 You can determine which services are available by checking for [reference targets](/apidocs/context-based-restrictions#list-available-serviceref-targets). 
 {: note}

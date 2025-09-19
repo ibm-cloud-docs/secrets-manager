@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-19"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -84,7 +84,6 @@ Automatic rotation is supported for [private certificates](/docs/secrets-manager
 | [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) | The Service ID's API key value is replaced with a new API key. The previous API key remains available for the remaining time in the defined TTL. |
 | [Service credentials](/docs/secrets-manager?topic=secrets-manager-service-credentials) | The Service credentials secret is replaced with a new one. The previous secret remains available for the remaining time in the defined TTL. |
 | [Custom credentials](/docs/secrets-manager?topic=secrets-manager-service-credentials) | The Custom credential secret is replaced with a new one. The previous secret remains available for the remaining time in the defined TTL. |
-
 {: caption="Describes how {{site.data.keyword.secrets-manager_short}} evaluates manual rotation by secret type" caption-side="top"}
 
 

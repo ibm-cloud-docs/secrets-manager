@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-17"
+lastupdated: "2025-09-19"
 
 keywords: secret version history, view versions, secret versions
 
@@ -60,7 +60,6 @@ subcollection: secrets-manager
 
 When you rotate a secret in {{site.data.keyword.secrets-manager_full}}, you create a new version of its value. You can use {{site.data.keyword.secrets-manager_full}} to view the version history and update version metadata of secrets. If you accidentally replace or overwrite a secret, you can also restore it to a previous version.
 
-
 {: shortdesc}
 
 ## Before you begin
@@ -114,8 +113,6 @@ The command outputs information about the current and previous versions. For exa
 If you're auditing the version history of a secret, you can use the {{site.data.keyword.secrets-manager_short}} API to view the general characteristics of each rotation.
 
 The following example request lists metadata properties for each version. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance. The options for `{secret_type}` are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, `service_credentials`, `custom_credentials`, and `username_password`.
-{: curl}
-
 
 ```sh
 curl -X GET 
