@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-01"
+lastupdated: "2025-09-20"
 
 keywords: isolation for {{site.data.keyword.secrets-manager_short}}, service endpoints for {{site.data.keyword.secrets-manager_short}}, private network for {{site.data.keyword.secrets-manager_short}}, network isolation in {{site.data.keyword.secrets-manager_short}}, non-public routes for {{site.data.keyword.secrets-manager_short}}, private connection for {{site.data.keyword.secrets-manager_short}}
 
@@ -178,13 +178,13 @@ To connect to a private-only instance for example from a local workstation, sele
 Use this option for {{site.data.keyword.secrets-manager_short}} instances provisioned in IBM Cloud Classic data centers, such as Dallas, Washington, Sao Paulo, London, Frankfurt, Madrid, Sydney, Tokyo, and Osaka.
 
 1. From the [IBM Cloud catalog](https://cloud.ibm.com/catalog), search for "Virtual Server" and provision a virtual machine matching your requirements
-2. From your local workstation, login to the VM using the VM's provided credentials
+2. From your local workstation, login to the VM using its generated credentials
 3. From within the VM, login to IBM Cloud and use your {{site.data.keyword.secrets-manager_short}} instance via API or CLI
 
 ### Connect using a VPE gateway
 {: #connect-to-sm-privately-vpe-gateway}
 
-Use of this option is required for {{site.data.keyword.secrets-manager_short}} instances provisioned in IBM Cloud Next Generation data centers, such as Montreal, Chennai and Mumbai. It can be used for other regions as well.
+Use of this option is required for {{site.data.keyword.secrets-manager_short}} instances provisioned in IBM Cloud Next Generation data centers. It can be used for other regions as well.
 
 1. [Create a VPE gateway](https://cloud.ibm.com/infrastructure/network/endpointGateways)
 2. Attach the VPE to a new or existing VPC
