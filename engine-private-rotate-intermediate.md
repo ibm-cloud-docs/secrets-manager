@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-19"
+lastupdated: "2025-09-20"
 
 keywords: intermediate certificate authority, intermediate CA, rotate
 
@@ -88,8 +88,8 @@ It is therefore recommended that you set a long validity period for your root CA
 
 Notify your PKI users about the upcoming intermediate CA rotation ahead of time.  
 
-An intermediate CA can be rotated inline in case it is not in use to sign other intermediate CAs.  
-In case you have a multitiered intermediate CA chain, you should create a new intermediate CAs chain alongside the existing one ahead of time and migrate your PKI consumers to use the new chain.
+An intermediate CA can be rotated inline in case it is not in use to sign other intermediate Certificate Authorities.  
+In case you have a multitiered intermediate CA chain, you should create a new intermediate CA chain alongside the existing one ahead of time and migrate your PKI consumers to use the new chain.
 
 ### Rotating an intermediate CA inline
 {: #rotating-intermdiate-ca-inline}
