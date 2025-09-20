@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-19"
+lastupdated: "2025-09-20"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -1918,31 +1918,31 @@ You need the [**Writer** service role](/docs/secrets-manager?topic=secrets-manag
 #### Command options
 {: #vault-cli-update-role-metadata-options}
 
-SECRET_TYPE
+`SECRET_TYPE`
 :   The type of secret that you want to update. Currently, `iam_credentials` is supported.
 
-SECRET_GROUP_ID
+`SECRET_GROUP_ID`
 :   The ID of the secret group that is assigned to the role and its credentials.
 
-ROLE_ID
+`ROLE_ID`
 :   The ID that assigned to this secret.
 
-access_groups
+`access_groups`
 :   The ID of the access group that determines the scope of access to assign to the role and its credentials.
 
-ttl
+`ttl`
 :   The time-to-live (TTL) that determines how long a role's generated credentials can exist. Use a duration string such as `300s` or `1h30m`. Valid time units are `s`, `m`, and `h`.
 
-name
+`name`
 :   The new name that you want to assign for this secret.
 
-description
+`description`
 :   An extended description to assign to the role and its credentials.
 
-labels
+`labels`
 :   Labels that you can use to group and search for similar secrets in your instance.
 
--format
+`format`
 :   Prints the output in the format that you specify. Valid formats are `table`, `json`, and `yaml`. The default is `table`. You can also set the output format by using the `VAULT_FORMAT` environment variable.
 
 
