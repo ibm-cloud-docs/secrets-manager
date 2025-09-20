@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-19"
+lastupdated: "2025-09-20"
 
 keywords: root certificate authority, root CA, internal signing, external signing
 
@@ -61,7 +61,7 @@ subcollection: secrets-manager
 With {{site.data.keyword.secrets-manager_full}}, you can build and manage your own public key infrastructure (PKI) system by creating root and intermediate certificate authorities (CA).
 {: shortdesc}
 
-A certificate authority (CA) is the entity that signs and issues your SSL/TLS certificates. If you're looking for the ability to quickly generate a self-signed certificate, you can use {{site.data.keyword.secrets-manager_short}} to create an internally signed root CA. You can use this CA as the trust anchor for a certificates chain. After you create a root CA for your instance, you can use it to sign a lower-level or subordinate CA, for example other intermediate CAs that you create in the service.
+A certificate authority (CA) is the entity that signs and issues your SSL/TLS certificates. If you're looking for the ability to quickly generate a self-signed certificate, you can use {{site.data.keyword.secrets-manager_short}} to create an internally signed root CA. You can use this CA as the trust anchor for a certificates chain. After you create a root CA for your instance, you can use it to sign a lower-level or subordinate CA, for example other intermediate Certificate Authorities that you create in the service.
 
 You can create up to 10 root certificate authorities per instance. To view a list of the configurations that are available for your instance, go to the **Secrets engines > Private certificates** page in the {{site.data.keyword.secrets-manager_short}} UI.
 {: note}

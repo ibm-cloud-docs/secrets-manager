@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-19"
+lastupdated: "2025-09-20"
 
 keywords: intermediate certificate authority, intermediate CA, internal signing, external signing
 
@@ -103,7 +103,7 @@ An intermediate CA with internal signing uses a parent CA that was previously cr
 4. In the Certificate authorities table, click **Create certificate authority** to start the creation wizard.
 5. Specify the certificate authority type and options.
    1. Select **Intermediate certificate authority** as the authority type.
-   2. Select **Internal signing**. From the list of configured CAs, choose the CA that you want to use as the issuer of the intermediate CA certificate.
+   2. Select **Internal signing**. From the list of configured Certificate Authorities, choose the CA that you want to use as the issuer of the intermediate CA certificate.
    3. Enter a name to easily identify your certificate authority.
    4. Select a maximum time-to-live (TTL) for the certificate to be generated for this CA. The TTL determines how long the CA certificate remains valid.
    5. Select the maximum number of end-entity certificates that can exist in the chain.
