@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-19"
+lastupdated: "2025-09-20"
 
 keywords: create certificate authority, create root CA, create intermediate CA, set up PKI, set up private certificates, private certificates engine
 
@@ -69,13 +69,13 @@ In {{site.data.keyword.secrets-manager_short}}, the private certificates engine 
 
 With {{site.data.keyword.secrets-manager_short}}, you can build your own public-key infrastructure (PKI) system by creating certificate authorities (CA) that can sign and issue SSL/TLS certificates to your applications. With a certificates chain in place, you can use your {{site.data.keyword.secrets-manager_short}} instance to create [private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates) for your client and server apps.
 
-A valid chain of certificates begins at a trusted root CA, passes through one or more subordinate CAs, and ends with a leaf certificate that is issued to your end-entity application. For example, check out the following simple CA hierarchy:
+A valid chain of certificates begins at a trusted root CA, passes through one or more subordinate Certificate Authorities, and ends with a leaf certificate that is issued to your end-entity application. For example, check out the following simple CA hierarchy:
 
 
 ![The diagram shows a three-level hierarchy of certificates that begins with a root certificate authority in the first level.](images/certificate-hierarchy.svg){: caption="Example three-level CA hierarchy" caption-side="bottom"}
 
 1. The root CA serves as the trust anchor for your entire chain of certificates. 
-2. The subordinate CAs in level 2 are signed and issued by the root CA. These subordinate CAs sign other subordinate CA certificates.
+2. The subordinate Certificate Authorities in level 2 are signed and issued by the root CA. These subordinate Certificate Authorities sign other subordinate CA certificates.
 3. Finally, the subordinate CA certificates in level 3 sign and issue leaf certificates to your end-entity applications.
 
     In {{site.data.keyword.secrets-manager_short}}, leaf certificates are the [private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates) that you create and deploy to your applications.
@@ -83,12 +83,12 @@ A valid chain of certificates begins at a trusted root CA, passes through one or
 ## Designing your CA hierarchy
 {: #design-ca-hierarchy}
 
-With {{site.data.keyword.secrets-manager_short}}, you can create up to 10 root CAs and 10 intermediate CAs in your service instance that contain multiple branches and hierarchies.
+With {{site.data.keyword.secrets-manager_short}}, you can create up to 10 root Certificate Authorities and 10 intermediate Certificate Authorities in your service instance that contain multiple branches and hierarchies.
 
 | Authority type | Description |
 | --- | --- |
-| [Root certificate authority](/docs/secrets-manager?topic=secrets-manager-root-certificate-authorities) | A trust anchor for your certificates chain. In a hierarchy of certificates, a root CA is at the top of a certificates chain. This CA is used to sign the certificates of CAs that are subordinate to them, for example intermediate CAs.  |
-| [Intermediate certificate authority](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities) | A subordinate or lower-level certificate authority that signs and issues other intermediate CA certificates. An intermediate CA is also used to issue leaf certificates to end-entities, for example a client or server application. In {{site.data.keyword.secrets-manager_short}}, you can create intermediate CAs that are [signed internally or externally](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities#intermediate-ca-signing).|
+| [Root certificate authority](/docs/secrets-manager?topic=secrets-manager-root-certificate-authorities) | A trust anchor for your certificates chain. In a hierarchy of certificates, a root CA is at the top of a certificates chain. This CA is used to sign the certificates of Certificate Authorities that are subordinate to them, for example intermediate Certificate Authorities.  |
+| [Intermediate certificate authority](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities) | A subordinate or lower-level certificate authority that signs and issues other intermediate CA certificates. An intermediate CA is also used to issue leaf certificates to end-entities, for example a client or server application. In {{site.data.keyword.secrets-manager_short}}, you can create intermediate Certificate Authorities that are [signed internally or externally](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities#intermediate-ca-signing).|
 {: caption="Certificate authority options" caption-side="top"}
 
 
@@ -104,10 +104,10 @@ Use this option if your workload requires the simplest CA structure. In this sce
 
 ![The diagram shows a two-level hierarchy of certificates that begins with a root certificate authority in the first level.](images/certificate-hierarchy-2.svg){: caption="Two-level certificate authority hierarchy" caption-side="bottom"}
 
-#### Three levels: Root CA and two subordinate CAs
+#### Three levels: Root CA and two subordinate Certificate Authorities
 {: #three-level-ca}
 
-Use this option if your workload requires an additional layer between the root CA and lower-level CA operations. In this scenario, the middle subordinate CA is used only to sign subordinate CAs that issue leaf certificates to your apps.
+Use this option if your workload requires an additional layer between the root CA and lower-level CA operations. In this scenario, the middle subordinate CA is used only to sign subordinate Certificate Authorities that issue leaf certificates to your apps.
 
 ![The diagram shows a three-level hierarchy of certificates that begins with a root certificate authority in the first level.](images/certificate-hierarchy-3.svg){: caption="Three-level certificate authority hierarchy" caption-side="bottom"}
 
@@ -117,7 +117,7 @@ Use this option if your workload requires an additional layer between the root C
 
 When you're creating a certificate authority in {{site.data.keyword.secrets-manager_short}}, you can set the **Maximum path length** parameter to determine how many CA certificates can exist in its authority chain. This value enforces how many CA certificates can exist in the certification path of your CA.
 
-Generally, you can configure a root CA that doesn't limit the number of subordinate CAs that it can create in its certification path. However, defining a maximum path length on subordinate CAs is an important security step to avoid misconfigured CAs. Depending on the placement of a subordinate CA in your hierarchy, make sure to specify a maximum path length so that its signing authority power is limited to only the intended depth.
+Generally, you can configure a root CA that doesn't limit the number of subordinate Certificate Authorities that it can create in its certification path. However, defining a maximum path length on subordinate Certificate Authorities is an important security step to avoid misconfigured Certificate Authorities. Depending on the placement of a subordinate CA in your hierarchy, make sure to specify a maximum path length so that its signing authority power is limited to only the intended depth.
 
 ![The diagram shows a four-level hierarchy of certificates that begins with a root certificate authority in the first level.](images/max-path-length.svg){: caption="Three-level certificate authority hierarchy" caption-side="bottom"}
 
@@ -129,7 +129,7 @@ The maximum path length that you define does not include leaf certificates. In t
 
 The validity period of an X.509 certificate is a required field that determines how long the certificate is trusted and remains valid. When you plan your CA hierarchy, work backwards from your preferred lifespan for the leaf certificates that you want to issue to your applications. Then, determine the validity period of the CA certificates.
 
-A certificate must have a validity period that is shorter than or equal to the validity period for the CA that issued it. For example, if you create a root CA with a time-to-live (TTL) of 10 years, any intermediate CAs that are subordinate to it must have a TTL that is equal to or less than 10 years. Likewise, if an intermediate CA has TTL of 3 years, any leaf certificates must have a TTL that is equal to or less than 3 years.
+A certificate must have a validity period that is shorter than or equal to the validity period for the CA that issued it. For example, if you create a root CA with a time-to-live (TTL) of 10 years, any intermediate Certificate Authorities that are subordinate to it must have a TTL that is equal to or less than 10 years. Likewise, if an intermediate CA has TTL of 3 years, any leaf certificates must have a TTL that is equal to or less than 3 years.
 {: important}
 
 1. Choose a validity period for your leaf certificates that is appropriate for your use case.
@@ -256,7 +256,7 @@ Response 200 OK
 {: codeblock}
 
 
-To verify that the CA chain is from the context of a leaf certificate, you can configure your CAs in {{site.data.keyword.secrets-manager_short}} with the property `"issuing_certificates_urls_encoded": true`. In each leaf or intermediate CA certificate, this configuration encodes the URL that is used for downloading the issuing CA certificate in the property `Authority Information Access/CA Issuers`. Then, your CA validator can validate each CA certificate.
+To verify that the CA chain is from the context of a leaf certificate, you can configure your Certificate Authorities in {{site.data.keyword.secrets-manager_short}} with the property `"issuing_certificates_urls_encoded": true`. In each leaf or intermediate CA certificate, this configuration encodes the URL that is used for downloading the issuing CA certificate in the property `Authority Information Access/CA Issuers`. Then, your CA validator can validate each CA certificate.
 
 ## Next steps
 {: #prepare-create-certificates-next-steps}
