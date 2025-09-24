@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-09-24"
 
 keywords: known issues for {{site.data.keyword.secrets-manager_short}}, known limitations for {{site.data.keyword.secrets-manager_short}}
 
@@ -101,7 +101,7 @@ The following limits apply to {{site.data.keyword.secrets-manager_short}} servic
 
 | Resource | Limit|
 | --- | --- |
-| Configurations for secrets engines | **Public certificates engine:**  \n - 10 third-party CA configurations \n - 10 DNS provider configurations  \n - 10 certificate templates  \n  \n **Private certificates engine:**  \n - 10 root certificate authorities  \n - 10 intermediate certificate authorities  \n - 10 certificate templates  \n  \n **Custom credentials engine:**  \n - 10 code engine job configurations |
+| Configurations for secrets engines | **Public certificates engine:**  \n - 10 third-party CA configurations \n - 10 DNS provider configurations  \n - 10 certificate templates  \n  \n **Private certificates engine:**  \n - 10 root certificate authorities  \n - 10 intermediate certificate authorities  \n - 10 certificate templates  \n  \n **Custom credentials engine:**  \n - 10 {{site.data.keyword.codeengineshort}} job configurations |
 | Secret groups | 200 per instance |
 | Total secrets | No limit per instance |
 {: caption="{{site.data.keyword.secrets-manager_short}} limits per instance" caption-side="top"}
