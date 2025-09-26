@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-20"
+lastupdated: "2025-09-26"
 
 keywords: secrets management best practice, rotating secrets, secret rotation, locking secrets, automatic rotation
 
@@ -75,7 +75,7 @@ As you use {{site.data.keyword.secrets-manager_short}} to design your secrets ma
 
     The way in which {{site.data.keyword.secrets-manager_short}} evaluates a request to rotate a secret differs depending on the type of secret. For example, some secrets are replaced immediately with the data that you provide on rotation, whereas other secrets, such as public certificates, move into an extra validation step. For more information about how {{site.data.keyword.secrets-manager_short}} handles rotation requests, see [Manually rotating secrets](/docs/secrets-manager?topic=secrets-manager-manual-rotation#manual-rotate-by-type).
 
-3. Creaet automation for deploying the newest secret versions to your applications.
+3. Create automation for deploying the newest secret versions to your applications.
 
     Use an automated flow to obtain and deploy the latest version of your secret after it is rotated. For more information, see [Avoid application outages by locking your secrets](#best-practices-lock-secrets).
 

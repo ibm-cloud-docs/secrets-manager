@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-07-29"
+lastupdated: "2025-09-26"
 
 keywords: Secrets Manager availability, regions, Secrets Manager endpoints, Vault endpoint
 
@@ -84,7 +84,7 @@ You can create {{site.data.keyword.secrets-manager_short}} resources in one of t
 You can use the {{site.data.keyword.secrets-manager_short}} APIs to manage your secrets programmatically. {{site.data.keyword.secrets-manager_short}} offers two connectivity options for interacting with its service APIs.
 
 Private endpoints
-:   By default, a {{site.data.keyword.secrets-manager_short}} instance will have only a private endpoint. As pre-requisite for private endpoints enable [virtual routing and forwarding (VRF) and service endpoints](/docs/account?topic=account-vrf-service-endpoint) for your infrastructure account. When you enable VRF for your account, you can [connect to {{site.data.keyword.secrets-manager_short}} by using a private IP](/docs/secrets-manager?topic=secrets-manager-service-connection) that is accessible only through the {{site.data.keyword.cloud_notm}} private network.
+:   By default, a {{site.data.keyword.secrets-manager_short}} instance will have only a private endpoint. As prerequisite for private endpoints enable [virtual routing and forwarding (VRF) and service endpoints](/docs/account?topic=account-vrf-service-endpoint) for your infrastructure account. When you enable VRF for your account, you can [connect to {{site.data.keyword.secrets-manager_short}} by using a private IP](/docs/secrets-manager?topic=secrets-manager-service-connection) that is accessible only through the {{site.data.keyword.cloud_notm}} private network.
 
 Public endpoints
 :   Use public endpoints to connect to {{site.data.keyword.secrets-manager_short}} in your account over the {{site.data.keyword.cloud_notm}} public network. Your data is encrypted in transit by using the Transport Security Layer (TLS) 1.2 protocol. When a {{site.data.keyword.secrets-manager_short}} instance is configured with public endpoints, it also has a private endpoint in addition by default.

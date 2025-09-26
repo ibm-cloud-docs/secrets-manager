@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-06"
+lastupdated: "2025-09-26"
 
 keywords: Secrets Manager developer tools, integrate with application, API, SDK, CLI
 
@@ -112,7 +112,7 @@ For more information about using {{site.data.keyword.secrets-manager_short}} API
 
 Already using HashiCorp Vault? You can interact with your {{site.data.keyword.secrets-manager_short}} service instance by using the Vault HTTP API or CLI format.
 
-{{site.data.keyword.secrets-manager_short}} doesn't support all components that are available for Vault. Instead, the service builds on HashiCorp Vault with custom plugins to support the operations in {{site.data.keyword.secrets-manager_short}} for various secret types.
+{{site.data.keyword.secrets-manager_short}} doesn't support all components that are available for Vault. Instead, the service builds on HashiCorp Vault with custom plug-ins to support the operations in {{site.data.keyword.secrets-manager_short}} for various secret types.
 {: note}
 
 For more information, check out the following resources:
