@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-26"
+lastupdated: "2025-09-27"
 
 keywords: intermediate certificate authority, intermediate CA, internal signing, external signing
 
@@ -236,7 +236,7 @@ You can create an intermediate CA certificate that uses external signing in the 
        Once the IAM credential has been set in the CA configuration it cannot be later replaced.
        {: note}
 
-   3. Select the HPCS private keystore from the keystores list, or enter the keystore ID manually.
+   3. Select the HPCS private keystore from the keystore list, or enter the keystore ID manually.
    4. Choose to use existing keys or generate new keys. In case selecting an existing HPCS private key or entering a private key ID manually, make sure that a public key exists and it has the same ID as the private key in the private keystore.
 
        In case you choose to generate new keys, those keys will not be deleted by {{site.data.keyword.secrets-manager_short}} in case the configuration will be deleted.
