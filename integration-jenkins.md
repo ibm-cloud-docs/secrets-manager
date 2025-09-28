@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-06"
+lastupdated: "2025-09-28"
 
 keywords: migration, integrations, vault jenkins plug-in, ansible, tool integrations
 
@@ -74,7 +74,7 @@ By following these steps, you can integrate {{site.data.keyword.secrets-manager_
 
 1. In the Jenkins dashboard, select your job or project where you're using the plug-in.
 2. Click **Build Environment** in the configuration section.
-3. Select **Vault Plugin**.
+3. Select **Vault Plug-in**.
 4. Select **Vault Token Credentials** from the **Credential Authentication Kind** field.
 5. Create a placeholder value for the **Token** field (for example, `temp`). 
 6. Set an ID (for example, `sm-vault-token`).
