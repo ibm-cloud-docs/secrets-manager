@@ -17,7 +17,7 @@ toc:
       - getting-started.md
       - topicgroup:
           label: About
-          topics: 
+          topics:
           - topic: pricing.md
             navtitle: Pricing
           - topic: framework/responsibilities.md
@@ -120,14 +120,14 @@ toc:
       - topic: framework/event-notifications.md
         navtitle: Enabling event notifications
       - topicgroup:
-                label: Connecting integrations
-                topics:
-                    - topic: integrations.md
-                      navtitle:  Integrating with other IBM Cloud services
-                    - topic: integration-ansible.md
-                      navtitle: Integrating with Ansible
-                    - topic: integration-jenkins.md
-                      navtitle: Integrating with Vault Jenkins plug-in
+          label: Connecting integrations
+          topics:
+          - topic: integrations.md
+            navtitle: Integrating with other IBM Cloud services
+          - topic: integration-ansible.md
+            navtitle: Integrating with Ansible
+          - topic: integration-jenkins.md
+            navtitle: Integrating with Vault Jenkins plug-in
       - topicgroup:
           label: Logging and monitoring
           topics:
@@ -186,7 +186,7 @@ toc:
             navtitle: Regions and endpoints
           - topic: framework/ha-dr.md
             navtitle: Understanding high availability and disaster recovery
-      - topicgroup: 
+      - topicgroup:
           label: Data portability
           topics:
           - topic: framework/data-portability.md
