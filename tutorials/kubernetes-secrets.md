@@ -3,7 +3,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-19"
+lastupdated: "2025-11-06"
 
 keywords: tutorial, Secrets Manager
 
@@ -291,6 +291,103 @@ A trusted profile enables the External Secrets operator to read from {{site.data
     ibmcloud iam trusted-profile-policy-create 'External Secrets' --roles SecretsReader --service-instance $SECRETS_MANAGER_CRN --service-name secrets-manager
     ```
     {: pre}
+
+Example in Terraform that performs all of the steps to create a Trusted Profile:
+  ```terraform
+  # Get your cluster details
+  data "ibm_container_vpc_cluster" "cluster" {
+    name              = var.cluster_name
+    resource_group_id = var.resource_group_id
+  }
+  
+  # Get details of Secret Manager Instance
+  data "ibm_resource_instance" "secrets_manager" {
+    name              = var.sm_name
+    resource_group_id = var.resource_group_id
+    service           = "secrets-manager"
+  }
+  
+  # Create Trusted Profile
+  resource "ibm_iam_trusted_profile" "eso_profile" {
+    name        = var.profile_name
+    description = var.profile_description
+  }
+  
+  # Attach IAM Policy for Secrets Manager Access
+  resource "ibm_iam_trusted_profile_policy" "secrets_policy" {
+    iam_id = ibm_iam_trusted_profile.eso_profile.id
+  
+    roles = ["SecretsReader"]
+  
+    resources {
+      service = "secrets-manager"
+      resource_instance_id = data.ibm_resource_instance.secrets_manager.guid
+    }
+  }
+  
+  # Add Claim Rule for Kubernetes Service Account
+  resource "ibm_iam_trusted_profile_claim_rule" "eso_claim_rule" {
+    profile_id = ibm_iam_trusted_profile.eso_profile.id
+    type       = "Profile-CR"
+    cr_type    = "IKS_SA"
+  
+    conditions {
+      claim    = "name"
+      operator = "EQUALS"
+      value    = var.service_account_name
+    }
+  
+    conditions {
+      claim    = "namespace"
+      operator = "EQUALS"
+      value    = var.namespace
+    }
+  
+    conditions {
+      claim    = "crn"
+      operator = "EQUALS"
+      value    = data.ibm_container_vpc_cluster.cluster.crn
+    }
+  }
+
+  # Variables
+
+  variable "resource_group_id" {
+    description = "Resource Group ID"
+    type        = string
+  }
+   
+  variable "sm_name" {
+    description = "Secret Manager Instance ID"
+    type        = string
+  }
+  
+  variable "cluster_name" {
+    description = "IKS Cluster name"
+    type        = string
+  }
+  
+  variable "profile_name" {
+    type        = string
+    description = "Name of the trusted profile"
+  }
+  
+  variable "profile_description" {
+    type        = string
+    description = "Description of the trusted profile"
+  }
+  
+  variable "service_account_name" {
+    description = "Kubernetes service account name for claim rule"
+    type        = string
+  }
+  
+  variable "namespace" {
+    description = "Kubernetes namespace for claim rule"
+    type        = string
+  }
+  ```
+  {: pre}
 
 ### Prepare your {{site.data.keyword.secrets-manager_short}} instance
 {: #tutorial-kubernetes-secrets-prepare-sm}
