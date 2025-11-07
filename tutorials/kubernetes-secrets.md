@@ -3,7 +3,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-11-06"
+lastupdated: "2025-11-07"
 
 keywords: tutorial, Secrets Manager
 
@@ -294,26 +294,26 @@ A trusted profile enables the External Secrets operator to read from {{site.data
 
 Example in Terraform that performs all of the steps to create a Trusted Profile:
   ```terraform
-  # Get your cluster details
+  #Get your cluster details
   data "ibm_container_vpc_cluster" "cluster" {
     name              = var.cluster_name
     resource_group_id = var.resource_group_id
   }
   
-  # Get details of Secret Manager Instance
+  #Get details of Secret Manager Instance
   data "ibm_resource_instance" "secrets_manager" {
     name              = var.sm_name
     resource_group_id = var.resource_group_id
     service           = "secrets-manager"
   }
   
-  # Create Trusted Profile
+  #Create Trusted Profile
   resource "ibm_iam_trusted_profile" "eso_profile" {
     name        = var.profile_name
     description = var.profile_description
   }
   
-  # Attach IAM Policy for Secrets Manager Access
+  #Attach IAM Policy for Secrets Manager Access
   resource "ibm_iam_trusted_profile_policy" "secrets_policy" {
     iam_id = ibm_iam_trusted_profile.eso_profile.id
   
@@ -325,7 +325,7 @@ Example in Terraform that performs all of the steps to create a Trusted Profile:
     }
   }
   
-  # Add Claim Rule for Kubernetes Service Account
+  #Add Claim Rule for Kubernetes Service Account
   resource "ibm_iam_trusted_profile_claim_rule" "eso_claim_rule" {
     profile_id = ibm_iam_trusted_profile.eso_profile.id
     type       = "Profile-CR"
@@ -350,8 +350,7 @@ Example in Terraform that performs all of the steps to create a Trusted Profile:
     }
   }
 
-  # Variables
-
+  #Variables
   variable "resource_group_id" {
     description = "Resource Group ID"
     type        = string
