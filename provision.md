@@ -122,7 +122,7 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} by using th
 3. Create an instance of {{site.data.keyword.secrets-manager_short}} within that account and resource group.
 
     ```sh
-    ibmcloud resource service-instance-create <instance_name> secrets-manager <plan>
+    ibmcloud resource service-instance-create <instance_name> secrets-manager <plan> --location <region>
     ```
     {: pre}
 
@@ -137,14 +137,6 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} by using th
 
     You can create only one Trial instance of {{site.data.keyword.secrets-manager_short}} per account. Before you can create a new Trial instance, you must delete the existing Trial instance and its reclamation.
     {: note}
-
-
-5. Optional: Verify that the service instance was created successfully.
-
-    ```sh
-    ibmcloud resource service-instances
-    ```
-    {: pre}
 
 To update your service plan after you create an instance, see [Updating your service plan](/docs/account?topic=account-changing).
 {: tip}
