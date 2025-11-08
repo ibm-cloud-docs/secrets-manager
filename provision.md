@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-30"
+lastupdated: "2025-11-08"
 
 keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, trial plan
 
@@ -129,8 +129,9 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} by using th
     | Variable | Description |
     |:---------|:------------|
     | Instance name (`name`) | A unique alias for your service instance. |
+    | Location (`location`) | The location/region the instance should be provisioned in. [Supported regions](/docs/secrets-manager?topic=secrets-manager-endpoints&interface=api). |
     | Pricing plan (`plan`) | The pricing plan that you want to use, provided as a plan ID. Use `869c191a-3c2a-4faf-98be-18d48f95ba1f` for `trial` or `7713c3a8-3be8-4a9a-81bb-ee822fcaac3d` for `standard`. |
-    |  Endpoints | If you need to provision an instance of {{site.data.keyword.secrets-manager_short}} that uses [private endpoints only](/docs/secrets-manager?topic=secrets-manager-service-connection), you can append `-p '{"allowed_network": "private-only"}'` to your command. Alternatively, to have both public and private endpoints, append `-p '{"allowed_network": "public-and-private"}'` to your command. |
+    | Endpoints | If you need to provision an instance of {{site.data.keyword.secrets-manager_short}} that uses [private endpoints only](/docs/secrets-manager?topic=secrets-manager-service-connection), you can append `-p '{"allowed_network": "private-only"}'` to your command. Alternatively, to have both public and private endpoints, append `-p '{"allowed_network": "public-and-private"}'` to your command. |
     | Encryption | To provision an instance of {{site.data.keyword.secrets-manager_short}} that uses [customer-managed encryption](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption), append `-p '{"kms_key": "<root_key_crn>"}'`. Replace `<root_key_crn>` with the CRN value for the root key that you want to integrate. |
     {: caption="Description of the information that is required to provision the  {{site.data.keyword.secrets-manager_short}} service using CLI" caption-side="top"}
 
@@ -138,7 +139,7 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} by using th
     {: note}
 
 
-4. Optional: Verify that the service instance was created successfully.
+5. Optional: Verify that the service instance was created successfully.
 
     ```sh
     ibmcloud resource service-instances
@@ -176,9 +177,9 @@ For additional programming languages support, see the [Resource Controller API D
     | Variable | Description |
     |:---------|:------------|
     | Instance name (`name`) | A unique alias for your service instance. |
-    | Target (`region`) | The region the instance should be provisioned in. Supported regions: |
+    | Target (`region`) | The region the instance should be provisioned in. [Supported regions](/docs/secrets-manager?topic=secrets-manager-endpoints&interface=api). |
     | Pricing plan (`plan`) | The pricing plan that you want to use, provided as a plan ID. Use `869c191a-3c2a-4faf-98be-18d48f95ba1f` for `trial` or `7713c3a8-3be8-4a9a-81bb-ee822fcaac3d` for `standard`. |
-    |  Endpoints | If you need to provision an instance of {{site.data.keyword.secrets-manager_short}} that uses [private endpoints only](/docs/secrets-manager?topic=secrets-manager-service-connection), use the `allowed_network` parameter with the `private-only` value. Alternatively, to have both public and private endpoints, use `public-and-private` as the value. |
+    | Endpoints | If you need to provision an instance of {{site.data.keyword.secrets-manager_short}} that uses [private endpoints only](/docs/secrets-manager?topic=secrets-manager-service-connection), use the `allowed_network` parameter with the `private-only` value. Alternatively, to have both public and private endpoints, use `public-and-private` as the value. |
     | Encryption | To provision an instance of {{site.data.keyword.secrets-manager_short}} that uses [customer-managed encryption](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption), keep the `kms_key` parameter, and replace `<root_key_crn>` with the CRN value for the root key that you want to integrate. |
     {: caption="Description of the information that is required to provision the  {{site.data.keyword.secrets-manager_short}} service using API" caption-side="top"}
 
