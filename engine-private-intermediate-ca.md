@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-27"
+lastupdated: "2025-11-28"
 
 keywords: intermediate certificate authority, intermediate CA, internal signing, external signing
 
@@ -696,4 +696,4 @@ A successful response returns the value of the engine configuration, along with 
 ## Next steps
 {: #intermediate-ca-next-steps}
 
-  - [Add a certificate template](/docs/secrets-manager?topic=secrets-manager-certificate-templates).
+- [Add a certificate template](/docs/secrets-manager?topic=secrets-manager-certificate-templates).
