@@ -653,9 +653,9 @@ crypto_key {
 
 You can retrieve the intermediate CA value by using the {{site.data.keyword.secrets-manager_short}} UI.
 
-  1. In the **Public certificates** secret engine, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) to open a list of options for your engine configuration.
-  2. To view the configuration value, click **View configuration**.
-  2. Click **Confirm** after you ensure that you are in a safe environment.
+1. In the **Public certificates** secret engine, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) to open a list of options for your engine configuration.
+2. To view the configuration value, click **View configuration**.
+3. Click **Confirm** after you ensure that you are in a safe environment.
 
 The secret value is displayed for 15 seconds, then the dialog closes.
 {: note}
