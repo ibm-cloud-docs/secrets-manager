@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-20"
+lastupdated: "2025-12-08"
 
 keywords: isolation for {{site.data.keyword.secrets-manager_short}}, service endpoints for {{site.data.keyword.secrets-manager_short}}, private network for {{site.data.keyword.secrets-manager_short}}, network isolation in {{site.data.keyword.secrets-manager_short}}, non-public routes for {{site.data.keyword.secrets-manager_short}}, private connection for {{site.data.keyword.secrets-manager_short}}
 
@@ -145,14 +145,14 @@ After your account is enabled for VRF and service endpoints, you can provision a
 4. Create a private {{site.data.keyword.secrets-manager_short}} service instance by running the following command.
 
     ```sh
-    ibmcloud resource service-instance-create <instance_name> secrets-manager trial <region> -p '{"allowed_network": "<connectivity-option>"}'
+    ibmcloud resource service-instance-create <instance_name> secrets-manager trial <region> -p '{"allowed_network":"<connectivity-option>"}'
     ```
     {: pre}
 
     | Variable | Description |
     | -------- | ----------- |
     | `region` | The region abbreviation, such as `us-south` that represents the geographic area where you want your {{site.data.keyword.secrets-manager_short}} to be handled and processed. For a complete list of supported regions, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints). |
-    | `connectivity-option` | The network connectivity option that you want to allow for your instance.  \n  \n To allow access to the instance over both public and private service endpoints, use `public-and-private`. To limit API requests to the instance to take place only through a private network, use `private-only`. This is also the default option. |
+    | `connectivity-option` | The network connectivity option that you want to allow for your instance. To allow access to the instance over both public and private service endpoints, use `public-and-private`. To limit API requests to the instance to take place only through a private network, use `private-only`, this is also the default option. |
     {: caption="Variable descriptions" caption-side="top"}
 
 
