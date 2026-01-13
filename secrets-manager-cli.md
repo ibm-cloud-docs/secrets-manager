@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-08-25"
+  years: 2026
+lastupdated: "2026-01-13"
 
 subcollection: secrets-manager
 
@@ -163,7 +163,7 @@ ibmcloud secrets-manager
     --region=us-south \
     --output=json \
     --jmes-query="[:10]" \
-    --service-url="https://myservice.test.cloud.ibm.com"
+    --service-url="https://myservice.cloud.ibm.com"
     --quiet
 ```
 {: pre}
