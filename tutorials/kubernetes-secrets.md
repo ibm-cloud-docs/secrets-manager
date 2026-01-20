@@ -2,8 +2,8 @@
 
 
 copyright:
-  years: 2025
-lastupdated: "2025-11-27"
+  years: 2026
+lastupdated: "2026-01-20"
 
 keywords: tutorial, Secrets Manager
 
@@ -108,7 +108,7 @@ Before you get started, be sure that you have [**Administrator** platform access
 
 To work with {{site.data.keyword.secrets-manager_short}} and {{site.data.keyword.containershort}}, you need to create a cluster and a {{site.data.keyword.secrets-manager_short}} instance in your {{site.data.keyword.cloud_notm}} account. You also need to configure permissions so that you can run operations against both services.
 
-In this step, you set up an access environment by creating a service ID and an {{site.data.keyword.cloud_notm}} API key. At the end of the tutorial, you can easily remove your resources if you no longer need them. Alternatively, you can use a [trusted profile](tutorial-kubernetes-secrets-trusted-profile-cli) to authorize the External Secrets operator.
+In this step, you set up an access environment by creating a service ID and an {{site.data.keyword.cloud_notm}} API key. At the end of the tutorial, you can easily remove your resources if you no longer need them. Alternatively, you can use a [trusted profile](#tutorial-kubernetes-secrets-trusted-profile-cli) to authorize the External Secrets operator.
 
 ### Create a service ID and API key
 {: #tutorial-external-kubernetes-secrets-access}
