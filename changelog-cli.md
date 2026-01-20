@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-09-20"
+  years: 2020, 2026
+lastupdated: "2026-01-20"
 
 keywords: change log for Secrets Manager CLI, CLI changelog, updates to Secrets Manager CLI
 
@@ -62,6 +62,12 @@ In this change log, you can learn about the latest changes, improvements, and up
 {: shortdesc}
 
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
+
+## Version 2.0.13
+{: #2.0.13}
+
+Version 2.0.13 was released on 13 January 2027. This release includes the following updates:
+- Strings updates, packages updates.
 
 ## Version 2.0.12
 {: #2.0.12}
