@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-09-20"
+  years: 2020, 2026
+lastupdated: "2026-02-09"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -65,6 +65,15 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
 
+
+##  09 February 2026
+{: #secrets-manager-feb0926}
+{: release-note}
+
+Chennai availability
+:   You can now create a {{site.data.keyword.secrets-manager_short}} service instance in the Chennai (`in-che`) region.
+
+   For more information, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
 
 ## 25 August 2025
 {: #secrets-manager-august2525}
