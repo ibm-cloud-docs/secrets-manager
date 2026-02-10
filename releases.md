@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-02-09"
+lastupdated: "2026-02-10"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -70,8 +70,8 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 {: #secrets-manager-feb0926}
 {: release-note}
 
-Chennai availability
-:   You can now create a {{site.data.keyword.secrets-manager_short}} service instance in the Chennai (`in-che`) region.
+Chennai - Airtel availability
+:   You can now create a {{site.data.keyword.secrets-manager_short}} service instance in the Chennai - Airtel (`in-che`) region.
 
    For more information, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
 
