@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-02-09"
+lastupdated: "2026-02-10"
 
 keywords: Secrets Manager availability, regions, Secrets Manager endpoints, Vault endpoint
 
@@ -77,7 +77,7 @@ You can create {{site.data.keyword.secrets-manager_short}} resources in one of t
 - Toronto (`ca-tor`)
 - Montreal (`ca-mon`)
 - Washington DC (`us-east`)
-- Chennai (`in-che`)
+- Chennai - Airtel (`in-che`)
 
 ## Service endpoints
 {: #service-endpoints}
@@ -100,7 +100,7 @@ To learn how to configure your {{site.data.keyword.secrets-manager_short}} insta
 
 | Region        | Endpoint URL             |
 | ------------- | ---------------------------- |
-| Chennai       | `https://{instance_ID}.private.in-che.secrets-manager.appdomain.cloud`   |
+| Chennai - Airtel       | `https://{instance_ID}.private.in-che.secrets-manager.appdomain.cloud`   |
 | Dallas        | `https://{instance_ID}.private.us-south.secrets-manager.appdomain.cloud` |
 | Frankfurt     | `https://{instance_ID}.private.eu-de.secrets-manager.appdomain.cloud`    |
 | London        | `https://{instance_ID}.private.eu-gb.secrets-manager.appdomain.cloud`    |
@@ -119,7 +119,7 @@ To learn how to configure your {{site.data.keyword.secrets-manager_short}} insta
 
 | Region        | Endpoint URL             |
 | ------------- | ---------------------------- |
-| Chennai       | `https://{instance_ID}.in-che.secrets-manager.appdomain.cloud`   |
+| Chennai - Airtel       | `https://{instance_ID}.in-che.secrets-manager.appdomain.cloud`   |
 | Dallas        | `https://{instance_ID}.us-south.secrets-manager.appdomain.cloud` |
 | Frankfurt     | `https://{instance_ID}.eu-de.secrets-manager.appdomain.cloud`    |
 | London        | `https://{instance_ID}.eu-gb.secrets-manager.appdomain.cloud`    |
