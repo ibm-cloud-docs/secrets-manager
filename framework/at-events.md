@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-09-19"
+  years: 2020, 2026
+lastupdated: "2026-02-09"
 
 keywords: activity tracking events for Secrets Manager, events, Secrets Manager actions
 
@@ -44,7 +44,7 @@ You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on event
 
 | Tokyo (`jp-tok`)    | Sydney (`au-syd`) |  Osaka (`jp-osa`) | Chennai (`in-che`) |
 |---------------------|------------------|------------------|--------------------|
-| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [No]{: tag-red} |
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-red} |
 {: caption="Regions where activity tracking events are sent in Asia Pacific locations" caption-side="top"}
 {: #logs-table-2}
 {: tab-title="Asia Pacific"}
