@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-02-09"
+lastupdated: "2026-02-16"
 
 keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, trial plan
 
@@ -201,7 +201,7 @@ resource "ibm_resource_instance" "sm_instance" {
   service           = "secrets-manager"
   plan              = "standard"
   location          = "us-south"
-  service-endpoints = "public-and-private"
+  service_endpoints = "public-and-private"
 }
 ```
 
