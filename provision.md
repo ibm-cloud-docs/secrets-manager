@@ -189,7 +189,7 @@ To update your service plan after you create an instance, see [Updating your ser
 
  - **`service`**: `secrets-manager`
  - **`plan`**: either `Standard` or `Trial`. [Learn more](/docs/secrets-manager?topic=secrets-manager-pricing) about the service plans
- - **`service-endpoints`**: Either `private` or `public-and-private`. If not included, default is `private` 
+ - **`service_endpoints`**: Either `private` or `public-and-private`. If not included, default is `private` 
 Include the following inside `parameters` for further customization.
  - **`kms_key`**: Root key CRN from either Key Protect or Hyper Protect Crypto Services instance. If not included, default is root key that is managed by {{site.data.keyword.secrets-manager_short}}
 
@@ -201,7 +201,7 @@ resource "ibm_resource_instance" "sm_instance" {
   service           = "secrets-manager"
   plan              = "standard"
   location          = "us-south"
-  service-endpoints = "public-and-private"
+  service_endpoints = "public-and-private"
 }
 ```
 
