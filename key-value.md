@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-11-28"
+  years: 2026
+lastupdated: "2026-02-23"
 
 keywords: key:value, key/value, key-value, storing key:value secrets
 
@@ -107,9 +107,15 @@ To add a key-value secret by using the {{site.data.keyword.secrets-manager_short
 To create a key-value secret by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. For example, the following command creates a key-value secret and stores `{"key1":"value1"}` as its value.
 
 ```sh
-ibmcloud secrets-manager secret-create  \
-  --secret-prototype='{
-  "name": "example-kv-secret","description": "Description of my key-value secret.","secret_type": "kv","secret_group_id": "67d025e1-0248-418f-83ba-deb0ebfb9b4a","labels": ["dev","us-south"],"data": {"key1": "val1","key2": "val2"},"custom_metadata": {"metadata_custom_key": "metadata_custom_value"},"version_custom_metadata": {"custom_version_key": "custom_version_value"}}'
+ibmcloud secrets-manager secret-create \
+  --secret-name="example-kv-secret" \
+  --secret-description="Description of my key-value secret." \
+  --secret-type="kv" \
+  --secret-group-id="67d025e1-0248-418f-83ba-deb0ebfb9b4a" \
+  --secret-labels='["dev","us-south"]' \
+  --kv-data='{"key1": "val1","key2": "val2"}' \
+  --secret-custom-metadata='{"metadata_custom_key": "metadata_custom_value"}' \
+  --secret-version-custom_metadata='{"custom_version_key": "custom_version_value"}'
 ```
 {: pre}
 
