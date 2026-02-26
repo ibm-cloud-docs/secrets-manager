@@ -3,7 +3,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-01-20"
+lastupdated: "2026-02-26"
 
 keywords: tutorial, Secrets Manager
 
@@ -298,7 +298,7 @@ A trusted profile enables the External Secrets operator to read from {{site.data
 A trusted profile enables the External Secrets operator to read from {{site.data.keyword.secrets-manager_short}}, without having to create a service ID or manage an API key.  
 You can follow this example in Terraform that performs all of the steps to create a Trusted Profile:
 
-  ```terraform
+  ```sh
   //Get your cluster details
   data "ibm_container_vpc_cluster" "cluster" {
     name              = var.cluster_name
