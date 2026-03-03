@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-09-06"
+  years: 2020, 2026
+lastupdated: "2026-03-01"
 
 keywords: DNS provider, connect DNS provider, set up DNS provider, connect DNS, set up DNS, connect CIS, set up CIS, add DNS provider configuration
 
@@ -122,9 +122,9 @@ You can add DNS provider configurations to your service instance by using the {{
 
    Currently, you can add configurations for Cloud Internet Services (CIS) and IBM Cloud classic infrastructure. You can also use your own DNS provider, but no configuration is required in this case.
 6. Grant service access between {{site.data.keyword.secrets-manager_short}} and your selected DNS provider.
-   1. If you choose CIS, grant access by selecting from a list of authorized CIS instances or by entering an API key.
+   1. If you choose CIS, grant access by selecting from a list of authorized CIS instances.
 
-      Don't have an authorization yet? You can [create one in the IAM console](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#authorize-cis). Optionally, you can grant access to CIS by providing an API key and the instance CRN. You can find the CRN in the **Overview** page of your CIS service instance. For more information about creating an API key for CIS, see [Granting service access by using an API key](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#authorize-cis-another-account)
+      Don't have an authorization yet? You can [create one in the IAM console](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#authorize-cis). You can grant access to CIS by providing either an API key or the instance CRN. You can find the CRN in the **Overview** page of your CIS service instance. If you prefer to use an API key for CIS, see [Granting service access by using an API key](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#authorize-cis-another-account). Otherwise provide the instance CRN after creating the authorization.
    2. If you choose classic infrastructure, enter the [username and API key](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#authorize-classic-infrastructure) that is associated with your account.
    3. If you choose to use your own DNS provider, refer to your provider's documentation for instructions. No DNS provider configuration is required in {{site.data.keyword.secrets-manager_short}}.
 7. Click **Add**.
@@ -147,7 +147,8 @@ ibmcloud secrets-manager configuration-create {
 ```
 {: pre}
 
-If you choose to use your own DNS provider, refer to your provider's documentation for instructions. No DNS provider configuration is required in {{site.data.keyword.secrets-manager_short}}.
+If you choose to use your own DNS provider, refer to your provider's documentation for instructions. No DNS provider configuration is required in {{site.data.keyword.secrets-manager_short}}.  
+If you prefer to use an IAM service authorization, omit `cloud_internet_services_apikey`.
 {: important}
 
 
@@ -167,7 +168,7 @@ If you choose to use your own DNS provider, refer to your provider's documentati
 The following example shows a query that you can use to add a Cloud Internet Services (CIS) DNS configuration to your {{site.data.keyword.secrets-manager_short}} instance. When you call the API, replace the `cis_crn` value with the CRN of the CIS instance that contains your domains.
 {: curl}
 
-If you need to access a CIS instance that is located in another account, provide a `cis_apikey` value that contains an API key with **Manager** service access on the Internet Services (`internet-svs`) service. For more information, see [Granting service access to CIS](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#authorize-cis-another-account).
+If you need to access a CIS instance that is located in another account, provide a `cis_apikey` value that contains an API key with **Manager** service access on the Internet Services (`internet-svs`) service. If you prefer to use an IAM service authorization, omit `cloud_internet_services_apikey`. For more information, see [Granting service access to CIS](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#authorize-cis-another-account).
 {: note} 
 
 
@@ -177,7 +178,7 @@ curl -X POST
   --H "Accept: application/json" \
   --H "Content-Type: application/json" \
   --d '{
-    "cloud_internet_services_apikey": "5ipu_ykv0PMp2MhxQnDMn7VzrkSlBwi3BOI8uthi_EXZ",
+    "cloud_internet_services_apikey": "5ipu..",
     "cloud_internet_services_crn": "crn:v1:bluemix:public:internet-svcs:global:a/128e84fcca45c1224aae525d31ef2b52:009a0357-1460-42b4-b903-10580aba7dd8::",
     "config_type": "public_cert_configuration_dns_cloud_internet_services",
     "name": "cloud-internet-services-config"
@@ -215,10 +216,7 @@ curl -X POST
 {: codeblock}
 {: curl}
 
-
-
 A successful response adds the configuration to your service instance. For more information about the required and optional request parameters, see [Add a configuration](/apidocs/secrets-manager/secrets-manager-v2#create-configuration){: external}.
-
 
 ## Adding a DNS provider configuration with Terraform
 {: #add-dns-provider-terraform}
@@ -233,7 +231,7 @@ If you choose to use your own DNS provider, refer to your provider's documentati
 {: #add-cis-config-terraform}
 {: terraform}
 
-The following example shows a configuration that you can use to add a a Cloud Internet Services (CIS) DNS configuration to your {{site.data.keyword.secrets-manager_short}} instance. 
+The following example shows a configuration that you can use to add a a Cloud Internet Services (CIS) DNS configuration to your {{site.data.keyword.secrets-manager_short}} instance. If you prefer to use an IAM service authorization, omit `cloud_internet_services_apikey`.
 
 ```terraform
 resource "ibm_sm_public_certificate_configuration_dns_cis" "my_dns_cis_config" {
