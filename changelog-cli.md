@@ -66,7 +66,7 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 ## Version 2.0.14
 {: #2.0.14}
 
-Version 2.0.13 was released on 13 January 2027. This release includes the following updates:
+Version 2.0.14 was released on 13 January 2027. This release includes the following updates:
 - packages updates.
 
 ## Version 2.0.13
