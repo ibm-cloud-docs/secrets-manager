@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-17"
+lastupdated: "2026-03-05"
 
 keywords: Secrets Manager custom credentials, Secrets Manager third-party
 
@@ -65,7 +65,7 @@ To retain completed jobs using the {{site.data.keyword.codeengineshort}} UI:
 2. Within the project page, go to Jobs, click the **Jobs tab**, and select your job.
 3. In the Configuration page, open the Environment variables tab.
 4. Locate the `CE_REMOVE_COMPLETED_JOBS` variable and click its row to edit.
-5. In the Edit environment variable panel, change the value from `IMMEDIATELY` to `3d`, then click Done.
+5. In the Edit environment variable panel, change the value from `IMMEDIATELY` for example to `4320` (3 days), then click Done.
 6. Return to the Environment variables page and click **Deploy** to apply the changes. Completed job runs will now be retained for **3 days**.
 
 For troubleshooting jobs in a production environment, it is recommended to integrate {{site.data.keyword.codeengineshort}} with Cloud Logs. Refer to the documentation of both services for setup instructions.

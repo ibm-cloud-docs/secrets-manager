@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-09-24"
+  years: 2020, 2026
+lastupdated: "2026-03-05"
 
 keywords: known issues for {{site.data.keyword.secrets-manager_short}}, known limitations for {{site.data.keyword.secrets-manager_short}}
 
@@ -251,7 +251,7 @@ The following limits apply to custom credentials.
 | A custom credentials configuration cannot be updated to reference a different credentials provider {{site.data.keyword.codeengineshort}} job. | Create a new custom credentials configuration. |
 | A custom credentials configuration cannot be updated to change or remove a referenced IAM Credentials secret. | Create a new custom credentials configuration. |
 | A custom credentials configuration schema (parameters and credentials) is mapped to the credentials provider {{site.data.keyword.codeengineshort}} job environment variables at {{site.data.keyword.secrets-manager_short}} configuration creation time. | Create a new custom credentials configuration to accommodate updates to a credentials provider’s environment variables. |
-| {{site.data.keyword.secrets-manager_short}} configures {{site.data.keyword.codeengineshort}} jobs to immediately remove completed job runs to avoid {{site.data.keyword.codeengineshort}} rate limits. | You can change the value of the job variable `CE_REMOVE_COMPLETED_JOBS` to a value such as `3d` in the {{site.data.keyword.codeengineshort}} UI to review completed job runs and their logs during development time. |
+| {{site.data.keyword.secrets-manager_short}} configures {{site.data.keyword.codeengineshort}} jobs to immediately remove completed job runs to avoid {{site.data.keyword.codeengineshort}} rate limits. | You can change the value of the job variable `CE_REMOVE_COMPLETED_JOBS` to a value such as `4320` (3 days) in the {{site.data.keyword.codeengineshort}} UI to review completed job runs and their logs during development time. |
 | A {{site.data.keyword.secrets-manager_short}} instance can be configured with up to 10 custom credentials configurations. | Create a new {{site.data.keyword.secrets-manager_short}} instance. |
 | A custom credentials secret maintains a history of 100 tasks. | Refer to {{site.data.keyword.atracker_full_notm}} in {{site.data.keyword.logs_full_notm}} to review task history. |
 |{{site.data.keyword.secrets-manager_short}} will apply daily retries for failed ‘delete credentials’ tasks for up to 10 days. | Monitor Event Notifications and logs for failed task events and periodically check your external credentials provider for stale or expired credentials. |
