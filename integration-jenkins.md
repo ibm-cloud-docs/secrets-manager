@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-09-28"
+  years: 2026
+lastupdated: "2026-03-05"
 
 keywords: migration, integrations, vault jenkins plug-in, ansible, tool integrations
 
@@ -95,12 +95,12 @@ You can configure a `vault-refresh` job to run periodically to refresh the Vault
 4. In the **Build Steps** section, add **Executive Shell** and enter the following script.
 
     ```sh
-    wget YOUR-TAAS-JENKINS-INSTANCE-NAME.swg-devops.com/jnlpJars/jenkins-cli.jar
+    wget <your_jenkins_url>/jnlpJars/jenkins-cli.jar
     export IAM_TOKEN=$(curl -X POST 'https://iam.cloud.ibm.com/identity/token' -H 'Content-Type: application/x-www-form-urlencoded' -d "grant_type=urn:ibm:params:oauth:grant-type:apikey&apikey=${IAM_API_KEY}" | jq --raw-output '.access_token')
     export NEW_VAULT_TOKEN=$(curl -X PUT -H "X-Vault-Request: true" -d "{\"token\":\"${IAM_TOKEN}\"}" ${VAULT_ADDR}/v1/auth/ibmcloud/login | jq --raw-output '.auth.client_token')
 
     printf "<com.datapipe.jenkins.vault.credentials.VaultTokenCredential plugin=\"hashicorp-vault-plugin@3.8.0\"><scope>GLOBAL</scope><id>sm-vault-token</id><description>Vault token for Secrets Manager</description><token>$NEW_VAULT_TOKEN</token></com.datapipe.jenkins.vault.credentials.VaultTokenCredential>" > creds.xml
-    java -jar jenkins-cli.jar -s https://YOUR-TAAS-JENKINS-INSTANCE-NAME.swg-devops.com/ -auth <Jenkins user>:<user token> update-credentials-by-xml system::system::jenkins '(global)' sm-vault-token < creds.xml
+    java -jar jenkins-cli.jar -s <your_jenkins_URL> -auth <Jenkins user>:<user_token> update-credentials-by-xml system::system::jenkins '(global)' sm-vault-token < creds.xml
     ```
     {: codeblock}
 
