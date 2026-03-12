@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-09-18"
+  years: 2020, 2026
+lastupdated: "2026-03-12"
 
 keywords: username, password, user credentials, store password
 
@@ -115,9 +115,18 @@ Before you begin, [follow the CLI docs](/docs/secrets-manager?topic=secrets-mana
 To store a username and password by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. 
 
 
-```sh 
-ibmcloud secrets-manager secret-create \    
-    --secret-prototype='{"name": "example-username-password-secret","description": "Description of my user credentials secret","secret_type": "username_password","secret_group_id": "bfc0a4a9-3d58-4fda-945b-76756af516aa","labels": ["dev","us-south"],"username": "example-username","password": "example-password","rotation": {"auto_rotate": true,"interval": 10,"unit": "day"},"custom_metadata": {"metadata_custom_key": "metadata_custom_value"},"version_custom_metadata": {"custom_version_key": "custom_version_value"}}'
+```sh
+ibmcloud secrets-manager secret-create \
+    --secret-name example-username-password-secret \
+    --secret-description "Description of my user credentials secret" \
+    --secret-type username_password \
+    --secret-group-id bfc0a4a9-3d58-4fda-945b-76756af516aa \
+    --secret-labels dev,us-south \
+    --username-password-username example-username \
+    --username-password-password example-password \
+    --secret-rotation '{"auto_rotate": true, "interval": 10, "unit": "day"}' \
+    --secret-custom-metadata '{"metadata_custom_key": "metadata_custom_value"}' \
+    --secret-version-custom-metadata '{"custom_version_key": "custom_version_value"}'
 
 ```
 {: pre}
@@ -129,9 +138,19 @@ ibmcloud secrets-manager secret-create \
 You can choose to further customize the generated password by configuring its length (12-256 characters), and whether to include numbers, symbols, and upper-case letters. To generate a random password using the {{site.data.keyword.secrets-manager_short}} CLI plug-in, run the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-create-command) command and include the `password_generation_policy` field.
 
 
-```sh 
-ibmcloud secrets-manager secret-create \    
-    --secret-prototype='{"name": "example-username-password-secret","description": "Description of my user credentials secret","secret_type": "username_password","secret_group_id": "bfc0a4a9-3d58-4fda-945b-76756af516aa","labels": ["dev","us-south"],"username": "example-username","password": "example-password","rotation": {"auto_rotate": true,"interval": 10,"unit": "day"},"password_generation_policy": {"length": 24, "include_digits": true, "include_symbols": false, "include_uppercase": true}, "custom_metadata": {"metadata_custom_key": "metadata_custom_value"},"version_custom_metadata": {"custom_version_key": "custom_version_value"}}'
+```sh
+ibmcloud secrets-manager secret-create \
+    --secret-name example-username-password-secret \
+    --secret-description "Description of my user credentials secret" \
+    --secret-type username_password \
+    --secret-group-id bfc0a4a9-3d58-4fda-945b-76756af516aa \
+    --secret-labels dev,us-south \
+    --username-password-username example-username \
+    --username-password-password example-password \
+    --secret-rotation '{"auto_rotate": true, "interval": 10, "unit": "day"}' \
+    --username-password-policy '{"length": 24, "include_digits": true, "include_symbols": false, "include_uppercase": true}' \
+    --secret-custom-metadata '{"metadata_custom_key": "metadata_custom_value"}' \
+    --secret-version-custom-metadata '{"custom_version_key": "custom_version_value"}'
 
 ```
 {: pre}

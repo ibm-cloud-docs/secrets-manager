@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-09-19"
+  years: 2021, 2026
+lastupdated: "2026-03-12"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, public certificates
 
@@ -168,33 +168,20 @@ When you order a certificate, domain validation takes place to verify the owners
 
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-prototype \
-'{
-    "name": "example-public-certificate", 
-    "description": "Extended description for this secret.",
-    "secret_type": "public_cert",
-    "secret_group_id": "bc656587-8fda-4d05-9ad8-b1de1ec7e712", 
-    "labels": [
-        "dev","us-south"
-    ], 
-    "dns": "dns_provider",
-    "common_name": "cert_common_name"
-    "alt_names": [
-        "alt_name1", "alt_name2"
-    ],
-    "ca": "lets-encrypt-config",
-    "key_algorithm": "RSA2048",
-    "rotation": {
-        "auto_rotate": true,
-        "rotate_keys":false
-        },
-    "custom_metadata" : {
-        "anyKey" : "anyValue"
-    },
-    "version_custom_metadata" : {
-        "anyKey" : "anyValue"
-    }
-}
+ibmcloud secrets-manager secret-create \
+    --secret-name example-public-certificate \
+    --secret-description "Extended description for this secret." \
+    --secret-type public_cert \
+    --secret-group-id bc656587-8fda-4d05-9ad8-b1de1ec7e712 \
+    --secret-labels dev,us-south \
+    --public-cert-dns dns_provider \
+    --certificate-common-name cert_common_name \
+    --certificate-alt-names alt_name1,alt_name2 \
+    --public-cert-ca lets-encrypt-config \
+    --public-cert-key-algorithm RSA2048 \
+    --secret-rotation '{"auto_rotate": true, "rotate_keys": false}' \
+    --secret-custom-metadata '{"anyKey": "anyValue"}' \
+    --secret-version-custom-metadata '{"anyKey": "anyValue"}'
 ```
 {: pre}
 
@@ -504,32 +491,20 @@ When you order a certificate, domain validation takes place to verify the owners
 
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-prototype \
-'{
-    "name": "example-public-certificate", 
-    "description": "Extended description for this secret.", 
-    "secret_group_id": "bc656587-8fda-4d05-9ad8-b1de1ec7e712", 
-    "labels": [
-        "dev","us-south"
-    ], 
-    "dns": "manual",
-    "common_name": "cert_common_name"
-    "alt_names": [
-        "alt_name1", "alt_name2"
-    ],
-    "ca": "lets-encrypt-config",
-    "key_algorithm": "RSA2048",
-    "rotation": {
-        "enabled": false,
-        "rotate_keys":false
-        },
-    "custom_metadata" : {
-        "anyKey" : "anyValue"
-    },
-    "version_custom_metadata" : {
-        "anyKey" : "anyValue"
-    }
-}
+ibmcloud secrets-manager secret-create \
+    --secret-name example-public-certificate \
+    --secret-description "Extended description for this secret." \
+    --secret-type public_cert \
+    --secret-group-id bc656587-8fda-4d05-9ad8-b1de1ec7e712 \
+    --secret-labels dev,us-south \
+    --public-cert-dns manual \
+    --certificate-common-name cert_common_name \
+    --certificate-alt-names alt_name1,alt_name2 \
+    --public-cert-ca lets-encrypt-config \
+    --public-cert-key-algorithm RSA2048 \
+    --secret-rotation '{"enabled": false, "rotate_keys": false}' \
+    --secret-custom-metadata '{"anyKey": "anyValue"}' \
+    --secret-version-custom-metadata '{"anyKey": "anyValue"}'
 ```
 {: pre}
 

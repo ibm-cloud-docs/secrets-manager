@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-29"
+  years: 2020, 2026
+lastupdated: "2026-03-12"
 
 keywords: arbitrary secrets, arbitrary text, custom secrets
 
@@ -117,8 +117,16 @@ To create an arbitrary secret by using the {{site.data.keyword.secrets-manager_s
 
 
 ```sh
-ibmcloud secrets-manager secret-create \    
-    --secret-prototype='{"custom_metadata": {"anyKey": "anyValue"}, "description": "Description of my arbitrary secret.", "expiration_date": "2023-10-05T11:49:42Z", "labels": ["dev","us-south"], "name": "example-arbitrary-secret", "secret_group_id": "default", "secret_type": "arbitrary", "payload": "secret-data", "version_custom_metadata": {"anyKey": "anyValue"}}'
+ibmcloud secrets-manager secret-create \
+    --secret-name example-arbitrary-secret \
+    --secret-description "Description of my arbitrary secret." \
+    --secret-type arbitrary \
+    --secret-group-id default \
+    --secret-labels dev,us-south \
+    --secret-expiration-date 2023-10-05T11:49:42Z \
+    --arbitrary-payload secret-data \
+    --secret-custom-metadata '{"anyKey": "anyValue"}' \
+    --secret-version-custom-metadata '{"anyKey": "anyValue"}'
 
 ```
 {: pre}
