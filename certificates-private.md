@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-09-17"
+  years: 2020, 2026
+lastupdated: "2026-03-12"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, private certificates
 
@@ -140,29 +140,18 @@ When you order a certificate, domain validation takes place to verify the owners
 
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-prototype \
-    '[{
-        "name": "example-private-certificate", 
-        "description": "Extended description for this secret.", 
-        "secret_group_id": "bc656587-8fda-4d05-9ad8-b1de1ec7e712", 
-        "labels": [
-            "dev","us-south"
-        ], 
-        "certificate_template": "example-certificate-template"
-        "common_name": "cert_common_name",
-        "rotation": {
-            "enabled": false,
-            "rotate_keys":false
-            },
-        "custom_metadata" : {
-        "anyKey" : "anyValue"
-    },
-        "version_custom_metadata" : {
-            "anyKey" : "anyValue"
-        },
-        "expiration_date" : "2030-01-01T00:00:00Z",
-        }
-    ]
+ibmcloud secrets-manager secret-create \
+    --secret-name example-private-certificate \
+    --secret-description "Extended description for this secret." \
+    --secret-type private_cert \
+    --secret-group-id bc656587-8fda-4d05-9ad8-b1de1ec7e712 \
+    --secret-labels dev,us-south \
+    --private-cert-template-name example-certificate-template \
+    --certificate-common-name cert_common_name \
+    --secret-rotation '{"enabled": false, "rotate_keys": false}' \
+    --secret-custom-metadata '{"anyKey": "anyValue"}' \
+    --secret-version-custom-metadata '{"anyKey": "anyValue"}' \
+    --secret-expiration-date 2030-01-01T00:00:00Z
 ```
 {: pre}
 

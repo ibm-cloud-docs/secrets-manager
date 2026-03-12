@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-11"
+lastupdated: "2026-03-12"
 
 subcollection: secrets-manager
 
@@ -741,10 +741,10 @@ ibmcloud secrets-manager secret-create [--secret-prototype SECRET-PROTOTYPE | --
 Example request
 
 ```sh
-ibmcloud secrets-manager secret-create --secret-name=example-arbitrary-secret --secret-type=arbitrary --arbitrary-payload=example-secret-data
-
 ibmcloud secrets-manager secret-create \
-  --secret-prototype='{"name": "example-arbitrary-secret", "secret_type": "arbitrary", "payload":"example-secret-data"}'
+  --secret-name example-arbitrary-secret \
+  --secret-type arbitrary \
+  --arbitrary-payload example-secret-data
 
 ```
 {: pre}
