@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-09-18"
+  years: 2020, 2026
+lastupdated: "2026-03-16"
 
 keywords: Data security for Secrets Manager, byok, kyok, data storage, data encryption in Secrets Manager, customer managed keys
 
@@ -66,7 +66,7 @@ To ensure that you can securely manage your data when you use {{site.data.keywor
 
 When you work with {{site.data.keyword.secrets-manager_short}}, the service communicates with HashiCorp Vault to process operations on secrets of different types. By design, [Vault uses a security barrier](https://developer.hashicorp.com/vault/docs/internals/security#external-threat-overview){: external} for all requests that are made to its back end. Data that leaves Vault is automatically encrypted by using a 256-bit Advanced Encryption Standard (AES) cipher in the Galois Counter Mode (GCM) with 96-bit nonces. 
 
-{{site.data.keyword.secrets-manager_short}} encrypts all secrets at rest with [envelope encryption](#x9860393){: term}. Your encrypted secrets are stored in a dedicated Cloud Object Storage bucket that is unique to your instance. To protect secrets at rest, {{site.data.keyword.secrets-manager_short}} integrates with a key management service, such as {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}}. Each version of every secret is encrypted by a data encryption key (DEK) that is protected by a [root key](#x6946961){: term}, which is used by {{site.data.keyword.secrets-manager_short}} to [seal and unseal access to Vault](https://developer.hashicorp.com/vault/docs/concepts/seal). This integration protects your secrets by using encryption keys that are rooted in FIPS-validated [hardware security modules](#x6704988){: term}. At no time are your credentials available in clear text while they are stored by the service.
+{{site.data.keyword.secrets-manager_short}} encrypts all secrets at rest with [envelope encryption](#x9860393){: term}. Your encrypted secrets are stored in a dedicated Cloud Object Storage bucket that is unique to your instance. To protect secrets at rest, {{site.data.keyword.secrets-manager_short}} integrates with a key management service, such as {{site.data.keyword.keymanagementserviceshort}}. Each version of every secret is encrypted by a data encryption key (DEK) that is protected by a [root key](#x6946961){: term}, which is used by {{site.data.keyword.secrets-manager_short}} to [seal and unseal access to Vault](https://developer.hashicorp.com/vault/docs/concepts/seal). This integration protects your secrets by using encryption keys that are rooted in FIPS-validated [hardware security modules](#x6704988){: term}. At no time are your credentials available in clear text while they are stored by the service.
 
 {{site.data.keyword.secrets-manager_short}} also uses the following security mechanisms to protect your data in transit.
 
@@ -87,31 +87,26 @@ The following table describes your options for managing the encryption of your {
 | Encryption | Description |
 | ---- | ---- |
 | Provider-managed encryption | The data that you store in {{site.data.keyword.secrets-manager_short}} is encrypted at rest by using an IBM-managed key. The encryption key is stored in [{{site.data.keyword.keymanagementserviceshort}}](/catalog/services/key-protect). This setting is by default. |
-| Customer-managed encryption | The data that is stored in {{site.data.keyword.secrets-manager_short}} is encrypted at rest by using an encryption key that you own and manage. You can use a root key that you manage in [{{site.data.keyword.keymanagementserviceshort}}](/catalog/services/key-protect) or [{{site.data.keyword.hscrypto}}](/catalog/services/hs-crypto). |
+| Customer-managed encryption | The data that is stored in {{site.data.keyword.secrets-manager_short}} is encrypted at rest by using an encryption key that you own and manage. You can use a root key that you manage in [{{site.data.keyword.keymanagementserviceshort}}](/catalog/services/key-protect). |
 {: caption="Encryption options for {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
-
-
 
 ### About customer-managed keys
 {: #about-encryption}
 
 {{site.data.keyword.secrets-manager_short}} uses envelope encryption to implement customer-managed keys. Envelope encryption describes encrypting one encryption key with another encryption key. The key used to encrypt the actual data is known as a [data encryption key (DEK)](#x4791827){: term}. The DEK itself is never stored but is wrapped by a second key that is known as the key encryption key (KEK) to create a wrapped DEK. To decrypt data, the wrapped DEK is unwrapped to get the DEK. This process is possible only by accessing the KEK, which in this case is your root key that is stored in your key management service.
 
-You can encrypt the data that you store in Secrets Manager by using the Bring Your Own Key process (BYOK), which is supported by Key Protect. With this multi-tenant service, you can import your encryption keys from the on-premises hardware security modules (HSM), then manage the keys. If you would like exclusive control of the entire key hierarchy, which includes the master key, you can use the Keep Your Own Key (KYOK) process, which is supported by Hyper Protect Crypto Services. With KYOK, in addition to the BYOK capabilities, you have the technical assurance that even IBM cannot access your keys. [Learn more](/docs/hs-crypto?topic=hs-crypto-faq-security-compliance).
-
-Depending on your use case and security requirements, the key management service that is most suited for your organization's needs can vary. To learn more about which key management solution is best for you, see [How is {{site.data.keyword.hscrypto}} different from {{site.data.keyword.keymanagementserviceshort}}?](/docs/hs-crypto?topic=hs-crypto-faq-basics)
+You can encrypt the data that you store in {{site.data.keyword.secrets-manager_short}} by using the Bring Your Own Key process (BYOK), which is supported by Key Protect. With this multi-tenant service, you can import your encryption keys from the on-premises hardware security modules (HSM), then manage the keys. If you would like exclusive control of the entire key hierarchy, which includes the master key, you can use the Keep Your Own Key (KYOK) process, which is supported [by Key Protect](/docs/hs-crypto?topic=hs-crypto-faq-basics). With KYOK, in addition to the BYOK capabilities, you have the technical assurance that even IBM cannot access your keys. [Learn more](/docs/hs-crypto?topic=hs-crypto-faq-security-compliance).
 {: note}
-
 
 ### Enabling customer-managed keys for {{site.data.keyword.secrets-manager_short}}
 {: #using-byok}
 
 If you choose to work with a key that you manage, you must ensure that valid IAM authorization is assigned to the instance of {{site.data.keyword.secrets-manager_short}} that you're working with. To create that authorization, you can use the following steps.
 
-1. Create an instance of [{{site.data.keyword.keymanagementserviceshort}}](/catalog/services/key-protect) or [{{site.data.keyword.hscrypto}}](/catalog/services/hs-crypto).
+1. Create an instance of [{{site.data.keyword.keymanagementserviceshort}}](/catalog/services/key-protect).
 2. [Generate or import a root key](/docs/key-protect?topic=key-protect-create-root-keys) to your key management service instance.
 
-    When you use {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} to create a root key, the service generates cryptographic key material that is rooted in cloud-based HSMs. Be sure that the name of your key does not contain any personal information such as your name or location.
+    When you use {{site.data.keyword.keymanagementserviceshort}} to create a root key, the service generates cryptographic key material that is rooted in cloud-based HSMs. Be sure that the name of your key does not contain any personal information such as your name or location.
 3. Grant service access to {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}.
 
     You must be the account owner or an administrator for the instance of the key management service that you're working with. You must also have at least Viewer access for the {{site.data.keyword.secrets-manager_short}} service.  
@@ -120,21 +115,13 @@ If you choose to work with a key that you manage, you must ensure that valid IAM
     2. Select the **Source account**
          * Select **This account** if planning to provision a {{site.data.keyword.secrets-manager_short}} instance in this account.
          * Select **Specific account** and provide the ID of your source account where you plan to provision your {{site.data.keyword.secrets-manager_short}} instance.
-    3. Select the specific instance of the {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} that contains your root key as the target service.
+    3. Select the specific instance of {{site.data.keyword.keymanagementserviceshort}} that contains your root key as the target service.
     4. To scope the authorization:
          * All keys in a **Key ring**: click **Add a condition**, select **Key ring ID**, and provide the ID of your key ring. 
          * A specific encryption key: click **Add a condition**, select **Resource Type**, and provide value **key**. Next click **Add a condition**, select **Resource ID** and provide the ID of your encryption key.
     5. Assign the **Reader** role.
     6. Click **Authorize** to confirm the authorization.
-
-    If using {{site.data.keyword.hscrypto}}, add a second IAM authorization that will assign the **Viewer** platform access policy for your {{site.data.keyword.hscrypto}} instance.
-        
-    1. Go to **Manage > Access IAM > Authorizations**.
-    2. Select the {{site.data.keyword.secrets-manager_short}} service as the source service.
-    3. Select the specific instance {{site.data.keyword.hscrypto}} that contains your root key as the target service.
-    4. Assign the **Viewer** role.
-    5. Click **Authorize** to confirm the authorization.
-          
+               
     If you choose to [delete your {{site.data.keyword.secrets-manager_short}} instance later](#service-delete), this authorization is also deleted by IAM.
     {: note}
 
