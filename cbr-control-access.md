@@ -78,7 +78,6 @@ Any {{site.data.keyword.cloudaccesstraillong_notm}} or audit log events that are
 
 To get started with protecting your {{site.data.keyword.secrets-manager_short}} resources with context-based restrictions, see the tutorial for [Leveraging context-based restrictions to secure your resources](/docs/account?topic=account-context-restrictions-tutorial).
 
-
 ## How {{site.data.keyword.secrets-manager_short}} integrates with context-based restrictions
 {: #cbr-overview}
 
@@ -346,3 +345,4 @@ You must follow the creation or modification of zones or rules with adequate tes
 
 Users who attempt to access your resources outside of the defined zones receive `HTTP error 401` when the appropriate rules are not established.
 {: note}
+

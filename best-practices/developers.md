@@ -65,3 +65,4 @@ Review the following suggested guidelines for implementing best practices around
 - {{site.data.keyword.secrets-manager_short}} is a single-tenant service. CPU and memory limits are applied per {{site.data.keyword.secrets-manager_short}} instance. Those limits restrict the API request rates based on the usage pattern. As a rule of thumb, it is recommended to keep the rate below 20 req/s. Additionally, limit the number of unique clients that make requests to a single {{site.data.keyword.secrets-manager_short}} instance.
 - Use {{site.data.keyword.secrets-manager_short}} as a cold storage. Apply caching and throttling to regulate the rate of requests to a {{site.data.keyword.secrets-manager_short}} instance.
 - In case requests fail with timeouts or 429 or 503 HTTP status codes, apply exponential backoff retries within the described rate limits.
+

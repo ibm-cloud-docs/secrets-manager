@@ -113,3 +113,4 @@ Use secret groups to narrow the scope of access to specific secrets at an instan
 Add labels so that you can further search by and categorize the secrets in your instance. When you use a consistent labeling schema, you can easily group similar secrets together.
 
 1. Label your secrets by using a consistent schema, such as creating labels to differentiate which secrets are used for a specific purpose. To add labels by using the {{site.data.keyword.secrets-manager_short}} UI, go to the **Secrets** page, and then select a secret to edits its details.
+

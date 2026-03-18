@@ -874,3 +874,6 @@ You can rotate imported certificates by using Terraform for {{site.data.keyword.
 To rotate an imported certificate, modify the values of the `certificate`, `intermediate` (optional) and `private_key` (optional) attributes in your `ibm_sm_imported_certificate` resource configuration, and run `terraform apply` to apply the change. 
 
 You can also modify other attributes of the imported certificate at the same time, including metadata attributes such as `description`, `custom_metadata` or `version_custom_metadata`.
+
+You can also use the [Secrets Manager module](https://github.com/terraform-ibm-modules/terraform-ibm-secrets-manager) to manage {{site.data.keyword.secrets-manager_short}} resources as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
+{: tip}

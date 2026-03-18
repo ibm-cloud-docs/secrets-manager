@@ -168,3 +168,6 @@ resource "ibm_sm_custom_credentials_secret" "sm_custom_credentials_secret" {
   ttl = "864000"
 }
 ```
+
+You can also use the [Secrets Manager module](https://github.com/terraform-ibm-modules/terraform-ibm-secrets-manager) to manage {{site.data.keyword.secrets-manager_short}} resources as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
+{: tip}

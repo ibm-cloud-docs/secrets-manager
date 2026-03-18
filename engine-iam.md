@@ -414,6 +414,9 @@ The following example shows a configuration that you can use to configure the IA
 ```
 {: codeblock}
 
+You can also use the [Secrets Manager module](https://github.com/terraform-ibm-modules/terraform-ibm-secrets-manager) to configure the IAM credentials engine as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
+{: tip}
+
 ## Retrieving an IAM credentials engine's configuration value in the UI
 {: #get-iam-engine-value-ui}
 {: ui}
@@ -466,3 +469,4 @@ A successful response returns the value of the engine configuration, along with 
 Now you can use {{site.data.keyword.secrets-manager_short}} generate IAM credentials. In the {{site.data.keyword.secrets-manager_short}} UI, click **Secrets > Add > IAM credentials** to start creating secrets.
 
 - [Creating IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials)
+- To automate {{site.data.keyword.secrets-manager_short}} provisioning with Terraform, see the [Secrets Manager module](https://github.com/terraform-ibm-modules/terraform-ibm-secrets-manager).

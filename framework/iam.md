@@ -158,3 +158,4 @@ If a specific role and its actions don't fit the use case that you're looking to
 {: #iam-assign-access}
 
 You can use the {{site.data.keyword.cloud_notm}} console, CLI, or APIs to assign different levels of access to {{site.data.keyword.secrets-manager_short}} resources in your account. You can assign access at the instance level, or you can narrow access to a secret group that contains one or more secrets. For more information, see [Assigning access to {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-assign-access).
+

@@ -255,3 +255,6 @@ The following example shows a configuration that you can use to create Service c
     }
 ```
 {: codeblock}
+
+You can also use the [Secrets Manager module](https://github.com/terraform-ibm-modules/terraform-ibm-secrets-manager) to manage {{site.data.keyword.secrets-manager_short}} resources as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
+{: tip}

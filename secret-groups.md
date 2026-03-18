@@ -139,6 +139,8 @@ resource "ibm_sm_secret_group" "sm_secret_group_test" {
 ```
 {: codeblock}
 
+You can also use the [Secrets Manager module](https://github.com/terraform-ibm-modules/terraform-ibm-secrets-manager) to manage {{site.data.keyword.secrets-manager_short}} resources as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
+{: tip}
 
 ## Deleting secret groups
 {: #delete-groups}
@@ -188,3 +190,4 @@ Already using secret groups? To learn more about assigning access and organizing
 
 - [Assigning access to a secret group](/docs/secrets-manager?topic=secrets-manager-assign-access#assign-access-secret-group)
 - [Best practices for organizing secrets and assigning access](/docs/secrets-manager?topic=secrets-manager-best-practices-organize-secrets)
+- To automate {{site.data.keyword.secrets-manager_short}} provisioning with Terraform, see the [Secrets Manager module](https://github.com/terraform-ibm-modules/terraform-ibm-secrets-manager).

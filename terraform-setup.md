@@ -166,3 +166,22 @@ When you are designing your Terraform project, follow Terraform best practices f
 {: #terraform-setup-next}
 
 Now that you successfully created your first {{site.data.keyword.secrets-manager_short}} service instance with Terraform on {{site.data.keyword.cloud_notm}}, You can review the {{site.data.keyword.secrets-manager_short}} resources and data sources in the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/sm_secrets){: external}. You can also review how to manage your {{site.data.keyword.secrets-manager_short}} resources by following the Terraform steps that are included in the How to section. For example, you can follow the directions on how to create [arbitrary secrets](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets) by using Terraform.
+
+You can also use the [Secrets Manager module](https://github.com/terraform-ibm-modules/terraform-ibm-secrets-manager) to deploy and configure {{site.data.keyword.secrets-manager_short}} instances as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
+{: tip}
+
+The following example shows how to provision a {{site.data.keyword.secrets-manager_short}} instance using the module:
+
+```terraform
+module "secrets_manager" {
+  source  = "terraform-ibm-modules/secrets-manager/ibm"
+  version = "X.X.X" # Replace with the latest version
+
+  resource_group_id    = var.resource_group_id
+  region               = var.region
+  secrets_manager_name = var.secrets_manager_name
+}
+```
+{: codeblock}
+
+For the full list of inputs, outputs, and usage examples, see the [Secrets Manager module](https://github.com/terraform-ibm-modules/terraform-ibm-secrets-manager) on GitHub or on the [Terraform Registry](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager/ibm/latest){: external}.

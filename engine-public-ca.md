@@ -288,3 +288,4 @@ A successful response returns the value of the engine configuration, along with 
 
 - [Add a DNS provider configuration](/docs/secrets-manager?topic=secrets-manager-add-dns-provider)
 - [Order a certificate](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates)
+- To automate {{site.data.keyword.secrets-manager_short}} provisioning with Terraform, see the [Secrets Manager module](https://github.com/terraform-ibm-modules/terraform-ibm-secrets-manager).

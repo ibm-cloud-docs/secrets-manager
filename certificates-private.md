@@ -303,5 +303,7 @@ The following example shows a configuration that you can use to create a private
 ```
 {: codeblock}
 
+You can also use the [Secrets Manager module](https://github.com/terraform-ibm-modules/terraform-ibm-secrets-manager) to manage {{site.data.keyword.secrets-manager_short}} resources as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
+{: tip}
 
 After a certificate is issued, you can deploy it to your integrated apps, download it, or rotate it manually. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#create-secret){: external}.
