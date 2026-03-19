@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-09-20"
+  years: 2020, 2026
+lastupdated: "2026-03-19"
 
 keywords: Vault CLI, use Secrets Manager with Vault CLI, CLI commands, create secret with CLI, log in to Vault
 
@@ -429,7 +429,7 @@ Success! Data deleted (if it existed) at: auth/ibmcloud/manage/groups/9c6d20ad-7
 ### Create a secret
 {: #vault-cli-create-static-secret}
 
-Use the following commands to add a static secret, such as a user credential or an arbitrary secret, to your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for **`SECRET_TYPE`** are: `arbitrary`,`imported_cert`, [`kv`](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv-cli), `private_cert`, `public_cert`, and `username_password`.
+Use the following commands to add a static secret, such as a user credential or an arbitrary secret, to your {{site.data.keyword.secrets-manager_short}} instance. Allowable values for **`SECRET_TYPE`** are: `arbitrary`, `custom_credentials`, `imported_cert`, [`kv`](/docs/secrets-manager?topic=secrets-manager-vault-manage-kv-cli), `private_cert`, `public_cert`, and `username_password`.
 
 
 Create a secret in the `default` secret group.

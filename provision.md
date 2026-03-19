@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-02-16"
+lastupdated: "2026-03-16"
 
 keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, trial plan
 
@@ -191,7 +191,7 @@ To update your service plan after you create an instance, see [Updating your ser
  - **`plan`**: either `Standard` or `Trial`. [Learn more](/docs/secrets-manager?topic=secrets-manager-pricing) about the service plans
  - **`service_endpoints`**: Either `private` or `public-and-private`. If not included, default is `private` 
 Include the following inside `parameters` for further customization.
- - **`kms_key`**: Root key CRN from either Key Protect or Hyper Protect Crypto Services instance. If not included, default is root key that is managed by {{site.data.keyword.secrets-manager_short}}
+ - **`kms_key`**: Root key CRN from Key Protect. If not included, default is root key that is managed by {{site.data.keyword.secrets-manager_short}}
 
 An example resource would look like the following.
 

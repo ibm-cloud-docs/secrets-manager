@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-10-03"
+  years: 2026
+lastupdated: "2026-03-19"
 
 keywords: Secrets Manager Vault, Vault CLI, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager, KV, key-value, KV CLI
 
@@ -60,6 +60,9 @@ subcollection: secrets-manager
 
 If you already use HashiCorp Vault, you can use the command-line interface (CLI) to interact with {{site.data.keyword.secrets-manager_full}} to manage your [key-value secrets](/docs/secrets-manager?topic=secrets-manager-key-value&interface=ui). All operations follow the guidelines that are available for the Vault CLI.
 {: shortdesc}
+
+{{site.data.keyword.secrets-manager_short}} supports the HashiCorp Vault KV Secrets Engine Version 2 CLI commands. For more information about the KV v2 CLI, see the [Vault KV v2 documentation](https://developer.hashicorp.com/vault/docs/commands/kv){: external}.
+{: note}
 
 Before you get started, [configure the Vault CLI](/docs/secrets-manager?topic=secrets-manager-configure-vault-cli) so that you're able to access your {{site.data.keyword.secrets-manager_short}} instance by using Vault commands. To learn more about using the Vault CLI, check out the Vault documentation.
 

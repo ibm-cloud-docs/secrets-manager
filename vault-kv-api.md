@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-09-17"
+  years: 2026
+lastupdated: "2026-03-19"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager, KV, key-value, KV APIs
 
@@ -58,8 +58,11 @@ subcollection: secrets-manager
 # Managing key-value secrets with Vault API
 {: #vault-manage-kv}
 
-With {{site.data.keyword.secrets-manager_full}}, you can manage multiple versions per key and access the history and metadata of your [key-value secret](/docs/secrets-manager?topic=secrets-manager-key-value&interface=ui) by using the HashiCorp Vault HTTP API. 
+With {{site.data.keyword.secrets-manager_full}}, you can manage multiple versions per key and access the history and metadata of your [key-value secret](/docs/secrets-manager?topic=secrets-manager-key-value&interface=ui) by using the HashiCorp Vault HTTP API.
 {: shortdesc}
+
+{{site.data.keyword.secrets-manager_short}} supports the HashiCorp Vault KV Secrets Engine Version 2 API. For more information about the KV v2 API, see the [Vault KV v2 documentation](https://developer.hashicorp.com/vault/api-docs/secret/kv/kv-v2){: external}.
+{: note}
 
 ## Overview
 {: #overview-kv}
@@ -313,7 +316,7 @@ Destroy specified versions of a key-value secret permanently. To soft delete ver
 {: #kv-destroy-request}
 
 ```sh
-curl -X POST 'https://{instance_id}.{region}.secrets-manager.test.appdomain.cloud/v1/ibmcloud/kv/destroy/{secret_name}' \
+curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/destroy/{secret_name}' \
     -H 'Accept: application/json' \
     -H 'X-Vault-Token: {Vault-Token}' \
     -H 'Content-Type: application/json' \
@@ -383,7 +386,7 @@ Get a key-value secret's metadata by specifying the ID of the version. 
 {: #kv-metadata-request}
 
 ```sh
-curl -X GET 'https://{instance_id}.{region}.secrets-manager.test.appdomain.cloud/v1/ibmcloud/kv/metadata/{secret_name}' \
+curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/kv/metadata/{secret_name}' \
     -H 'Accept: application/json'
     -H 'X-Vault-Token: {Vault-Token}'
 ```

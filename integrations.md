@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-09-17"
+  years: 2020, 2026
+lastupdated: "2026-03-19"
 
 keywords: Secrets Manager integrations, enable integration, create authorization, service to service, grant access between services, using Secrets Manager with other services, authorize Secrets Manager
 
@@ -78,6 +78,7 @@ The following table lists the services that can be authorized to work with {{sit
 | [{{site.data.keyword.openshiftshort}}](/docs/openshift) | Arbitrary secrets  \n Certificates  \n IAM credentials  \n Key-value secrets  \nUser credentials | Centrally manage Ingress subdomain certificates and other secrets for your {{site.data.keyword.openshiftshort}} clusters. [Learn more about this integration](/docs/openshift?topic=openshift-ingress-roks4). |
 | Red Hat® AI InstructLab | Arbitrary secrets | InstructLab is an open source project created by IBM and Red Hat to be a cost-effective entry point into the world of machine learning. |
 | Schematics | Arbitrary secrets | Centrally manage secrets for use in Schematics workspaces. | 
+| Direct Link | All secret types | seamlessly connect your on-premises resources to your cloud resources. | 
 {: caption="Available integrations" caption-side="top"}
 
 
