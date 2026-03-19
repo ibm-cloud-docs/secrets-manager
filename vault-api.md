@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-02-10"
+lastupdated: "2026-03-19"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -528,6 +528,7 @@ Creates or imports a secret by using the {{site.data.keyword.secrets-manager_sho
 - Private certificates (`private_cert`)
 - Public certificates (`public_cert`)
 - Service credentials (`service_credentials`)
+- Custom credentials (`custom_credentials`)
 
 
 | Request parameters   | Description                                 |
@@ -647,6 +648,22 @@ Creates or imports a secret by using the {{site.data.keyword.secrets-manager_sho
 {: caption="Create secret request parameters - Service credentials" caption-side="top"}
 {: #vault-create-secret-params-service-credentials}
 {: tab-title="Service credentials"}
+{: tab-group="vault-create-secret-params"}
+{: class="simple-tab-table"}
+
+| Request parameters           | Description                                                                         |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `name`        | **Required.** The human-readable alias that you want to assign to the secret. |
+| `description` | An extended description of the secret.                                      |
+| `configuration` | **Required.** The name of the custom credentials configuration. |
+| `parameters` | **Required.** The parameters required by the custom credentials configuration in JSON format. |
+| `labels[]` | Labels that you can use to filter for secrets in your instance. Up to 30 labels can be added. |
+| `auto_rotate` | Determines whether Secrets Manager rotates your secret automatically. |
+| `interval` | Used together with the `unit` field to specify the rotation interval. Required if `auto_rotate` is set to `true`. |
+| `unit` | The time unit of the rotation interval. Allowable values are: `day`, `month` |
+{: caption="Create secret request parameters - Custom credentials" caption-side="top"}
+{: #vault-create-secret-params-custom-credentials}
+{: tab-title="Custom credentials"}
 {: tab-group="vault-create-secret-params"}
 {: class="simple-tab-table"}
 
@@ -997,6 +1014,61 @@ curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
 ```
 {: codeblock}
 
+Create a custom credentials secret in the `default` secret group.
+
+```sh
+curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/custom_credentials/secrets" \
+    -H 'Accept: application/json' \
+    -H 'X-Vault-Token: {Vault-Token}' \
+    -H 'Content-Type: application/json' \
+    -d '{
+        "name": "test-custom-credentials-secret",
+        "description": "Extended description for my custom credentials secret.",
+        "configuration": "my-custom-credentials-config",
+        "parameters": {
+            "username": "user@example.com",
+            "api_key": "example-api-key"
+        },
+        "labels": [
+            "dev",
+            "us-south"
+        ],
+        "rotation": {
+            "auto_rotate": true,
+            "interval": 30,
+            "unit": "day"
+        }
+    }'
+```
+{: codeblock}
+
+Create a custom credentials secret in an existing secret group.
+
+```sh
+curl -X POST "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/custom_credentials/secrets/groups/{group_id}" \
+    -H 'Accept: application/json' \
+    -H 'X-Vault-Token: {Vault-Token}' \
+    -H 'Content-Type: application/json' \
+    -d '{
+        "name": "test-custom-credentials-secret-in-group",
+        "description": "Extended description for my custom credentials secret.",
+        "configuration": "my-custom-credentials-config",
+        "parameters": {
+            "username": "user@example.com",
+            "api_key": "example-api-key"
+        },
+        "labels": [
+            "dev",
+            "us-south"
+        ],
+        "rotation": {
+            "auto_rotate": true,
+            "interval": 30,
+            "unit": "day"
+        }
+    }'
+```
+{: codeblock}
 
 
 #### Example responses
@@ -1628,6 +1700,24 @@ Get a set of service credentials.
 curl -X GET "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/service_credentials/secrets/{secret_id_or_secret_name}" \
      -H 'Accept: application/json' \
      -H "X-Vault-Token: $VAULT_TOKEN" | jq
+```
+{: codeblock}
+
+Get custom credentials.
+
+```sh
+curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/custom_credentials/secrets/{secret_id_or_secret_name}' \
+    -H 'Accept: application/json' \
+    -H 'X-Vault-Token: {Vault-Token}'
+```
+{: codeblock}
+
+Get custom credentials in an existing secret group.
+
+```sh
+curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/ibmcloud/custom_credentials/secrets/groups/{group_id}/{secret_id_or_secret_name}' \
+    -H 'Accept: application/json' \
+    -H 'X-Vault-Token: {Vault-Token}'
 ```
 {: codeblock}
 
