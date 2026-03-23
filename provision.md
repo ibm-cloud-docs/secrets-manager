@@ -208,7 +208,7 @@ resource "ibm_resource_instance" "sm_instance" {
 }
 ```
 
-You can also use the [Secrets Manager module](https://github.com/terraform-ibm-modules/terraform-ibm-secrets-manager) to provision and configure {{site.data.keyword.secrets-manager_short}} instances as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
+You can also use the [Secrets Manager module](https://registry.terraform.io/modules/terraform-ibm-modules/kms-all-inclusive/ibm/latest){: external} to provision and configure {{site.data.keyword.secrets-manager_short}} instances as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
 {: tip}
 
 The following example shows how to use the module to provision a {{site.data.keyword.secrets-manager_short}} instance:
