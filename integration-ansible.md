@@ -195,3 +195,4 @@ ok: [localhost] => {
 {: #integration-ansible-next}
 
 You can run this playbook to look up other secrets from {{site.data.keyword.secrets-manager_short}}.
+
