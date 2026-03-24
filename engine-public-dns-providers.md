@@ -359,4 +359,4 @@ A successful response returns the value of the engine configuration, along with 
 {: #manage-dns-config-next-steps}
 
 - [Order a certificate](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates).
-- To automate {{site.data.keyword.secrets-manager_short}} provisioning with Terraform, see the [Secrets Manager module](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager/ibm/latest){: external}.
+- Manage DNS provider configurations with the [Secrets Manager module](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager/ibm/latest){: external} for repeatable deployments.

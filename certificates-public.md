@@ -286,7 +286,7 @@ The following example shows a configuration that you can use to order a public c
 ```
 {: codeblock}
 
-You can also use the [Secrets Manager module](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager/ibm/latest){: external} to manage {{site.data.keyword.secrets-manager_short}} resources as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
+Simplify public certificate ordering with the [Secrets Manager module](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager/ibm/latest){: external}, which handles certificate lifecycle management through code. Explore [Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim) for best practices.
 {: tip}
 
 

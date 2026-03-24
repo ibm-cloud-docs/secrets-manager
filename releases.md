@@ -64,7 +64,7 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
-You can also use the [Secrets Manager module](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager/ibm/latest){: external} to provision and configure {{site.data.keyword.secrets-manager_short}} instances as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
+Deploy {{site.data.keyword.secrets-manager_short}} instances using the [Secrets Manager module](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager/ibm/latest){: external} for consistent, version-controlled infrastructure. See [Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim) for details.
 {: tip}
 
 

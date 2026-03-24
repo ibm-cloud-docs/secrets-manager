@@ -337,4 +337,4 @@ A successful response returns the value of the engine configuration, along with 
 {: #certificate-templates-next-steps}
 
 - [Create a private certificate](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates).
-- To automate {{site.data.keyword.secrets-manager_short}} provisioning with Terraform, see the [Secrets Manager module](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager/ibm/latest){: external}.
+- Deploy certificate templates as code using the [Secrets Manager module](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager/ibm/latest){: external}.
