@@ -778,6 +778,3 @@ Great job! In this tutorial, you learned how to set up {{site.data.keyword.secre
 
 - Review the [secret types in {{site.data.keyword.secrets-manager_short}}](https://external-secrets.io/latest/provider/ibm-secrets-manager/){: external} that are supported by External Secrets Operator.
 - Learn more about the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager/secrets-manager-v2).
-
-Integrate Kubernetes secrets with {{site.data.keyword.secrets-manager_short}} using the [Secrets Manager module](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager/ibm/latest){: external} for automated provisioning. See [Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim) for integration patterns.
-{: tip}
