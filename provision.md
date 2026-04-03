@@ -86,7 +86,7 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} from the {{
 7. Determine an option for enabling customer-managed encryption for your instance.
 
     You can enhance the security of your secrets at rest by integrating with a key management service. For more information about customer-managed encryption, check out [Protecting your sensitive data in {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption).
-8. Determine an option for connecting to {{site.data.keyword.secrets-manager_short}}. Bu default instances of Secrets Manager are created with only a private endpoint.
+8. Determine an option for connecting to {{site.data.keyword.secrets-manager_short}}. By default instances of Secrets Manager are created with only a private endpoint.
 
     Select either `private-only` or `public-and-private`. For more information about setting up your account to support the private connectivity option, see [Enabling VRF and service endpoints](/docs/account?topic=account-vrf-service-endpoint).
 9. Click **Create** to create an instance of {{site.data.keyword.secrets-manager_short}} in the account, region, and resource group that you selected.
