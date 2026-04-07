@@ -3,7 +3,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-02-26"
+lastupdated: "2026-04-07"
 
 keywords: tutorial, Secrets Manager
 
@@ -61,7 +61,7 @@ completion-time: 45m
 {:release-note: data-hd-content-type='release-note'}
 
 
-# Secure secrets for apps that run in your Kubernetes cluster
+# By using the trial or standard plan
 {: #tutorial-kubernetes-secrets}
 {: toc-content-type="tutorial"}
 {: toc-services="secrets-manager,containers"}
