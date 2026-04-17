@@ -61,9 +61,9 @@ subcollection: secrets-manager
 You can set up IAM credentials for your {{site.data.keyword.secrets-manager_full}} service instance by configuring the IAM credentials engine.
 {: shortdesc}
 
-In {{site.data.keyword.secrets-manager_short}}, the IAM credentials engine serves as the backend for the `iam_credentials` secret type. Before you can create IAM credentials, you must configure the IAM credentials engine for your service instance. You can enable your instance by creating an [IAM service authorization](/docs/account?topic=account-serviceauth), or by entering an [API key](/docs/account?topic=account-serviceidapikeys) that is associated with a service ID in your {{site.data.keyword.cloud_notm}} account.
+In {{site.data.keyword.secrets-manager_short}}, the IAM credentials engine serves as the backend for the `iam_credentials` secret type. Before you can create IAM credentials, you must configure the IAM credentials engine for your service instance. You can enable your instance by creating an [IAM service authorization](/docs/iam?topic=iam-serviceauth), or by entering an [API key](/docs/iam?topic=iam-serviceidapikeys) that is associated with a service ID in your {{site.data.keyword.cloud_notm}} account.
 
-When using an API key for the engine configuration, the access token that is generated lasts for 60 minutes and will continue to work even if the API key is deleted from IAM. This can be modified by changing the token expiration in IAM settings. [Learn more](/docs/account?topic=account-token-limit). Note that if the entity that is related to the API key is deleted, the token is invalidated immediately.
+When using an API key for the engine configuration, the access token that is generated lasts for 60 minutes and will continue to work even if the API key is deleted from IAM. This can be modified by changing the token expiration in IAM settings. [Learn more](/docs/iam?topic=iam-token-limit). Note that if the entity that is related to the API key is deleted, the token is invalidated immediately.
 {: note}
 
 When using IAM service authorization for the engine configuration, you can create and manage IAM credential secrets in the same {{site.data.keyword.cloud_notm}} account as the {{site.data.keyword.secrets-manager_short}} instance, as well as from other accounts. API key configuration works only with the account the {{site.data.keyword.secrets-manager_short}} instance belongs to.
@@ -72,18 +72,18 @@ When using IAM service authorization for the engine configuration, you can creat
 ## Before you begin
 {: #before-configure-iam-engine}
 
-To configure the IAM credentials engine, be sure that you're assigned the [**Manager** service role](/docs/secrets-manager?topic=secrets-manager-iam) on the {{site.data.keyword.secrets-manager_short}} instance. 
+To configure the IAM credentials engine, be sure that you're assigned the [**Manager** service role](/docs/secrets-manager?topic=secrets-manager-iam) on the {{site.data.keyword.secrets-manager_short}} instance.
 
-If configuring the IAM credentials engine with an API key, you need a [service ID API key](/docs/account?topic=account-serviceidapikeys) with the following access:
+If configuring the IAM credentials engine with an API key, you need a [service ID API key](/docs/iam?topic=iam-serviceidapikeys) with the following access:
 
-- [**Editor** platform role](/docs/account?topic=account-account-services#access-groups-account-management) on the IAM Access Groups Service.
-- [**Operator** platform role](/docs/account?topic=account-account-services#identity-service-account-management) on the IAM Identity Service.
-- [**Service ID creator** service role](/docs/account?topic=account-account-services#identity-service-account-management) on the IAM Identity Service. The service ID creator service role is only required when you disable the creation of service IDs in your IAM settings.
+- [**Editor** platform role](/docs/iam?topic=iam-account-services&interface=ui#access-groups-account-management) on the IAM Access Groups Service.
+- [**Operator** platform role](/docs/iam?topic=iam-account-services&interface=ui#identity-service-account-management) on the IAM Identity Service.
+- [**Service ID creator** service role](/docs/iam?topic=iam-account-services&interface=ui#identity-service-account-management) on the IAM Identity Service. The service ID creator service role is only required when you disable the creation of service IDs in your IAM settings.
 
 If configuring the IAM credentials engine with IAM service authorization, {{site.data.keyword.secrets-manager_short}} adds the following two authorization policies on your behalf.
-- [**Groups Service Member Manage** platform role](/docs/account?topic=account-account-services#access-groups-account-management) on the IAM Access Groups Service service.
-- [**Operator** platform role](/docs/account?topic=account-account-services#identity-service-account-management) for IAM Identity Service service.
-- [**Service ID creator** service role](/docs/account?topic=account-account-services#identity-service-account-management) on the IAM Identity Service. The service ID creator service role is only required when you disable the creation of service IDs in your IAM settings.
+- [**Groups Service Member Manage** platform role](/docs/iam?topic=iam-account-services&interface=ui#access-groups-account-management) on the IAM Access Groups Service service.
+- [**Operator** platform role](/docs/iam?topic=iam-account-services&interface=ui#identity-service-account-management) for IAM Identity Service service.
+- [**Service ID creator** service role](/docs/iam?topic=iam-account-services&interface=ui#identity-service-account-management) on the IAM Identity Service. The service ID creator service role is only required when you disable the creation of service IDs in your IAM settings.
 
 If the account in which you want to generate IAM credentials allows access from specific IP addresses, you must also update the IP address settings in the account to allow incoming requests from {{site.data.keyword.secrets-manager_short}}. For more information, see [Managing access with context-based restrictions](/docs/secrets-manager?topic=secrets-manager-access-control-cbr).
 {: important}
@@ -114,7 +114,7 @@ For the **IAM Identity Service service** authorization policy:
      - Service: **{{site.data.keyword.secrets-manager_short}}**.
      - Resources: **Specific resources > Service instance** and provide the service instance ID for your {{site.data.keyword.secrets-manager_short}} instance.
 5. Under Target select
-     - Service: **IAM Identity Service**  
+     - Service: **IAM Identity Service**
      - Resources: **All**
      - Roles: **Operator**
 
@@ -126,10 +126,10 @@ For the **IAM Access Groups Service service** authorization policy:
      - Service: **{{site.data.keyword.secrets-manager_short}}**.
      - Resources: **Specific resources > Service instance** and provide the service instance ID for your {{site.data.keyword.secrets-manager_short}} instance.
 5. Under Target  select
-     - Service: **IAM Access Groups Service**  
+     - Service: **IAM Access Groups Service**
      - Resources: **All**
      - Roles: **Groups Service Member Manage**
-     
+
 ### Using API key
 {: #ui-apikey}
 
@@ -348,14 +348,14 @@ The **`SOURCE_ACCOOUNT_ID`** and **`TARGET_ACCOUNT_ID`** are required whether cr
 The following example shows a query that you can use to configure the IAM credentials engine for your instance using an API key. When you call the API, replace the API key variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 
 ```sh
-curl -X POST 
+curl -X POST
   --H "Authorization: Bearer {iam_token}" \
   --H "Accept: application/json" \
   --H "Content-Type: application/json" \
-  --d '{ 
-    "api_key": "{iam_apikey}", "config_type": "iam_credentials_configuration", 
-    "name": "iam-configuration" 
-    }' \ 
+  --d '{
+    "api_key": "{iam_apikey}", "config_type": "iam_credentials_configuration",
+    "name": "iam-configuration"
+    }' \
   "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/configurations"
 ```
 {: codeblock}

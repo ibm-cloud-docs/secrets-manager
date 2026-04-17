@@ -65,7 +65,7 @@ content-type: troubleshoot
 You try to use {{site.data.keyword.secrets-manager_full}} to order public certificates or generate IAM credentials, but the service is unable to complete the action.
 {: shortdesc}
 
-You're working in an {{site.data.keyword.cloud_notm}} account that has [IP address access restrictions](/docs/account?topic=account-ips). When you try to use a feature in {{site.data.keyword.secrets-manager_short}} that requires a user-provided {{site.data.keyword.cloud_notm}} API key, for example when you generate IAM credentials, you encounter an error similar to the following examples:
+You're working in an {{site.data.keyword.cloud_notm}} account that has [IP address access restrictions](/docs/iam?topic=iam-ips). When you try to use a feature in {{site.data.keyword.secrets-manager_short}} that requires a user-provided {{site.data.keyword.cloud_notm}} API key, for example when you generate IAM credentials, you encounter an error similar to the following examples:
 {: tsSymptoms}
 
 ```json

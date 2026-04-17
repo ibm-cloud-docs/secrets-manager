@@ -109,7 +109,7 @@ To create a service credential, an **IAM service access role** must be selected.
 The  Service ID continues to be used once secret rotation takes place. If deleting a secret, a pre-existing Service ID will not be deleted, however an auto-generated Service ID will be deleted.
 {: note}
 
-If selecting to use a pre-existing Service ID, you can also pre-configure its service access policies. In such a case, select **None** as the Role when creating the secret. [Learn more about IAM policies](/docs/account?topic=account-iamusermanpol).
+If selecting to use a pre-existing Service ID, you can also pre-configure its service access policies. In such a case, select **None** as the Role when creating the secret. [Learn more about IAM policies](/docs/iam?topic=iam-iamusermanpol).
 {: note}
 
 

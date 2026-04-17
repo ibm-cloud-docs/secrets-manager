@@ -70,9 +70,9 @@ IAM access policies enable access to be granted at different levels. Some option
 ## IAM roles and actions for {{site.data.keyword.secrets-manager_short}} 
 {: #iam-roles-actions}
 
-Review the following [platform and service roles](/docs/account?topic=account-userroles#platformroles) that you can use to assign access to {{site.data.keyword.secrets-manager_short}} service instances. Each role maps to specific {{site.data.keyword.secrets-manager_short}} actions that a user can complete within an account or an individual instance.
+Review the following [platform and service roles](/docs/iam?topic=iam-userroles#platformroles) that you can use to assign access to {{site.data.keyword.secrets-manager_short}} service instances. Each role maps to specific {{site.data.keyword.secrets-manager_short}} actions that a user can complete within an account or an individual instance.
 
-If a specific role and its actions don't fit the use case that you're looking to address, you can [create a custom role](/docs/account?topic=account-custom-roles&interface=ui#custom-access-roles) and pick the actions to include.
+If a specific role and its actions don't fit the use case that you're looking to address, you can [create a custom role](/docs/iam?topic=iam-custom-roles&interface=ui#custom-access-roles) and pick the actions to include.
 {: tip}
 
 | Role | Description |

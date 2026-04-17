@@ -92,7 +92,7 @@ You can connect the following DNS providers with your {{site.data.keyword.secret
 
 | Prerequisites |
 | :------------ |
-| Before you add a configuration for classic infrastructure, be sure that you:  \n  \n 1. [Obtain your classic infrastructure username](/docs/account?topic=account-classic_keys). If you are using IBMid to log in to your account, your classic infrastructure username is your `<account_id>_<email_address>`. \n 2. [Create a classic infrastructure API key](/docs/account?topic=account-classic_keys). Assign your user permissions to manage DNS in the account. For more information about managing classic infrastructure access, see [Classic infrastructure permissions](/docs/account?topic=account-mngclassicinfra#how-classic-infra-permissions-work). |
+| Before you add a configuration for classic infrastructure, be sure that you:  \n  \n 1. [Obtain your classic infrastructure username](/docs/iam?topic=iam-classic_keys). If you are using IBMid to log in to your account, your classic infrastructure username is your `<account_id>_<email_address>`. \n 2. [Create a classic infrastructure API key](/docs/iam?topic=iam-classic_keys). Assign your user permissions to manage DNS in the account. For more information about managing classic infrastructure access, see [Classic infrastructure permissions](/docs/iam?topic=iam-mngclassicinfra#how-classic-infra-permissions-work). |
 {: caption="Prerequisites - Classic infrastructure" caption-side="top"}
 {: #classic-infrastructure-prereqs}
 {: tab-title="Classic infrastructure"}

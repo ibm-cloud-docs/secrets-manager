@@ -76,7 +76,7 @@ Before you get started, be sure that you have [**Administrator** platform access
 
 To assign access to a {{site.data.keyword.secrets-manager_short}} instance and its contained secrets or secret groups, you can use the **Access (IAM)** section of the {{site.data.keyword.cloud_notm}} console.
 
-1. [Create an access group](/docs/account?topic=account-groups&interface=ui#create_ag) for the users and service IDs that you want to give access to and add those users to the group.
+1. [Create an access group](/docs/iam?topic=iam-groups&interface=ui#create_ag) for the users and service IDs that you want to give access to and add those users to the group.
 
     For example, you might have a group of security admins that might need the same level of access.
 2. After you create a group and add users, go to **Manage > Access (IAM) > Access Groups**.
@@ -90,7 +90,7 @@ To assign access to a {{site.data.keyword.secrets-manager_short}} instance and i
 9. Review your selections and click **Add**.
 10. Click **Assign**.
 
-    Now you can add users and service IDs to the access group so that you can assign access to {{site.data.keyword.secrets-manager_short}} with a single access policy. For more information, see [Setting up access groups](/docs/account?topic=account-groups).
+    Now you can add users and service IDs to the access group so that you can assign access to {{site.data.keyword.secrets-manager_short}} with a single access policy. For more information, see [Setting up access groups](/docs/iam?topic=iam-groups).
 
 ## Assigning access to a secret group
 {: #assign-access-secret-group}

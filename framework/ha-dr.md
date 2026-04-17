@@ -224,7 +224,7 @@ When creating a new service instance the RTO of the workload using {{site.data.k
 ## Change management
 {: #sm-change-management}
 
-Change management includes tasks such as upgrades, configuration changes, and deletion.  
+Change management includes tasks such as upgrades, configuration changes, and deletion.
 It is recommended that you grant users and processes the IAM roles and actions with the least privilege required for their work. For example, limit the ability to delete production resources.
 
 ## How {{site.data.keyword.IBM}} helps ensure disaster recovery
@@ -259,4 +259,4 @@ All upgrades follow the {{site.data.keyword.IBM}} service best practices and hav
 
 Complex changes are enabled and disabled with feature flags to control exposure.
 
-Changes that impact customer workloads are detailed in notifications. For more information, see [monitoring notifications and status](/docs/account?topic=account-viewing-cloud-status) for planned maintenance, announcements, and release notes that impact this service.
+Changes that impact customer workloads are detailed in notifications. For more information, see [monitoring notifications and status](/docs/get-support?topic=get-support-viewing-cloud-status) for planned maintenance, announcements, and release notes that impact this service.

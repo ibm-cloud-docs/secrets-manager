@@ -83,7 +83,7 @@ With {{site.data.keyword.secrets-manager_short}}, you can create a [dynamic secr
 ## Before you begin
 {: #access-cos-prereqs}
 
-Before you get started, be sure that you have [**Administrator** platform access](/docs/account?topic=account-assign-access-resources#assign-new-access) so that you can provision services, create access groups, and customize access policies for others. You also need the following prerequisites:
+Before you get started, be sure that you have [**Administrator** platform access](/docs/iam?topic=iam-assign-access-resources&interface=ui#assign-new-access) so that you can provision services, create access groups, and customize access policies for others. You also need the following prerequisites:
 
 - [Download and install the IBM Cloud CLI](/docs/cli).
 - [Install the {{site.data.keyword.secrets-manager_short}} CLI plug-in](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli).

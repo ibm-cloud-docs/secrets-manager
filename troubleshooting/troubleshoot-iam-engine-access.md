@@ -87,7 +87,7 @@ First, verify with the account owner that you're assigned the following IAM perm
 - **Administrator** platform access on the IAM Identity Service.
 - **Manager** service access on the {{site.data.keyword.secrets-manager_short}} instance.
 
-If the updated access permissions do not resolve the issue, verify with the account owner that the [**Restrict API key creation**](/docs/account?topic=account-allow-api-create) and [**Restrict service ID creation**](/docs/account?topic=account-restrict-service-id-create) options are disabled on the account.
+If the updated access permissions do not resolve the issue, verify with the account owner that the [**Restrict API key creation**](/docs/iam?topic=iam-allow-api-create) and [**Restrict service ID creation**](/docs/iam?topic=iam-restrict-service-id-create) options are disabled on the account.
 
 ![The figure shows a simplified IAM dashboard with numbered steps for disabling account restrictions.](../images/disable-acct-restrictions.svg){: caption="Disabling API key and service ID restrictions" caption-side="bottom"}
 
