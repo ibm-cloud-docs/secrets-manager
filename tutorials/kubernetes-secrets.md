@@ -3,7 +3,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-04-07"
+lastupdated: "2026-04-21"
 
 keywords: tutorial, Secrets Manager
 
@@ -67,7 +67,7 @@ completion-time: 45m
 {: toc-services="secrets-manager,containers"}
 {: toc-completion-time="45m"}
 
-In this tutorial, you learn how to use {{site.data.keyword.secrets-manager_full}} to manage secrets for applications that run your {{site.data.keyword.containerfull_notm}} cluster by using the [External Secrets Operator](https://external-secrets.io/latest/){: external} open-source tool. 
+In this tutorial, you learn how to use {{site.data.keyword.secrets-manager_full}} to manage secrets for applications that run your {{site.data.keyword.containerfull_notm}} cluster by using the [External Secrets Operator](https://external-secrets.io/latest/){: external} open-source tool.
 
 Alternatively, you can use the {{site.data.keyword.containershort}} CLI plug-in to manage TLS and non-TLS secrets. To learn more about this approach, see [Setting up Kubernetes Ingress](/docs/containers?topic=containers-secrets-mgr).
 {: note}
@@ -84,7 +84,7 @@ With {{site.data.keyword.secrets-manager_short}}, you can centralize and secure 
 
 1. As a developer, you use {{site.data.keyword.secrets-manager_short}} to store a secret for an application that you want to deploy in a Kubernetes cluster.
 2. {{site.data.keyword.secrets-manager_short}} provides an ID for the secret. You include the ID in the `ExternalSecrets` configuration file for your app and you apply the configuration to the cluster.
-3. The External Secrets controller fetches the `ExternalSecrets` objects in the configuration file that you defined by using the Kubernetes API. 
+3. The External Secrets controller fetches the `ExternalSecrets` objects in the configuration file that you defined by using the Kubernetes API.
 4. At application run time, the controller retrieves the secret data from {{site.data.keyword.secrets-manager_short}}, and converts the `ExternalSecrets` objects to Kubernetes secrets for your cluster.
 
 This scenario features a third-party tool that can impact the compliance readiness of workloads that run in your Kubernetes cluster. If you add a community or third-party tool, keep in mind that you are responsible for maintaining the compliance of your apps, and working with the appropriate provider to troubleshoot any issues. For more information, see [Your responsibilities with using {{site.data.keyword.containerfull_notm}}](/docs/containers?topic=containers-responsibilities_iks).
@@ -93,7 +93,7 @@ This scenario features a third-party tool that can impact the compliance readine
 ## Before you begin
 {: #tutorial-kubernetes-secrets-prereqs}
 
-Before you get started, be sure that you have [**Administrator** platform access](/docs/account?topic=account-assign-access-resources#assign-new-access) so that you can create account credentials and provision resources. You also need the following prerequisites:
+Before you get started, be sure that you have [**Administrator** platform access](/docs/iam?topic=iam-assign-access-resources&interface=ui#assign-new-access) so that you can create account credentials and provision resources. You also need the following prerequisites:
 
 - [Download and install the IBM Cloud CLI](/docs/cli).
 - [Install the {{site.data.keyword.secrets-manager_short}} CLI plug-in](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli).
@@ -277,7 +277,7 @@ A trusted profile enables the External Secrets operator to read from {{site.data
     ibmcloud iam trusted-profile-rule-create 'External Secrets' --name kubernetes --type Profile-CR --conditions claim:namespace,operator:EQUALS,value:external-secrets --conditions claim:name,operator:EQUALS,value:external-secrets --conditions claim:crn,operator:EQUALS,value:$CLUSTER_CRN --cr-type IKS_SA
     ```
     {: pre}
-    
+
     OpenShift
 
     ```sh
@@ -295,7 +295,7 @@ A trusted profile enables the External Secrets operator to read from {{site.data
 ### Create a trusted profile using Terraform
 {: #tutorial-kubernetes-secrets-trusted-profile-terraform}
 
-A trusted profile enables the External Secrets operator to read from {{site.data.keyword.secrets-manager_short}}, without having to create a service ID or manage an API key.  
+A trusted profile enables the External Secrets operator to read from {{site.data.keyword.secrets-manager_short}}, without having to create a service ID or manage an API key.
 You can follow this example in Terraform that performs all of the steps to create a Trusted Profile:
 
     ```sh
@@ -304,50 +304,50 @@ You can follow this example in Terraform that performs all of the steps to creat
       name              = var.cluster_name
       resource_group_id = var.resource_group_id
     }
-  
+
     //Get details of Secret Manager Instance
     data "ibm_resource_instance" "secrets_manager" {
       name              = var.sm_name
       resource_group_id = var.resource_group_id
       service           = "secrets-manager"
     }
-    
+
     //Create Trusted Profile
     resource "ibm_iam_trusted_profile" "eso_profile" {
       name        = var.profile_name
       description = var.profile_description
     }
-  
+
     //Attach IAM Policy for Secrets Manager Access
     resource "ibm_iam_trusted_profile_policy" "secrets_policy" {
       iam_id = ibm_iam_trusted_profile.eso_profile.id
-    
+
       roles = ["SecretsReader"]
-    
+
       resources {
         service = "secrets-manager"
         resource_instance_id = data.ibm_resource_instance.secrets_manager.guid
       }
     }
-    
+
     //Add Claim Rule for Kubernetes Service Account
     resource "ibm_iam_trusted_profile_claim_rule" "eso_claim_rule" {
       profile_id = ibm_iam_trusted_profile.eso_profile.id
       type       = "Profile-CR"
       cr_type    = "IKS_SA"
-    
+
       conditions {
         claim    = "name"
         operator = "EQUALS"
         value    = var.service_account_name
       }
-    
+
       conditions {
         claim    = "namespace"
         operator = "EQUALS"
         value    = var.namespace
       }
-    
+
       conditions {
         claim    = "crn"
         operator = "EQUALS"
@@ -360,32 +360,32 @@ You can follow this example in Terraform that performs all of the steps to creat
       description = "Resource Group ID"
       type        = string
     }
-     
+
     variable "sm_name" {
       description = "Secret Manager Instance ID"
       type        = string
     }
-    
+
     variable "cluster_name" {
       description = "IKS Cluster name"
       type        = string
     }
-  
+
     variable "profile_name" {
       type        = string
       description = "Name of the trusted profile"
     }
-    
+
     variable "profile_description" {
       type        = string
       description = "Description of the trusted profile"
     }
-    
+
     variable "service_account_name" {
       description = "Kubernetes service account name for claim rule"
       type        = string
     }
-    
+
     variable "namespace" {
       description = "Kubernetes namespace for claim rule"
       type        = string
@@ -447,7 +447,7 @@ export SECRET_ID=`ibmcloud secrets-manager secret-create --secret-type=username_
 
 Be sure to update `instance_id` and `region` to yours.
 {: note}
- 
+
 The output shows the ID of your newly created secret. For example:
 
 ```plaintext
@@ -479,7 +479,7 @@ First, add `external-secrets` resources to your cluster by installing the offici
     helm repo add external-secrets https://charts.external-secrets.io
     ```
     {: pre}
-    
+
 2. Configure authentication between External Secrets Operator and {{site.data.keyword.secrets-manager_short}}.
 
     If you're using a service ID to authenticate:
@@ -559,7 +559,7 @@ First, add `external-secrets` resources to your cluster by installing the offici
     ' | oc create -f-
     ```
     {: pre}
-    
+
 2. Configure authentication between External Secrets Operator and {{site.data.keyword.secrets-manager_short}}.
 
     If you're using a service ID to authenticate:
@@ -578,8 +578,8 @@ First, add `external-secrets` resources to your cluster by installing the offici
     metadata:
       name: secret-api-key
       namespace: default
-    type: Opaque 
-    stringData: 
+    type: Opaque
+    stringData:
       apikey: $IBM_CLOUD_API_KEY
     " | oc create -f-
     ```
@@ -624,7 +624,7 @@ First, add `external-secrets` resources to your cluster by installing the offici
     ```
     {: pre}
 
-### Update your app configuration 
+### Update your app configuration
 {: #tutorial-kubernetes-secrets-update-deployment}
 
 After you install External Secrets Operator in your cluster, you can define {{site.data.keyword.secrets-manager_short}} as the secrets backend for your application. Start by creating a configuration file that targets the secret in {{site.data.keyword.secrets-manager_short}} that you want to use.
@@ -638,7 +638,7 @@ After you install External Secrets Operator in your cluster, you can define {{si
 
 2. Modify the file to include information about the secret that you want to fetch from your {{site.data.keyword.secrets-manager_short}} instance.
 
-    ```yaml 
+    ```yaml
     apiVersion: external-secrets.io/v1beta1
     kind: SecretStore
     metadata:
@@ -674,7 +674,7 @@ After you install External Secrets Operator in your cluster, you can define {{si
           key: username_password/<SECRET_ID>
     ```
     {: codeblock}
-    
+
     There are two modes you choose to work by - Secret ID or secret Name. If choosing secret name the format changes from `secret_type/secret_id` to `secret_group/secret_type/secret_name`.
     {: note}
 

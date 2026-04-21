@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-11-27"
+  years: 2020, 2026
+lastupdated: "2026-04-21"
 
 keywords: Service credentials, App ID, App Config, Cloudant, Cloud Object Storage, Event Notifications, Event Streams, etcd, ElasticSearch, PostgreSQL, Redis, MongoDB
 
@@ -109,7 +109,7 @@ To create a service credential, an **IAM service access role** must be selected.
 The  Service ID continues to be used once secret rotation takes place. If deleting a secret, a pre-existing Service ID will not be deleted, however an auto-generated Service ID will be deleted.
 {: note}
 
-If selecting to use a pre-existing Service ID, you can also pre-configure its service access policies. In such a case, select **None** as the Role when creating the secret. [Learn more about IAM policies](/docs/account?topic=account-iamusermanpol).
+If selecting to use a pre-existing Service ID, you can also pre-configure its service access policies. In such a case, select **None** as the Role when creating the secret. [Learn more about IAM policies](/docs/iam?topic=iam-iamusermanpol).
 {: note}
 
 
@@ -136,18 +136,18 @@ To create Service credentials by using the {{site.data.keyword.secrets-manager_s
 6. Add a name and description to easily identify your secret.
 7. Select the [secret group](#x9968962){: term} that you want to assign to the secret.
 
-    Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups). 
+    Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 
 8. Optional: Add labels to help you to search for similar secrets in your instance.
 9. Select the service and service instance to create a credential for
 
    If this is the first time the service instance is selected or a service CRN was provided, first authorize {{site.data.keyword.secrets-manager_short}} to access it
    1. Click **Authorize** and select **Key Manager**
-   
+
 10. Click **Next**.
-11. Provide the requested input, depending on the selected service. 
+11. Provide the requested input, depending on the selected service.
 12. Optional: Add metadata to your secret or to a specific version of your secret.
-    1. Upload a file or enter the metadata and the version metadata in JSON format.  
+    1. Upload a file or enter the metadata and the version metadata in JSON format.
 13. Optional: Set a lease duration or time-to-live (TTL) for the secret.
 
     By setting a lease duration for your Service credential, you determine how long its associated credential remains valid. After the Service credential reaches the end of its lease, it is revoked automatically.
@@ -155,7 +155,7 @@ To create Service credentials by using the {{site.data.keyword.secrets-manager_s
 
 14. Optional: Enable automatic rotation of your secret.
 14. Click **Next**.
-15. Review the details of your secret. 
+15. Review the details of your secret.
 16. Click **Add**.
 
 ## Creating Service credentials from the CLI
@@ -185,11 +185,11 @@ You can store metadata that are relevant to the needs of your organization with 
 In the following example, a service credential for Cloud Object Storage is created, with custom parameters with an existing Service ID's IAM ID, and enabling HMAC. As well as specifying the IAM role to provide for this credential, for example `Writer`.
 
 ```sh
-curl -X POST  
+curl -X POST
     -H "Authorization: Bearer {iam_token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{ 
+    -d '{
       {
         "name": "example-service-credentials-secret",
         "description": "Description of my Service Credentials secret",

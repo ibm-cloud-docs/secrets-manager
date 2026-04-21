@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-03-19"
+lastupdated: "2026-04-21"
 
 keywords: Secrets Manager integrations, enable integration, create authorization, service to service, grant access between services, using Secrets Manager with other services, authorize Secrets Manager
 
@@ -77,36 +77,36 @@ The following table lists the services that can be authorized to work with {{sit
 | [{{site.data.keyword.containershort}}](/docs/containers) | Arbitrary secrets  \n Certificates  \n IAM credentials  \n Key-value secrets  \nUser credentials | Centrally manage Ingress subdomain certificates and other secrets for your Kubernetes clusters. [Learn more about this integration](/docs/containers?topic=containers-secrets-mgr). |
 | [{{site.data.keyword.openshiftshort}}](/docs/openshift) | Arbitrary secrets  \n Certificates  \n IAM credentials  \n Key-value secrets  \nUser credentials | Centrally manage Ingress subdomain certificates and other secrets for your {{site.data.keyword.openshiftshort}} clusters. [Learn more about this integration](/docs/openshift?topic=openshift-ingress-roks4). |
 | Red Hat® AI InstructLab | Arbitrary secrets | InstructLab is an open source project created by IBM and Red Hat to be a cost-effective entry point into the world of machine learning. |
-| Schematics | Arbitrary secrets | Centrally manage secrets for use in Schematics workspaces. | 
-| Direct Link | All secret types | seamlessly connect your on-premises resources to your cloud resources. | 
+| Schematics | Arbitrary secrets | Centrally manage secrets for use in Schematics workspaces. |
+| Direct Link | All secret types | seamlessly connect your on-premises resources to your cloud resources. |
 {: caption="Available integrations" caption-side="top"}
 
 
 ## Authorizing an {{site.data.keyword.cloud_notm}} service to access {{site.data.keyword.secrets-manager_short}}
 {: #create-authorization}
 
-Typically to authorize a supported {{site.data.keyword.cloud_notm}} service to access your {{site.data.keyword.secrets-manager_short}} instance, you can [create an authorization between the services](/docs/account?topic=account-serviceauth). Be sure that you have the [**SecretsReader** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam) on your {{site.data.keyword.secrets-manager_short}} instance.
+Typically to authorize a supported {{site.data.keyword.cloud_notm}} service to access your {{site.data.keyword.secrets-manager_short}} instance, you can [create an authorization between the services](/docs/iam?topic=iam-serviceauth). Be sure that you have the [**SecretsReader** service role or higher](/docs/secrets-manager?topic=secrets-manager-iam) on your {{site.data.keyword.secrets-manager_short}} instance.
 
 Be sure to review the documentation of the integrating service for specific instructions. If in doubt, open a support ticket for the integrating service.
-{: important} 
+{: important}
 
-Follow these instructions when both the integrating service and {{site.data.keyword.secrets-manager_short}} are in the same account.  
+Follow these instructions when both the integrating service and {{site.data.keyword.secrets-manager_short}} are in the same account.
 
 When the integrating service is in another account, create the IAM authorization in the account where {{site.data.keyword.secrets-manager_short}} is in, and provide the account ID and instance ID of the integrating service under Source.
-{: tip} 
+{: tip}
 
 1. In the console, click **Manage > Access (IAM)**, and select **Authorizations**.
 2. Click **Create**.
-3. Select a source account for the authorization. 
+3. Select a source account for the authorization.
 4. From the **Source service** list, select the service that you want to integrate with {{site.data.keyword.secrets-manager_short}}.
 5. Specify whether you want the authorization for the source service to apply to all the instances that are associated with the account, only a specific instance, or instances that are only in a specific resource group.
 2. From the **Target service** list, select {{site.data.keyword.secrets-manager_short}}.
 5. Specify whether you want the authorization for the target service to apply to all the instances that are associated with the account, only a specific instance, or instances that are only in a specific resource group.
 6. Select the required service access role.
-    
+
     Some integrations might require a specific role. To understand which service role is needed, see the documentation for the service that you want to integrate with {{site.data.keyword.secrets-manager_short}}.
     {: note}
-    
+
 7. Click **Authorize**.
 
 ## Next steps
