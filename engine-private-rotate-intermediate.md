@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-09-20"
+  years: 2020, 2026
+lastupdated: "2026-03-30"
 
 keywords: intermediate certificate authority, intermediate CA, rotate
 
@@ -55,7 +55,7 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
-# Rotating certificate authorities certificates
+# Rotating authorities certificates
 {: #rotating-ca-certificates}
 
 Managing your public key infrastructure (PKI) with {{site.data.keyword.secrets-manager_full}} should take into consideration the life-cycle of the CA chain certificates. Those certificates should be periodically rotated and distributed before their expiration to maintain uninterrupted TLS workflows for their consumers. 

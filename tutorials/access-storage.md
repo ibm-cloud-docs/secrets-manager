@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-09-20"
+  years: 2020, 2026
+lastupdated: "2026-04-21"
 content-type: tutorial
 services: secrets-manager, cloud-object-storage
 account-plan: paid
@@ -83,7 +83,7 @@ With {{site.data.keyword.secrets-manager_short}}, you can create a [dynamic secr
 ## Before you begin
 {: #access-cos-prereqs}
 
-Before you get started, be sure that you have [**Administrator** platform access](/docs/account?topic=account-assign-access-resources#assign-new-access) so that you can provision services, create access groups, and customize access policies for others. You also need the following prerequisites:
+Before you get started, be sure that you have [**Administrator** platform access](/docs/iam?topic=iam-assign-access-resources&interface=ui#assign-new-access) so that you can provision services, create access groups, and customize access policies for others. You also need the following prerequisites:
 
 - [Download and install the IBM Cloud CLI](/docs/cli).
 - [Install the {{site.data.keyword.secrets-manager_short}} CLI plug-in](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli).
@@ -282,8 +282,8 @@ Finally, configure your {{site.data.keyword.secrets-manager_short}} instance to 
 
     Secret engines are components in {{site.data.keyword.secrets-manager_short}} that are used to process operations for secrets of different types. These engines serve as backend for those secrets. By enabling the IAM secrets engine, you can create an API key for a service ID dynamically, and then lease it to a user based on the lease duration that you specify.
 
-    To configure the IAM secrets engine from the {{site.data.keyword.cloud_notm}} CLI, run the [**`ibmcloud secrets-manager config-update`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-configuration-update-command) command. 
-    
+    To configure the IAM secrets engine from the {{site.data.keyword.cloud_notm}} CLI, run the [**`ibmcloud secrets-manager config-update`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-configuration-update-command) command.
+
     Be sure to first create an IAM Service ID and API Key [with the required access policies](/docs/secrets-manager?topic=secrets-manager-configure-iam-engine&interface=ui#before-configure-iam-engine). Use the generated API key in the command below.
     {: note}
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-09-06"
+  years: 2020, 2026
+lastupdated: "2026-04-22"
 
 keywords: certificate parameters, certificate templates
 
@@ -337,3 +337,4 @@ A successful response returns the value of the engine configuration, along with 
 {: #certificate-templates-next-steps}
 
 - [Create a private certificate](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates).
+- Deploy certificate templates as code using Terraform IBM Modules (TIM) for [{{site.data.keyword.secrets-manager_short}} Private Certificate Engine](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager-private-cert-engine/ibm/latest){: external}.

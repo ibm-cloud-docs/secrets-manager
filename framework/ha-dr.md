@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-09-18"
+  years: 2026
+lastupdated: "2026-04-21"
 
 keywords: HA, DR, high availability, disaster recovery, disaster recovery plan, disaster event, recovery time objective, recovery point objective, secrets manager
 
@@ -151,7 +151,7 @@ Create a destination and subscription in Event Notifications that points to an I
 
 {{site.data.keyword.secrets-manager_short}} supports notifications for the different secret types it provides. To learn about the various available lifecycle event types, see [Enabling event notifications](/docs/secrets-manager?topic=secrets-manager-event-notifications).
 {: note}
-  
+
 ### Planning for disaster recovery
 {: #sm-features-for-disaster-recovery-feature}
 
@@ -190,7 +190,7 @@ The following checklist associated with each feature can help you create and pra
    - Verify regional specific secrets are available in the recovery service instance.
 
 
-To find out more about responsibility ownership between the customer and {{site.data.keyword.cloud_notm}} for using {{site.data.keyword.secrets-manager_short}}, see [Understanding your responsibilities when using Secrets Manager](/docs/secrets-manager?topic=secrets-manager-understanding-your-responsabilities). 
+To find out more about responsibility ownership between the customer and {{site.data.keyword.cloud_notm}} for using {{site.data.keyword.secrets-manager_short}}, see [Understanding your responsibilities when using Secrets Manager](/docs/secrets-manager?topic=secrets-manager-understanding-your-responsabilities).
 
 Disaster recovery steps must be practiced on a regular basis. When building your plan consider the following failure scenarios and resolution.
 
@@ -259,4 +259,4 @@ All upgrades follow the {{site.data.keyword.IBM}} service best practices and hav
 
 Complex changes are enabled and disabled with feature flags to control exposure.
 
-Changes that impact customer workloads are detailed in notifications. For more information, see [monitoring notifications and status](/docs/account?topic=account-viewing-cloud-status) for planned maintenance, announcements, and release notes that impact this service.
+Changes that impact customer workloads are detailed in notifications. For more information, see [monitoring notifications and status](/docs/get-support?topic=get-support-viewing-cloud-status) for planned maintenance, announcements, and release notes that impact this service.

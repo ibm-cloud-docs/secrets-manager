@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-17"
+lastupdated: "2026-04-22"
 
 keywords: Secrets Manager custom credentials, Secrets Manager third-party
 
@@ -168,3 +168,6 @@ resource "ibm_sm_custom_credentials_secret" "sm_custom_credentials_secret" {
   ttl = "864000"
 }
 ```
+
+Leverage the Terraform IBM Modules (TIM) for [{{site.data.keyword.secrets-manager_short}} Custom Credentials Engine](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager-custom-credentials-engine/ibm/latest){: external} to define custom credentials as code with repeatable configurations. Get started with [Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
+{: tip}

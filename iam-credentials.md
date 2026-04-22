@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-06-15"
+  years: 2020, 2026
+lastupdated: "2026-04-22"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -99,7 +99,7 @@ To create IAM credentials by using the {{site.data.keyword.secrets-manager_short
     Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 8. Optional: Add labels to help you to search for similar secrets in your instance.
 9. Optional: Add metadata to your secret or to a specific version of your secret.
-    1. Upload a file or enter the metadata and the version metadata in JSON format.  
+    1. Upload a file or enter the metadata and the version metadata in JSON format.
 10. Click **Next**.
 11. Set a lease duration or time-to-live (TTL) for the secret.
 
@@ -114,14 +114,14 @@ To create IAM credentials by using the {{site.data.keyword.secrets-manager_short
 15. [Determine the source account](/docs/secrets-manager?topic=secrets-manager-iam-credentials#iam-credentials-source-account-ui).
 16. [Determine the scope of access](/docs/secrets-manager?topic=secrets-manager-iam-credentials#iam-credentials-scope-of-access-ui) to assign.
 17. Click **Next**.
-18. Review the details of your secret. 
+18. Review the details of your secret.
 19. Click **Add**.
 
 ### Reusing the same API key until the lease expires
 {: #iam-credentials-reuse-ui}
 {: ui}
 
-IAM credentials consist of a service ID and an API key. By default, the service ID and API key are single-use, ephemeral values that are generated and deleted each time that an IAM credentials secret is read or accessed. 
+IAM credentials consist of a service ID and an API key. By default, the service ID and API key are single-use, ephemeral values that are generated and deleted each time that an IAM credentials secret is read or accessed.
 
 If you'd like to continue to use those credentials through the end of the lease of your secret, you can set **Reuse IAM credentials until lease expires** to **On**. When you enable this option, your secret retains its current service ID, and API key values and reuses them on each read while the secret remains valid. After the secret reaches the end of its lease, the credentials are revoked automatically.
 
@@ -144,7 +144,7 @@ In the **Assign access** step of the Create IAM credentials wizard, choose a sco
 
 1. To use an existing service ID, select an ID from the list. If the source account is a specific other account, provide the ID of the service ID, in the following format: `ServiceId-c0c7cfa4-b24e-4917-ad74-278f2fee5ba0`.
 
-   Choose this option when you need {{site.data.keyword.secrets-manager_short}} to generate and manage only an API key for your IAM credentials secret, and not the service ID itself. The API key inherits the access policy of the service ID that you select from your account. Only the service IDs that you have access to are displayed. 
+   Choose this option when you need {{site.data.keyword.secrets-manager_short}} to generate and manage only an API key for your IAM credentials secret, and not the service ID itself. The API key inherits the access policy of the service ID that you select from your account. Only the service IDs that you have access to are displayed.
 
 2. To generate both a new service ID and API key for the secret, select an access group. If the source account is a specific account, provide the IDs of the wanted access groups.
 
@@ -214,11 +214,11 @@ You can store metadata that are relevant to the needs of your organization with 
 
 
 ```sh
-curl -X POST  
+curl -X POST
     -H "Authorization: Bearer {iam_token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{ 
+    -d '{
       {
         "name": "example-iam-credentials-secret",
         "description": "Description of my IAM Credentials secret",
@@ -252,16 +252,16 @@ A successful response returns the ID value of the secret, along with other metad
 {: #iam-credentials-reuse-api}
 {: api}
 
-If you'd like to use the IAM credentials through the end of the lease of your secret, you can use the `reuse_api_key` field. If set to `true`, your secret retains its current service ID and API key values and reuses them on each read while the secret remains valid. For example, the following example command creates IAM credentials that can be reused until they expire. 
+If you'd like to use the IAM credentials through the end of the lease of your secret, you can use the `reuse_api_key` field. If set to `true`, your secret retains its current service ID and API key values and reuses them on each read while the secret remains valid. For example, the following example command creates IAM credentials that can be reused until they expire.
 
 You can store metadata that are relevant to the needs of your organization with the `custom_metadata` and `version_custom_metadata` request parameters. Values of the `version_custom_metadata` are returned only for the versions of a secret. The custom metadata of your secret is stored as all other metadata, for up to 50 versions, and you must not include confidential data.
 
 ```sh
-curl -X POST  
+curl -X POST
     -H "Authorization: Bearer {iam_token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{ 
+    -d '{
       {
         "name": "example-iam-credentials-secret",
         "description": "Description of my IAM Credentials secret",
@@ -283,7 +283,7 @@ curl -X POST
         "version_custom_metadata": {
           "custom_version_key": "custom_version_value"
         }
-      }' \ 
+      }' \
     "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/secrets"
 ```
 {: codeblock}
@@ -308,11 +308,11 @@ You can find the **ID** value of a service ID in the IAM section of the console.
 
 
 ```sh
-curl -X POST  
+curl -X POST
     -H "Authorization: Bearer {iam_token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{ 
+    -d '{
           "name": "example-iam-credentials-secret",
           "description": "Description of my IAM Credentials secret",
           "secret_type": "iam_credentials",
@@ -364,8 +364,9 @@ The following example shows a configuration that you can use to create IAM crede
 ```
 {: codeblock}
 
+Automate IAM credential generation with the Terraform IBM Modules (TIM) for [{{site.data.keyword.secrets-manager_short}} Secret](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager-secret/ibm/latest){: external} for consistent, version-controlled deployments. Learn about [Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
 
 ## Deleting IAM credentials
 {: #iam-credentials-delete}
 
-If you have a service ID or API key that was generated by the IAM credentials secret engine and delete your instance of {{site.data.keyword.secrets-manager_short}}, you must also delete the secret from IAM. For more information, see [Managing user API keys](/docs/account?topic=account-userapikey).
+If you have a service ID or API key that was generated by the IAM credentials secret engine and delete your instance of {{site.data.keyword.secrets-manager_short}}, you must also delete the secret from IAM. For more information, see [Managing user API keys](/docs/iam?topic=iam-userapikey).

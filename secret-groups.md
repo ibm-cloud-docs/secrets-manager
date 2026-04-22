@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-09-18"
+  years: 2020, 2026
+lastupdated: "2026-04-22"
 
 keywords: secret groups, assign secret access, iam roles, secrets policies, organize secrets
 
@@ -139,6 +139,8 @@ resource "ibm_sm_secret_group" "sm_secret_group_test" {
 ```
 {: codeblock}
 
+Organize secrets efficiently using Terraform IBM Modules (TIM) for [{{site.data.keyword.secrets-manager_short}} Secret Group](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager-secret-group/ibm/latest){: external} to create and manage secret groups. Learn more about [Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
+{: tip}
 
 ## Deleting secret groups
 {: #delete-groups}
@@ -188,3 +190,4 @@ Already using secret groups? To learn more about assigning access and organizing
 
 - [Assigning access to a secret group](/docs/secrets-manager?topic=secrets-manager-assign-access#assign-access-secret-group)
 - [Best practices for organizing secrets and assigning access](/docs/secrets-manager?topic=secrets-manager-best-practices-organize-secrets)
+- To automate {{site.data.keyword.secrets-manager_short}} secret group management with Terraform, see Terraform IBM Modules (TIM) for [{{site.data.keyword.secrets-manager_short}} Secret Group](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager-secret-group/ibm/latest){: external}.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-02-23"
+lastupdated: "2026-04-22"
 
 keywords: key:value, key/value, key-value, storing key:value secrets
 
@@ -224,3 +224,6 @@ The following example shows a configuration that you can use to create a key-val
     }
 ```
 {: codeblock}
+
+Store and manage key-value pairs programmatically using Terraform IBM Modules (TIM) for [{{site.data.keyword.secrets-manager_short}} Secret](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager-secret/ibm/latest){: external}. Discover more in [Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
+{: tip}

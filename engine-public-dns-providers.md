@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-03-01"
+lastupdated: "2026-04-22"
 
 keywords: DNS provider, connect DNS provider, set up DNS provider, connect DNS, set up DNS, connect CIS, set up CIS, add DNS provider configuration
 
@@ -61,7 +61,7 @@ subcollection: secrets-manager
 With {{site.data.keyword.secrets-manager_full}}, you can connect to a DNS provider by adding a configuration to your instance.
 {: shortdesc}
 
-A DNS provider is the service that is used to add and manage domains for apps or services. By adding a DNS configuration, you can specify the DNS service to use for domain validation when you [order certificates](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates) through {{site.data.keyword.secrets-manager_short}}. 
+A DNS provider is the service that is used to add and manage domains for apps or services. By adding a DNS configuration, you can specify the DNS service to use for domain validation when you [order certificates](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates) through {{site.data.keyword.secrets-manager_short}}.
 
 You can define up to 10 DNS configurations per instance. To view a list of configurations that are available for your instance, go to the **Secrets engines > Public certificates** page in the {{site.data.keyword.secrets-manager_short}} UI.
 {: note}
@@ -92,7 +92,7 @@ You can connect the following DNS providers with your {{site.data.keyword.secret
 
 | Prerequisites |
 | :------------ |
-| Before you add a configuration for classic infrastructure, be sure that you:  \n  \n 1. [Obtain your classic infrastructure username](/docs/account?topic=account-classic_keys). If you are using IBMid to log in to your account, your classic infrastructure username is your `<account_id>_<email_address>`. \n 2. [Create a classic infrastructure API key](/docs/account?topic=account-classic_keys). Assign your user permissions to manage DNS in the account. For more information about managing classic infrastructure access, see [Classic infrastructure permissions](/docs/account?topic=account-mngclassicinfra#how-classic-infra-permissions-work). |
+| Before you add a configuration for classic infrastructure, be sure that you:  \n  \n 1. [Obtain your classic infrastructure username](/docs/iam?topic=iam-classic_keys). If you are using IBMid to log in to your account, your classic infrastructure username is your `<account_id>_<email_address>`. \n 2. [Create a classic infrastructure API key](/docs/iam?topic=iam-classic_keys). Assign your user permissions to manage DNS in the account. For more information about managing classic infrastructure access, see [Classic infrastructure permissions](/docs/iam?topic=iam-mngclassicinfra#how-classic-infra-permissions-work). |
 {: caption="Prerequisites - Classic infrastructure" caption-side="top"}
 {: #classic-infrastructure-prereqs}
 {: tab-title="Classic infrastructure"}
@@ -118,7 +118,7 @@ You can add DNS provider configurations to your service instance by using the {{
 2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets engines** page, click the **Public certificates** tab.
 4. In the DNS providers table, click **Add**.
-5. Select the DNS provider that you want to use. 
+5. Select the DNS provider that you want to use.
 
    Currently, you can add configurations for Cloud Internet Services (CIS) and IBM Cloud classic infrastructure. You can also use your own DNS provider, but no configuration is required in this case.
 6. Grant service access between {{site.data.keyword.secrets-manager_short}} and your selected DNS provider.
@@ -147,7 +147,7 @@ ibmcloud secrets-manager configuration-create {
 ```
 {: pre}
 
-If you choose to use your own DNS provider, refer to your provider's documentation for instructions. No DNS provider configuration is required in {{site.data.keyword.secrets-manager_short}}.  
+If you choose to use your own DNS provider, refer to your provider's documentation for instructions. No DNS provider configuration is required in {{site.data.keyword.secrets-manager_short}}.
 If you prefer to use an IAM service authorization, omit `cloud_internet_services_apikey`.
 {: important}
 
@@ -156,7 +156,7 @@ If you prefer to use an IAM service authorization, omit `cloud_internet_services
 {: #add-dns-provider-api}
 {: api}
 
-You can add DNS provider configurations to your service instance by using the {{site.data.keyword.secrets-manager_short}} API. 
+You can add DNS provider configurations to your service instance by using the {{site.data.keyword.secrets-manager_short}} API.
 
 If you choose to use your own DNS provider, refer to your provider's documentation for instructions. No DNS provider configuration is required in {{site.data.keyword.secrets-manager_short}}.
 {: important}
@@ -169,11 +169,11 @@ The following example shows a query that you can use to add a Cloud Internet Ser
 {: curl}
 
 If you need to access a CIS instance that is located in another account, provide a `cis_apikey` value that contains an API key with **Manager** service access on the Internet Services (`internet-svs`) service. If you prefer to use an IAM service authorization, omit `cloud_internet_services_apikey`. For more information, see [Granting service access to CIS](/docs/secrets-manager?topic=secrets-manager-prepare-order-certificates#authorize-cis-another-account).
-{: note} 
+{: note}
 
 
 ```sh
-curl -X POST 
+curl -X POST
   --H "Authorization: Bearer {iam_token}" \
   --H "Accept: application/json" \
   --H "Content-Type: application/json" \
@@ -182,7 +182,7 @@ curl -X POST
     "cloud_internet_services_crn": "crn:v1:bluemix:public:internet-svcs:global:a/128e84fcca45c1224aae525d31ef2b52:009a0357-1460-42b4-b903-10580aba7dd8::",
     "config_type": "public_cert_configuration_dns_cloud_internet_services",
     "name": "cloud-internet-services-config"
-  }' \  
+  }' \
   "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/configurations"
 ```
 {: codeblock}
@@ -201,7 +201,7 @@ The following example shows a query that you can use to add a classic infrastruc
 
 
 ```sh
-curl -X POST 
+curl -X POST
   --H 'Authorization: Bearer {iam_token}" \
   --H "Accept: application/json" \
   --H "Content-Type: application/json" \
@@ -210,7 +210,7 @@ curl -X POST
   "classic_infrastructure_username": "1234567_JohnDoe@mail.com",
   "config_type": "public_cert_configuration_dns_classic_infrastructure",
   "name": "classic-infrastructure-config"
-}' \  
+}' \
   "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/configurations"
 ```
 {: codeblock}
@@ -273,11 +273,11 @@ After you delete a configuration, the certificates that are associated with the 
 {: important}
 
 1. In the console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
-   
-2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}. 
+
+2. From the list of services, select your instance of {{site.data.keyword.secrets-manager_short}}.
 3. In the **Secrets engines** page, click the **Public certificates** tab.
-4. Use the **DNS providers section** table to view the configurations in your instance. 
-5. In the row for the configuration that you want to delete, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Delete**.  
+4. Use the **DNS providers section** table to view the configurations in your instance.
+5. In the row for the configuration that you want to delete, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Delete**.
 6. Enter the name of the configuration to confirm its deletion.
 7. Click **Delete**.
 
@@ -287,7 +287,7 @@ After you delete a configuration, the certificates that are associated with the 
 {: #delete-dns-provider-api}
 {: api}
 
-You can delete configurations by calling the {{site.data.keyword.secrets-manager_short}} API. 
+You can delete configurations by calling the {{site.data.keyword.secrets-manager_short}} API.
 
 The following example shows a query that you can use to remove a DNS provider configuration from your instance. When you call the API, replace `{config_name}` with the name of the configuration that you want to delete.
 {: curl}
@@ -297,7 +297,7 @@ After you delete a configuration, the certificates that are associated with the 
 
 
 ```sh
-curl -X DELETE 
+curl -X DELETE
 --H "Authorization: Bearer {iam_token}" \
  "https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/configurations/{name}"
 ```
@@ -357,3 +357,4 @@ A successful response returns the value of the engine configuration, along with 
 {: #manage-dns-config-next-steps}
 
 - [Order a certificate](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates).
+- Manage DNS provider configurations with Terraform IBM Modules (TIM) for [{{site.data.keyword.secrets-manager_short}} Public Certificate Engine](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager-public-cert-engine/ibm/latest){: external} for repeatable deployments.

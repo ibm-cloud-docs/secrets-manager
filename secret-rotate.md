@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-09-19"
+  years: 2020, 2026
+lastupdated: "2026-04-22"
 
 keywords: rotate, manually rotate, renew, import, reorder, manual rotation
 
@@ -874,3 +874,5 @@ You can rotate imported certificates by using Terraform for {{site.data.keyword.
 To rotate an imported certificate, modify the values of the `certificate`, `intermediate` (optional) and `private_key` (optional) attributes in your `ibm_sm_imported_certificate` resource configuration, and run `terraform apply` to apply the change. 
 
 You can also modify other attributes of the imported certificate at the same time, including metadata attributes such as `description`, `custom_metadata` or `version_custom_metadata`.
+
+Implement secret rotation policies with Terraform IBM Modules (TIM) for [{{site.data.keyword.secrets-manager_short}} Secret](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager-secret/ibm/latest){: external} for automated lifecycle management. Refer to [Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).

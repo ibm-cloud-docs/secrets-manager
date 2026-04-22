@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-11-28"
+  years: 2020, 2026
+lastupdated: "2026-04-22"
 
 keywords: root certificate authority, root CA, internal signing, external signing
 
@@ -341,3 +341,4 @@ A successful response returns the value of the engine configuration, along with 
 {: #root-ca-next-steps}
 
 - [Create an intermediate certificate authority](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities)
+- Streamline root CA setup with Terraform IBM Modules (TIM) for [{{site.data.keyword.secrets-manager_short}} Private Certificate Engine](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager-private-cert-engine/ibm/latest){: external} for Terraform.
