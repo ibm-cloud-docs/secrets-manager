@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-21"
+lastupdated: "2026-04-22"
 
 keywords: IAM credentials, dynamic, IAM API key IAM credentials engine
 
@@ -414,6 +414,9 @@ The following example shows a configuration that you can use to configure the IA
 ```
 {: codeblock}
 
+Configure the IAM credentials engine programmatically with the [{{site.data.keyword.secrets-manager_short}} IAM Engine](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager-iam-engine/ibm/latest){: external}. See [Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim) for configuration examples.
+{: note}
+
 ## Retrieving an IAM credentials engine's configuration value in the UI
 {: #get-iam-engine-value-ui}
 {: ui}
@@ -466,3 +469,4 @@ A successful response returns the value of the engine configuration, along with 
 Now you can use {{site.data.keyword.secrets-manager_short}} generate IAM credentials. In the {{site.data.keyword.secrets-manager_short}} UI, click **Secrets > Add > IAM credentials** to start creating secrets.
 
 - [Creating IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials)
+- Automate {{site.data.keyword.secrets-manager_short}} IAM engine setup using the [Secrets Manager IAM Engine module](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager-iam-engine/ibm/latest){: external}.

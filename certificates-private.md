@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-03-12"
+lastupdated: "2026-04-22"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, private certificates
 
@@ -294,3 +294,6 @@ The following example shows a configuration that you can use to create a private
 
 
 After a certificate is issued, you can deploy it to your integrated apps, download it, or rotate it manually. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#create-secret){: external}.
+
+To automate private certificate creation and management, use the Terraform IBM Modules (TIM) for [{{site.data.keyword.secrets-manager_short}} Private Certificate](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager-private-cert/ibm/latest){: external} for infrastructure as code. See [Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim) for implementation guidance.
+{: tip}

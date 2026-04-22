@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-03-12"
+lastupdated: "2026-04-22"
 
 keywords: arbitrary secrets, arbitrary text, custom secrets
 
@@ -228,3 +228,6 @@ The following example shows a configuration that you can use to create an arbitr
 	} 
 	```
 	{: codeblock}
+
+Alternatively, you can use pre-built, open-source and enterprise-ready Terraform IBM Modules (TIM) for [{{site.data.keyword.secrets-manager_short}} Secret](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager-secret/ibm/latest){: external} to create arbitrary secrets with Terraform. Learn more about [Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
+{: note}

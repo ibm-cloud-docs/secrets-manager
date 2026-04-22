@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-09-19"
+  years: 2020, 2026
+lastupdated: "2026-04-22"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, imported certificates
 
@@ -209,6 +209,9 @@ The following example shows a query that you can use to import an existing certi
     }
 ```
 {: codeblock}
+
+Manage imported certificates efficiently using Terraform IBM Modules (TIM) for [{{site.data.keyword.secrets-manager_short}} Secret](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager-secret/ibm/latest){: external} for declarative infrastructure management. Review [Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim) documentation.
+{: tip}
 
 ## Creating a Certificate Signing Request 
 {: #creating-csr}

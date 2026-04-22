@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-21"
+lastupdated: "2026-04-22"
 
 keywords: Service credentials, App ID, App Config, Cloudant, Cloud Object Storage, Event Notifications, Event Streams, etcd, ElasticSearch, PostgreSQL, Redis, MongoDB
 
@@ -255,3 +255,6 @@ The following example shows a configuration that you can use to create Service c
     }
 ```
 {: codeblock}
+
+Deploy service credentials with automated rotation using Terraform IBM Modules (TIM) for [{{site.data.keyword.secrets-manager_short}} Secret](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager-secret/ibm/latest){: external}. Check out [Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim) for examples.
+{: tip}

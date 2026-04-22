@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-21"
+lastupdated: "2026-04-22"
 
 keywords: DNS provider, connect DNS provider, set up DNS provider, connect DNS, set up DNS, connect CIS, set up CIS, add DNS provider configuration
 
@@ -357,3 +357,4 @@ A successful response returns the value of the engine configuration, along with 
 {: #manage-dns-config-next-steps}
 
 - [Order a certificate](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates).
+- Manage DNS provider configurations with Terraform IBM Modules (TIM) for [{{site.data.keyword.secrets-manager_short}} Public Certificate Engine](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager-public-cert-engine/ibm/latest){: external} for repeatable deployments.

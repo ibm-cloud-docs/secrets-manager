@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-21"
+lastupdated: "2026-04-22"
 
 keywords: IAM credentials, dynamic, IAM API key, IAM secret engine, IAM secrets engine
 
@@ -364,6 +364,7 @@ The following example shows a configuration that you can use to create IAM crede
 ```
 {: codeblock}
 
+Automate IAM credential generation with the Terraform IBM Modules (TIM) for [{{site.data.keyword.secrets-manager_short}} Secret](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager-secret/ibm/latest){: external} for consistent, version-controlled deployments. Learn about [Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
 
 ## Deleting IAM credentials
 {: #iam-credentials-delete}

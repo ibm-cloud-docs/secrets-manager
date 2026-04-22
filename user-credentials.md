@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-03-12"
+lastupdated: "2026-04-22"
 
 keywords: username, password, user credentials, store password
 
@@ -295,5 +295,7 @@ The following example shows a query that you can use to create a username and pa
     } 
 ```
 {: codeblock}
+
+Manage username and password credentials declaratively with Terraform IBM Modules (TIM) for [{{site.data.keyword.secrets-manager_short}} Secret](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager-secret/ibm/latest){: external}. Explore [Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim) for patterns.
 
 A successful response returns the ID value for the secret, along with other metadata. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager/secrets-manager-v2#create-secret).

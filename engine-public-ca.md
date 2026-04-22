@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-09-06"
+  years: 2020, 2026
+lastupdated: "2026-04-22"
 
 keywords: certificate authority, connect certificate authority, set up certificate authority, connect CA, set up CA, connect Let's Encrypt, set up Let's Encrypt, add certificate authority configuration, add CA configuration
 
@@ -288,3 +288,4 @@ A successful response returns the value of the engine configuration, along with 
 
 - [Add a DNS provider configuration](/docs/secrets-manager?topic=secrets-manager-add-dns-provider)
 - [Order a certificate](/docs/secrets-manager?topic=secrets-manager-public-certificates#order-public-certificates)
+- Configure public CA settings with Terraform IBM Modules (TIM) for [{{site.data.keyword.secrets-manager_short}} Public Certificate Engine](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager-public-cert-engine/ibm/latest){: external} for infrastructure as code.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-03-12"
+lastupdated: "2026-04-22"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, public certificates
 
@@ -273,7 +273,8 @@ The following example shows a configuration that you can use to order a public c
 ```
 {: codeblock}
 
-
+Simplify public certificate ordering with Terraform IBM Modules (TIM) for [{{site.data.keyword.secrets-manager_short}} Public Certificate](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager-public-cert/ibm/latest){: external}, which handles certificate lifecycle management through code. Explore [Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim) for best practices.
+{: tip}
 
 ### Ordering public certificates with your own DNS provider in the UI
 {: #order-public-cert-manual-ui}
