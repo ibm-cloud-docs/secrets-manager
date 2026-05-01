@@ -2,11 +2,13 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-12"
+lastupdated: "2026-05-01"
 
 subcollection: secrets-manager
 
 keywords: Secrets Manager CLI, Secrets Manager command line, Secrets Manager terminal, Secrets Manager shell
+
+content-type: cli-docs
 
 ---
 
