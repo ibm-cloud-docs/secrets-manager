@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-02-10"
+lastupdated: "2026-05-07"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -64,6 +64,16 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
+
+
+##  XX May 2026
+{: #secrets-manager-mayXXX26}
+{: release-note}
+
+Mumbai - Airtel availability
+:   You can now create a {{site.data.keyword.secrets-manager_short}} service instance in the Mumbai - Airtel (`in-mum`) region.
+
+   For more information, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
 
 
 ##  09 February 2026

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-03-19"
+lastupdated: "2026-05-07"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -83,6 +83,7 @@ The following table lists the endpoint URLs by region that can be used to intera
 | Region        | Endpoint URL                                                     |
 | ------------- | ---------------------------------------------------------------- |
 | Chennai - Airtel       | `https://{instance_ID}.in-che.secrets-manager.appdomain.cloud`   |
+| Mumbai - Airtel       | `https://{instance_ID}.in-mum.secrets-manager.appdomain.cloud`   |
 | Dallas        | `https://{instance_ID}.us-south.secrets-manager.appdomain.cloud` |
 | Frankfurt     | `https://{instance_ID}.eu-de.secrets-manager.appdomain.cloud`    |
 | London        | `https://{instance_ID}.eu-gb.secrets-manager.appdomain.cloud`    |
@@ -103,6 +104,7 @@ The following table lists the endpoint URLs by region that can be used to intera
 | Region        | Endpoint URL                                                             |
 | ------------- | ------------------------------------------------------------------------ |
 | Chennai - Airtel       | `https://{instance_ID}.private.in-che.secrets-manager.appdomain.cloud`   |
+| Mumbai - Airtel     | `https://{instance_ID}.private.in-mum.secrets-manager.appdomain.cloud`   |
 | Dallas        | `https://{instance_ID}.private.us-south.secrets-manager.appdomain.cloud` |
 | Frankfurt     | `https://{instance_ID}.private.eu-de.secrets-manager.appdomain.cloud`    |
 | London        | `https://{instance_ID}.private.eu-gb.secrets-manager.appdomain.cloud`    |
