@@ -63,10 +63,10 @@ In this change log, you can learn about the latest changes, improvements, and up
 
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
 
-## Version 2.0.15
-{: #2.0.15}
+## Version 2.0.16
+{: #2.0.16}
 
-Version 2.0.15 was released on 08 May 2026. This release includes the following updates:
+Version 2.0.16 was released on 08 May 2026. This release includes the following updates:
 - packages updates.
 -
 - ## Version 2.0.15
