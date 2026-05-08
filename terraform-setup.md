@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-04-22"
+lastupdated: "2026-05-08"
 
 keywords: terraform, {{site.data.keyword.secrets-manager_short}}
 
@@ -143,11 +143,11 @@ Before you can create an authorization by using Terraform, make sure that you co
    {: pre}
 
 5. From the {{site.data.keyword.cloud_notm}} resource list in the UI, select the {{site.data.keyword.secrets-manager_short}} instance that you created and note the instance ID.
-6. Verify that the access policy is successfully assigned. For more information, see [Reviewing assigned access in the console](/docs/account?topic=account-assign-access-resources&interface=ui#review-your-access-console).
+6. Verify that the access policy is successfully assigned. For more information, see [Reviewing assigned access in the console](/docs/account?topic=account-assign-access-resources).
 
 ## Managing Resource Drift
 {: #resource-drift-terraform}
- 
+
 With Terraform, you can safely and predictably manage the lifecycle of your infrastructure by using declarative configuration files. One challenge that exists when you are managing infrastructure as code is drift. Drift occurs when resources are added, deleted, or modified outside of applying Terraform configuration changes. For example, when a secret expires or is rotated. To avoid drift, always use Terraform to manage resources initially created with Terraform.
 
 The Terraform state file is a record of all resources that Terraform manages. You must not make manual changes to resources that are controlled by Terraform because by doing so, the state file becomes out of sync or "drift", from the real infrastructure. If your state and configuration do not match your infrastructure, Terraform attempts to reconcile your infrastructure, which might unintentionally destroy or re-create resources.

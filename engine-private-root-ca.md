@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-22"
+lastupdated: "2026-05-08"
 
 keywords: root certificate authority, root CA, internal signing, external signing
 
@@ -286,8 +286,8 @@ crypto_key {
       pin_iam_credentials_secret_id = "replace_with_iam_credentials_secret_guid"
       private_keystore_id = "replace_with_keystore_id"
     }
-  }
-  ```
+}
+```
 {: codeblock}
 
 

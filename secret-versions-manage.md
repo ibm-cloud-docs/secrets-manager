@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-09-19"
+  years: 2026
+lastupdated: "2026-05-08"
 
 keywords: secret version history, view versions, secret versions
 
@@ -59,7 +59,6 @@ subcollection: secrets-manager
 {: #version-history}
 
 When you rotate a secret in {{site.data.keyword.secrets-manager_full}}, you create a new version of its value. You can use {{site.data.keyword.secrets-manager_full}} to view the version history and update version metadata of secrets. If you accidentally replace or overwrite a secret, you can also restore it to a previous version.
-
 {: shortdesc}
 
 ## Before you begin
@@ -102,7 +101,6 @@ To list all the versions that are associated with a secret, run the [**`ibmcloud
 ibmcloud secrets-manager secret-versions --secret-id SECRET-ID
 ```
 {: pre}
-
 
 The command outputs information about the current and previous versions. For example, the date that each version was created. For more information about the command options, see [**`ibmcloud secrets-manager secret-versions`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-versions-command).
 

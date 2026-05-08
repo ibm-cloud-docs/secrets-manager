@@ -415,7 +415,7 @@ CLI plug-in version 0.1.20
 {: release-note}
 
 Allow access to {{site.data.keyword.secrets-manager_short}} in a restricted account
-:   Working in an account that has [IP address access restrictions](/docs/account?topic=account-ips&interface=ui)? To use certain features in {{site.data.keyword.secrets-manager_short}}, for example, to generate IAM credentials, a configuration step is required to ensure that your account is able to accept incoming requests from the service. If your account allows access to only specific IP addresses, you can update your account settings to specify a required list of IP addresses for {{site.data.keyword.secrets-manager_short}}.
+:   Working in an account that has [IP address access restrictions](/docs/account?topic=account-ips)? To use certain features in {{site.data.keyword.secrets-manager_short}}, for example, to generate IAM credentials, a configuration step is required to ensure that your account is able to accept incoming requests from the service. If your account allows access to only specific IP addresses, you can update your account settings to specify a required list of IP addresses for {{site.data.keyword.secrets-manager_short}}.
 
 
 ## 27 May 2022

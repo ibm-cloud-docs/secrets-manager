@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-21"
+lastupdated: "2026-05-08"
 
 keywords: assign access for Secrets Manager, secret group access, assign access for all secrets, grant access, add users
 
@@ -69,7 +69,7 @@ To learn more about suggested guidelines for assigning access to secrets, check 
 ## Before you begin
 {: #before-access}
 
-Before you get started, be sure that you have [**Administrator** platform access](/docs/account?topic=account-assign-access-resources#assign-new-access) so that you can further assign roles and customize access policies for others.
+Before you get started, be sure that you have [**Administrator** platform access](/docs/account?topic=account-assign-access-resources) so that you can further assign roles and customize access policies for others.
 
 ## Assigning access to a {{site.data.keyword.secrets-manager_short}} instance
 {: #assign-access-instance}

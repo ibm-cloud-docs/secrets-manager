@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-11-28"
+  years: 2020, 2026
+lastupdated: "2026-05-08"
 
 keywords: intermediate certificate authority, intermediate CA, internal signing, external signing
 
@@ -586,8 +586,8 @@ crypto_key {
       pin_iam_credentials_secret_id = "replace_with_iam_credentials_secret_guid"
       private_keystore_id = "replace_with_keystore_id"
     }
-  }
-  ```
+}
+```
 {: codeblock}
 
 When using internal signing, the defined issuer is automatically signing the newly created intermediate CA certificate.
@@ -643,8 +643,8 @@ crypto_key {
       pin_iam_credentials_secret_id = "replace_with_iam_credentials_secret_guid"
       private_keystore_id = "replace_with_keystore_id"
     }
-  }
-  ```
+}
+```
 {: codeblock}
 
 ## Retrieving an intermediate CA in the UI

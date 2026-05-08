@@ -68,8 +68,8 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 
 Version 2.0.16 was released on 08 May 2026. This release includes the following updates:
 - packages updates.
--
-- ## Version 2.0.15
+
+## Version 2.0.15
 {: #2.0.15}
 
 Version 2.0.15 was released on 11 March 2026. This release includes the following updates:
