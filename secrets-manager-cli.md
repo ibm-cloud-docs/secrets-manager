@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-01"
+lastupdated: "2026-05-08"
 
 subcollection: secrets-manager
 
@@ -64,7 +64,7 @@ content-type: cli-docs
 You can use the {{site.data.keyword.secrets-manager_full}} command-line interface (CLI) to manage secrets in your {{site.data.keyword.secrets-manager_short}} instance.
 {: shortdesc}
 
-Current version: **`2.0.15`**
+Current version: **`2.0.16`**
 
 ## Prerequisites
 {: #secrets-manager-cli-prereq}
