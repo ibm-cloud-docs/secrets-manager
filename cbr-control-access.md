@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-04-21"
+lastupdated: "2026-05-08"
 
 keywords: context-based restrictions, access allowlist, network security
 
@@ -217,10 +217,10 @@ After you create zones, you can [update or remove](/docs/iam?topic=iam-context-r
 {: #cbr-create-zone-ui}
 {: ui}
 
-After you set the prerequisites and requirements, you can create zones in the UI. For more information, see [Creating context-based restrictions](/docs/account?topic=account-context-restrictions-create&interface=ui#network-zones-create).
+After you set the prerequisites and requirements, you can create zones in the UI. For more information, see [Creating context-based restrictions](/docs/account?topic=account-context-restrictions-create&interface=ui).
 
 1. Determine the resources that you want add to your allowlist.
-2. Follow the steps to [create context-based restrictions](/docs/account?topic=account-context-restrictions-create&interface=ui#network-zones-create) in the console. Add the {{site.data.keyword.secrets-manager_short}} service to your network zones to allow {{site.data.keyword.secrets-manager_full}} to access services and resources in your account.
+2. Follow the steps to [create context-based restrictions](/docs/account?topic=account-context-restrictions-create&interface=ui) in the console. Add the {{site.data.keyword.secrets-manager_short}} service to your network zones to allow {{site.data.keyword.secrets-manager_full}} to access services and resources in your account.
 
 After you create zones, you can also [update or remove](/docs/enterprise-management?topic=enterprise-management-context-restrictions-update) them.
 
@@ -311,7 +311,7 @@ After you create rules, you can [update](/apidocs/context-based-restrictions#rep
 After you set the prerequisites and requirements, you can create rules in the UI.
 
 1. Determine the resources that you want add to your allowlist.
-2. Follow the steps to [create context-based restrictions](/docs/account?topic=account-context-restrictions-create&interface=ui#context-restrictions-create-rules) in the console. Add the {{site.data.keyword.secrets-manager_short}} service to your network zones to allow {{site.data.keyword.secrets-manager_full}} to access services and resources in your account.
+2. Follow the steps to [create context-based restrictions](/docs/account?topic=account-context-restrictions-create&interface=ui) in the console. Add the {{site.data.keyword.secrets-manager_short}} service to your network zones to allow {{site.data.keyword.secrets-manager_full}} to access services and resources in your account.
 
 After you create rules, you can [update](/apidocs/context-based-restrictions#replace-rule) and [delete](/apidocs/context-based-restrictions#delete-rule) them.
 

@@ -3,7 +3,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-04-21"
+lastupdated: "2026-05-08"
 
 keywords: tutorial, Secrets Manager
 
@@ -117,10 +117,10 @@ Start by creating the account credentials that you need to be able to run operat
 
 1. From the command line, log in to {{site.data.keyword.cloud_notm}} through the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-install-ibmcloud-cli).
 
-    ```sh
-    ibmcloud login
-    ```
-    {: pre}
+  ```sh
+  ibmcloud login
+  ```
+  {: pre}
 
     If the login fails, run the `ibmcloud login --sso` command to try again. The `--sso` parameter is required when you log in with a federated ID. If this option is used, go to the link listed in the CLI output to generate a one-time passcode.
     {: note}

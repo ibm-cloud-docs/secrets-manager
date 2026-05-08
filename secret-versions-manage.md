@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-09-19"
+  years: 2026
+lastupdated: "2026-05-08"
 
 keywords: secret version history, view versions, secret versions
 
@@ -102,7 +102,6 @@ To list all the versions that are associated with a secret, run the [**`ibmcloud
 ibmcloud secrets-manager secret-versions --secret-id SECRET-ID
 ```
 {: pre}
-
 
 The command outputs information about the current and previous versions. For example, the date that each version was created. For more information about the command options, see [**`ibmcloud secrets-manager secret-versions`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-versions-command).
 
