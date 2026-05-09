@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-04-21"
+lastupdated: "2026-05-09"
 
 keywords: HA, DR, high availability, disaster recovery, disaster recovery plan, disaster event, recovery time objective, recovery point objective, secrets manager
 
@@ -259,4 +259,4 @@ All upgrades follow the {{site.data.keyword.IBM}} service best practices and hav
 
 Complex changes are enabled and disabled with feature flags to control exposure.
 
-Changes that impact customer workloads are detailed in notifications. For more information, see [monitoring notifications and status](/docs/get-support?topic=get-support-viewing-cloud-status) for planned maintenance, announcements, and release notes that impact this service.
+Changes that impact customer workloads are detailed in notifications. For more information, see [monitoring notifications and status](/docs/account?topic=account-gettinghelp) for planned maintenance, announcements, and release notes that impact this service.

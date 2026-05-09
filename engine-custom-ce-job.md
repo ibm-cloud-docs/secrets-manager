@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2026-03-05"
+lastupdated: "2026-05-09"
 
 keywords: Secrets Manager custom credentials, Secrets Manager third-party
 
@@ -15,7 +15,7 @@ subcollection: secrets-manager
 # Creating a {{site.data.keyword.codeengineshort}} job
 {: #engine-custom-ce-job}
 
-The custom credentials secret type allows {{site.data.keyword.secrets-manager_short}} users to manage the lifecycle of credentials for external systems (for example, Artifactory, PagerDuty) using {{site.data.keyword.secrets-manager_short}} APIs and integrations. To create custom credentials secrets, you must first set up an [ {{site.data.keyword.codeenginefull}} project](/docs/codeengine?topic=codeengine-manage-project#create-a-project) and [define a {{site.data.keyword.codeengineshort}} job](/docs/codeengine?topic=codeengine-job-plan) to interface between {{site.data.keyword.secrets-manager_short}} and the external service requiring credentials.
+The custom credentials secret type allows {{site.data.keyword.secrets-manager_short}} users to manage the lifecycle of credentials for external systems (for example, Artifactory, PagerDuty) using {{site.data.keyword.secrets-manager_short}} APIs and integrations. To create custom credentials secrets, you must first [set up a project](/docs/codeengine?topic=codeengine-manage-project#create-a-project) in  {{site.data.keyword.codeenginefull}} and [define a job](/docs/codeengine?topic=codeengine-job-plan) to interface between {{site.data.keyword.secrets-manager_short}} and the external service requiring credentials.
 {: shortdesc}
 
 Custom credentials support a wide range of third-party systems, so guidance for configuring your {{site.data.keyword.codeengineshort}} job is intentionally general, focusing on {{site.data.keyword.codeengineshort}} best practices. If your parameters are correctly formatted and you select a valid {{site.data.keyword.codeengineshort}} project and job, {{site.data.keyword.secrets-manager_short}} can run the job with various configurations. However, {{site.data.keyword.secrets-manager_short}} does not validate whether your configuration aligns with your specific use case. It only runs the provided setup.

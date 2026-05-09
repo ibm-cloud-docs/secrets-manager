@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-08"
+lastupdated: "2026-05-09"
 
 keywords: secret locks, lock secret, prevent deletion, prevent rotation, unlock secret, create lock, delete lock
 
@@ -68,6 +68,7 @@ By default, an authorized user or application can modify the secrets that you ma
 - Safely delete older versions of secrets after the newest version is fully deployed to your applications.
 - Avoid inadvertent downtime in your applications.
 
+
 To learn about the suggested guidelines for using locks to avoid application downtime, check out [Best practices for rotating and locking secrets](/docs/secrets-manager?topic=secrets-manager-best-practices-rotate-secrets#best-practices-lock-secrets).
 {: tip}
 
@@ -81,23 +82,23 @@ Before you begin, be sure that you have the required level of access. To manage 
 
 Locking a secret prevents any operation that can result in modifying or deleting its secret data. To lock a secret, you attach one or more locks to its current or previous version.
 
-- When you try to modify or delete a secret while it is locked, {{site.data.keyword.secrets-manager_short}} denies the request with an HTTP `412 Precondition Failed` response. You see an error message similar to the following example:
+When you try to modify or delete a secret while it is locked, {{site.data.keyword.secrets-manager_short}} denies the request with an HTTP `412 Precondition Failed` response. You see an error message similar to the following example:
     
-   ```plaintext
-   The requested action can't be completed because the secret version is locked.
-   ```
-   {: screen}
+ ```plaintext
+ The requested action can't be completed because the secret version is locked.
+ ```
+ {: screen}
 
-   If you're working with [dynamic secrets](#x9968958){: term}, such as IAM credentials, locking your secrets also means that by default, those secrets can't be read or accessed. For more information, see [Why can't I read a locked IAM credentials secret?](/docs/secrets-manager?topic=secrets-manager-locked-iam-credentials)
-   {: note}
+ If you're working with [dynamic secrets](#x9968958){: term}, such as IAM credentials, locking your secrets also means that by default, those secrets can't be read or accessed. For more information, see [Why can't I read a locked IAM credentials secret?](/docs/secrets-manager?topic=secrets-manager-locked-iam-credentials)
+ {: note}
 
-  A custom credentials secret can be locked only once all its tasks completed.
-  {: note}
+A custom credentials secret can be locked only once all its tasks completed.
+{: note}
 
-- If a locked secret reaches its expiration date, it stays in the **Active** state and its data remains accessible to your applications. {{site.data.keyword.secrets-manager_short}} moves the secret to the **Destroyed** state and permanently deletes the expired secret data only after all locks on the secret are removed.
+If a locked secret reaches its expiration date, it stays in the **Active** state and its data remains accessible to your applications. {{site.data.keyword.secrets-manager_short}} moves the secret to the **Destroyed** state and permanently deletes the expired secret data only after all locks on the secret are removed.
 
-   SSL/TLS certificates still reach their defined expiration dates and move into a **Destroyed** state even if they are locked. For more information, see [Why did my locked certificate move to the Destroyed state?](/docs/secrets-manager?topic=secrets-manager-locked-certificates) 
-   {: important}
+ SSL/TLS certificates still reach their defined expiration dates and move into a **Destroyed** state even if they are locked. For more information, see [Why did my locked certificate move to the Destroyed state?](/docs/secrets-manager?topic=secrets-manager-locked-certificates) 
+ {: important}
 
 - If you try to rotate a secret while its current version is locked and the previous version is unlocked (or if an automatic rotation is scheduled), the request to rotate the secret is allowed. The current secret version becomes the new previous version, retaining its existing locks. A new current version is created without any locks.
 - If you try to rotate a secret while its previous version is locked (or if an automatic rotation is scheduled), your request to rotate the secret is denied. Rotation is allowed only after all locks on the previous secret version are removed.
@@ -132,21 +133,11 @@ You can lock the current version of a secret by using the {{site.data.keyword.se
 4. In the row for the secret that you want to lock, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Locks > Create lock**.
 5. Add a name and description to easily identify the lock.
 6. From the list of versions to lock, select **Current**.
-7. Optional: Attach JSON attributes to your lock.
+7. Optional: Attach JSON attributes to your lock. You can include a JSON object with each lock to hold any information that you might need for an automated flow. For example, a key-value pair that identifies the resource that you want to associate with this lock.
+8. Optional: Make the lock exclusive. Choose this option to remove any other locks that match the name that you provided. If any matching locks are found in the previous version of the secret, those locks are deleted when your new lock is created.
+9. Optional: Delete previous version data. Choose this option to also permanently delete the data of the previous secret version if it doesn't have any locks that are associated with it.
+10. Click **Create**. A new lock is created for your selected secret version. 
 
-   You can include a JSON object with each lock to hold any information that you might need for an automated flow. For example, a key-value pair that identifies the resource that you want to associate with this lock.
-
-8. Optional: Make the lock exclusive.
-
-   Choose this option to remove any other locks that match the name that you provided. If any matching locks are found in the previous version of the secret, those locks are deleted when your new lock is created.
-
-9. Optional: Delete previous version data.
-
-   Choose this option to also permanently delete the data of the previous secret version if it doesn't have any locks that are associated with it.
-
-10. Click **Create**.
-
-   A new lock is created for your selected secret version. 
 
 #### Creating a lock on the previous secret version
 {: #create-lock-previous-version-ui}
@@ -158,13 +149,9 @@ You can lock the previous version of a secret by using the {{site.data.keyword.s
 4. In the row for the secret that you want to lock, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Locks > Create lock**.
 5. Add a name and description to easily identify the lock.
 6. From the list of versions to lock, select **Previous**.
-7. Optional: Attach JSON attributes to your lock.
+7. Optional: Attach JSON attributes to your lock. You can include a JSON object with each lock to hold any information that you might need for an automated flow. For example, a key-value pair that identifies the resource that you want to associate with this lock.
+8. Click **Create**. A new lock is created for your selected secret version.
 
-   You can include a JSON object with each lock to hold any information that you might need for an automated flow. For example, a key-value pair that identifies the resource that you want to associate with this lock.
-
-8. Click **Create**.
-
-   A new lock is created for your selected secret version.
 
 ### Creating locks from the CLI
 {: #create-lock-cli}
@@ -185,7 +172,6 @@ To help you to create a new lock and remove older locks in a single operation, y
 {: caption="Optional lock modes and their descriptions" caption-side="top"}
 
 
-
 #### Creating a lock on the current secret version
 {: #create-lock-current-version-cli}
 {: cli}
@@ -201,7 +187,6 @@ ibmcloud secrets-manager secret-locks-bulk-create \
     --mode=remove_previous
 ```
 {: pre}
-
 
 ### Creating locks with the API
 {: #create-lock-api}
@@ -221,13 +206,11 @@ To help you to create a new lock and remove older locks in a single operation, y
 {: caption="Optional lock modes and their descriptions" caption-side="top"}
 
 
-
 #### Creating locks on the current secret version
 {: #create-lock-current-version-api}
 {: api}
 
 The following request creates two locks on the current version of a secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
-
 
 ```bash
 curl -X POST 
@@ -257,12 +240,10 @@ curl -X POST
 {: codeblock}
 {: curl}
 
-
 If you're building an automated flow, you can use the `attributes` object to specify key-value data with each lock on your secret. For example, you can include a resource identifier, such as an ID or Cloud Resource Name (CRN).
 {: tip}
 
 A successful response returns details about the new locks, along with other metadata.
-
 
 ```json
 {
@@ -292,8 +273,6 @@ A successful response returns details about the new locks, along with other meta
 ```
 {: screen}
 
-
-
 For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#create-secret-locks-bulk).
 
 #### Creating locks on the previous secret version
@@ -301,7 +280,6 @@ For more information about the required and optional request parameters, see the
 {: api}
 
 The following request creates two locks on the previous version of a secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
-
 
 ```bash
 curl -X POST 
@@ -331,10 +309,7 @@ curl -X POST
 {: codeblock}
 {: curl}
 
-
-
 A successful response returns details about the new locks, along with other metadata.
-
 
 ```json
 {
@@ -364,11 +339,7 @@ A successful response returns details about the new locks, along with other meta
 ```
 {: screen}
 
-
-
 For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#create-secret-locks-bulk).
-
-
 
 ## Unlocking secrets
 {: #delete-secret-locks}
@@ -387,8 +358,9 @@ You can delete a lock that is attached to an existing secret by using the {{site
 4. In the row for the secret that you want to update, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Locks**.
 5. In the row for the lock that you want to delete, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Delete**.
 6. To confirm the deletion, type the name of the secret. Click **Delete**.
+  
 
-   Your lock is now deleted. To completely unlock the secret, you can remove all existing locks.
+Your lock is now deleted. To completely unlock the secret, you can remove all existing locks.
 
 ### Deleting locks with the API
 {: #delete-lock-api}
@@ -401,7 +373,6 @@ A successful request deletes the locks that you specify. To remove all locks, yo
 To understand whether a secret contains locks, check the `locks_total` field that is returned as part of the metadata of your secret.
 {: note}
 
-
 ```bash
 curl -X DELETE  
   -H "Authorization: Bearer {iam_token}" \
@@ -411,6 +382,5 @@ curl -X DELETE
 ```
 {: codeblock}
 {: curl}
-
 
 For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#delete-secret-locks-bulk).
