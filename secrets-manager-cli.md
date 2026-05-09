@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-08"
+lastupdated: "2026-05-09"
 
 subcollection: secrets-manager
 
@@ -69,42 +69,41 @@ Current version: **`2.0.16`**
 ## Prerequisites
 {: #secrets-manager-cli-prereq}
 
-* Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started).
-* Install the {{site.data.keyword.secrets-manager_short}} CLI plug-in by running the following command:
+Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started), and then the {{site.data.keyword.secrets-manager_short}} CLI plug-in by running the following command:
 
-    ```sh
-    ibmcloud plugin install secrets-manager
-    ```
-    {: pre}
+```sh
+ibmcloud plugin install secrets-manager
+```
+{: pre}
 
-    You're notified on the command line when updates to the {{site.data.keyword.cloud_notm}} CLI and plug-ins are available. Be sure to keep your CLI up to date so that you can use the latest commands. You can view the current version of all installed plug-ins by running `ibmcloud plugin list`.
-    {: tip}
-
-* To target the {{site.data.keyword.secrets-manager_short}} instance, use one of the following options.
-
-  * Run the `ibmcloud secrets-manager config set` command.
-
-      ```sh
-       ibmcloud secrets-manager config set service-url https://{instance_ID}.{region}.secrets-manager.appdomain.cloud
-      ```
-      {: pre}
+You're notified on the command line when updates to the {{site.data.keyword.cloud_notm}} CLI and plug-ins are available. Be sure to keep your CLI up to date so that you can use the latest commands. You can view the current version of all installed plug-ins by running `ibmcloud plugin list`.
+{: tip}
 
 
-  * Export an environment variable with your {{site.data.keyword.secrets-manager_short}} service endpoint URL.
+To target the {{site.data.keyword.secrets-manager_short}} instance, use one of the following options.
 
-      ```sh
-      export SECRETS_MANAGER_URL=https://{instance_ID}.{region}.secrets-manager.appdomain.cloud
-      ```
-      {: pre}
+* Run the `ibmcloud secrets-manager config set` command.
 
-  * Set the service endpoint in the command.
+   ```sh
+   ibmcloud secrets-manager config set service-url https://{instance_ID}.{region}.secrets-manager.appdomain.cloud
+   ```
+   {: pre}
 
-      ```sh
-      ibmcloud secrets-manager secrets --service-url https://{instance_ID}.{region}.secrets-manager.appdomain.cloud
-      ```
-      {: pre}
+* Export an environment variable with your {{site.data.keyword.secrets-manager_short}} service endpoint URL.
 
-    Replace `{instance_ID}` and `{region}` with the values that apply to your {{site.data.keyword.secrets-manager_short}} service instance. To find the endpoint URL that is specific to your instance, you can copy it from the **Endpoints** page in the {{site.data.keyword.secrets-manager_short}} UI. For more information, see [Viewing your endpoint URLs](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls)
+   ```sh
+   export SECRETS_MANAGER_URL=https://{instance_ID}.{region}.secrets-manager.appdomain.cloud
+   ```
+   {: pre}
+
+* Set the service endpoint in the command.
+
+   ```sh
+   ibmcloud secrets-manager secrets --service-url https://{instance_ID}.{region}.secrets-manager.appdomain.cloud
+   ```
+   {: pre}
+
+Replace `{instance_ID}` and `{region}` with the values that apply to your {{site.data.keyword.secrets-manager_short}} service instance. To find the endpoint URL that is specific to your instance, you can copy it from the **Endpoints** page in the {{site.data.keyword.secrets-manager_short}} UI. For more information, see [Viewing your endpoint URLs](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls)
 
 
 
