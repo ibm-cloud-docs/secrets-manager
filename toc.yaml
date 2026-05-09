@@ -26,6 +26,7 @@ toc:
           label: Use cases
           topics:
           - use-cases/kubernetes-secrets.md
+          - use-cases/vpn-certificates.md
       - topicgroup:
           label: Best practices
           topics:
