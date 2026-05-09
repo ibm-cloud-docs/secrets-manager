@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-21"
+lastupdated: "2026-05-09"
 
 keywords: Secrets Manager integrations, enable integration, create authorization, service to service, grant access between services, using Secrets Manager with other services, authorize Secrets Manager
 
@@ -76,9 +76,9 @@ The following table lists the services that can be authorized to work with {{sit
 | [{{site.data.keyword.en_short}}](/docs/event-notifications) | Arbitrary secrets  \n Certificates  \n IAM credentials  \nUser credentials| Send notifications of events in {{site.data.keyword.secrets-manager_short}} to other users, or human destinations, by using email, SMS, or other supported delivery channels. [Learn more about this integration](/docs/secrets-manager?topic=secrets-manager-event-notifications). |
 | [{{site.data.keyword.containershort}}](/docs/containers) | Arbitrary secrets  \n Certificates  \n IAM credentials  \n Key-value secrets  \nUser credentials | Centrally manage Ingress subdomain certificates and other secrets for your Kubernetes clusters. [Learn more about this integration](/docs/containers?topic=containers-secrets-mgr). |
 | [{{site.data.keyword.openshiftshort}}](/docs/openshift) | Arbitrary secrets  \n Certificates  \n IAM credentials  \n Key-value secrets  \nUser credentials | Centrally manage Ingress subdomain certificates and other secrets for your {{site.data.keyword.openshiftshort}} clusters. [Learn more about this integration](/docs/openshift?topic=openshift-ingress-roks4). |
-| Red Hat® AI InstructLab | Arbitrary secrets | InstructLab is an open source project created by IBM and Red Hat to be a cost-effective entry point into the world of machine learning. |
-| Schematics | Arbitrary secrets | Centrally manage secrets for use in Schematics workspaces. |
-| Direct Link | All secret types | seamlessly connect your on-premises resources to your cloud resources. |
+| [Red Hat® AI InstructLab](/docs/instructlab?topic=instructlab-getting-started&interface=ui) | Arbitrary secrets | InstructLab is an open source project created by IBM and Red Hat to be a cost-effective entry point into the world of machine learning. |
+| [Schematics](/schematics?topic=schematics-getting-started) | Arbitrary secrets | Centrally manage secrets for use in Schematics workspaces. |
+| [Direct Link](/docs/dl?topic=dl-get-started-with-ibm-cloud-dl) | All secret types | seamlessly connect your on-premises resources to your cloud resources. |
 {: caption="Available integrations" caption-side="top"}
 
 
