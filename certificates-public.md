@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-04-22"
+lastupdated: "2026-05-09"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, public certificates
 
@@ -702,6 +702,7 @@ You can do this by using the Terraform’s [`ibm_sm_public_certificate_action_va
       ```
       {: codeblock}
       {: curl}
+   
 
-6. After your certificate is issued (its state is `active`), you must run the Terraform command `terraform apply` again to update your public certificate’s Terraform resource and to use your newly issued certificate.
-7. Clean up and remove the TXT records from the domains in your DNS provider account.
+7. After your certificate is issued (its state is `active`), you must run the Terraform command `terraform apply` again to update your public certificate’s Terraform resource and to use your newly issued certificate.
+8. Clean up and remove the TXT records from the domains in your DNS provider account.
