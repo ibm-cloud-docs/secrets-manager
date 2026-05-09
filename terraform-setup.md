@@ -134,13 +134,13 @@ Before you can create an authorization by using Terraform, make sure that you co
 
 4. Define local values for your {{site.data.keyword.secrets-manager_short}} instance to be used when you are creating resources.
 
-    ```terraform
+     ```terraform
         locals {
             instance_id = data.ibm_resource_instance.sm_resource_instance.guid
             region = data.ibm_resource_instance.sm_resource_instance.location
         }
-    ```
-   {: pre}
+     ```
+     {: pre}
 
 5. From the {{site.data.keyword.cloud_notm}} resource list in the UI, select the {{site.data.keyword.secrets-manager_short}} instance that you created and note the instance ID.
 6. Verify that the access policy is successfully assigned. For more information, see [Reviewing assigned access in the console](/docs/iam?topic=iam-assign-access-resources).
