@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-08"
+lastupdated: "2026-05-09"
 
 keywords: assign access for Secrets Manager, secret group access, assign access for all secrets, grant access, add users
 
@@ -69,7 +69,7 @@ To learn more about suggested guidelines for assigning access to secrets, check 
 ## Before you begin
 {: #before-access}
 
-Before you get started, be sure that you have [**Administrator** platform access](/docs/account?topic=account-assign-access-resources) so that you can further assign roles and customize access policies for others.
+Before you get started, be sure that you have [**Administrator** platform access](/iam?topic=iam-userroles#platformroles) so that you can further assign roles and customize access policies for others.
 
 ## Assigning access to a {{site.data.keyword.secrets-manager_short}} instance
 {: #assign-access-instance}
@@ -90,7 +90,7 @@ To assign access to a {{site.data.keyword.secrets-manager_short}} instance and i
 9. Review your selections and click **Add**.
 10. Click **Assign**.
 
-    Now you can add users and service IDs to the access group so that you can assign access to {{site.data.keyword.secrets-manager_short}} with a single access policy. For more information, see [Setting up access groups](/docs/account?topic=account-groups).
+    Now you can add users and service IDs to the access group so that you can assign access to {{site.data.keyword.secrets-manager_short}} with a single access policy. For more information, see [Setting up access groups](/docs/iam?topic=iam-groups).
 
 ## Assigning access to a secret group
 {: #assign-access-secret-group}
