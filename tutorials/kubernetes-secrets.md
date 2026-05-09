@@ -3,7 +3,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-08"
+lastupdated: "2026-05-09"
 
 keywords: tutorial, Secrets Manager
 
@@ -122,8 +122,8 @@ Start by creating the account credentials that you need to be able to run operat
    ```
    {: pre}
 
-    If the login fails, run the `ibmcloud login --sso` command to try again. The `--sso` parameter is required when you log in with a federated ID. If this option is used, go to the link listed in the CLI output to generate a one-time passcode.
-    {: note}
+   If the login fails, run the `ibmcloud login --sso` command to try again. The `--sso` parameter is required when you log in with a federated ID. If this option is used, go to the link listed in the CLI output to generate a one-time passcode.
+   {: note}
 
 2. Create a service ID and set it as an environment variable.
 

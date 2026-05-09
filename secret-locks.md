@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-08"
+lastupdated: "2026-05-09"
 
 keywords: secret locks, lock secret, prevent deletion, prevent rotation, unlock secret, create lock, delete lock
 
@@ -134,11 +134,11 @@ You can lock the current version of a secret by using the {{site.data.keyword.se
 6. From the list of versions to lock, select **Current**.
 7. Optional: Attach JSON attributes to your lock.
 
-   You can include a JSON object with each lock to hold any information that you might need for an automated flow. For example, a key-value pair that identifies the resource that you want to associate with this lock.
+  You can include a JSON object with each lock to hold any information that you might need for an automated flow. For example, a key-value pair that identifies the resource that you want to associate with this lock.
 
 8. Optional: Make the lock exclusive.
 
-   Choose this option to remove any other locks that match the name that you provided. If any matching locks are found in the previous version of the secret, those locks are deleted when your new lock is created.
+  Choose this option to remove any other locks that match the name that you provided. If any matching locks are found in the previous version of the secret, those locks are deleted when your new lock is created.
 
 9. Optional: Delete previous version data.
 

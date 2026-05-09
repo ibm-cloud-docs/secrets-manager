@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-11-28"
+  years: 2020, 2026
+lastupdated: "2026-05-09"
 
 keywords: create certificate authority, create root CA, create intermediate CA, set up PKI, set up private certificates, private certificates engine
 
@@ -202,10 +202,10 @@ Before you create a certificate authority in {{site.data.keyword.secrets-manager
 
 2. Choose a key size.
 
-    The key size or length that you select determines the encryption strength. The larger the key size for an algorithm family, the more difficult it is to break. Keep in mind that longer key lengths results in more data to store and transmit, which can impact the performance of your certificate. As a best practice, choose a key size that is appropriate for the TTL or validity period of your certificate.
-   
-    For longer living certificates, it is recommended to use longer key lengths to provide more encryption protection.
-    {: tip}
+  The key size or length that you select determines the encryption strength. The larger the key size for an algorithm family, the more difficult it is to break. Keep in mind that longer key lengths results in more data to store and transmit, which can impact the performance of your certificate. As a best practice, choose a key size that is appropriate for the TTL or validity period of your certificate.
+
+  For longer living certificates, it is recommended to use longer key lengths to provide more encryption protection.
+  {: tip}
 
 ## Using certificate authority unauthenticated endpoints
 {: #unauthenticated-endpoints}
