@@ -1,6 +1,5 @@
 ---
 
-
 copyright:
   years: 2026
 lastupdated: "2026-05-09"
@@ -61,7 +60,7 @@ completion-time: 45m
 {:release-note: data-hd-content-type='release-note'}
 
 
-# By using the trial or standard plan
+# Secure secrets for apps that run in your Kubernetes cluster
 {: #tutorial-kubernetes-secrets}
 {: toc-content-type="tutorial"}
 {: toc-services="secrets-manager,containers"}
