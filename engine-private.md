@@ -168,20 +168,22 @@ Follow the instructions in HPCS documentation for setting up a PKCS #11 Normal u
 2. Create IAM service ID
    1. [Create service ID for the normal user](/docs/hs-crypto?topic=hs-crypto-best-practice-pkcs11-access#step2-create-service-id-api-key)
 
-  Note: do not create an API key for the Service ID. The API key will be created and managed by {{site.data.keyword.secrets-manager_short}}
-{: note}
+   Note: do not create an API key for the Service ID. The API key will be created and managed by {{site.data.keyword.secrets-manager_short}}
+   {: note}
 
 3. Assign IAM roles to the service ID
    1. [Assign the custom roles to the service ID](/docs/hs-crypto?topic=hs-crypto-best-practice-pkcs11-access#create-service-id-api-key-normal-user)
    2. Assign a Viewer role to the service ID for the HPCS instance.
 
 In your {{site.data.keyword.secrets-manager_short}} instance:
+
 1. [Configure the IAM credentials engine](/docs/secrets-manager?topic=secrets-manager-configure-iam-engine&interface=ui)
 2. Create a new IAM credentials secret and configure the following:
    1. Set `Lease duration`
    2. Enable `Reuse IAM credentials until lease expires` enabled
    3. Enable `Automatic secret rotation`
    4. Assign access to the Service ID created for authenticating with HPCS
+
 
 ### Choosing an algorithm for generating keys
 {: #choose-key-algorithm}
