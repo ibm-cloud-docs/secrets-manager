@@ -66,7 +66,6 @@ An SSL/TLS certificate is a type of digital certificate that is used to establis
 In {{site.data.keyword.secrets-manager_short}}, Certificates that you order through {{site.data.keyword.secrets-manager_short}} from a third-party certificate authority are public certificates. Certificates that you import to the service are [imported certificates](/docs/secrets-manager?topic=secrets-manager-certificates) (`imported_cert`). Certificates that you create by using a private certificate authority are [private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates) (`private_cert`).
 {: note}
 
-
 ## Before you begin
 {: #before-public-certificates}
 
@@ -109,34 +108,26 @@ You can order a certificate by using the {{site.data.keyword.secrets-manager_sho
 3. In the **Secrets** table, click **Add**.
 4. Click the **Order public certificate** tile.
 5. Add a name and description to easily identify your certificate.
-6. Select the secret group that you want to assign to the secret.
-
-    Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
-
+6. Select the secret group that you want to assign to the secret. Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 7. Optional: Add labels to help you to search for similar secrets in your instance.
-8. Optional: Add metadata to your secret or to a specific version of your secret.
-    1. Upload a file or enter the metadata and the version metadata in JSON format. 
+8. Optional: Add metadata to your secret or to a specific version of your secret. Upload a file or enter the metadata and the version metadata in JSON format. 
 9. Click **Next**.
 9. Select a certificate authority configuration.
 
-    The configuration that you select determines the certificate authority to use for signing and issuing the certificate. To view the configurations that are defined for your instance, you can go to **Secrets engines > Public certificates**.
+   The configuration that you select determines the certificate authority to use for signing and issuing the certificate. To view the configurations that are defined for your instance, you can go to **Secrets engines > Public certificates**.
 
 10. Select the key algorithm to be used to generate the public key for your certificate.
 
     The key algorithm that you select determines the encryption algorithm (`RSA` or `ECDSA`) and key size to use to generate keys and sign certificates. For longer living certificates, it is recommended to use longer key lengths to provide more encryption protection. Options include `RSA2048`, `RSA4096`, `ECDSA256`, and `ECDSA384`.
 
 11. Optional: Enable advanced options for the certificate.
-
     1. To bundle your issued certificate with intermediate certificates, switch the bundle toggle to **On**. After your certificates are bundled, they can no longer be unbundled. If you choose not to bundle the certificates, this cannot be changed afterward, only by creating a new secret.
     2. To enable automatic rotation for the certificate, switch the rotation toggle to **On**. Your certificate is rotated 31 days before it expires.
     3. To request a new private key with the certificate on each rotation, switch the re-key toggle to **On**.
    
-12. Select a DNS provider configuration.
-
-    The configuration that you select determines the DNS provider to validate the ownership of your domains. To view the configurations that are defined for your instance, you can go to **Secrets engines > Public certificates**.  
+12. Select a DNS provider configuration. The configuration that you select determines the DNS provider to validate the ownership of your domains. To view the configurations that are defined for your instance, you can go to **Secrets engines > Public certificates**.  
 
 13. Add the domains to include in your request.
-
     1. Click **Select domains**.
     2. From your list of domains, select the Common Name of the certificate.
    
@@ -166,7 +157,6 @@ To order a public certificate with an integrated DNS provider by using the {{sit
 When you order a certificate, domain validation takes place to verify the ownership of your selected domains. This process can take a few minutes to complete.
 {: note}
 
-
 ```sh
 ibmcloud secrets-manager secret-create \
     --secret-name example-public-certificate \
@@ -185,9 +175,7 @@ ibmcloud secrets-manager secret-create \
 ```
 {: pre}
 
-
 The command outputs the ID value of the secret, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-create-command).
-
 
 ### Ordering public certificates with integrated DNS providers by using the API
 {: #order-public-certificates-integrated-api}
@@ -202,8 +190,6 @@ You can store metadata that are relevant to the needs of your organization with 
 
 When you order a certificate, domain validation takes place to verify the ownership of your selected domains. This process can take a few minutes to complete.
 {: note}
-
-
 
 ```sh
 curl -X POST  
@@ -244,12 +230,10 @@ curl -X POST
 {: codeblock}
 {: curl}
 
-
 When you submit your certificate details, {{site.data.keyword.secrets-manager_short}} sends your request to the selected certificate authority. After a certificate is issued, you can deploy it to your integrated apps, download it, or rotate it manually. Your private key for SSL/TLS is generated directly in {{site.data.keyword.secrets-manager_short}} and stored securely. For more information about the required and optional request parameters, see [Create a secret](/apidocs/secrets-manager/secrets-manager-v2#create-secret){: external}.
 
 Need to check your order status? Use the [Get secret metadata](/apidocs/secrets-manager/secrets-manager-v2#get-secret-metadata) API to check the `resources.issuance_info` field for issuance details on your certificate.
 {: tip} 
-
 
 ### Ordering public certificates with integrated DNS providers by using Terraform
 {: #order-public-certificates-integrated-terraform}
@@ -287,22 +271,13 @@ To create a public certificate by using a manual DNS provider in the UI, complet
 3. In the **Secrets** table, click **Add**.
 4. Click the **Order public certificate** tile.
 5. Add a name and description to easily identify your certificate.
-6. Select the secret group that you want to assign to the secret.
-
-    Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
+6. Select the secret group that you want to assign to the secret. Don't have a secret group? In the **Secret group** field, you can click **Create** to provide a name and a description for a new group. Your secret is added to the new group automatically. For more information about secret groups, check out [Organizing your secrets](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 
 7. Optional: Add labels to help you to search for similar secrets in your instance.
-8. Optional: Add metadata to your secret or to a specific version of your secret.
-    1. Upload a file or enter the metadata and the version metadata in JSON format. 
+8. Optional: Add metadata to your secret or to a specific version of your secret. Upload a file or enter the metadata and the version metadata in JSON format. 
 9. Click **Next**.
-10. Select a certificate authority configuration.
-
-    The configuration that you select determines the certificate authority to use for signing and issuing the certificate. To view the configurations that are defined for your instance, you can go to **Secrets engines > Public certificates**.
-
-11. Select the key algorithm to be used to generate the public key for your certificate.
-
-    The key algorithm that you select determines the encryption algorithm (`RSA` or `ECDSA`) and key size to use to generate keys and sign certificates. For longer living certificates, it is recommended to use longer key lengths to provide more encryption protection. Options include `RSA2048`, `RSA4096`, `ECDSA256`, and `ECDSA384`.
-
+10. Select a certificate authority configuration. The configuration that you select determines the certificate authority to use for signing and issuing the certificate. To view the configurations that are defined for your instance, you can go to **Secrets engines > Public certificates**.
+11. Select the key algorithm to be used to generate the public key for your certificate. The key algorithm that you select determines the encryption algorithm (`RSA` or `ECDSA`) and key size to use to generate keys and sign certificates. For longer living certificates, it is recommended to use longer key lengths to provide more encryption protection. Options include `RSA2048`, `RSA4096`, `ECDSA256`, and `ECDSA384`.
 12. Optional: Enable advanced options for the certificate.
     1. To bundle your issued certificate with intermediate certificates, switch the bundle toggle to **On**. After your certificates are bundled, they can no longer be unbundled. If you choose not to bundle the certificates, this cannot be changed afterward, only by creating a new secret.
     2. To request a new private key with the certificate on each rotation, switch the re-key toggle to **On**.
@@ -377,7 +352,6 @@ To create a public certificate by using a manual DNS provider, complete the foll
     ```
     {: codeblock}
     {: curl}
-
 
    Example response:
 
@@ -489,7 +463,6 @@ To order a public certificate with your own DNS provider by using the {{site.dat
 
 When you order a certificate, domain validation takes place to verify the ownership of your selected domains. This process can take a few minutes to complete.
 {: note}
-
 
 ```sh
 ibmcloud secrets-manager secret-create \
