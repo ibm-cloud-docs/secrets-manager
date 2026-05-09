@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-08"
+lastupdated: "2026-05-09"
 
 keywords: terraform, {{site.data.keyword.secrets-manager_short}}
 
@@ -143,7 +143,7 @@ Before you can create an authorization by using Terraform, make sure that you co
    {: pre}
 
 5. From the {{site.data.keyword.cloud_notm}} resource list in the UI, select the {{site.data.keyword.secrets-manager_short}} instance that you created and note the instance ID.
-6. Verify that the access policy is successfully assigned. For more information, see [Reviewing assigned access in the console](/docs/account?topic=account-assign-access-resources).
+6. Verify that the access policy is successfully assigned. For more information, see [Reviewing assigned access in the console](/docs/iam?topic=iam-assign-access-resources).
 
 ## Managing Resource Drift
 {: #resource-drift-terraform}
