@@ -546,6 +546,7 @@ To create a public certificate by using Akamai as your DNS provider, complete th
                  {: pre}
 
 
+
 The newly created TXT records that are in the relevant domains in Akamai are not automatically deleted. 
 {: note}
 
@@ -675,7 +676,6 @@ You can do this by using the Terraform’s [`ibm_sm_public_certificate_action_va
       ```
       {: codeblock}
       {: curl}
-   
 
-7. After your certificate is issued (its state is `active`), you must run the Terraform command `terraform apply` again to update your public certificate’s Terraform resource and to use your newly issued certificate.
-8. Clean up and remove the TXT records from the domains in your DNS provider account.
+6. After your certificate is issued (its state is `active`), you must run the Terraform command `terraform apply` again to update your public certificate’s Terraform resource and to use your newly issued certificate.
+7. Clean up and remove the TXT records from the domains in your DNS provider account.
