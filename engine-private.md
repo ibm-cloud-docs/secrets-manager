@@ -78,7 +78,7 @@ A valid chain of certificates begins at a trusted root CA, passes through one or
 2. The subordinate Certificate Authorities in level 2 are signed and issued by the root CA. These subordinate Certificate Authorities sign other subordinate CA certificates.
 3. Finally, the subordinate CA certificates in level 3 sign and issue leaf certificates to your end-entity applications.
 
-    In {{site.data.keyword.secrets-manager_short}}, leaf certificates are the [private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates) that you create and deploy to your applications.
+   In {{site.data.keyword.secrets-manager_short}}, leaf certificates are the [private certificates](/docs/secrets-manager?topic=secrets-manager-private-certificates#create-private-certificates) that you create and deploy to your applications.
 
 ## Designing your CA hierarchy
 {: #design-ca-hierarchy}
@@ -90,7 +90,6 @@ With {{site.data.keyword.secrets-manager_short}}, you can create up to 10 root C
 | [Root certificate authority](/docs/secrets-manager?topic=secrets-manager-root-certificate-authorities) | A trust anchor for your certificates chain. In a hierarchy of certificates, a root CA is at the top of a certificates chain. This CA is used to sign the certificates of Certificate Authorities that are subordinate to them, for example intermediate Certificate Authorities.  |
 | [Intermediate certificate authority](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities) | A subordinate or lower-level certificate authority that signs and issues other intermediate CA certificates. An intermediate CA is also used to issue leaf certificates to end-entities, for example a client or server application. In {{site.data.keyword.secrets-manager_short}}, you can create intermediate Certificate Authorities that are [signed internally or externally](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities#intermediate-ca-signing).|
 {: caption="Certificate authority options" caption-side="top"}
-
 
 ### Planning the structure of a CA hierarchy
 {: #plan-ca-structure}
@@ -111,7 +110,6 @@ Use this option if your workload requires an additional layer between the root C
 
 ![The diagram shows a three-level hierarchy of certificates that begins with a root certificate authority in the first level.](images/certificate-hierarchy-3.svg){: caption="Three-level certificate authority hierarchy" caption-side="bottom"}
 
-  
 ### Setting the depth of your CA hierarchy
 {: #set-max-path-length}
 
@@ -134,18 +132,18 @@ A certificate must have a validity period that is shorter than or equal to the v
 
 1. Choose a validity period for your leaf certificates that is appropriate for your use case.
 
-    The private certificates that you can create with {{site.data.keyword.secrets-manager_short}} are considered leaf certificates that can be issued to an end-entity, such as a client or server app. With {{site.data.keyword.secrets-manager_short}}, you can create certificates with a maximum validity period of three years or 36 months. After you determine a TTL or validity period for leaf certificates, you set the value by using a [certificate template](/docs/secrets-manager?topic=secrets-manager-certificate-templates) so that your preferred TTL is applied each time a new leaf certificate is generated.
+   The private certificates that you can create with {{site.data.keyword.secrets-manager_short}} are considered leaf certificates that can be issued to an end-entity, such as a client or server app. With {{site.data.keyword.secrets-manager_short}}, you can create certificates with a maximum validity period of three years or 36 months. After you determine a TTL or validity period for leaf certificates, you set the value by using a [certificate template](/docs/secrets-manager?topic=secrets-manager-certificate-templates) so that your preferred TTL is applied each time a new leaf certificate is generated.
 
-    The shorter the TTL of your leaf certificates, the more protected you are against inadvertent exposure or compromise of your certificate and its private key. A shorter validity period for your certificates means that you reduce the likelihood of compromise, but it also requires that you rotate the certificate more frequently to ensure that it stays valid. To avoid an inadvertent outage, you can schedule [automatic rotation](/docs/secrets-manager?topic=secrets-manager-automatic-rotation) of your private certificates.
+   The shorter the TTL of your leaf certificates, the more protected you are against inadvertent exposure or compromise of your certificate and its private key. A shorter validity period for your certificates means that you reduce the likelihood of compromise, but it also requires that you rotate the certificate more frequently to ensure that it stays valid. To avoid an inadvertent outage, you can schedule [automatic rotation](/docs/secrets-manager?topic=secrets-manager-automatic-rotation) of your private certificates.
    {: note}
 
 2. Choose a validity period for the subordinate CA.
 
-    As a best practice, set a validity period for a subordinate CA certificate that is significantly longer than the validity periods of the certificates that they issue. Define a validity period of a parent CA that is two to five times the period of any child CA certificate or leaf certificate that it issues. For example, if you have a [two-level CA hierarchy](#two-level-ca) and you want to issue leaf certificates with a TTL of one year, configure the subordinate issuing CA with a TTL of three years. You can always update subordinate CA certificates without replacing the root CA certificate.
+   As a best practice, set a validity period for a subordinate CA certificate that is significantly longer than the validity periods of the certificates that they issue. Define a validity period of a parent CA that is two to five times the period of any child CA certificate or leaf certificate that it issues. For example, if you have a [two-level CA hierarchy](#two-level-ca) and you want to issue leaf certificates with a TTL of one year, configure the subordinate issuing CA with a TTL of three years. You can always update subordinate CA certificates without replacing the root CA certificate.
 
 3. Choose a validity period for your root CA.
 
-    When you update a root CA certificate, the change impacts your entire public-key infrastructure. To minimize impact, it is recommended that you set a long validity period for your root CA certificate. In {{site.data.keyword.secrets-manager_short}}, the default TTL for root certificates is 10 years.
+   When you update a root CA certificate, the change impacts your entire public-key infrastructure. To minimize impact, it is recommended that you set a long validity period for your root CA certificate. In {{site.data.keyword.secrets-manager_short}}, the default TTL for root certificates is 10 years.
 
 ### Choosing a Key management service
 {: #choose-key-management-service}
@@ -202,10 +200,10 @@ Before you create a certificate authority in {{site.data.keyword.secrets-manager
 
 2. Choose a key size.
 
-  The key size or length that you select determines the encryption strength. The larger the key size for an algorithm family, the more difficult it is to break. Keep in mind that longer key lengths results in more data to store and transmit, which can impact the performance of your certificate. As a best practice, choose a key size that is appropriate for the TTL or validity period of your certificate.
+   The key size or length that you select determines the encryption strength. The larger the key size for an algorithm family, the more difficult it is to break. Keep in mind that longer key lengths results in more data to store and transmit, which can impact the performance of your certificate. As a best practice, choose a key size that is appropriate for the TTL or validity period of your certificate.
 
-  For longer living certificates, it is recommended to use longer key lengths to provide more encryption protection.
-  {: tip}
+   For longer living certificates, it is recommended to use longer key lengths to provide more encryption protection.
+   {: tip}
 
 ## Using certificate authority unauthenticated endpoints
 {: #unauthenticated-endpoints}
@@ -225,7 +223,6 @@ Response 200 OK
 ```
 {: codeblock}
 
-
 To validate that your leaf or intermediate CA certificates are not revoked from the context of a leaf certificate, you can configure your CA with the property `"crl_distribution_points_encoded": true`. This configuration encodes the URL that is used for downloading the issuing CA CRL in the property such as `X509v3 CRL Distribution Points` in each leaf or intermediate CA certificate. Then, your CA validator can check whether the leaf or intermediate CA certificates are revoked.
 
 ### Read CA certificate
@@ -241,7 +238,6 @@ Response 200 OK
 ```
 {: codeblock}
 
-
 ### Read CA certificate chain
 {: #read-ca-certificate-chain}
 
@@ -254,7 +250,6 @@ Response 200 OK
 <PEM-encoded certificate chain>
 ```
 {: codeblock}
-
 
 To verify that the CA chain is from the context of a leaf certificate, you can configure your Certificate Authorities in {{site.data.keyword.secrets-manager_short}} with the property `"issuing_certificates_urls_encoded": true`. In each leaf or intermediate CA certificate, this configuration encodes the URL that is used for downloading the issuing CA certificate in the property `Authority Information Access/CA Issuers`. Then, your CA validator can validate each CA certificate.
 
