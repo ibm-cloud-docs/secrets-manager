@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-12-18"
+  years: 2020, 2026
+lastupdated: "2026-05-09"
 
 keywords: secrets management best practice, managing secrets, secrets strategy, secrets best practices, organizing secrets, assigning access to secrets
 
@@ -68,7 +68,7 @@ To ensure the security of your organization's secrets stored in {{site.data.keyw
 
 - Review your IAM settings to confirm that permissive access to the {{site.data.keyword.secrets-manager_short}} service is not allowed.
 - Grant access to secrets for non-administrative users and applications only for the duration necessary to complete their tasks, and promptly revoke access when it is no longer required.
-- When assigning access permissions, adhere to the principle of least privilege. Limit access to specific {{site.data.keyword.secrets-manager_short}} instances or secret groups, and assign only the minimum service role necessary for the required operations. Additionally, you can [configure custom IAM roles](/docs/account?topic=account-custom-roles) to restrict access to a specific set of {{site.data.keyword.secrets-manager_short}} actions tailored to a workload's needs.
+- When assigning access permissions, adhere to the principle of least privilege. Limit access to specific {{site.data.keyword.secrets-manager_short}} instances or secret groups, and assign only the minimum service role necessary for the required operations. Additionally, you can [configure custom IAM roles](/docs/iam?topic=iam-custom-roles) to restrict access to a specific set of {{site.data.keyword.secrets-manager_short}} actions tailored to a workload's needs.
 
 ## Review the hierarchy of resources in your account
 {: #best-practices-access-hierarchy}
