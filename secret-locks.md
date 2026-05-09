@@ -68,6 +68,7 @@ By default, an authorized user or application can modify the secrets that you ma
 - Safely delete older versions of secrets after the newest version is fully deployed to your applications.
 - Avoid inadvertent downtime in your applications.
 
+
 To learn about the suggested guidelines for using locks to avoid application downtime, check out [Best practices for rotating and locking secrets](/docs/secrets-manager?topic=secrets-manager-best-practices-rotate-secrets#best-practices-lock-secrets).
 {: tip}
 
@@ -81,23 +82,23 @@ Before you begin, be sure that you have the required level of access. To manage 
 
 Locking a secret prevents any operation that can result in modifying or deleting its secret data. To lock a secret, you attach one or more locks to its current or previous version.
 
-- When you try to modify or delete a secret while it is locked, {{site.data.keyword.secrets-manager_short}} denies the request with an HTTP `412 Precondition Failed` response. You see an error message similar to the following example:
+When you try to modify or delete a secret while it is locked, {{site.data.keyword.secrets-manager_short}} denies the request with an HTTP `412 Precondition Failed` response. You see an error message similar to the following example:
     
-   ```plaintext
-   The requested action can't be completed because the secret version is locked.
-   ```
-   {: screen}
+ ```plaintext
+ The requested action can't be completed because the secret version is locked.
+ ```
+ {: screen}
 
-   If you're working with [dynamic secrets](#x9968958){: term}, such as IAM credentials, locking your secrets also means that by default, those secrets can't be read or accessed. For more information, see [Why can't I read a locked IAM credentials secret?](/docs/secrets-manager?topic=secrets-manager-locked-iam-credentials)
-   {: note}
+ If you're working with [dynamic secrets](#x9968958){: term}, such as IAM credentials, locking your secrets also means that by default, those secrets can't be read or accessed. For more information, see [Why can't I read a locked IAM credentials secret?](/docs/secrets-manager?topic=secrets-manager-locked-iam-credentials)
+ {: note}
 
-  A custom credentials secret can be locked only once all its tasks completed.
-  {: note}
+A custom credentials secret can be locked only once all its tasks completed.
+{: note}
 
-- If a locked secret reaches its expiration date, it stays in the **Active** state and its data remains accessible to your applications. {{site.data.keyword.secrets-manager_short}} moves the secret to the **Destroyed** state and permanently deletes the expired secret data only after all locks on the secret are removed.
+If a locked secret reaches its expiration date, it stays in the **Active** state and its data remains accessible to your applications. {{site.data.keyword.secrets-manager_short}} moves the secret to the **Destroyed** state and permanently deletes the expired secret data only after all locks on the secret are removed.
 
-   SSL/TLS certificates still reach their defined expiration dates and move into a **Destroyed** state even if they are locked. For more information, see [Why did my locked certificate move to the Destroyed state?](/docs/secrets-manager?topic=secrets-manager-locked-certificates) 
-   {: important}
+ SSL/TLS certificates still reach their defined expiration dates and move into a **Destroyed** state even if they are locked. For more information, see [Why did my locked certificate move to the Destroyed state?](/docs/secrets-manager?topic=secrets-manager-locked-certificates) 
+ {: important}
 
 - If you try to rotate a secret while its current version is locked and the previous version is unlocked (or if an automatic rotation is scheduled), the request to rotate the secret is allowed. The current secret version becomes the new previous version, retaining its existing locks. A new current version is created without any locks.
 - If you try to rotate a secret while its previous version is locked (or if an automatic rotation is scheduled), your request to rotate the secret is denied. Rotation is allowed only after all locks on the previous secret version are removed.
@@ -170,6 +171,7 @@ To help you to create a new lock and remove older locks in a single operation, y
 | Remove previous locks and delete previous version data  | Same as the previous option, but also permanently deletes the data of the previous secret version if it doesn't have any locks that are associated with it.  \n  \n Suppose that the previous version of your secret contains a lock `lock-z`. Creating a lock on the current version of your secret with both the **Delete matching locks** and **Delete previous version data** options results in removing `lock-z` from the previous version. Additionally, because the previous version doesn't have any other locks that are attached to it, the secret data that is associated with the previous version is also deleted. |
 {: caption="Optional lock modes and their descriptions" caption-side="top"}
 
+
 #### Creating a lock on the current secret version
 {: #create-lock-current-version-cli}
 {: cli}
@@ -202,6 +204,7 @@ To help you to create a new lock and remove older locks in a single operation, y
 | Remove previous locks | `mode=remove_previous` | Removes any other locks that match the name that you specify. If any matching locks are found in the previous version of the secret, those locks are deleted when your new lock is created.  \n  \n For example, suppose that the previous version of your secret contains a lock `lock-x`. Creating a lock and enabling the `remove_previous` mode on the current secret version results in removing `lock-x` from the previous version. |
 | Remove previous locks | `mode=remove_previous_and_delete` | Same as the `remove_previous` option, but also permanently deletes the data of the previous secret version if it doesn't have any locks that are associated with it.  \n  \n Suppose that the previous version of your secret contains a lock `lock-z`. Creating a lock and enabling the `remove_previous_and_delete` mode on the current secret version results in removing `lock-z` from the previous version. Additionally, because the previous version doesn't have any other locks that are attached to it, the secret data that is associated with the previous version is also deleted. |
 {: caption="Optional lock modes and their descriptions" caption-side="top"}
+
 
 #### Creating locks on the current secret version
 {: #create-lock-current-version-api}
@@ -355,8 +358,9 @@ You can delete a lock that is attached to an existing secret by using the {{site
 4. In the row for the secret that you want to update, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Locks**.
 5. In the row for the lock that you want to delete, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Delete**.
 6. To confirm the deletion, type the name of the secret. Click **Delete**.
+  
 
-   Your lock is now deleted. To completely unlock the secret, you can remove all existing locks.
+Your lock is now deleted. To completely unlock the secret, you can remove all existing locks.
 
 ### Deleting locks with the API
 {: #delete-lock-api}
