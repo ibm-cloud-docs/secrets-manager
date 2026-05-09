@@ -79,6 +79,8 @@ ibmcloud plugin install secrets-manager
 You're notified on the command line when updates to the {{site.data.keyword.cloud_notm}} CLI and plug-ins are available. Be sure to keep your CLI up to date so that you can use the latest commands. You can view the current version of all installed plug-ins by running `ibmcloud plugin list`.
 {: tip}
 
+## Targeting a {{site.data.keyword.secrets-manager_short}} instance 
+{: #target-sm-instance}
 
 To target the {{site.data.keyword.secrets-manager_short}} instance, use one of the following options.
 
