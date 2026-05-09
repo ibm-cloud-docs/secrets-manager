@@ -134,11 +134,11 @@ You can lock the current version of a secret by using the {{site.data.keyword.se
 6. From the list of versions to lock, select **Current**.
 7. Optional: Attach JSON attributes to your lock.
 
-  You can include a JSON object with each lock to hold any information that you might need for an automated flow. For example, a key-value pair that identifies the resource that you want to associate with this lock.
+   You can include a JSON object with each lock to hold any information that you might need for an automated flow. For example, a key-value pair that identifies the resource that you want to associate with this lock.
 
 8. Optional: Make the lock exclusive.
 
-  Choose this option to remove any other locks that match the name that you provided. If any matching locks are found in the previous version of the secret, those locks are deleted when your new lock is created.
+   Choose this option to remove any other locks that match the name that you provided. If any matching locks are found in the previous version of the secret, those locks are deleted when your new lock is created.
 
 9. Optional: Delete previous version data.
 
@@ -146,7 +146,7 @@ You can lock the current version of a secret by using the {{site.data.keyword.se
 
 10. Click **Create**.
 
-   A new lock is created for your selected secret version. 
+    A new lock is created for your selected secret version. 
 
 #### Creating a lock on the previous secret version
 {: #create-lock-previous-version-ui}
@@ -162,9 +162,7 @@ You can lock the previous version of a secret by using the {{site.data.keyword.s
 
    You can include a JSON object with each lock to hold any information that you might need for an automated flow. For example, a key-value pair that identifies the resource that you want to associate with this lock.
 
-8. Click **Create**.
-
-   A new lock is created for your selected secret version.
+8. Click **Create**. A new lock is created for your selected secret version.
 
 ### Creating locks from the CLI
 {: #create-lock-cli}
@@ -220,14 +218,11 @@ To help you to create a new lock and remove older locks in a single operation, y
 | Remove previous locks | `mode=remove_previous_and_delete` | Same as the `remove_previous` option, but also permanently deletes the data of the previous secret version if it doesn't have any locks that are associated with it.  \n  \n Suppose that the previous version of your secret contains a lock `lock-z`. Creating a lock and enabling the `remove_previous_and_delete` mode on the current secret version results in removing `lock-z` from the previous version. Additionally, because the previous version doesn't have any other locks that are attached to it, the secret data that is associated with the previous version is also deleted. |
 {: caption="Optional lock modes and their descriptions" caption-side="top"}
 
-
-
 #### Creating locks on the current secret version
 {: #create-lock-current-version-api}
 {: api}
 
 The following request creates two locks on the current version of a secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
-
 
 ```bash
 curl -X POST 
@@ -257,12 +252,10 @@ curl -X POST
 {: codeblock}
 {: curl}
 
-
 If you're building an automated flow, you can use the `attributes` object to specify key-value data with each lock on your secret. For example, you can include a resource identifier, such as an ID or Cloud Resource Name (CRN).
 {: tip}
 
 A successful response returns details about the new locks, along with other metadata.
-
 
 ```json
 {
@@ -292,8 +285,6 @@ A successful response returns details about the new locks, along with other meta
 ```
 {: screen}
 
-
-
 For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#create-secret-locks-bulk).
 
 #### Creating locks on the previous secret version
@@ -301,7 +292,6 @@ For more information about the required and optional request parameters, see the
 {: api}
 
 The following request creates two locks on the previous version of a secret. When you call the API, replace the ID variables and IAM token with the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
-
 
 ```bash
 curl -X POST 
@@ -331,10 +321,7 @@ curl -X POST
 {: codeblock}
 {: curl}
 
-
-
 A successful response returns details about the new locks, along with other metadata.
-
 
 ```json
 {
@@ -364,11 +351,7 @@ A successful response returns details about the new locks, along with other meta
 ```
 {: screen}
 
-
-
 For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#create-secret-locks-bulk).
-
-
 
 ## Unlocking secrets
 {: #delete-secret-locks}
@@ -401,7 +384,6 @@ A successful request deletes the locks that you specify. To remove all locks, yo
 To understand whether a secret contains locks, check the `locks_total` field that is returned as part of the metadata of your secret.
 {: note}
 
-
 ```bash
 curl -X DELETE  
   -H "Authorization: Bearer {iam_token}" \
@@ -411,6 +393,5 @@ curl -X DELETE
 ```
 {: codeblock}
 {: curl}
-
 
 For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager/secrets-manager-v2#delete-secret-locks-bulk).
