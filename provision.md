@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-08"
+lastupdated: "2026-05-09"
 
 keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, trial plan
 
@@ -180,6 +180,7 @@ For additional programming languages support, see the [Resource Controller API D
     You can create only one Trial instance of {{site.data.keyword.secrets-manager_short}} per account. Before you can create a new Trial instance, you must delete the existing Trial instance and its reclamation.
     {: note}
 
+
 To update your service plan after you create an instance, see [Updating your service plan](/docs/account?topic=account-changing).
 {: tip}
 
@@ -194,6 +195,7 @@ To update your service plan after you create an instance, see [Updating your ser
  - **`service_endpoints`**: Either `private` or `public-and-private`. If not included, default is `private` 
 Include the following inside `parameters` for further customization.
  - **`kms_key`**: Root key CRN from Key Protect. If not included, default is root key that is managed by {{site.data.keyword.secrets-manager_short}}
+
 
 An example resource would look like the following.
 
