@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-08"
+lastupdated: "2026-05-09"
 
 keywords: context-based restrictions, access allowlist, network security
 
@@ -64,7 +64,7 @@ After you set up your {{site.data.keyword.secrets-manager_full}} service instanc
 ## Managing CBR settings
 {: #manage-cbr-settings}
 
-With [context-based restrictions](/docs/account?topic=account-context-restrictions-whatis), you can define and enforce user and service access restrictions to {{site.data.keyword.secrets-manager_short}} resources based on specified criteria.
+With [context-based restrictions](/docs/iam?topic=iam-context-restrictions-create), you can define and enforce user and service access restrictions to {{site.data.keyword.secrets-manager_short}} resources based on specified criteria.
 {: shortdesc}
 
 You can control {{site.data.keyword.secrets-manager_short}} resources with context-based restrictions and identity and access management (IAM) policies. These resources include Virtual Private Cloud (VPC) references and Internet Protocol (IP) addresses that are linked to your {{site.data.keyword.secrets-manager_short}} instance.
@@ -74,9 +74,9 @@ These restrictions work with traditional IAM policies, which are based on identi
 A user must have the `Administrator` role on the {{site.data.keyword.secrets-manager_short}} service to create, update, or delete rules. A user must also have either the `Editor` or `Administrator` role on the context-based restrictions service to create, update, or delete network zones. A user with the `Viewer` role on the context-based restrictions service can add only network zones to a rule.
 {: note}
 
-Any {{site.data.keyword.cloudaccesstraillong_notm}} or audit log events that are generated come from the context-based restrictions service, not {{site.data.keyword.secrets-manager_short}}. For more information, see [Monitoring context-based restrictions](/docs/account?topic=account-cbr-monitor).
+Any {{site.data.keyword.cloudaccesstraillong_notm}} or audit log events that are generated come from the context-based restrictions service, not {{site.data.keyword.secrets-manager_short}}. For more information, see [Monitoring context-based restrictions](/docs/iam?topic=iam-cbr-monitor).
 
-To get started with protecting your {{site.data.keyword.secrets-manager_short}} resources with context-based restrictions, see the tutorial for [Leveraging context-based restrictions to secure your resources](/docs/account?topic=account-context-restrictions-tutorial).
+To get started with protecting your {{site.data.keyword.secrets-manager_short}} resources with context-based restrictions, see the tutorial for [Leveraging context-based restrictions to secure your resources](/docs/iam?topic=iam-context-restrictions-tutorial).
 
 
 ## How {{site.data.keyword.secrets-manager_short}} integrates with context-based restrictions
@@ -217,25 +217,25 @@ After you create zones, you can [update or remove](/docs/iam?topic=iam-context-r
 {: #cbr-create-zone-ui}
 {: ui}
 
-After you set the prerequisites and requirements, you can create zones in the UI. For more information, see [Creating context-based restrictions](/docs/account?topic=account-context-restrictions-create&interface=ui).
+After you set the prerequisites and requirements, you can create zones in the UI. For more information, see [Creating context-based restrictions](/docs/iam?topic=iam-context-restrictions-create).
 
 1. Determine the resources that you want add to your allowlist.
-2. Follow the steps to [create context-based restrictions](/docs/account?topic=account-context-restrictions-create&interface=ui) in the console. Add the {{site.data.keyword.secrets-manager_short}} service to your network zones to allow {{site.data.keyword.secrets-manager_full}} to access services and resources in your account.
+2. Follow the steps to [create context-based restrictions](/docs/iam?topic=iam-context-restrictions-create) in the console. Add the {{site.data.keyword.secrets-manager_short}} service to your network zones to allow {{site.data.keyword.secrets-manager_full}} to access services and resources in your account.
 
-After you create zones, you can also [update or remove](/docs/enterprise-management?topic=enterprise-management-context-restrictions-update) them.
+After you create zones, you can also [update or remove](/docs/iam?topic=iam-context-restrictions-update) them.
 
 
 ### Creating network zones by using the CLI
 {: #cbr-create-zone-cli}
 {: cli}
 
-You can use the `cbr-zone-create` command to add network locations, VPCs, and service references to network zones. For more information, see the CBR [CLI reference](/docs/account?topic=account-cbr-plugin#cbr-zones-cli). Add {{site.data.keyword.secrets-manager_short}} to network zones as a service reference to allow {{site.data.keyword.secrets-manager_short}} to access resources and services in your account that are the subject of a rule.
+You can use the `cbr-zone-create` command to add network locations, VPCs, and service references to network zones. For more information, see the CBR [CLI reference](/docs/iam?topic=iam-cbr-plugin#cbr-zones-cli). Add {{site.data.keyword.secrets-manager_short}} to network zones as a service reference to allow {{site.data.keyword.secrets-manager_short}} to access resources and services in your account that are the subject of a rule.
 
 1. To create network zones from the CLI, [install the CBR CLI plug-in](/docs/cli?topic=cli-cbr-plugin#install-cbr-plugin).
-1. Use the `cbr-zone-create` command to add resources to network zones. For more information, see the CBR [CLI reference](/docs/cli?topic=cli-cbr-plugin#cbr-zones-cli). Note that the `service_name` for {{site.data.keyword.secrets-manager_short}} is `secrets-manager`.
+1. Use the `cbr-zone-create` command to add resources to network zones. For more information, see the CBR [CLI reference](/docs/iam?topic=iam-cbr-plugin#cbr-cli-service-ref-targets-command). Note that the `service_name` for {{site.data.keyword.secrets-manager_short}} is `secrets-manager`.
 
 
-To find a list of available service references, run the `ibmcloud cbr service-ref-targets` [command](/docs/account?topic=account-cbr-plugin#cbr-cli-service-ref-targets-command).
+To find a list of available service references, run the `ibmcloud cbr service-ref-targets` [command](/docs/iam?topic=iam-cbr-plugin#cbr-cli-service-ref-targets-command).
 {: tip}
 
 
@@ -319,7 +319,7 @@ After you create rules, you can [update](/apidocs/context-based-restrictions#rep
 {: #cbr-create-rules-cli}
 {: cli}
 
-Review the following examples to learn how to create rules for {{site.data.keyword.secrets-manager_short}}. For more information, see the CBR [CLI reference](/docs/account?topic=account-cbr-plugin).
+Review the following examples to learn how to create rules for {{site.data.keyword.secrets-manager_short}}. For more information, see the CBR [CLI reference](/docs/iam?topic=iam-cbr-plugin).
 
 1. To create rules from the CLI, [install the CBR CLI plug-in](/docs/cli?topic=cli-cbr-plugin#install-cbr-plugin).
 1. You can use the `ibmcloud cbr rule-create` [command](/docs/cli?topic=cli-cbr-plugin#cbr-cli-rule-create-command) to create CBR rules. For more information, see the CBR [CLI reference](/docs/cli?topic=cli-cbr-plugin#cbr-zones-cli). Note that the `service_name` for {{site.data.keyword.secrets-manager_short}} is `secrets-manager`. To find a list of service names, run the `ibmcloud cbr service-ref-targets` command. To find a list of API types for a service, run the `ibmcloud cbr api-types --service-name SERVICE` command.
