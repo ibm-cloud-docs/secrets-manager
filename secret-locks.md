@@ -132,21 +132,11 @@ You can lock the current version of a secret by using the {{site.data.keyword.se
 4. In the row for the secret that you want to lock, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Locks > Create lock**.
 5. Add a name and description to easily identify the lock.
 6. From the list of versions to lock, select **Current**.
-7. Optional: Attach JSON attributes to your lock.
+7. Optional: Attach JSON attributes to your lock. You can include a JSON object with each lock to hold any information that you might need for an automated flow. For example, a key-value pair that identifies the resource that you want to associate with this lock.
+8. Optional: Make the lock exclusive. Choose this option to remove any other locks that match the name that you provided. If any matching locks are found in the previous version of the secret, those locks are deleted when your new lock is created.
+9. Optional: Delete previous version data. Choose this option to also permanently delete the data of the previous secret version if it doesn't have any locks that are associated with it.
+10. Click **Create**. A new lock is created for your selected secret version. 
 
-   You can include a JSON object with each lock to hold any information that you might need for an automated flow. For example, a key-value pair that identifies the resource that you want to associate with this lock.
-
-8. Optional: Make the lock exclusive.
-
-   Choose this option to remove any other locks that match the name that you provided. If any matching locks are found in the previous version of the secret, those locks are deleted when your new lock is created.
-
-9. Optional: Delete previous version data.
-
-   Choose this option to also permanently delete the data of the previous secret version if it doesn't have any locks that are associated with it.
-
-10. Click **Create**.
-
-    A new lock is created for your selected secret version. 
 
 #### Creating a lock on the previous secret version
 {: #create-lock-previous-version-ui}
@@ -158,11 +148,9 @@ You can lock the previous version of a secret by using the {{site.data.keyword.s
 4. In the row for the secret that you want to lock, click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg) **> Locks > Create lock**.
 5. Add a name and description to easily identify the lock.
 6. From the list of versions to lock, select **Previous**.
-7. Optional: Attach JSON attributes to your lock.
-
-   You can include a JSON object with each lock to hold any information that you might need for an automated flow. For example, a key-value pair that identifies the resource that you want to associate with this lock.
-
+7. Optional: Attach JSON attributes to your lock. You can include a JSON object with each lock to hold any information that you might need for an automated flow. For example, a key-value pair that identifies the resource that you want to associate with this lock.
 8. Click **Create**. A new lock is created for your selected secret version.
+
 
 ### Creating locks from the CLI
 {: #create-lock-cli}
@@ -182,8 +170,6 @@ To help you to create a new lock and remove older locks in a single operation, y
 | Remove previous locks and delete previous version data  | Same as the previous option, but also permanently deletes the data of the previous secret version if it doesn't have any locks that are associated with it.  \n  \n Suppose that the previous version of your secret contains a lock `lock-z`. Creating a lock on the current version of your secret with both the **Delete matching locks** and **Delete previous version data** options results in removing `lock-z` from the previous version. Additionally, because the previous version doesn't have any other locks that are attached to it, the secret data that is associated with the previous version is also deleted. |
 {: caption="Optional lock modes and their descriptions" caption-side="top"}
 
-
-
 #### Creating a lock on the current secret version
 {: #create-lock-current-version-cli}
 {: cli}
@@ -199,7 +185,6 @@ ibmcloud secrets-manager secret-locks-bulk-create \
     --mode=remove_previous
 ```
 {: pre}
-
 
 ### Creating locks with the API
 {: #create-lock-api}
