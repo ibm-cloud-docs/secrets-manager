@@ -66,7 +66,7 @@ subcollection: secrets-manager
 
 The following image shows the main {{site.data.keyword.secrets-manager_short}} components, how they interact with each other, and what type of encryption is applied to your personal information.
 
-![This image is a visual representation of the architecture for {{site.data.keyword.secrets-manager_short}}.](../images/secrets-arch.svg){: caption="{{site.data.keyword.secrets-manager_short}} architecture" caption-side="bottom" width="100%"}
+![This image is a visual representation of the architecture for {{site.data.keyword.secrets-manager_short}}.](../images/secrets-arch.svg){: caption="{{site.data.keyword.secrets-manager_short}} architecture" caption-side="bottom"}
 
 1. A user creates an instance of {{site.data.keyword.secrets-manager_short}}. At provisioning, the user can [configure a root key from a key management service](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption) or choose the default, provider-managed encryption option. A dedicated instance of the service is created.
 2. When a user, CLI, application, or DevOps tool makes a request to the service by using the {{site.data.keyword.secrets-manager_short}} UI or APIs, the request is completed through their vault formation. 
