@@ -145,6 +145,8 @@ toc:
               topics:
               - topic: framework/cse.md
                 navtitle: Using service endpoints
+              - topic: framework/vpn.md
+                navtitle: Using Client-to-Site VPN
           - framework/data-security.md
           - cbr-control-access.md
   - navgroup:
