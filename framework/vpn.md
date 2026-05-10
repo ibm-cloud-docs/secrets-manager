@@ -207,7 +207,7 @@ ibmcloud secrets-manager configuration-create \
 {: #vpn-create-intermediate-ca}
 {: step}
 
-Example command to create an intermediate CA configuration that is signed by the root CA above:
+Example command to create an intermediate CA configuration that is signed by the previously created root CA:
 
 ```sh
 ibmcloud secrets-manager configuration-create \
