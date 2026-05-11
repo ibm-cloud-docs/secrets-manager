@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-22"
+lastupdated: "2026-05-11"
 
 keywords: secret groups, assign secret access, iam roles, secrets policies, organize secrets
 
@@ -80,7 +80,7 @@ Before you begin, be sure that you have the required level of access. To create 
 ## Creating secret groups
 {: #create-secret-groups}
 
-You can create secret groups by using the {{site.data.keyword.secrets-manager_short}} console or the API.
+You can create secret groups by using the {{site.data.keyword.secrets-manager_short}} console, CLI, or API.
 
 ### Creating secret groups in the UI
 {: #create-group-ui}
@@ -95,6 +95,20 @@ You can create secret groups by using the console. You can also create a secret 
 5. Click **Create**.
 6. Optional: Assign your secret group an [IAM policy](/docs/secrets-manager?topic=secrets-manager-assign-access).
 
+### Creating secret groups from the CLI
+{: #create-group-cli}
+{: cli}
+
+You can create secret groups by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in.
+
+To create a secret group, run the [**`ibmcloud secrets-manager secret-group-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-group-create-command) command.
+
+```sh
+ibmcloud secrets-manager secret-group-create --name "my-secret-group" --description "Extended description for this group."
+```
+{: pre}
+
+The command outputs the ID value of the secret group, along with other metadata. For more information about the command options, see [**`ibmcloud secrets-manager secret-group-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-group-create-command).
 
 ### Creating secret groups with the API
 {: #create-group-api}
@@ -145,7 +159,7 @@ Organize secrets efficiently using Terraform IBM Modules (TIM) for [{{site.data.
 ## Deleting secret groups
 {: #delete-groups}
 
-If you no longer need to use a group, you can delete it by using the console or the API.
+If you no longer need to use a group, you can delete it by using the console, CLI, or API.
 
 To delete a secret group, it must be empty. If you need to remove a secret group that contains secrets, you must first [delete the secrets](/docs/secrets-manager?topic=secrets-manager-delete-secrets) that are part of the group.
 {: note}
@@ -163,6 +177,23 @@ You can delete secret groups by using the console.
 4. In the row for the secret group that you want to delete, click the **Actions** icon ![Actions icon](../icons/actions-icon-vertical.svg).
 5. Click **Delete group**.
 6. Click **Delete**.
+
+### Deleting secret groups from the CLI
+{: #delete-group-cli}
+{: cli}
+
+You can delete secret groups by using the {{site.data.keyword.secrets-manager_short}} CLI plug-in.
+
+To delete a secret group, run the [**`ibmcloud secrets-manager secret-group-delete`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-group-delete-command) command. You can specify the secret group by using either its ID or name.
+
+Delete by ID:
+
+```sh
+ibmcloud secrets-manager secret-group-delete --id SECRET_GROUP_ID
+```
+{: pre}
+
+For more information about the command options, see [**`ibmcloud secrets-manager secret-group-delete`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-group-delete-command).
 
 ### Deleting secret groups with the API
 {: #delete-group-api}
