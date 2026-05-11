@@ -129,6 +129,7 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} by using th
     ```
     {: pre}
 
+
     | Variable | Description |
     |:---------|:------------|
     | Instance name (`instance_name`) | A unique alias for your service instance. |
@@ -159,6 +160,7 @@ For additional programming languages support, see the [Resource Controller API D
 1. Obtain an IBM Cloud IAM access token.
 2. Run a curl command to provision an instance of {{site.data.keyword.secrets-manager_short}}.
 
+
     ```sh
     curl -X POST https://resource-controller.cloud.ibm.com/v2/resource_instances -H "Authorization: Bearer <IAM token>" -H 'Content-Type: application/json' -d '{
        "name": "<instance_name>",
@@ -185,6 +187,7 @@ For additional programming languages support, see the [Resource Controller API D
 
 To update your service plan after you create an instance, see [Updating your service plan](/docs/account?topic=account-changing).
 {: tip}
+
 
 ## Creating a {{site.data.keyword.secrets-manager_short}} instance using Terraform
 {: #create-instance-terraform}
@@ -213,6 +216,7 @@ resource "ibm_resource_instance" "sm_instance" {
 
 You can also use the [{{site.data.keyword.secrets-manager_full}}](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager/ibm/latest){: external} to provision and configure {{site.data.keyword.secrets-manager_short}} instances as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
 {: tip}
+
 
 ## Upgrading a {{site.data.keyword.secrets-manager_short}} instance to the Standard plan
 {: #upgrade-instance-standard}
