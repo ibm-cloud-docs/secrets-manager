@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-10"
+  years: 2020, 2026
+lastupdated: "2026-05-10"
 
 keywords: public isolation for Secrets Manager, compute isolation for Secrets Manager, Secrets Manager architecture, workload isolation in Secrets Manager
 
