@@ -193,13 +193,6 @@ ibmcloud secrets-manager secret-group-delete --id SECRET_GROUP_ID
 ```
 {: pre}
 
-Delete by name:
-
-```sh
-ibmcloud secrets-manager secret-group-delete --name "my-secret-group"
-```
-{: pre}
-
 For more information about the command options, see [**`ibmcloud secrets-manager secret-group-delete`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-group-delete-command).
 
 ### Deleting secret groups with the API
