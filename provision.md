@@ -192,6 +192,8 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} using Terra
 - **`service`**: `secrets-manager`
 - **`plan`**: either `Standard` or `Trial`. [Learn more](/docs/secrets-manager?topic=secrets-manager-pricing) about the service plans
 - **`service_endpoints`**: Either `private` or `public-and-private`. If not included, default is `private` 
+
+
 Include the following inside `parameters` for further customization.
 - **`kms_key`**: Root key CRN from Key Protect. If not included, default is root key that is managed by {{site.data.keyword.secrets-manager_short}}
 
