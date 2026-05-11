@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-09"
+lastupdated: "2026-05-11"
 
 keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, trial plan
 
@@ -93,6 +93,7 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} from the {{
     Select either `private-only` or `public-and-private`. For more information about setting up your account to support the private connectivity option, see [Enabling VRF and service endpoints](/docs/account?topic=account-vrf-service-endpoint).
 9. Click **Create** to create an instance of {{site.data.keyword.secrets-manager_short}} in the account, region, and resource group that you selected.
 
+
 To update your service plan after you create an instance, see [Updating your service plan](/docs/account?topic=account-changing).
 {: tip}
 
@@ -139,6 +140,7 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} by using th
 
     You can create only one Trial instance of {{site.data.keyword.secrets-manager_short}} per account. Before you can create a new Trial instance, you must delete the existing Trial instance and its reclamation.
     {: note}
+
 
 To update your service plan after you create an instance, see [Updating your service plan](/docs/account?topic=account-changing).
 {: tip}

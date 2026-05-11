@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-05-09"
+lastupdated: "2026-05-11"
 
 keywords: import certificates, order certificates, request certificates, ssl certificates, tls certificates, public certificates
 
@@ -648,7 +648,8 @@ The newly created TXT records that are in the relevant domains in Akamai are not
 4. Validate that the TXT records that you added are propagated. Depending on your DNS provider, it can take some time to complete.
 
 5. After the records are propagated, request Let's Encrypt to validate the challenges to your domain and create a public certificate. 
-You can do this by using the Terraform’s [`ibm_sm_public_certificate_action_validate_manual_dns`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/sm_public_certificate_action_validate_manual_dns) resource, as shown in the following example of a configuration:
+
+   You can do this by using the Terraform’s [`ibm_sm_public_certificate_action_validate_manual_dns`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/sm_public_certificate_action_validate_manual_dns) resource, as shown in the following example of a configuration:
 
    ```terraform
     resource "ibm_sm_public_certificate_action_validate_manual_dns" "sm_public_certificate_action_validate_manual_dns_instance" {
