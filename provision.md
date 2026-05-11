@@ -66,7 +66,6 @@ Get started with {{site.data.keyword.secrets-manager_full}} by creating a servic
 Provisioning {{site.data.keyword.secrets-manager_short}} in your {{site.data.keyword.cloud_notm}} account can take 5 - 15 minutes to complete as the service creates a single tenant, dedicated instance.
 {: note}
 
-
 ## Creating a {{site.data.keyword.secrets-manager_short}} instance in the UI
 {: #create-instance-ui}
 {: ui}
@@ -93,9 +92,8 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} from the {{
     Select either `private-only` or `public-and-private`. For more information about setting up your account to support the private connectivity option, see [Enabling VRF and service endpoints](/docs/account?topic=account-vrf-service-endpoint).
 9. Click **Create** to create an instance of {{site.data.keyword.secrets-manager_short}} in the account, region, and resource group that you selected.
 
-
-To update your service plan after you create an instance, see [Updating your service plan](/docs/account?topic=account-changing).
-{: tip}
+    To update your service plan after you create an instance, see [Updating your service plan](/docs/account?topic=account-changing).
+    {: tip}
 
 
 ## Creating a {{site.data.keyword.secrets-manager_short}} instance from the CLI
@@ -142,9 +140,8 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} by using th
     You can create only one Trial instance of {{site.data.keyword.secrets-manager_short}} per account. Before you can create a new Trial instance, you must delete the existing Trial instance and its reclamation.
     {: note}
 
-
-To update your service plan after you create an instance, see [Updating your service plan](/docs/account?topic=account-changing).
-{: tip}
+    To update your service plan after you create an instance, see [Updating your service plan](/docs/account?topic=account-changing).
+    {: tip}
 
 
 ## Creating a {{site.data.keyword.secrets-manager_short}} instance from API
@@ -156,10 +153,8 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} from API, c
 For additional programming languages support, see the [Resource Controller API Docs](/apidocs/resource-controller/resource-controller#create-resource-instance).
 {: tip}
 
-
 1. Obtain an IBM Cloud IAM access token.
 2. Run a curl command to provision an instance of {{site.data.keyword.secrets-manager_short}}.
-
 
     ```sh
     curl -X POST https://resource-controller.cloud.ibm.com/v2/resource_instances -H "Authorization: Bearer <IAM token>" -H 'Content-Type: application/json' -d '{
@@ -184,22 +179,23 @@ For additional programming languages support, see the [Resource Controller API D
     You can create only one Trial instance of {{site.data.keyword.secrets-manager_short}} per account. Before you can create a new Trial instance, you must delete the existing Trial instance and its reclamation.
     {: note}
 
-
-To update your service plan after you create an instance, see [Updating your service plan](/docs/account?topic=account-changing).
-{: tip}
+    To update your service plan after you create an instance, see [Updating your service plan](/docs/account?topic=account-changing).
+    {: tip}
 
 
 ## Creating a {{site.data.keyword.secrets-manager_short}} instance using Terraform
 {: #create-instance-terraform}
 {: terraform}
 
- To create an instance of {{site.data.keyword.secrets-manager_short}} using Terraform, include the following parameters in your `ibm_resource_instance` resource for {{site.data.keyword.secrets-manager_short}}.
+To create an instance of {{site.data.keyword.secrets-manager_short}} using Terraform, include the following parameters in your `ibm_resource_instance` resource for {{site.data.keyword.secrets-manager_short}}.
 
- - **`service`**: `secrets-manager`
- - **`plan`**: either `Standard` or `Trial`. [Learn more](/docs/secrets-manager?topic=secrets-manager-pricing) about the service plans
- - **`service_endpoints`**: Either `private` or `public-and-private`. If not included, default is `private` 
+- **`service`**: `secrets-manager`
+- **`plan`**: either `Standard` or `Trial`. [Learn more](/docs/secrets-manager?topic=secrets-manager-pricing) about the service plans
+- **`service_endpoints`**: Either `private` or `public-and-private`. If not included, default is `private` 
+
+
 Include the following inside `parameters` for further customization.
- - **`kms_key`**: Root key CRN from Key Protect. If not included, default is root key that is managed by {{site.data.keyword.secrets-manager_short}}
+- **`kms_key`**: Root key CRN from Key Protect. If not included, default is root key that is managed by {{site.data.keyword.secrets-manager_short}}
 
 
 An example resource would look like the following.
@@ -213,6 +209,7 @@ resource "ibm_resource_instance" "sm_instance" {
   service_endpoints = "public-and-private"
 }
 ```
+{: codeblock}
 
 You can also use the [{{site.data.keyword.secrets-manager_full}}](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager/ibm/latest){: external} to provision and configure {{site.data.keyword.secrets-manager_short}} instances as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
 {: tip}
