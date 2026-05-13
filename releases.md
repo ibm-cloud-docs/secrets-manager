@@ -66,15 +66,6 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 
 
 
-##  XX May 2026
-{: #secrets-manager-mayXX26}
-{: release-note}
-
-Control plane private endpoint availability
-:   {{site.data.keyword.secrets-manager_short}} now supports a private endpoint for control plane API access.
-
-   For more information, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
-
 ##  07 May 2026
 {: #secrets-manager-may0726}
 {: release-note}
