@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-07"
+lastupdated: "2026-05-20"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager
 
@@ -78,51 +78,9 @@ All operations follow the REST API standards that are available for the Vault HT
 
 To access {{site.data.keyword.secrets-manager_short}} by using the Vault APIs, use the dedicated endpoint URL that is unique to your {{site.data.keyword.secrets-manager_short}} service instance.
 
-The following table lists the endpoint URLs by region that can be used to interact with the Vault APIs.
+For a complete list of endpoint URLs by region for both public and private connectivity, see [Service endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints#service-endpoints-table).
 
-| Region        | Endpoint URL                                                     |
-| ------------- | ---------------------------------------------------------------- |
-| Chennai - Airtel       | `https://{instance_ID}.in-che.secrets-manager.appdomain.cloud`   |
-| Mumbai - Airtel       | `https://{instance_ID}.in-mum.secrets-manager.appdomain.cloud`   |
-| Dallas        | `https://{instance_ID}.us-south.secrets-manager.appdomain.cloud` |
-| Frankfurt     | `https://{instance_ID}.eu-de.secrets-manager.appdomain.cloud`    |
-| London        | `https://{instance_ID}.eu-gb.secrets-manager.appdomain.cloud`    |
-| Madrid        | `https://{instance_ID}.eu-es.secrets-manager.appdomain.cloud`    |
-| Osaka         | `https://{instance_ID}.jp-osa.secrets-manager.appdomain.cloud`   |
-| Sao Paulo     | `https://{instance_ID}.br-sao.secrets-manager.appdomain.cloud`   |
-| Sydney        | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud`   |
-| Tokyo         | `https://{instance_ID}.jp-tok.secrets-manager.appdomain.cloud`   |
-| Toronto       | `https://{instance_ID}.ca-tor.secrets-manager.appdomain.cloud`   |
-| Montreal      | `https://{instance_ID}.ca-mon.secrets-manager.appdomain.cloud`   |
-| Washington DC | `https://{instance_ID}.us-east.secrets-manager.appdomain.cloud`  |
-{: caption="Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
-{: #public-endpoints-vault}
-{: tab-title="Public endpoints"}
-{: tab-group="vault-endpoint-urls"}
-{: class="simple-tab-table"}
-
-| Region        | Endpoint URL                                                             |
-| ------------- | ------------------------------------------------------------------------ |
-| Chennai - Airtel       | `https://{instance_ID}.private.in-che.secrets-manager.appdomain.cloud`   |
-| Mumbai - Airtel     | `https://{instance_ID}.private.in-mum.secrets-manager.appdomain.cloud`   |
-| Dallas        | `https://{instance_ID}.private.us-south.secrets-manager.appdomain.cloud` |
-| Frankfurt     | `https://{instance_ID}.private.eu-de.secrets-manager.appdomain.cloud`    |
-| London        | `https://{instance_ID}.private.eu-gb.secrets-manager.appdomain.cloud`    |
-| Madrid        | `https://{instance_ID}.private.eu-es.secrets-manager.appdomain.cloud`    |
-| Osaka         | `https://{instance_ID}.private.jp-osa.secrets-manager.appdomain.cloud`   |
-| Sao Paulo     | `https://{instance_ID}.private.br-sao.secrets-manager.appdomain.cloud`   |
-| Sydney        | `https://{instance_ID}.private.au-syd.secrets-manager.appdomain.cloud`   |
-| Tokyo         | `https://{instance_ID}.private.jp-tok.secrets-manager.appdomain.cloud`   |
-| Toronto       | `https://{instance_ID}.private.ca-tor.secrets-manager.appdomain.cloud`   |
-| Montreal      | `https://{instance_ID}.private.ca-mon.secrets-manager.appdomain.cloud`   |
-| Washington DC | `https://{instance_ID}.private.us-east.secrets-manager.appdomain.cloud`  |
-{: caption="Private endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
-{: #private-endpoints-vault}
-{: tab-title="Private endpoints"}
-{: tab-group="vault-endpoint-urls"}
-{: class="simple-tab-table"}
-
-You can find your unique endpoint URL in the **Endpoints** page of the {{site.data.keyword.secrets-manager_short}} UI, or by retrieving it by HTTP request. For more information, see [Viewing your endpoint URLs](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls).
+You can also find your unique endpoint URL in the **Endpoints** page of the {{site.data.keyword.secrets-manager_short}} UI, or by retrieving it by HTTP request. For more information, see [Viewing your endpoint URLs](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls).
 {: tip}
 
 ### Common headers
