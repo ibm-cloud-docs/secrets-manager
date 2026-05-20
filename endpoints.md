@@ -204,7 +204,7 @@ A successful request returns the endpoint URLs that are associated with the regi
 ### Control plane endpoints
 {: #control-plane-endpoints}
 
-Use the following control plane endpoints to open the {{site.data.keyword.secrets-manager_short}} UI or call control plane APIs.
+Use the following control plane endpoints to call control plane APIs.
 
 | Region        | Endpoint URL             |
 | ------------- | ---------------------------- |
