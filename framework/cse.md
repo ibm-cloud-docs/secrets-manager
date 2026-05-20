@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-12-08"
+  years: 2020, 2026
+lastupdated: "2026-05-20"
 
 keywords: isolation for {{site.data.keyword.secrets-manager_short}}, service endpoints for {{site.data.keyword.secrets-manager_short}}, private network for {{site.data.keyword.secrets-manager_short}}, network isolation in {{site.data.keyword.secrets-manager_short}}, non-public routes for {{site.data.keyword.secrets-manager_short}}, private connection for {{site.data.keyword.secrets-manager_short}}
 
@@ -188,7 +188,7 @@ Use of this option is required for {{site.data.keyword.secrets-manager_short}} i
 
 1. [Create a VPE gateway](https://cloud.ibm.com/infrastructure/network/endpointGateways)
 2. Attach the VPE to a new or existing VPC
-3. Add your {{site.data.keyword.secrets-manager_short}} instance to the VPC
+3. Add your {{site.data.keyword.secrets-manager_short}} instance to the VPC or the [regional control plane endpoint](/docs/secrets-manager?topic=secrets-manager-endpoints)
 4. Create a VSI in the same VPC and set it up
 5. From your local workstation, login to the VSI
 6. From within the VSI, login to IBM Cloud and use your {{site.data.keyword.secrets-manager_short}} instance via API or CLI 
