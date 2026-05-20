@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-07"
+lastupdated: "2026-05-20"
 
 keywords: Secrets Manager availability, regions, Secrets Manager endpoints, Vault endpoint
 
@@ -66,19 +66,24 @@ Review region and connectivity options for interacting with {{site.data.keyword.
 
 You can create {{site.data.keyword.secrets-manager_short}} resources in one of the supported {{site.data.keyword.cloud_notm}} regions, which represents the geographic area where your {{site.data.keyword.secrets-manager_short}} requests are handled and processed.
 
+**Americas**
 - Dallas (`us-south`)
-- Frankfurt (`eu-de`)
-- London (`eu-gb`)
-- Madrid (`eu-es`)
-- Osaka (`jp-osa`)
-- Sao Paulo (`br-sao`)
-- Sydney (`au-syd`)
-- Tokyo (`jp-tok`)
+- Washington DC (`us-east`)
 - Toronto (`ca-tor`)
 - Montreal (`ca-mon`)
-- Washington DC (`us-east`)
-- Chennai - Airtel (`in-che`)
+- Sao Paulo (`br-sao`)
+
+**Europe**
+- London (`eu-gb`)
+- Frankfurt (`eu-de`)
+- Madrid (`eu-es`)
+
+**Asia Pacific**
+- Tokyo (`jp-tok`)
+- Osaka (`jp-osa`)
+- Sydney (`au-syd`)
 - Mumbai - Airtel (`in-mum`)
+- Chennai - Airtel (`in-che`)
 
 ## Service endpoints
 {: #service-endpoints}
@@ -86,55 +91,66 @@ You can create {{site.data.keyword.secrets-manager_short}} resources in one of t
 You can use the {{site.data.keyword.secrets-manager_short}} APIs to manage your secrets programmatically. {{site.data.keyword.secrets-manager_short}} offers two connectivity options for interacting with its service APIs.
 
 Private endpoints
-:   By default, a {{site.data.keyword.secrets-manager_short}} instance will have only a private endpoint. As prerequisite for private endpoints enable [virtual routing and forwarding (VRF) and service endpoints](/docs/account?topic=account-vrf-service-endpoint) for your infrastructure account. When you enable VRF for your account, you can [connect to {{site.data.keyword.secrets-manager_short}} by using a private IP](/docs/secrets-manager?topic=secrets-manager-service-connection) that is accessible only through the {{site.data.keyword.cloud_notm}} private network.
+:   By default, a {{site.data.keyword.secrets-manager_short}} instance will have only a private endpoint. Private endpoints provide secure connectivity to {{site.data.keyword.secrets-manager_short}} over the {{site.data.keyword.cloud_notm}} private network without requiring traffic to traverse the public internet. You can connect using Virtual Private Endpoint (VPE) gateways or through Cloud Service Endpoints (CSE). For more information, see [Securing your connection to {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-service-connection).
 
 Public endpoints
 :   Use public endpoints to connect to {{site.data.keyword.secrets-manager_short}} in your account over the {{site.data.keyword.cloud_notm}} public network. Your data is encrypted in transit by using the Transport Security Layer (TLS) 1.2 protocol. When a {{site.data.keyword.secrets-manager_short}} instance is configured with public endpoints, it also has a private endpoint in addition by default.
 
-### Private endpoints
-{: #private-endpoints}
+### Service endpoints
+{: #service-endpoints-table}
 
-If you need to manage your {{site.data.keyword.secrets-manager_short}} resources over a private network, see the following table to determine the API endpoints to use when you connect to the {{site.data.keyword.secrets-manager_short}} API.
+If you need to manage your {{site.data.keyword.secrets-manager_short}} resources, see the following table to determine the API endpoints to use when you connect to the {{site.data.keyword.secrets-manager_short}} API.
 
 To learn how to configure your {{site.data.keyword.secrets-manager_short}} instance to use private endpoints, see [Securing your connection to {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-service-connection).
 {: note}
 
 | Region        | Endpoint URL             |
 | ------------- | ---------------------------- |
-| Chennai - Airtel       | `https://{instance_ID}.private.in-che.secrets-manager.appdomain.cloud`   |
-| Mumbai - Airtel        | `https://{instance_ID}.private.in-mum.secrets-manager.appdomain.cloud`   |
-| Dallas        | `https://{instance_ID}.private.us-south.secrets-manager.appdomain.cloud` |
-| Frankfurt     | `https://{instance_ID}.private.eu-de.secrets-manager.appdomain.cloud`    |
-| London        | `https://{instance_ID}.private.eu-gb.secrets-manager.appdomain.cloud`    |
-| Madrid        | `https://{instance_ID}.private. eu-es.secrets-manager.appdomain.cloud`   |
-| Osaka         | `https://{instance_ID}.private.jp-osa.secrets-manager.appdomain.cloud`   |
-| Sao Paulo     | `https://{instance_ID}.private.br-sao.secrets-manager.appdomain.cloud`   |
-| Sydney        | `https://{instance_ID}.private.au-syd.secrets-manager.appdomain.cloud`   |
-| Tokyo         | `https://{instance_ID}.private.jp-tok.secrets-manager.appdomain.cloud`   |
-| Toronto       | `https://{instance_ID}.private.ca-tor.secrets-manager.appdomain.cloud`   |
-| Montreal      | `https://{instance_ID}.private.ca-mon.secrets-manager.appdomain.cloud`   |
-| Washington DC | `https://{instance_ID}.private.us-east.secrets-manager.appdomain.cloud`  |
-{: caption="Private endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
-
-### Public endpoints
+| **Americas** | |
+| Dallas        | `https://{instance_ID}.us-south.secrets-manager.appdomain.cloud` |
+| Washington DC | `https://{instance_ID}.us-east.secrets-manager.appdomain.cloud`  |
+| Toronto       | `https://{instance_ID}.ca-tor.secrets-manager.appdomain.cloud`   |
+| Montreal      | `https://{instance_ID}.ca-mon.secrets-manager.appdomain.cloud`   |
+| Sao Paulo     | `https://{instance_ID}.br-sao.secrets-manager.appdomain.cloud`   |
+| **Europe** | |
+| London        | `https://{instance_ID}.eu-gb.secrets-manager.appdomain.cloud`    |
+| Frankfurt     | `https://{instance_ID}.eu-de.secrets-manager.appdomain.cloud`    |
+| Madrid        | `https://{instance_ID}.eu-es.secrets-manager.appdomain.cloud`    |
+| **Asia Pacific** | |
+| Tokyo         | `https://{instance_ID}.jp-tok.secrets-manager.appdomain.cloud`   |
+| Osaka         | `https://{instance_ID}.jp-osa.secrets-manager.appdomain.cloud`   |
+| Sydney        | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud`   |
+| Mumbai - Airtel | `https://{instance_ID}.in-mum.secrets-manager.appdomain.cloud` |
+| Chennai - Airtel | `https://{instance_ID}.in-che.secrets-manager.appdomain.cloud` |
+{: caption="Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
 {: #public-endpoints}
+{: tab-title="Public endpoints"}
+{: tab-group="service-endpoint-urls"}
+{: class="simple-tab-table"}
 
 | Region        | Endpoint URL             |
 | ------------- | ---------------------------- |
-| Chennai - Airtel       | `https://{instance_ID}.in-che.secrets-manager.appdomain.cloud`   |
-| Mumbai - Airtel      | `https://{instance_ID}.in-mum.secrets-manager.appdomain.cloud`   |
-| Dallas        | `https://{instance_ID}.us-south.secrets-manager.appdomain.cloud` |
-| Frankfurt     | `https://{instance_ID}.eu-de.secrets-manager.appdomain.cloud`    |
-| London        | `https://{instance_ID}.eu-gb.secrets-manager.appdomain.cloud`    |
-| Madrid        | `https://{instance_ID}.eu-es.secrets-manager.appdomain.cloud`    |
-| Osaka         | `https://{instance_ID}.jp-osa.secrets-manager.appdomain.cloud`   |
-| Sao Paulo     | `https://{instance_ID}.br-sao.secrets-manager.appdomain.cloud`   |
-| Sydney        | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud`   |
-| Tokyo         | `https://{instance_ID}.jp-tok.secrets-manager.appdomain.cloud`   |
-| Toronto       | `https://{instance_ID}.ca-tor.secrets-manager.appdomain.cloud`   |
-| Montreal      | `https://{instance_ID}.ca-mon.secrets-manager.appdomain.cloud`   |
-| Washington DC | `https://{instance_ID}.us-east.secrets-manager.appdomain.cloud`  |
-{: caption="Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}} by using the native Vault APIs" caption-side="top"}
+| **Americas** | |
+| Dallas        | `https://{instance_ID}.private.us-south.secrets-manager.appdomain.cloud` |
+| Washington DC | `https://{instance_ID}.private.us-east.secrets-manager.appdomain.cloud`  |
+| Toronto       | `https://{instance_ID}.private.ca-tor.secrets-manager.appdomain.cloud`   |
+| Montreal      | `https://{instance_ID}.private.ca-mon.secrets-manager.appdomain.cloud`   |
+| Sao Paulo     | `https://{instance_ID}.private.br-sao.secrets-manager.appdomain.cloud`   |
+| **Europe** | |
+| London        | `https://{instance_ID}.private.eu-gb.secrets-manager.appdomain.cloud`    |
+| Frankfurt     | `https://{instance_ID}.private.eu-de.secrets-manager.appdomain.cloud`    |
+| Madrid        | `https://{instance_ID}.private.eu-es.secrets-manager.appdomain.cloud`    |
+| **Asia Pacific** | |
+| Tokyo         | `https://{instance_ID}.private.jp-tok.secrets-manager.appdomain.cloud`   |
+| Osaka         | `https://{instance_ID}.private.jp-osa.secrets-manager.appdomain.cloud`   |
+| Sydney        | `https://{instance_ID}.private.au-syd.secrets-manager.appdomain.cloud`   |
+| Mumbai - Airtel | `https://{instance_ID}.private.in-mum.secrets-manager.appdomain.cloud` |
+| Chennai - Airtel | `https://{instance_ID}.private.in-che.secrets-manager.appdomain.cloud` |
+{: caption="Private endpoints for interacting with {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
+{: #private-endpoints}
+{: tab-title="Private endpoints"}
+{: tab-group="service-endpoint-urls"}
+{: class="simple-tab-table"}
 
 Ready to try the APIs? To interact with a Swagger UI from your browser, add `api/v2/swagger-ui` to your service endpoint URL. For example, `https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/swagger-ui`.
 {: tip}
@@ -142,8 +158,9 @@ Ready to try the APIs? To interact with a Swagger UI from your browser, add `api
 ### Viewing your endpoint URLs
 {: #view-endpoint-urls}
 
-You can find your service endpoint URLs in the **Endpoints** page of the {{site.data.keyword.secrets-manager_short}} UI. If you need to retrieve your service endpoint URLs programmatically, you can also call the following API to retrieve the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
+You can find your service endpoint URLs in the **Endpoints** page of the {{site.data.keyword.secrets-manager_short}} UI.
 
+The private control plane endpoint is accessible through a VPE gateway. For more information, see [Using service endpoints to privately connect to {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-service-connection). If you need to retrieve your service endpoint URLs programmatically, you can also call the following API to retrieve the values that are specific to your {{site.data.keyword.secrets-manager_short}} instance.
 
 ```sh
 curl -X GET  
@@ -183,6 +200,61 @@ A successful request returns the endpoint URLs that are associated with the regi
 }
 ```
 {: screen}
+
+### Control plane endpoints
+{: #control-plane-endpoints}
+
+Use the following control plane endpoints to open the {{site.data.keyword.secrets-manager_short}} UI or call control plane APIs.
+
+| Region        | Endpoint URL             |
+| ------------- | ---------------------------- |
+| **Americas** | |
+| Dallas        | `https://us-south.secrets-manager.cloud.ibm.com` |
+| Washington DC | `https://us-east.secrets-manager.cloud.ibm.com` |
+| Toronto       | `https://ca-tor.secrets-manager.cloud.ibm.com` |
+| Montreal      | `https://ca-mon.secrets-manager.cloud.ibm.com` |
+| Sao Paulo     | `https://br-sao.secrets-manager.cloud.ibm.com` |
+| **Europe** | |
+| London        | `https://eu-gb.secrets-manager.cloud.ibm.com` |
+| Frankfurt     | `https://eu-de.secrets-manager.cloud.ibm.com` |
+| Madrid        | `https://eu-es.secrets-manager.cloud.ibm.com` |
+| **Asia Pacific** | |
+| Tokyo         | `https://jp-tok.secrets-manager.cloud.ibm.com` |
+| Osaka         | `https://jp-osa.secrets-manager.cloud.ibm.com` |
+| Sydney        | `https://au-syd.secrets-manager.cloud.ibm.com` |<stage>
+| Mumbai - Airtel | `https://in-mum.secrets-manager.cloud.ibm.com` |</stage>
+| Chennai - Airtel | `https://in-che.secrets-manager.cloud.ibm.com` |
+{: caption="Public control plane endpoints for {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
+{: #public-control-plane-endpoints}
+{: tab-title="Public endpoints"}
+{: tab-group="control-plane-endpoint-urls"}
+{: class="simple-tab-table"}
+
+| Region        | Endpoint URL             |
+| ------------- | ---------------------------- |
+| **Americas** | |
+| Dallas        | `https://private.us-south.secrets-manager.cloud.ibm.com` |
+| Washington DC | `https://private.us-east.secrets-manager.cloud.ibm.com` |
+| Toronto       | `https://private.ca-tor.secrets-manager.cloud.ibm.com` |
+| Montreal      | `https://private.ca-mon.secrets-manager.cloud.ibm.com` |
+| Sao Paulo     | `https://private.br-sao.secrets-manager.cloud.ibm.com` |
+| **Europe** | |
+| London        | `https://private.eu-gb.secrets-manager.cloud.ibm.com` |
+| Frankfurt     | `https://private.eu-de.secrets-manager.cloud.ibm.com` |
+| Madrid        | `https://private.eu-es.secrets-manager.cloud.ibm.com` |
+| **Asia Pacific** | |
+| Tokyo         | `https://private.jp-tok.secrets-manager.cloud.ibm.com` |
+| Osaka         | `https://private.jp-osa.secrets-manager.cloud.ibm.com` |
+| Sydney        | `https://private.au-syd.secrets-manager.cloud.ibm.com` |
+| Mumbai - Airtel | `https://private.in-mum.secrets-manager.cloud.ibm.com` |
+| Chennai - Airtel | `https://private.in-che.secrets-manager.cloud.ibm.com` |
+{: caption="Private control plane endpoints for {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
+{: #private-control-plane-endpoints}
+{: tab-title="Private endpoints"}
+{: tab-group="control-plane-endpoint-urls"}
+{: class="simple-tab-table"}
+
+The private control plane endpoint is accessible through a VPE gateway. For more information, see [Using service endpoints to privately connect to {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-service-connection).
 
 To try this API, you can interact with the following Swagger UI from your browser: `https://{region}.secrets-manager.cloud.ibm.com/swagger-ui`.
 {: tip}
