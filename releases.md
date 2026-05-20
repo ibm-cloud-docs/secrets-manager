@@ -66,8 +66,8 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 
 
 
-##  XX May 2026
-{: #secrets-manager-mayXX26}
+##  20 May 2026
+{: #secrets-manager-may2026}
 {: release-note}
 
 Control plane private endpoint availability
