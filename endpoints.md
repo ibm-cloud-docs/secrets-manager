@@ -222,6 +222,7 @@ Use the following control plane endpoints to call control plane APIs.
 | Tokyo         | `https://jp-tok.secrets-manager.cloud.ibm.com` |
 | Osaka         | `https://jp-osa.secrets-manager.cloud.ibm.com` |
 | Sydney        | `https://au-syd.secrets-manager.cloud.ibm.com` |
+| Mumbai - Airtel | `https://in-mum.secrets-manager.cloud.ibm.com` |
 | Chennai - Airtel | `https://in-che.secrets-manager.cloud.ibm.com` |
 {: caption="Public control plane endpoints for {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
 {: #public-control-plane-endpoints}
