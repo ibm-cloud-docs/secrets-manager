@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-20"
+lastupdated: "2026-05-27"
 
 keywords: Secrets Manager availability, regions, Secrets Manager endpoints, Vault endpoint
 
@@ -246,6 +246,7 @@ Use the following control plane endpoints to call control plane APIs.
 | Tokyo         | `https://private.jp-tok.secrets-manager.cloud.ibm.com` |
 | Osaka         | `https://private.jp-osa.secrets-manager.cloud.ibm.com` |
 | Sydney        | `https://private.au-syd.secrets-manager.cloud.ibm.com` |
+| Mumbai - Airtel | `https://private.in-mum.secrets-manager.cloud.ibm.com` |
 | Chennai - Airtel | `https://private.in-che.secrets-manager.cloud.ibm.com` |
 {: caption="Private control plane endpoints for {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
 {: #private-control-plane-endpoints}
