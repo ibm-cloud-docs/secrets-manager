@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-03-16"
+lastupdated: "2026-05-27"
 
 keywords: Data security for Secrets Manager, byok, kyok, data storage, data encryption in Secrets Manager, customer managed keys
 
@@ -86,7 +86,7 @@ The following table describes your options for managing the encryption of your {
 
 | Encryption | Description |
 | ---- | ---- |
-| Provider-managed encryption | The data that you store in {{site.data.keyword.secrets-manager_short}} is encrypted at rest by using an IBM-managed key. The encryption key is stored in [{{site.data.keyword.keymanagementserviceshort}}](/catalog/services/key-protect). This setting is by default. |
+| Provider-managed encryption | The data that you store in {{site.data.keyword.secrets-manager_short}} is encrypted at rest by using an IBM-managed key. The encryption key is stored in a [{{site.data.keyword.keymanagementserviceshort}}](/catalog/services/key-protect) Standard instance managd by the service. This is the default setting. |
 | Customer-managed encryption | The data that is stored in {{site.data.keyword.secrets-manager_short}} is encrypted at rest by using an encryption key that you own and manage. You can use a root key that you manage in [{{site.data.keyword.keymanagementserviceshort}}](/catalog/services/key-protect). |
 {: caption="Encryption options for {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
 
@@ -95,7 +95,7 @@ The following table describes your options for managing the encryption of your {
 
 {{site.data.keyword.secrets-manager_short}} uses envelope encryption to implement customer-managed keys. Envelope encryption describes encrypting one encryption key with another encryption key. The key used to encrypt the actual data is known as a [data encryption key (DEK)](#x4791827){: term}. The DEK itself is never stored but is wrapped by a second key that is known as the key encryption key (KEK) to create a wrapped DEK. To decrypt data, the wrapped DEK is unwrapped to get the DEK. This process is possible only by accessing the KEK, which in this case is your root key that is stored in your key management service.
 
-You can encrypt the data that you store in {{site.data.keyword.secrets-manager_short}} by using the Bring Your Own Key process (BYOK), which is supported by Key Protect. With this multi-tenant service, you can import your encryption keys from the on-premises hardware security modules (HSM), then manage the keys. If you would like exclusive control of the entire key hierarchy, which includes the master key, you can use the Keep Your Own Key (KYOK) process, which is supported [by Key Protect](/docs/hs-crypto?topic=hs-crypto-faq-basics). With KYOK, in addition to the BYOK capabilities, you have the technical assurance that even IBM cannot access your keys. [Learn more](/docs/hs-crypto?topic=hs-crypto-faq-security-compliance).
+You can encrypt the data that you store in {{site.data.keyword.secrets-manager_short}} by using the Bring Your Own Key process (BYOK), which is supported by Key Protect. With this service, you can import your encryption keys from the on-premises hardware security modules (HSM), then manage the keys. If you would like exclusive control of the entire key hierarchy, which includes the master key, you can use the Keep Your Own Key (KYOK) process, which is supported [by Key Protect](/docs/hs-crypto?topic=hs-crypto-faq-basics). With KYOK, in addition to the BYOK capabilities, you have the technical assurance that even IBM cannot access your keys. [Learn more](/docs/hs-crypto?topic=hs-crypto-faq-security-compliance).
 {: note}
 
 ### Enabling customer-managed keys for {{site.data.keyword.secrets-manager_short}}
