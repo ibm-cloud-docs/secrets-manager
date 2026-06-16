@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-15"
+lastupdated: "2026-06-16"
 
 keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, trial plan
 
@@ -132,7 +132,7 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} by using th
     |:---------|:------------|
     | Instance name (`instance_name`) | A unique alias for your service instance. |
     | Region (`region`)  | The region the instance should be provisioned in. [Supported regions](/docs/secrets-manager?topic=secrets-manager-endpoints&interface=api). |
-    | Pricing plan (`plan`) | The pricing plan that you want to use. Use  `trial`,  `standard`. |
+    | Pricing plan (`plan`) | The pricing plan that you want to use. Use `869c191a-3c2a-4faf-98be-18d48f95ba1f` for `trial` or `7713c3a8-3be8-4a9a-81bb-ee822fcaac3d` for  `standard`. |
     | Endpoints (`options`) | Optional. By default instances of {{site.data.keyword.secrets-manager_short}} are created with only a private endpoint (`private-only`). If you need to provision an instance of {{site.data.keyword.secrets-manager_short}} that uses also a public endpoint, append the `--service-endpoints public-and-private` option to your command. |
     | Encryption (`options`) | To provision an instance of {{site.data.keyword.secrets-manager_short}} that uses [customer-managed encryption](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption), append `-p '{"kms_key": "<root_key_crn>"}'`. Replace `<root_key_crn>` with the CRN value for the root key that you want to integrate. |
     {: caption="Description of the information that is required to provision the  {{site.data.keyword.secrets-manager_short}} service using CLI" caption-side="top"}
@@ -190,7 +190,7 @@ For additional programming languages support, see the [Resource Controller API D
 To create an instance of {{site.data.keyword.secrets-manager_short}} using Terraform, include the following parameters in your `ibm_resource_instance` resource for {{site.data.keyword.secrets-manager_short}}.
 
  - **`service`**: `secrets-manager`
- - **`plan`**: either  `Standard`,  `Trial`. [Learn more](/docs/secrets-manager?topic=secrets-manager-pricing) about the service plans
+ - **`plan`**: either  `Standard` or  `Trial`. [Learn more](/docs/secrets-manager?topic=secrets-manager-pricing) about the service plans
  - **`service_endpoints`**: Either `private` or `public-and-private`. If not included, default is `private` 
 Include the following inside `parameters` for further customization.
 - **`kms_key`**: Root key CRN from Key Protect. If not included, default is root key that is managed by {{site.data.keyword.secrets-manager_short}}
