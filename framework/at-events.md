@@ -32,6 +32,7 @@ You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on event
 
 {{site.data.keyword.secrets-manager_short}} sends activity tracking events to {{site.data.keyword.logs_full_notm}} in the regions that are indicated in the following tables.
 
+
 | Dallas (`us-south`) | Washington (`us-east`)  | Toronto (`ca-tor`) | Montreal (`ca-mon`) | Sao Paulo (`br-sao`) |
 |---------------------|-------------------------|-------------------|----------------------|----------------------|
 | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
@@ -41,6 +42,8 @@ You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on event
 {: tab-group="logs"}
 {: class="simple-tab-table"}
 {: row-headers}
+
+
 
 
 
@@ -56,6 +59,8 @@ You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on event
 
 
 
+
+
 | Frankfurt (`eu-de`)  | London (`eu-gb`) | Madrid (`eu-es`) |
 |---------------------------------------------------------------|---------------------|------------------|
 | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
@@ -65,6 +70,7 @@ You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on event
 {: tab-group="logs"}
 {: class="simple-tab-table"}
 {: row-headers}
+
 
 
 
