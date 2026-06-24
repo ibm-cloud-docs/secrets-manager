@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-09-18"
+  years: 2020, 2026
+lastupdated: "2026-06-24"
 
 keywords: logging, activity, monitor app, monitor secrets
 
@@ -29,6 +29,8 @@ You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on platf
 If you're working with {{site.data.keyword.logs_full_notm}} for the first time, be sure that you create an instance in the same location as your {{site.data.keyword.secrets-manager_short}} instance. For more information, see [Configuring platform logs through the Observability dashboard](/docs/cloud-logs?topic=cloud-logs-observe&interface=ui).
 
 For more information about regions where {{site.data.keyword.secrets-manager_short}} supports logging, check out [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
+
+
 
 ## Viewing logs
 {: #view-logs-ui}

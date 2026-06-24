@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-09-27"
+  years: 2026
+lastupdated: "2026-06-24"
 
 keywords: monitoring, metrics, operational metrics
 
@@ -60,6 +60,8 @@ subcollection: secrets-manager
 
 As a security officer, auditor, or manager, you can use the {{site.data.keyword.mon_full_notm}} service to measure how users and applications interact with {{site.data.keyword.secrets-manager_full}}.
 {: shortdesc}
+
+
 
 {{site.data.keyword.mon_full_notm}} records data on the operations that occur inside of {{site.data.keyword.cloud_notm}}. This service allows you to gain operational visibility into the performance and health of your applications, services, and platforms. You can use its advanced features to monitor and troubleshoot, define alerts based on API response codes, and design custom dashboards.
 
