@@ -63,6 +63,8 @@ Get started with {{site.data.keyword.secrets-manager_full}} by creating a servic
 
 
 
+
+
 Provisioning {{site.data.keyword.secrets-manager_short}} in your {{site.data.keyword.cloud_notm}} account can take 5 - 15 minutes to complete as the service creates a single tenant, dedicated instance.
 {: note}
 
@@ -94,8 +96,6 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} from the {{
 
     To update your service plan after you create an instance, see [Updating your service plan](/docs/account?topic=account-changing).
     {: tip}
-
-
 
 ## Creating a {{site.data.keyword.secrets-manager_short}} instance from the CLI
 {: #create-instance-cli}

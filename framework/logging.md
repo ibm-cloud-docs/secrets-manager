@@ -23,14 +23,12 @@ You can use {{site.data.keyword.logs_routing_full_notm}}, a platform service, to
 
 You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on platform logs that are generated in your account and routed by {{site.data.keyword.logs_routing_full_notm}} to an {{site.data.keyword.logs_full_notm}} instance.
 
+
+
 ## Before you begin
 {: #before-logs}
 
 If you're working with {{site.data.keyword.logs_full_notm}} for the first time, be sure that you create an instance in the same location as your {{site.data.keyword.secrets-manager_short}} instance. For more information, see [Configuring platform logs through the Observability dashboard](/docs/cloud-logs?topic=cloud-logs-observe&interface=ui).
-
-For more information about regions where {{site.data.keyword.secrets-manager_short}} supports logging, check out [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
-
-
 
 ## Viewing logs
 {: #view-logs-ui}
