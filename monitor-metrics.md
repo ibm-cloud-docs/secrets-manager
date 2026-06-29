@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-09-27"
+  years: 2026
+lastupdated: "2026-06-24"
 
 keywords: monitoring, metrics, operational metrics
 
@@ -55,7 +55,7 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
-# {{site.data.keyword.mon_short}} operational metrics
+# Monitoring operational metrics
 {: #operational-metrics}
 
 As a security officer, auditor, or manager, you can use the {{site.data.keyword.mon_full_notm}} service to measure how users and applications interact with {{site.data.keyword.secrets-manager_full}}.

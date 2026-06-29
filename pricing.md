@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-11-07"
+  years: 2026
+lastupdated: "2026-06-16"
 
 keywords: pricing plan, billing, cost
 

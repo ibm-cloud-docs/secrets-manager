@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-21"
+lastupdated: "2026-06-24"
 
 keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, trial plan
 
@@ -63,6 +63,8 @@ Get started with {{site.data.keyword.secrets-manager_full}} by creating a servic
 
 
 
+
+
 Provisioning {{site.data.keyword.secrets-manager_short}} in your {{site.data.keyword.cloud_notm}} account can take 5 - 15 minutes to complete as the service creates a single tenant, dedicated instance.
 {: note}
 
@@ -94,7 +96,6 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} from the {{
 
     To update your service plan after you create an instance, see [Updating your service plan](/docs/account?topic=account-changing).
     {: tip}
-
 
 ## Creating a {{site.data.keyword.secrets-manager_short}} instance from the CLI
 {: #create-instance-cli}
@@ -132,7 +133,7 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} by using th
     |:---------|:------------|
     | Instance name (`instance_name`) | A unique alias for your service instance. |
     | Region (`region`)  | The region the instance should be provisioned in. [Supported regions](/docs/secrets-manager?topic=secrets-manager-endpoints&interface=api). |
-    | Pricing plan (`plan`) | The pricing plan that you want to use. Use `trial` or `standard`. |
+    | Pricing plan (`plan`) | The pricing plan that you want to use. Use`trial` or `standard`. |
     | Endpoints (`options`) | Optional. By default instances of {{site.data.keyword.secrets-manager_short}} are created with only a private endpoint (`private-only`). If you need to provision an instance of {{site.data.keyword.secrets-manager_short}} that uses also a public endpoint, append the `--service-endpoints public-and-private` option to your command. |
     | Encryption (`options`) | To provision an instance of {{site.data.keyword.secrets-manager_short}} that uses [customer-managed encryption](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption), append `-p '{"kms_key": "<root_key_crn>"}'`. Replace `<root_key_crn>` with the CRN value for the root key that you want to integrate. |
     {: caption="Description of the information that is required to provision the  {{site.data.keyword.secrets-manager_short}} service using CLI" caption-side="top"}
@@ -142,6 +143,7 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} by using th
 
     To update your service plan after you create an instance, see [Updating your service plan](/docs/account?topic=account-changing).
     {: tip}
+
 
 
 ## Creating a {{site.data.keyword.secrets-manager_short}} instance from API
@@ -170,7 +172,7 @@ For additional programming languages support, see the [Resource Controller API D
     | Variable | Description |
     |:---------|:------------|
     | Instance name (`name`) | A unique alias for your service instance. |
-    | Target (`region`) | The region the instance should be provisioned in. [Supported regions](/docs/secrets-manager?topic=secrets-manager-endpoints&interface=api). |
+    | Target (`region`) | The region the instance should be provisioned in. [Supported regions](/docs/secrets-manager?topic=secrets-manager-endpoints&interface=api).|
     | Pricing plan (`plan`) | The pricing plan that you want to use, provided as a plan ID. Use `869c191a-3c2a-4faf-98be-18d48f95ba1f` for `trial` or `7713c3a8-3be8-4a9a-81bb-ee822fcaac3d` for `standard`. |
     | Endpoints | By default instances of {{site.data.keyword.secrets-manager_short}} are created with only a private endpoint. If you need to provision an instance of {{site.data.keyword.secrets-manager_short}} that uses also a public endpoint, add `"service-endpoints":"public-and-private"` to `parameters`. |
     | Encryption | To provision an instance of {{site.data.keyword.secrets-manager_short}} that uses [customer-managed encryption](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption), keep the `kms_key` parameter, and replace `<root_key_crn>` with the CRN value for the root key that you want to integrate. |
@@ -183,20 +185,18 @@ For additional programming languages support, see the [Resource Controller API D
     {: tip}
 
 
+
 ## Creating a {{site.data.keyword.secrets-manager_short}} instance using Terraform
 {: #create-instance-terraform}
 {: terraform}
 
 To create an instance of {{site.data.keyword.secrets-manager_short}} using Terraform, include the following parameters in your `ibm_resource_instance` resource for {{site.data.keyword.secrets-manager_short}}.
 
-- **`service`**: `secrets-manager`
-- **`plan`**: either `Standard` or `Trial`. [Learn more](/docs/secrets-manager?topic=secrets-manager-pricing) about the service plans
-- **`service_endpoints`**: Either `private` or `public-and-private`. If not included, default is `private` 
-
-
+ - **`service`**: `secrets-manager`
+ - **`plan`**: either `Standard` or `Trial`. [Learn more](/docs/secrets-manager?topic=secrets-manager-pricing) about the service plans
+ - **`service_endpoints`**: Either `private` or `public-and-private`. If not included, default is `private` 
 Include the following inside `parameters` for further customization.
 - **`kms_key`**: Root key CRN from Key Protect. If not included, default is root key that is managed by {{site.data.keyword.secrets-manager_short}}
-
 
 An example resource would look like the following.
 
@@ -213,6 +213,7 @@ resource "ibm_resource_instance" "sm_instance" {
 
 You can also use the [{{site.data.keyword.secrets-manager_full}}](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager/ibm/latest){: external} to provision and configure {{site.data.keyword.secrets-manager_short}} instances as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
 {: tip}
+
 
 
 ## Upgrading a {{site.data.keyword.secrets-manager_short}} instance to the Standard plan

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-01-30"
+lastupdated: "2026-06-23"
 
 keywords:
 
@@ -67,9 +67,11 @@ The following dependencies apply to the following deployment locations: Dallas (
 | {{site.data.keyword.keymanagementservicefull}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
 | {{site.data.keyword.registrylong}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
 | IBM Cloud Console | Availability, Instance control, Operations, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
-| {{site.data.keyword.keymanagementservicefull}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | Yes | Both |  Same region  |
 | IBM Cloud Classic NTP Servers | Availability, Change management, Instance control | No | Both |  Same data center  |
 | PagerDuty | Availability, Operations | No | Both |  Same region  |
+| corporate-on-call-manager | Availability, Operations | No | Both |  Same region  |
+| IBM Cloud Virtual Private Endpoint for VPC | Availability, Instance control, Security compliance | No | Both |  Same region  |
+| IBM Cloud Global Resource Catalog | Availability, Instance control, Security compliance | No | Both |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud Secrets Manager - Data and Control plane deployment service dependency information - Significant dependencies" caption-side="top"}
 {: tab-title="Significant dependencies"}
@@ -85,7 +87,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 | IBM GitHub Enterprise| Change management, configuration-management | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | Let's Encrypt| Change management | No | Both |  external  |
 | {{site.data.keyword.atracker_full}}| Change management, configuration-management, Security compliance | No | Both |  Same region  |
-| {{site.data.keyword.pag_full}}| Change management, Operations | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| {{site.data.keyword.pag_full}}| Change management, Operations | No | Both |  Same region  |
 | {{site.data.keyword.secrets-manager_full}}| Change management, Disaster recovery, Operations, Security compliance | No | Both |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud Secrets Manager - Data and Control plane deployment service dependency information - Medium dependencies" caption-side="top"}
@@ -105,8 +107,8 @@ The following dependencies apply to the following deployment locations: Dallas (
 | Segment| none | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | {{site.data.keyword.metrics_router_full}}| Operations, Security compliance | No | Both |  Same region  |
 | IBM Cloud CLI | none | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
-| None| Security compliance | No | Both |  Same data center  |
-| None| Security compliance | No | Both |  Same data center  |
+| corporate-qradar| Security compliance | No | Both |  Same data center  |
+| corporate-uptycs| Security compliance | No | Both |  Same data center  |
 | OSS Platform| Operations | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 {: row-headers}
 {: caption="IBM Cloud Secrets Manager - Data and Control plane deployment service dependency information - Minimal dependencies" caption-side="top"}
@@ -119,7 +121,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 ## Data and Control plane deployment in NGDCs
 {: #data-and-control-plane-deployment-in-ngdcs}
 
-The following dependencies apply to the following deployment locations: Montreal (ca-mon).
+The following dependencies apply to the following deployment locations: Chennai - Airtel (in-che), Montreal (ca-mon), Mumbai - Airtel (in-mum).
 
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
@@ -147,8 +149,9 @@ The following dependencies apply to the following deployment locations: Montreal
 | {{site.data.keyword.keymanagementservicefull}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
 | {{site.data.keyword.registrylong}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
 | IBM Cloud Console | Availability, Instance control, Operations, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
-| {{site.data.keyword.keymanagementservicefull}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | Yes | Both |  Same region  |
 | IBM Cloud Classic NTP Servers | Availability, Change management, Instance control | No | Both |  Same data center  |
+| IBM Cloud Virtual Private Endpoint for VPC | Availability, Instance control, Security compliance | No | Both |  Same region  |
+| IBM Cloud Global Resource Catalog | Availability, Instance control, Security compliance | No | Both |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud Secrets Manager - Data and Control plane deployment in NGDCs service dependency information - Significant dependencies" caption-side="top"}
 {: tab-title="Significant dependencies"}
@@ -182,8 +185,8 @@ The following dependencies apply to the following deployment locations: Montreal
 | Segment| none | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | {{site.data.keyword.metrics_router_full}}| Operations, Security compliance | No | Both |  Same region  |
 | IBM Cloud CLI | none | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
-| None| Security compliance | No | Both |  Same data center  |
-| None| Security compliance | No | Both |  Same data center  |
+| corporate-qradar| Security compliance | No | Both |  Same data center  |
+| corporate-uptycs| Security compliance | No | Both |  Same data center  |
 {: row-headers}
 {: caption="IBM Cloud Secrets Manager - Data and Control plane deployment in NGDCs service dependency information - Minimal dependencies" caption-side="top"}
 {: tab-title="Minimal dependencies"}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-09"
+lastupdated: "2026-06-24"
 
 keywords: activity tracking events for Secrets Manager, events, Secrets Manager actions
 
@@ -30,7 +30,8 @@ You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on event
 ## Locations where activity tracking events are generated
 {: #at-locations}
 
-{{site.data.keyword.secrets-manager_short}} sends activity tracking events to {{site.data.keyword.logs_full_notm}} in the regions that are indicated in the following table.
+{{site.data.keyword.secrets-manager_short}} sends activity tracking events to {{site.data.keyword.logs_full_notm}} in the regions that are indicated in the following tables.
+
 
 | Dallas (`us-south`) | Washington (`us-east`)  | Toronto (`ca-tor`) | Montreal (`ca-mon`) | Sao Paulo (`br-sao`) |
 |---------------------|-------------------------|-------------------|----------------------|----------------------|
@@ -42,6 +43,10 @@ You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on event
 {: class="simple-tab-table"}
 {: row-headers}
 
+
+
+
+
 | Tokyo (`jp-tok`)    | Sydney (`au-syd`) |  Osaka (`jp-osa`) | Chennai - Airtel (`in-che`) | Mumbai - Airtel (`in-mum`) |
 |---------------------|------------------|------------------|--------------------|-------------------|
 | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
@@ -52,6 +57,10 @@ You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on event
 {: class="simple-tab-table"}
 {: row-headers}
 
+
+
+
+
 | Frankfurt (`eu-de`)  | London (`eu-gb`) | Madrid (`eu-es`) |
 |---------------------------------------------------------------|---------------------|------------------|
 | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
@@ -61,6 +70,9 @@ You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on event
 {: tab-group="logs"}
 {: class="simple-tab-table"}
 {: row-headers}
+
+
+
 
 ## Viewing activity tracking events for {{site.data.keyword.secrets-manager_short}}
 {: #at-viewing}
