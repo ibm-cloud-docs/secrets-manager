@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-24"
+lastupdated: "2026-07-02"
 
 keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, trial plan
 
@@ -61,7 +61,23 @@ subcollection: secrets-manager
 Get started with {{site.data.keyword.secrets-manager_full}} by creating a service instance in {{site.data.keyword.cloud_notm}} console, {{site.data.keyword.cloud_notm}} CLI, or API.
 {: shortdesc}
 
+## Choosing a plan
+{: #choosing-plan}
 
+Before you create an instance, it's important to understand the key differences between the available plans:
+
+| Consideration | Trial and Standard plans | Vault Dedicated plan |
+|---------------|-------------------------|----------------------|
+| **Features** | IBM-managed secrets with built-in secret types and engines. | Full HashiCorp Vault Enterprise capabilities with native Vault features. |
+| **Upgrade path** | `Trial` can be upgraded to `Standard` only. | Cannot upgrade from Trial/Standard to `Vault Dedicated`. |
+| **Instance limits** | One trial instance per account. | Multiple instances allowed. |
+| **Use case** | {{site.data.keyword.cloud_notm}}-native secret management. | Enterprise Vault workloads requiring native Vault features. |
+{: caption="Plan comparison" caption-side="bottom"}
+
+Key points to remember:
+- **Trial instances** can only be upgraded to Standard plan. To use the Vault Dedicated plan, you must provision a new Vault Dedicated instance.
+- **Only one Trial instance** is allowed per account. Before creating a new Trial instance, you must delete any existing Trial instance and its reclamation.
+- **Features differ significantly** between plans. Review the [Feature overview](/docs/secrets-manager?topic=secrets-manager-feature-overview) to determine which plan best fits your needs.
 
 
 

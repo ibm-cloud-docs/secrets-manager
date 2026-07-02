@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-24"
+lastupdated: "2026-07-02"
 
 keywords: activity tracking events for Secrets Manager, events, Secrets Manager actions
 
@@ -11,6 +11,8 @@ subcollection: secrets-manager
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+
+
 
 # Activity tracking events for {{site.data.keyword.secrets-manager_short}}
 {: #at_events}
@@ -32,7 +34,6 @@ You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on event
 
 {{site.data.keyword.secrets-manager_short}} sends activity tracking events to {{site.data.keyword.logs_full_notm}} in the regions that are indicated in the following tables.
 
-
 | Dallas (`us-south`) | Washington (`us-east`)  | Toronto (`ca-tor`) | Montreal (`ca-mon`) | Sao Paulo (`br-sao`) |
 |---------------------|-------------------------|-------------------|----------------------|----------------------|
 | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
@@ -42,10 +43,6 @@ You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on event
 {: tab-group="logs"}
 {: class="simple-tab-table"}
 {: row-headers}
-
-
-
-
 
 | Tokyo (`jp-tok`)    | Sydney (`au-syd`) |  Osaka (`jp-osa`) | Chennai - Airtel (`in-che`) | Mumbai - Airtel (`in-mum`) |
 |---------------------|------------------|------------------|--------------------|-------------------|
@@ -57,10 +54,6 @@ You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on event
 {: class="simple-tab-table"}
 {: row-headers}
 
-
-
-
-
 | Frankfurt (`eu-de`)  | London (`eu-gb`) | Madrid (`eu-es`) |
 |---------------------------------------------------------------|---------------------|------------------|
 | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
@@ -70,9 +63,6 @@ You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on event
 {: tab-group="logs"}
 {: class="simple-tab-table"}
 {: row-headers}
-
-
-
 
 ## Viewing activity tracking events for {{site.data.keyword.secrets-manager_short}}
 {: #at-viewing}
@@ -118,7 +108,6 @@ To see unauthorized access attempts, run the following query.
 host:secrets-manager reason.reasonType:Unauthorized
 ```
 {: codeblock}
-
 
 ## Understanding generated events
 {: #gen-events}
@@ -170,12 +159,12 @@ The following table lists the secret lock actions that generate an event.
 | Action                                         | Description                         |
 | ---------------------------------------------- | ----------------------------------- |
 | `secrets-manager.secret-locks.create`          | Create a secret lock.               |
-| `secrets-manager.secret-locks.list`            | List secrets and their locks        | 
+| `secrets-manager.secret-locks.list`            | List secrets and their locks        |
 | `secrets-manager.secret-locks.delete`          | Delete a secret lock.               |
-| `secrets-manager.secrets-locks.list`           | List secret locks.                  | 
+| `secrets-manager.secrets-locks.list`           | List secret locks.                  |
 | `secrets-manager.secret-version-locks.create`  | Create secret version locks.        |
 | `secrets-manager.secret-version-locks.list`    | List secret version locks.          |
-| `secrets-manager.secret-version-locks.delete`  | Delete secret version locks.        | 
+| `secrets-manager.secret-version-locks.delete`  | Delete secret version locks.        |
 {: caption="List of secret lock events" caption-side="top"}
 
 ### Instance operations events
@@ -189,7 +178,7 @@ The following table lists the instance operation actions that generate an event.
 | `secrets-manager.configuration.create` | Create a new configuration. |
 | `secrets-manager.configuration-action.create` | Create a new configuration action. |
 | `secrets-manager.configurations.list` | List configurations. |
-| `secrets-manager.configuration.read` | View the details of a configuration. | 
+| `secrets-manager.configuration.read` | View the details of a configuration. |
 | `secrets-manager.configuration.update` | Update a configuration. |
 | `secrets-manager.configuration.delete` | Delete a configuration. |
 | `secrets-manager.endpoints.view`            | Get service instance endpoints.  |
