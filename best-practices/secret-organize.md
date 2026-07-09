@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-09"
+lastupdated: "2026-07-09"
 
 keywords: secrets management best practice, managing secrets, secrets strategy, secrets best practices, organizing secrets, assigning access to secrets
 
@@ -55,8 +55,11 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
+
 # Best practices for organizing secrets and assigning access
 {: #best-practices-organize-secrets}
+
+
 
 With {{site.data.keyword.secrets-manager_full}}, you can design a strategy for organizing and assigning access to your secrets and sensitive data. Review the following suggested guidelines for implementing best practices around your secrets management.
 {: shortdesc}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-21"
+lastupdated: "2026-07-09"
 content-type: tutorial
 services: secrets-manager, cloud-object-storage
 account-plan: paid
@@ -60,11 +60,14 @@ subcollection: secrets-manager
 {:release-note: data-hd-content-type='release-note'}
 
 
+
 # Access a storage bucket by using a dynamic secret
 {: #tutorial-access-storage-bucket}
 {: toc-content-type="tutorial"}
 {: toc-services="secrets-manager, cloud-object-storage"}
 {: toc-completion-time="1h"}
+
+
 
 In this tutorial, you learn how to use {{site.data.keyword.secrets-manager_full}} to create and lease an IAM credential that can be used to access a bucket in Cloud Object Storage.
 {: shortdesc}
