@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-07-09"
+lastupdated: "2026-07-10"
 
 keywords: assign access for Secrets Manager, secret group access, assign access for all secrets, grant access, add users
 
@@ -102,7 +102,8 @@ You can further narrow the scope of access to secrets in your instance by creati
 
 This process requires two sets of distinct access policies, one with [**Viewer** platform role](/docs/secrets-manager?topic=secrets-manager-iam#iam-roles-actions) to be able to view the service instance, and another access policy to further scope the access to the required access groups, by using either the service UI, or the IAM UI.
 
-### Assigning Viewer access to the service instance for secret groups
+### Assigning Viewer access to the service instance
+
 {: #assign-viewer-access}
 
 1. In the console, go to **Manage > Access (IAM) > Access Groups**.

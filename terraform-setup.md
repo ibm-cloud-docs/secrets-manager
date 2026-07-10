@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-24"
+lastupdated: "2026-07-10"
 
 keywords: terraform, {{site.data.keyword.secrets-manager_short}}
 
@@ -54,6 +54,7 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
+
 
 
 # Setting up Terraform for {{site.data.keyword.secrets-manager_short}}
