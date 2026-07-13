@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-11"
+lastupdated: "2026-07-09"
 
 keywords: tutorial, Secrets Manager
 
@@ -59,8 +59,8 @@ completion-time: 45m
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
-
 # Secure secrets for apps that run in your Kubernetes cluster
+
 {: #tutorial-kubernetes-secrets}
 {: toc-content-type="tutorial"}
 {: toc-services="secrets-manager,containers"}

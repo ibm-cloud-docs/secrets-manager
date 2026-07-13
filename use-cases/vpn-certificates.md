@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-09"
+lastupdated: "2026-07-08"
 
 keywords: vpn, certificates
 
@@ -58,5 +58,7 @@ subcollection: secrets-manager
 
 # Benefit of storing VPN credentials in Secrets Manager
 {: #use-case-vpn-certificates}
+
+
 
 By storing VPN credentials in {{site.data.keyword.secrets-manager_full}}, you can securely manage the lifecycle of these sensitive login details, including setting expiration dates and enabling automatic rotation policies. This helps enhance security by ensuring that credentials are regularly updated and reducing the risk of unauthorized access to your VPN service. Additionally, {{site.data.keyword.secrets-manager_short}} provides centralized management of these credentials, making it easier to control and monitor access to your VPN resources.

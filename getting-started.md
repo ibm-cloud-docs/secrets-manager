@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-05-19"
+  years: 2020, 2026
+lastupdated: "2026-07-09"
 
 keywords: secrets management, manage secrets, manage credentials, store username and password, add secrets, add credentials, get started with Secrets Manager
 content-type: tutorial
@@ -59,11 +59,14 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
+
 # Getting started with {{site.data.keyword.secrets-manager_short}}
 {: #getting-started}
 {: toc-content-type="tutorial"}
 {: toc-services="secrets-manager"}
 {: toc-completion-time="10m"}
+
+
 
 This tutorial focuses on storing and managing a username and password in {{site.data.keyword.secrets-manager_full}}. With {{site.data.keyword.secrets-manager_short}}, you can create, lease, and centrally manage secrets that are used in {{site.data.keyword.cloud_notm}} services or your custom-built applications. Secrets are stored in a dedicated {{site.data.keyword.secrets-manager_short}} instance, built on HashiCorp Vault.
 {: shortdesc}
