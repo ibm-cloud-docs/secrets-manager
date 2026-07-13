@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-09-19"
+  years: 2020, 2026
+lastupdated: "2026-07-13"
 
 keywords: faqs, Frequently Asked Questions, question, Secrets Manager, dynamic what is a secret, what is an arbitrary secret, what is an IAM credential, arbitrary secret, IAM credential, what happens when secret expires
 
@@ -100,6 +100,17 @@ An IAM credential is a type of dynamic secret that you can use to access an {{si
 
 When a secret is rotated, a new version of its value becomes available for use. You can choose to manually add a value or automatically generate one at regular intervals by enabling automatic rotation.  
 For more information about secret rotation, see [Rotating secrets](/docs/secrets-manager?topic=secrets-manager-manual-rotation).
+
+## Why is the auto-rotation interval for my secret not updating?
+{: #faq-auto-rotation-interval-update}
+{: faq}
+{: support}
+
+You might see the error `Error02009` when you update the auto-rotation interval if the current secret version expires before the next scheduled rotation. This error applies to secret types with TTL-based expiration.
+
+To resolve this issue, rotate the secret to create a new version with a later expiration date, then retry the auto-rotation interval update.
+
+For more information, see [Updating the auto-rotation interval](/docs/secrets-manager?topic=secrets-manager-automatic-rotation#update-auto-rotation-interval).
 
 ## What happens when my secret expires?
 {: #faq-secret-expire}
