@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-03"
+lastupdated: "2026-07-13"
 
 keywords: automatically rotate, automatic rotation, set rotation policy
 
@@ -471,3 +471,30 @@ A successful response returns the ID value for the secret, along with other meta
 
 The defined rotation interval cannot be higher than the defined time-to-live.
 {: note}
+
+## Updating the auto-rotation interval
+{: #update-auto-rotation-interval}
+
+When the auto-rotation interval for a secret is updated, {{site.data.keyword.secrets-manager_short}} validates that the current secret version will remain valid until the next scheduled rotation.
+
+This validation applies to secret types that have TTL-based expiration:
+- [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials)
+- [Service credentials](/docs/secrets-manager?topic=secrets-manager-service-credentials)
+- [Custom credentials](/docs/secrets-manager?topic=secrets-manager-custom-credentials)
+
+If the current version expires before the next scheduled rotation, the auto-rotation interval update is rejected to prevent situations where a secret expires before it can be rotated. If the validation fails, {{site.data.keyword.secrets-manager_short}} returns error `Error02009` which indicates that the current secret version would expire before the next scheduled rotation.
+
+For example, if the current version expires in 3 days and you set an auto-rotation interval of 60 days, the update is rejected because the version would expire before the next rotation.
+
+
+In this case, the current version would expire before the next rotation occurs, so the update is not allowed.
+
+### Resolving auto-rotation interval update conflicts
+{: #resolve-auto-rotation-conflicts}
+
+To resolve this issue, ensure that the current secret version remains valid beyond the next scheduled rotation date. Depending on your secret type and configuration, you can:
+
+* Rotate the secret to create a new version with a later expiration date.
+* Update the secret TTL (if required) and rotate the secret so that the current active version remains valid beyond the next scheduled rotation date.
+
+After the current version's expiration date extends beyond the next scheduled rotation date, the auto-rotation interval can be updated successfully.
