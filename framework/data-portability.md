@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2025-09-18"
+  years: 2021, 2026
+lastupdated: "2026-07-14"
 
 keywords:
 
@@ -15,6 +15,7 @@ subcollection: secrets-manager
 
 
 # Understanding data portability
+
 {: #data-portability}
 
 
