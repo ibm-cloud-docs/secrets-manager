@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-07-09"
+lastupdated: "2026-07-14"
 
 keywords: IAM access for Secrets Manager, permissions for Secrets Manager, identity and access management for Secrets Manager, roles for Secrets Manager, actions for Secrets Manager, assigning access for Secrets Manager
 
@@ -150,11 +150,13 @@ If a specific role and its actions don't fit the use case that you're looking to
 | `secrets-manager.secret-task.update` | Update a secret's task. | SecretTaskUpdater |
 | `secrets-manager.secret-task.delete` | Delete a secret's task. | Manager |
 {: caption="Service actions - {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
+
 {: #actions-table1}
 {: tab-title="Actions"}
 {: tab-group="secrets-manager"}
 {: class="simple-tab-table"}
 {: summary="Use the tab buttons to change the context of the table. This table provides the available actions for the service, descriptions of each, and the roles that each action are mapped to."}
+
 
 
 ## Assigning access to {{site.data.keyword.secrets-manager_short}}
