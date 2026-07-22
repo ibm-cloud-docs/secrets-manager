@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-09"
+lastupdated: "2026-07-22"
 
 keywords: secret locks, lock secret, prevent deletion, prevent rotation, unlock secret, create lock, delete lock
 
@@ -57,6 +57,8 @@ subcollection: secrets-manager
 
 # Locking secrets
 {: #secret-locks}
+
+
 
 When you work with {{site.data.keyword.secrets-manager_full}}, you can create locks on your secrets to prevent them from being deleted or modified while they're in use by your applications.
 {: shortdesc}
