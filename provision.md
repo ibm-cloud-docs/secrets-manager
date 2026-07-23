@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-07-09"
+lastupdated: "2026-07-23"
 
 keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, trial plan
 
@@ -118,14 +118,14 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} by using th
 2. Select the account, region, and resource group where you want to create a {{site.data.keyword.secrets-manager_short}} service instance.
 
     ```sh
-    ibmcloud target -r <region> -g <resource_group_name>
+    ibmcloud target -r REGION_NAME -g RESOURCE_GROUP_NAME
     ```
     {: pre}
 
 3. Create an instance of {{site.data.keyword.secrets-manager_short}} within that account and resource group.
 
     ```sh
-    ibmcloud resource service-instance-create <instance_name> secrets-manager <plan> <region> <options>
+    ibmcloud resource service-instance-create INSTANCE_NAME secrets-manager PLAN REGION_NAME [OPTIONS]
     ```
     {: pre}
 
