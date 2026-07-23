@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-20"
+lastupdated: "2026-07-23"
 
 keywords: isolation for {{site.data.keyword.secrets-manager_short}}, service endpoints for {{site.data.keyword.secrets-manager_short}}, private network for {{site.data.keyword.secrets-manager_short}}, network isolation in {{site.data.keyword.secrets-manager_short}}, non-public routes for {{site.data.keyword.secrets-manager_short}}, private connection for {{site.data.keyword.secrets-manager_short}}
 
@@ -112,7 +112,7 @@ After your account is enabled for VRF and service endpoints, you can provision a
     You can use the following command to set your target region and resource group.
 
     ```sh
-    ibmcloud target -r <region_name> -g <resource_group_name>
+    ibmcloud target -r REGION_NAME -g RESOURCE_GROUP_NAME
     ```
     {: pre}
 
