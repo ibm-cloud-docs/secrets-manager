@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-07-23"
+lastupdated: "2026-07-24"
 
 keywords: Data security for Secrets Manager, byok, kyok, data storage, data encryption in Secrets Manager, customer managed keys
 
@@ -159,7 +159,7 @@ During the 7-day reclamation period, do not delete authorizations between {{site
 2. Optional: To permanently delete your instance, get the reclamation ID.
 
     ```sh
-    ibmcloud resource reclamations --resource-instance-id <instance_ID>
+    ibmcloud resource reclamations --resource-instance-id INSTANCE_ID
     ```
     {: pre}
 
@@ -171,7 +171,7 @@ During the 7-day reclamation period, do not delete authorizations between {{site
 3. Optional: Permanently delete the reclamation instance.
 
     ```sh
-    ibmcloud resource reclamation-delete <reclamation_ID>
+    ibmcloud resource reclamation-delete RECLAMATION_ID
     ```
     {: pre}
 
@@ -194,7 +194,7 @@ If you haven't permanently deleted your instance, you can restore it during the 
 2. Restore the reclamation.
 
     ```sh
-    ibmcloud resource reclamation-restore <reclamation_ID>
+    ibmcloud resource reclamation-restore RECLAMATION_ID
     ```
     {: pre}
 
