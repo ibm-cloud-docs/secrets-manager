@@ -154,7 +154,7 @@ During the 7-day reclamation period, do not delete authorizations between {{site
     ```
     {: pre}
 
-    Replace `<instance_name>` with the name of the {{site.data.keyword.secrets-manager_short}} instance that you want to delete.
+    Replace `INSTANCE_NAME` with the name of the {{site.data.keyword.secrets-manager_short}} instance that you want to delete.
 
 2. Optional: To permanently delete your instance, get the reclamation ID.
 
@@ -163,7 +163,7 @@ During the 7-day reclamation period, do not delete authorizations between {{site
     ```
     {: pre}
 
-    Replace `<instance_ID>` with your {{site.data.keyword.secrets-manager_short}} instance ID.
+    Replace `INSTANCE_ID` with your {{site.data.keyword.secrets-manager_short}} instance ID.
 
     If you choose to permanently delete the instance by deleting its reclamation, you cannot restore your data.
     {: note}
