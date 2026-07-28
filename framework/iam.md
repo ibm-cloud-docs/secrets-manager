@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-07-14"
+lastupdated: "2026-07-27"
 
 keywords: IAM access for Secrets Manager, permissions for Secrets Manager, identity and access management for Secrets Manager, roles for Secrets Manager, actions for Secrets Manager, assigning access for Secrets Manager
 
@@ -59,8 +59,6 @@ subcollection: secrets-manager
 # Managing IAM access for {{site.data.keyword.secrets-manager_short}}
 {: #iam}
 
-
-
 Access to {{site.data.keyword.secrets-manager_full}} service instances for users in your account is controlled by {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM). Every user that accesses the {{site.data.keyword.secrets-manager_short}} service in your account must be assigned an access policy with an IAM role. The policy determines which actions a user can perform within the context of {{site.data.keyword.secrets-manager_short}}.
 {: shortdesc}
 
@@ -71,12 +69,15 @@ IAM access policies enable access to be granted at different levels. Some option
 - Access to a specific resource within a {{site.data.keyword.secrets-manager_short}} instance, applicable type is `secret-group`
 
 ## IAM roles and actions for {{site.data.keyword.secrets-manager_short}}
+
 {: #iam-roles-actions}
 
 Review the following [platform and service roles](/docs/iam?topic=iam-userroles#platformroles) that you can use to assign access to {{site.data.keyword.secrets-manager_short}} service instances. Each role maps to specific {{site.data.keyword.secrets-manager_short}} actions that a user can complete within an account or an individual instance.
 
 If a specific role and its actions don't fit the use case that you're looking to address, you can [create a custom role](/docs/iam?topic=iam-custom-roles&interface=ui#custom-access-roles) and pick the actions to include.
 {: tip}
+
+
 
 | Role | Description |
 | ----- | :----- |
