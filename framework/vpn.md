@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-10"
+lastupdated: "2026-08-01"
 
 keywords: isolation for {{site.data.keyword.secrets-manager_short}}, service endpoints for {{site.data.keyword.secrets-manager_short}}, private network for {{site.data.keyword.secrets-manager_short}}, network isolation in {{site.data.keyword.secrets-manager_short}}, non-public routes for {{site.data.keyword.secrets-manager_short}}, private connection for {{site.data.keyword.secrets-manager_short}}, vpn
 
@@ -77,7 +77,7 @@ Before you set up the VPN connection, ensure that you have the following prerequ
 ### Required instances and services
 {: #vpn-instances-software}
 
-- A {{site.data.keyword.secrets-manager_short}} instance for managing the Client-to-Site VPN certificates
+- A {{site.data.keyword.secrets-manager_short}} instance for managing the Client-to-Site VPN certificates and/or the `username_password` secret
 - A private-only {{site.data.keyword.secrets-manager_short}} instance that you want to access through the VPN
 - An existing {{site.data.keyword.cloud_notm}} VPC and subnet in your gateway region (GW_REGION)
 
