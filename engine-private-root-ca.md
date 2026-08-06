@@ -316,7 +316,7 @@ The following table outlines the key dates and stages for this deprecation.
 
 | Stage | Date | Description |
 |-------|------|-------------|
-| Announcement | 30 August 2026 | The deprecation of the HPCS-backed Private Certificate PKI integration in {{site.data.keyword.secrets-manager_short}} is announced. |
+| Announcement | 6 August 2026 | The deprecation of the HPCS-backed Private Certificate PKI integration in {{site.data.keyword.secrets-manager_short}} is announced. |
 | New configurations blocked | 30 October 2026 | New HPCS-backed configurations are blocked at the API level. Existing configurations continue to run uninterrupted. |
 | End of support | 30 March 2027 | The underlying HPCS dependency is deprecated. |
 {: caption="Deprecation timeline for HPCS-backed Private Certificate PKI integration" caption-side="bottom"}

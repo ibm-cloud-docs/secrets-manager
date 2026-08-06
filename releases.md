@@ -64,7 +64,7 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
-## 30 July 2026
+## 6 August 2026
 {: #secrets-manager-july3026}
 {: release-note}
 
