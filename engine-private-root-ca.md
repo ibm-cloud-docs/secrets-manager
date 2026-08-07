@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-08-07"
 
 keywords: root certificate authority, root CA, internal signing, external signing
 
@@ -303,31 +303,6 @@ You can retrieve the root certificate authority value by using the {{site.data.k
 
 The secret value is displayed for 15 seconds, then the dialog closes.
 {: note}
-
-## Deprecation of HPCS-backed Private Certificate PKI integration
-{: #hpcs-private-cert-deprecation}
-
-The HPCS-backed Private Certificate PKI integration in {{site.data.keyword.secrets-manager_short}} will be deprecated, following the deprecation of HPCS as a stand-alone service. {{site.data.keyword.secrets-manager_short}} itself remains fully supported, and only this specific root-of-trust path is affected.
-
-### Deprecation timeline
-{: #hpcs-deprecation-timeline}
-
-The following table outlines the key dates and stages for this deprecation.
-
-| Stage | Date | Description |
-|-------|------|-------------|
-| Announcement | 6 August 2026 | The deprecation of the HPCS-backed Private Certificate PKI integration in {{site.data.keyword.secrets-manager_short}} is announced. |
-| New configurations blocked | 30 October 2026 | New HPCS-backed configurations are blocked at the API level. Existing configurations continue to run uninterrupted. |
-| End of support | 30 March 2027 | The underlying HPCS dependency is deprecated. |
-{: caption="Deprecation timeline for HPCS-backed Private Certificate PKI integration" caption-side="bottom"}
-
-### Migration steps
-{: #hpcs-deprecation-migration}
-
-To avoid service disruption, complete the following steps to migrate existing configurations before the 30 March 2027 end-of-support date:
-
-1. Identify any Private Certificate configurations in your instance that reference an HPCS root of trust.
-2. Contact the {{site.data.keyword.secrets-manager_short}} team or your {{site.data.keyword.cloud_notm}} representative, CSM, or TAM for the supported replacement configuration.
 
 ## Retrieving a root certificate authority using CLI
 {: #get-root-cert-value-cli}

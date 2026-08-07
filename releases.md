@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-08-07"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -64,12 +64,12 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
-## 6 August 2026
-{: #secrets-manager-july3026}
+## 06 August 2026
+{: #secrets-manager-aug0626}
 {: release-note}
 
-Deprecation of HPCS-backed Private Certificate PKI integration
-:   {{site.data.keyword.cloud_notm}} is deprecating the HPCS-backed Private Certificate PKI integration in {{site.data.keyword.secrets-manager_short}}, following the deprecation of HPCS as a stand-alone service. Only this specific root-of-trust path is affected, and {{site.data.keyword.secrets-manager_short}} itself remains fully supported. New configurations will be blocked on 30 October 2026, and the integration reaches end of support on 30 March 2027. For more information, see [Deprecation of HPCS-backed Private Certificate PKI integration](/docs/secrets-manager?topic=secrets-manager-root-certificate-authorities#hpcs-private-cert-deprecation).
+Deprecation of IBM Cloud Hyper Protect Crypto Services-backed Private Certificate PKI integration
+:   {{site.data.keyword.cloud_notm}} is deprecating the HPCS-backed Private Certificate PKI integration in {{site.data.keyword.secrets-manager_short}}, following the deprecation of HPCS as a standalone service. Only this specific root-of-trust path is affected, and {{site.data.keyword.secrets-manager_short}} itself remains fully supported. Creation of new configurations will be blocked on 30 October 2026, and the integration reaches end of support on 30 March 2027. For more information, see [Deprecation of HPCS-backed Private Certificate PKI integration](/docs/secrets-manager?topic=secrets-manager-root-certificate-authorities#hpcs-private-cert-deprecation).
 
 
 
