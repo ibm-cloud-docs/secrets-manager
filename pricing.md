@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-08-17"
 
 keywords: pricing plan, billing, cost
 
@@ -58,8 +58,11 @@ subcollection: secrets-manager
 # Pricing for {{site.data.keyword.secrets-manager_short}} on {{site.data.keyword.cloud_notm}}
 {: #pricing}
 
-Pricing in {{site.data.keyword.secrets-manager_full}} is based on the number of service instances in an account, and the number of active secrets in each of the service instances. Learn more about the Trial and Standard plans offered by {{site.data.keyword.secrets-manager_short}}.
-{: shortdesc}
+
+Pricing in IBM Cloud Secrets Manager is based on the number of service instances in an account, and the number of active secrets in each of the service instances. Learn more about the `Trial` and `Standard` plans offered by Secrets Manager.
+{: shortdescc}
+
+
 
 ## Plans
 {: #plans}
