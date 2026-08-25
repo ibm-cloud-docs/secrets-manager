@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-08-20"
+lastupdated: "2026-08-25"
 
 keywords: secrets management, manage secrets, manage credentials, store username and password, add secrets, add credentials, get started with Secrets Manager
 content-type: tutorial
@@ -129,4 +129,3 @@ Now you can add more secrets and design a secrets management strategy to control
 
 - To find out more about organizing secrets, check out [Best practices for organizing secrets and assigning access](/docs/secrets-manager?topic=secrets-manager-best-practices-organize-secrets).
 - To find out more about rotating secrets, check out [Best practices for rotating secrets](/docs/secrets-manager?topic=secrets-manager-best-practices-rotate-secrets).
-- To set up a Vault Dedicated instance, check out [Setting up your Vault Dedicated instance](/docs/secrets-manager?topic=secrets-manager-getting-started-vault-dedicated-plan).
