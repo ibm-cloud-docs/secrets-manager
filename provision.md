@@ -75,13 +75,13 @@ Before you create an instance, it's important to understand the key differences 
 | **Use case** | {{site.data.keyword.cloud_notm}}-native secret management. | Enterprise Vault workloads requiring native Vault features. |
 {: caption="Plan comparison" caption-side="bottom"}
 
-The Vault Dedicated plan is currently available as a public beta. Beta features are provided for evaluation and testing purposes and have limitations compared to generally available features.
+The [Vault Dedicated]{: tag-green} plan is currently available as a public beta. Beta features are provided for evaluation and testing purposes and have limitations compared to generally available features.
 {: beta}
 
 ### Vault Dedicated public beta limitations
 {: #vault-dedicated-beta-limitations}
 
-During the public beta period, the Vault Dedicated plan has the following temporary restrictions:
+During the public beta period, the [Vault Dedicated]{: tag-green} has the following temporary restrictions:
 
 - **Instance limit**: Only 1 Vault Dedicated instance per account during beta.
 - **No upgrade path**: Cannot upgrade from beta to GA. All beta instances will be deleted before general availability.
@@ -89,11 +89,11 @@ During the public beta period, the Vault Dedicated plan has the following tempor
 - **Free during beta**: No charges apply during the beta period.
 - **Beta to GA migration**: Data migration from beta instances to GA instances is not supported.
 
-These limitations are temporary and apply only during the public beta period. It will be removed or modified when the Vault Dedicated plan reaches general availability.
+These limitations are temporary and apply only during the public beta period. It will be removed or modified when the [Vault Dedicated]{: tag-green} reaches general availability.
 {: important}
 
 Key points to remember:
-- **Trial instances** can only be upgraded to Standard plan. To use the Vault Dedicated plan, you must provision a new Vault Dedicated instance.
+- **Trial instances** can only be upgraded to Standard plan. To use the [Vault Dedicated]{: tag-green}, you must provision a new Vault Dedicated instance.
 - **Only one Trial instance** is allowed per account. Before creating a new Trial instance, you must delete any existing Trial instance and its reclamation.
 - **Features differ significantly** between plans. Review the [Feature overview](/docs/secrets-manager?topic=secrets-manager-feature-overview) to determine which plan best fits your needs.
 

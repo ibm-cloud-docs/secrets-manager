@@ -56,7 +56,7 @@ subcollection: secrets-manager
 {:release-note: data-hd-content-type='release-note'}
 {{site.data.keyword.attribute-definition-list}}
 
-# Configuring authentication methods for Vault Dedicated
+# Configuring authentication methods
 {: #vault-dedicated-auth-methods}
 
 After you generate an admin token and complete initial setup of your Vault Dedicated instance, configure an authentication method so that your applications and teams can authenticate to Vault without depending on the admin token.

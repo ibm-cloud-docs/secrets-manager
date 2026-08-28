@@ -55,7 +55,7 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
-# Integrating {{site.data.keyword.secrets-manager_short}} with your apps for the Vault Dedicated plan
+# Integrating {{site.data.keyword.secrets-manager_short}} with your apps by using the Vault Dedicated plan
 {: #integrate-with-apps-vault-dedicated}
 
 Ready to integrate {{site.data.keyword.secrets-manager_full}} Vault Dedicated into your existing apps or services? Take advantage of our supported developer tools.

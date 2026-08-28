@@ -68,7 +68,7 @@ IAM access policies enable access to be granted at different levels. Some option
 - Access to an individual {{site.data.keyword.secrets-manager_short}} instance in your account
 - Access to a specific resource within a {{site.data.keyword.secrets-manager_short}} instance, applicable type is `secret-group`
 
-## IAM roles and actions for Trial and Standard plans
+## IAM roles and actions for the Trial and Standard plans
 {: #iam-roles-actions}
 
 Review the following [platform and service roles](/docs/iam?topic=iam-userroles#platformroles) that you can use to assign access to {{site.data.keyword.secrets-manager_short}} service instances. Each role maps to specific {{site.data.keyword.secrets-manager_short}} actions that a user can complete within an account or an individual instance.

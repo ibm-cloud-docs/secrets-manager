@@ -56,7 +56,7 @@ subcollection: secrets-manager
 {:release-note: data-hd-content-type='release-note'}
 {{site.data.keyword.attribute-definition-list}}
 
-# Activity tracking events for Vault Dedicated
+# Activity tracking events for the Vault Dedicated plan
 {: #vault-dedicated-at-events}
 
 {{site.data.keyword.cloud_notm}} services, such as {{site.data.keyword.secrets-manager_full}}, generate activity tracking events. For the Vault Dedicated plan, these events are specific to instance management operations.

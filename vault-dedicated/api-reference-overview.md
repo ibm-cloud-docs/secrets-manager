@@ -55,7 +55,7 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
-# API and CLI reference overview for the Vault Dedicated plan
+# API and CLI reference overview
 {: #vault-dedicated-reference-overview}
 
 The Vault Dedicated plan uses two complementary sets of APIs and CLIs: the {{site.data.keyword.secrets-manager_short}} Instance Management API and CLI for control plane operations, and the native HashiCorp Vault API and CLI for data plane operations such as secrets management.

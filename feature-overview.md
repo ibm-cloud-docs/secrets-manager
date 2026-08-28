@@ -145,7 +145,7 @@ The [Vault Dedicated]{: tag-green} plan has the following limitations:
 - The native {{site.data.keyword.secrets-manager_short}} UI is not available. Management is performed through the native Vault UI, API, or CLI.
 - Secret types supported by `Trial` and `Standard` plans (such as IAM credentials and service credentials) are not available.
 
-The Vault Dedicated plan is currently available as a public beta. Beta features are provided for evaluation and testing purposes and have limitations compared to generally available features.
+The [Vault Dedicated]{: tag-green} is currently available as a public beta. Beta features are provided for evaluation and testing purposes and have limitations compared to generally available features.
 {: beta}
 
 ### Vault Dedicated public beta limitations

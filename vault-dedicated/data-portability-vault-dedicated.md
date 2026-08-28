@@ -12,7 +12,7 @@ subcollection: secrets-manager
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Data portability for Vault Dedicated plan
+# Understanding data portability by using the Vault Dedicated plan
 {: #data-portability-vault-dedicated}
 
 [Data Portability](#x2113280){: term} involves a set of tools and procedures that enable customers to export the digital artifacts that are needed to implement similar workload and data processing on different service providers or on-premises software. It includes procedures for copying and storing the service customer's content, including the related configuration used by the service to store and process the data, on the customer's own location.

@@ -78,7 +78,7 @@ toc:
             navtitle: Working with the Secrets Manager deployable architecture
       - secret-what-is.md
       - topicgroup:
-          label: Working with secrets in the Trial and Standard plans
+          label: Working with secrets by using the Trial and Standard plans
           topics:
           - topic: secret-types.md
             navtitle: Secret types and components
@@ -130,7 +130,7 @@ toc:
           - topic: secret-delete.md
             navtitle: Deleting secrets
       - topicgroup:
-          label: Configuring secrets engines for the Trial and Standard plans
+          label: Configuring secrets engines by using the Trial and Standard plans
           topics:
           - topic: engine-what-is.md
             navtitle: What is a secrets engine?
@@ -180,7 +180,7 @@ toc:
           label: Connecting integrations
           topics:
           - topicgroup:
-              label: Trial and Standard plans
+              label: By using the Trial and Standard plans
               topics:
               - topic: integrations.md
                 navtitle: Integrating with other IBM Cloud services
@@ -195,9 +195,9 @@ toc:
               label: Auditing events for Secrets Manager
               topics:
               - topic: framework/at-events.md
-                navtitle: Trial and Standard plans
+                navtitle: By uing the Trial and Standard plans
               - topic: vault-dedicated/at-events.md
-                navtitle: Vault Dedicated plan
+                navtitle: By using the Vault Dedicated plan
           - topic: framework/logging.md
             navtitle: Logging for Secrets Manager
           - topic: monitor-metrics.md
@@ -279,12 +279,12 @@ toc:
           - topic: framework/ha-dr.md
             navtitle: Understanding high availability and disaster recovery
       - topicgroup:
-          label: Data portability
+          label: Understanding data portability
           topics:
           - topic: framework/data-portability.md
-            navtitle: Trial and Standard plans
+            navtitle: By using the Trial and Standard plans
           - topic: vault-dedicated/data-portability-vault-dedicated.md
-            navtitle: Vault Dedicated plan
+            navtitle: By using the Vault Dedicated plan
   - navgroup:
       id: help
       topics:

@@ -56,7 +56,7 @@ subcollection: secrets-manager
 {:release-note: data-hd-content-type='release-note'}
 {{site.data.keyword.attribute-definition-list}}
 
-# Working with secrets engines in Vault Dedicated
+# Working with secrets engines
 {: #vault-dedicated-secrets-engines}
 
 Vault Dedicated exposes the full set of HashiCorp Vault Enterprise secrets engines. A secrets engine is a component that stores, generates, or encrypts data. You enable and configure secrets engines in your Vault Dedicated instance using the Vault UI, CLI, or API.

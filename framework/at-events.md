@@ -12,7 +12,7 @@ subcollection: secrets-manager
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Activity tracking events for Trial and Standard plans
+# Activity tracking events for the Trial and Standard plans
 {: #at_events}
 
 {{site.data.keyword.cloud_notm}} services, such as {{site.data.keyword.secrets-manager_full}}, generate activity tracking events. 
@@ -34,6 +34,8 @@ You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on event
 
 ### Trial and Standard plans
 {: #at-locations-standard}
+
+The [Trial and Standard]{: tag-blue} plans send activity tracking events in the following regions.
 
 | Dallas (`us-south`) | Washington (`us-east`)  | Toronto (`ca-tor`) | Montreal (`ca-mon`) | Sao Paulo (`br-sao`) |
 |---------------------|-------------------------|-------------------|----------------------|----------------------|

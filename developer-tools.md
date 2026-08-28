@@ -55,7 +55,7 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
-# Integrating {{site.data.keyword.secrets-manager_short}} with your apps for Trial and Standard plans
+# Integrating {{site.data.keyword.secrets-manager_short}} with your apps by using the Trial and Standard plans
 {: #integrate-with-apps-trial-standard}
 
 Ready to integrate {{site.data.keyword.secrets-manager_full}} into your existing apps or services? Take advantage of our supported developer tools.

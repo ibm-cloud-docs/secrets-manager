@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-07-27"
+lastupdated: "2026-08-28"
 
 keywords: Secrets Manager availability, regions, Secrets Manager endpoints, Vault endpoint
 
@@ -56,8 +56,6 @@ subcollection: secrets-manager
 {:release-note: data-hd-content-type='release-note'}
 {{site.data.keyword.attribute-definition-list}}
 
-
-
 # Regions and endpoints
 {: #endpoints}
 
@@ -69,24 +67,67 @@ Review region and connectivity options for interacting with {{site.data.keyword.
 
 You can create {{site.data.keyword.secrets-manager_short}} resources in one of the supported {{site.data.keyword.cloud_notm}} regions, which represents the geographic area where your {{site.data.keyword.secrets-manager_short}} requests are handled and processed.
 
-**Americas**
-- Dallas (`us-south`)
-- Washington DC (`us-east`)
-- Toronto (`ca-tor`)
-- Montreal (`ca-mon`)
-- Sao Paulo (`br-sao`)
+### Trial and Standard plans
+{: #supported-regions-trial-standard}
 
-**Europe**
-- London (`eu-gb`)
-- Frankfurt (`eu-de`)
-- Madrid (`eu-es`)
+The [Trial and Standard]{: tag-blue} plans are available in the following regions.
 
-**Asia Pacific**
-- Tokyo (`jp-tok`)
-- Osaka (`jp-osa`)
-- Sydney (`au-syd`)
-- Mumbai - Airtel (`in-mum`)
-- Chennai - Airtel (`in-che`)
+| Dallas (`us-south`) | Washington (`us-east`)  | Toronto (`ca-tor`) | Montreal (`ca-mon`) | Sao Paulo (`br-sao`) |
+|---------------------|-------------------------|-------------------|----------------------|----------------------|
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
+{: caption="Regions where Trial and Standard plans are available in Americas locations" caption-side="top"}
+{: #regions-table-1}
+{: tab-title="Americas"}
+{: tab-group="regions-standard"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+| Tokyo (`jp-tok`)    | Sydney (`au-syd`) |  Osaka (`jp-osa`) | Chennai - Airtel (`in-che`) | Mumbai - Airtel (`in-mum`) |
+|---------------------|------------------|------------------|--------------------|-------------------|
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
+{: caption="Regions where Trial and Standard plans are available in Asia Pacific locations" caption-side="top"}
+{: #regions-table-2}
+{: tab-title="Asia Pacific"}
+{: tab-group="regions-standard"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+| Frankfurt (`eu-de`)  | London (`eu-gb`) | Madrid (`eu-es`) |
+|---------------------------------------------------------------|---------------------|------------------|
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
+{: caption="Regions where Trial and Standard plans are available in Europe locations" caption-side="top"}
+{: #regions-table-3}
+{: tab-title="Europe"}
+{: tab-group="regions-standard"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+### Vault Dedicated plan
+{: #supported-regions-vault-dedicated}
+
+The [Vault Dedicated]{: tag-green} is available in the following regions.
+
+| Dallas (`us-south`) | Frankfurt (`eu-de`) | Paris (`eu-fr2`) |
+|---------------------|---------------------|------------------|
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
+{: caption="Regions where Vault Dedicated plan is available" caption-side="top"}
+
+The Vault Dedicated plan is currently available as a public beta. Beta features are provided for evaluation and testing purposes and have limitations compared to generally available features.
+{: beta}
+
+#### Vault Dedicated public beta limitations
+{: #vault-dedicated-regions-beta-limitations}
+
+During the public beta period, the Vault Dedicated plan has the following temporary restrictions:
+
+- **Instance limit**: Only 1 Vault Dedicated instance per account during beta.
+- **No upgrade path**: Cannot upgrade from beta to GA. All beta instances will be deleted before general availability.
+- **Regional availability**: Available in 3 regions (Dallas, Frankfurt, Paris).
+- **Free during beta**: No charges apply during the beta period.
+- **Beta to GA migration**: Data migration from beta instances to GA instances is not supported.
+
+These limitations are temporary and apply only during the public beta period. It will be removed or modified when the Vault Dedicated plan reaches general availability.
+{: important}
 
 ## Service endpoints
 {: #service-endpoints}
