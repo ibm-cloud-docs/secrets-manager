@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-07-09"
+lastupdated: "2026-08-28"
 
 keywords: secrets management best practice, rotating secrets, secret rotation, locking secrets, automatic rotation
 
@@ -54,12 +54,12 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Best practices for rotating and locking secrets
 {: #best-practices-rotate-secrets}
 
-
+**Plan availability**: [Trial and Standard]{: tag-blue} plans only.
 
 With {{site.data.keyword.secrets-manager_full}}, you can design a strategy for rotating your secrets and sensitive data. Review the following suggested guidelines for implementing best practices around your secrets management.
 {: shortdesc}

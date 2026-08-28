@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-07-10"
+lastupdated: "2026-08-28"
 
 keywords: assign access for Secrets Manager, secret group access, assign access for all secrets, grant access, add users
 
@@ -54,7 +54,7 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Assigning access to {{site.data.keyword.secrets-manager_short}}
 {: #assign-access}
@@ -96,14 +96,13 @@ To assign access to a {{site.data.keyword.secrets-manager_short}} instance and i
 ## Assigning access to a secret group
 {: #assign-access-secret-group}
 
-
+**Plan availability**: [Trial and Standard]{: tag-blue} plans only.
 
 You can further narrow the scope of access to secrets in your instance by creating and managing [secret groups](#x9968962){: term}.
 
 This process requires two sets of distinct access policies, one with [**Viewer** platform role](/docs/secrets-manager?topic=secrets-manager-iam#iam-roles-actions) to be able to view the service instance, and another access policy to further scope the access to the required access groups, by using either the service UI, or the IAM UI.
 
-### Assigning Viewer access to the service instance
-
+### Assigning Viewer access to the service instance for secret groups
 {: #assign-viewer-access}
 
 1. In the console, go to **Manage > Access (IAM) > Access Groups**.
@@ -151,3 +150,11 @@ To assign access in the {{site.data.keyword.cloud_notm}} console, be sure that y
 6. Choose a combination of [access roles](/docs/secrets-manager?topic=secrets-manager-iam) to assign.
 7. Review your selections and **Add**.
 8. Click **Assign**.
+
+## Assigning access using Vault policies
+{: #assign-access-vault-dedicated}
+
+The [Vault Dedicated]{: tag-green} plan provides a managed HashiCorp Vault Enterprise cluster with advanced access control capabilities. For comprehensive guidance on managing access and policies in Vault Enterprise, refer to HashiCorp's official documentation:
+
+- **Access control policies**: Implement fine-grained access controls using Vault's policy system to ensure users and applications have only the permissions they need. For more information, see [HashiCorp's access control best practices](https://developer.hashicorp.com/vault/tutorials/policies/policies).
+- **Identity and access management**: Use Vault's identity system to manage authentication and authorization across different teams and applications. For detailed guidance, see [HashiCorp's identity and access management documentation](https://developer.hashicorp.com/vault/docs/secrets/identity).

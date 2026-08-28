@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-07-09"
+lastupdated: "2026-08-28"
 
 keywords: tutorial, Secrets Manager
 
@@ -59,8 +59,7 @@ completion-time: 45m
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
-# Secure secrets for apps that run in your Kubernetes cluster
-
+# Secure secrets for apps that run in your Kubernetes cluster by using the Trial and Standard plan
 {: #tutorial-kubernetes-secrets}
 {: toc-content-type="tutorial"}
 {: toc-services="secrets-manager,containers"}
@@ -776,3 +775,5 @@ Great job! In this tutorial, you learned how to set up {{site.data.keyword.secre
 
 - Review the [secret types in {{site.data.keyword.secrets-manager_short}}](https://external-secrets.io/latest/provider/ibm-secrets-manager/){: external} that are supported by External Secrets Operator.
 - Learn more about the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager/secrets-manager-v2).
+
+To work with Vault Dedicated and {{site.data.keyword.containershort}}, you need to create a cluster in your {{site.data.keyword.cloud_notm}} account and configure access to your Vault Dedicated instance.

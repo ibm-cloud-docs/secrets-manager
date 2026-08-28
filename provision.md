@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-07-23"
+lastupdated: "2026-08-28"
 
 keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, trial plan
 
@@ -54,7 +54,7 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Creating a {{site.data.keyword.secrets-manager_short}} service instance
 {: #create-instance}
@@ -62,7 +62,43 @@ subcollection: secrets-manager
 Get started with {{site.data.keyword.secrets-manager_full}} by creating a service instance in {{site.data.keyword.cloud_notm}} console, {{site.data.keyword.cloud_notm}} CLI, or API.
 {: shortdesc}
 
+## Choosing a plan
+{: #choosing-plan}
 
+Before you create an instance, it's important to understand the key differences between the available plans:
+
+| Consideration | [Trial and Standard]{: tag-blue} plans | [Vault Dedicated]{: tag-green} plan |
+|---------------|-------------------------|----------------------|
+| **Features** | IBM-managed secrets with built-in secret types and engines. | Managed HashiCorp Vault Enterprise capabilities with native Vault features. |
+| **Upgrade path** | `Trial` can be upgraded to `Standard` only. | Cannot upgrade from Trial/Standard to `Vault Dedicated`. |
+| **Instance limits** | One trial instance per account. | Multiple instances allowed. |
+| **Use case** | {{site.data.keyword.cloud_notm}}-native secret management. | Enterprise Vault workloads requiring native Vault features. |
+{: caption="Plan comparison" caption-side="bottom"}
+
+The Vault Dedicated plan is currently available as a public beta. Beta features are provided for evaluation and testing purposes and have limitations compared to generally available features.
+{: beta}
+
+### Vault Dedicated public beta limitations
+{: #vault-dedicated-beta-limitations}
+
+During the public beta period, the Vault Dedicated plan has the following temporary restrictions:
+
+- **Instance limit**: Only 1 Vault Dedicated instance per account during beta.
+- **No upgrade path**: Cannot upgrade from beta to GA. All beta instances will be deleted before general availability.
+- **Regional availability**: Available in 3 regions (Dallas, Frankfurt, Paris).
+- **Free during beta**: No charges apply during the beta period.
+- **Beta to GA migration**: Data migration from beta instances to GA instances is not supported.
+
+These limitations are temporary and apply only during the public beta period. It will be removed or modified when the Vault Dedicated plan reaches general availability.
+{: important}
+
+Key points to remember:
+- **Trial instances** can only be upgraded to Standard plan. To use the Vault Dedicated plan, you must provision a new Vault Dedicated instance.
+- **Only one Trial instance** is allowed per account. Before creating a new Trial instance, you must delete any existing Trial instance and its reclamation.
+- **Features differ significantly** between plans. Review the [Feature overview](/docs/secrets-manager?topic=secrets-manager-feature-overview) to determine which plan best fits your needs.
+
+## Before you begin
+{: #create-instance-prereqs}
 
 
 
@@ -145,7 +181,7 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} by using th
     To update your service plan after you create an instance, see [Updating your service plan](/docs/account?topic=account-changing).
     {: tip}
 
-
+For more information on the different available plans, see [Feature overview](/docs/secrets-manager?topic=secrets-manager-feature-overview).
 
 ## Creating a {{site.data.keyword.secrets-manager_short}} instance from API
 {: #create-instance-api}
@@ -185,7 +221,7 @@ For additional programming languages support, see the [Resource Controller API D
     To update your service plan after you create an instance, see [Updating your service plan](/docs/account?topic=account-changing).
     {: tip}
 
-
+For more information on the different available plans, see [Feature overview](/docs/secrets-manager?topic=secrets-manager-feature-overview).
 
 ## Creating a {{site.data.keyword.secrets-manager_short}} instance using Terraform
 {: #create-instance-terraform}
@@ -215,9 +251,12 @@ resource "ibm_resource_instance" "sm_instance" {
 You can also use the [{{site.data.keyword.secrets-manager_full}}](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager/ibm/latest){: external} to provision and configure {{site.data.keyword.secrets-manager_short}} instances as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
 {: tip}
 
-
+For more information on the different available plans, see [Feature overview](/docs/secrets-manager?topic=secrets-manager-feature-overview).
 
 ## Upgrading a {{site.data.keyword.secrets-manager_short}} instance to the Standard plan
 {: #upgrade-instance-standard}
 
 When your Trial instance expires, you lose access to your secrets, and integrations. To preserve your data, and prevent any disruptions in your workflow, you must upgrade to the Standard plan before your Trial plan expires. Follow the steps to [update your pricing plan](/docs/account?topic=account-changing). You can use the UI, API, and CLI to complete this process.
+
+`Trial` plan instances can only be upgraded to the `Standard` plan. To use the `Vault Dedicated` plan, you must provision a new Vault Dedicated instance separately.
+{: note}
