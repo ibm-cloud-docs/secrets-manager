@@ -66,9 +66,9 @@ By using secrets, you're able to authenticate to protected resources as you buil
 ## Working with secrets
 {: #working-with-secrets}
 
-Secrets in {{site.data.keyword.secrets-manager_short}} can be static or dynamic, and are classified by type based on their general purpose. Each secret has a lifecycle that moves through defined states from creation to destruction.
+For the [Trial and Standard]{: tag-blue} plans, secrets in {{site.data.keyword.secrets-manager_short}} can be static or dynamic, and are classified by type based on their general purpose. Each secret has a lifecycle that moves through defined states from creation to destruction.
 
-The following topics apply to the [Trial and Standard]{: tag-blue} plans:
+The following topics apply:
 
-- [Secret types and components](/docs/secrets-manager?topic=secrets-manager-secret-types) — The types of secrets you can create, how each type is structured, and a feature comparison across types.
-- [Secret states and transitions](/docs/secrets-manager?topic=secrets-manager-secret-types#secret-states-transitions) — How secrets move through pre-activation, active, deactivated, and destroyed states during their lifecycle.
+- [Secret types and components](/docs/secrets-manager?topic=secrets-manager-secret-types): The types of secrets you can create, how each type is structured, and a feature comparison across types.
+- [Secret states and transitions](/docs/secrets-manager?topic=secrets-manager-secret-types#secret-states-transitions): How secrets move through pre-activation, active, deactivated, and destroyed states during their lifecycle.
