@@ -59,6 +59,7 @@ completion-time: 10m
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Setting up your Vault Dedicated instance
 {: #setting-up-vault-dedicated-instance}
@@ -127,22 +128,60 @@ For more information about provisioning an instance, see [Creating an instance](
 {: #setting-up-vault-dedicated-admin-token}
 {: step}
 
-To access the Vault UI for initial configuration, generate an admin token from the instance dashboard.
-
-1. In your {{site.data.keyword.secrets-manager_short}} instance dashboard, click **Create token** in the **Create new admin token** section.
-3. Copy the generated admin token and store it securely. You'll need this token to sign in to the Vault UI.
+To access the Vault UI for initial configuration, generate an admin token.
 
 Admin tokens are intended for initial setup and emergency access only. Revoke them as soon as you complete your setup tasks.
 {: important}
 
-Alternatively, you can generate an admin token by calling the Broker API:
+### Generating an admin token in the UI
+{: #setting-up-vault-dedicated-admin-token-ui}
+{: ui}
 
-```bash
+1. In your {{site.data.keyword.secrets-manager_short}} instance dashboard, click **Create token** in the **Create new admin token** section.
+2. Copy the generated admin token and store it securely. You'll need this token to sign in to the Vault UI.
+
+### Generating an admin token from the CLI
+{: #setting-up-vault-dedicated-admin-token-cli}
+{: cli}
+
+To generate a new Vault admin token by using the {{site.data.keyword.cloud_notm}} CLI, run the following command.
+
+```sh
+ibmcloud secrets-manager instance-admin-token-create \
+  --service-url "https://{instance_id}.{region}.secrets-manager.appdomain.cloud"
+```
+{: pre}
+
+The command returns the Vault admin token. Store it securely — you need this token to sign in to the Vault UI.
+
+### Generating an admin token with the API
+{: #setting-up-vault-dedicated-admin-token-api}
+{: api}
+
+```sh
 curl -X POST \
-  "https://{region}.secrets-manager.cloud.ibm.com/api/v2/instances/{instance_id}/admintokens" \
-  -H "Authorization: Bearer {iam_token}"
+  -H "Authorization: Bearer {iam_token}" \
+  -H "Accept: application/json" \
+  "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v2/instance/admin_token"
 ```
 {: codeblock}
+
+The response includes a Vault admin token and its expiry time. Store the token securely — you need it to sign in to the Vault UI.
+
+### Generating an admin token with Terraform
+{: #setting-up-vault-dedicated-admin-token-terraform}
+{: terraform}
+
+To generate an admin token with Terraform, use the `ibm_sm_admin_token` resource.
+
+```terraform
+resource "ibm_sm_admin_token" "my_admin_token" {
+  instance_id = local.instance_id
+}
+```
+{: codeblock}
+
+After your resource is created the Vault admin token is stored in the `token` attribute. The token is valid for 1 hour and grants administrative privileges. The token is automatically refreshed if it expired or it is about to expire.
 
 ## Open the Vault UI
 {: #setting-up-vault-dedicated-vault-ui}
@@ -159,19 +198,41 @@ Use the Vault API endpoint to open the Vault UI and sign in with the admin token
 
 After you finish the initial setup, revoke any active admin tokens to help reduce the risk of unintended access.
 
-1. In your {{site.data.keyword.secrets-manager_short}} instance dashboard, Click **Revoke** in the **Revoke all admin tokens** section.
-3. Confirm the revocation when prompted.
+### Revoking admin tokens in the UI
+{: #setting-up-vault-dedicated-revoke-token-ui}
+{: ui}
+
+1. In your {{site.data.keyword.secrets-manager_short}} instance dashboard, click **Revoke** in the **Revoke all admin tokens** section.
+2. Confirm the revocation when prompted.
 
 Revoking the token immediately invalidates it and helps reduce the risk of unintended access.
 
-Alternatively, you can revoke admin tokens by calling the Broker API:
+### Revoking admin tokens from the CLI
+{: #setting-up-vault-dedicated-revoke-token-cli}
+{: cli}
 
-```bash
+To revoke all active Vault admin tokens by using the {{site.data.keyword.cloud_notm}} CLI, run the following command.
+
+```sh
+ibmcloud secrets-manager instance-admin-token-revoke \
+  --service-url "https://{instance_id}.{region}.secrets-manager.appdomain.cloud"
+```
+{: pre}
+
+This operation immediately invalidates all admin tokens, requiring new tokens to be generated for future administrative access.
+
+### Revoking admin tokens with the API
+{: #setting-up-vault-dedicated-revoke-token-api}
+{: api}
+
+```sh
 curl -X DELETE \
-  "https://{region}.secrets-manager.cloud.ibm.com/api/v2/instances/{instance_id}/admintokens" \
-  -H "Authorization: Bearer {iam_token}"
+  -H "Authorization: Bearer {iam_token}" \
+  "https://{instance_id}.{region}.secrets-manager.appdomain.cloud/api/v2/instance/admin_token"
 ```
 {: codeblock}
+
+A successful revocation returns a `204 No Content` status code.
 
 ## Next steps
 {: #setting-up-vault-dedicated-next-steps}
