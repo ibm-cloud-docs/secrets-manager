@@ -63,7 +63,7 @@ In this change log, you can learn about the latest changes, improvements, and up
 
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
 
-## Version 2.0.0
+## Version 2.0.7
 {: #management-cli-2.0.0}
 
-Version 2.0.0 was released on 2026-08-31. This is the initial release of the {{site.data.keyword.secrets-manager_short}} instance management CLI plug-in for the Vault Dedicated plan.
+Version 2.0.7 was released on 1 September 2026. This is the initial release of the {{site.data.keyword.secrets-manager_short}} instance management CLI plug-in for the Vault Dedicated plan.
