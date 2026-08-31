@@ -66,6 +66,9 @@ You can use the {{site.data.keyword.secrets-manager_full}} instance management c
 
 Current version: **`2.0.7`**
 
+The Vault Dedicated plan is currently available as a public beta. Beta features are provided for evaluation and testing purposes and have limitations compared to generally available features.
+{: beta}
+
 ## Prerequisites
 {: #secrets-manager-management-cli-prereq}
 
