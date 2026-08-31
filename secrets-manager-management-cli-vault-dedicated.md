@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-08-31"
 
 keywords: Secrets Manager CLI, Vault Dedicated, instance management CLI, command line, terminal
 
@@ -64,7 +64,7 @@ content-type: cli-docs
 You can use the {{site.data.keyword.secrets-manager_full}} instance management command-line interface (CLI) to manage your {{site.data.keyword.secrets-manager_short}} Vault Dedicated instance from the command line.
 {: shortdesc}
 
-Current version: **`2.0.0`**
+Current version: **`2.0.7`**
 
 ## Prerequisites
 {: #secrets-manager-management-cli-prereq}
