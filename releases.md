@@ -64,11 +64,11 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
-## 31 August 2026
-{: #secrets-manager-aug3126}
+## 1 September 2026
+{: #secrets-manager-sept126}
 {: release-note}
 
-Vault Dedicated plan is now available as a public beta
+The Vault Dedicated pricing plan beta is now available
 :   The new [Vault Dedicated]{: tag-green} plan delivers a fully managed HashiCorp Vault Enterprise instance on {{site.data.keyword.cloud_notm}}. With Vault Dedicated, you get access to native Vault Enterprise capabilities, including:
 
    - **Advanced secrets engines**: KV v2, Transit, PKI (internal CA), PKI external CA (with Let's Encrypt and DigiCert support), Transform, and TOTP
@@ -544,7 +544,7 @@ Pricing plan updates coming soon in {{site.data.keyword.secrets-manager_short}}
     **Types of plans:**
 
     When you provision an instance of the service after the 23 March, you can choose either a Trial or Standard plan.
-   
+
       * **Trial**: To try out the service, you can provision an instance of the service to access all the features that {{site.data.keyword.secrets-manager_short}} offers for a limited time. After the trial period, all functionality is disabled but the instance remains in your account for an additional 30 days, during which you can choose to upgrade your plan. If you choose not to, the instance and its data are automatically removed from your account without any action on your part.
 
       You can have one instance of the service on the trial plan that is provisioned in your account at any time.
