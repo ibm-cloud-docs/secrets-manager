@@ -68,7 +68,7 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 {: #secrets-manager-sept126}
 {: release-note}
 
-The Vault Dedicated pricing plan beta is now available
+The Vault Dedicated pricing plan is released in beta
 :   The new [Vault Dedicated]{: tag-green} plan delivers a fully managed HashiCorp Vault Enterprise instance on {{site.data.keyword.cloud_notm}}. With Vault Dedicated, you get access to native Vault Enterprise capabilities, including:
 
    - **Advanced secrets engines**: KV v2, Transit, PKI (internal CA), PKI external CA (with Let's Encrypt and DigiCert support), Transform, and TOTP
