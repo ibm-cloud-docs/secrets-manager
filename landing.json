@@ -15,6 +15,22 @@
         "href": "/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets"
       },
       {
+        "title": "Setting up your Vault Dedicated instance",
+        "href": "/docs/secrets-manager?topic=secrets-manager-setting-up-vault-dedicated-instance"
+      },
+      {
+        "title": "Configuring authentication methods for Vault Dedicated",
+        "href": "/docs/secrets-manager?topic=secrets-manager-vault-dedicated-auth-methods"
+      },
+      {
+        "title": "Working with secrets engines in Vault Dedicated",
+        "href": "/docs/secrets-manager?topic=secrets-manager-vault-dedicated-secrets-engines"
+      },
+      {
+        "title": "Managing admin tokens",
+        "href": "/docs/secrets-manager?topic=secrets-manager-manage-admin-tokens"
+      },
+      {
         "title": "Best practices for organizing your secrets and assigning access",
         "href": "/docs/secrets-manager?topic=secrets-manager-best-practices-organize-secrets"
       },

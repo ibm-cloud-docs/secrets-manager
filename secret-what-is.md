@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-08-31"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -73,3 +73,10 @@ The following topics apply:
 
 - [Secret types and components](/docs/secrets-manager?topic=secrets-manager-secret-types): The types of secrets you can create, how each type is structured, and a feature comparison across types.
 - [Secret states and transitions](/docs/secrets-manager?topic=secrets-manager-secret-types#secret-states-transitions): How secrets move through pre-activation, active, deactivated, and destroyed states during their lifecycle.
+
+For the [Vault Dedicated]{: tag-green} plan, secrets are managed through native HashiCorp Vault secrets engines. Each engine handles a specific class of secret, from static key-value pairs to dynamically generated certificates and encryption keys.
+
+The following topics apply:
+
+- [Working with secrets engines](/docs/secrets-manager?topic=secrets-manager-vault-dedicated-secrets-engines): An overview of how secrets engines work in Vault Dedicated and how to enable them.
+- [Supported secrets engines](/docs/secrets-manager?topic=secrets-manager-vault-dedicated-secrets-engines#vault-dedicated-secrets-engines-supported): The secrets engines available during the public beta, including KV v2, Transit, PKI, Transform, and TOTP.

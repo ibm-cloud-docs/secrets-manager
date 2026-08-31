@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-08-07"
+lastupdated: "2026-08-31"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -63,6 +63,23 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 {: shortdesc}
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
+
+## 31 August 2026
+{: #secrets-manager-aug3126}
+{: release-note}
+
+Vault Dedicated plan is now available as a public beta
+:   The new [Vault Dedicated]{: tag-green} plan delivers a fully managed HashiCorp Vault Enterprise instance on {{site.data.keyword.cloud_notm}}. With Vault Dedicated, you get access to native Vault Enterprise capabilities, including:
+
+   - **Advanced secrets engines**: KV v2, Transit, PKI (internal CA), PKI external CA (with Let's Encrypt and DigiCert support), Transform, and TOTP
+   - **Authentication methods**: Token, AppRole, and Userpass
+   - **Namespaces**: multi-tenant secret management with isolated policies and access controls
+   - **Sentinel policies**: fine-grained policy enforcement beyond standard ACL rules
+   - **Instance management**: available through the {{site.data.keyword.cloud_notm}} console, APIs, SDKs, CLI, and Terraform
+
+   Vault Dedicated is available in the Dallas, Frankfurt, and BNPP regions. During the beta period, one instance is allowed per account. Beta instances will be deleted before general availability, and no charges apply during the beta.
+
+   To get started, see [Setting up your Vault Dedicated instance](/docs/secrets-manager?topic=secrets-manager-setting-up-vault-dedicated-instance).
 
 ## 06 August 2026
 {: #secrets-manager-aug0626}
