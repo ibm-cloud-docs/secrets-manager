@@ -2,9 +2,9 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-08-31"
 
-keywords: Vault Dedicated, secrets engines, KV, PKI, transit, database, SSH
+keywords: Vault Dedicated, secrets engines, KV, PKI, transit, transform, TOTP
 
 subcollection: secrets-manager
 
@@ -59,24 +59,23 @@ subcollection: secrets-manager
 # Working with secrets engines
 {: #vault-dedicated-secrets-engines}
 
-Vault Dedicated exposes the full set of HashiCorp Vault Enterprise secrets engines. A secrets engine is a component that stores, generates, or encrypts data. You enable and configure secrets engines in your Vault Dedicated instance using the Vault UI, CLI, or API.
+A secrets engine is a component that stores, generates, or encrypts data. You enable and configure secrets engines in your Vault Dedicated instance using the Vault UI, CLI, or API.
 {: shortdesc}
 
 ## Supported secrets engines
 {: #vault-dedicated-secrets-engines-supported}
 
-The following secrets engines are most commonly used with Vault Dedicated:
+During the public beta, Vault Dedicated supports the following secrets engines:
 
 | Secrets engine | What it does | HashiCorp docs |
 |----------------|--------------|----------------|
 | **KV v2** | Store and retrieve arbitrary static secrets as key-value pairs, with versioning support. | [KV secrets engine v2](https://developer.hashicorp.com/vault/docs/secrets/kv/kv-v2){: external} |
-| **PKI** | Issue and manage X.509 certificates, including support for ACME clients for automated certificate lifecycle management. | [PKI secrets engine](https://developer.hashicorp.com/vault/docs/secrets/pki){: external} |
 | **Transit** | Encryption-as-a-service: encrypt, decrypt, sign, verify, and derive keys without key material leaving Vault. | [Transit secrets engine](https://developer.hashicorp.com/vault/docs/secrets/transit){: external} |
-| **Database** | Generate dynamic, short-lived credentials for databases. Eliminates the need for static database passwords. | [Database secrets engine](https://developer.hashicorp.com/vault/docs/secrets/databases){: external} |
-| **SSH** | Issue dynamic SSH credentials and signed certificates for secure host access. | [SSH secrets engine](https://developer.hashicorp.com/vault/docs/secrets/ssh){: external} |
+| **PKI (internal CA)** | Issue and manage X.509 certificates using an internal private key hierarchy. | [PKI secrets engine](https://developer.hashicorp.com/vault/docs/secrets/pki){: external} |
+| **PKI external CA** | Issue certificates signed by an external certificate authority, with support for Let's Encrypt and DigiCert. | [PKI secrets engine](https://developer.hashicorp.com/vault/docs/secrets/pki){: external} |
+| **Transform** | Tokenize, encode, and format sensitive data to protect it while preserving its structure. | [Transform secrets engine](https://developer.hashicorp.com/vault/docs/secrets/transform){: external} |
+| **TOTP** | Generate and validate time-based one-time passwords (TOTP) for multi-factor authentication. | [TOTP secrets engine](https://developer.hashicorp.com/vault/docs/secrets/totp){: external} |
 {: caption="Supported secrets engines for Vault Dedicated" caption-side="bottom"}
-
-For the full list of supported secrets engines, see the [HashiCorp Vault secrets engines documentation](https://developer.hashicorp.com/vault/docs/secrets){: external}.
 
 ## Before you begin
 {: #vault-dedicated-secrets-engines-prereqs}

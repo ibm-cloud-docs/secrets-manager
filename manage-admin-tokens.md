@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-08-31"
 
 keywords: Secrets Manager, Vault Dedicated, admin tokens, instance management API
 
@@ -59,7 +59,9 @@ subcollection: secrets-manager
 # Managing admin tokens
 {: #manage-admin-tokens}
 
-Admin tokens provide root-level access to your Vault Dedicated cluster and are required for initial setup and administrative operations. You generate and revoke admin tokens through the {{site.data.keyword.secrets-manager_short}} Instance Management API.
+IBM Cloud Vault Dedicated clusters operate from the admin namespace, unlike a self-managed Vault Enterprise cluster which operates from the root namespace.The root namespace is reserved for service operations and not customer accessible.
+
+Admin tokens provide administrative access to your Vault Dedicated cluster admin namespace and are required for initial setup and ongoing administrative operations. You generate and revoke admin tokens through the Secrets Manager Instance Management API.
 {: shortdesc}
 
 Admin tokens should be treated as highly sensitive credentials. Generate them only when needed for administrative tasks, and revoke them immediately after use.
@@ -70,7 +72,8 @@ Admin tokens should be treated as highly sensitive credentials. Generate them on
 
 Each time you request an admin token, the service creates a non-renewable admin token with a time-to-live (TTL) of 1 hour. The token expires automatically after 1 hour and cannot be renewed.
 
-The admin token gives you administrative access to the Vault data plane — secrets engines, authentication methods, policies, and namespaces within your instance — but does not allow infrastructure-level operations such as sealing or unsealing Vault, scaling the cluster, or modifying storage settings.
+The admin token provides administrative access to your Vault Dedicated cluster's admin namespace. It can be used to create namespaces, configure secrets engines and authentication methods, manage policies, and perform other administrative tasks.
+The admin token does not provide access to service-managed operations such as sealing or unsealing Vault, cluster scaling, and storage management, those operations are performed exclusively by the IBM Cloud Vault Dedicated service.
 
 ## Recommended practices
 {: #admin-token-best-practices}

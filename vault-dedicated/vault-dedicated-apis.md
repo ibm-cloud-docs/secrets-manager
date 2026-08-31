@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-08-31"
 
 keywords: Secrets Manager, Vault Dedicated, API, admin tokens, instance details
 
@@ -259,7 +259,7 @@ curl -X DELETE \
 A successful revocation returns a `204 No Content` status code.
 
 ## HashiCorp Vault API
-{: #vault-api}
+{: #vault-dedicated-hashicorp-api}
 
 For Vault runtime operations such as secrets management, authentication methods, policies, and secrets engines, use the HashiCorp Vault API and CLI documentation.
 

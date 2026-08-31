@@ -2,9 +2,9 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-08-31"
 
-keywords: Vault Dedicated, authentication, auth methods, AppRole, Kubernetes, JWT, OIDC, token
+keywords: Vault Dedicated, authentication, auth methods, AppRole, Userpass, token
 
 subcollection: secrets-manager
 
@@ -68,17 +68,14 @@ The admin token is intended for initial configuration and emergency access only.
 ## Supported authentication methods
 {: #vault-dedicated-auth-methods-supported}
 
-Vault Dedicated supports the full set of HashiCorp Vault authentication methods. The following methods are most commonly used:
+During the public beta, Vault Dedicated supports the following authentication methods:
 
 | Auth method | Best for | HashiCorp docs |
 |-------------|----------|----------------|
-| **AppRole** | Machine-to-machine authentication for applications and services. | [AppRole auth method](https://developer.hashicorp.com/vault/docs/auth/approle){: external} |
-| **Kubernetes** | Workloads running in Kubernetes clusters, authenticated using service account tokens. | [Kubernetes auth method](https://developer.hashicorp.com/vault/docs/auth/kubernetes){: external} |
-| **JWT/OIDC** | Authenticating using JSON Web Tokens or OpenID Connect providers such as IBM Cloud IAM. | [JWT/OIDC auth method](https://developer.hashicorp.com/vault/docs/auth/jwt){: external} |
 | **Token** | Direct token-based authentication. Used for initial setup and for generating child tokens with scoped policies. | [Token auth method](https://developer.hashicorp.com/vault/docs/auth/token){: external} |
+| **AppRole** | Machine-to-machine authentication for applications and services. | [AppRole auth method](https://developer.hashicorp.com/vault/docs/auth/approle){: external} |
+| **Userpass** | Username and password authentication for human users. | [Userpass auth method](https://developer.hashicorp.com/vault/docs/auth/userpass){: external} |
 {: caption="Supported authentication methods for Vault Dedicated" caption-side="bottom"}
-
-For the full list of supported authentication methods, see the [HashiCorp Vault auth methods documentation](https://developer.hashicorp.com/vault/docs/auth){: external}.
 
 ## Before you begin
 {: #vault-dedicated-auth-methods-prereqs}
