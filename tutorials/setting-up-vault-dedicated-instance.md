@@ -81,7 +81,7 @@ During the public beta period, the [Vault Dedicated]{: tag-green} plan has the f
 
 - **Instance limit**: Only 1 Vault Dedicated instance per account during beta.
 - **No upgrade path**: Cannot upgrade from beta to GA. All beta instances will be deleted before general availability.
-- **Regional availability**: Available in 3 regions (Dallas, Frankfurt, Paris).
+- **Regional availability**: Available in 2 regions (Dallas and Frankfurt).
 - **Free during beta**: No charges apply during the beta period.
 - **Beta to GA migration**: Data migration from beta instances to GA instances is not supported.
 

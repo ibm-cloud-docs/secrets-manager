@@ -258,6 +258,43 @@ curl -X DELETE \
 
 A successful revocation returns a `204 No Content` status code.
 
+### Getting instance details with Terraform
+{: #instance-details-terraform}
+
+To get the details of a Vault Dedicated instance with Terraform, use the `sm_instance_details` data source.
+
+The following example shows a configuration that you can use to get the instance details.
+
+```terraform
+data "ibm_sm_instance" "my_vault_dedicated_instance" {
+  instance_id = local.instance_id
+}
+```
+{: codeblock}
+
+After your data source is created you can access its attributes to get the instance details. For example, to get the public Vault API endpoint use the following:
+
+```
+data.ibm_sm_instance.my_vault_dedicated_instance.endpoints.0.public.0.vault_api
+```
+{: codeblock}
+
+### Generate an admin token with Terraform
+{: #generate-admin-token-terraform}
+
+To generate a new Vault admin token for authenticating to your Vault Dedicated cluster with Terraform, use the `sm_admin_token` resource.
+
+The following example shows a configuration that you can use to generate an admin token.
+
+```terraform
+resource "ibm_sm_admin_token" "my_admin_token" {
+  instance_id = local.instance_id
+}
+```
+{: codeblock}
+
+After your resource is created the vault admin token is stored in the `token` attribute. The token is valid for 1 hour and grants administrative privileges. The token is automatically refreshed if it expired or it is about to expire.
+
 ## HashiCorp Vault API
 {: #vault-dedicated-hashicorp-api}
 

@@ -77,7 +77,7 @@ Vault Dedicated plan is now available as a public beta
    - **Sentinel policies**: fine-grained policy enforcement beyond standard ACL rules
    - **Instance management**: available through the {{site.data.keyword.cloud_notm}} console, APIs, SDKs, CLI, and Terraform
 
-   Vault Dedicated is available in the Dallas, Frankfurt, and BNPP regions. During the beta period, one instance is allowed per account. Beta instances will be deleted before general availability, and no charges apply during the beta.
+   Vault Dedicated is available in the Dallas and Frankfurt regions. During the beta period, one instance is allowed per account. Beta instances will be deleted before general availability, and no charges apply during the beta.
 
    To get started, see [Setting up your Vault Dedicated instance](/docs/secrets-manager?topic=secrets-manager-setting-up-vault-dedicated-instance).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-08-31"
 
 keywords: pricing plan, billing, cost
 
@@ -105,7 +105,7 @@ During the public beta period, the [Vault Dedicated]{: tag-green} plan has the f
 
 - **Instance limit**: Only 1 [Vault Dedicated]{: tag-green} instance per account during beta.
 - **No upgrade path**: Cannot upgrade from beta to GA. All beta instances will be deleted before general availability.
-- **Regional availability**: Available in 3 regions (Dallas, Frankfurt, Paris).
+- **Regional availability**: Available in 2 regions (Dallas and Frankfurt).
 - **Free during beta**: No charges apply during the beta period.
 - **Beta to GA migration**: Data migration from beta instances to GA instances is not supported.
 
