@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-08-31"
 
 keywords: monitoring, metrics, operational metrics
 
@@ -343,11 +343,19 @@ You can filter your metrics by using segmentation attributes.
 
 You can scope down your metrics by using scope filters, which are more granular than the segmentation filters.
 
-|Attribute Name|Description|
-|--- |--- |
-|`ibm_scope`|The account, organization, or space GUID associated with the metric.|
-|`ibm_location`|The location of the instance.|
-|`ibm_service_instance`|The service instance id associated with the metric.|
+The first three attributes apply to all metrics. The remaining attributes are additional labels carried only by specific [Vault Dedicated]{: tag-green} metrics.
+
+|Attribute Name|Applies to|Description|
+|--- |--- |--- |
+|`ibm_scope`|All metrics|The account, organization, or space GUID associated with the metric.|
+|`ibm_location`|All metrics|The location of the instance.|
+|`ibm_service_instance`|All metrics|The service instance id associated with the metric.|
+|`mount`|`ibm_sm_vault_dedicated_route_*` [Vault Dedicated]{: tag-green}|The secret engine mount name the operation was routed to.|
+|`mount_point`|`ibm_sm_vault_dedicated_identity_entity_alias_count`, `ibm_sm_vault_dedicated_secret_lease_creation_count` [Vault Dedicated]{: tag-green}|The mount path of the auth or secrets engine associated with the entity alias or lease.|
+|`auth_method`|`ibm_sm_vault_dedicated_identity_entity_alias_count`, `ibm_sm_vault_dedicated_token_count_by_auth` [Vault Dedicated]{: tag-green}|The authentication method (e.g. token, approle) associated with the entity alias or token.|
+|`policy`|`ibm_sm_vault_dedicated_token_count_by_policy` [Vault Dedicated]{: tag-green}|The Vault policy name attached to the tokens being counted.|
+|`creation_ttl`|`ibm_sm_vault_dedicated_token_count_by_ttl` [Vault Dedicated]{: tag-green}|The TTL bucket for token creation time-to-live (e.g. 1h, 24h).|
+|`expiring`|`ibm_sm_vault_dedicated_expire_leases_by_expiration` [Vault Dedicated]{: tag-green}|The expiration time bucket for active leases.|
 {: caption="Describes the scope filters for {{site.data.keyword.secrets-manager_short}} metrics." caption-side="bottom"}
 
 ## Default dashboards
