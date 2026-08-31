@@ -40,7 +40,7 @@ toc:
   - navgroup:
       id: tutorial
       topics:
-      - topic: tutorials/getting-started-vault-dedicated-plan.md
+      - topic: tutorials/setting-up-vault-dedicated-instance.md
         navtitle: Setting up your Vault Dedicated instance
       - tutorials/access-storage.md
       - topicgroup:
@@ -63,7 +63,7 @@ toc:
             navtitle: Creating an instance
           - topic: assign-access.md
             navtitle: Assigning access to Secrets Manager
-          - topic: event-notifications.md
+          - topic: framework/event-notifications.md
             navtitle: Enabling Event Notifications
           - topicgroup:
               label: Integrating Secrets Manager with your apps
@@ -212,8 +212,8 @@ toc:
           - topicgroup:
               label: Privately connecting to Secrets Manager
               topics:
-              - topic: data-security.md
-                navtitle: Using service endpoints
+              - topic: framework/cse.md
+                navtitle: Using service endpoints to privately connect to Secrets Manager
           - topic: framework/data-security.md
             navtitle: Securing your data in Secrets Manager
           - topic: cbr-control-access.md

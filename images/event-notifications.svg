@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1664px" height="872px" viewBox="0 0 1664 872" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>notification-settings</title>
+    <defs>
+        <rect id="path-1" x="189" y="15" width="1312" height="841"></rect>
+        <filter x="-1.1%" y="-1.5%" width="102.2%" height="103.4%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <polygon id="path-3" points="8.5 7.5 8.5 3.5 7.5 3.5 7.5 7.5 3.5 7.5 3.5 8.5 7.5 8.5 7.5 12.5 8.5 12.5 8.5 8.5 12.5 8.5 12.5 7.5"></polygon>
+        <filter id="filter-5">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.956863 0 0 0 0 0.956863 0 0 0 0 0.956863 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <path d="M10,2.5 C11.7258898,2.5 13.125,3.89911016 13.125,5.625 C13.125,7.35088984 11.7258898,8.75 10,8.75 C8.27411016,8.75 6.875,7.35088984 6.875,5.625 C6.87696323,3.89992401 8.27492401,2.50196323 10,2.5 L10,2.5 Z M10,1.25 C7.58375422,1.25 5.625,3.20875422 5.625,5.625 C5.625,8.04124578 7.58375422,10 10,10 C12.4162458,10 14.375,8.04124578 14.375,5.625 C14.375,3.20875422 12.4162458,1.25 10,1.25 Z M16.25,18.75 L15,18.75 L15,15.625 C14.997968,13.8999525 13.6000475,12.502032 11.875,12.5 L8.125,12.5 C6.39995252,12.502032 5.00203196,13.8999525 5,15.625 L5,18.75 L3.75,18.75 L3.75,15.625 C3.75282413,13.209925 5.70992498,11.2528241 8.125,11.25 L11.875,11.25 C14.290075,11.2528241 16.2471759,13.209925 16.25,15.625 L16.25,18.75 Z" id="path-6"></path>
+        <filter id="filter-8">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.956863 0 0 0 0 0.956863 0 0 0 0 0.956863 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <filter id="filter-9">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.956863 0 0 0 0 0.956863 0 0 0 0 0.956863 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <filter id="filter-10">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.956863 0 0 0 0 0.956863 0 0 0 0 0.956863 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <filter id="filter-11">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.956863 0 0 0 0 0.956863 0 0 0 0 0.956863 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <filter id="filter-12">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.956863 0 0 0 0 0.956863 0 0 0 0 0.956863 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <filter x="-20.8%" y="-19.5%" width="142.0%" height="139.0%" filterUnits="objectBoundingBox" id="filter-13">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="notification-settings" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#F3F3F3" opacity="0" x="0" y="0" width="1664" height="872"></rect>
+        <g id="Rectangle">
+            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+            <use fill="#F4F4F4" fill-rule="evenodd" xlink:href="#path-1"></use>
+        </g>
+        <text id="Settings" font-family="IBMPlexSans, IBM Plex Sans" font-size="20" font-weight="normal" line-spacing="28" fill="#161616">
+            <tspan x="484" y="189.5">Settings</tspan>
+        </text>
+        <g id="card-/-large-heading-/-01-normal" transform="translate(468.000000, 219.500000)">
+            <rect id="Rectangle" fill="#FFFFFF" x="0" y="0.5" width="960" height="113"></rect>
+            <g id="tile" transform="translate(0.000000, 0.500000)" fill="#FFFFFF">
+                <rect id="Background" x="0" y="0" width="1002" height="113"></rect>
+            </g>
+            <rect id="Rectangle" fill="#D8D8D8" x="17" y="28.5" width="324" height="9"></rect>
+            <rect id="Rectangle" fill="#E5E5E5" x="18" y="45.5" width="268" height="9"></rect>
+        </g>
+        <g id="card-/-large-heading-/-01-normal" transform="translate(468.000000, 353.500000)">
+            <rect id="Rectangle" fill="#FFFFFF" x="0" y="0.5" width="960" height="113"></rect>
+            <g id="tile" transform="translate(0.000000, 0.500000)" fill="#FFFFFF">
+                <rect id="Background" x="0" y="0" width="1002" height="279"></rect>
+            </g>
+            <g id="button-/-03-tertiary-/-default-/-02-text-and-icon-/-01-enabled" transform="translate(480.000000, 206.500000)">
+                <g id="Button">
+                    <path d="M127.5,0.5 L127.5,31.5 L0.5,31.5 L0.5,0.5 L127.5,0.5 Z" id="Background" stroke="#0F62FE"></path>
+                    <g id="Spacer" transform="translate(66.865672, 0.000000)">
+                        <rect id="spacer" x="-2.86567164" y="0" width="64" height="32"></rect>
+                    </g>
+                    <text id="Label" font-family="IBMPlexSans, IBM Plex Sans" font-size="14" font-weight="normal" line-spacing="18" letter-spacing="0.159999996" fill="#0F62FE">
+                        <tspan x="16" y="21">Connect</tspan>
+                    </text>
+                </g>
+                <g id="Icon" transform="translate(96.000000, 8.000000)">
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <use id="icon-color" fill="#0F62FE" xlink:href="#path-3"></use>
+                </g>
+            </g>
+            <rect id="Rectangle" fill="#D8D8D8" x="480" y="149.5" width="324" height="9"></rect>
+            <rect id="Rectangle" fill="#D8D8D8" x="224" y="23.5" width="608" height="9"></rect>
+            <rect id="Rectangle" fill="#E5E5E5" x="480" y="166.5" width="268" height="9"></rect>
+            <rect id="Rectangle" fill="#E5E5E5" x="224" y="40.5" width="160" height="9"></rect>
+            <rect id="Rectangle" fill="#E5E5E5" x="224" y="122.5" width="96" height="9"></rect>
+            <text id="Event-Notifications" font-family="IBMPlexSans-SemiBold, IBM Plex Sans" font-size="14" font-weight="500" line-spacing="18" letter-spacing="0.159999996" fill="#161616">
+                <tspan x="17" y="33">Event Notifications</tspan>
+            </text>
+            <text id="You-haven’t-connecte" font-family="IBMPlexSans, IBM Plex Sans" font-size="14" font-weight="normal" line-spacing="20" letter-spacing="0.159999996" fill="#161616">
+                <tspan x="480" y="130">You haven’t connected to Event Notifications yet.</tspan>
+            </text>
+            <line x1="927.5" y1="100" x2="223.5" y2="100" id="Line" stroke="#E5E5E5" stroke-linecap="square"></line>
+            <line x1="448.5" y1="241" x2="448.5" y2="120" id="Line" stroke="#E5E5E5" stroke-linecap="square"></line>
+            <g id="tag-/-01-default-/-small-/-gray-/-01-enabled" transform="translate(480.000000, 69.000000)">
+                <rect id="Tag-color" fill="#E0E0E0" x="0" y="0" width="141" height="18" rx="9"></rect>
+                <g id="Spacer" transform="translate(133.000000, 0.000000)">
+                    <rect id="spacer" x="0" y="0" width="8" height="18"></rect>
+                </g>
+                <text id="Label-text" font-family="IBMPlexSans, IBM Plex Sans" font-size="12" font-weight="normal" line-spacing="16" letter-spacing="0.319999993" fill="#161616">
+                    <tspan x="8" y="13">secret about to expire</tspan>
+                </text>
+            </g>
+            <g id="tag-/-01-default-/-small-/-gray-/-01-enabled" transform="translate(628.000000, 69.000000)">
+                <rect id="Tag-color" fill="#E0E0E0" x="0" y="0" width="97" height="18" rx="9"></rect>
+                <g id="Spacer" transform="translate(89.000000, 0.000000)">
+                    <rect id="spacer" x="0" y="0" width="8" height="18"></rect>
+                </g>
+                <text id="Label-text" font-family="IBMPlexSans, IBM Plex Sans" font-size="12" font-weight="normal" line-spacing="16" letter-spacing="0.319999993" fill="#161616">
+                    <tspan x="8" y="13">secret rotated</tspan>
+                </text>
+            </g>
+            <g id="tag-/-01-default-/-small-/-gray-/-01-enabled" transform="translate(733.000000, 69.000000)">
+                <rect id="Tag-color" fill="#E0E0E0" x="0" y="0" width="99" height="18" rx="9"></rect>
+                <g id="Spacer" transform="translate(91.000000, 0.000000)">
+                    <rect id="spacer" x="0" y="0" width="8" height="18"></rect>
+                </g>
+                <text id="Label-text" font-family="IBMPlexSans, IBM Plex Sans" font-size="12" font-weight="normal" line-spacing="16" letter-spacing="0.319999993" fill="#161616">
+                    <tspan x="8" y="13">secret created</tspan>
+                </text>
+            </g>
+        </g>
+        <text id="Events-for-Secrets-M" font-family="IBMPlexSans, IBM Plex Sans" font-size="12" font-weight="normal" line-spacing="16" letter-spacing="0.32" fill="#525252">
+            <tspan x="692" y="438.5">Events for Secrets Manager:</tspan>
+        </text>
+        <g id="_resource-detail-page-/-02-navigation-/-group" transform="translate(189.000000, 168.000000)">
+            <rect id="background" fill="#F4F4F4" x="2.84217094e-14" y="0" width="256" height="688"></rect>
+            <g id="page-link-5" transform="translate(0.000000, 144.000000)">
+                <rect id="background" fill="#E0E0E0" transform="translate(123.500000, 16.000000) scale(-1, 1) translate(-123.500000, -16.000000) " x="0" y="0" width="247" height="32"></rect>
+                <rect id="highlight" fill="#0F62FE" transform="translate(2.000000, 16.000000) scale(-1, 1) translate(-2.000000, -16.000000) " x="0" y="0" width="4" height="32"></rect>
+                <text id="text" font-family="IBMPlexSans-SemiBold, IBM Plex Sans" font-size="14" font-weight="500" line-spacing="18" letter-spacing="0.159999996" fill="#161616">
+                    <tspan x="32" y="21">Settings</tspan>
+                </text>
+            </g>
+        </g>
+        <g id="_resource-detail-page-/-01-header-/-no-action-/-running-/-672+" transform="translate(189.000000, 64.000000)">
+            <rect id="Rectangle" fill="#F3F3F3" x="0" y="0" width="1312" height="104"></rect>
+            <g id="Group" transform="translate(32.000000, 32.000000)">
+                <g transform="translate(403.000000, 10.000000)">
+                    <rect id="Background" x="0" y="0" width="32" height="32"></rect>
+                    <g transform="translate(8.000000, 8.000000)" fill="#161616" id="Icon">
+                        <path d="M1,13 L15,13 L15,14 L1,14 L1,13 Z M12.7,4.5 C13.1,4.1 13.1,3.5 12.7,3.1 L10.9,1.3 C10.5,0.9 9.9,0.9 9.5,1.3 L2,8.8 L2,12 L5.2,12 L12.7,4.5 Z M10.2,2 L12,3.8 L10.5,5.3 L8.7,3.5 L10.2,2 Z M3,11 L3,9.2 L8,4.2 L9.8,6 L4.8,11 L3,11 Z" id="Fill"></path>
+                    </g>
+                </g>
+                <g transform="translate(356.000000, 14.000000)" id="tag-/-01-default-/-blue-/-01-enabled-copy">
+                    <path d="M12,0 L27,0 C33.627417,5.58920087e-16 39,5.372583 39,12 C39,18.627417 33.627417,24 27,24 L12,24 C5.372583,24 2.58798134e-15,18.627417 0,12 C9.64732338e-16,5.372583 5.372583,2.99379359e-15 12,0 Z" id="Tag-color" fill="#D0E2FF"></path>
+                    <g id="Spacer" transform="translate(31.000000, 0.000000)">
+                        <rect id="spacer" x="0" y="0" width="8" height="24"></rect>
+                    </g>
+                    <text id="Label-text" font-family="IBMPlexSans, IBM Plex Sans" font-size="12" font-weight="normal" line-spacing="16" letter-spacing="0.319999993" fill="#0043CE">
+                        <tspan x="8" y="16">test</tspan>
+                    </text>
+                </g>
+                <g transform="translate(280.000000, 16.000000)" id="status">
+                    <text id="01-running" font-family="IBMPlexSans, IBM Plex Sans" font-size="14" font-weight="normal" line-spacing="18" letter-spacing="0.159999996" fill="#161616">
+                        <tspan x="20" y="14">Active</tspan>
+                    </text>
+                    <g id="status" transform="translate(0.000000, 1.000000)">
+                        <path d="M8,1 C4.13400675,1 1,4.13400675 1,8 C1,11.8659932 4.13400675,15 8,15 C11.8659932,15 15,11.8659932 15,8 C15,6.14348457 14.2625021,4.36300718 12.9497475,3.05025253 C11.6369928,1.73749788 9.85651543,1 8,1 Z M7,10.7954 L4.5,8.2954 L5.2953,7.5 L7,9.2046 L10.705,5.5 L11.50285,6.29295 L7,10.7954 Z" id="Fill" fill="#24A148"></path>
+                        <polygon id="Inner-Fill" fill="#FFFFFF" points="7 10.7955 4.5 8.2955 5.2955 7.5 7 9.2045 10.705 5.5 11.5025 6.2925"></polygon>
+                    </g>
+                </g>
+                <text id="title" font-family="IBMPlexSans, IBM Plex Sans" font-size="28" font-weight="normal" line-spacing="40" fill="#161616">
+                    <tspan x="0" y="29">my-secrets-manager</tspan>
+                </text>
+            </g>
+            <g id="breadcrumb" transform="translate(32.000000, 13.000000)">
+                <g id="Spacer" transform="translate(212.000000, 0.000000)">
+                    <rect id="spacer" x="0" y="0" width="8" height="24"></rect>
+                </g>
+                <text id="-/-" font-family="IBMPlexSans, IBM Plex Sans" font-size="14" font-weight="normal" line-spacing="18" letter-spacing="0.159999996" fill="#161616">
+                    <tspan x="92" y="17">/</tspan>
+                </text>
+                <g id="Spacer" transform="translate(98.000000, 0.000000)">
+                    <rect id="spacer" x="0" y="0" width="8" height="24"></rect>
+                </g>
+                <text id="Breadcrumb-1" font-family="IBMPlexSans, IBM Plex Sans" font-size="14" font-weight="normal" line-spacing="18" letter-spacing="0.159999996" fill="#0F62FE">
+                    <tspan x="0" y="17">Resource list</tspan>
+                </text>
+            </g>
+        </g>
+        <g id="global-nav" transform="translate(189.000000, 15.000000)">
+            <rect id="background" fill="#171717" x="0" y="0" width="1312" height="48"></rect>
+            <g id="User" transform="translate(1264.000000, 0.000000)">
+                <rect id="background" x="0" y="0" width="48" height="48"></rect>
+                <g id="Icon" transform="translate(14.000000, 14.000000)" filter="url(#filter-5)">
+                    <g>
+                        <mask id="mask-7" fill="white">
+                            <use xlink:href="#path-6"></use>
+                        </mask>
+                        <use id="icon-color" fill="#C6C6C6" xlink:href="#path-6"></use>
+                    </g>
+                </g>
+            </g>
+            <g id="cost-estimator" transform="translate(1216.000000, 0.000000)">
+                <rect id="background" x="0" y="0" width="48" height="48"></rect>
+                <g id="Icon" transform="translate(14.000000, 14.000000)" filter="url(#filter-8)">
+                    <g>
+                        <path d="M17.9375,12.6875 L16.25,11 L16.25,8.125 C16.2458533,4.91102718 13.8207808,2.21650217 10.625,1.875 L10.625,0.625 L9.375,0.625 L9.375,1.875 C6.19027615,2.2380563 3.77674244,4.91976043 3.75,8.125 L3.75,11 L2.0625,12.6875 C1.93904716,12.7989101 1.8705364,12.9587686 1.875,13.125 L1.875,15 C1.86382379,15.1689394 1.92607409,15.3344873 2.04579337,15.4542066 C2.16551265,15.5739259 2.33106065,15.6361762 2.5,15.625 L6.875,15.625 C6.875,17.3508898 8.27411016,18.75 10,18.75 C11.7258898,18.75 13.125,17.3508898 13.125,15.625 L17.5,15.625 C17.6689394,15.6361762 17.8344873,15.5739259 17.9542066,15.4542066 C18.0739259,15.3344873 18.1361762,15.1689394 18.125,15 L18.125,13.125 C18.1294636,12.9587686 18.0609528,12.7989101 17.9375,12.6875 L17.9375,12.6875 Z M10,17.5 C8.96446609,17.5 8.125,16.6605339 8.125,15.625 L11.875,15.625 C11.875,16.6605339 11.0355339,17.5 10,17.5 L10,17.5 Z M16.875,14.375 L3.125,14.375 L3.125,13.375 L4.8125,11.6875 C4.93595284,11.5760899 5.0044636,11.4162314 5,11.25 L5,8.125 C5,5.36357625 7.23857625,3.125 10,3.125 C12.7614237,3.125 15,5.36357625 15,8.125 L15,11.25 C14.9955364,11.4162314 15.0640472,11.5760899 15.1875,11.6875 L16.875,13.375 L16.875,14.375 Z" id="Fill" fill="#C6C6C6"></path>
+                    </g>
+                </g>
+            </g>
+            <g id="terminal" transform="translate(1168.000000, 0.000000)">
+                <rect id="background" x="0" y="0" width="48" height="48"></rect>
+                <g id="Icon" transform="translate(14.000000, 14.000000)" filter="url(#filter-9)">
+                    <g>
+                        <path d="M16.25,2.5 L16.25,17.5 L3.75,17.5 L3.75,2.5 L16.25,2.5 L16.25,2.5 Z M16.25,1.25 L3.75,1.25 C3.05964406,1.25 2.5,1.80964406 2.5,2.5 L2.5,17.5 C2.5,18.1903559 3.05964406,18.75 3.75,18.75 L16.25,18.75 C16.9403559,18.75 17.5,18.1903559 17.5,17.5 L17.5,2.5 C17.5,1.80964406 16.9403559,1.25 16.25,1.25 Z M5.625,14.375 L6.875,14.375 L6.875,15.625 L5.625,15.625 L5.625,14.375 Z M13.125,14.375 L14.375,14.375 L14.375,15.625 L13.125,15.625 L13.125,14.375 Z M5.625,11.25 L6.875,11.25 L6.875,12.5 L5.625,12.5 L5.625,11.25 Z M13.125,11.25 L14.375,11.25 L14.375,12.5 L13.125,12.5 L13.125,11.25 Z M5.625,8.125 L6.875,8.125 L6.875,9.375 L5.625,9.375 L5.625,8.125 Z M9.375,14.375 L10.625,14.375 L10.625,15.625 L9.375,15.625 L9.375,14.375 Z M9.375,11.25 L10.625,11.25 L10.625,12.5 L9.375,12.5 L9.375,11.25 Z M9.375,8.125 L10.625,8.125 L10.625,9.375 L9.375,9.375 L9.375,8.125 Z M13.125,8.125 L14.375,8.125 L14.375,9.375 L13.125,9.375 L13.125,8.125 Z M5.625,4.375 L14.375,4.375 L14.375,6.25 L5.625,6.25 L5.625,4.375 Z" id="Fill" fill="#C6C6C6"></path>
+                    </g>
+                </g>
+            </g>
+            <g id="account-switcher-(placeholder)-copy-2" transform="translate(1120.000000, 0.000000)">
+                <rect id="background" x="0" y="0" width="48" height="48"></rect>
+                <g id="Icon" transform="translate(14.000000, 14.000000)" filter="url(#filter-10)">
+                    <g>
+                        <path d="M16.25,2.50625 L3.75,2.50625 C3.05964406,2.50625 2.5,3.06589406 2.5,3.75625 L2.5,16.25625 C2.5,16.9466059 3.05964406,17.50625 3.75,17.50625 L16.25,17.50625 C16.9403559,17.50625 17.5,16.9466059 17.5,16.25625 L17.5,3.75625 C17.5,3.06589406 16.9403559,2.50625 16.25,2.50625 Z M16.25,3.75625 L16.25,6.25625 L3.75,6.25625 L3.75,3.75625 L16.25,3.75625 Z M3.75,16.25625 L3.75,7.50625 L16.25,7.50625 L16.25,16.25625 L3.75,16.25625 Z M6.725,10.1125 L8.4875,11.88125 L6.725,13.65 L7.60625,14.53125 L10.25625,11.88125 L7.60625,9.23125 L6.725,10.1125 L6.725,10.1125 Z" id="Fill" fill="#C6C6C6"></path>
+                    </g>
+                </g>
+            </g>
+            <g id="Actions-/-Navigation-/-chevron--down-/-20" transform="translate(948.000000, 14.000000)" fill="#C6C6C6">
+                <polygon id="Fill" points="10 13.75 3.75 7.5 4.625 6.625 10 12 15.375 6.625 16.25 7.5"></polygon>
+            </g>
+            <g id="Actions-/-Navigation-/-chevron--down-/-20" transform="translate(1100.000000, 14.000000)" fill="#C6C6C6">
+                <polygon id="Fill" points="10 13.75 3.75 7.5 4.625 6.625 10 12 15.375 6.625 16.25 7.5"></polygon>
+            </g>
+            <rect id="Rectangle-Copy" fill="#393939" x="294" y="0" width="352" height="48"></rect>
+            <g id="search" transform="translate(598.000000, 0.000000)">
+                <rect id="background" x="0" y="0" width="48" height="48"></rect>
+                <g id="Icon" transform="translate(14.000000, 14.000000)" filter="url(#filter-11)">
+                    <g>
+                        <path d="M18.125,17.2411875 L13.4049375,12.521125 C15.7611113,9.69244599 15.4756484,5.510841 12.7569179,3.02860722 C10.0381874,0.546373439 5.84793173,0.641593278 3.2447625,3.2447625 C0.641593278,5.84793173 0.546373439,10.0381874 3.02860722,12.7569179 C5.510841,15.4756484 9.69244599,15.7611113 12.521125,13.4049375 L17.2411875,18.125 L18.125,17.2411875 Z M2.5,8.125 C2.5,5.01839828 5.01839828,2.5 8.125,2.5 C11.2316017,2.5 13.75,5.01839828 13.75,8.125 C13.75,11.2316017 11.2316017,13.75 8.125,13.75 C5.01982614,13.7465555 2.50344446,11.2301739 2.5,8.125 Z" id="Fill" fill="#C6C6C6"></path>
+                    </g>
+                </g>
+            </g>
+            <line x1="149.5" y1="12" x2="149.5" y2="36" id="Line" stroke="#3D3D3D" stroke-linecap="square"></line>
+            <g id="Group" transform="translate(48.840000, 18.640000)" fill="#F4F4F4" fill-rule="nonzero">
+                <path d="M35.102,10.528 C36.852,10.528 38.014,9.674 38.714,8.218 L37.216,7.336 C36.894,8.218 36.208,8.89 35.102,8.89 C33.73,8.89 32.848,7.938 32.848,6.258 L32.848,4.718 C32.848,3.052 33.73,2.058 35.102,2.058 C36.194,2.058 36.81,2.646 37.09,3.514 L38.672,2.674 C37.986,1.162 36.852,0.42 35.102,0.42 C32.526,0.42 30.888,2.254 30.888,5.544 C30.888,8.834 32.526,10.528 35.102,10.528 Z M43.102,10.36 L43.102,8.932 L42.136,8.932 L42.136,1.0658141e-14 L40.344,1.0658141e-14 L40.344,8.596 C40.344,9.716 40.918,10.36 42.136,10.36 L43.102,10.36 Z M47.518,10.528 C49.618,10.528 50.92,9.044 50.92,6.692 C50.92,4.354 49.618,2.884 47.518,2.884 C45.432,2.884 44.13,4.354 44.13,6.692 C44.13,9.044 45.432,10.528 47.518,10.528 Z M47.518,9.086 C46.594,9.086 46.006,8.484 46.006,7.378 L46.006,6.02 C46.006,4.928 46.594,4.326 47.518,4.326 C48.456,4.326 49.044,4.928 49.044,6.02 L49.044,7.378 C49.044,8.484 48.456,9.086 47.518,9.086 Z M54.916,10.528 C56.12,10.528 56.708,9.87 56.96,9.142 L57.03,9.142 L57.03,10.36 L58.822,10.36 L58.822,3.052 L57.03,3.052 L57.03,7.882 C57.03,8.666 56.316,9.044 55.602,9.044 C54.748,9.044 54.37,8.498 54.37,7.49 L54.37,3.052 L52.578,3.052 L52.578,7.672 C52.578,9.492 53.418,10.528 54.916,10.528 Z M63.504,10.528 C64.47,10.528 65.254,9.968 65.52,9.142 L65.59,9.142 L65.59,10.36 L67.382,10.36 L67.382,1.0658141e-14 L65.59,1.0658141e-14 L65.59,4.256 L65.52,4.256 C65.268,3.416 64.47,2.884 63.504,2.884 C61.67,2.884 60.648,4.256 60.648,6.692 C60.648,9.142 61.67,10.528 63.504,10.528 Z M64.078,9.044 C63.154,9.044 62.524,8.372 62.524,7.336 L62.524,6.076 C62.524,5.04 63.154,4.354 64.078,4.354 C64.932,4.354 65.59,4.816 65.59,5.53 L65.59,7.854 C65.59,8.61 64.932,9.044 64.078,9.044 Z" id="Cloud"></path>
+                <path d="M3.92,10.36 L3.92,9.38 L2.548,9.38 L2.548,1.568 L3.92,1.568 L3.92,0.588 L-2.13162821e-14,0.588 L-2.13162821e-14,1.568 L1.372,1.568 L1.372,9.38 L-2.13162821e-14,9.38 L-2.13162821e-14,10.36 L3.92,10.36 Z M10.66,10.36 C12.102,10.36 13.18,9.142 13.18,7.532 C13.18,5.908 11.962,5.306 11.262,5.264 L11.262,5.18 C11.906,5.082 12.844,4.564 12.844,3.108 C12.844,1.582 11.85,0.588 10.24,0.588 L6.222,0.588 L6.222,10.36 L10.66,10.36 Z M10.1,4.816 L7.398,4.816 L7.398,1.624 L10.1,1.624 C11.024,1.624 11.584,2.114 11.584,2.982 L11.584,3.458 C11.584,4.326 11.024,4.816 10.1,4.816 Z M10.296,9.324 L7.398,9.324 L7.398,5.824 L10.296,5.824 C11.304,5.824 11.92,6.356 11.92,7.336 L11.92,7.812 C11.92,8.792 11.304,9.324 10.296,9.324 Z M16.672,10.36 L16.672,2.142 L16.742,2.142 L17.568,3.766 L19.892,8.022 L22.23,3.766 L23.056,2.128 L23.126,2.128 L23.126,10.36 L24.274,10.36 L24.274,0.588 L22.734,0.588 L19.92,5.852 L19.864,5.852 L17.064,0.588 L15.524,0.588 L15.524,10.36 L16.672,10.36 Z" id="IBM"></path>
+            </g>
+            <g id="menu">
+                <rect id="background" x="0" y="0" width="48" height="48"></rect>
+                <g id="Icon" transform="translate(14.000000, 14.000000)" filter="url(#filter-12)">
+                    <g>
+                        <path d="M2,14.8 L18,14.8 L18,16 L2,16 L2,14.8 Z M2,11.2 L18,11.2 L18,12.4 L2,12.4 L2,11.2 Z M2,7.6 L18,7.6 L18,8.8 L2,8.8 L2,7.6 Z M2,4 L18,4 L18,5.2 L2,5.2 L2,4 Z" id="Fill" fill="#FFFFFF"></path>
+                    </g>
+                </g>
+            </g>
+            <rect id="Rectangle" fill="#525252" x="662" y="20" width="50" height="9"></rect>
+            <rect id="Rectangle" fill="#525252" x="737" y="20" width="50" height="9"></rect>
+            <rect id="Rectangle" fill="#525252" x="812" y="20" width="50" height="9"></rect>
+            <rect id="Rectangle" fill="#525252" x="886" y="20" width="50" height="9"></rect>
+            <rect id="Rectangle" fill="#525252" x="985" y="20" width="106" height="9"></rect>
+        </g>
+        <g id="Skeleton" transform="translate(219.000000, 196.000000)">
+            <rect id="Rectangle" fill="#D8D8D8" x="0" y="0" width="106" height="9"></rect>
+            <rect id="Rectangle" fill="#E5E5E5" x="0" y="48" width="89" height="9"></rect>
+            <rect id="Rectangle" fill="#E5E5E5" x="0" y="24" width="89" height="9"></rect>
+            <rect id="Rectangle" fill="#E5E5E5" x="0" y="72" width="72" height="9"></rect>
+            <rect id="Rectangle" fill="#E5E5E5" x="0" y="96" width="72" height="9"></rect>
+        </g>
+        <g id="Step-indicators" transform="translate(162.000000, 316.000000)">
+            <g id="1">
+                <g id="Group">
+                    <circle id="Oval" fill="#D12771" cx="11.5" cy="11.5" r="11.5"></circle>
+                    <polygon id="1" fill="#F4F4F4" fill-rule="nonzero" points="14.714 16 14.714 14.684 12.348 14.684 12.348 6.228 10.682 6.228 7.658 7.95 8.274 9.112 10.794 7.656 10.794 14.684 8.19 14.684 8.19 16"></polygon>
+                </g>
+                <line x1="20.5" y1="11.5" x2="39.5" y2="11.5" id="Line-2" stroke="#D12771" stroke-width="3" stroke-linecap="round"></line>
+            </g>
+            <g id="2" transform="translate(757.000000, 249.000000)">
+                <g id="Group-2">
+                    <circle id="Oval" fill="#D12771" cx="11.5" cy="11.5" r="11.5"></circle>
+                    <path d="M14.574,16 L14.574,14.656 L9.646,14.656 L11.942,12.682 C13.23,11.576 14.28,10.54 14.28,8.958 C14.28,7.264 13.132,6.06 11.144,6.06 C9.184,6.06 8.204,7.208 7.798,8.44 L9.184,8.972 C9.422,8.118 9.94,7.432 11.018,7.432 C11.984,7.432 12.6,8.02 12.6,8.958 L12.6,9.14 C12.6,10.036 12.04,10.82 11.06,11.702 L7.938,14.488 L7.938,16 L14.574,16 Z" id="2" fill="#F4F4F4" fill-rule="nonzero"></path>
+                </g>
+                <line x1="19.5" y1="11.5" x2="39.5" y2="11.5" id="Line-2" stroke="#D12771" stroke-width="3" stroke-linecap="round"></line>
+            </g>
+        </g>
+        <g id="Group" transform="translate(1015.000000, 571.000000)">
+            <g id="pointing" filter="url(#filter-13)" transform="translate(11.250000, 10.000000)">
+                <path d="M4.0875,15.35 C3.7375,14.9 3.3,13.9875 2.5375,12.85 C2.1,12.225 1.025,11.0375 0.7,10.425 C0.465714238,10.0527882 0.397731488,9.5995699 0.5125,9.175 C0.708699961,8.36776104 1.47445146,7.83227049 2.3,7.925 C2.9385015,8.05326352 3.52527859,8.3662113 3.9875,8.825 C4.3102257,9.12896644 4.60708432,9.45927392 4.875,9.8125 C5.075,10.0625 5.125,10.1625 5.35,10.45 C5.575,10.7375 5.725,11.025 5.6125,10.6 C5.525,9.975 5.375,8.925 5.1625,7.9875 C5,7.275 4.9625,7.1625 4.8125,6.625 C4.6625,6.0875 4.575,5.6375 4.4125,5.025 C4.26395843,4.42321474 4.14713081,3.81404211 4.0625,3.2 C3.90494122,2.41463006 4.0195679,1.59901716 4.3875,0.8875 C4.82424128,0.476711903 5.46491298,0.368290538 6.0125,0.6125 C6.56324571,1.01917031 6.97387671,1.58706425 7.1875,2.2375 C7.51508149,3.03798568 7.73370123,3.87883082 7.8375,4.7375 C8.0375,5.9875 8.425,7.8125 8.4375,8.1875 C8.4375,7.725 8.35,6.75 8.4375,6.3125 C8.52419127,5.85640515 8.84119802,5.47788963 9.275,5.3125 C9.64726144,5.19828149 10.0410569,5.17259918 10.425,5.2375 C10.8125459,5.31851988 11.1558298,5.54143155 11.3875,5.8625 C11.6771012,6.59174124 11.8378237,7.36574702 11.8625,8.15 C11.8959732,7.4632331 12.0135167,6.78316021 12.2125,6.125 C12.4213801,5.83068651 12.7264153,5.61848815 13.075,5.525 C13.4882414,5.4494439 13.9117586,5.4494439 14.325,5.525 C14.6638681,5.63828855 14.9603013,5.85189482 15.175,6.1375 C15.4397132,6.80043246 15.5999529,7.50042711 15.65,8.2125 C15.65,8.3875 15.7375,7.725 16.0125,7.2875 C16.1554062,6.86324711 16.5137933,6.54746085 16.9526602,6.45909483 C17.3915271,6.37072882 17.8441995,6.52320796 18.1401602,6.85909483 C18.4361208,7.19498171 18.5304062,7.66324711 18.3875,8.0875 C18.3875,8.9 18.3875,8.8625 18.3875,9.4125 C18.3875,9.9625 18.3875,10.45 18.3875,10.9125 C18.3419516,11.6439741 18.241671,12.3710084 18.0875,13.0875 C17.8699686,13.7213985 17.567191,14.3227484 17.1875,14.875 C16.5805598,15.5499552 16.079068,16.3127283 15.7,17.1375 C15.6059478,17.5472546 15.5639497,17.9672352 15.575,18.3875 C15.5737456,18.7757913 15.6241887,19.1625216 15.725,19.5375 C15.2139239,19.5915279 14.6985761,19.5915279 14.1875,19.5375 C13.7,19.4625 13.1,18.4875 12.9375,18.1875 C12.8570974,18.0264158 12.6925353,17.924632 12.5125,17.924632 C12.3324647,17.924632 12.1679026,18.0264158 12.0875,18.1875 C11.8125,18.6625 11.2,19.525 10.775,19.575 C9.9375,19.675 8.2125,19.575 6.85,19.575 C6.85,19.575 7.075,18.325 6.5625,17.875 C6.05,17.425 5.525,16.9 5.1375,16.55 L4.0875,15.35 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <path d="M4.0875,15.35 C3.7375,14.9 3.3,13.9875 2.5375,12.85 C2.1,12.225 1.025,11.0375 0.7,10.425 C0.465714238,10.0527882 0.397731488,9.5995699 0.5125,9.175 C0.708699961,8.36776104 1.47445146,7.83227049 2.3,7.925 C2.9385015,8.05326352 3.52527859,8.3662113 3.9875,8.825 C4.3102257,9.12896644 4.60708432,9.45927392 4.875,9.8125 C5.075,10.0625 5.125,10.1625 5.35,10.45 C5.575,10.7375 5.725,11.025 5.6125,10.6 C5.525,9.975 5.375,8.925 5.1625,7.9875 C5,7.275 4.9625,7.1625 4.8125,6.625 C4.6625,6.0875 4.575,5.6375 4.4125,5.025 C4.26395843,4.42321474 4.14713081,3.81404211 4.0625,3.2 C3.90494122,2.41463006 4.0195679,1.59901716 4.3875,0.8875 C4.82424128,0.476711903 5.46491298,0.368290538 6.0125,0.6125 C6.56324571,1.01917031 6.97387671,1.58706425 7.1875,2.2375 C7.51508149,3.03798568 7.73370123,3.87883082 7.8375,4.7375 C8.0375,5.9875 8.425,7.8125 8.4375,8.1875 C8.4375,7.725 8.35,6.75 8.4375,6.3125 C8.52419127,5.85640515 8.84119802,5.47788963 9.275,5.3125 C9.64726144,5.19828149 10.0410569,5.17259918 10.425,5.2375 C10.8125459,5.31851988 11.1558298,5.54143155 11.3875,5.8625 C11.6771012,6.59174124 11.8378237,7.36574702 11.8625,8.15 C11.8959732,7.4632331 12.0135167,6.78316021 12.2125,6.125 C12.4213801,5.83068651 12.7264153,5.61848815 13.075,5.525 C13.4882414,5.4494439 13.9117586,5.4494439 14.325,5.525 C14.6638681,5.63828855 14.9603013,5.85189482 15.175,6.1375 C15.4397132,6.80043246 15.5999529,7.50042711 15.65,8.2125 C15.65,8.3875 15.7375,7.725 16.0125,7.2875 C16.1554062,6.86324711 16.5137933,6.54746085 16.9526602,6.45909483 C17.3915271,6.37072882 17.8441995,6.52320796 18.1401602,6.85909483 C18.4361208,7.19498171 18.5304062,7.66324711 18.3875,8.0875 C18.3875,8.9 18.3875,8.8625 18.3875,9.4125 C18.3875,9.9625 18.3875,10.45 18.3875,10.9125 C18.3419516,11.6439741 18.241671,12.3710084 18.0875,13.0875 C17.8699686,13.7213985 17.567191,14.3227484 17.1875,14.875 C16.5805598,15.5499552 16.079068,16.3127283 15.7,17.1375 C15.6059478,17.5472546 15.5639497,17.9672352 15.575,18.3875 C15.5737456,18.7757913 15.6241887,19.1625216 15.725,19.5375 C15.2139239,19.5915279 14.6985761,19.5915279 14.1875,19.5375 C13.7,19.4625 13.1,18.4875 12.9375,18.1875 C12.8570974,18.0264158 12.6925353,17.924632 12.5125,17.924632 C12.3324647,17.924632 12.1679026,18.0264158 12.0875,18.1875 C11.8125,18.6625 11.2,19.525 10.775,19.575 C9.9375,19.675 8.2125,19.575 6.85,19.575 C6.85,19.575 7.075,18.325 6.5625,17.875 C6.05,17.425 5.525,16.9 5.1375,16.55 L4.0875,15.35 Z" id="Shape" stroke="#000000" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M14.6875,16.0323632 L14.6875,11.7176366 C14.6875,11.459368 14.4776335,11.25 14.21875,11.25 C13.9598665,11.25 13.75,11.459368 13.75,11.7176366 L13.75,16.0323632 C13.75,16.2906317 13.9598665,16.4999998 14.21875,16.4999998 C14.4776335,16.4999998 14.6875,16.2906317 14.6875,16.0323632 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+                <path d="M12.2124924,16.0307823 L12.1874924,11.7138397 C12.1860003,11.4561874 11.9749277,11.2485229 11.7160485,11.25 C11.4571693,11.2514929 11.2485159,11.4615652 11.25,11.7192174 L11.275008,16.0361601 C11.2765001,16.2938123 11.4875727,16.5014769 11.7464519,16.4999998 C12.005331,16.4985068 12.2139845,16.2884346 12.2124924,16.0307823 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+                <path d="M8.75,11.7237392 L8.77500814,16.0317531 C8.77651764,16.2918708 8.98760429,16.5015083 9.24648336,16.4999998 C9.50536244,16.4984749 9.7140017,16.2863783 9.7124922,16.0262606 L9.6874922,11.7182467 C9.6859827,11.458129 9.47489606,11.2484915 9.21601698,11.25 C8.95713791,11.2515249 8.74849864,11.4636215 8.75,11.7237392 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>

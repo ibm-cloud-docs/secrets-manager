@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-08-31"
 
 keywords: feature overview, trial plan, standard plan, vault dedicated plan
 
@@ -98,7 +98,7 @@ The `Trial` plan has the following limitations:
 
 For more information, see [Upgrading to the Standard plan](/docs/secrets-manager?topic=secrets-manager-create-instance#upgrade-instance-standard).
 
-For more information about pricing, see [Pricing](/docs/secrets-manager?topic=secrets-manager-pricing#standard-plan).
+For more information about pricing, see [Pricing for the Trial and Standard plans](/docs/secrets-manager?topic=secrets-manager-pricing#plans).
 
 ## Vault Dedicated plan
 {: #vault-dedicated-plan-overview}
@@ -125,7 +125,7 @@ With the [Vault Dedicated]{: tag-green} plan, you get:
 - Enterprise-scale Vault capabilities for complex deployments.
 - Dedicated activity tracking events that are routed through {{site.data.keyword.logs_full_notm}} for auditing and monitoring.
 
-For more information about auditing events for the service, see [Instance operations events](/docs/secrets-manager?topic=secrets-manager-at_events#at-configuration-instance-operations).
+For more information about auditing events for the service, see [Instance operations events](/docs/secrets-manager?topic=secrets-manager-vault-dedicated-at-events).
 For more information about pricing, see [Pricing](/docs/secrets-manager?topic=secrets-manager-pricing#vault-dedicated-plan).
 
 **Key capabilities includes:**
@@ -141,7 +141,7 @@ For more information about pricing, see [Pricing](/docs/secrets-manager?topic=se
 The [Vault Dedicated]{: tag-green} plan has the following limitations:
 
 - Not compatible with the Trial or Standard plan. You cannot upgrade or migrate between plan types.
-- Vault Dedicated instances cannot be provisioned in all regions. For more information, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-regions).
+- Vault Dedicated instances cannot be provisioned in all regions. For more information, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
 - The native {{site.data.keyword.secrets-manager_short}} UI is not available. Management is performed through the native Vault UI, API, or CLI.
 - Secret types supported by `Trial` and `Standard` plans (such as IAM credentials and service credentials) are not available.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-08-31"
 
 keywords: Secrets Manager developer tools, integrate with application, API, SDK, CLI
 
@@ -132,7 +132,7 @@ Create secret panel:
 https://cloud.ibm.com/services/secrets-manager/INSTANCE_CRN?paneId=manageSecrets#/manageSecrets/addSecret/SECRET_TYPE
 ```
 
-[List of programmatic secret type names](/docs/secrets-manager?topic=secrets-manager-what-is-secret#secret-types).
+[List of programmatic secret type names](/docs/secrets-manager?topic=secrets-manager-secret-types).
 
 Secret details panel:
 ```sh

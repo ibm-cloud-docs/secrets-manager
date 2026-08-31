@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-08-31"
 
 keywords: change log for Secrets Manager CLI, CLI changelog, Vault Dedicated, instance management CLI
 
@@ -58,7 +58,7 @@ subcollection: secrets-manager
 # {{site.data.keyword.secrets-manager_short}} instance management CLI change log
 {: #secrets-manager-management-cli-change-log}
 
-In this change log, you can learn about the latest changes, improvements, and updates for the [{{site.data.keyword.secrets-manager_short}} instance management CLI plug-in](/docs/secrets-manager?topic=secrets-manager-management-cli) (`ibmcloud secrets-manager-instance-management`). The change log lists changes that have been made, ordered by the date they were released. Changes to existing CLI versions are designed to be compatible with existing client applications.
+In this change log, you can learn about the latest changes, improvements, and updates for the [{{site.data.keyword.secrets-manager_short}} instance management CLI plug-in](/docs/secrets-manager?topic=secrets-manager-secrets-manager-management-cli) (`ibmcloud secrets-manager-instance-management`). The change log lists changes that have been made, ordered by the date they were released. Changes to existing CLI versions are designed to be compatible with existing client applications.
 {: shortdesc}
 
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
@@ -66,4 +66,4 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 ## Version 2.0.0
 {: #management-cli-2.0.0}
 
-Version 2.0.0 was released on 2026-08-28. This is the initial release of the {{site.data.keyword.secrets-manager_short}} instance management CLI plug-in for the Vault Dedicated plan.
+Version 2.0.0 was released on 2026-08-31. This is the initial release of the {{site.data.keyword.secrets-manager_short}} instance management CLI plug-in for the Vault Dedicated plan.

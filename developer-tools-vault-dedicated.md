@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-08-31"
 
 keywords: Secrets Manager developer tools, integrate with application, API, SDK, CLI, Vault Dedicated
 
@@ -64,40 +64,42 @@ Ready to integrate {{site.data.keyword.secrets-manager_full}} Vault Dedicated in
 ## Supported developer tools
 {: #dev-tool-list-vault-dedicated}
 
-### {{site.data.keyword.secrets-manager_short}} management SDKs
+### {{site.data.keyword.secrets-manager_short}} instance management SDKs
 {: #dev-tool-sdks-vault-dedicated}
 
-{{site.data.keyword.secrets-manager_short}} offers management software development kits (SDKs) that you can use to connect with the Vault Dedicated service in various programming languages. For more information about getting started with {{site.data.keyword.secrets-manager_short}} management SDKs, check out the following repositories on GitHub:
+{{site.data.keyword.secrets-manager_short}} offers instance management software development kits (SDKs) for programmatic access to control plane operations for your Vault Dedicated instance. These SDKs cover instance management operations only — such as generating and revoking admin tokens and retrieving instance details. For runtime secrets operations, use the native [Vault API](https://developer.hashicorp.com/vault/api-docs){: external} directly. For more information, check out the following repositories on GitHub:
 
-- [Go management SDK](https://github.com/IBM/secrets-manager-management-go-sdk/tree/main/v2){: external}
-- [Node.js management SDK](https://github.com/IBM/secrets-manager-management-node-sdk/tree/main/v2){: external}
-- [Java management SDK](https://github.com/IBM/secrets-manager-management-java-sdk/tree/main/v2){: external}
-- [Python management SDK](https://github.com/IBM/secrets-manager-management-python-sdk/tree/main/v2){: external}
+- [Go management SDK](https://github.com/IBM/secrets-manager-management-go-sdk){: external}
+- [Node.js management SDK](https://github.com/IBM/secrets-manager-node-sdk){: external}
+- [Java management SDK](https://github.com/IBM/secrets-manager-management-java-sdk){: external}
+- [Python management SDK](https://github.com/IBM/secrets-manager-management-python-sdk){: external}
 
 ### {{site.data.keyword.secrets-manager_short}} instance management CLI plug-in
 {: #dev-tool-cli-vault-dedicated}
 
-If you're already using the [{{site.data.keyword.cloud_notm}} Command Line Interface (CLI)](/docs/cli?topic=cli-getting-started), you can install the {{site.data.keyword.secrets-manager_short}} instance management plug-in so that you can manage your Vault Dedicated instance from the command line.
+If you're already using the [{{site.data.keyword.cloud_notm}} Command Line Interface (CLI)](/docs/cli?topic=cli-getting-started), you can install the {{site.data.keyword.secrets-manager_short}} instance management plug-in to perform control plane operations on your Vault Dedicated instance from the command line, such as generating and revoking admin tokens and viewing instance details.
 
 To install the {{site.data.keyword.secrets-manager_short}} instance management CLI plug-in, run `ibmcloud plugin install secrets-manager-instance-management`.
 {: note}
 
-For the full CLI reference, see [{{site.data.keyword.secrets-manager_short}} instance management CLI](/docs/secrets-manager?topic=secrets-manager-management-cli). For a history of changes, see the [{{site.data.keyword.secrets-manager_short}} instance management CLI change log](/docs/secrets-manager?topic=secrets-manager-management-cli-change-log).
+For the full CLI reference, see [{{site.data.keyword.secrets-manager_short}} instance management CLI](/docs/secrets-manager?topic=secrets-manager-secrets-manager-management-cli). For a history of changes, see the [{{site.data.keyword.secrets-manager_short}} instance management CLI change log](/docs/secrets-manager?topic=secrets-manager-secrets-manager-management-cli-change-log).
 
-### {{site.data.keyword.secrets-manager_short}} management API
+### {{site.data.keyword.secrets-manager_short}} instance management API
 {: #dev-tool-api-vault-dedicated}
 
-If you're trying out {{site.data.keyword.secrets-manager_short}} Vault Dedicated for the first time, you might want to use the {{site.data.keyword.secrets-manager_short}} management API to evaluate the service and test out workflows for your applications. Start by copying the control plane service endpoint URL from the **Endpoints** page in your {{site.data.keyword.secrets-manager_short}} service dashboard. Then, generate an [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) token](/docs/iam?topic=iam-iamtoken_from_apikey) to include in your request.
+The {{site.data.keyword.secrets-manager_short}} instance management API provides control plane operations for your Vault Dedicated instance. It covers a focused set of operations: retrieving instance details, generating an admin token, and revoking admin tokens. It is not a runtime secrets API — for secrets operations such as reading and writing secrets, use the native [Vault API](https://developer.hashicorp.com/vault/api-docs){: external} directly against your Vault cluster endpoint.
+
+To call the instance management API, copy the control plane service endpoint URL from the **Endpoints** page in your {{site.data.keyword.secrets-manager_short}} service dashboard and generate an [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) token](/docs/iam?topic=iam-iamtoken_from_apikey).
 
 ```sh
 curl -X GET  \
   -H "Authorization: Bearer {access_token}" \
-  -H "Accept: application/json" 
+  -H "Accept: application/json"
   "{base_url}/api/v2/instance"
 ```
 {: codeblock}
 
-Replace `{base_url}` with your control plane service endpoint URL, and `{access_token}` with your IAM token. To run the API request, you can paste it into your command line or preferred API testing tool.
+Replace `{base_url}` with your control plane service endpoint URL, and `{access_token}` with your IAM token.
 
 ### Vault Agent
 {: #dev-tool-vault-agent}

@@ -3,13 +3,13 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-08-31"
 
 keywords: tutorial, Vault as a Service, Kubernetes secrets, External Secrets Operator
 
-subcollection: vault
+subcollection: secrets-manager
 content-type: tutorial
-services: vault,containers
+services: secrets-manager,containers
 account-plan: paid
 completion-time: 45m
 
@@ -88,7 +88,7 @@ This scenario features a third-party tool that can impact the compliance readine
 ## Before you begin
 {: #tutorial-vault-kubernetes-secrets-eso-prereqs}
 
-Before you get started, be sure that you have [**Administrator** platform access](/docs/account?topic=account-assign-access-resources#assign-new-access) so that you can create account credentials and provision resources. You also need the following prerequisites:
+Before you get started, be sure that you have [**Administrator** platform access](/docs/secrets-manager?topic=secrets-manager-assign-access) so that you can create account credentials and provision resources. You also need the following prerequisites:
 
 - [Download and install the IBM Cloud CLI](/docs/cli).
 - [Install the Kubernetes CLI (`kubectl`)](https://kubernetes.io/docs/tasks/tools/){: external}.
@@ -97,7 +97,7 @@ Before you get started, be sure that you have [**Administrator** platform access
 
     `jq` helps you slice and filter JSON data. You use `jq` in this tutorial to grab and use stored environment variables.
 
-- A Vault Dedicated Instance provisioned in your {{site.data.keyword.cloud_notm}} account. For more information, see [Setting up your Vault Dedicated instance](/docs//secrets-manager?topic=secrets-manager-getting-started-vault-dedicated-plan).
+- A Vault Dedicated Instance provisioned in your {{site.data.keyword.cloud_notm}} account. For more information, see [Setting up your Vault Dedicated instance](/docs//secrets-manager?topic=secrets-manager-setting-up-vault-dedicated-instance).
 
 ## Set up your environment
 {: #tutorial-vault-kubernetes-secrets-eso-set-up-env}
@@ -497,7 +497,7 @@ As you construct your YAML documents, keep in mind the following considerations:
 
 Great job! In this tutorial, you learned how to set up Vault Dedicated to securely populate application secrets to your Kubernetes cluster using External Secrets Operator. Check out more resources to help you get started with Vault Dedicated.
 
-- Learn about [Vault Secrets Operator](/docs/vault?topic=vault-tutorial-vault-kubernetes-secrets-vso), HashiCorp's official operator for Kubernetes integration.
+- Learn about [Vault Secrets Operator](/docs/secrets-manager?topic=secrets-manager-tutorial-vault-kubernetes-secrets-vso), HashiCorp's official operator for Kubernetes integration.
 - Review the [External Secrets Operator Vault provider documentation](https://external-secrets.io/latest/provider/hashicorp-vault/){: external}.
 - Explore [Vault Dedicated documentation](/docs/vault) for more advanced features and configurations.
 - Learn more about [HashiCorp Vault](https://developer.hashicorp.com/vault/docs){: external}.

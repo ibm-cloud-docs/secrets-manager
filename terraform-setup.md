@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-08-31"
 
 keywords: terraform, {{site.data.keyword.secrets-manager_short}}
 
@@ -166,7 +166,7 @@ Now that you successfully created your first {{site.data.keyword.secrets-manager
 
 For the [Trial and Standard]{: tag-blue} plans, you can review the {{site.data.keyword.secrets-manager_short}} resources and data sources in the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/sm_secrets){: external}. You can also review how to manage your {{site.data.keyword.secrets-manager_short}} resources by following the Terraform steps that are included in the How to section. For example, you can follow the directions on how to create [arbitrary secrets](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets) by using Terraform.
 
-For the [Vault Dedicated]{: tag-green} plan, after provisioning your Vault Dedicated instance, see [Setting up your Vault Dedicated instance](/docs/secrets-manager?topic=secrets-manager-getting-started-vault-dedicated-plan) to learn how to generate an admin token and access the Vault UI for initial configuration.
+For the [Vault Dedicated]{: tag-green} plan, after provisioning your Vault Dedicated instance, see [Setting up your Vault Dedicated instance](/docs/secrets-manager?topic=secrets-manager-setting-up-vault-dedicated-instance) to learn how to generate an admin token and access the Vault UI for initial configuration.
 
 For production deployments, consider the [{{site.data.keyword.secrets-manager_full}}](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager/ibm/latest) which provides enterprise-ready configurations. Learn about [Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
 {: tip}

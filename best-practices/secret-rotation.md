@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-08-31"
 
 keywords: secrets management best practice, rotating secrets, secret rotation, locking secrets, automatic rotation
 
@@ -88,7 +88,7 @@ As you use {{site.data.keyword.secrets-manager_short}} to design your secrets ma
 Connect to the {{site.data.keyword.en_short}} service so that {{site.data.keyword.secrets-manager_short}} can notify you in advance when your secrets or certificates are about to expire.
 
 1. Set up alerts for your instance by enabling event notifications. To connect your instance to the {{site.data.keyword.en_short}} service, go to the **{{site.data.keyword.secrets-manager_short}} UI > Settings > Event Notifications**.
-2. Create topics and subscriptions in {{site.data.keyword.en_short}} so that alerts can be forwarded and delivered to your [selected destinations](/docs/secrets-manager?topic=secrets-manager-event-notifications#event-notifications-destinations), for example Slack or email.
+2. Create topics and subscriptions in {{site.data.keyword.en_short}} so that alerts can be forwarded and delivered to your [selected destinations](/docs/event-notifications?topic=event-notifications-en-destination), for example Slack or email.
 
 To make sure your alerts configuration is functioning, create an alert in your {{site.data.keyword.logs_full_notm}} instance to alert in case something has gone wrong with your Event Notifications integration with {{site.data.keyword.secrets-manager_short}}. {{site.data.keyword.secrets-manager_short}} also [logs the sent event notification](/docs/secrets-manager?topic=secrets-manager-logging) as either an `INFO` OR `ERROR` log.
 {: tip}

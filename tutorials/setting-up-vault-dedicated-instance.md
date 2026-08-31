@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-08-31"
 
 keywords: Vault Dedicated, Vault as a Service, setting up vault dedicated, admin token, Vault UI, vault dedicated setup
 
@@ -61,7 +61,7 @@ completion-time: 10m
 {:release-note: data-hd-content-type='release-note'}
 
 # Setting up your Vault Dedicated instance
-{: #getting-started-vault-dedicated-plan}
+{: #setting-up-vault-dedicated-instance}
 {: toc-content-type="tutorial"}
 {: toc-services="secrets-manager"}
 {: toc-completion-time="10m"}
@@ -75,7 +75,7 @@ The Vault Dedicated plan is currently available as a public beta. Beta features 
 {: beta}
 
 ## Vault Dedicated public beta limitations
-{: #getting-started-vault-dedicated-beta-limitations}
+{: #setting-up-vault-dedicated-beta-limitations}
 
 During the public beta period, the [Vault Dedicated]{: tag-green} plan has the following temporary restrictions:
 
@@ -89,7 +89,7 @@ These limitations are temporary and apply only during the public beta period. It
 {: important}
 
 ## Before you begin
-{: #getting-started-vault-dedictaed-plan-prereqs}
+{: #setting-up-vault-dedicated-prereqs}
 
 Before you begin, make sure that you have an {{site.data.keyword.cloud_notm}} account and the required IAM access to work with the service.
 
@@ -98,7 +98,7 @@ You need the following roles:
 - The [**Writer**, **Reader**, or **Viewer** service role](/docs/secrets-manager?topic=secrets-manager-iam) to view instance details.
 
 ## Provision a Vault Dedicated plan instance
-{: #getting-started-vault-dedicated-plan-provision}
+{: #setting-up-vault-dedicated-provision}
 {: step}
 
 Create a `Vault Dedicated` plan instance from the {{site.data.keyword.cloud_notm}} catalog.
@@ -124,7 +124,7 @@ Provisioning typically completes within a few minutes, but it can take up to 15 
 For more information about provisioning an instance, see [Creating an instance](/docs/secrets-manager?topic=secrets-manager-create-instance).
 
 ## Generate an admin token
-{: #getting-started-vault-dedicated-plan-admin-token}
+{: #setting-up-vault-dedicated-admin-token}
 {: step}
 
 To access the Vault UI for initial configuration, generate an admin token from the instance dashboard.
@@ -145,7 +145,7 @@ curl -X POST \
 {: codeblock}
 
 ## Open the Vault UI
-{: #getting-started-vault-dedicated-plan-vault-ui}
+{: #setting-up-vault-dedicated-vault-ui}
 {: step}
 
 Use the Vault API endpoint to open the Vault UI and sign in with the admin token.
@@ -154,7 +154,7 @@ Use the Vault API endpoint to open the Vault UI and sign in with the admin token
 2. On the Vault sign-in page, use the admin token that you created and complete your initial Vault configuration.
 
 ## Revoke the admin token
-{: #getting-started-vault-dedicted-plan-revoke-token}
+{: #setting-up-vault-dedicated-revoke-token}
 {: step}
 
 After you finish the initial setup, revoke any active admin tokens to help reduce the risk of unintended access.
@@ -174,7 +174,7 @@ curl -X DELETE \
 {: codeblock}
 
 ## Next steps
-{: #getting-started-vault-dedicated-plan-next-steps}
+{: #setting-up-vault-dedicated-next-steps}
 
 After you sign in to Vault, you can continue with the initial configuration of your instance.
 

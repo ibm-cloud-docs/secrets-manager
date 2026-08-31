@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-08-31"
 
 keywords: secrets management, manage secrets, manage credentials, store username and password, add secrets, add credentials, get started with Secrets Manager
 content-type: tutorial
@@ -71,7 +71,7 @@ subcollection: secrets-manager
 This tutorial focuses on storing and managing a username and password in {{site.data.keyword.secrets-manager_full}}. With {{site.data.keyword.secrets-manager_short}}, you can create, lease, and centrally manage secrets that are used in {{site.data.keyword.cloud_notm}} services or your custom-built applications. Secrets are stored in a dedicated {{site.data.keyword.secrets-manager_short}} instance, built on HashiCorp Vault.
 {: shortdesc}
 
-If you're using the [Vault Dedicated]{: tag-green} plan, this tutorial does not apply to your instance. Instead, see [Setting up your Vault Dedicated instance](/docs/secrets-manager?topic=secrets-manager-getting-started-vault-dedicated-plan).
+If you're using the [Vault Dedicated]{: tag-green} plan, this tutorial does not apply to your instance. Instead, see [Setting up your Vault Dedicated instance](/docs/secrets-manager?topic=secrets-manager-setting-up-vault-dedicated-instance).
 {: note}
 
 Looking for a different secret type? You can also [create Identity and Access Management (IAM) credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) to access an {{site.data.keyword.cloud_notm}} resource, or you can [add arbitrary secrets](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets) that can hold structured or unstructured data.
@@ -132,4 +132,4 @@ Now you can add more secrets and design a secrets management strategy to control
 
 - To find out more about organizing secrets, check out [Best practices for organizing secrets and assigning access](/docs/secrets-manager?topic=secrets-manager-best-practices-organize-secrets).
 - To find out more about rotating secrets, check out [Best practices for rotating secrets](/docs/secrets-manager?topic=secrets-manager-best-practices-rotate-secrets).
-- To set up a Vault Dedicated instance, check out [Setting up your Vault Dedicated instance](/docs/secrets-manager?topic=secrets-manager-getting-started-vault-dedicated-plan).
+- To set up a Vault Dedicated instance, check out [Setting up your Vault Dedicated instance](/docs/secrets-manager?topic=secrets-manager-setting-up-vault-dedicated-instance).
