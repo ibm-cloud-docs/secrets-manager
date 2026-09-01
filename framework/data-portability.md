@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-07-14"
+lastupdated: "2026-08-28"
 
 keywords:
 
@@ -14,8 +14,7 @@ subcollection: secrets-manager
 
 
 
-# Understanding data portability
-
+# Understanding data portability by using the Trial and Standard plans
 {: #data-portability}
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-18"
+lastupdated: "2026-09-01"
 
 keywords: Secrets Manager custom credentials, secret tasks
 
@@ -29,7 +29,7 @@ Tasks have different **statuses**, **types**, and record of **values** associate
 | `credentials_created`	| The creation task has been successfully completed. In case of a custom credentials secret type the {{site.data.keyword.codeengineshort}} job reporting success to {{site.data.keyword.secrets-manager_short}}. Tasks with this status do not accept further updates. |
 | `credentials_deleted`	| The deletion task has been successfully completed. In case of a custom credentials secret type the {{site.data.keyword.codeengineshort}} job. Tasks with this status do not accept further updates. |
 | `failed` | The task timeout elapsed or the credentials provider updated the task with an error. In case of a custom credentials secret type the {{site.data.keyword.codeengineshort}} job has returned to Secrets Manager with an error. Tasks with this status do not accept further updates. |
-{: caption="Available task statuses" caption-side="top"}
+{: caption="Available task statuses" caption-side="bottom"}
 {: #task-statuses-table1}
 {: tab-title="Task statuses"}
 {: tab-group="secrets-manager"}
@@ -41,7 +41,7 @@ Tasks have different **statuses**, **types**, and record of **values** associate
 | ----- | :----- |
 | `create_credentials` | This type represents a task that creates credentials. Can be triggered because of secret creation or a rotation. |
 | `delete_credentials` | This type represents a task that deletes previously created credentials. It can be triggered because of deleting the secret, the expiration or deletion a specific version, or by rotation. | 
-{: caption="Available task types" caption-side="top"}
+{: caption="Available task types" caption-side="bottom"}
 {: #task-types-table1}
 {: tab-title="Task types"}
 {: tab-group="secrets-manager"}
@@ -56,7 +56,7 @@ Tasks have different **statuses**, **types**, and record of **values** associate
 | `automatic_secret_rotation` |	This task was triggered because of an automatic (periodic) rotation. |
 | `secret_version_expiration`	| This task was triggered because of an expiration of a secret version. |
 | `secret_version_data_deletion` |	This task was triggered because of deleting a secret. |
-{: caption="Available task record values" caption-side="top"}
+{: caption="Available task record values" caption-side="bottom"}
 {: #task-record-values-table1}
 {: tab-title="Task record values"}
 {: tab-group="secrets-manager"}

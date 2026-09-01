@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-09-19"
+  years: 2020, 2026
+lastupdated: "2026-08-31"
 
 keywords: event notifications for {{site.data.keyword.secrets-manager_short}}, event notifications integration for {{site.data.keyword.secrets-manager_short}}, alerts for {{site.data.keyword.secrets-manager_short}}
 
@@ -398,3 +398,5 @@ Review following table for more information about event notification properties.
 | `source_instance_dashboard_url` | The URL to your {{site.data.keyword.secrets-manager_short}} service dashboard in the console. |
 | `source_service` | The display name of the service that sent the event notification. |
 {: caption="Properties in an event notification payload" caption-side="bottom"} 
+
+

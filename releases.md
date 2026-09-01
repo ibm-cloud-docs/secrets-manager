@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-09-01"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -64,12 +64,29 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
 
-## 6 August 2026
-{: #secrets-manager-july3026}
+## 01 September 2026
+{: #secrets-manager-sept126}
 {: release-note}
 
-Deprecation of HPCS-backed Private Certificate PKI integration
-:   {{site.data.keyword.cloud_notm}} is deprecating the HPCS-backed Private Certificate PKI integration in {{site.data.keyword.secrets-manager_short}}, following the deprecation of HPCS as a stand-alone service. Only this specific root-of-trust path is affected, and {{site.data.keyword.secrets-manager_short}} itself remains fully supported. New configurations will be blocked on 30 October 2026, and the integration reaches end of support on 30 March 2027. For more information, see [Deprecation of HPCS-backed Private Certificate PKI integration](/docs/secrets-manager?topic=secrets-manager-root-certificate-authorities#hpcs-private-cert-deprecation).
+The Vault Dedicated pricing plan is released in beta
+:   The new [Vault Dedicated]{: tag-green} plan delivers a fully managed HashiCorp Vault Enterprise instance on {{site.data.keyword.cloud_notm}}. With Vault Dedicated, you get access to native Vault Enterprise capabilities, including:
+
+   - **Advanced secrets engines**: KV v2, Transit, PKI (internal CA), PKI external CA (with Let's Encrypt and DigiCert support), Transform, and TOTP
+   - **Authentication methods**: Token, AppRole, and Userpass
+   - **Namespaces**: multi-tenant secret management with isolated policies and access controls
+   - **Sentinel policies**: fine-grained policy enforcement beyond standard ACL rules
+   - **Instance management**: available through the {{site.data.keyword.cloud_notm}} console, APIs, SDKs, CLI, and Terraform
+
+   Vault Dedicated is available in the Dallas and Frankfurt regions. During the beta period, one instance is allowed per account. Beta instances will be deleted before general availability, and no charges apply during the beta.
+
+   To get started, see [Setting up your Vault Dedicated instance](/docs/secrets-manager?topic=secrets-manager-setting-up-vault-dedicated-instance).
+
+## 06 August 2026
+{: #secrets-manager-aug0626}
+{: release-note}
+
+Deprecation of IBM Cloud Hyper Protect Crypto Services-backed Private Certificate PKI integration
+:   {{site.data.keyword.cloud_notm}} is deprecating the HPCS-backed Private Certificate PKI integration in {{site.data.keyword.secrets-manager_short}}, following the deprecation of HPCS as a standalone service. Only this specific root-of-trust path is affected, and {{site.data.keyword.secrets-manager_short}} itself remains fully supported. Creation of new configurations will be blocked on 30 October 2026, and the integration reaches end of support on 30 March 2027. For more information, see [Deprecation of HPCS-backed Private Certificate PKI integration](/docs/secrets-manager?topic=secrets-manager-root-certificate-authorities#hpcs-private-cert-deprecation).
 
 
 
@@ -527,7 +544,7 @@ Pricing plan updates coming soon in {{site.data.keyword.secrets-manager_short}}
     **Types of plans:**
 
     When you provision an instance of the service after the 23 March, you can choose either a Trial or Standard plan.
-   
+
       * **Trial**: To try out the service, you can provision an instance of the service to access all the features that {{site.data.keyword.secrets-manager_short}} offers for a limited time. After the trial period, all functionality is disabled but the instance remains in your account for an additional 30 days, during which you can choose to upgrade your plan. If you choose not to, the instance and its data are automatically removed from your account without any action on your part.
 
       You can have one instance of the service on the trial plan that is provisioned in your account at any time.

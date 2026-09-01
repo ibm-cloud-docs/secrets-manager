@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-07-23"
+lastupdated: "2026-09-01"
 
 keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, trial plan
 
@@ -54,7 +54,7 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Creating a {{site.data.keyword.secrets-manager_short}} service instance
 {: #create-instance}
@@ -62,7 +62,43 @@ subcollection: secrets-manager
 Get started with {{site.data.keyword.secrets-manager_full}} by creating a service instance in {{site.data.keyword.cloud_notm}} console, {{site.data.keyword.cloud_notm}} CLI, or API.
 {: shortdesc}
 
+## Choosing a plan
+{: #choosing-plan}
 
+Before you create an instance, it's important to understand the key differences between the available plans:
+
+| Consideration | [Trial and Standard]{: tag-blue} plans | [Vault Dedicated]{: tag-green} plan |
+|---------------|-------------------------|----------------------|
+| **Features** | IBM-managed secrets with built-in secret types and engines. | Managed HashiCorp Vault Enterprise capabilities with native Vault features. |
+| **Upgrade path** | `Trial` can be upgraded to `Standard` only. | Cannot upgrade from Trial/Standard to `Vault Dedicated`. |
+| **Instance limits** | One trial instance per account. | Multiple instances allowed. |
+| **Use case** | {{site.data.keyword.cloud_notm}}-native secret management. | Enterprise Vault workloads requiring native Vault features. |
+{: caption="Plan comparison" caption-side="bottom"}
+
+The [Vault Dedicated]{: tag-green} plan is currently available as a public beta. Beta features are provided for evaluation and testing purposes and have limitations compared to generally available features.
+{: beta}
+
+### Vault Dedicated public beta limitations
+{: #vault-dedicated-beta-limitations}
+
+During the public beta period, the [Vault Dedicated]{: tag-green} has the following temporary restrictions:
+
+- **Instance limit**: Only 1 Vault Dedicated instance per account during beta.
+- **No upgrade path**: Cannot upgrade from beta to GA. All beta instances will be deleted before general availability.
+- **Regional availability**: Available in Dallas and Frankfurt.
+- **Free during beta**: No charges apply during the beta period.
+- **Beta to GA migration**: Data migration from beta instances to GA instances is not supported.
+
+These limitations are temporary and apply only during the public beta period. It will be removed or modified when the [Vault Dedicated]{: tag-green} reaches general availability.
+{: important}
+
+Key points to remember:
+- **Trial instances** can only be upgraded to Standard plan. To use the [Vault Dedicated]{: tag-green}, you must provision a new Vault Dedicated instance.
+- **Only one Trial instance** is allowed per account. Before creating a new Trial instance, you must delete any existing Trial instance and its reclamation.
+- **Features differ significantly** between plans. Review the [Feature overview](/docs/secrets-manager?topic=secrets-manager-feature-overview) to determine which plan best fits your needs.
+
+## Before you begin
+{: #create-instance-prereqs}
 
 
 
@@ -84,7 +120,7 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} from the {{
 
 4. Provide a name for your instance.
 5. Select a resource group.
-6. Optional: Add tags to help you to organize the instance in your account.
+6. **Optional**: Add tags to help you to organize the instance in your account.
 7. Determine an option for enabling customer-managed encryption for your instance.
 
     You can enhance the security of your secrets at rest by integrating with a key management service. For more information about customer-managed encryption, check out [Protecting your sensitive data in {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption).
@@ -134,10 +170,10 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} by using th
     |:---------|:------------|
     | Instance name (`instance_name`) | A unique alias for your service instance. |
     | Region (`region`)  | The region the instance should be provisioned in. [Supported regions](/docs/secrets-manager?topic=secrets-manager-endpoints&interface=api). |
-    | Pricing plan (`plan`) | The pricing plan that you want to use. Use`trial` or `standard`. |
+    | Pricing plan (`plan`) | The pricing plan that you want to use. Use`trial`,`standard` or `dedicated`.|
     | Endpoints (`options`) | Optional. By default instances of {{site.data.keyword.secrets-manager_short}} are created with only a private endpoint (`private-only`). If you need to provision an instance of {{site.data.keyword.secrets-manager_short}} that uses also a public endpoint, append the `--service-endpoints public-and-private` option to your command. |
     | Encryption (`options`) | To provision an instance of {{site.data.keyword.secrets-manager_short}} that uses [customer-managed encryption](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption), append `-p '{"kms_key": "<root_key_crn>"}'`. Replace `<root_key_crn>` with the CRN value for the root key that you want to integrate. |
-    {: caption="Description of the information that is required to provision the  {{site.data.keyword.secrets-manager_short}} service using CLI" caption-side="top"}
+    {: caption="Description of the information that is required to provision the  {{site.data.keyword.secrets-manager_short}} service using CLI" caption-side="bottom"}
 
     You can create only one Trial instance of {{site.data.keyword.secrets-manager_short}} per account. Before you can create a new Trial instance, you must delete the existing Trial instance and its reclamation.
     {: note}
@@ -145,7 +181,7 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} by using th
     To update your service plan after you create an instance, see [Updating your service plan](/docs/account?topic=account-changing).
     {: tip}
 
-
+For more information on the different available plans, see [Feature overview](/docs/secrets-manager?topic=secrets-manager-feature-overview).
 
 ## Creating a {{site.data.keyword.secrets-manager_short}} instance from API
 {: #create-instance-api}
@@ -174,10 +210,10 @@ For additional programming languages support, see the [Resource Controller API D
     |:---------|:------------|
     | Instance name (`name`) | A unique alias for your service instance. |
     | Target (`region`) | The region the instance should be provisioned in. [Supported regions](/docs/secrets-manager?topic=secrets-manager-endpoints&interface=api).|
-    | Pricing plan (`plan`) | The pricing plan that you want to use, provided as a plan ID. Use `869c191a-3c2a-4faf-98be-18d48f95ba1f` for `trial` or `7713c3a8-3be8-4a9a-81bb-ee822fcaac3d` for `standard`.  |
+    | Pricing plan (`plan`) | The pricing plan that you want to use, provided as a plan ID. Use `869c191a-3c2a-4faf-98be-18d48f95ba1f` for `trial`, `7713c3a8-3be8-4a9a-81bb-ee822fcaac3d` for `standard` or `dedicated`. |
     | Endpoints | By default instances of {{site.data.keyword.secrets-manager_short}} are created with only a private endpoint. If you need to provision an instance of {{site.data.keyword.secrets-manager_short}} that uses also a public endpoint, add `"service-endpoints":"public-and-private"` to `parameters`. |
     | Encryption | To provision an instance of {{site.data.keyword.secrets-manager_short}} that uses [customer-managed encryption](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption), keep the `kms_key` parameter, and replace `<root_key_crn>` with the CRN value for the root key that you want to integrate. |
-    {: caption="Description of the information that is required to provision the  {{site.data.keyword.secrets-manager_short}} service using API" caption-side="top"}
+    {: caption="Description of the information that is required to provision the  {{site.data.keyword.secrets-manager_short}} service using API" caption-side="bottom"}
 
     You can create only one Trial instance of {{site.data.keyword.secrets-manager_short}} per account. Before you can create a new Trial instance, you must delete the existing Trial instance and its reclamation.
     {: note}
@@ -185,7 +221,7 @@ For additional programming languages support, see the [Resource Controller API D
     To update your service plan after you create an instance, see [Updating your service plan](/docs/account?topic=account-changing).
     {: tip}
 
-
+For more information on the different available plans, see [Feature overview](/docs/secrets-manager?topic=secrets-manager-feature-overview).
 
 ## Creating a {{site.data.keyword.secrets-manager_short}} instance using Terraform
 {: #create-instance-terraform}
@@ -194,7 +230,7 @@ For additional programming languages support, see the [Resource Controller API D
 To create an instance of {{site.data.keyword.secrets-manager_short}} using Terraform, include the following parameters in your `ibm_resource_instance` resource for {{site.data.keyword.secrets-manager_short}}.
 
  - **`service`**: `secrets-manager`
- - **`plan`**: either `Standard` or `Trial`.  [Learn more](/docs/secrets-manager?topic=secrets-manager-pricing) about the service plans
+ - **`plan`**: either `Standard`, `Trial` or `dedicated`. [Learn more](/docs/secrets-manager?topic=secrets-manager-pricing) about the service plans
  - **`service_endpoints`**: Either `private` or `public-and-private`. If not included, default is `private` 
 Include the following inside `parameters` for further customization.
 - **`kms_key`**: Root key CRN from Key Protect. If not included, default is root key that is managed by {{site.data.keyword.secrets-manager_short}}
@@ -215,9 +251,12 @@ resource "ibm_resource_instance" "sm_instance" {
 You can also use the [{{site.data.keyword.secrets-manager_full}}](https://registry.terraform.io/modules/terraform-ibm-modules/secrets-manager/ibm/latest){: external} to provision and configure {{site.data.keyword.secrets-manager_short}} instances as code. For more information about Terraform IBM Modules, see [About Terraform IBM Modules](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim).
 {: tip}
 
-
+For more information on the different available plans, see [Feature overview](/docs/secrets-manager?topic=secrets-manager-feature-overview).
 
 ## Upgrading a {{site.data.keyword.secrets-manager_short}} instance to the Standard plan
 {: #upgrade-instance-standard}
 
 When your Trial instance expires, you lose access to your secrets, and integrations. To preserve your data, and prevent any disruptions in your workflow, you must upgrade to the Standard plan before your Trial plan expires. Follow the steps to [update your pricing plan](/docs/account?topic=account-changing). You can use the UI, API, and CLI to complete this process.
+
+`Trial` plan instances can only be upgraded to the `Standard` plan. To use the `Vault Dedicated` plan, you must provision a new Vault Dedicated instance separately.
+{: note}

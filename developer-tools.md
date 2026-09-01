@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-07-09"
+lastupdated: "2026-08-31"
 
 keywords: Secrets Manager developer tools, integrate with application, API, SDK, CLI
 
@@ -55,8 +55,7 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
-# Integrating {{site.data.keyword.secrets-manager_short}} with your apps
-
+# Integrating {{site.data.keyword.secrets-manager_short}} with your apps by using the Trial and Standard plans
 {: #integrate-with-apps-trial-standard}
 
 Ready to integrate {{site.data.keyword.secrets-manager_full}} into your existing apps or services? Take advantage of our supported developer tools.
@@ -133,7 +132,7 @@ Create secret panel:
 https://cloud.ibm.com/services/secrets-manager/INSTANCE_CRN?paneId=manageSecrets#/manageSecrets/addSecret/SECRET_TYPE
 ```
 
-[List of programmatic secret type names](/docs/secrets-manager?topic=secrets-manager-what-is-secret#secret-types).
+[List of programmatic secret type names](/docs/secrets-manager?topic=secrets-manager-secret-types).
 
 Secret details panel:
 ```sh

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-09"
+lastupdated: "2026-09-01"
 
 keywords: create certificate authority, create root CA, create intermediate CA, set up PKI, set up private certificates, private certificates engine
 
@@ -89,7 +89,7 @@ With {{site.data.keyword.secrets-manager_short}}, you can create up to 10 root C
 | --- | --- |
 | [Root certificate authority](/docs/secrets-manager?topic=secrets-manager-root-certificate-authorities) | A trust anchor for your certificates chain. In a hierarchy of certificates, a root CA is at the top of a certificates chain. This CA is used to sign the certificates of Certificate Authorities that are subordinate to them, for example intermediate Certificate Authorities.  |
 | [Intermediate certificate authority](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities) | A subordinate or lower-level certificate authority that signs and issues other intermediate CA certificates. An intermediate CA is also used to issue leaf certificates to end-entities, for example a client or server application. In {{site.data.keyword.secrets-manager_short}}, you can create intermediate Certificate Authorities that are [signed internally or externally](/docs/secrets-manager?topic=secrets-manager-intermediate-certificate-authorities#intermediate-ca-signing).|
-{: caption="Certificate authority options" caption-side="top"}
+{: caption="Certificate authority options" caption-side="bottom"}
 
 ### Planning the structure of a CA hierarchy
 {: #plan-ca-structure}
@@ -198,7 +198,7 @@ Before you create a certificate authority in {{site.data.keyword.secrets-manager
     | --- | --- | --- | 
     | RSA | Widely used and compatible with most browsers and servers, RSA is the industry standard for public-key cryptography. | 2048 bits  \n4096 bits|
     | Elliptic curve (EC) | Generates stronger keys and smaller certificates. For example, a 256-bit EC key is equivalent in encryption strength to a 3072-bit RSA key. |  224 bits  \n256 bits  \n384 bits  \n521 bits|
-    {: caption="Supported algorithm families and key sizes" caption-side="top"}
+    {: caption="Supported algorithm families and key sizes" caption-side="bottom"}
 
 2. Choose a key size.
 

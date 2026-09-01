@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-07-27"
+lastupdated: "2026-09-01"
 
 keywords: IAM access for Secrets Manager, permissions for Secrets Manager, identity and access management for Secrets Manager, roles for Secrets Manager, actions for Secrets Manager, assigning access for Secrets Manager
 
@@ -54,7 +54,7 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Managing IAM access for {{site.data.keyword.secrets-manager_short}}
 {: #iam}
@@ -68,8 +68,7 @@ IAM access policies enable access to be granted at different levels. Some option
 - Access to an individual {{site.data.keyword.secrets-manager_short}} instance in your account
 - Access to a specific resource within a {{site.data.keyword.secrets-manager_short}} instance, applicable type is `secret-group`
 
-## IAM roles and actions for {{site.data.keyword.secrets-manager_short}}
-
+## IAM roles and actions for the Trial and Standard plans
 {: #iam-roles-actions}
 
 Review the following [platform and service roles](/docs/iam?topic=iam-userroles#platformroles) that you can use to assign access to {{site.data.keyword.secrets-manager_short}} service instances. Each role maps to specific {{site.data.keyword.secrets-manager_short}} actions that a user can complete within an account or an individual instance.
@@ -77,7 +76,7 @@ Review the following [platform and service roles](/docs/iam?topic=iam-userroles#
 If a specific role and its actions don't fit the use case that you're looking to address, you can [create a custom role](/docs/iam?topic=iam-custom-roles&interface=ui#custom-access-roles) and pick the actions to include.
 {: tip}
 
-
+The following actions are specific to the [Trial and Standard]{: tag-blue} plans:
 
 | Role | Description |
 | ----- | :----- |
@@ -85,7 +84,7 @@ If a specific role and its actions don't fit the use case that you're looking to
 | Operator | As an operator, you can complete platform actions that are required to configure and operate {{site.data.keyword.secrets-manager_short}} service instances, such as the ability to view a {{site.data.keyword.secrets-manager_short}} dashboard. |
 | Editor | As an editor, you can create, modify, and delete {{site.data.keyword.secrets-manager_short}} service instances, but you can't assign access policies to other users. |
 | Administrator | As an administrator, you can complete all platform actions for {{site.data.keyword.secrets-manager_short}}, including the ability to assign access policies to other users. |
-{: caption="Platform roles - {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
+{: caption="Platform roles - {{site.data.keyword.secrets-manager_short}}" caption-side="bottom"}
 {: #platform-roles-table1}
 {: tab-title="Platform roles"}
 {: tab-group="secrets-manager"}
@@ -100,7 +99,7 @@ If a specific role and its actions don't fit the use case that you're looking to
 | Writer | As a writer, you have permissions beyond the secrets reader role, including the ability to create and edit secrets. Writers can't create secret groups, or configure secrets engines. |
 | Manager | As a manager, you have permissions beyond the writer role to complete privileged actions, such as the ability to manage secret groups, and configure secrets engines. |
 | SecretTaskUpdater	| As a secret task updater, you can update a secret task. This role cannot perform any other operations. |
-{: caption="Service roles - {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
+{: caption="Service roles - {{site.data.keyword.secrets-manager_short}}" caption-side="bottom"}
 {: #service-roles-table1}
 {: tab-title="Service roles"}
 {: tab-group="secrets-manager"}
@@ -150,15 +149,24 @@ If a specific role and its actions don't fit the use case that you're looking to
 | `secrets-manager.secret-task.read` | Get a secret's task. | Reader, SecretsReader, Writer, Manager |
 | `secrets-manager.secret-task.update` | Update a secret's task. | SecretTaskUpdater |
 | `secrets-manager.secret-task.delete` | Delete a secret's task. | Manager |
-{: caption="Service actions - {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
-
+{: caption="Service actions - {{site.data.keyword.secrets-manager_short}} Trial and Standard plans" caption-side="bottom"}
 {: #actions-table1}
 {: tab-title="Actions"}
 {: tab-group="secrets-manager"}
 {: class="simple-tab-table"}
 {: summary="Use the tab buttons to change the context of the table. This table provides the available actions for the service, descriptions of each, and the roles that each action are mapped to."}
 
+## IAM roles and actions for the Vault Dedicated plan
+{: #vault-dedicated-actions}
 
+The following actions are specific to the [Vault Dedicated]{: tag-green} plan:
+
+| Action | Description | Roles |
+| ----- | :----- | :----- |
+| `secrets-manager.admin-token.create` | Create a Vault admin token. | Manager |
+| `secrets-manager.admin-tokens.delete` | Revoke all admin tokens. | Manager |
+| `secrets-manager.instance.read` | Read the details of an instance. | Manager, Reader, Writer, SecretsReader |
+{: caption="Service actions - {{site.data.keyword.secrets-manager_short}} Vault Dedicated plan" caption-side="bottom"}
 
 ## Assigning access to {{site.data.keyword.secrets-manager_short}}
 {: #iam-assign-access}

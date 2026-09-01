@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-29"
+lastupdated: "2026-09-01"
 
 keywords: Secrets Manager integrations, enable integration, create authorization, service to service, grant access between services, using Secrets Manager with other services, authorize Secrets Manager
 
@@ -79,7 +79,7 @@ The following table lists the services that can be authorized to work with {{sit
 | [{{site.data.keyword.instructlab_short}}](/docs/inference?topic=inference-getting-started) | Arbitrary secrets | {{site.data.keyword.instructlab_short}} is an open source project created by IBM and Red Hat to be a cost-effective entry point into the world of machine learning. |
 | [Schematics](/schematics?topic=schematics-getting-started) | Arbitrary secrets | Centrally manage secrets for use in Schematics workspaces. |
 | [Direct Link](/docs/dl?topic=dl-get-started-with-ibm-cloud-dl) | All secret types | seamlessly connect your on-premises resources to your cloud resources. |
-{: caption="Available integrations" caption-side="top"}
+{: caption="Available integrations" caption-side="bottom"}
 
 
 ## Authorizing an {{site.data.keyword.cloud_notm}} service to access {{site.data.keyword.secrets-manager_short}}

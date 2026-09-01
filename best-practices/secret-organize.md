@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-07-22"
+lastupdated: "2026-08-28"
 
 keywords: secrets management best practice, managing secrets, secrets strategy, secrets best practices, organizing secrets, assigning access to secrets
 
@@ -54,7 +54,7 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Best practices for organizing secrets and assigning access
 {: #best-practices-organize-secrets}
@@ -114,3 +114,11 @@ Use secret groups to narrow the scope of access to specific secrets at an instan
 Add labels so that you can further search by and categorize the secrets in your instance. When you use a consistent labeling schema, you can easily group similar secrets together.
 
 1. Label your secrets by using a consistent schema, such as creating labels to differentiate which secrets are used for a specific purpose. To add labels by using the {{site.data.keyword.secrets-manager_short}} UI, go to the **Secrets** page, and then select a secret to edits its details.
+
+## Organizing secrets in Vault Dedicated
+{: #best-practices-vault-dedicated}
+
+The [Vault Dedicated]{: tag-green} plan provides a managed HashiCorp Vault Enterprise cluster with advanced organizational and access control capabilities. For comprehensive best practices on organizing secrets and managing access in Vault Enterprise, refer to HashiCorp's official documentation:
+
+- **Namespace organization**: Use namespaces to create isolated environments for different teams, projects, or applications. For detailed guidance, see [HashiCorp's namespace organization best practices](https://developer.hashicorp.com/vault/tutorials/enterprise/namespaces).
+- **Access control policies**: Implement fine-grained access controls using Vault's policy system to ensure users and applications have only the permissions they need. For more information, see [HashiCorp's access control best practices](https://developer.hashicorp.com/vault/tutorials/policies/policies).

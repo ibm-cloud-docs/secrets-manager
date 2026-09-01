@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-08-07"
 
 keywords: root certificate authority, root CA, internal signing, external signing
 
@@ -321,7 +321,7 @@ The following table outlines the key dates and stages for this deprecation.
 | End of support | 30 March 2027 | The underlying HPCS dependency is deprecated. |
 {: caption="Deprecation timeline for HPCS-backed Private Certificate PKI integration" caption-side="bottom"}
 
-### Migration steps
+### Migrating to a supported configuration
 {: #hpcs-deprecation-migration}
 
 To avoid service disruption, complete the following steps to migrate existing configurations before the 30 March 2027 end-of-support date:

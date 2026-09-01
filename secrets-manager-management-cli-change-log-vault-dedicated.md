@@ -2,9 +2,9 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-08-31"
 
-keywords: vpn, certificates
+keywords: change log for Secrets Manager CLI, CLI changelog, Vault Dedicated, instance management CLI
 
 subcollection: secrets-manager
 
@@ -54,11 +54,16 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
-{{site.data.keyword.attribute-definition-list}}
 
-# Benefit of storing VPN credentials in Secrets Manager
-{: #use-case-vpn-certificates}
+# {{site.data.keyword.secrets-manager_short}} instance management CLI change log
+{: #secrets-manager-management-cli-change-log}
 
-**Plan availability**: [Trial and Standard]{: tag-blue} plans only.
+In this change log, you can learn about the latest changes, improvements, and updates for the [{{site.data.keyword.secrets-manager_short}} instance management CLI plug-in](/docs/secrets-manager?topic=secrets-manager-secrets-manager-management-cli) (`ibmcloud secrets-manager-instance-management`). The change log lists changes that have been made, ordered by the date they were released. Changes to existing CLI versions are designed to be compatible with existing client applications.
+{: shortdesc}
 
-By storing VPN credentials in {{site.data.keyword.secrets-manager_full}}, you can securely manage the lifecycle of these sensitive login details, including setting expiration dates and enabling automatic rotation policies. This helps enhance security by ensuring that credentials are regularly updated and reducing the risk of unauthorized access to your VPN service. Additionally, {{site.data.keyword.secrets-manager_short}} provides centralized management of these credentials, making it easier to control and monitor access to your VPN resources.
+To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
+
+## Version 2.0.7
+{: #management-cli-2.0.0}
+
+Version 2.0.7 was released on 1 September 2026. This was the initial beta release of the {{site.data.keyword.secrets-manager_short}} instance management CLI plug-in for the Vault Dedicated plan.

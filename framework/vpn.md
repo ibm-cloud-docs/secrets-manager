@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-08-01"
+lastupdated: "2026-09-01"
 
 keywords: isolation for {{site.data.keyword.secrets-manager_short}}, service endpoints for {{site.data.keyword.secrets-manager_short}}, private network for {{site.data.keyword.secrets-manager_short}}, network isolation in {{site.data.keyword.secrets-manager_short}}, non-public routes for {{site.data.keyword.secrets-manager_short}}, private connection for {{site.data.keyword.secrets-manager_short}}, vpn
 
@@ -57,6 +57,9 @@ subcollection: secrets-manager
 
 # Using Client-to-Site VPN to privately connect to {{site.data.keyword.secrets-manager_short}}
 {: #vpn-connection}
+
+This is the required connectivity pattern for accessing the Vault UI of a [Vault Dedicated]{: tag-green} plan instance that is provisioned with **private-only** endpoints. The [Vault Dedicated]{: tag-green} plan supports VPE gateways only — Cloud Service Endpoints (CSE) are not available — so the Vault UI cannot be reached from a browser without routing traffic through the VPC private network via a Client-to-Site VPN. This pattern also applies to the [Trial and Standard]{: tag-blue} plans for users who need workstation access to a private-only instance.
+{: important}
 
 You can securely reach a private-only {{site.data.keyword.secrets-manager_full}} over a {{site.data.keyword.cloud_notm}}–native path from a client workstation (for example, a Mac using OpenVPN Connect or another OpenVPN-compatible client), by using Client-to-Site (C2S) VPN Gateway in VPC and a Virtual Private Endpoint (VPE).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-07-27"
+lastupdated: "2026-09-01"
 
 keywords: Secrets Manager availability, regions, Secrets Manager endpoints, Vault endpoint
 
@@ -56,8 +56,6 @@ subcollection: secrets-manager
 {:release-note: data-hd-content-type='release-note'}
 {{site.data.keyword.attribute-definition-list}}
 
-
-
 # Regions and endpoints
 {: #endpoints}
 
@@ -69,24 +67,67 @@ Review region and connectivity options for interacting with {{site.data.keyword.
 
 You can create {{site.data.keyword.secrets-manager_short}} resources in one of the supported {{site.data.keyword.cloud_notm}} regions, which represents the geographic area where your {{site.data.keyword.secrets-manager_short}} requests are handled and processed.
 
-**Americas**
-- Dallas (`us-south`)
-- Washington DC (`us-east`)
-- Toronto (`ca-tor`)
-- Montreal (`ca-mon`)
-- Sao Paulo (`br-sao`)
+### Trial and Standard plans
+{: #supported-regions-trial-standard}
 
-**Europe**
-- London (`eu-gb`)
-- Frankfurt (`eu-de`)
-- Madrid (`eu-es`)
+The [Trial and Standard]{: tag-blue} plans are available in the following regions.
 
-**Asia Pacific**
-- Tokyo (`jp-tok`)
-- Osaka (`jp-osa`)
-- Sydney (`au-syd`)
-- Mumbai - Airtel (`in-mum`)
-- Chennai - Airtel (`in-che`)
+| Dallas (`us-south`) | Washington (`us-east`)  | Toronto (`ca-tor`) | Montreal (`ca-mon`) | Sao Paulo (`br-sao`) |
+|---------------------|-------------------------|-------------------|----------------------|----------------------|
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
+{: caption="Regions where Trial and Standard plans are available in Americas locations" caption-side="bottom"}
+{: #regions-table-1}
+{: tab-title="Americas"}
+{: tab-group="regions-standard"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+| Tokyo (`jp-tok`)    | Sydney (`au-syd`) |  Osaka (`jp-osa`) | Chennai - Airtel (`in-che`) | Mumbai - Airtel (`in-mum`) |
+|---------------------|------------------|------------------|--------------------|-------------------|
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
+{: caption="Regions where Trial and Standard plans are available in Asia Pacific locations" caption-side="bottom"}
+{: #regions-table-2}
+{: tab-title="Asia Pacific"}
+{: tab-group="regions-standard"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+| Frankfurt (`eu-de`)  | London (`eu-gb`) | Madrid (`eu-es`) |
+|---------------------------------------------------------------|---------------------|------------------|
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
+{: caption="Regions where Trial and Standard plans are available in Europe locations" caption-side="bottom"}
+{: #regions-table-3}
+{: tab-title="Europe"}
+{: tab-group="regions-standard"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+### Vault Dedicated plan
+{: #supported-regions-vault-dedicated}
+
+The [Vault Dedicated]{: tag-green} is available in the following regions.
+
+| Dallas (`us-south`) | Frankfurt (`eu-de`) | Paris (`eu-fr2`) |
+|---------------------|---------------------|------------------|
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
+{: caption="Regions where Vault Dedicated plan is available" caption-side="bottom"}
+
+The Vault Dedicated plan is currently available as a public beta. Beta features are provided for evaluation and testing purposes and have limitations compared to generally available features.
+{: beta}
+
+#### Vault Dedicated public beta limitations
+{: #vault-dedicated-regions-beta-limitations}
+
+During the public beta period, the Vault Dedicated plan has the following temporary restrictions:
+
+- **Instance limit**: Only 1 Vault Dedicated instance per account during beta.
+- **No upgrade path**: Cannot upgrade from beta to GA. All beta instances will be deleted before general availability.
+- **Regional availability**: Available in Dallas and Frankfurt.
+- **Free during beta**: No charges apply during the beta period.
+- **Beta to GA migration**: Data migration from beta instances to GA instances is not supported.
+
+These limitations will be removed or modified when the Vault Dedicated plan reaches general availability.
+{: important}
 
 ## Service endpoints
 {: #service-endpoints}
@@ -94,12 +135,12 @@ You can create {{site.data.keyword.secrets-manager_short}} resources in one of t
 You can use the {{site.data.keyword.secrets-manager_short}} APIs to manage your secrets programmatically. {{site.data.keyword.secrets-manager_short}} offers two connectivity options for interacting with its service APIs.
 
 Private endpoints
-:   By default, a {{site.data.keyword.secrets-manager_short}} instance will have only a private endpoint. Private endpoints provide secure connectivity to {{site.data.keyword.secrets-manager_short}} over the {{site.data.keyword.cloud_notm}} private network without requiring traffic to traverse the public internet. You can connect using Virtual Private Endpoint (VPE) gateways or through Cloud Service Endpoints (CSE). For more information, see [Securing your connection to {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-service-connection).
+:   By default, a {{site.data.keyword.secrets-manager_short}} instance will have only a private endpoint. Private endpoints provide secure connectivity to {{site.data.keyword.secrets-manager_short}} over the {{site.data.keyword.cloud_notm}} private network without requiring traffic to traverse the public internet. For the [Trial and Standard]{: tag-blue} plans, you can connect using Virtual Private Endpoint (VPE) gateways or through Cloud Service Endpoints (CSE). For the [Vault Dedicated]{: tag-green} plan, **only VPE gateways are supported** — CSE is not available. For more information, see [Securing your connection to {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-service-connection).
 
 Public endpoints
 :   Use public endpoints to connect to {{site.data.keyword.secrets-manager_short}} in your account over the {{site.data.keyword.cloud_notm}} public network. Your data is encrypted in transit by using the Transport Security Layer (TLS) 1.2 protocol. When a {{site.data.keyword.secrets-manager_short}} instance is configured with public endpoints, it also has a private endpoint in addition by default.
 
-### Service endpoints
+### Service endpoints for Trial and Standard plans
 {: #service-endpoints-table}
 
 If you need to manage your {{site.data.keyword.secrets-manager_short}} resources, see the following table to determine the API endpoints to use when you connect to the {{site.data.keyword.secrets-manager_short}} API.
@@ -125,7 +166,7 @@ To learn how to configure your {{site.data.keyword.secrets-manager_short}} insta
 | Sydney        | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud`   |
 | Mumbai - Airtel | `https://{instance_ID}.in-mum.secrets-manager.appdomain.cloud` |
 | Chennai - Airtel | `https://{instance_ID}.in-che.secrets-manager.appdomain.cloud` |
-{: caption="Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
+{: caption="Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}}" caption-side="bottom"}
 {: #public-endpoints}
 {: tab-title="Public endpoints"}
 {: tab-group="service-endpoint-urls"}
@@ -149,7 +190,7 @@ To learn how to configure your {{site.data.keyword.secrets-manager_short}} insta
 | Sydney        | `https://{instance_ID}.private.au-syd.secrets-manager.appdomain.cloud`   |
 | Mumbai - Airtel | `https://{instance_ID}.private.in-mum.secrets-manager.appdomain.cloud` |
 | Chennai - Airtel | `https://{instance_ID}.private.in-che.secrets-manager.appdomain.cloud` |
-{: caption="Private endpoints for interacting with {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
+{: caption="Private endpoints for interacting with {{site.data.keyword.secrets-manager_short}}" caption-side="bottom"}
 {: #private-endpoints}
 {: tab-title="Private endpoints"}
 {: tab-group="service-endpoint-urls"}
@@ -157,6 +198,29 @@ To learn how to configure your {{site.data.keyword.secrets-manager_short}} insta
 
 Ready to try the APIs? To interact with a Swagger UI from your browser, add `api/v2/swagger-ui` to your service endpoint URL. For example, `https://{instance_ID}.{region}.secrets-manager.appdomain.cloud/api/v2/swagger-ui`.
 {: tip}
+
+### Service endpoints for the Vault Dedicated plan
+{: #vault-dedicated-service-endpoints}
+
+The [Vault Dedicated]{: tag-green} plan exposes two private endpoint URLs per instance: one for the Vault API and one for the Vault UI. Both are accessible only through a VPE gateway — Cloud Service Endpoints (CSE) are not supported for this plan.
+
+| Endpoint | URL format |
+| -------- | ---------- |
+| **Vault API** (private) | `https://private.{instance_ID}.{region}.secrets-manager.appdomain.cloud` |
+| **Vault UI** (private) | `https://private.{instance_ID}.{region}.secrets-manager.appdomain.cloud/ui` |
+{: caption="Private endpoint URLs for the Vault Dedicated plan" caption-side="bottom"}
+
+Replace `{instance_ID}` with your instance UUID and `{region}` with the region abbreviation, for example `us-south` or `eu-de`.
+
+If your instance is configured with **private-only** endpoints, the following access requirements apply:
+
+- **API access**: Requires a VPE gateway that targets your Vault Dedicated instance. For setup instructions, see [Using service endpoints to privately connect to {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-service-connection).
+- **Vault UI access**: Requires a Client-to-Site VPN that routes traffic through the VPE. A browser cannot reach the private Vault UI URL directly from outside the {{site.data.keyword.cloud_notm}} private network. For setup instructions, see [Using Client-to-Site VPN to privately connect to {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-vpn-connection).
+
+If your instance is configured with **public-and-private** endpoints, the Vault API and Vault UI are reachable over the public internet without a VPE or VPN. The private endpoint URLs are also available, but using them still requires a VPE gateway (and a Client-to-Site VPN for Vault UI access), exactly as described above for private-only instances.
+{: note}
+
+You can retrieve the exact endpoint URLs for your instance from the **Endpoints** page of the {{site.data.keyword.secrets-manager_short}} UI, or by calling the [instance details API](/docs/secrets-manager?topic=secrets-manager-vault-dedicated-apis#get-instance-details-api).
 
 ### Viewing your endpoint URLs
 {: #view-endpoint-urls}
@@ -181,7 +245,7 @@ Replace the variables in the example request according to the following table.
 | `{region}` | The region abbreviation that represents the geographic area where your {{site.data.keyword.secrets-manager_short}} resides. For example, `us-south` or `eu-de`. |
 | `{url_encoded_instance_CRN}` | The Cloud Resource Name (CRN) that uniquely identifies your {{site.data.keyword.secrets-manager_short}} service instance. The value must be URL encoded. |
 | `{IAM_token}` | Your {{site.data.keyword.cloud_notm}} IAM access token. |
-{: caption="Required parameters for retrieving service endpoints with the API" caption-side="top"}
+{: caption="Required parameters for retrieving service endpoints with the API" caption-side="bottom"}
 
 A successful request returns the endpoint URLs that are associated with the region and service instance CRN that you specify. The following JSON snippet shows an example response.
 
@@ -227,7 +291,7 @@ Use the following control plane endpoints to call control plane APIs.
 | Sydney        | `https://au-syd.secrets-manager.cloud.ibm.com` |
 | Mumbai - Airtel | `https://in-mum.secrets-manager.cloud.ibm.com` |
 | Chennai - Airtel | `https://in-che.secrets-manager.cloud.ibm.com` |
-{: caption="Public control plane endpoints for {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
+{: caption="Public control plane endpoints for {{site.data.keyword.secrets-manager_short}}" caption-side="bottom"}
 {: #public-control-plane-endpoints}
 {: tab-title="Public endpoints"}
 {: tab-group="control-plane-endpoint-urls"}
@@ -251,7 +315,7 @@ Use the following control plane endpoints to call control plane APIs.
 | Sydney        | `https://private.au-syd.secrets-manager.cloud.ibm.com` |
 | Mumbai - Airtel | `https://private.in-mum.secrets-manager.cloud.ibm.com` |
 | Chennai - Airtel | `https://private.in-che.secrets-manager.cloud.ibm.com` |
-{: caption="Private control plane endpoints for {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
+{: caption="Private control plane endpoints for {{site.data.keyword.secrets-manager_short}}" caption-side="bottom"}
 {: #private-control-plane-endpoints}
 {: tab-title="Private endpoints"}
 {: tab-group="control-plane-endpoint-urls"}

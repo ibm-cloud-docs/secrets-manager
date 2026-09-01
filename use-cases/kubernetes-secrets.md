@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-10-10"
+  years: 2026
+lastupdated: "2026-09-01"
 
 keywords: Kuberetes secrets, External Kubernetes Operator, sync with Kubernetes, deploy to Kubernetes
 
@@ -54,7 +54,7 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Securing Kubernetes secrets
 {: #use-case-kubernetes-secrets}
@@ -80,6 +80,8 @@ This scenario features a third-party tool that can impact the compliance readine
 
 ![The diagram shows the technologies and flows that make up this specific implementation pattern.](../images/iks-sm-architecture.svg){: caption="Example architecture" caption-side="bottom"}
 
-Ready to start building a proof of concept? For more information about this pattern, check out the tutorial to help you get started.
+Ready to start building a proof of concept? For more information about this pattern, check out the tutorials to help you get started.
 
-[![This image is a visual link to the tutorial for securing Kubernetes secrets](../images/go-to-tutorial.svg)](/docs/secrets-manager?topic=secrets-manager-tutorial-kubernetes-secrets)
+- [Secure secrets for apps that run in your Kubernetes cluster](/docs/secrets-manager?topic=secrets-manager-tutorial-kubernetes-secrets) for the [Trial and Standard]{: tag-blue} plans
+- [Secure secrets for apps with Vault Dedicated and External Secrets Operator](/docs/secrets-manager?topic=secrets-manager-tutorial-vault-kubernetes-secrets-eso) for the [Vault Dedicated]{: tag-green} plan
+- [Secure secrets for apps with Vault Dedicated and Vault Secrets Operator](/docs/secrets-manager?topic=secrets-manager-tutorial-vault-kubernetes-secrets-vso) for the [Vault Dedicated]{: tag-green} plan

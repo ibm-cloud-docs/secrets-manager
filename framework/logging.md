@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-24"
+lastupdated: "2026-09-01"
 
 keywords: logging, activity, monitor app, monitor secrets
 
@@ -23,7 +23,51 @@ You can use {{site.data.keyword.logs_routing_full_notm}}, a platform service, to
 
 You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on platform logs that are generated in your account and routed by {{site.data.keyword.logs_routing_full_notm}} to an {{site.data.keyword.logs_full_notm}} instance.
 
+## Locations where platform logs are sent
+{: #logging-locations}
 
+{{site.data.keyword.secrets-manager_short}} sends platform logs to {{site.data.keyword.logs_full_notm}} in the regions that are indicated in the following tables.
+
+### Trial and Standard plans
+{: #logging-locations-standard}
+
+| Dallas (`us-south`) | Washington (`us-east`)  | Toronto (`ca-tor`) | Montreal (`ca-mon`) | Sao Paulo (`br-sao`) |
+|---------------------|-------------------------|-------------------|----------------------|----------------------|
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
+{: caption="Regions where platform logs are sent in Americas locations for Trial and Standard plans" caption-side="bottom"}
+{: #logging-table-1}
+{: tab-title="Americas"}
+{: tab-group="logging-standard"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+| Tokyo (`jp-tok`)    | Sydney (`au-syd`) |  Osaka (`jp-osa`) | Chennai - Airtel (`in-che`) | Mumbai - Airtel (`in-mum`) |
+|---------------------|------------------|------------------|--------------------|-------------------|
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
+{: caption="Regions where platform logs are sent in Asia Pacific locations for Trial and Standard plans" caption-side="bottom"}
+{: #logging-table-2}
+{: tab-title="Asia Pacific"}
+{: tab-group="logging-standard"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+| Frankfurt (`eu-de`)  | London (`eu-gb`) | Madrid (`eu-es`) |
+|---------------------------------------------------------------|---------------------|------------------|
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
+{: caption="Regions where platform logs are sent in Europe locations for Trial and Standard plans" caption-side="bottom"}
+{: #logging-table-3}
+{: tab-title="Europe"}
+{: tab-group="logging-standard"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+### Vault Dedicated plan
+{: #logging-locations-vault-dedicated}
+
+| Dallas (`us-south`) | Frankfurt (`eu-de`) | Paris (`eu-fr2`) |
+|---------------------|---------------------|------------------|
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
+{: caption="Regions where platform logs are sent for Vault Dedicated plan" caption-side="bottom"}
 
 ## Before you begin
 {: #before-logs}

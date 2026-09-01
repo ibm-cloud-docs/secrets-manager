@@ -20,6 +20,8 @@ toc:
           topics:
           - topic: pricing.md
             navtitle: Pricing
+          - topic: feature-overview.md
+            navtitle: Feature overview
           - topic: framework/responsibilities.md
             navtitle: Your responsibilities
       - topicgroup:
@@ -38,23 +40,50 @@ toc:
   - navgroup:
       id: tutorial
       topics:
+      - topic: tutorials/setting-up-vault-dedicated-instance.md
+        navtitle: Setting up your Vault Dedicated instance
       - tutorials/access-storage.md
-      - tutorials/kubernetes-secrets.md
+      - topicgroup:
+          label: Secure secrets for apps that run in your Kubernetes cluster
+          topics:
+          - topic: tutorials/kubernetes-secrets.md
+            navtitle: By using the Trial and Standard plans
+          - topicgroup:
+              label: By using the Vault Dedicated plan
+              topics:
+              - topic: tutorials/kubernetes-secret-vault-eso.md
+              - topic: tutorials/kubernetes-secret-vault-vso.md
   - navgroup:
       id: howto
       topics:
       - topicgroup:
           label: Setting up the service
           topics:
-          - provision.md
-          - assign-access.md
-          - developer-tools.md
+          - topic: provision.md
+            navtitle: Creating an instance
+          - topic: assign-access.md
+            navtitle: Assigning access to Secrets Manager
+          - topic: framework/event-notifications.md
+            navtitle: Enabling Event Notifications
+          - topicgroup:
+              label: Integrating Secrets Manager with your apps
+              topics:
+              - topic: developer-tools.md
+                navtitle: By using the Trial and Standard plans
+              - topic: developer-tools-vault-dedicated.md
+                navtitle: By using the Vault Dedicated plan
           - topic: terraform-setup.md
             navtitle: Setting up Terraform
+          - topic: deploy-da.md
+            navtitle: Working with the Secrets Manager deployable architecture
+      - secret-what-is.md
       - topicgroup:
-          label: Working with secrets
+          label: Working with secrets by using the Trial and Standard plans
           topics:
-          - secret-what-is.md
+          - topic: secret-types.md
+            navtitle: Secret types and components
+          - topic: secret-groups.md
+            navtitle: Organizing secrets
           - topicgroup:
               label: Creating secrets
               topics:
@@ -76,100 +105,142 @@ toc:
                 navtitle: Service credentials
               - topic: custom-credentials.md
                 navtitle: Custom credentials
-          - secret-access.md
-          - secret-locks.md
-          - secret-tasks.md
+          - topic: secret-access.md
+            navtitle: Accessing secrets
+          - topic: secret-locks.md
+            navtitle: Locking secrets
+          - topic: secret-tasks.md
+            navtitle: Secret tasks
           - topicgroup:
               label: Rotating secrets
               topics:
-              - secret-rotate.md
-              - secret-rotate-auto.md
-              - secret-versions-manage.md
-          - secret-delete.md
+              - topic: secret-rotate.md
+                navtitle: Manually rotating secrets
+              - topic: secret-rotate-auto.md
+                navtitle: Automatically rotating secrets
+              - topic: secret-versions-manage.md
+                navtitle: Managing secret versions
           - topicgroup:
               label: Updating secrets
               topics:
-              - secret-update.md
-              - secret-version-update.md
-      - secret-groups.md
+              - topic: secret-update.md
+                navtitle: Updating secrets metadata
+              - topic: secret-version-update.md
+                navtitle: Updating secret version metadata
+          - topic: secret-delete.md
+            navtitle: Deleting secrets
       - topicgroup:
-          label: Configuring secrets engines
+          label: Configuring secrets engines by using the Trial and Standard plans
           topics:
-          - engine-what-is.md
+          - topic: engine-what-is.md
+            navtitle: What is a secrets engine?
           - topic: engine-iam.md
             navtitle: IAM credentials
           - topicgroup:
               label: Custom credentials
               topics:
-              - engine-custom-prepare.md
-              - engine-custom-ce-job.md
-              - engine-custom-config.md
+              - topic: engine-custom-prepare.md
+                navtitle: Preparing to create custom credentials
+              - topic: engine-custom-ce-job.md
+                navtitle: Creating a Code Engine job
+              - topic: engine-custom-config.md
+                navtitle: Creating a custom credentials engine configuration
           - topicgroup:
               label: Public certificates
               topics:
-              - engine-public.md
-              - engine-public-ca.md
-              - engine-public-dns-providers.md
+              - topic: engine-public.md
+                navtitle: Preparing to order public certificates
+              - topic: engine-public-ca.md
+                navtitle: Connecting third-party certificate authorities
+              - topic: engine-public-dns-providers.md
+                navtitle: Connecting DNS providers
           - topicgroup:
               label: Private certificates
               topics:
-              - engine-private.md
-              - engine-private-root-ca.md
-              - engine-private-intermediate-ca.md
-              - engine-private-templates.md
-              - engine-private-rotate-intermediate.md
-      - topic: framework/event-notifications.md
-        navtitle: Enabling event notifications
+              - topic: engine-private.md
+                navtitle: Preparing to create private certificates
+              - topic: engine-private-root-ca.md
+                navtitle: Creating root certificate authorities
+              - topic: engine-private-intermediate-ca.md
+                navtitle: Creating intermediate certificate authorities
+              - topic: engine-private-templates.md
+                navtitle: Adding certificate templates
+              - topic: engine-private-rotate-intermediate.md
+                navtitle: Rotating certificate authorities certificates
+      - topicgroup:
+          label: Working with the Vault Dedicated plan
+          topics:
+          - topic: manage-admin-tokens.md
+            navtitle: Managing admin tokens
+          - topic: vault-dedicated-auth-methods.md
+            navtitle: Configuring authentication methods
+          - topic: vault-dedicated-secrets-engines.md
+            navtitle: Working with secrets engines
       - topicgroup:
           label: Connecting integrations
           topics:
-          - topic: integrations.md
-            navtitle: Integrating with other IBM Cloud services
-          - topic: integration-ansible.md
-            navtitle: Integrating with Ansible
-          - topic: integration-jenkins.md
-            navtitle: Integrating with Vault Jenkins plug-in
+          - topicgroup:
+              label: By using the Trial and Standard plans
+              topics:
+              - topic: integrations.md
+                navtitle: Integrating with other IBM Cloud services
+              - topic: integration-ansible.md
+                navtitle: Integrating with Ansible
+              - topic: integration-jenkins.md
+                navtitle: Integrating with Vault Jenkins plug-in
       - topicgroup:
           label: Logging and monitoring
           topics:
-          - framework/at-events.md
-          - framework/logging.md
-          - monitor-metrics.md
+          - topicgroup:
+              label: Auditing events for Secrets Manager
+              topics:
+              - topic: framework/at-events.md
+                navtitle: By uing the Trial and Standard plans
+              - topic: vault-dedicated/at-events.md
+                navtitle: By using the Vault Dedicated plan
+          - topic: framework/logging.md
+            navtitle: Logging for Secrets Manager
+          - topic: monitor-metrics.md
+            navtitle: Monitoring operational metrics
       - topicgroup:
           label: Enhancing security
           topics:
-          - framework/iam.md
-          - framework/architecture-workload-isolation.md
+          - topic: framework/iam.md
+            navtitle: Managing IAM access for Secrets Manager
+          - topic: framework/architecture-workload-isolation.md
+            navtitle: Learning about Secrets Manager architecture workload and isolation
           - topicgroup:
               label: Privately connecting to Secrets Manager
               topics:
               - topic: framework/cse.md
-                navtitle: Using service endpoints
+                navtitle: Using service endpoints to privately connect to Secrets Manager
               - topic: framework/vpn.md
-                navtitle: Using Client-to-Site VPN
-          - framework/data-security.md
-          - cbr-control-access.md
+                navtitle: Using Client-to-Site VPN to privately connect to Secrets Manager
+          - topic: framework/data-security.md
+            navtitle: Securing your data in Secrets Manager
+          - topic: cbr-control-access.md
+            navtitle: Protecting Secrets Manager resources with context-based restrictions
   - navgroup:
       id: reference
       topics:
       - topicgroup:
           label: Programmatic references
           topics:
-          - link:
-              label: API reference
-              href: https://{DomainName}/apidocs/secrets-manager/secrets-manager-v2
-          - topic: changelog-api.md
-            navtitle: API change log
-          - topic: secrets-manager-cli.md
-            navtitle: CLI reference
-          - topic: changelog-cli.md
-            navtitle: CLI change log
-          - link:
-              label: Terraform
-              href: https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/sm_secrets
           - topicgroup:
-              label: Vault
+              label: By using the Trial and Standard plans
               topics:
+              - link:
+                  label: API reference
+                  href: https://{DomainName}/apidocs/secrets-manager/secrets-manager-v2
+              - topic: changelog-api.md
+                navtitle: API change log
+              - topic: secrets-manager-cli.md
+                navtitle: CLI reference
+              - topic: changelog-cli.md
+                navtitle: CLI change log
+              - link:
+                  label: Terraform
+                  href: https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/sm_secrets
               - topic: vault-api.md
                 navtitle: Vault API reference
               - topic: vault-kv-api.md
@@ -180,6 +251,26 @@ toc:
                 navtitle: Setting up the Vault CLI
               - topic: vault-cli.md
                 navtitle: Vault CLI
+          - topicgroup:
+              label: By using the Vault Dedicated plan
+              topics:
+              - topic: vault-dedicated/api-reference-overview.md
+                navtitle: API and CLI reference overview
+              - topic: vault-dedicated/vault-dedicated-apis.md
+                navtitle: Instance Management API reference
+              - topic: secrets-manager-management-cli-vault-dedicated.md
+                navtitle: Instance Management CLI reference
+              - topic: secrets-manager-management-cli-change-log-vault-dedicated.md
+                navtitle: Instance Management CLI change log
+              - link:
+                  label: HashiCorp Vault API reference
+                  href: https://developer.hashicorp.com/vault/api-docs
+              - link:
+                  label: HashiCorp Vault CLI reference
+                  href: https://developer.hashicorp.com/vault/docs/commands
+              - link:
+                  label: HashiCorp Terraform reference
+                  href: https://developer.hashicorp.com/terraform
       - topic: service-dependency.md
         navtitle: Service dependency map
       - topicgroup:
@@ -190,10 +281,12 @@ toc:
           - topic: framework/ha-dr.md
             navtitle: Understanding high availability and disaster recovery
       - topicgroup:
-          label: Data portability
+          label: Understanding data portability
           topics:
           - topic: framework/data-portability.md
-            navtitle: Understanding data portability
+            navtitle: By using the Trial and Standard plans
+          - topic: vault-dedicated/data-portability-vault-dedicated.md
+            navtitle: By using the Vault Dedicated plan
   - navgroup:
       id: help
       topics:

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-07-09"
+lastupdated: "2026-08-31"
 
 keywords: tutorial, Secrets Manager
 
@@ -59,8 +59,7 @@ completion-time: 45m
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
-# Secure secrets for apps that run in your Kubernetes cluster
-
+# Secure secrets for apps that run in your Kubernetes cluster by using the Trial and Standard plan
 {: #tutorial-kubernetes-secrets}
 {: toc-content-type="tutorial"}
 {: toc-services="secrets-manager,containers"}
@@ -434,7 +433,7 @@ Finally, configure your {{site.data.keyword.secrets-manager_short}} instance to 
 
 Secrets are application-specific and can vary based on the individual app or service that requires them. A secret might consist of a username, password, API key, or any other type of credential.
 
-{{site.data.keyword.secrets-manager_short}} supports various [types of secrets](/docs/secrets-manager?topic=secrets-manager-what-is-secret#secret-types) that you can create and manage in the service. For example, if you need to manage an API key for an app that is protected by {{site.data.keyword.cloud_notm}} IAM authentication, you can create an [IAM credential](/docs/secrets-manager?topic=secrets-manager-iam-credentials). Or, if you need to manage a secret that can hold any type of structured or unstructured data, you can create an [arbitrary secret](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets).
+{{site.data.keyword.secrets-manager_short}} supports various [types of secrets](/docs/secrets-manager?topic=secrets-manager-secret-types) that you can create and manage in the service. For example, if you need to manage an API key for an app that is protected by {{site.data.keyword.cloud_notm}} IAM authentication, you can create an [IAM credential](/docs/secrets-manager?topic=secrets-manager-iam-credentials). Or, if you need to manage a secret that can hold any type of structured or unstructured data, you can create an [arbitrary secret](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets).
 
 In this tutorial, you create a username and password as an example. To create a secret from the {{site.data.keyword.cloud_notm}} CLI, you use the [**`ibmcloud secrets-manager secret-create`**](/docs/secrets-manager?topic=secrets-manager-secrets-manager-cli#secrets-manager-cli-secret-create-command) command. Run the following command to create the secret and store its ID as an environment variable.
 
@@ -776,3 +775,5 @@ Great job! In this tutorial, you learned how to set up {{site.data.keyword.secre
 
 - Review the [secret types in {{site.data.keyword.secrets-manager_short}}](https://external-secrets.io/latest/provider/ibm-secrets-manager/){: external} that are supported by External Secrets Operator.
 - Learn more about the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager/secrets-manager-v2).
+
+To work with Vault Dedicated and {{site.data.keyword.containershort}}, you need to create a cluster in your {{site.data.keyword.cloud_notm}} account and configure access to your Vault Dedicated instance.
