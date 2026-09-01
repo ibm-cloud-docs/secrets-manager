@@ -62,6 +62,9 @@ subcollection: secrets-manager
 Use the IBM Cloud Secrets Manager instance management API to manage service instances of the `Vault Dedicated` plan. For Vault runtime operations such as secrets management, authentication methods, and policies, use the HashiCorp Vault API.
 {: shortdesc}
 
+For the interactive API reference with SDK examples, see the [Instance Management API reference](https://{DomainName}/apidocs/secrets-manager/secrets-manager-instance-management-v2){: external}.
+{: tip}
+
 ## IBM Cloud Secrets Manager Instance Management API
 {: #ibm-cloud-instance-management-api}
 

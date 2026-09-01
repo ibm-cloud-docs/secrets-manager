@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-31"
+lastupdated: "2026-09-01"
 
 keywords: Secrets Manager developer tools, integrate with application, API, SDK, CLI, Vault Dedicated
 
@@ -88,6 +88,9 @@ For the full CLI reference, see [{{site.data.keyword.secrets-manager_short}} ins
 {: #dev-tool-api-vault-dedicated}
 
 The {{site.data.keyword.secrets-manager_short}} instance management API provides control plane operations for your Vault Dedicated instance. It covers a focused set of operations: retrieving instance details, generating an admin token, and revoking admin tokens. It is not a runtime secrets API — for secrets operations such as reading and writing secrets, use the native [Vault API](https://developer.hashicorp.com/vault/api-docs){: external} directly against your Vault cluster endpoint.
+
+For the full interactive API reference, including SDK code examples in Go, Node.js, Java, and Python, see the [Instance Management API reference](https://{DomainName}/apidocs/secrets-manager/secrets-manager-instance-management-v2){: external}.
+{: tip}
 
 To call the instance management API, copy the control plane service endpoint URL from the **Endpoints** page in your {{site.data.keyword.secrets-manager_short}} service dashboard and generate an [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) token](/docs/iam?topic=iam-iamtoken_from_apikey).
 
