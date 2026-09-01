@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-31"
+lastupdated: "2026-09-01"
 
 keywords: Secrets Manager, Vault Dedicated, admin tokens, instance management API
 
@@ -90,8 +90,8 @@ The admin token is intended for initial configuration and emergency access only.
 
 The Instance Management API exposes the following operations for managing admin tokens:
 
-- **Generate an admin token** – Creates a new Vault admin token that you can use to authenticate to the Vault API and UI. See [Generate an admin token](/docs/secrets-manager?topic=secrets-manager-vault-dedicated-apis#generate-admin-token) in the Instance Management API reference.
+- **Generate an admin token** – Creates a new Vault admin token that you can use to authenticate to the Vault API and UI. See [Generating an admin token](/docs/secrets-manager?topic=secrets-manager-vault-dedicated-apis&interface=ui#generate-admin-token-ui) in the Instance Management API reference.
 
-- **Revoke all admin tokens** – Immediately invalidates all active admin tokens for your instance, requiring new tokens to be generated for future administrative access. See [Revoke all admin tokens](/docs/secrets-manager?topic=secrets-manager-vault-dedicated-apis#revoke-admin-tokens) in the Instance Management API reference.
+- **Revoke all admin tokens** – Immediately invalidates all active admin tokens for your instance, requiring new tokens to be generated for future administrative access. See [Revoking all admin tokens](/docs/secrets-manager?topic=secrets-manager-vault-dedicated-apis&interface=ui#revoke-admin-tokens-ui) in the Instance Management API reference.
 
 For authentication requirements, base URL details, and full request and response specifications for both operations, see [Instance Management API reference](/docs/secrets-manager?topic=secrets-manager-vault-dedicated-apis#managing-admin-tokens).

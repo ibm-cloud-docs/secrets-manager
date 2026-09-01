@@ -3,7 +3,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-31"
+lastupdated: "2026-09-01"
 
 keywords: tutorial, Vault as a Service, Kubernetes secrets, External Secrets Operator
 
@@ -97,7 +97,7 @@ Before you get started, be sure that you have [**Administrator** platform access
 
     `jq` helps you slice and filter JSON data. You use `jq` in this tutorial to grab and use stored environment variables.
 
-- A Vault Dedicated Instance provisioned in your {{site.data.keyword.cloud_notm}} account. For more information, see [Setting up your Vault Dedicated instance](/docs//secrets-manager?topic=secrets-manager-setting-up-vault-dedicated-instance).
+- A Vault Dedicated Instance provisioned in your {{site.data.keyword.cloud_notm}} account. For more information, see [Setting up your Vault Dedicated instance](/docs/secrets-manager?topic=secrets-manager-setting-up-vault-dedicated-instance).
 
 ## Set up your environment
 {: #tutorial-vault-kubernetes-secrets-eso-set-up-env}

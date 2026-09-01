@@ -3,7 +3,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-31"
+lastupdated: "2026-09-01"
 
 keywords: tutorial, Vault as a Service, Kubernetes secrets, Vault Secrets Operator, VSO
 
@@ -67,7 +67,7 @@ completion-time: 45m
 {: toc-services="vault,containers"}
 {: toc-completion-time="45m"}
 
-In this tutorial, you learn how to use IBM Cloud Vault Enterprise to manage secrets for applications that run in your {{site.data.keyword.containerfull_notm}} cluster by using the VSO (https://developer.hashicorp.com/vault/docs/platform/k8s/vso){: external}, HashiCorp's official Kubernetes operator.
+In this tutorial, you learn how to use IBM Cloud Vault Enterprise to manage secrets for applications that run in your {{site.data.keyword.containerfull_notm}} cluster by using the VSO (https://developer.hashicorp.com/vault/docs/deploy/kubernetes/vso){: external}, HashiCorp's official Kubernetes operator.
 
 {: shortdesc}
 
@@ -84,7 +84,7 @@ With Vault Dedicated and Vault Secrets Operator, you can leverage the full power
 4. At application run time, VSO retrieves the secret data from Vault Dedicated and creates Kubernetes secrets for your cluster.
 5. VSO continuously monitors and syncs secrets, handling rotation and updates automatically.
 
-Vault Secrets Operator is an official HashiCorp tool. For support and troubleshooting, refer to the [official documentation](https://developer.hashicorp.com/vault/docs/platform/k8s/vso){: external}.
+Vault Secrets Operator is an official HashiCorp tool. For support and troubleshooting, refer to the [official documentation](https://developer.hashicorp.com/vault/docs/deploy/kubernetes/vso){: external}.
 {: note}
 
 ## Before you begin
@@ -99,7 +99,7 @@ Before you get started, be sure that you have [**Administrator** platform access
 
     `jq` helps you slice and filter JSON data. You use `jq` in this tutorial to grab and use stored environment variables.
 
-- A Vault Dediacted instance provisioned in your {{site.data.keyword.cloud_notm}} account. For more information, see [Setting up your Vault Dedicated instance](/docs//secrets-manager?topic=secrets-manager-setting-up-vault-dedicated-instance).
+- A Vault Dediacted instance provisioned in your {{site.data.keyword.cloud_notm}} account. For more information, see [Setting up your Vault Dedicated instance](/docs/secrets-manager?topic=secrets-manager-setting-up-vault-dedicated-instance).
 
 ## Set up your environment
 {: #tutorial-vault-kubernetes-secrets-vso-set-up-env}

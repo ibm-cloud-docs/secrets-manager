@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-08-31"
+lastupdated: "2026-09-01"
 
 keywords: Secrets Manager availability, regions, Secrets Manager endpoints, Vault endpoint
 
@@ -122,7 +122,7 @@ During the public beta period, the Vault Dedicated plan has the following tempor
 
 - **Instance limit**: Only 1 Vault Dedicated instance per account during beta.
 - **No upgrade path**: Cannot upgrade from beta to GA. All beta instances will be deleted before general availability.
-- **Regional availability**: Available in 2 regions (Dallas and Frankfurt).
+- **Regional availability**: Available in Dallas and Frankfurt.
 - **Free during beta**: No charges apply during the beta period.
 - **Beta to GA migration**: Data migration from beta instances to GA instances is not supported.
 

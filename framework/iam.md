@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-09-01"
 
 keywords: IAM access for Secrets Manager, permissions for Secrets Manager, identity and access management for Secrets Manager, roles for Secrets Manager, actions for Secrets Manager, assigning access for Secrets Manager
 
@@ -163,13 +163,9 @@ The following actions are specific to the [Vault Dedicated]{: tag-green} plan:
 
 | Action | Description | Roles |
 | ----- | :----- | :----- |
-| `secrets-manager.instance.read` | Read the details of an instance. | Vaultadmin |
-| `secrets-manager.instance.update` | Update an instance. | Vaultadmin |
-| `secrets-manager.instance.delete` | Delete an instance. | Vaultadmin |
-| `secrets-manager.destination.create` | Create a destination. | Vaultadmin |
-| `secrets-manager.destination.read` | Read the details of a destination. | Vaultadmin |
-| `secrets-manager.destination.update` | Update a destination. | Vaultadmin |
-| `secrets-manager.destination.delete` | Delete a destination. | Vaultadmin |
+| `secrets-manager.admin-token.create` | Create a Vault admin token. | Manager |
+| `secrets-manager.admin-tokens.delete` | Revoke all admin tokens. | Manager |
+| `secrets-manager.instance.read` | Read the details of an instance. | Manager, Reader, Writer, SecretsReader |
 {: caption="Service actions - {{site.data.keyword.secrets-manager_short}} Vault Dedicated plan" caption-side="top"}
 
 ## Assigning access to {{site.data.keyword.secrets-manager_short}}

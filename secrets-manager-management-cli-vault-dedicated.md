@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-31"
+lastupdated: "2026-09-01"
 
 keywords: Secrets Manager CLI, Vault Dedicated, instance management CLI, command line, terminal
 
@@ -69,10 +69,10 @@ Current version: **`2.0.7`**
 The Vault Dedicated plan is currently available as a public beta. Beta features are provided for evaluation and testing purposes and have limitations compared to generally available features.
 {: beta}
 
-## Prerequisites
+## Before you begin
 {: #secrets-manager-management-cli-prereq}
 
-Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started), and then the {{site.data.keyword.secrets-manager_short}} instance management CLI plug-in by running the following command:
+Before you get started, install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started), and then install the {{site.data.keyword.secrets-manager_short}} instance management CLI plug-in by running the following command:
 
 ```sh
 ibmcloud plugin install secrets-manager-instance-management
@@ -90,21 +90,21 @@ To target the {{site.data.keyword.secrets-manager_short}} Vault Dedicated instan
 * Run the `ibmcloud secrets-manager-instance-management config set` command.
 
    ```sh
-   ibmcloud secrets-manager-instance-management config set service-url https://{instance_ID}.{region}.secrets-manager.appdomain.cloud
+   ibmcloud secrets-manager-instance-management config set service-url https://{instance_ID}.{region}.secrets-manager.cloud.ibm.com
    ```
    {: pre}
 
 * Export an environment variable with your {{site.data.keyword.secrets-manager_short}} control plane service endpoint URL.
 
    ```sh
-   export SECRETS_MANAGER_INSTANCE_MANAGEMENT_URL=https://{instance_ID}.{region}.secrets-manager.appdomain.cloud
+   export SECRETS_MANAGER_INSTANCE_MANAGEMENT_URL=https://{instance_ID}.{region}.secrets-manager.cloud.ibm.com
    ```
    {: pre}
 
 * Set the service endpoint in the command.
 
    ```sh
-   ibmcloud secrets-manager-instance-management instance --service-url https://{instance_ID}.{region}.secrets-manager.appdomain.cloud
+   ibmcloud secrets-manager-instance-management instance --service-url https://{instance_ID}.{region}.secrets-manager.cloud.ibm.com
    ```
    {: pre}
 

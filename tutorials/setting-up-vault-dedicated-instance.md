@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-31"
+lastupdated: "2026-09-01"
 
 keywords: Vault Dedicated, Vault as a Service, setting up vault dedicated, admin token, Vault UI, vault dedicated setup
 
@@ -82,7 +82,7 @@ During the public beta period, the [Vault Dedicated]{: tag-green} plan has the f
 
 - **Instance limit**: Only 1 Vault Dedicated instance per account during beta.
 - **No upgrade path**: Cannot upgrade from beta to GA. All beta instances will be deleted before general availability.
-- **Regional availability**: Available in 2 regions (Dallas and Frankfurt).
+- **Regional availability**: Available in Dallas and Frankfurt.
 - **Free during beta**: No charges apply during the beta period.
 - **Beta to GA migration**: Data migration from beta instances to GA instances is not supported.
 
@@ -239,6 +239,6 @@ A successful revocation returns a `204 No Content` status code.
 
 After you sign in to Vault, you can continue with the initial configuration of your instance.
 
-- To learn more about using the Vault UI and Vault workflows with the Vault Dedicated plan, see [By using the Vault Dedicated plan](/docs/secrets-manager?topic=secrets-manager-using-vault-dedicated).
-- To configure the Vault CLI, see [Setting up the Vault CLI](/docs/secrets-manager?topic=secrets-manager-configure-vault-cli).
-- To review Vault API capabilities, see [Vault API](/docs/secrets-manager?topic=secrets-manager-vault-api).
+- To configure authentication methods for your teams and applications, see [Configuring authentication methods](/docs/secrets-manager?topic=secrets-manager-vault-dedicated-auth-methods).
+- To integrate with your apps by using the Vault API, CLI, or SDKs, see [Integrating with your apps](/docs/secrets-manager?topic=secrets-manager-integrate-with-apps-vault-dedicated).
+- To review Vault API and CLI capabilities, see [API and CLI reference overview](/docs/secrets-manager?topic=secrets-manager-vault-dedicated-reference-overview).

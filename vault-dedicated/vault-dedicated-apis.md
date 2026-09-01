@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-31"
+lastupdated: "2026-09-01"
 
 keywords: Secrets Manager, Vault Dedicated, API, admin tokens, instance details
 
@@ -98,7 +98,7 @@ Use the instance details API to retrieve metadata about your Vault Dedicated ser
 {: #get-instance-details-ui}
 {: ui}
 
-1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your Vault Dedicated instance.
 3. In the instance dashboard, review the **Endpoints** section to find the cluster state, Vault API endpoint, and other instance details.
 
@@ -203,7 +203,7 @@ Admin tokens should be treated as highly sensitive credentials. Generate them on
 {: #generate-admin-token-ui}
 {: ui}
 
-1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your Vault Dedicated instance.
 3. In the instance dashboard, click **Create token** in the **Create new admin token** section.
 4. Copy the generated admin token and store it securely. You need this token to sign in to the Vault UI.
@@ -291,7 +291,7 @@ After your resource is created the vault admin token is stored in the `token` at
 {: #revoke-admin-tokens-ui}
 {: ui}
 
-1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Resource List**.
+1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> Resource List**.
 2. From the list of services, select your Vault Dedicated instance.
 3. In the instance dashboard, click **Revoke** in the **Revoke all admin tokens** section.
 4. Confirm the revocation when prompted.
