@@ -214,6 +214,8 @@ toc:
               topics:
               - topic: framework/cse.md
                 navtitle: Using service endpoints to privately connect to Secrets Manager
+              - topic: framework/vpn.md
+                navtitle: Using Client-to-Site VPN to privately connect to Secrets Manager
           - topic: framework/data-security.md
             navtitle: Securing your data in Secrets Manager
           - topic: cbr-control-access.md

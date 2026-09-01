@@ -130,6 +130,10 @@ With the [Vault Dedicated]{: tag-green} plan, you get:
 - A managed Vault Enterprise cluster that is configured for high availability across three nodes in a multi-zone region.
 - Namespace-based isolation for multi-team environments.
 - Private and public endpoints for secure access to your instance.
+
+    The [Vault Dedicated]{: tag-green} plan supports **VPE (Virtual Private Endpoint) gateways only** for private connectivity — Cloud Service Endpoints (CSE) are not supported. If you provision a private-only instance, a VPE gateway is required for API access and a Client-to-Site VPN is required to access the Vault UI from a browser. For more information, see [Service endpoints for the Vault Dedicated plan](/docs/secrets-manager?topic=secrets-manager-endpoints#vault-dedicated-service-endpoints).
+    {: important}
+
 - Data encryption at rest with either service-managed encryption or customer-managed keys.
 - The native Vault UI for management and configuration tasks.
 - Advanced compliance and security features:

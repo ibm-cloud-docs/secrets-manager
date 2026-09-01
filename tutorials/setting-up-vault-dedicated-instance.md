@@ -114,6 +114,11 @@ Create a `Vault Dedicated` plan instance from the {{site.data.keyword.cloud_notm
    - Choose either service-managed encryption or customer-managed encryption by using Key Protect.
    - Select private-only endpoints, or enable a public endpoint if required.
 
+   If you select **private-only** endpoints, note the following requirements before you try to connect:
+   - **API access**: You must create a VPE (Virtual Private Endpoint) gateway that targets your Vault Dedicated instance. Cloud Service Endpoints (CSE) are not supported for this plan. See [Using service endpoints to privately connect to {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-service-connection).
+   - **Vault UI access**: You must use a Client-to-Site VPN that routes traffic through the VPE. The private Vault UI URL is not reachable from a browser outside the {{site.data.keyword.cloud_notm}} private network without a VPN. See [Using Client-to-Site VPN to privately connect to {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-vpn-connection).
+   {: important}
+
    If you plan to use both `Standard` and `Vault Dedicated` plan instances, adopt a naming convention that makes the instance type easy to identify, such as including `-standard` or `-vault dedicated` in the instance name.
    {: tip}
 
