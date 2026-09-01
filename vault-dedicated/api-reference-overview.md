@@ -68,7 +68,8 @@ Use the {{site.data.keyword.secrets-manager_short}} Instance Management API and 
 
 | Reference | Description |
 |-----------|-------------|
-| [Instance Management API reference](/docs/secrets-manager?topic=secrets-manager-vault-dedicated-apis) | REST API for managing your Vault Dedicated service instance, including instance details and admin token operations. |
+| [Instance Management API reference](https://{DomainName}/apidocs/secrets-manager/secrets-manager-instance-management-v2){: external} | Interactive API reference with SDK examples for managing your Vault Dedicated service instance. |
+| [Instance Management API reference (docs)](/docs/secrets-manager?topic=secrets-manager-vault-dedicated-apis) | Conceptual reference with usage examples for instance details and admin token operations. |
 | [Instance Management CLI reference](/docs/secrets-manager?topic=secrets-manager-secrets-manager-management-cli) | {{site.data.keyword.cloud_notm}} CLI plug-in for managing your Vault Dedicated instance from the command line. |
 | [Instance Management CLI change log](/docs/secrets-manager?topic=secrets-manager-secrets-manager-management-cli-change-log) | History of changes to the Instance Management CLI plug-in. |
 {: caption="IBM Cloud secrets-manager_full_notm Instance Management reference" caption-side="bottom"}
