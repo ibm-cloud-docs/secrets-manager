@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-31"
+lastupdated: "2026-09-01"
 
 keywords: Vault Dedicated API, Vault Dedicated CLI, HashiCorp Vault API, instance management API, Vault Dedicated reference
 
@@ -71,7 +71,7 @@ Use the {{site.data.keyword.secrets-manager_short}} Instance Management API and 
 | [Instance Management API reference](/docs/secrets-manager?topic=secrets-manager-vault-dedicated-apis) | REST API for managing your Vault Dedicated service instance, including instance details and admin token operations. |
 | [Instance Management CLI reference](/docs/secrets-manager?topic=secrets-manager-secrets-manager-management-cli) | {{site.data.keyword.cloud_notm}} CLI plug-in for managing your Vault Dedicated instance from the command line. |
 | [Instance Management CLI change log](/docs/secrets-manager?topic=secrets-manager-secrets-manager-management-cli-change-log) | History of changes to the Instance Management CLI plug-in. |
-{: caption="IBM Cloud Secrets Manager Instance Management reference" caption-side="bottom"}
+{: caption="IBM Cloud secrets-manager_full_notm Instance Management reference" caption-side="bottom"}
 
 ## HashiCorp Vault API and CLI
 {: #vault-dedicated-hashicorp-reference}

@@ -77,11 +77,6 @@ A service instance is billed based on the day it was provisioned in the month.
 
 At the end of each billing period you're charged for the number of instances in your account, plus the maximum number of secrets with an active status in those instances. If you create more instances after the start of the monthly billing period, the cost of each additional instance for the first month is prorated based on the number of days that remain in the billing period.
 
-### What counts as an active secret
-{: #active-secret-definition}
-
-A secret is counted toward your bill when it has an `active` status. Secrets that are destroyed or expired are not counted. [TODO: confirm whether secrets in a `pre-activation` or `deactivated` state are included in the count, and whether the count is taken at peak, at a point in time, or as a daily average.]
-
 ### Trial plan limitations
 {: #trial-plan-limitations}
 
@@ -123,7 +118,7 @@ The [Vault Dedicated]{: tag-green} plan uses two billing metrics.
 | **Resource Unit (RU)** | A consumption-based metric covering the secrets and credentials issued or managed in your instance. |
 {: caption="Vault Dedicated billing metrics" caption-side="bottom"}
 
-#### Resource Unit pricing
+#### Resource unit pricing
 {: #vault-dedicated-ru-pricing}
 
 Resource units are priced on a tiered model. Higher monthly RU volumes qualify for lower per-unit rates.
@@ -140,12 +135,12 @@ Resource units are priced on a tiered model. Higher monthly RU volumes qualify f
 | 50,000 | $19.20 | $1.60 | $960,000 | $80,000 |
 | 75,000 | $16.80 | $1.40 | $1,260,000 | $105,000 |
 | 100,000 | $14.40 | $1.20 | $1,440,000 | $120,000 |
-{: caption="Vault Dedicated Resource Unit pricing tiers" caption-side="bottom"}
+{: caption="Vault Dedicated resource unit pricing tiers" caption-side="bottom"}
 
-#### How Resource Units are calculated
+#### How Resource units are calculated
 {: #vault-dedicated-ru-calculation}
 
-The number of Resource Units consumed depends on the type of secret or credential.
+The number of resource units consumed depends on the type of secret or credential.
 
 | Resource type | RU ratio | How it is counted |
 |---------------|----------|-------------------|
@@ -155,7 +150,7 @@ The number of Resource Units consumed depends on the type of secret or credentia
 | **SSH credentials** | Duration-adjusted (730 hrs = 1 RU) | Each credential's active hours within the month are divided by 730. |
 {: caption="Resource unit ratios by secret type" caption-side="bottom"}
 
-#### Resource Unit examples
+#### Resource unit examples
 {: #vault-dedicated-ru-examples}
 
 The following examples illustrate how RUs are calculated in common scenarios.

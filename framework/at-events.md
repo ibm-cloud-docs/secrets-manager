@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-09-01"
 
 keywords: activity tracking events for Secrets Manager, events, Secrets Manager actions
 
@@ -40,7 +40,7 @@ The [Trial and Standard]{: tag-blue} plans send activity tracking events in the 
 | Dallas (`us-south`) | Washington (`us-east`)  | Toronto (`ca-tor`) | Montreal (`ca-mon`) | Sao Paulo (`br-sao`) |
 |---------------------|-------------------------|-------------------|----------------------|----------------------|
 | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
-{: caption="Regions where activity tracking events are sent in Americas locations for Trial and Standard plans" caption-side="top"}
+{: caption="Regions where activity tracking events are sent in Americas locations for Trial and Standard plans" caption-side="bottom"}
 {: #logs-table-1}
 {: tab-title="Americas"}
 {: tab-group="logs-standard"}
@@ -50,7 +50,7 @@ The [Trial and Standard]{: tag-blue} plans send activity tracking events in the 
 | Tokyo (`jp-tok`)    | Sydney (`au-syd`) |  Osaka (`jp-osa`) | Chennai - Airtel (`in-che`) | Mumbai - Airtel (`in-mum`) |
 |---------------------|------------------|------------------|--------------------|-------------------|
 | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
-{: caption="Regions where activity tracking events are sent in Asia Pacific locations for Trial and Standard plans" caption-side="top"}
+{: caption="Regions where activity tracking events are sent in Asia Pacific locations for Trial and Standard plans" caption-side="bottom"}
 {: #logs-table-2}
 {: tab-title="Asia Pacific"}
 {: tab-group="logs-standard"}
@@ -60,7 +60,7 @@ The [Trial and Standard]{: tag-blue} plans send activity tracking events in the 
 | Frankfurt (`eu-de`)  | London (`eu-gb`) | Madrid (`eu-es`) |
 |---------------------------------------------------------------|---------------------|------------------|
 | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
-{: caption="Regions where activity tracking events are sent in Europe locations for Trial and Standard plans" caption-side="top"}
+{: caption="Regions where activity tracking events are sent in Europe locations for Trial and Standard plans" caption-side="bottom"}
 {: #atracker-table-3}
 {: tab-title="Europe"}
 {: tab-group="logs-standard"}
@@ -144,7 +144,7 @@ The following table lists the secret actions that generate an event.
 | `secrets-manager.secret-version-metadata.read`   |	Get the metadata of a secret version                          |
 | `secrets-manager.secret-version-data.delete`     |	Delete the data of a secret version                           |
 | `secrets-manager.secret-version-action.create`   |	Create a version action                                       |
-{: caption="List of secret events for Trial and Standard plans" caption-side="top"}
+{: caption="List of secret events for Trial and Standard plans" caption-side="bottoms"}
 
 ### Secret groups events
 {: #at-actions-secret-groups-trial-standard}
@@ -158,7 +158,7 @@ The following table lists the secret group actions that generate an event.
 | `secrets-manager.secret-group.read`   | View the details of a secret group. |
 | `secrets-manager.secret-group.update` | Update a secret group.              |
 | `secrets-manager.secret-group.delete` | Delete a secret group.              |
-{: caption="List of secret group events for Trial and Standard plans" caption-side="top"}
+{: caption="List of secret group events for Trial and Standard plans" caption-side="bottom"}
 
 ### Secret locks events
 {: #at-actions-secret-locks-trial-standard}
@@ -174,7 +174,7 @@ The following table lists the secret lock actions that generate an event.
 | `secrets-manager.secret-version-locks.create`  | Create secret version locks.        |
 | `secrets-manager.secret-version-locks.list`    | List secret version locks.          |
 | `secrets-manager.secret-version-locks.delete`  | Delete secret version locks.        |
-{: caption="List of secret lock events for Trial and Standard plans" caption-side="top"}
+{: caption="List of secret lock events for Trial and Standard plans" caption-side="bottom"}
 
 ### Instance operations events
 {: #at-configuration-instance-operations-trial-standard}
@@ -195,4 +195,4 @@ The following table lists the instance operation actions that generate an event.
 | `secrets-manager.notifications-registration.read` | Get Event Notifications registration details. | Reader, SecretsReader, Writer, Manager |
 | `secrets-manager.notifications-registration.delete` | Delete an Event Notifications registration. | Manager |
 | `secrets-manager.notifications-registration.test` | Send a test event. | Reader, SecretsReader, Writer, Manager |
-{: caption="List of instance operation events for Trial and Standard plans" caption-side="top"}
+{: caption="List of instance operation events for Trial and Standard plans" caption-side="bottom"}

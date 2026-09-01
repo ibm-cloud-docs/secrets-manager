@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-09-01"
 
 keywords: activity tracking events for Vault Dedicated, Vault Dedicated events, Secrets Manager Vault Dedicated audit events
 
@@ -76,7 +76,7 @@ Vault Dedicated sends activity tracking events to {{site.data.keyword.logs_full_
 | Dallas (`us-south`) | Frankfurt (`eu-de`) | Paris (`eu-fr2`) |
 |---------------------|---------------------|------------------|
 | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
-{: caption="Regions where activity tracking events are sent for Vault Dedicated plan" caption-side="top"} 
+{: caption="Regions where activity tracking events are sent for Vault Dedicated plan" caption-side="bottom"} 
 
 ## Viewing activity tracking events for Vault Dedicated
 {: #at-viewing}
@@ -140,4 +140,4 @@ The following table lists the instance operation actions that generate an event.
 | `secrets-manager.destination.update` | Update a destination resource for the instance. |
 | `secrets-manager.destination.delete` | Delete a destination resource for the instance. |
 | `secrets-manager.destination.test` | Test reachability for an existing destination resource. |
-{: caption="List of instance operation events for Vault Dedicated plan" caption-side="top"}
+{: caption="List of instance operation events for Vault Dedicated plan" caption-side="bottom"}

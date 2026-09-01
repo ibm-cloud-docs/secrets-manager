@@ -67,7 +67,7 @@ completion-time: 45m
 {: toc-services="vault,containers"}
 {: toc-completion-time="45m"}
 
-In this tutorial, you learn how to use IBM Cloud Vault Enterprise to manage secrets for applications that run in your {{site.data.keyword.containerfull_notm}} cluster by using the VSO (https://developer.hashicorp.com/vault/docs/deploy/kubernetes/vso){: external}, HashiCorp's official Kubernetes operator.
+In this tutorial, you learn how to use IBM Cloud Vault Enterprise to manage secrets for applications that run in your {{site.data.keyword.containerfull_notm}} cluster by using the [Vault Secrets Operator](https://developer.hashicorp.com/vault/docs/deploy/kubernetes/vso){: external}, HashiCorp's official Kubernetes operator. 
 
 {: shortdesc}
 
@@ -97,9 +97,9 @@ Before you get started, be sure that you have [**Administrator** platform access
 - [Install Helm 3.x](https://helm.sh/docs/intro/install/){: external}.
 - [Download and install `jq`](https://stedolan.github.io/jq/){: external}.
 
-    `jq` helps you slice and filter JSON data. You use `jq` in this tutorial to grab and use stored environment variables.
+     - `jq` helps you slice and filter JSON data. You use `jq` in this tutorial to grab and use stored environment variables.
 
-- A Vault Dediacted instance provisioned in your {{site.data.keyword.cloud_notm}} account. For more information, see [Setting up your Vault Dedicated instance](/docs/secrets-manager?topic=secrets-manager-setting-up-vault-dedicated-instance).
+- A Vault Dedicated instance provisioned in your {{site.data.keyword.cloud_notm}} account. For more information, see [Setting up your Vault Dedicated instance](/docs/secrets-manager?topic=secrets-manager-setting-up-vault-dedicated-instance).
 
 ## Set up your environment
 {: #tutorial-vault-kubernetes-secrets-vso-set-up-env}

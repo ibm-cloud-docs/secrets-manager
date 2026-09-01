@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-19"
+lastupdated: "2026-09-01"
 
 keywords: Secrets Manager Vault, Vault APIs, HashiCorp, Vault, Vault wrapper, use Vault with Secrets Manager, KV, key-value, KV APIs
 
@@ -113,7 +113,7 @@ curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
 | `secret_name` | The name of the key-value secret. | 
 | `Vault-Token` | The authentication token that is retrieved from Vault. | 
 | `data` | **Required.** The secret data in JSON format to assign to the secret. The maximum file size is 512 KB. |
-{: caption="Create or update a key-value secret request parameters" caption-side="top"}
+{: caption="Create or update a key-value secret request parameters" caption-side="bottom"}
 
 
 ### Example response
@@ -162,7 +162,7 @@ curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 | `secret_name` | The name of the key-value secret. | 
 | `version` | The versions that you want to read. | 
 | `Vault-Token` | The authentication token that is retrieved from Vault. |
-{: caption="Read a version of a key-value secret request parameters" caption-side="top"}
+{: caption="Read a version of a key-value secret request parameters" caption-side="bottom"}
 
 
 ### Example response
@@ -216,7 +216,7 @@ curl -X DELETE 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v
 | `region` | The region in which the Secrets Manager instance was created. |
 | `secret_name` | The name of the key-value secret. | 
 | `Vault-Token` | The authentication token that is retrieved from Vault. | 
-{: caption="Delete the latest version of a key-value secret request parameters" caption-side="top"}
+{: caption="Delete the latest version of a key-value secret request parameters" caption-side="bottom"}
 
 ### Example response
 {: #kv-version-delete-response}
@@ -248,7 +248,7 @@ curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
 | `secret_name` | The name of the key-value secret. | 
 | `Vault-Token` | The authentication token that is retrieved from Vault. | 
 | `versions` | The specified versions that are to be deleted. |
-{: caption="Delete specified versions of a key-value secret request parameters" caption-side="top"}
+{: caption="Delete specified versions of a key-value secret request parameters" caption-side="bottom"}
 
 
 ### Example response
@@ -299,7 +299,7 @@ curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
 | `secret_name` | The name of the key-value secret. | 
 | `Vault-Token` | The authentication token that is retrieved from Vault. | 
 | `versions` | The versions of the key-value secret you want to delete. | 
-{: caption="Undelete a version of a key-value secret request parameters" caption-side="top"}
+{: caption="Undelete a version of a key-value secret request parameters" caption-side="bottom"}
 
 ### Example response
 {: #kv-version-restore-response}
@@ -333,7 +333,7 @@ curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
 | `secret_name` | The name of the key-value secret. | 
 | `Vault-Token` | The authentication token that is retrieved from Vault. | 
 | `versions` | The versions of the key-value secret you want to permanently destroy. | 
-{: caption="Destroy versions of a key-value secret request parameters" caption-side="top"}
+{: caption="Destroy versions of a key-value secret request parameters" caption-side="bottom"}
 
 ### Example response
 {: #kv-destroy-response}
@@ -369,7 +369,7 @@ curl -X POST 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/
 | `region` | The region in which the Secrets Manager instance was created. |
 | `secret_name` | The name of the key-value secret. | 
 | `Vault-Token` | The authentication token that is retrieved from Vault. |
-{: caption="Update the metadata of a key-value secret request parameters" caption-side="top"}
+{: caption="Update the metadata of a key-value secret request parameters" caption-side="bottom"}
 
 ### Example response
 {: #kv-update-metadata-response}
@@ -398,7 +398,7 @@ curl -X GET 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1/i
 | `region` | The region in which the Secrets Manager instance was created. |
 | `secret_name` | The name of the key-value secret. | 
 | `Vault-Token` | The authentication token that is retrieved from Vault. | 
-{: caption="Read the metadata of a key-value secret request parameters" caption-side="top"}
+{: caption="Read the metadata of a key-value secret request parameters" caption-side="bottom"}
 
 ### Example response
 {: #kv-metadata-response}
@@ -470,7 +470,7 @@ curl -X DELETE 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v
 | `region` | The region in which the Secrets Manager instance was created. |
 | `secret_name` | The name of the key-value secret. | 
 | `Vault-Token` | The authentication token that is retrieved from Vault. | 
-{: caption="Delete the metadata of a key-value secret request parameters" caption-side="top"}
+{: caption="Delete the metadata of a key-value secret request parameters" caption-side="bottom"}
 
 ### Example response
 {: #kv-delete-metadata-response}
@@ -517,7 +517,7 @@ curl -X GET "https://{instance_id}.{region}.secrets-manager.test.appdomain.cloud
 | `instance_id` | The ID of the Secrets Manager instance. |
 | `region` | The region in which the Secrets Manager instance was created. |
 | `Vault-Token` | The authentication token that is retrieved from Vault. | 
-{: caption="List the key names of a key-value secret request parameters" caption-side="top"}
+{: caption="List the key names of a key-value secret request parameters" caption-side="bottom"}
 
 
 ### Example response
@@ -575,7 +575,7 @@ curl -X PATCH 'https://{instance_id}.{region}.secrets-manager.appdomain.cloud/v1
 | `secret_name` | The name of the key-value secret. | 
 | `Vault-Token` | The authentication token that is retrieved from Vault. | 
 | `data` | **Required.** The secret data in JSON format to patch the secret with. The maximum file size is 512 KB. |
-{: caption="Create or update a key-value secret request parameters" caption-side="top"}
+{: caption="Create or update a key-value secret request parameters" caption-side="bottom"}
 
 
 ### Example response

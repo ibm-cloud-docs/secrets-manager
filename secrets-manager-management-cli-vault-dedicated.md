@@ -79,7 +79,7 @@ ibmcloud plugin install secrets-manager-instance-management
 ```
 {: pre}
 
-You're notified on the command line when updates to the {{site.data.keyword.cloud_notm}} CLI and plug-ins are available. Be sure to keep your CLI up to date so that you can use the latest commands. You can view the current version of all installed plug-ins by running `ibmcloud plugin list`.
+You're notified on the command line when updates to the {{site.data.keyword.cloud_notm}} CLI and plug-ins are available. Keep your CLI up to date to use the latest commands, so that you can use the latest commands. You can view the current version of all installed plug-ins by running `ibmcloud plugin list`.
 {: tip}
 
 ## Targeting a {{site.data.keyword.secrets-manager_short}} instance
@@ -108,8 +108,7 @@ To target the {{site.data.keyword.secrets-manager_short}} Vault Dedicated instan
    ```
    {: pre}
 
-Replace `{instance_ID}` and `{region}` with the values that apply to your {{site.data.keyword.secrets-manager_short}} Vault Dedicated service instance. To find the endpoint URL that is specific to your instance, you can copy it from the **Endpoints** page in the {{site.data.keyword.secrets-manager_short}} UI. For more information, see [Viewing your endpoint URLs](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls)
-
+Replace `{instance_ID}` and `{region}` with the values that apply to your {{site.data.keyword.secrets-manager_short}} Vault Dedicated service instance. To find the endpoint URL that is specific to your instance, you can copy it from the **Endpoints** page in the {{site.data.keyword.secrets-manager_short}} UI. For more information, see [Viewing your endpoint URLs](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls).
 
 ## Globals
 {: #secrets-manager-instance-management-globals}

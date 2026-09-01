@@ -59,12 +59,12 @@ subcollection: secrets-manager
 # Managing admin tokens
 {: #manage-admin-tokens}
 
-IBM Cloud Vault Dedicated clusters operate from the admin namespace, unlike a self-managed Vault Enterprise cluster which operates from the root namespace.The root namespace is reserved for service operations and not customer accessible.
-
-Admin tokens provide administrative access to your Vault Dedicated cluster admin namespace and are required for initial setup and ongoing administrative operations. You generate and revoke admin tokens through the Secrets Manager Instance Management API.
+IBM Cloud Vault Dedicated clusters operate from the admin namespace, unlike a self-managed Vault Enterprise cluster which operates from the root namespace.T he root namespace is reserved for service operations and not customer accessible.
 {: shortdesc}
 
-Admin tokens should be treated as highly sensitive credentials. Generate them only when needed for administrative tasks, and revoke them immediately after use.
+Admin tokens provide administrative access to your Vault Dedicated cluster admin namespace and are required for initial setup and ongoing administrative operations. You generate and revoke admin tokens through the Secrets Manager Instance Management API.
+
+Treat admin tokens as highly sensitive credentials. Generate them only when needed for administrative tasks, and revoke them immediately after use.
 {: important}
 
 ## How admin token generation works

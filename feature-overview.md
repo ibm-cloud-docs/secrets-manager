@@ -70,7 +70,7 @@ The [Trial and Standard]{: tag-blue} plans provide the same comprehensive secret
 Trial and Standard plans offer the same feature set. The only difference is that Trial plans are limited to 30 days and you can have only one Trial instance per account.
 {: note}
 
-### What you get
+### Trial and Standard plan capabilities
 {: #trial-standard-capabilities}
 
 With the [Trial and Standard]{: tag-blue} plans, you get:
@@ -105,7 +105,24 @@ For more information about pricing, see [Pricing for the Trial and Standard plan
 
 The [Vault Dedicated]{: tag-green} plan is a distinct offering that delivers Vault Enterprise as a managed service in {{site.data.keyword.cloud_notm}}. It is designed for workloads that need dedicated Vault capabilities together with managed operations in {{site.data.keyword.cloud_notm}}.
 
-### What you get
+The [Vault Dedicated]{: tag-green} is currently available as a public beta. Beta features are provided for evaluation and testing purposes and have limitations compared to generally available features.
+{: beta}
+
+### Vault Dedicated public beta limitations
+{: #vault-dedicated-beta-limitations}
+
+During the public beta period, the [Vault Dedicated]{: tag-green} plan has the following temporary restrictions:
+
+- **Instance limit**: Only 1 Vault Dedicated instance per account during beta.
+- **No upgrade path**: Cannot upgrade from beta to GA. All beta instances will be deleted before general availability.
+- **Regional availability**: Available in Dallas and Frankfurt.
+- **Free during beta**: No charges apply during the beta period.
+- **Beta to GA migration**: Data migration from beta instances to GA instances is not supported.
+
+These limitations will be removed or modified when the Vault Dedicated plan reaches general availability.
+{: important}
+
+### vault Dedicated capabilities
 {: #vault-dedicated-capabilities}
 
 With the [Vault Dedicated]{: tag-green} plan, you get:
@@ -128,7 +145,7 @@ With the [Vault Dedicated]{: tag-green} plan, you get:
 For more information about auditing events for the service, see [Instance operations events](/docs/secrets-manager?topic=secrets-manager-vault-dedicated-at-events).
 For more information about pricing, see [Pricing](/docs/secrets-manager?topic=secrets-manager-pricing#vault-dedicated-plan).
 
-**Key capabilities includes:**
+**Key capabilities include:**
 
 - Namespace-based isolation for multi-team environments.
 - Advanced compliance and security features.
@@ -144,20 +161,3 @@ The [Vault Dedicated]{: tag-green} plan has the following limitations:
 - Vault Dedicated instances cannot be provisioned in all regions. For more information, see [Regions and endpoints](/docs/secrets-manager?topic=secrets-manager-endpoints).
 - The native {{site.data.keyword.secrets-manager_short}} UI is not available. Management is performed through the native Vault UI, API, or CLI.
 - Secret types supported by `Trial` and `Standard` plans (such as IAM credentials and service credentials) are not available.
-
-The [Vault Dedicated]{: tag-green} is currently available as a public beta. Beta features are provided for evaluation and testing purposes and have limitations compared to generally available features.
-{: beta}
-
-### Vault Dedicated public beta limitations
-{: #vault-dedicated-beta-limitations}
-
-During the public beta period, the [Vault Dedicated]{: tag-green} plan has the following temporary restrictions:
-
-- **Instance limit**: Only 1 Vault Dedicated instance per account during beta.
-- **No upgrade path**: Cannot upgrade from beta to GA. All beta instances will be deleted before general availability.
-- **Regional availability**: Available in Dallas and Frankfurt.
-- **Free during beta**: No charges apply during the beta period.
-- **Beta to GA migration**: Data migration from beta instances to GA instances is not supported.
-
-These limitations are temporary and apply only during the public beta period. It will be removed or modified when the Vault Dedicated plan reaches general availability.
-{: important}

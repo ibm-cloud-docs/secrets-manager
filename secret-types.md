@@ -69,12 +69,12 @@ Review the following table to understand the types of static and dynamic secrets
 | --- | --- | -- | -- |
 | [Arbitrary secrets](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets) | `arbitrary` | Static | Arbitrary pieces of sensitive data, including any type of structured or unstructured data, that you can use to access an application or resource. |
 | [IAM credentials](/docs/secrets-manager?topic=secrets-manager-iam-credentials) | `iam_credentials`* | Dynamic | A dynamically generated service ID and API key that can be used to access an {{site.data.keyword.cloud_notm}} service that requires IAM authentication. |
-| [Key-value secrets](/docs/secrets-manager?topic=secrets-manager-key-value) | `kv` | Static | Pieces of sensitive data that is structured in JSON format that you can use to access an application or resource. |
+| [Key-value secrets](/docs/secrets-manager?topic=secrets-manager-key-value) | `kv` | Static | Pieces of sensitive data that are structured in JSON format that you can use to access an application or resource. |
 | [SSL/TLS certificates](/docs/secrets-manager?topic=secrets-manager-certificates) | `imported_cert`  \n `public_cert`\*  \n `private_cert`\* | Static | A type of digital certificate that can be used to establish communication privacy between a server and a client. In {{site.data.keyword.secrets-manager_short}}, you can store the following types of certificates.\n  \n - **Imported certificates**: Certificates that you import to the service. \n - **Public certificates**: Certificates that you order from a third-party certificate authority, for example Let's Encrypt.\n - **Private certificates**: Certificates that you generate by using a private certificate authority that you manage in {{site.data.keyword.secrets-manager_short}}. |
 | [User credentials](/docs/secrets-manager?topic=secrets-manager-user-credentials) | `username_password` | Static | Username and password values that you can use to log in or access an application or resource. |
 | [Service credentials](/docs/secrets-manager?topic=secrets-manager-service-credentials) | `service_credentials` | Static | A JSON containing service-defined sensitive data such as keys, certificates, and URLs. |
-| [Custom credentials](/docs/secrets-manager?topic=secrets-manager-custom-credentials) | `custom_credentials` | Static | A JSON containing user-defined sensitive data such as keys, certificates, URLs, passwords, and any kind of arbitrary pieces of data as determined the credentials provider. |
-{: caption="Secret types in {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
+| [Custom credentials](/docs/secrets-manager?topic=secrets-manager-custom-credentials) | `custom_credentials` | Static | A JSON containing user-defined sensitive data such as keys, certificates, URLs, passwords, and any kind of arbitrary pieces of data as determined by the credentials provider. |
+{: caption="Secret types in {{site.data.keyword.secrets-manager_short}}" caption-side="bottom"}
 
 _*Requires an [engine configuration](/docs/secrets-manager?topic=secrets-manager-secrets-engines) before secrets can be created in the service._
 
@@ -94,7 +94,7 @@ The following table compares and contrasts some common characteristics between t
 | [SDK support](/docs/secrets-manager?topic=secrets-manager-integrate-with-apps-trial-standard) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | [CLI plug-in support](/docs/secrets-manager?topic=secrets-manager-integrate-with-apps-trial-standard) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | [HashiCorp Vault HTTP API compatibility](/docs/secrets-manager?topic=secrets-manager-vault-api) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
-{: caption="Feature comparison between secret types" caption-side="top"}
+{: caption="Feature comparison between secret types" caption-side="bottom"}
 
 [^iam]: Because IAM credentials are dynamic secrets, automatic rotation is a built-in feature. The API key that is associated with the secret is deleted automatically when the secret reaches the end of its lease. A new API key is created the next time that the secret is read.
 
@@ -103,7 +103,7 @@ The following table compares and contrasts some common characteristics between t
 
 Secrets that you store with the service consist of metadata attributes and a secret value. While the metadata attributes help you to identify a secret, the secret value is the data that protected services need to authenticate and authorize you or your application.
 
-Check out the following image to see how a secret is structured.
+The following example shows how a secret is structured.
 
 ```json
 {
@@ -124,7 +124,7 @@ Check out the following image to see how a secret is structured.
     "password": "cloudy-rainy-coffee-book"
 }
 ```
-{: screen}
+{: codeblock}
 
 1. The `name`, `id`, and `description`, and other common fields hold identifying information about a secret. These fields store the general attributes of your secret that you can use to understand its purpose and history.
 
@@ -140,7 +140,7 @@ Check out the following image to see how a secret is structured.
         "payload": "The quick brown fox jumped over the lazy dog."
     }
     ```
-    {: screen}
+    {: codeblock}
 
     The following truncated example shows how secret data is represented for a `username_password` secret.
 
@@ -153,7 +153,7 @@ Check out the following image to see how a secret is structured.
         "password": "bar"
     }
     ```
-    {: screen}
+    {: codeblock}
 
     The following truncated example shows how secret data is represented for an `IAM credential` secret. 
 
@@ -164,10 +164,10 @@ Check out the following image to see how a secret is structured.
         ...
         "api_key": "<api_key>",
         "api_key_id": "<api_key_id>",
-        "service_id": "<service_id>",
+        "service_id": "<service_id>"
     }
     ```
-    {: screen}
+    {: codeblock}
 
     The following truncated example shows how secret data is represented for a `KV` secret.
 
@@ -179,7 +179,7 @@ Check out the following image to see how a secret is structured.
         "data": '{"key":"value"}'
     }
     ```
-    {: screen}
+    {: codeblock}
 
     The following truncated example shows how secret data is represented for `imported_cert` and `public_cert` secrets.
 
@@ -193,7 +193,7 @@ Check out the following image to see how a secret is structured.
         "private_key":"..."
     }
     ```
-    {: screen}
+    {: codeblock}
 
     The following truncated example shows how secret data is represented for a `private_cert` secret.
 
@@ -207,7 +207,7 @@ Check out the following image to see how a secret is structured.
         "private_key":"..."
     }
     ```
-    {: screen}
+    {: codeblock}
 
     The following truncated example shows how secret data is represented for a `service_credentials` secret.
 
@@ -221,7 +221,7 @@ Check out the following image to see how a secret is structured.
             }
     }
     ```
-    {: screen}
+    {: codeblock}
 
     The following truncated example shows how secret data is represented for a `custom_credentials` secret.
 
@@ -235,7 +235,7 @@ Check out the following image to see how a secret is structured.
             }
     }
     ```
-    {: screen}
+    {: codeblock}
 
 ## Secret states and transitions
 {: #secret-states-transitions}
@@ -250,10 +250,10 @@ Secrets, in their lifetime, transition through several states that are a functio
 | Active | After a secret is ready for use, it moves to the **Active** state.  Secrets remain active until they expire or are destroyed. If a secret was either manually rotated, or has  automatic rotation enabled, the following status indicators also apply:  \n  \n - _Rotation pending._ Automatic rotation for the secret is being processed.  \n - _Rotation failed._ Automatic rotation for the secret was not completed. |
 | Deactivated | The secret was not created or processed. Secrets in this state are not recoverable and can only be deleted from the instance. |
 | Destroyed | When the data that is associated with a secret expires, it moves to the **Destroyed** state. Secrets in this state are not recoverable and can only be deleted from the instance. Metadata that is associated with a secret, such as the secret's transition history and name, is kept in the {{site.data.keyword.secrets-manager_short}} database. If a secret expires after an automatic rotation starts, the following status indicators also apply:  \n  \n - _Rotation pending._ Automatic rotation for the secret is being processed.  \n - _Rotation failed._ Automatic rotation for the secret was not completed. |
-{: caption="Describes secret states and transitions" caption-side="top"}
+{: caption="Describes secret states and transitions" caption-side="bottom"}
 
 
-## How do I get started?
+## Next steps
 {: #what-is-secret-get-started}
 
 To get started with secrets, you can go to the **Secrets** page of the {{site.data.keyword.secrets-manager_short}} UI, or check out the [API reference](/apidocs/secrets-manager/secrets-manager-v2) to learn more about creating secrets programmatically.

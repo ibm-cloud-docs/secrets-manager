@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-31"
+lastupdated: "2026-09-01"
 
 keywords: monitoring, metrics, operational metrics
 
@@ -180,7 +180,15 @@ The latency is calculated by getting the average of all requests of the same typ
 ## Vault Dedicated plan metrics
 {: #vault-dedicated-sm-metrics}
 
-All [Vault Dedicated]{: tag-green} plan metrics use metric type **Gauge** and are emitted every 60 seconds. The metrics are organized into the following categories: core request handling, secret engine route operations, token operations, lease and expiration management, policy operations, identity and entity management, KV secrets, and database secrets engine activity.
+All [Vault Dedicated]{: tag-green} plan metrics use metric type **Gauge** and are emitted every 60 seconds. The metrics are organized into the following categories: 
+- Core request handling
+- Secret engine route operations
+- Token operations
+- Lease and expiration management
+- Policy operations
+- Identity and entity management
+- KV secrets
+- Database secrets engine activity
 
 ### Core request handling
 {: #vault-dedicated-core-requests}
@@ -376,8 +384,8 @@ After configuring your {{site.data.keyword.mon_short}} instance to receive platf
 
 After configuring your {{site.data.keyword.mon_short}} instance to receive platform metrics, you can open the dashboard directly from your {{site.data.keyword.secrets-manager_short}} instance.
 
-1. Click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg)
-2. Click the **Monitoring** option to open the dashboard
+1. Click the **Actions** menu ![Actions icon](../icons/actions-icon-vertical.svg).
+2. Click the **Monitoring** option to open the dashboard.
 
 ## Setting alerts
 {: #set-monitor-alerts}

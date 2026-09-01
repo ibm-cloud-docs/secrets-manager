@@ -75,7 +75,7 @@ The [Trial and Standard]{: tag-blue} plans are available in the following region
 | Dallas (`us-south`) | Washington (`us-east`)  | Toronto (`ca-tor`) | Montreal (`ca-mon`) | Sao Paulo (`br-sao`) |
 |---------------------|-------------------------|-------------------|----------------------|----------------------|
 | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
-{: caption="Regions where Trial and Standard plans are available in Americas locations" caption-side="top"}
+{: caption="Regions where Trial and Standard plans are available in Americas locations" caption-side="bottom"}
 {: #regions-table-1}
 {: tab-title="Americas"}
 {: tab-group="regions-standard"}
@@ -85,7 +85,7 @@ The [Trial and Standard]{: tag-blue} plans are available in the following region
 | Tokyo (`jp-tok`)    | Sydney (`au-syd`) |  Osaka (`jp-osa`) | Chennai - Airtel (`in-che`) | Mumbai - Airtel (`in-mum`) |
 |---------------------|------------------|------------------|--------------------|-------------------|
 | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
-{: caption="Regions where Trial and Standard plans are available in Asia Pacific locations" caption-side="top"}
+{: caption="Regions where Trial and Standard plans are available in Asia Pacific locations" caption-side="bottom"}
 {: #regions-table-2}
 {: tab-title="Asia Pacific"}
 {: tab-group="regions-standard"}
@@ -95,7 +95,7 @@ The [Trial and Standard]{: tag-blue} plans are available in the following region
 | Frankfurt (`eu-de`)  | London (`eu-gb`) | Madrid (`eu-es`) |
 |---------------------------------------------------------------|---------------------|------------------|
 | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
-{: caption="Regions where Trial and Standard plans are available in Europe locations" caption-side="top"}
+{: caption="Regions where Trial and Standard plans are available in Europe locations" caption-side="bottom"}
 {: #regions-table-3}
 {: tab-title="Europe"}
 {: tab-group="regions-standard"}
@@ -110,7 +110,7 @@ The [Vault Dedicated]{: tag-green} is available in the following regions.
 | Dallas (`us-south`) | Frankfurt (`eu-de`) | Paris (`eu-fr2`) |
 |---------------------|---------------------|------------------|
 | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
-{: caption="Regions where Vault Dedicated plan is available" caption-side="top"}
+{: caption="Regions where Vault Dedicated plan is available" caption-side="bottom"}
 
 The Vault Dedicated plan is currently available as a public beta. Beta features are provided for evaluation and testing purposes and have limitations compared to generally available features.
 {: beta}
@@ -126,7 +126,7 @@ During the public beta period, the Vault Dedicated plan has the following tempor
 - **Free during beta**: No charges apply during the beta period.
 - **Beta to GA migration**: Data migration from beta instances to GA instances is not supported.
 
-These limitations are temporary and apply only during the public beta period. It will be removed or modified when the Vault Dedicated plan reaches general availability.
+These limitations will be removed or modified when the Vault Dedicated plan reaches general availability.
 {: important}
 
 ## Service endpoints
@@ -166,7 +166,7 @@ To learn how to configure your {{site.data.keyword.secrets-manager_short}} insta
 | Sydney        | `https://{instance_ID}.au-syd.secrets-manager.appdomain.cloud`   |
 | Mumbai - Airtel | `https://{instance_ID}.in-mum.secrets-manager.appdomain.cloud` |
 | Chennai - Airtel | `https://{instance_ID}.in-che.secrets-manager.appdomain.cloud` |
-{: caption="Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
+{: caption="Public endpoints for interacting with {{site.data.keyword.secrets-manager_short}}" caption-side="bottom"}
 {: #public-endpoints}
 {: tab-title="Public endpoints"}
 {: tab-group="service-endpoint-urls"}
@@ -190,7 +190,7 @@ To learn how to configure your {{site.data.keyword.secrets-manager_short}} insta
 | Sydney        | `https://{instance_ID}.private.au-syd.secrets-manager.appdomain.cloud`   |
 | Mumbai - Airtel | `https://{instance_ID}.private.in-mum.secrets-manager.appdomain.cloud` |
 | Chennai - Airtel | `https://{instance_ID}.private.in-che.secrets-manager.appdomain.cloud` |
-{: caption="Private endpoints for interacting with {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
+{: caption="Private endpoints for interacting with {{site.data.keyword.secrets-manager_short}}" caption-side="bottom"}
 {: #private-endpoints}
 {: tab-title="Private endpoints"}
 {: tab-group="service-endpoint-urls"}
@@ -222,7 +222,7 @@ Replace the variables in the example request according to the following table.
 | `{region}` | The region abbreviation that represents the geographic area where your {{site.data.keyword.secrets-manager_short}} resides. For example, `us-south` or `eu-de`. |
 | `{url_encoded_instance_CRN}` | The Cloud Resource Name (CRN) that uniquely identifies your {{site.data.keyword.secrets-manager_short}} service instance. The value must be URL encoded. |
 | `{IAM_token}` | Your {{site.data.keyword.cloud_notm}} IAM access token. |
-{: caption="Required parameters for retrieving service endpoints with the API" caption-side="top"}
+{: caption="Required parameters for retrieving service endpoints with the API" caption-side="bottom"}
 
 A successful request returns the endpoint URLs that are associated with the region and service instance CRN that you specify. The following JSON snippet shows an example response.
 
@@ -268,7 +268,7 @@ Use the following control plane endpoints to call control plane APIs.
 | Sydney        | `https://au-syd.secrets-manager.cloud.ibm.com` |
 | Mumbai - Airtel | `https://in-mum.secrets-manager.cloud.ibm.com` |
 | Chennai - Airtel | `https://in-che.secrets-manager.cloud.ibm.com` |
-{: caption="Public control plane endpoints for {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
+{: caption="Public control plane endpoints for {{site.data.keyword.secrets-manager_short}}" caption-side="bottom"}
 {: #public-control-plane-endpoints}
 {: tab-title="Public endpoints"}
 {: tab-group="control-plane-endpoint-urls"}
@@ -292,7 +292,7 @@ Use the following control plane endpoints to call control plane APIs.
 | Sydney        | `https://private.au-syd.secrets-manager.cloud.ibm.com` |
 | Mumbai - Airtel | `https://private.in-mum.secrets-manager.cloud.ibm.com` |
 | Chennai - Airtel | `https://private.in-che.secrets-manager.cloud.ibm.com` |
-{: caption="Private control plane endpoints for {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
+{: caption="Private control plane endpoints for {{site.data.keyword.secrets-manager_short}}" caption-side="bottom"}
 {: #private-control-plane-endpoints}
 {: tab-title="Private endpoints"}
 {: tab-group="control-plane-endpoint-urls"}

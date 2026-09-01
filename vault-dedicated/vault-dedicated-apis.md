@@ -56,16 +56,16 @@ subcollection: secrets-manager
 {:release-note: data-hd-content-type='release-note'}
 {{site.data.keyword.attribute-definition-list}}
 
-# Instance Management API reference
+# Instance management API reference
 {: #vault-dedicated-apis}
 
-Use the IBM Cloud Secrets Manager Instance Management API to manage service instances of the `Vault Dedicated` plan. For Vault runtime operations such as secrets management, authentication methods, and policies, use the HashiCorp Vault API.
+Use the IBM Cloud Secrets Manager instance management API to manage service instances of the `Vault Dedicated` plan. For Vault runtime operations such as secrets management, authentication methods, and policies, use the HashiCorp Vault API.
 {: shortdesc}
 
 ## IBM Cloud Secrets Manager Instance Management API
 {: #ibm-cloud-instance-management-api}
 
-The IBM Cloud Secrets Manager Instance Management API provides control plane operations for managing your Vault Dedicated service instances. These APIs allow you to retrieve instance metadata, manage admin tokens, and configure instance settings.
+The IBM Cloud Secrets Manager instance management API provides control plane operations for managing your Vault Dedicated service instances. These APIs allow you to retrieve instance metadata, manage admin tokens, and configure instance settings.
 
 ### Authentication
 {: #api-authentication}
@@ -121,14 +121,16 @@ ibmcloud secrets-manager-instance-management instance-details --id {instance_id}
 
 Retrieve detailed information about your Vault Dedicated instance.
 
-**Request**
+#### Request
+{: #get-instance-request}
 
 ```sh
 GET /v2/instances/{id}
 ```
 {: codeblock}
 
-**Example request**
+#### Example request
+{: #get-instance-example-request}
 
 ```sh
 curl -X GET \
@@ -138,7 +140,8 @@ curl -X GET \
 ```
 {: codeblock}
 
-**Response**
+#### Response
+{: #get-instance-response}
 
 The response includes the following information:
 
@@ -150,7 +153,8 @@ The response includes the following information:
 - **endpoints**: Public and private endpoint URLs, each containing `vault_api` and `vault_ui` fields
 - **encryption**: Key management service configuration, including `mode` (`service_managed` or `customer_managed`), and optionally `provider` and `key_crn` for customer-managed encryption
 
-**Example response**
+#### Example response
+{: #get-instance-example-response}
 
 ```json
 {
@@ -205,7 +209,7 @@ data.ibm_sm_instance.sm_instance.endpoints.0.public.0.vault_api
 
 Admin tokens provide root-level access to your Vault Dedicated cluster and are required for initial setup and administrative operations.
 
-Admin tokens should be treated as highly sensitive credentials. Generate them only when needed for administrative tasks, and revoke them immediately after use. Tokens are valid for 1 hour.
+Treat admin tokens as highly sensitive credentials. Generate them only when needed for administrative tasks, and revoke them immediately after use.
 {: important}
 
 ### Generating an admin token in the UI
@@ -236,14 +240,16 @@ The command returns the Vault admin token. Store it securely — you need this t
 
 Generate a new Vault admin token for authenticating to your Vault Dedicated cluster. This token provides root-level access and should be used only for initial setup and administrative operations. The token is valid for 1 hour.
 
-**Request**
+#### Request
+{: #generate-token-request}
 
 ```sh
 POST /v2/instances/{id}/admintokens
 ```
 {: codeblock}
 
-**Example request**
+#### Example request
+{: #generate-token-example-request}
 
 ```sh
 curl -X POST \
@@ -253,11 +259,13 @@ curl -X POST \
 ```
 {: codeblock}
 
-**Response**
+#### Response
+{: #generate-token-response}
 
 A successful request returns HTTP `201 Created` with a JSON object containing the Vault admin token.
 
-**Example response**
+#### Example response
+{: #generate-token-example-response}
 
 ```json
 {
@@ -322,14 +330,16 @@ This operation immediately invalidates all admin tokens, requiring new tokens to
 
 Revoke all active Vault admin tokens for your instance. This operation immediately invalidates all admin tokens, requiring new tokens to be generated for future administrative access.
 
-**Request**
+#### Request
+{: #revoke-tokens-request}
 
 ```sh
 DELETE /v2/instances/{id}/admintokens
 ```
 {: codeblock}
 
-**Example request**
+#### Example request
+{: #revoke-tokens-example-request}
 
 ```sh
 curl -X DELETE \
@@ -338,7 +348,8 @@ curl -X DELETE \
 ```
 {: codeblock}
 
-**Response**
+#### Response
+{: #revoke-tokens-response}
 
 A successful revocation returns a `204 No Content` status code.
 

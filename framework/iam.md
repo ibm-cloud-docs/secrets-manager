@@ -84,7 +84,7 @@ The following actions are specific to the [Trial and Standard]{: tag-blue} plans
 | Operator | As an operator, you can complete platform actions that are required to configure and operate {{site.data.keyword.secrets-manager_short}} service instances, such as the ability to view a {{site.data.keyword.secrets-manager_short}} dashboard. |
 | Editor | As an editor, you can create, modify, and delete {{site.data.keyword.secrets-manager_short}} service instances, but you can't assign access policies to other users. |
 | Administrator | As an administrator, you can complete all platform actions for {{site.data.keyword.secrets-manager_short}}, including the ability to assign access policies to other users. |
-{: caption="Platform roles - {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
+{: caption="Platform roles - {{site.data.keyword.secrets-manager_short}}" caption-side="bottom"}
 {: #platform-roles-table1}
 {: tab-title="Platform roles"}
 {: tab-group="secrets-manager"}
@@ -99,7 +99,7 @@ The following actions are specific to the [Trial and Standard]{: tag-blue} plans
 | Writer | As a writer, you have permissions beyond the secrets reader role, including the ability to create and edit secrets. Writers can't create secret groups, or configure secrets engines. |
 | Manager | As a manager, you have permissions beyond the writer role to complete privileged actions, such as the ability to manage secret groups, and configure secrets engines. |
 | SecretTaskUpdater	| As a secret task updater, you can update a secret task. This role cannot perform any other operations. |
-{: caption="Service roles - {{site.data.keyword.secrets-manager_short}}" caption-side="top"}
+{: caption="Service roles - {{site.data.keyword.secrets-manager_short}}" caption-side="bottom"}
 {: #service-roles-table1}
 {: tab-title="Service roles"}
 {: tab-group="secrets-manager"}
@@ -149,7 +149,7 @@ The following actions are specific to the [Trial and Standard]{: tag-blue} plans
 | `secrets-manager.secret-task.read` | Get a secret's task. | Reader, SecretsReader, Writer, Manager |
 | `secrets-manager.secret-task.update` | Update a secret's task. | SecretTaskUpdater |
 | `secrets-manager.secret-task.delete` | Delete a secret's task. | Manager |
-{: caption="Service actions - {{site.data.keyword.secrets-manager_short}} Trial and Standard plans" caption-side="top"}
+{: caption="Service actions - {{site.data.keyword.secrets-manager_short}} Trial and Standard plans" caption-side="bottom"}
 {: #actions-table1}
 {: tab-title="Actions"}
 {: tab-group="secrets-manager"}
@@ -166,7 +166,7 @@ The following actions are specific to the [Vault Dedicated]{: tag-green} plan:
 | `secrets-manager.admin-token.create` | Create a Vault admin token. | Manager |
 | `secrets-manager.admin-tokens.delete` | Revoke all admin tokens. | Manager |
 | `secrets-manager.instance.read` | Read the details of an instance. | Manager, Reader, Writer, SecretsReader |
-{: caption="Service actions - {{site.data.keyword.secrets-manager_short}} Vault Dedicated plan" caption-side="top"}
+{: caption="Service actions - {{site.data.keyword.secrets-manager_short}} Vault Dedicated plan" caption-side="bottom"}
 
 ## Assigning access to {{site.data.keyword.secrets-manager_short}}
 {: #iam-assign-access}

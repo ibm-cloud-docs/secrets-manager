@@ -120,7 +120,7 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} from the {{
 
 4. Provide a name for your instance.
 5. Select a resource group.
-6. Optional: Add tags to help you to organize the instance in your account.
+6. **Optional**: Add tags to help you to organize the instance in your account.
 7. Determine an option for enabling customer-managed encryption for your instance.
 
     You can enhance the security of your secrets at rest by integrating with a key management service. For more information about customer-managed encryption, check out [Protecting your sensitive data in {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption).
@@ -173,7 +173,7 @@ To create an instance of {{site.data.keyword.secrets-manager_short}} by using th
     | Pricing plan (`plan`) | The pricing plan that you want to use. Use`trial` or `standard`. |
     | Endpoints (`options`) | Optional. By default instances of {{site.data.keyword.secrets-manager_short}} are created with only a private endpoint (`private-only`). If you need to provision an instance of {{site.data.keyword.secrets-manager_short}} that uses also a public endpoint, append the `--service-endpoints public-and-private` option to your command. |
     | Encryption (`options`) | To provision an instance of {{site.data.keyword.secrets-manager_short}} that uses [customer-managed encryption](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption), append `-p '{"kms_key": "<root_key_crn>"}'`. Replace `<root_key_crn>` with the CRN value for the root key that you want to integrate. |
-    {: caption="Description of the information that is required to provision the  {{site.data.keyword.secrets-manager_short}} service using CLI" caption-side="top"}
+    {: caption="Description of the information that is required to provision the  {{site.data.keyword.secrets-manager_short}} service using CLI" caption-side="bottom"}
 
     You can create only one Trial instance of {{site.data.keyword.secrets-manager_short}} per account. Before you can create a new Trial instance, you must delete the existing Trial instance and its reclamation.
     {: note}
@@ -213,7 +213,7 @@ For additional programming languages support, see the [Resource Controller API D
     | Pricing plan (`plan`) | The pricing plan that you want to use, provided as a plan ID. Use `869c191a-3c2a-4faf-98be-18d48f95ba1f` for `trial` or `7713c3a8-3be8-4a9a-81bb-ee822fcaac3d` for `standard`.  |
     | Endpoints | By default instances of {{site.data.keyword.secrets-manager_short}} are created with only a private endpoint. If you need to provision an instance of {{site.data.keyword.secrets-manager_short}} that uses also a public endpoint, add `"service-endpoints":"public-and-private"` to `parameters`. |
     | Encryption | To provision an instance of {{site.data.keyword.secrets-manager_short}} that uses [customer-managed encryption](/docs/secrets-manager?topic=secrets-manager-mng-data#data-encryption), keep the `kms_key` parameter, and replace `<root_key_crn>` with the CRN value for the root key that you want to integrate. |
-    {: caption="Description of the information that is required to provision the  {{site.data.keyword.secrets-manager_short}} service using API" caption-side="top"}
+    {: caption="Description of the information that is required to provision the  {{site.data.keyword.secrets-manager_short}} service using API" caption-side="bottom"}
 
     You can create only one Trial instance of {{site.data.keyword.secrets-manager_short}} per account. Before you can create a new Trial instance, you must delete the existing Trial instance and its reclamation.
     {: note}

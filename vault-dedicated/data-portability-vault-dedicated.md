@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-28"
+lastupdated: "2026-09-01"
 
 keywords: data portability, Vault Dedicated, export secrets, import secrets, Vault CLI, kv commands, snapshots
 
@@ -34,16 +34,16 @@ For more information about your responsibilities when using {{site.data.keyword.
 ## Data export procedures for Vault Dedicated
 {: #data-portability-procedures-vault-dedicated}
 
-The `Vault Dedicated` plan does not currently support automated [data replication](https://developer.hashicorp.com/vault/docs/internals/replication){: external} or the ability to [create and restore snapshots](https://developer.hashicorp.com/vault/docs/sysadmin/snapshots){: external} across different instances. Customers must create custom solutions to export and import their secrets and configurations using HashiCorp Vault's native tools and commands.
+The `Vault Dedicated` plan does not currently support automated [data replication](https://developer.hashicorp.com/vault/docs/internals/replication){: external} or the ability to [create and restore snapshots](https://developer.hashicorp.com/vault/docs/sysadmin/snapshots){: external} across different instances. You must create custom solutions to export and import their secrets and configurations using HashiCorp Vault's native tools and commands.
 
 ### Available export methods
 {: #export-methods-vault-dedicated}
 
 You can use the following HashiCorp Vault tools to export your data:
 
-- **[Vault KV commands](https://developer.hashicorp.com/vault/docs/commands/kv){: external}**: Use the key-value secrets engine commands to read and export secrets
-- **[Vault CLI](https://developer.hashicorp.com/vault/docs/commands){: external}**: Use the command-line interface for comprehensive Vault operations
-- **[Vault API](https://developer.hashicorp.com/vault/api-docs){: external}**: Use the REST API for programmatic access to secrets and configurations
+- **[Vault KV commands](https://developer.hashicorp.com/vault/docs/commands/kv){: external}**: Use the key-value secrets engine commands to read and export secrets.
+- **[Vault CLI](https://developer.hashicorp.com/vault/docs/commands){: external}**: Use the command-line interface for comprehensive Vault operations.
+- **[Vault API](https://developer.hashicorp.com/vault/api-docs){: external}**: Use the REST API for programmatic access to secrets and configurations.
 
 ### Exporting secrets using Vault KV commands
 {: #export-vault-kv}
@@ -127,7 +127,7 @@ For more information about importing secrets, see [HashiCorp Vault secrets impor
 Secrets exported from Vault Dedicated using the Vault CLI or API are in JSON format. The schema follows the HashiCorp Vault data structure, which includes:
 
 - Secret data (key-value pairs)
-- Metadata (version information, creation time, etc.)
+- Metadata (version information, creation time, and so on)
 - Custom metadata (if configured)
 
 For detailed information about the data structure, see [HashiCorp Vault KV Secrets Engine documentation](https://developer.hashicorp.com/vault/docs/secrets/kv){: external}.
@@ -148,7 +148,7 @@ When planning data portability for Vault Dedicated, consider the following:
 ## Data ownership
 {: #data-portability-data-ownership-vault-dedicated}
 
-All exported data are classified as customer content and therefore the full customer ownership and licensing rights apply to them, as stated in [IBM Cloud Service Agreement](https://www.ibm.com/support/customer/csol/terms/?id=Z126-6304_WS).
+All exported data is classified as customer content and therefore the full customer ownership and licensing rights apply to them, as stated in [IBM Cloud Service Agreement](https://www.ibm.com/support/customer/csol/terms/?id=Z126-6304_WS).
 
 ## Next steps
 {: #data-portability-next-steps-vault-dedicated}
