@@ -283,7 +283,7 @@ ibmcloud secrets-manager-instance-management admin-token-create --id ID [--regio
 Example request
 
 ```sh
-ibmcloud secrets-manager-instance-management admin-token-create --instance-id=bfc50c2e-d66d-4f37-9ccf-9713f8325b39
+ibmcloud secrets-manager-instance-management admin-token-create --id bfc50c2e-d66d-4f37-9ccf-9713f8325b39
 ```
 {: pre}
 
@@ -312,7 +312,7 @@ ibmcloud secrets-manager-instance-management admin-tokens-delete --id ID [--regi
 Example request
 
 ```sh
-ibmcloud secrets-manager-instance-management admin-tokens-delete --instance-id=bfc50c2e-d66d-4f37-9ccf-9713f8325b39
+ibmcloud secrets-manager-instance-management admin-tokens-delete --id bfc50c2e-d66d-4f37-9ccf-9713f8325b39
 ```
 {: pre}
 
@@ -346,7 +346,7 @@ ibmcloud secrets-manager-instance-management instance-details --id ID [--region 
 Example request
 
 ```sh
-ibmcloud secrets-manager-instance-management instance-details --instance-id=bfc50c2e-d66d-4f37-9ccf-9713f8325b39
+ibmcloud secrets-manager-instance-management instance-details --id bfc50c2e-d66d-4f37-9ccf-9713f8325b39
 ```
 {: pre}
 
