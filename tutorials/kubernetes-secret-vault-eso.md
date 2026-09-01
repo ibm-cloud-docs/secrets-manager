@@ -123,20 +123,20 @@ Create a Kubernetes cluster in your {{site.data.keyword.cloud_notm}} account.
 2. Select the account, region, and resource group where you want to create your cluster.
 
     ```sh
-    ibmcloud target -r <region> -g <resource_group>
+    ibmcloud target -r REGION -g RESOURCE_GROUP
     ```
     {: pre}
 
-    Replace `<region>` with your target region (for example, `au-syd`) and `<resource_group>` with your resource group name.
+    Replace `REGION` with your target region (for example, `au-syd`) and `RESOURCE_GROUP` with your resource group name.
 
 3. Create a Kubernetes cluster.
 
     ```sh
-    ibmcloud ks cluster create vpc-gen2 --zone <zone> --flavor <flavor> --workers 1 --name eso-test-cluster --vpc-id <VPC_ID> --subnet-id <SUBNET_ID>
+    ibmcloud ks cluster create vpc-gen2 --zone ZONE --flavor FLAVOR --workers 1 --name eso-test-cluster --vpc-id VPC_ID --subnet-id SUBNET_ID
     ```
     {: pre}
 
-    Replace `<zone>`, `<flavor>`, `<VPC_ID>`, and `<SUBNET_ID>` with your values. Provisioning your Kubernetes cluster takes 5 - 15 minutes to complete.
+    Replace `ZONE`, `FLAVOR`, `VPC_ID`, and `SUBNET_ID` with your values. Provisioning your Kubernetes cluster takes 5 - 15 minutes to complete.
 
 4. Before you continue to the next step, verify that your cluster is provisioned successfully.
 

@@ -125,14 +125,14 @@ Create a Kubernetes cluster in your {{site.data.keyword.cloud_notm}} account.
 2. Select the account, region, and resource group where you want to create your cluster.
 
     ```sh
-    ibmcloud target -r <region> -g <resource_group>
+    ibmcloud target -r REGION -g RESOURCE_GROUP
     ```
     {: pre}
 
 3. Create a Kubernetes cluster.
 
     ```sh
-    ibmcloud ks cluster create vpc-gen2 --zone <zone> --flavor <flavor> --workers 1 --name vso-test-cluster --vpc-id <VPC_ID> --subnet-id <SUBNET_ID>
+    ibmcloud ks cluster create vpc-gen2 --zone ZONE --flavor FLAVOR --workers 1 --name vso-test-cluster --vpc-id VPC_ID --subnet-id SUBNET_ID
     ```
     {: pre}
 
