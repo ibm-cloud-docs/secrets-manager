@@ -58,7 +58,7 @@ subcollection: secrets-manager
 # Locking secrets
 {: #secret-locks}
 
-
+**Plan availability**: [Trial and Standard]{: tag-blue} plans only.
 
 When you work with {{site.data.keyword.secrets-manager_full}}, you can create locks on your secrets to prevent them from being deleted or modified while they're in use by your applications.
 {: shortdesc}
