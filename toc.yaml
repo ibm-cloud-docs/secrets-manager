@@ -262,6 +262,8 @@ toc:
                 navtitle: Instance Management CLI reference
               - topic: secrets-manager-management-cli-change-log-vault-dedicated.md
                 navtitle: Instance Management CLI change log
+              - topic: vault-dedicated-changelog-api.md
+                navtitle: Instance Management API change log
               - link:
                   label: HashiCorp Vault API reference
                   href: https://developer.hashicorp.com/vault/api-docs
