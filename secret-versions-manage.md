@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-08"
+lastupdated: "2026-09-07"
 
 keywords: secret version history, view versions, secret versions
 
@@ -152,9 +152,9 @@ A successful response returns metadata details about each secret version.
 {: screen}
 
 
-The `downloaded` property indicates whether the data for each secret version was already read or accessed. If the `payload_available` field has a value of `true`, it means that you're able to access or [restore the secret data of that version](/docs/secrets-manager?topic=secrets-manager-version-history&interface=api#restore-secret-api). For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager/secrets-manager-v2).
+The `downloaded` property indicates whether the data for each secret version was already read or accessed. If the `payload_available` field has a value of `true`, it means that you're able to access or [restore the secret data of that version](/docs/secrets-manager?topic=secrets-manager-version-history&interface=api#restore-secret-api). For more information about the required and optional request parameters, check out the [API reference](/docs/apis/secrets-manager/secrets-manager-v2).
 
-You can store metadata that is relevant to the needs of your organization with the `version_custom_metadata` request parameter. The custom metadata of your secret is stored as all other metadata, and you must not include confidential data. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager/secrets-manager-v2).
+You can store metadata that is relevant to the needs of your organization with the `version_custom_metadata` request parameter. The custom metadata of your secret is stored as all other metadata, and you must not include confidential data. For more information about the required and optional request parameters, check out the [API reference](/docs/apis/secrets-manager/secrets-manager-v2).
 
 ## Updating secret versions metadata in the UI
 {: #versions-metadata-ui}
@@ -234,7 +234,7 @@ A successful response returns metadata details about each secret version.
 
 The `downloaded` property indicates whether the data for each secret version was already read or accessed. If the `payload_available` field has a value of `true`, it means that you're able to access or [restore the secret data of that version](/docs/secrets-manager?topic=secrets-manager-version-history&interface=api#restore-secret-api). 
 
-You can store metadata that is relevant to the needs of your organization with the `version_custom_metadata` request parameter. The custom metadata of your secret is stored as all other metadata, and you must not include confidential data. For more information about the required and optional request parameters, check out the [API reference](/apidocs/secrets-manager/secrets-manager-v2)
+You can store metadata that is relevant to the needs of your organization with the `version_custom_metadata` request parameter. The custom metadata of your secret is stored as all other metadata, and you must not include confidential data. For more information about the required and optional request parameters, check out the [API reference](/docs/apis/secrets-manager/secrets-manager-v2)
 
 ## Restoring secrets to a previous version
 {: #restore-secrets}
@@ -286,7 +286,7 @@ ibmcloud sm secret-version-create --secret-d SECRET_ID --secret-version-restore-
 Currently, you can restore only one version back for IAM credentials and imported certificate secrets. A secret version can be restored only if the defined time-to-live (TTL) or lease duration was not reached.
 {: note}
 
-A successful response returns the value of the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager).
+A successful response returns the value of the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/docs/apis/secrets-manager/secrets-manager-v2).
 
 
 ## Restoring a previous version with the API
@@ -324,4 +324,4 @@ curl -X POST
 Currently, you can restore only one version back for IAM credentials and imported certificate secrets. A secret version can be restored only if the defined time-to-live (TTL) or lease duration was not reached.
 {: note}
 
-A successful response returns the value of the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/apidocs/secrets-manager).
+A successful response returns the value of the secret, along with other metadata. For more information about the required and optional request parameters, see the [API reference](/docs/apis/secrets-manager/secrets-manager-v2).

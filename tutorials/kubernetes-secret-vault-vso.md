@@ -3,7 +3,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-01"
+lastupdated: "2026-09-07"
 
 keywords: tutorial, Vault as a Service, Kubernetes secrets, Vault Secrets Operator, VSO
 
@@ -562,5 +562,5 @@ Great job! In this tutorial, you learned how to use Vault Secrets Operator to in
 
 - Learn about [VaultDynamicSecret](https://developer.hashicorp.com/vault/docs/deploy/kubernetes/vso/api-reference#vaultdynamicsecret){: external} for dynamic database credentials.
 - Explore [External Secrets Operator](/docs/secrets-manager?topic=secrets-manager-tutorial-vault-kubernetes-secrets-eso) as an alternative multi-provider solution.
-- Review the [Vault Secrets Operator documentation](https://developer.hashicorp.com/vault/docs/platform/k8s/vso){: external}.
+- Review the [Vault Secrets Operator documentation](https://developer.hashicorp.com/vault/docs/deploy/kubernetes/vso){: external}.
 - Learn more about [Vault](/docs/vault) features and configurations.
