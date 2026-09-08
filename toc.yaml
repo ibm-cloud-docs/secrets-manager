@@ -195,7 +195,7 @@ toc:
               label: Auditing events for Secrets Manager
               topics:
               - topic: framework/at-events.md
-                navtitle: By uing the Trial and Standard plans
+                navtitle: By using the Trial and Standard plans
               - topic: vault-dedicated/at-events.md
                 navtitle: By using the Vault Dedicated plan
           - topic: framework/logging.md
