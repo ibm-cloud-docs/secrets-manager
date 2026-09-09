@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-01"
+lastupdated: "2026-09-09"
 
 keywords: Secrets Manager CLI, Vault Dedicated, instance management CLI, command line, terminal
 
@@ -205,7 +205,6 @@ Print out the currently set value for a specific option. Each subcommand of the 
 ```sh
 ibmcloud secrets-manager-instance-management config get <option>
 ```
-{: pre}
 
 #### Examples
 {: #secrets-manager-instance-management-config-get-command-examples}
@@ -225,7 +224,6 @@ The subcommands available for this service are: `service-url`, .
 ```sh
 ibmcloud secrets-manager-instance-management config unset <option>
 ```
-{: pre}
 
 #### Examples
 {: #secrets-manager-instance-management-config-unset-command-examples}
@@ -243,7 +241,6 @@ List out all of the currently set config values.
 ```sh
 ibmcloud secrets-manager-instance-management config list
 ```
-{: pre}
 
 #### Examples
 {: #secrets-manager-instance-management-config-list-command-examples}
@@ -266,7 +263,6 @@ Generate a Vault admin token for authenticating to your Vault Dedicated cluster.
 ```sh
 ibmcloud secrets-manager-instance-management admin-token-create --id ID [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
-{: pre}
 
 
 #### Command options
@@ -283,7 +279,7 @@ ibmcloud secrets-manager-instance-management admin-token-create --id ID [--regio
 Example request
 
 ```sh
-ibmcloud secrets-manager-instance-management admin-token-create --id bfc50c2e-d66d-4f37-9ccf-9713f8325b39
+ibmcloud secrets-manager-instance-management admin-token-create --instance-id=bfc50c2e-d66d-4f37-9ccf-9713f8325b39
 ```
 {: pre}
 
@@ -295,7 +291,6 @@ Revoke all active Vault admin tokens. This immediately invalidates all existing 
 ```sh
 ibmcloud secrets-manager-instance-management admin-tokens-delete --id ID [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
-{: pre}
 
 
 #### Command options
@@ -312,7 +307,7 @@ ibmcloud secrets-manager-instance-management admin-tokens-delete --id ID [--regi
 Example request
 
 ```sh
-ibmcloud secrets-manager-instance-management admin-tokens-delete --id bfc50c2e-d66d-4f37-9ccf-9713f8325b39
+ibmcloud secrets-manager-instance-management admin-tokens-delete --instance-id=bfc50c2e-d66d-4f37-9ccf-9713f8325b39
 ```
 {: pre}
 
@@ -329,7 +324,6 @@ Get service instance details including cluster state, endpoints, and key managem
 ```sh
 ibmcloud secrets-manager-instance-management instance-details --id ID [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
-{: pre}
 
 
 #### Command options
@@ -346,7 +340,7 @@ ibmcloud secrets-manager-instance-management instance-details --id ID [--region 
 Example request
 
 ```sh
-ibmcloud secrets-manager-instance-management instance-details --id bfc50c2e-d66d-4f37-9ccf-9713f8325b39
+ibmcloud secrets-manager-instance-management instance-details --instance-id=bfc50c2e-d66d-4f37-9ccf-9713f8325b39
 ```
 {: pre}
 
