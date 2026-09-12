@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-09"
+lastupdated: "2026-09-09"
 
 subcollection: secrets-manager
 
@@ -108,8 +108,6 @@ To target the {{site.data.keyword.secrets-manager_short}} instance, use one of t
 Replace `{instance_ID}` and `{region}` with the values that apply to your {{site.data.keyword.secrets-manager_short}} service instance. To find the endpoint URL that is specific to your instance, you can copy it from the **Endpoints** page in the {{site.data.keyword.secrets-manager_short}} UI. For more information, see [Viewing your endpoint URLs](/docs/secrets-manager?topic=secrets-manager-endpoints#view-endpoint-urls)
 
 
-
-
 ## Globals
 {: #secrets-manager-globals}
 
@@ -140,7 +138,7 @@ ibmcloud secrets-manager docs
 :   The Secrets Manager Instance ID assigned by the service provider.
 
 `--region` (string)
-:   The region where you provisioned your Secrets Manager Instance. Available values: us-south, us-east, au-syd, jp-osa, jp-tok, eu-de, eu-gb, eu-es, ca-tor, ca-mon, br-sao.
+:   The region where you provisioned your Secrets Manager instance. Available values: `us-south`, `us-east`, `au-syd`, `jp-osa`, `jp-tok`, `eu-de`, `eu-gb`, `eu-es`, `ca-tor`, `ca-mon`, `br-sao`, `in-che`, `in-mum`.
 
 `--output` (string)
 :   Choose an output format - can be 'json', 'yaml', or 'table'. Defaults to 'table'.
@@ -161,12 +159,12 @@ ibmcloud secrets-manager docs
 {: #secrets-manager-global-options-example}
 
 ```sh
-ibmcloud secrets-manager
+ibmcloud secrets-manager \
     --instance-id=provide-here-your-smgr-instanceuuid \
     --region=us-south \
     --output=json \
     --jmes-query="[:10]" \
-    --service-url="https://myservice.cloud.ibm.com"
+    --service-url="https://myservice.cloud.ibm.com" \
     --quiet
 ```
 {: pre}
@@ -267,7 +265,7 @@ Create a secret group that you can use to organize secrets and control who can a
 A successful request returns the ID value of the secret group, along with other properties. To learn more about secret groups, check out the [docs](/docs/secrets-manager?topic=secrets-manager-secret-groups).
 
 ```sh
-ibmcloud secrets-manager secret-group-create --name NAME [--description DESCRIPTION]
+ibmcloud secrets-manager secret-group-create --name NAME [--description DESCRIPTION] [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -277,7 +275,7 @@ ibmcloud secrets-manager secret-group-create --name NAME [--description DESCRIPT
 `--name` (string)
 :   The name of your secret group. Required.
 
-    The maximum length is `64` characters. The minimum length is `2` characters. The value must match regular expression `/^[A-Za-z0-9_][A-Za-z0-9_]*(?:_*-*\\.*[A-Za-z0-9]*)*[A-Za-z0-9]+$/`.
+    The maximum length is `64` characters. The minimum length is `2` characters. The value must match regular expression `/^[A-Za-z0-9_][A-Za-z0-9_]*(?:_*-*\.*[A-Za-z0-9]*)*[A-Za-z0-9]+$/`.
 
 `--description` (string)
 :   An extended description of your secret group.
@@ -317,7 +315,7 @@ Example of `SecretGroup` response
 List the secret groups that are available in your Secrets Manager instance.
 
 ```sh
-ibmcloud secrets-manager secret-groups
+ibmcloud secrets-manager secret-groups [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -373,10 +371,6 @@ You can see the condition for each default JMESPath query in the following table
 | -------- | ------ | ----- |
 | Success | Default | - |
 | | Table | `secret_groups[*]` |
-| Error | Default | - |
-| | Table | `secret_groups[*]` |
-| All pages | Default | - |
-| | Table | `secret_groups[*]` |
 {: caption="Default JMESPath" caption-side="bottom"}
 
 If a custom JMESPath query is provided, it will replace any of the JMESPath in the table above.
@@ -387,7 +381,7 @@ If a custom JMESPath query is provided, it will replace any of the JMESPath in t
 Get the properties of an existing secret group by specifying the ID of the group.
 
 ```sh
-ibmcloud secrets-manager secret-group --secret-group-id SECRET-GROUP-ID
+ibmcloud secrets-manager secret-group --secret-group-id SECRET-GROUP-ID [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -431,7 +425,7 @@ Example of `SecretGroup` response
 Update the properties of an existing secret group, such as its name or description.
 
 ```sh
-ibmcloud secrets-manager secret-group-update --id ID [--name NAME] [--description DESCRIPTION]
+ibmcloud secrets-manager secret-group-update --id ID {--secret-group-patch (SECRET-GROUP-PATCH | @SECRET-GROUP-PATCH-FILE) | --name NAME --description DESCRIPTION} [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -446,12 +440,12 @@ ibmcloud secrets-manager secret-group-update --id ID [--name NAME] [--descriptio
 `--secret-group-patch` (generic map)
 :   The request body to update a secret group. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--secret-group-patch=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--secret-group-patch=@path/to/file.json`.
 
 `--name` (string)
 :   The name of your secret group. This option provides a value for a sub-field of the JSON option 'secret-group-patch'. It is mutually exclusive with that option.
 
-    The maximum length is `64` characters. The minimum length is `2` characters. The value must match regular expression `/^[A-Za-z0-9_][A-Za-z0-9_]*(?:_*-*\\.*[A-Za-z0-9]*)*[A-Za-z0-9]+$/`.
+    The maximum length is `64` characters. The minimum length is `2` characters. The value must match regular expression `/^[A-Za-z0-9_][A-Za-z0-9_]*(?:_*-*\.*[A-Za-z0-9]*)*[A-Za-z0-9]+$/`.
 
 `--description` (string)
 :   An extended description of your secret group. This option provides a value for a sub-field of the JSON option 'secret-group-patch'. It is mutually exclusive with that option.
@@ -494,7 +488,7 @@ Delete a secret group by specifying the ID of the secret group.
 **Note:** To delete a secret group, it must be empty. If you need to remove a secret group that contains secrets, you must first delete the secrets that are associated with the group.
 
 ```sh
-ibmcloud secrets-manager secret-group-delete --id ID
+ibmcloud secrets-manager secret-group-delete --id ID [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -530,7 +524,7 @@ Use this operation to either generate or import an existing secret, such as a TL
 To learn more about the types of secrets that you can create with Secrets Manager, check out the [docs](/docs/secrets-manager?topic=secrets-manager-what-is-secret).
 
 ```sh
-ibmcloud secrets-manager secret-create [--secret-prototype SECRET-PROTOTYPE | --secret-custom-metadata SECRET-CUSTOM-METADATA --secret-description SECRET-DESCRIPTION --secret-expiration-date SECRET-EXPIRATION-DATE --secret-labels SECRET-LABELS --secret-name SECRET-NAME --secret-group-id SECRET-GROUP-ID --secret-type SECRET-TYPE --arbitrary-payload ARBITRARY-PAYLOAD --secret-version-custom-metadata SECRET-VERSION-CUSTOM-METADATA --secret-ttl SECRET-TTL --iam-credentials-access-groups IAM-CREDENTIALS-ACCESS-GROUPS --iam-credentials-service-id IAM-CREDENTIALS-SERVICE-ID --iam-credentials-account-id IAM-CREDENTIALS-ACCOUNT-ID --iam-credentials-reuse-apikey=IAM-CREDENTIALS-REUSE-APIKEY --secret-rotation SECRET-ROTATION --imported-cert-certificate IMPORTED-CERT-CERTIFICATE --imported-cert-intermediate IMPORTED-CERT-INTERMEDIATE --imported-cert-private-key IMPORTED-CERT-PRIVATE-KEY --imported-cert-managed-csr IMPORTED-CERT-MANAGED-CSR --kv-data KV-DATA --private-cert-template-name PRIVATE-CERT-TEMPLATE-NAME --certificate-common-name CERTIFICATE-COMMON-NAME --certificate-alt-names CERTIFICATE-ALT-NAMES --private-cert-ip-sans PRIVATE-CERT-IP-SANS --private-cert-uri-sans PRIVATE-CERT-URI-SANS --private-cert-other-sans PRIVATE-CERT-OTHER-SANS --private-cert-csr PRIVATE-CERT-CSR --private-cert-format PRIVATE-CERT-FORMAT --private-cert-private-key-format PRIVATE-CERT-PRIVATE-KEY-FORMAT --private-cert-exclude-cn-from-sans=PRIVATE-CERT-EXCLUDE-CN-FROM-SANS --public-cert-key-algorithm PUBLIC-CERT-KEY-ALGORITHM --public-cert-ca PUBLIC-CERT-CA --public-cert-dns PUBLIC-CERT-DNS --public-cert-bundle-ca=PUBLIC-CERT-BUNDLE-CA --secret-source-service SECRET-SOURCE-SERVICE --username-password-username USERNAME-PASSWORD-USERNAME --username-password-password USERNAME-PASSWORD-PASSWORD --username-password-policy USERNAME-PASSWORD-POLICY --custom-credentials-configuration CUSTOM-CREDENTIALS-CONFIGURATION --custom-credentials-parameters CUSTOM-CREDENTIALS-PARAMETERS]
+ibmcloud secrets-manager secret-create {--secret-prototype (SECRET-PROTOTYPE | @SECRET-PROTOTYPE-FILE) | (--secret-custom-metadata SECRET-CUSTOM-METADATA | @SECRET-CUSTOM-METADATA-FILE) --secret-description SECRET-DESCRIPTION --secret-expiration-date SECRET-EXPIRATION-DATE --secret-labels SECRET-LABELS --secret-name SECRET-NAME --secret-group-id SECRET-GROUP-ID --secret-type arbitrary | iam_credentials | imported_cert | kv | private_cert | public_cert | service_credentials | username_password | custom_credentials --arbitrary-payload ARBITRARY-PAYLOAD (--secret-version-custom-metadata SECRET-VERSION-CUSTOM-METADATA | @SECRET-VERSION-CUSTOM-METADATA-FILE) --secret-ttl SECRET-TTL --iam-credentials-access-groups IAM-CREDENTIALS-ACCESS-GROUPS --iam-credentials-service-id IAM-CREDENTIALS-SERVICE-ID --iam-credentials-account-id IAM-CREDENTIALS-ACCOUNT-ID --iam-credentials-reuse-apikey=IAM-CREDENTIALS-REUSE-APIKEY (--secret-rotation SECRET-ROTATION | @SECRET-ROTATION-FILE) --imported-cert-certificate IMPORTED-CERT-CERTIFICATE --imported-cert-intermediate IMPORTED-CERT-INTERMEDIATE --imported-cert-private-key IMPORTED-CERT-PRIVATE-KEY (--imported-cert-managed-csr IMPORTED-CERT-MANAGED-CSR | @IMPORTED-CERT-MANAGED-CSR-FILE) (--kv-data KV-DATA | @KV-DATA-FILE) --private-cert-template-name PRIVATE-CERT-TEMPLATE-NAME --certificate-common-name CERTIFICATE-COMMON-NAME --certificate-alt-names CERTIFICATE-ALT-NAMES --private-cert-ip-sans PRIVATE-CERT-IP-SANS --private-cert-uri-sans PRIVATE-CERT-URI-SANS --private-cert-other-sans PRIVATE-CERT-OTHER-SANS --private-cert-csr PRIVATE-CERT-CSR --private-cert-format pem | pem_bundle --private-cert-private-key-format der | pkcs8 --private-cert-exclude-cn-from-sans=PRIVATE-CERT-EXCLUDE-CN-FROM-SANS --public-cert-key-algorithm PUBLIC-CERT-KEY-ALGORITHM --public-cert-ca PUBLIC-CERT-CA --public-cert-dns PUBLIC-CERT-DNS --public-cert-bundle-ca=PUBLIC-CERT-BUNDLE-CA (--secret-source-service SECRET-SOURCE-SERVICE | @SECRET-SOURCE-SERVICE-FILE) --username-password-username USERNAME-PASSWORD-USERNAME --username-password-password USERNAME-PASSWORD-PASSWORD (--username-password-policy USERNAME-PASSWORD-POLICY | @USERNAME-PASSWORD-POLICY-FILE) --custom-credentials-configuration CUSTOM-CREDENTIALS-CONFIGURATION (--custom-credentials-parameters CUSTOM-CREDENTIALS-PARAMETERS | @CUSTOM-CREDENTIALS-PARAMETERS-FILE)} [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -540,12 +534,12 @@ ibmcloud secrets-manager secret-create [--secret-prototype SECRET-PROTOTYPE | --
 `--secret-prototype` ([`SecretPrototype`](#cli-secret-prototype-example-schema))
 :   A JSON containing the required details for creating a secret. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--secret-prototype=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--secret-prototype=@path/to/file.json`.
 
 `--secret-custom-metadata` (generic map)
 :   The secret metadata that a user can customize. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--secret-custom-metadata=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--secret-custom-metadata=@path/to/file.json`.
 
 `--secret-description` (string)
 :   An extended description of your secret. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
@@ -576,22 +570,22 @@ ibmcloud secrets-manager secret-create [--secret-prototype SECRET-PROTOTYPE | --
     Allowable values are: `arbitrary`, `iam_credentials`, `imported_cert`, `kv`, `private_cert`, `public_cert`, `service_credentials`, `username_password`, `custom_credentials`.
 
 `--arbitrary-payload` (string)
-:   The secret data that is assigned to an `arbitrary` secret. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
+:   The secret data that is assigned to an `ARBITRARY` secret. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
 
     The maximum length is `1000000` characters. The minimum length is `0` characters. The value must match regular expression `/(.*?)/`.
 
 `--secret-version-custom-metadata` (generic map)
 :   The secret version metadata that a user can customize. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--secret-version-custom-metadata=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--secret-version-custom-metadata=@path/to/file.json`.
 
 `--secret-ttl` (string)
-:   The time-to-live (TTL) or lease duration to assign to credentials that are generated. Supported secret types: iam_credentials, service_credentials, custom_credentials. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
+:   The time-to-live (TTL) or lease duration to assign to credentials that are generated. Supported secret types: `IAM_CREDENTIALS`, `SERVICE_CREDENTIALS`, `CUSTOM_CREDENTIALS`. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
 
     The maximum length is `10` characters. The value must match regular expression `/^[0-9]+[s,m,h,d]{0,1}$/`.
 
 `--iam-credentials-access-groups` ([]string)
-:   Access Groups that you can use for an `iam_credentials` secret. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
+:   Access Groups that you can use for an `IAM_CREDENTIALS` secret. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
 
     The list items must match regular expression `/^AccessGroupId-[a-z0-9-]+[a-z0-9]$/`. The maximum length is `10` items. The minimum length is `1` item.
 
@@ -609,9 +603,9 @@ ibmcloud secrets-manager secret-create [--secret-prototype SECRET-PROTOTYPE | --
 :   This parameter indicates whether to reuse the service ID and API key for future read operations. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
 
 `--secret-rotation` ([`RotationPolicy`](#cli-rotation-policy-example-schema))
-:   This field indicates whether Secrets Manager rotates your secrets automatically. Supported secret types: username_password, private_cert, public_cert, iam_credentials, custom_credentials. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
+:   This field indicates whether Secrets Manager rotates your secrets automatically. Supported secret types: `USERNAME_PASSWORD`, `PRIVATE_CERT`, `PUBLIC_CERT`, `IAM_CREDENTIALS`, `CUSTOM_CREDENTIALS`. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--secret-rotation=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--secret-rotation=@path/to/file.json`.
 
 `--imported-cert-certificate` (string)
 :   The PEM-encoded contents of your certificate. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
@@ -631,14 +625,14 @@ ibmcloud secrets-manager secret-create [--secret-prototype SECRET-PROTOTYPE | --
 `--imported-cert-managed-csr` ([`ImportedCertificateManagedCsr`](#cli-imported-certificate-managed-csr-example-schema))
 :   The data specified to create the CSR and the private key. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--imported-cert-managed-csr=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--imported-cert-managed-csr=@path/to/file.json`.
 
 `--kv-data` (generic map)
 :   The payload data of a key-value secret. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
 
     The minimum length is `1` item.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--kv-data=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--kv-data=@path/to/file.json`.
 
 `--private-cert-template-name` (string)
 :   The name of the certificate template. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
@@ -711,22 +705,22 @@ ibmcloud secrets-manager secret-create [--secret-prototype SECRET-PROTOTYPE | --
 `--secret-source-service` ([`ServiceCredentialsSecretSourceService`](#cli-service-credentials-secret-source-service-example-schema))
 :   The properties that are required to create the service credentials for the specified source service instance. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--secret-source-service=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--secret-source-service=@path/to/file.json`.
 
 `--username-password-username` (string)
-:   The username that is assigned to an `username_password` secret. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
+:   The username that is assigned to an `USERNAME_PASSWORD` secret. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
 
     The maximum length is `64` characters. The minimum length is `2` characters. The value must match regular expression `/[A-Za-z0-9+-=.]*/`.
 
 `--username-password-password` (string)
-:   The password that is assigned to an `username_password` secret. If you omit this parameter, Secrets Manager  generates a new random password for your secret. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
+:   The password that is assigned to an `USERNAME_PASSWORD` secret. If you omit this parameter, Secrets Manager  generates a new random password for your secret. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
 
     The maximum length is `256` characters. The minimum length is `6` characters. The value must match regular expression `/.{6,256}/`.
 
 `--username-password-policy` ([`PasswordGenerationPolicy`](#cli-password-generation-policy-example-schema))
 :   Policy for auto-generated passwords. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--username-password-policy=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--username-password-policy=@path/to/file.json`.
 
 `--custom-credentials-configuration` (string)
 :   The name of the custom credentials configuration. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
@@ -736,7 +730,7 @@ ibmcloud secrets-manager secret-create [--secret-prototype SECRET-PROTOTYPE | --
 `--custom-credentials-parameters` (generic map)
 :   The parameters that are passed to custom credentials engine. Allowed types are string, integer, and boolean. This option provides a value for a sub-field of the JSON option 'secret-prototype'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--custom-credentials-parameters=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--custom-credentials-parameters=@path/to/file.json`.
 
 #### Example
 {: #secrets-manager-secret-create-examples}
@@ -744,10 +738,10 @@ ibmcloud secrets-manager secret-create [--secret-prototype SECRET-PROTOTYPE | --
 Example request
 
 ```sh
+ibmcloud secrets-manager secret-create --secret-name=example-arbitrary-secret --secret-type=ARBITRARY --arbitrary-payload=example-secret-data
+
 ibmcloud secrets-manager secret-create \
-  --secret-name example-arbitrary-secret \
-  --secret-type arbitrary \
-  --arbitrary-payload example-secret-data
+  --secret-prototype='{"name": "example-arbitrary-secret", "secret_type": "ARBITRARY", "payload":"example-secret-data"}'
 
 ```
 {: pre}
@@ -759,7 +753,7 @@ List the secrets that are available in your Secrets Manager instance.
 Note: If the `--all-pages` option is not set, the command will only retrieve a single page of the collection.
 
 ```sh
-ibmcloud secrets-manager secrets [--offset OFFSET] [--limit LIMIT] [--sort SORT] [--search SEARCH] [--groups GROUPS] [--secret-types SECRET-TYPES] [--match-all-labels MATCH-ALL-LABELS]
+ibmcloud secrets-manager secrets [--offset OFFSET | --all-pages] [--limit LIMIT] [--sort SORT] [--search SEARCH] [--groups GROUPS] [--secret-types arbitrary,iam_credentials,imported_cert,kv,private_cert,public_cert,service_credentials,username_password,custom_credentials] [--match-all-labels MATCH-ALL-LABELS] [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -931,10 +925,6 @@ You can see the condition for each default JMESPath query in the following table
 | -------- | ------ | ----- |
 | Success | Default | - |
 | | Table | `secrets[*].{Name:name,ID:id,Secret_Type:secret_type,secret_group_id:secret_group_id,State:state_description,Locks:locks_total,Expiration:expiration_date}` |
-| Error | Default | - |
-| | Table | `secrets[*].{Name:name,ID:id,Secret_Type:secret_type,secret_group_id:secret_group_id,State:state_description,Locks:locks_total,Expiration:expiration_date}` |
-| All pages | Default | - |
-| | Table | `secrets[*].{Name:name,ID:id,Secret_Type:secret_type,secret_group_id:secret_group_id,State:state_description,Locks:locks_total,Expiration:expiration_date}` |
 {: caption="Default JMESPath" caption-side="bottom"}
 
 If a custom JMESPath query is provided, it will replace any of the JMESPath in the table above.
@@ -947,7 +937,7 @@ Get a secret and its details by specifying the ID of the secret.
 A successful request returns the secret data that is associated with your secret, along with other metadata. To view only the details of a specified secret without retrieving its value, use the Get secret metadata operation.
 
 ```sh
-ibmcloud secrets-manager secret --id ID
+ibmcloud secrets-manager secret --id ID [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -974,7 +964,7 @@ ibmcloud secrets-manager secret \
 Delete a secret by specifying the ID of the secret.
 
 ```sh
-ibmcloud secrets-manager secret-delete --id ID [--force-delete=FORCE-DELETE]
+ibmcloud secrets-manager secret-delete --id ID [--force-delete=FORCE-DELETE] [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -1007,7 +997,7 @@ ibmcloud secrets-manager secret-delete \
 Get the metadata of a secret by specifying the ID of the secret.
 
 ```sh
-ibmcloud secrets-manager secret-metadata --id ID
+ibmcloud secrets-manager secret-metadata --id ID [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -1034,7 +1024,7 @@ ibmcloud secrets-manager secret-metadata \
 Update the metadata of a secret, such as its name or description.
 
 ```sh
-ibmcloud secrets-manager secret-metadata-update --id ID [--name NAME] [--description DESCRIPTION] [--labels LABELS] [--custom-metadata CUSTOM-METADATA] [--expiration-date EXPIRATION-DATE] [--ttl TTL] [--rotation ROTATION] [--imported-cert-managed-csr IMPORTED-CERT-MANAGED-CSR] [--password-generation-policy PASSWORD-GENERATION-POLICY] [--custom-credentials-parameters CUSTOM-CREDENTIALS-PARAMETERS]
+ibmcloud secrets-manager secret-metadata-update --id ID {--secret-metadata-patch (SECRET-METADATA-PATCH | @SECRET-METADATA-PATCH-FILE) | --name NAME --description DESCRIPTION --labels LABELS (--custom-metadata CUSTOM-METADATA | @CUSTOM-METADATA-FILE) --expiration-date EXPIRATION-DATE --ttl TTL (--rotation ROTATION | @ROTATION-FILE) (--imported-cert-managed-csr IMPORTED-CERT-MANAGED-CSR | @IMPORTED-CERT-MANAGED-CSR-FILE) (--password-generation-policy PASSWORD-GENERATION-POLICY | @PASSWORD-GENERATION-POLICY-FILE) (--custom-credentials-parameters CUSTOM-CREDENTIALS-PARAMETERS | @CUSTOM-CREDENTIALS-PARAMETERS-FILE)} [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -1049,12 +1039,12 @@ ibmcloud secrets-manager secret-metadata-update --id ID [--name NAME] [--descrip
 `--secret-metadata-patch` (generic map)
 :   JSON Merge-Patch content for update_secret_metadata. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--secret-metadata-patch=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--secret-metadata-patch=@path/to/file.json`.
 
 `--name` (string)
 :   A human-readable name to assign to your secret. This option provides a value for a sub-field of the JSON option 'secret-metadata-patch'. It is mutually exclusive with that option.
 
-    The maximum length is `256` characters. The minimum length is `2` characters. The value must match regular expression `/^[A-Za-z0-9_][A-Za-z0-9_]*(?:_*-*\\.*[A-Za-z0-9]*)*[A-Za-z0-9]+$/`.
+    The maximum length is `256` characters. The minimum length is `2` characters.
 
 `--description` (string)
 :   An extended description of your secret. This option provides a value for a sub-field of the JSON option 'secret-metadata-patch'. It is mutually exclusive with that option.
@@ -1067,37 +1057,37 @@ ibmcloud secrets-manager secret-metadata-update --id ID [--name NAME] [--descrip
     The list items must match regular expression `/(.*?)/`. The maximum length is `30` items. The minimum length is `0` items.
 
 `--custom-metadata` (generic map)
-:   The secret metadata that a user can customize. It should be a JSON string or a path to a JSON file. This option provides a value for a sub-field of the JSON option 'secret-metadata-patch'. It is mutually exclusive with that option.
+:   The secret metadata that a user can customize. It should be a JSON string or a path to a JSON file prepended with @. This option provides a value for a sub-field of the JSON option 'secret-metadata-patch'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--custom-metadata=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--custom-metadata=@path/to/file.json`.
 
 `--expiration-date` (strfmt.DateTime)
-:   The date when the secret material expires. The date format follows the 'RFC 3339' format. Supported secret types: Arbitrary, username_password. This option provides a value for a sub-field of the JSON option 'secret-metadata-patch'. It is mutually exclusive with that option.
+:   The date when the secret material expires. The date format follows the 'RFC 3339' format. Supported secret types: Arbitrary, username_password or the date when the secret material expires. The date format follows the 'RFC 3339' format. Supported secret types: Arbitrary, username_password. This option provides a value for a sub-field of the JSON option 'secret-metadata-patch'. It is mutually exclusive with that option.
 
 `--ttl` (string)
-:   The time-to-live (TTL) or lease duration to assign to credentials that are generated. Supported secret types: iam_credentials, service_credentials, custom_credentials. This option provides a value for a sub-field of the JSON option 'secret-metadata-patch'. It is mutually exclusive with that option.
+:   The time-to-live (TTL) or lease duration to assign to credentials that are generated. Supported secret types: 'IAM_CREDENTIALS', 'SERVICE_CREDENTIALS', 'CUSTOM_CREDENTIALS'. This option provides a value for a sub-field of the JSON option 'secret-metadata-patch'. It is mutually exclusive with that option.
 
     The maximum length is `10` characters. The minimum length is `1` character. The value must match regular expression `/^[0-9]+[s,m,h,d]{0,1}$/`.
 
 `--rotation` ([`RotationPolicy`](#cli-rotation-policy-example-schema))
-:   This field indicates whether Secrets Manager rotates your secrets automatically. Supported secret types: username_password, private_cert, public_cert, iam_credentials, custom_credentials. It should be a JSON string or a path to a JSON file. This option provides a value for a sub-field of the JSON option 'secret-metadata-patch'. It is mutually exclusive with that option.
+:   This field indicates whether Secrets Manager rotates your secrets automatically. Supported secret types: 'USERNAME_PASSWORD', 'PRIVATE_CERT', 'PUBLIC_CERT', 'IAM_CREDENTIALS', 'CUSTOM_CREDENTIALS'. It should be a JSON string or a path to a JSON file prepended with @. This option provides a value for a sub-field of the JSON option 'secret-metadata-patch'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--rotation=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--rotation=@path/to/file.json`.
 
 `--imported-cert-managed-csr` ([`ImportedCertificateManagedCsr`](#cli-imported-certificate-managed-csr-example-schema))
-:   The data specified to create the CSR and the private key. It should be a JSON string or a path to a JSON file. This option provides a value for a sub-field of the JSON option 'secret-metadata-patch'. It is mutually exclusive with that option.
+:   The data specified to create the CSR and the private key. It should be a JSON string or a path to a JSON file prepended with @. This option provides a value for a sub-field of the JSON option 'secret-metadata-patch'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--imported-cert-managed-csr=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--imported-cert-managed-csr=@path/to/file.json`.
 
 `--password-generation-policy` ([`PasswordGenerationPolicyPatch`](#cli-password-generation-policy-patch-example-schema))
-:   Policy patch for auto-generated passwords. Policy properties that are included in the patch are updated.\nProperties that are not included in the patch remain unchanged. It should be a JSON string or a path to a JSON file. This option provides a value for a sub-field of the JSON option 'secret-metadata-patch'. It is mutually exclusive with that option.
+:   Policy patch for auto-generated passwords. Policy properties that are included in the patch are updated.\nProperties that are not included in the patch remain unchanged. It should be a JSON string or a path to a JSON file prepended with @. This option provides a value for a sub-field of the JSON option 'secret-metadata-patch'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--password-generation-policy=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--password-generation-policy=@path/to/file.json`.
 
 `--custom-credentials-parameters` (generic map)
-:   The parameters that are passed to custom credentials engine. Allowed types are string, integer, and boolean. It should be a JSON string or a path to a JSON file. This option provides a value for a sub-field of the JSON option 'secret-metadata-patch'. It is mutually exclusive with that option.
+:   The parameters that are passed to custom credentials engine. Allowed types are string, integer, and boolean. It should be a JSON string or a path to a JSON file prepended with @. This option provides a value for a sub-field of the JSON option 'secret-metadata-patch'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--custom-credentials-parameters=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--custom-credentials-parameters=@path/to/file.json`.
 
 #### Example
 {: #secrets-manager-secret-metadata-update-examples}
@@ -1119,7 +1109,7 @@ ibmcloud secrets-manager secret-metadata-update \
 Create a secret action. This operation supports the following actions:.
 
 ```sh
-ibmcloud secrets-manager secret-action-create --id ID [--secret-action-prototype SECRET-ACTION-PROTOTYPE | --secret-action-type SECRET-ACTION-TYPE]
+ibmcloud secrets-manager secret-action-create --id ID {--secret-action-prototype (SECRET-ACTION-PROTOTYPE | @SECRET-ACTION-PROTOTYPE-FILE) | --secret-action-type public_cert_action_validate_dns_challenge | private_cert_action_revoke_certificate} [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -1134,7 +1124,7 @@ ibmcloud secrets-manager secret-action-create --id ID [--secret-action-prototype
 `--secret-action-prototype` ([`SecretActionPrototype`](#cli-secret-action-prototype-example-schema))
 :   The request body to specify the properties for your secret action. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--secret-action-prototype=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--secret-action-prototype=@path/to/file.json`.
 
 `--secret-action-type` (string)
 :   The type of secret action. This option provides a value for a sub-field of the JSON option 'secret-action-prototype'. It is mutually exclusive with that option.
@@ -1147,11 +1137,11 @@ ibmcloud secrets-manager secret-action-create --id ID [--secret-action-prototype
 Example request
 
 ```sh
-ibmcloud secrets-manager secret-action-create --id=0b5571f7-21e6-42b7-91c5-3f5ac9793a46 --secret-action-type=public_cert_action_validate_dns_challenge
+ibmcloud secrets-manager secret-action-create --id=0b5571f7-21e6-42b7-91c5-3f5ac9793a46 --secret-action-type=PUBLIC_CERT_ACTION_VALIDATE_DNS_CHALLENGE
 
 ibmcloud secrets-manager secret-action-create \
   --id=0b5571f7-21e6-42b7-91c5-3f5ac9793a46 \
-  --secret-action-prototype='{"action_type": "public_cert_action_validate_dns_challenge"}'
+  --secret-action-prototype='{"action_type": "PUBLIC_CERT_ACTION_VALIDATE_DNS_CHALLENGE"}'
 
 ```
 {: pre}
@@ -1159,12 +1149,12 @@ ibmcloud secrets-manager secret-action-create \
 ### `ibmcloud secrets-manager secret-by-name`
 {: #secrets-manager-cli-secret-by-name-command}
 
-Get a secret and its details by specifying the Name and Type of the secret.
+Get a secret and its details by specifying the name and type of the secret.
 
 A successful request returns the secret data that is associated with your secret, along with other metadata. To view only the details of a specified secret without retrieving its value, use the Get secret metadata operation.
 
 ```sh
-ibmcloud secrets-manager secret-by-name --secret-type SECRET-TYPE --name NAME --secret-group-name SECRET-GROUP-NAME
+ibmcloud secrets-manager secret-by-name --secret-type arbitrary | iam_credentials | imported_cert | kv | private_cert | public_cert | service_credentials | username_password | custom_credentials --name NAME --secret-group-name SECRET-GROUP-NAME [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -1180,7 +1170,7 @@ ibmcloud secrets-manager secret-by-name --secret-type SECRET-TYPE --name NAME --
 :   A human-readable name to assign to your secret.
 To protect your privacy, do not use personal data, such as your name or location, as a name for your secret. Required.
 
-    The maximum length is `256` characters. The minimum length is `2` characters. The value must match regular expression `/^\\w(([\\w-.]+)?\\w)?$/`.
+    The maximum length is `256` characters. The minimum length is `2` characters. The value must match regular expression `/^\w(([\w-.]+)?\w)?$/`.
 
 `--secret-group-name` (string)
 :   The name of your secret group. Required.
@@ -1209,7 +1199,7 @@ Create and manage the versions of your secrets.
 Create a new secret version.
 
 ```sh
-ibmcloud secrets-manager secret-version-create --secret-id SECRET-ID [--secret-version-prototype SECRET-VERSION-PROTOTYPE | --arbitrary-payload ARBITRARY-PAYLOAD --secret-version-custom-metadata SECRET-VERSION-CUSTOM-METADATA --secret-version-version-custom-metadata SECRET-VERSION-VERSION-CUSTOM-METADATA --secret-version-restore-from-version SECRET-VERSION-RESTORE-FROM-VERSION --imported-cert-certificate IMPORTED-CERT-CERTIFICATE --imported-cert-intermediate IMPORTED-CERT-INTERMEDIATE --imported-cert-private-key IMPORTED-CERT-PRIVATE-KEY --kv-data KV-DATA --private-cert-csr PRIVATE-CERT-CSR --public-cert-rotation PUBLIC-CERT-ROTATION --username-password-password USERNAME-PASSWORD-PASSWORD]
+ibmcloud secrets-manager secret-version-create --secret-id SECRET-ID {--secret-version-prototype (SECRET-VERSION-PROTOTYPE | @SECRET-VERSION-PROTOTYPE-FILE) | --arbitrary-payload ARBITRARY-PAYLOAD (--secret-version-custom-metadata SECRET-VERSION-CUSTOM-METADATA | @SECRET-VERSION-CUSTOM-METADATA-FILE) (--secret-version-version-custom-metadata SECRET-VERSION-VERSION-CUSTOM-METADATA | @SECRET-VERSION-VERSION-CUSTOM-METADATA-FILE) --secret-version-restore-from-version SECRET-VERSION-RESTORE-FROM-VERSION --imported-cert-certificate IMPORTED-CERT-CERTIFICATE --imported-cert-intermediate IMPORTED-CERT-INTERMEDIATE --imported-cert-private-key IMPORTED-CERT-PRIVATE-KEY (--kv-data KV-DATA | @KV-DATA-FILE) --private-cert-csr PRIVATE-CERT-CSR (--public-cert-rotation PUBLIC-CERT-ROTATION | @PUBLIC-CERT-ROTATION-FILE) --username-password-password USERNAME-PASSWORD-PASSWORD} [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -1224,22 +1214,22 @@ ibmcloud secrets-manager secret-version-create --secret-id SECRET-ID [--secret-v
 `--secret-version-prototype` ([`SecretVersionPrototype`](#cli-secret-version-prototype-example-schema))
 :   Specify the properties for your new secret version. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--secret-version-prototype=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--secret-version-prototype=@path/to/file.json`.
 
 `--arbitrary-payload` (string)
-:   The secret data that is assigned to an `arbitrary` secret. This option provides a value for a sub-field of the JSON option 'secret-version-prototype'. It is mutually exclusive with that option.
+:   The secret data that is assigned to an `ARBITRARY` secret. This option provides a value for a sub-field of the JSON option 'secret-version-prototype'. It is mutually exclusive with that option.
 
     The maximum length is `1000000` characters. The minimum length is `0` characters. The value must match regular expression `/(.*?)/`.
 
 `--secret-version-custom-metadata` (generic map)
 :   The secret metadata that a user can customize. This option provides a value for a sub-field of the JSON option 'secret-version-prototype'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--secret-version-custom-metadata=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--secret-version-custom-metadata=@path/to/file.json`.
 
 `--secret-version-version-custom-metadata` (generic map)
 :   The secret version metadata that a user can customize. This option provides a value for a sub-field of the JSON option 'secret-version-prototype'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--secret-version-version-custom-metadata=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--secret-version-version-custom-metadata=@path/to/file.json`.
 
 `--secret-version-restore-from-version` (string)
 :   A UUID identifier, or `current` or `previous` secret version aliases. This option provides a value for a sub-field of the JSON option 'secret-version-prototype'. It is mutually exclusive with that option.
@@ -1266,7 +1256,7 @@ ibmcloud secrets-manager secret-version-create --secret-id SECRET-ID [--secret-v
 
     The minimum length is `1` item.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--kv-data=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--kv-data=@path/to/file.json`.
 
 `--private-cert-csr` (string)
 :   The certificate signing request. This option provides a value for a sub-field of the JSON option 'secret-version-prototype'. It is mutually exclusive with that option.
@@ -1276,10 +1266,10 @@ ibmcloud secrets-manager secret-version-create --secret-id SECRET-ID [--secret-v
 `--public-cert-rotation` ([`PublicCertificateRotationObject`](#cli-public-certificate-rotation-object-example-schema))
 :   Defines the rotation object that is used to manually rotate public certificates. This option provides a value for a sub-field of the JSON option 'secret-version-prototype'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--public-cert-rotation=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--public-cert-rotation=@path/to/file.json`.
 
 `--username-password-password` (string)
-:   The password that is assigned to an `username_password` secret. If you omit this parameter, Secrets Manager  generates a new random password for your secret. This option provides a value for a sub-field of the JSON option 'secret-version-prototype'. It is mutually exclusive with that option.
+:   The password that is assigned to an `USERNAME_PASSWORD` secret. If you omit this parameter, Secrets Manager  generates a new random password for your secret. This option provides a value for a sub-field of the JSON option 'secret-version-prototype'. It is mutually exclusive with that option.
 
     The maximum length is `256` characters. The minimum length is `6` characters. The value must match regular expression `/.{6,256}/`.
 
@@ -1306,7 +1296,7 @@ List the versions of a secret.
 A successful request returns the list of versions of a secret, along with the metadata of each version.
 
 ```sh
-ibmcloud secrets-manager secret-versions --secret-id SECRET-ID
+ibmcloud secrets-manager secret-versions --secret-id SECRET-ID [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -1368,10 +1358,6 @@ You can see the condition for each default JMESPath query in the following table
 | -------- | ------ | ----- |
 | Success | Default | - |
 | | Table | `versions[*]` |
-| Error | Default | - |
-| | Table | `versions[*]` |
-| All pages | Default | - |
-| | Table | `versions[*]` |
 {: caption="Default JMESPath" caption-side="bottom"}
 
 If a custom JMESPath query is provided, it will replace any of the JMESPath in the table above.
@@ -1384,7 +1370,7 @@ Get a version of a secret by specifying the ID of the version. You can use the `
 A successful request returns the secret data that is associated with the specified version of your secret, along with other metadata.
 
 ```sh
-ibmcloud secrets-manager secret-version --secret-id SECRET-ID --id ID
+ibmcloud secrets-manager secret-version --secret-id SECRET-ID --id ID [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -1418,12 +1404,12 @@ Delete the data of a secret version by specifying its version ID.
 
 This operation is available for the following secret types:
 
-`iam_credentials`: current version only
+`IAM_CREDENTIALS`: current version only
 
-`custom_credentials`: both current and previous versions.
+`CUSTOM_CREDENTIALS`: both current and previous versions.
 
 ```sh
-ibmcloud secrets-manager secret-version-data-delete --secret-id SECRET-ID --id ID
+ibmcloud secrets-manager secret-version-data-delete --secret-id SECRET-ID --id ID [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -1458,7 +1444,7 @@ Get the metadata of a secret version by specifying the ID of the version. You ca
 A successful request returns the metadata that is associated with the specified version of your secret.
 
 ```sh
-ibmcloud secrets-manager secret-version-metadata --secret-id SECRET-ID --id ID
+ibmcloud secrets-manager secret-version-metadata --secret-id SECRET-ID --id ID [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -1491,7 +1477,7 @@ ibmcloud secrets-manager secret-version-metadata \
 Update the custom metadata of a secret version.
 
 ```sh
-ibmcloud secrets-manager secret-version-metadata-update --secret-id SECRET-ID --id ID [--version-custom-metadata VERSION-CUSTOM-METADATA]
+ibmcloud secrets-manager secret-version-metadata-update --secret-id SECRET-ID --id ID {--secret-version-metadata-patch (SECRET-VERSION-METADATA-PATCH | @SECRET-VERSION-METADATA-PATCH-FILE) | (--version-custom-metadata VERSION-CUSTOM-METADATA | @VERSION-CUSTOM-METADATA-FILE)} [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -1511,12 +1497,12 @@ ibmcloud secrets-manager secret-version-metadata-update --secret-id SECRET-ID --
 `--secret-version-metadata-patch` (generic map)
 :   JSON Merge-Patch content for update_secret_version_metadata. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--secret-version-metadata-patch=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--secret-version-metadata-patch=@path/to/file.json`.
 
 `--version-custom-metadata` (generic map)
-:   The secret version metadata that a user can customize. It should be a JSON string or a path to a JSON file. This option provides a value for a sub-field of the JSON option 'secret-version-metadata-patch'. It is mutually exclusive with that option.
+:   The secret version metadata that a user can customize. It should be a JSON string or a path to a JSON file prepended with @. This option provides a value for a sub-field of the JSON option 'secret-version-metadata-patch'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--version-custom-metadata=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--version-custom-metadata=@path/to/file.json`.
 
 #### Example
 {: #secrets-manager-secret-version-metadata-update-examples}
@@ -1537,7 +1523,7 @@ Create a secret version action. This operation supports the following actions:
 - `private_cert_action_revoke_certificate`: Revoke a version of a private certificate.
 
 ```sh
-ibmcloud secrets-manager secret-version-action-create --secret-id SECRET-ID --id ID [--secret-version-action-prototype SECRET-VERSION-ACTION-PROTOTYPE | --secret-version-action-type SECRET-VERSION-ACTION-TYPE]
+ibmcloud secrets-manager secret-version-action-create --secret-id SECRET-ID --id ID {--secret-version-action-prototype (SECRET-VERSION-ACTION-PROTOTYPE | @SECRET-VERSION-ACTION-PROTOTYPE-FILE) | --secret-version-action-type private_cert_action_revoke_certificate} [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -1557,7 +1543,7 @@ ibmcloud secrets-manager secret-version-action-create --secret-id SECRET-ID --id
 `--secret-version-action-prototype` ([`SecretVersionActionPrototype`](#cli-secret-version-action-prototype-example-schema))
 :   The request body to specify the properties of the action to create a secret version. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--secret-version-action-prototype=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--secret-version-action-prototype=@path/to/file.json`.
 
 `--secret-version-action-type` (string)
 :   The type of secret version action. This option provides a value for a sub-field of the JSON option 'secret-version-action-prototype'. It is mutually exclusive with that option.
@@ -1570,12 +1556,12 @@ ibmcloud secrets-manager secret-version-action-create --secret-id SECRET-ID --id
 Example request
 
 ```sh
-ibmcloud secrets-manager secret--version-action-create --secret-id=0b5571f7-21e6-42b7-91c5-3f5ac9793a46 --id=eb4cf24d-9cae-424b-945e-159788a5f535 --secret-version-action-type=private_cert_action_revoke_certificate
+ibmcloud secrets-manager secret-version-action-create --secret-id=0b5571f7-21e6-42b7-91c5-3f5ac9793a46 --id=eb4cf24d-9cae-424b-945e-159788a5f535 --secret-version-action-type=PRIVATE_CERT_ACTION_REVOKE_CERTIFICATE
 
 ibmcloud secrets-manager secret-version-action-create \
   --secret-id=0b5571f7-21e6-42b7-91c5-3f5ac9793a46 \
   --id=eb4cf24d-9cae-424b-945e-159788a5f535 \
-  --secret-version-action-prototype='{"action_type": "private_cert_action_revoke_certificate"}'
+  --secret-version-action-prototype='{"action_type": "PRIVATE_CERT_ACTION_REVOKE_CERTIFICATE"}'
 
 ```
 {: pre}
@@ -1603,10 +1589,10 @@ Monitor and Update the tasks that belong to your secret.
 
 List secret tasks. 
 
-Supported secret types: `custom_credentials`.
+Supported secret types: `CUSTOM_CREDENTIALS`.
 
 ```sh
-ibmcloud secrets-manager secret-tasks --secret-id SECRET-ID
+ibmcloud secrets-manager secret-tasks --secret-id SECRET-ID [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -1657,10 +1643,10 @@ Get a task of a secret and its details by specifying the ID of the task.
 
 A successful request returns the task that is associated with your secret.
 
-Supported secret types: `custom_credentials`.
+Supported secret types: `CUSTOM_CREDENTIALS`.
 
 ```sh
-ibmcloud secrets-manager secret-task --secret-id SECRET-ID --id ID
+ibmcloud secrets-manager secret-task --secret-id SECRET-ID --id ID [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -1713,10 +1699,10 @@ Example of a response with a Secret's Task.
 
 A callback endpoint for updating a task with results.
 
-Supported secret types: `custom_credentials`.
+Supported secret types: `CUSTOM_CREDENTIALS`.
 
 ```sh
-ibmcloud secrets-manager secret-task-update --secret-id SECRET-ID --id ID [--task-put TASK-PUT | --task-put-status TASK-PUT-STATUS --task-put-credentials TASK-PUT-CREDENTIALS --task-put-errors TASK-PUT-ERRORS]
+ibmcloud secrets-manager secret-task-update --secret-id SECRET-ID --id ID {--task-put (TASK-PUT | @TASK-PUT-FILE) | --task-put-status credentials_created (--task-put-credentials TASK-PUT-CREDENTIALS | @TASK-PUT-CREDENTIALS-FILE) (--task-put-errors TASK-PUT-ERRORS | @TASK-PUT-ERRORS-FILE)} [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -1736,7 +1722,7 @@ ibmcloud secrets-manager secret-task-update --secret-id SECRET-ID --id ID [--tas
 `--task-put` ([`SecretTaskPrototype`](#cli-secret-task-prototype-example-schema))
 :   The request body to specify the properties for your secret task update. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--task-put=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--task-put=@path/to/file.json`.
 
 `--task-put-status` (string)
 :   Describes the status of a secret's task. This option provides a value for a sub-field of the JSON option 'task-put'. It is mutually exclusive with that option.
@@ -1746,14 +1732,14 @@ ibmcloud secrets-manager secret-task-update --secret-id SECRET-ID --id ID [--tas
 `--task-put-credentials` ([`CustomCredentialsNewCredentials`](#cli-custom-credentials-new-credentials-example-schema))
 :   Newly created credentials provided by the credentials provider. This option provides a value for a sub-field of the JSON option 'task-put'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--task-put-credentials=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--task-put-credentials=@path/to/file.json`.
 
 `--task-put-errors` ([`SecretTaskError[]`](#cli-secret-task-error-example-schema))
 :   A collection of errors. This option provides a value for a sub-field of the JSON option 'task-put'. It is mutually exclusive with that option.
 
     The maximum length is `10` items. The minimum length is `1` item.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--task-put-errors=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--task-put-errors=@path/to/file.json`.
 
 #### Examples
 {: #secrets-manager-secret-task-update-examples}
@@ -1802,10 +1788,10 @@ Example of a response with a Secret's Task.
 
 Delete a task by specifying the ID of the secret.
 
-Supported secret types: `custom_credentials`.
+Supported secret types: `CUSTOM_CREDENTIALS`.
 
 ```sh
-ibmcloud secrets-manager secret-task-delete --secret-id SECRET-ID --id ID
+ibmcloud secrets-manager secret-task-delete --secret-id SECRET-ID --id ID [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -1844,7 +1830,7 @@ List the secrets and their locks in your Secrets Manager instance.
 Note: If the `--all-pages` option is not set, the command will only retrieve a single page of the collection.
 
 ```sh
-ibmcloud secrets-manager secrets-locks [--offset OFFSET] [--limit LIMIT] [--search SEARCH] [--groups GROUPS]
+ibmcloud secrets-manager secrets-locks [--offset OFFSET | --all-pages] [--limit LIMIT] [--search SEARCH] [--groups GROUPS] [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -1933,10 +1919,6 @@ You can see the condition for each default JMESPath query in the following table
 | -------- | ------ | ----- |
 | Success | Default | - |
 | | Table | `secrets_locks[*]` |
-| Error | Default | - |
-| | Table | `secrets_locks[*]` |
-| All pages | Default | - |
-| | Table | `secrets_locks[*]` |
 {: caption="Default JMESPath" caption-side="bottom"}
 
 If a custom JMESPath query is provided, it will replace any of the JMESPath in the table above.
@@ -1948,7 +1930,7 @@ List the locks that are associated with a specified secret.
 Note: If the `--all-pages` option is not set, the command will only retrieve a single page of the collection.
 
 ```sh
-ibmcloud secrets-manager secret-locks --id ID [--offset OFFSET] [--limit LIMIT] [--sort SORT] [--search SEARCH]
+ibmcloud secrets-manager secret-locks --id ID [--offset OFFSET | --all-pages] [--limit LIMIT] [--sort SORT] [--search SEARCH] [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -2053,11 +2035,12 @@ Create a lock on the current version of a secret.
 
 A lock can be used to prevent a secret from being deleted or modified while it's in use by your applications. A successful request attaches a new lock to your secret, or replaces a lock of the same name if it already exists. Additionally, you can use this operation to clear any matching locks on a secret by using one of the following optional lock modes:
 
-- `remove_previous`: Removes any other locks with matching names if they are found in the previous version of the secret.\n
-- `remove_previous_and_delete`: Carries out the same function as `remove_previous`, but also permanently deletes the data of the previous secret version if it doesn't have any locks.
+- `REMOVE_PREVIOUS`: Removes any other locks with matching names if they are found in the previous version of the secret.
+
+- `REMOVE_PREVIOUS_AND_DELETE`: Carries out the same function as `REMOVE_PREVIOUS`, but also permanently deletes the data of the previous secret version if it doesn't have any locks.
 
 ```sh
-ibmcloud secrets-manager secret-locks-bulk-create --id ID --locks LOCKS [--mode MODE]
+ibmcloud secrets-manager secret-locks-bulk-create --id ID --locks (LOCKS | @LOCKS-FILE) [--mode remove_previous | remove_previous_and_delete] [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -2074,7 +2057,7 @@ ibmcloud secrets-manager secret-locks-bulk-create --id ID --locks LOCKS [--mode 
 
     The maximum length is `1000` items. The minimum length is `0` items.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--locks=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--locks=@path/to/file.json`.
 
 `--mode` (string)
 :   Set the lock mode. Allowable values: `remove_previous`, and `remove_previous_and_delete`. Use `remove_previous` to create a lock that clears existing locks with matching names. Use `remove_previous_and_delete` to also delete data from the previous version.
@@ -2129,7 +2112,7 @@ Example: `?name=lock-example-1,lock-example-2`.
 **Note:** A secret is considered unlocked and able to be deleted only after you remove all of its locks. To determine whether a secret contains locks, check the `locks_total` field that is returned as part of the metadata of your secret.
 
 ```sh
-ibmcloud secrets-manager secret-locks-bulk-delete --id ID [--name NAME]
+ibmcloud secrets-manager secret-locks-bulk-delete --id ID [--name NAME] [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -2188,7 +2171,7 @@ List the locks that are associated with a specified secret version.
 Note: If the `--all-pages` option is not set, the command will only retrieve a single page of the collection.
 
 ```sh
-ibmcloud secrets-manager secret-version-locks --secret-id SECRET-ID --id ID [--offset OFFSET] [--limit LIMIT] [--sort SORT] [--search SEARCH]
+ibmcloud secrets-manager secret-version-locks --secret-id SECRET-ID --id ID [--offset OFFSET | --all-pages] [--limit LIMIT] [--sort SORT] [--search SEARCH] [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -2289,11 +2272,11 @@ Create a lock on the specified version of a secret.
 
 A lock can be used to prevent a secret from being deleted or modified while it's in use by your applications. A successful request attaches a new lock to your secret, or replaces a lock of the same name if it already exists. Additionally, you can use this operation to clear any matching locks on a secret by using one of the following optional lock modes:
 
-- `remove_previous`: Removes any other locks with matching names if they are found in the previous version of the secret.
-- `remove_previous_and_delete`: Carries out the same function as `remove_previous`, but also permanently deletes the data of the previous secret version if it doesn't have any locks.
+- `REMOVE_PREVIOUS`: Removes any other locks with matching names if they are found in the previous version of the secret.
+- `REMOVE_PREVIOUS_AND_DELETE`: Carries out the same function as `REMOVE_PREVIOUS`, but also permanently deletes the data of the previous secret version if it doesn't have any locks.
 
 ```sh
-ibmcloud secrets-manager secret-version-locks-bulk-create --secret-id SECRET-ID --id ID --locks LOCKS [--mode MODE]
+ibmcloud secrets-manager secret-version-locks-bulk-create --secret-id SECRET-ID --id ID --locks (LOCKS | @LOCKS-FILE) [--mode remove_previous | remove_previous_and_delete] [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -2315,7 +2298,7 @@ ibmcloud secrets-manager secret-version-locks-bulk-create --secret-id SECRET-ID 
 
     The maximum length is `1000` items. The minimum length is `0` items.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--locks=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--locks=@path/to/file.json`.
 
 `--mode` (string)
 :   Set the lock mode. Allowable values: `remove_previous`, and `remove_previous_and_delete`. Use `remove_previous` to create a lock that clears existing locks with matching names. Use `remove_previous_and_delete` to also delete data from the previous version.
@@ -2371,7 +2354,7 @@ Example: `?name=lock-example-1,lock-example-2`.
 **Note:** A secret is considered unlocked and able to be deleted only after all of its locks are removed. To determine whether a secret contains locks, check the `locks_total` field that is returned as part of the metadata of your secret.
 
 ```sh
-ibmcloud secrets-manager secret-version-locks-bulk-delete --secret-id SECRET-ID --id ID [--name NAME]
+ibmcloud secrets-manager secret-version-locks-bulk-delete --secret-id SECRET-ID --id ID [--name NAME] [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -2439,7 +2422,7 @@ Create and manage configurations so that you can work with specific types of sec
 
 Add a configuration to the specified secret type.
 
-Use this operation to define the configurations that are required to create public certificates (`public_cert`), private certificates (`private_cert`), IAM credentials secrets (`iam_credentials`) and custom credentials secrets (`custom_credentials`).
+Use this operation to define the configurations that are required to create public certificates (`PUBLIC_CERT`), private certificates (`PRIVATE_CERT`), IAM credentials secrets (`IAM_CREDENTIALS`) and custom credentials secrets (`CUSTOM_CREDENTIALS`).
 
 You can add multiple configurations for your instance as follows:
 
@@ -2451,7 +2434,7 @@ You can add multiple configurations for your instance as follows:
 - Up to 10 Certificate Template configurations for private certificates.
 
 ```sh
-ibmcloud secrets-manager configuration-create [--configuration-prototype CONFIGURATION-PROTOTYPE | --config-type CONFIG-TYPE --name NAME --public-cert-cloud-internet-services-apikey PUBLIC-CERT-CLOUD-INTERNET-SERVICES-APIKEY --public-cert-cloud-internet-services-crn PUBLIC-CERT-CLOUD-INTERNET-SERVICES-CRN --public-cert-classic-infrastructure-username PUBLIC-CERT-CLASSIC-INFRASTRUCTURE-USERNAME --public-cert-classic-infrastructure-password PUBLIC-CERT-CLASSIC-INFRASTRUCTURE-PASSWORD --public-cert-lets-encrypt-environment PUBLIC-CERT-LETS-ENCRYPT-ENVIRONMENT --public-cert-lets-encrypt-private-key PUBLIC-CERT-LETS-ENCRYPT-PRIVATE-KEY --public-cert-lets-encrypt-preferred-chain PUBLIC-CERT-LETS-ENCRYPT-PREFERRED-CHAIN --private-cert-crypto-key PRIVATE-CERT-CRYPTO-KEY --private-cert-max-ttl PRIVATE-CERT-MAX-TTL --private-cert-crl-expiry PRIVATE-CERT-CRL-EXPIRY --private-cert-crl-disabled=PRIVATE-CERT-CRL-DISABLED --private-cert-crl-distribution-points-encoded=PRIVATE-CERT-CRL-DISTRIBUTION-POINTS-ENCODED --private-cert-issuing-certificate-urls-encoded=PRIVATE-CERT-ISSUING-CERTIFICATE-URLS-ENCODED --certificate-common-name CERTIFICATE-COMMON-NAME --certificate-alt-names CERTIFICATE-ALT-NAMES --private-cert-ip-sans PRIVATE-CERT-IP-SANS --private-cert-uri-sans PRIVATE-CERT-URI-SANS --private-cert-other-sans PRIVATE-CERT-OTHER-SANS --private-cert-ttl PRIVATE-CERT-TTL --private-cert-format PRIVATE-CERT-FORMAT --private-cert-private-key-format PRIVATE-CERT-PRIVATE-KEY-FORMAT --private-cert-private-key-type PRIVATE-CERT-PRIVATE-KEY-TYPE --private-cert-private-key-bits PRIVATE-CERT-PRIVATE-KEY-BITS --private-cert-max-path-length PRIVATE-CERT-MAX-PATH-LENGTH --private-cert-exclude-cn-from-sans=PRIVATE-CERT-EXCLUDE-CN-FROM-SANS --private-cert-permitted-dns-domains PRIVATE-CERT-PERMITTED-DNS-DOMAINS --private-cert-subject-organizational-unit PRIVATE-CERT-SUBJECT-ORGANIZATIONAL-UNIT --private-cert-subject-organization PRIVATE-CERT-SUBJECT-ORGANIZATION --private-cert-subject-country PRIVATE-CERT-SUBJECT-COUNTRY --private-cert-subject-locality PRIVATE-CERT-SUBJECT-LOCALITY --private-cert-subject-province PRIVATE-CERT-SUBJECT-PROVINCE --private-cert-subject-street-address PRIVATE-CERT-SUBJECT-STREET-ADDRESS --private-cert-subject-postal-code PRIVATE-CERT-SUBJECT-POSTAL-CODE --private-cert-serial-number PRIVATE-CERT-SERIAL-NUMBER --private-cert-signing-method PRIVATE-CERT-SIGNING-METHOD --private-cert-issuer PRIVATE-CERT-ISSUER --private-cert-ca-name PRIVATE-CERT-CA-NAME --private-cert-allowed-secret-groups PRIVATE-CERT-ALLOWED-SECRET-GROUPS --private-cert-allow-localhost=PRIVATE-CERT-ALLOW-LOCALHOST --private-cert-allowed-domains PRIVATE-CERT-ALLOWED-DOMAINS --private-cert-allowed-domains-template=PRIVATE-CERT-ALLOWED-DOMAINS-TEMPLATE --private-cert-allow-bare-domains=PRIVATE-CERT-ALLOW-BARE-DOMAINS --private-cert-allow-subdomains=PRIVATE-CERT-ALLOW-SUBDOMAINS --private-cert-allow-glob-domains=PRIVATE-CERT-ALLOW-GLOB-DOMAINS --private-cert-allow-wildcard=PRIVATE-CERT-ALLOW-WILDCARD --private-cert-allow-any-name=PRIVATE-CERT-ALLOW-ANY-NAME --private-cert-enforce-hostname=PRIVATE-CERT-ENFORCE-HOSTNAME --private-cert-allow-ip-sans=PRIVATE-CERT-ALLOW-IP-SANS --private-cert-allowed-uri-sans PRIVATE-CERT-ALLOWED-URI-SANS --private-cert-allowed-other-sans PRIVATE-CERT-ALLOWED-OTHER-SANS --private-cert-server-flag=PRIVATE-CERT-SERVER-FLAG --private-cert-client-flag=PRIVATE-CERT-CLIENT-FLAG --private-cert-code-signing-flag=PRIVATE-CERT-CODE-SIGNING-FLAG --private-cert-email-protection-flag=PRIVATE-CERT-EMAIL-PROTECTION-FLAG --private-cert-key-usage PRIVATE-CERT-KEY-USAGE --private-cert-ext-key-usage PRIVATE-CERT-EXT-KEY-USAGE --private-cert-ext-key-usage-oids PRIVATE-CERT-EXT-KEY-USAGE-OIDS --private-cert-use-csr-common-name=PRIVATE-CERT-USE-CSR-COMMON-NAME --private-cert-use-cse-sans=PRIVATE-CERT-USE-CSE-SANS --private-cert-require-cn=PRIVATE-CERT-REQUIRE-CN --private-cert-policy-identifiers PRIVATE-CERT-POLICY-IDENTIFIERS --private-cert-basic-constraints-valid-for-non-ca=PRIVATE-CERT-BASIC-CONSTRAINTS-VALID-FOR-NON-CA --private-cert-not-before-duration PRIVATE-CERT-NOT-BEFORE-DURATION --iam-credentials-apikey IAM-CREDENTIALS-APIKEY --iam-credentials-apikey-disabled=IAM-CREDENTIALS-APIKEY-DISABLED --custom-credentials-apikey-ref CUSTOM-CREDENTIALS-APIKEY-REF --custom-credentials-code-engine CUSTOM-CREDENTIALS-CODE-ENGINE --configuration-task-timeout CONFIGURATION-TASK-TIMEOUT]
+ibmcloud secrets-manager configuration-create {--configuration-prototype (CONFIGURATION-PROTOTYPE | @CONFIGURATION-PROTOTYPE-FILE) | --config-type public_cert_configuration_dns_cloud_internet_services | public_cert_configuration_dns_classic_infrastructure | public_cert_configuration_ca_lets_encrypt | private_cert_configuration_root_ca | private_cert_configuration_intermediate_ca | private_cert_configuration_template | iam_credentials_configuration | custom_credentials_configuration --name NAME --public-cert-cloud-internet-services-apikey PUBLIC-CERT-CLOUD-INTERNET-SERVICES-APIKEY --public-cert-cloud-internet-services-crn PUBLIC-CERT-CLOUD-INTERNET-SERVICES-CRN --public-cert-classic-infrastructure-username PUBLIC-CERT-CLASSIC-INFRASTRUCTURE-USERNAME --public-cert-classic-infrastructure-password PUBLIC-CERT-CLASSIC-INFRASTRUCTURE-PASSWORD --public-cert-lets-encrypt-environment production | staging --public-cert-lets-encrypt-private-key PUBLIC-CERT-LETS-ENCRYPT-PRIVATE-KEY --public-cert-lets-encrypt-preferred-chain PUBLIC-CERT-LETS-ENCRYPT-PREFERRED-CHAIN (--private-cert-crypto-key PRIVATE-CERT-CRYPTO-KEY | @PRIVATE-CERT-CRYPTO-KEY-FILE) --private-cert-max-ttl PRIVATE-CERT-MAX-TTL --private-cert-crl-expiry PRIVATE-CERT-CRL-EXPIRY --private-cert-crl-disabled=PRIVATE-CERT-CRL-DISABLED --private-cert-crl-distribution-points-encoded=PRIVATE-CERT-CRL-DISTRIBUTION-POINTS-ENCODED --private-cert-issuing-certificate-urls-encoded=PRIVATE-CERT-ISSUING-CERTIFICATE-URLS-ENCODED --certificate-common-name CERTIFICATE-COMMON-NAME --certificate-alt-names CERTIFICATE-ALT-NAMES --private-cert-ip-sans PRIVATE-CERT-IP-SANS --private-cert-uri-sans PRIVATE-CERT-URI-SANS --private-cert-other-sans PRIVATE-CERT-OTHER-SANS --private-cert-ttl PRIVATE-CERT-TTL --private-cert-format pem | pem_bundle --private-cert-private-key-format der | pkcs8 --private-cert-private-key-type rsa | ec --private-cert-private-key-bits PRIVATE-CERT-PRIVATE-KEY-BITS --private-cert-max-path-length PRIVATE-CERT-MAX-PATH-LENGTH --private-cert-exclude-cn-from-sans=PRIVATE-CERT-EXCLUDE-CN-FROM-SANS --private-cert-permitted-dns-domains PRIVATE-CERT-PERMITTED-DNS-DOMAINS --private-cert-subject-organizational-unit PRIVATE-CERT-SUBJECT-ORGANIZATIONAL-UNIT --private-cert-subject-organization PRIVATE-CERT-SUBJECT-ORGANIZATION --private-cert-subject-country PRIVATE-CERT-SUBJECT-COUNTRY --private-cert-subject-locality PRIVATE-CERT-SUBJECT-LOCALITY --private-cert-subject-province PRIVATE-CERT-SUBJECT-PROVINCE --private-cert-subject-street-address PRIVATE-CERT-SUBJECT-STREET-ADDRESS --private-cert-subject-postal-code PRIVATE-CERT-SUBJECT-POSTAL-CODE --private-cert-serial-number PRIVATE-CERT-SERIAL-NUMBER --private-cert-signing-method internal | external --private-cert-issuer PRIVATE-CERT-ISSUER --private-cert-ca-name PRIVATE-CERT-CA-NAME --private-cert-allowed-secret-groups PRIVATE-CERT-ALLOWED-SECRET-GROUPS --private-cert-allow-localhost=PRIVATE-CERT-ALLOW-LOCALHOST --private-cert-allowed-domains PRIVATE-CERT-ALLOWED-DOMAINS --private-cert-allowed-domains-template=PRIVATE-CERT-ALLOWED-DOMAINS-TEMPLATE --private-cert-allow-bare-domains=PRIVATE-CERT-ALLOW-BARE-DOMAINS --private-cert-allow-subdomains=PRIVATE-CERT-ALLOW-SUBDOMAINS --private-cert-allow-glob-domains=PRIVATE-CERT-ALLOW-GLOB-DOMAINS --private-cert-allow-wildcard=PRIVATE-CERT-ALLOW-WILDCARD --private-cert-allow-any-name=PRIVATE-CERT-ALLOW-ANY-NAME --private-cert-enforce-hostname=PRIVATE-CERT-ENFORCE-HOSTNAME --private-cert-allow-ip-sans=PRIVATE-CERT-ALLOW-IP-SANS --private-cert-allowed-uri-sans PRIVATE-CERT-ALLOWED-URI-SANS --private-cert-allowed-other-sans PRIVATE-CERT-ALLOWED-OTHER-SANS --private-cert-server-flag=PRIVATE-CERT-SERVER-FLAG --private-cert-client-flag=PRIVATE-CERT-CLIENT-FLAG --private-cert-code-signing-flag=PRIVATE-CERT-CODE-SIGNING-FLAG --private-cert-email-protection-flag=PRIVATE-CERT-EMAIL-PROTECTION-FLAG --private-cert-key-usage PRIVATE-CERT-KEY-USAGE --private-cert-ext-key-usage PRIVATE-CERT-EXT-KEY-USAGE --private-cert-ext-key-usage-oids PRIVATE-CERT-EXT-KEY-USAGE-OIDS --private-cert-use-csr-common-name=PRIVATE-CERT-USE-CSR-COMMON-NAME --private-cert-use-cse-sans=PRIVATE-CERT-USE-CSE-SANS --private-cert-require-cn=PRIVATE-CERT-REQUIRE-CN --private-cert-policy-identifiers PRIVATE-CERT-POLICY-IDENTIFIERS --private-cert-basic-constraints-valid-for-non-ca=PRIVATE-CERT-BASIC-CONSTRAINTS-VALID-FOR-NON-CA --private-cert-not-before-duration PRIVATE-CERT-NOT-BEFORE-DURATION --iam-credentials-apikey IAM-CREDENTIALS-APIKEY --iam-credentials-apikey-disabled=IAM-CREDENTIALS-APIKEY-DISABLED --custom-credentials-apikey-ref CUSTOM-CREDENTIALS-APIKEY-REF (--custom-credentials-code-engine CUSTOM-CREDENTIALS-CODE-ENGINE | @CUSTOM-CREDENTIALS-CODE-ENGINE-FILE) --configuration-task-timeout CONFIGURATION-TASK-TIMEOUT} [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -2461,7 +2444,7 @@ ibmcloud secrets-manager configuration-create [--configuration-prototype CONFIGU
 `--configuration-prototype` ([`ConfigurationPrototype`](#cli-configuration-prototype-example-schema))
 :   A JSON containing the required details for creating a configuration. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--configuration-prototype=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--configuration-prototype=@path/to/file.json`.
 
 `--config-type` (string)
 :   The configuration type. This option provides a value for a sub-field of the JSON option 'configuration-prototype'. It is mutually exclusive with that option.
@@ -2511,7 +2494,7 @@ ibmcloud secrets-manager configuration-create [--configuration-prototype CONFIGU
 `--private-cert-crypto-key` ([`PrivateCertificateCryptoKey`](#cli-private-certificate-crypto-key-example-schema))
 :   The data that is associated with a cryptographic key in JSON format. This option provides a value for a sub-field of the JSON option 'configuration-prototype'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--private-cert-crypto-key=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--private-cert-crypto-key=@path/to/file.json`.
 
 `--private-cert-max-ttl` (string)
 :   The maximum time-to-live (TTL) for certificates that are created by this CA. This option provides a value for a sub-field of the JSON option 'configuration-prototype'. It is mutually exclusive with that option.
@@ -2757,14 +2740,14 @@ ibmcloud secrets-manager configuration-create [--configuration-prototype CONFIGU
     The default value is `false`.
 
 `--custom-credentials-apikey-ref` (string)
-:   The IAM credentials secret ID that is used for setting up a custom credentials engine configuration. This option provides a value for a sub-field of the JSON option 'configuration-prototype'. It is mutually exclusive with that option.
+:   The IAM credentials secret ID that is used to set up a custom credentials configuration. This option provides a value for a sub-field of the JSON option 'configuration-prototype'. It is mutually exclusive with that option.
 
     Length must be `36` characters. The value must match regular expression `/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/`.
 
 `--custom-credentials-code-engine` ([`CustomCredentialsConfigurationCodeEngine`](#cli-custom-credentials-configuration-code-engine-example-schema))
 :   The parameters required to configure Code Engine. This option provides a value for a sub-field of the JSON option 'configuration-prototype'. It is mutually exclusive with that option.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--custom-credentials-code-engine=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--custom-credentials-code-engine=@path/to/file.json`.
 
 `--configuration-task-timeout` (string)
 :   Specifies the maximum allowed time for a Code Engine task to be completed. After this time elapses, the task state will changed to failed. The minimum value is 5 minutes and the maximum value is 24 hours. Default task time out is 10 minutes.  The value can be either an integer that specifies the number of seconds, or the string representation of a duration, such as `10m` or `2h`. This option provides a value for a sub-field of the JSON option 'configuration-prototype'. It is mutually exclusive with that option.
@@ -2796,7 +2779,7 @@ List the configurations that are available in your Secrets Manager instance.
 Note: If the `--all-pages` option is not set, the command will only retrieve a single page of the collection.
 
 ```sh
-ibmcloud secrets-manager configurations [--offset OFFSET] [--limit LIMIT] [--sort SORT] [--search SEARCH] [--secret-types SECRET-TYPES]
+ibmcloud secrets-manager configurations [--offset OFFSET | --all-pages] [--limit LIMIT] [--sort SORT] [--search SEARCH] [--secret-types iam_credentials,private_cert,public_cert,custom_credentials] [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -2824,7 +2807,7 @@ ibmcloud secrets-manager configurations [--offset OFFSET] [--limit LIMIT] [--sor
     The maximum length is `128` characters. The minimum length is `2` characters. The value must match regular expression `/(.*?)/`.
 
 `--secret-types` ([]string)
-:   Filter configurations by secret types. Provide one or more of the following secret types: iam_credentials, public_cert, private_cert or custom_credentials.
+:   Filter configurations by secret types. Provide one or more of the following secret types: `IAM_CREDENTIALS`, `PUBLIC_CERT`, `PRIVATE_CERT`, or `CUSTOM_CREDENTIALS`.
 
     Allowable list items are: `iam_credentials`, `private_cert`, `public_cert`, `custom_credentials`. The maximum length is `4` items. The minimum length is `0` items.
 
@@ -2970,10 +2953,6 @@ You can see the condition for each default JMESPath query in the following table
 | -------- | ------ | ----- |
 | Success | Default | - |
 | | Table | `configurations[*].{Created_At:created_at,Name:name,Config_Type:config_type,Secret_Type:secret_type,Created_By:created_by,Updated_At:updated_at}` |
-| Error | Default | - |
-| | Table | `configurations[*].{Created_At:created_at,Name:name,Config_Type:config_type,Secret_Type:secret_type,Created_By:created_by,Updated_At:updated_at}` |
-| All pages | Default | - |
-| | Table | `configurations[*].{Created_At:created_at,Name:name,Config_Type:config_type,Secret_Type:secret_type,Created_By:created_by,Updated_At:updated_at}` |
 {: caption="Default JMESPath" caption-side="bottom"}
 
 If a custom JMESPath query is provided, it will replace any of the JMESPath in the table above.
@@ -2986,7 +2965,7 @@ Get a configuration by specifying its name.
 A successful request returns the details of your configuration.
 
 ```sh
-ibmcloud secrets-manager configuration --name NAME [--config-type CONFIG-TYPE]
+ibmcloud secrets-manager configuration --name NAME [--config-type public_cert_configuration_dns_cloud_internet_services | public_cert_configuration_dns_classic_infrastructure | public_cert_configuration_ca_lets_encrypt | private_cert_configuration_root_ca | private_cert_configuration_intermediate_ca | private_cert_configuration_template | iam_credentials_configuration | custom_credentials_configuration] [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -3019,7 +2998,7 @@ ibmcloud secrets-manager configuration \
 Update a configuration.
 
 ```sh
-ibmcloud secrets-manager configuration-update --name NAME [--api-key API-KEY] [--iam-credentials-apikey-disabled=IAM-CREDENTIALS-APIKEY-DISABLED] [--private-cert-max-ttl PRIVATE-CERT-MAX-TTL] [--private-cert-crl-expiry PRIVATE-CERT-CRL-EXPIRY] [--private-cert-crl-disabled=PRIVATE-CERT-CRL-DISABLED] [--private-cert-crl-distribution-points-encoded=PRIVATE-CERT-CRL-DISTRIBUTION-POINTS-ENCODED] [--private-cert-issuing-certificate-urls-encoded=PRIVATE-CERT-ISSUING-CERTIFICATE-URLS-ENCODED] [--private-cert-allowed-secret-groups PRIVATE-CERT-ALLOWED-SECRET-GROUPS] [--private-cert-ttl PRIVATE-CERT-TTL] [--private-cert-allow-localhost=PRIVATE-CERT-ALLOW-LOCALHOST] [--private-cert-allowed-domains PRIVATE-CERT-ALLOWED-DOMAINS] [--private-cert-allowed-domains-template=PRIVATE-CERT-ALLOWED-DOMAINS-TEMPLATE] [--private-cert-allow-bare-domains=PRIVATE-CERT-ALLOW-BARE-DOMAINS] [--private-cert-allow-subdomains=PRIVATE-CERT-ALLOW-SUBDOMAINS] [--private-cert-allow-glob-domains=PRIVATE-CERT-ALLOW-GLOB-DOMAINS] [--private-cert-allow-any-name=PRIVATE-CERT-ALLOW-ANY-NAME] [--private-cert-enforce-hostname=PRIVATE-CERT-ENFORCE-HOSTNAME] [--private-cert-allow-ip-sans=PRIVATE-CERT-ALLOW-IP-SANS] [--private-cert-allowed-uri-sans PRIVATE-CERT-ALLOWED-URI-SANS] [--private-cert-allowed-other-sans PRIVATE-CERT-ALLOWED-OTHER-SANS] [--private-cert-server-flag=PRIVATE-CERT-SERVER-FLAG] [--private-cert-client-flag=PRIVATE-CERT-CLIENT-FLAG] [--private-cert-code-signing-flag=PRIVATE-CERT-CODE-SIGNING-FLAG] [--private-cert-email-protection-flag=PRIVATE-CERT-EMAIL-PROTECTION-FLAG] [--private-cert-private-key-type PRIVATE-CERT-PRIVATE-KEY-TYPE] [--private-cert-private-key-bits PRIVATE-CERT-PRIVATE-KEY-BITS] [--private-cert-key-usage PRIVATE-CERT-KEY-USAGE] [--private-cert-ext-key-usage PRIVATE-CERT-EXT-KEY-USAGE] [--private-cert-ext-key-usage-oids PRIVATE-CERT-EXT-KEY-USAGE-OIDS] [--private-cert-use-csr-common-name=PRIVATE-CERT-USE-CSR-COMMON-NAME] [--private-cert-use-cse-sans=PRIVATE-CERT-USE-CSE-SANS] [--private-cert-subject-organizational-unit PRIVATE-CERT-SUBJECT-ORGANIZATIONAL-UNIT] [--private-cert-subject-organization PRIVATE-CERT-SUBJECT-ORGANIZATION] [--private-cert-subject-country PRIVATE-CERT-SUBJECT-COUNTRY] [--private-cert-subject-locality PRIVATE-CERT-SUBJECT-LOCALITY] [--private-cert-subject-province PRIVATE-CERT-SUBJECT-PROVINCE] [--private-cert-subject-street-address PRIVATE-CERT-SUBJECT-STREET-ADDRESS] [--private-cert-subject-postal-code PRIVATE-CERT-SUBJECT-POSTAL-CODE] [--private-cert-requested-serial-number PRIVATE-CERT-REQUESTED-SERIAL-NUMBER] [--private-cert-require-cn=PRIVATE-CERT-REQUIRE-CN] [--private-cert-policy-identifiers PRIVATE-CERT-POLICY-IDENTIFIERS] [--private-cert-basic-constraints-valid-for-non-ca=PRIVATE-CERT-BASIC-CONSTRAINTS-VALID-FOR-NON-CA] [--private-cert-not-before-duration PRIVATE-CERT-NOT-BEFORE-DURATION] [--public-cert-lets-encrypt-environment PUBLIC-CERT-LETS-ENCRYPT-ENVIRONMENT] [--public-cert-lets-encrypt-private-key PUBLIC-CERT-LETS-ENCRYPT-PRIVATE-KEY] [--public-cert-lets-encrypt-preferred-chain PUBLIC-CERT-LETS-ENCRYPT-PREFERRED-CHAIN] [--public-cert-cloud-internet-services-apikey PUBLIC-CERT-CLOUD-INTERNET-SERVICES-APIKEY] [--cloud-internet-services-crn CLOUD-INTERNET-SERVICES-CRN] [--public-cert-classic-infrastructure-username PUBLIC-CERT-CLASSIC-INFRASTRUCTURE-USERNAME] [--public-cert-classic-infrastructure-password PUBLIC-CERT-CLASSIC-INFRASTRUCTURE-PASSWORD] [--configuration-task-timeout CONFIGURATION-TASK-TIMEOUT] [--x-sm-accept-configuration-type X-SM-ACCEPT-CONFIGURATION-TYPE]
+ibmcloud secrets-manager configuration-update --name NAME {--configuration-patch (CONFIGURATION-PATCH | @CONFIGURATION-PATCH-FILE) | --api-key API-KEY --iam-credentials-apikey-disabled=IAM-CREDENTIALS-APIKEY-DISABLED --private-cert-max-ttl PRIVATE-CERT-MAX-TTL --private-cert-crl-expiry PRIVATE-CERT-CRL-EXPIRY --private-cert-crl-disabled=PRIVATE-CERT-CRL-DISABLED --private-cert-crl-distribution-points-encoded=PRIVATE-CERT-CRL-DISTRIBUTION-POINTS-ENCODED --private-cert-issuing-certificate-urls-encoded=PRIVATE-CERT-ISSUING-CERTIFICATE-URLS-ENCODED --private-cert-allowed-secret-groups PRIVATE-CERT-ALLOWED-SECRET-GROUPS --private-cert-ttl PRIVATE-CERT-TTL --private-cert-allow-localhost=PRIVATE-CERT-ALLOW-LOCALHOST --private-cert-allowed-domains PRIVATE-CERT-ALLOWED-DOMAINS --private-cert-allowed-domains-template=PRIVATE-CERT-ALLOWED-DOMAINS-TEMPLATE --private-cert-allow-bare-domains=PRIVATE-CERT-ALLOW-BARE-DOMAINS --private-cert-allow-subdomains=PRIVATE-CERT-ALLOW-SUBDOMAINS --private-cert-allow-glob-domains=PRIVATE-CERT-ALLOW-GLOB-DOMAINS --private-cert-allow-any-name=PRIVATE-CERT-ALLOW-ANY-NAME --private-cert-enforce-hostname=PRIVATE-CERT-ENFORCE-HOSTNAME --private-cert-allow-ip-sans=PRIVATE-CERT-ALLOW-IP-SANS --private-cert-allowed-uri-sans PRIVATE-CERT-ALLOWED-URI-SANS --private-cert-allowed-other-sans PRIVATE-CERT-ALLOWED-OTHER-SANS --private-cert-server-flag=PRIVATE-CERT-SERVER-FLAG --private-cert-client-flag=PRIVATE-CERT-CLIENT-FLAG --private-cert-code-signing-flag=PRIVATE-CERT-CODE-SIGNING-FLAG --private-cert-email-protection-flag=PRIVATE-CERT-EMAIL-PROTECTION-FLAG --private-cert-private-key-type rsa | ec --private-cert-private-key-bits PRIVATE-CERT-PRIVATE-KEY-BITS --private-cert-key-usage PRIVATE-CERT-KEY-USAGE --private-cert-ext-key-usage PRIVATE-CERT-EXT-KEY-USAGE --private-cert-ext-key-usage-oids PRIVATE-CERT-EXT-KEY-USAGE-OIDS --private-cert-use-csr-common-name=PRIVATE-CERT-USE-CSR-COMMON-NAME --private-cert-use-cse-sans=PRIVATE-CERT-USE-CSE-SANS --private-cert-subject-organizational-unit PRIVATE-CERT-SUBJECT-ORGANIZATIONAL-UNIT --private-cert-subject-organization PRIVATE-CERT-SUBJECT-ORGANIZATION --private-cert-subject-country PRIVATE-CERT-SUBJECT-COUNTRY --private-cert-subject-locality PRIVATE-CERT-SUBJECT-LOCALITY --private-cert-subject-province PRIVATE-CERT-SUBJECT-PROVINCE --private-cert-subject-street-address PRIVATE-CERT-SUBJECT-STREET-ADDRESS --private-cert-subject-postal-code PRIVATE-CERT-SUBJECT-POSTAL-CODE --private-cert-requested-serial-number PRIVATE-CERT-REQUESTED-SERIAL-NUMBER --private-cert-require-cn=PRIVATE-CERT-REQUIRE-CN --private-cert-policy-identifiers PRIVATE-CERT-POLICY-IDENTIFIERS --private-cert-basic-constraints-valid-for-non-ca=PRIVATE-CERT-BASIC-CONSTRAINTS-VALID-FOR-NON-CA --private-cert-not-before-duration PRIVATE-CERT-NOT-BEFORE-DURATION --public-cert-lets-encrypt-environment production | staging --public-cert-lets-encrypt-private-key PUBLIC-CERT-LETS-ENCRYPT-PRIVATE-KEY --public-cert-lets-encrypt-preferred-chain PUBLIC-CERT-LETS-ENCRYPT-PREFERRED-CHAIN --public-cert-cloud-internet-services-apikey PUBLIC-CERT-CLOUD-INTERNET-SERVICES-APIKEY --cloud-internet-services-crn CLOUD-INTERNET-SERVICES-CRN --public-cert-classic-infrastructure-username PUBLIC-CERT-CLASSIC-INFRASTRUCTURE-USERNAME --public-cert-classic-infrastructure-password PUBLIC-CERT-CLASSIC-INFRASTRUCTURE-PASSWORD --configuration-task-timeout CONFIGURATION-TASK-TIMEOUT} [--config-type public_cert_configuration_dns_cloud_internet_services | public_cert_configuration_dns_classic_infrastructure | public_cert_configuration_ca_lets_encrypt | private_cert_configuration_root_ca | private_cert_configuration_intermediate_ca | private_cert_configuration_template | iam_credentials_configuration | custom_credentials_configuration] [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -3034,7 +3013,7 @@ ibmcloud secrets-manager configuration-update --name NAME [--api-key API-KEY] [-
 `--configuration-patch` (generic map)
 :   JSON Merge-Patch content for update_configuration. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--configuration-patch=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--configuration-patch=@path/to/file.json`.
 
 `--config-type` (string)
 :   The configuration type of this configuration - use this header to resolve 300 error responses.
@@ -3044,7 +3023,7 @@ ibmcloud secrets-manager configuration-update --name NAME [--api-key API-KEY] [-
 `--api-key` (string)
 :   An IBM Cloud API key that can create and manage service IDs. The API key must be assigned the Editor platform role on the Access Groups Service and the Operator platform role on the IAM Identity Service.  For more information, see the [docs](/docs/secrets-manager?topic=secrets-manager-configure-iam-engine). This option provides a value for a sub-field of the JSON option 'configuration-patch'. It is mutually exclusive with that option.
 
-    The maximum length is `60` characters. The minimum length is `5` characters. The value must match regular expression `/^(?:[A-Za-z0-9_\\-]{4})*(?:[A-Za-z0-9_\\-]{2}==|[A-Za-z0-9_\\-]{3}=)?$/`.
+    The maximum length is `60` characters. The minimum length is `5` characters.
 
 `--iam-credentials-apikey-disabled` (bool)
 :   This parameter indicates whether the API key configuration is disabled. This option provides a value for a sub-field of the JSON option 'configuration-patch'. It is mutually exclusive with that option.
@@ -3063,10 +3042,10 @@ ibmcloud secrets-manager configuration-update --name NAME [--api-key API-KEY] [-
 :   This field disables or enables certificate revocation list (CRL) building. This option provides a value for a sub-field of the JSON option 'configuration-patch'. It is mutually exclusive with that option.
 
 `--private-cert-crl-distribution-points-encoded` (bool)
-:   This field determines whether to encode the certificate revocation list (CRL) distribution points in the certificates that are issued by this certificate authority. This option provides a value for a sub-field of the JSON option 'configuration-patch'. It is mutually exclusive with that option.
+:   This field determines whether to encode the certificate revocation list (CRL) distribution points in the certificates that are issued by this certificate authority or this field determines whether to encode the certificate revocation list (CRL) distribution points in the certificates that are issued by this certificate authority. This option provides a value for a sub-field of the JSON option 'configuration-patch'. It is mutually exclusive with that option.
 
 `--private-cert-issuing-certificate-urls-encoded` (bool)
-:   This field determines whether to encode the URL of the issuing certificate in the certificates that are issued by this certificate authority. This option provides a value for a sub-field of the JSON option 'configuration-patch'. It is mutually exclusive with that option.
+:   This field determines whether to encode the URL of the issuing certificate in the certificates that are issued by this certificate authority or this field determines whether to encode the URL of the issuing certificate in the certificates that are issued by this certificate authority. This option provides a value for a sub-field of the JSON option 'configuration-patch'. It is mutually exclusive with that option.
 
 `--private-cert-allowed-secret-groups` (string)
 :   This field scopes the creation of private certificates to only the secret groups that you specify. This option provides a value for a sub-field of the JSON option 'configuration-patch'. It is mutually exclusive with that option.
@@ -3274,7 +3253,7 @@ ibmcloud secrets-manager configuration-update \
 Delete a configuration by specifying its name.
 
 ```sh
-ibmcloud secrets-manager configuration-delete --name NAME [--config-type CONFIG-TYPE]
+ibmcloud secrets-manager configuration-delete --name NAME [--config-type public_cert_configuration_dns_cloud_internet_services | public_cert_configuration_dns_classic_infrastructure | public_cert_configuration_ca_lets_encrypt | private_cert_configuration_root_ca | private_cert_configuration_intermediate_ca | private_cert_configuration_template | iam_credentials_configuration | custom_credentials_configuration] [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -3314,7 +3293,7 @@ Create a configuration action. This operation supports the following actions:
 - `private_cert_configuration_action_rotate_intermediate`: Rotate an internally signed intermediate certificate authority certificate.
 
 ```sh
-ibmcloud secrets-manager configuration-action-create --name NAME [--config-action-prototype CONFIG-ACTION-PROTOTYPE | --config-action-action-type CONFIG-ACTION-ACTION-TYPE --certificate-common-name CERTIFICATE-COMMON-NAME --certificate-alt-names CERTIFICATE-ALT-NAMES --private-cert-ip-sans PRIVATE-CERT-IP-SANS --private-cert-uri-sans PRIVATE-CERT-URI-SANS --private-cert-other-sans PRIVATE-CERT-OTHER-SANS --private-cert-ttl PRIVATE-CERT-TTL --private-cert-format PRIVATE-CERT-FORMAT --private-cert-max-path-length PRIVATE-CERT-MAX-PATH-LENGTH --private-cert-exclude-cn-from-sans=PRIVATE-CERT-EXCLUDE-CN-FROM-SANS --private-cert-permitted-dns-domains PRIVATE-CERT-PERMITTED-DNS-DOMAINS --config-action-use-csr-values=CONFIG-ACTION-USE-CSR-VALUES --private-cert-subject-organizational-unit PRIVATE-CERT-SUBJECT-ORGANIZATIONAL-UNIT --private-cert-subject-organization PRIVATE-CERT-SUBJECT-ORGANIZATION --private-cert-subject-country PRIVATE-CERT-SUBJECT-COUNTRY --private-cert-subject-locality PRIVATE-CERT-SUBJECT-LOCALITY --private-cert-subject-province PRIVATE-CERT-SUBJECT-PROVINCE --private-cert-subject-street-address PRIVATE-CERT-SUBJECT-STREET-ADDRESS --private-cert-subject-postal-code PRIVATE-CERT-SUBJECT-POSTAL-CODE --private-cert-serial-number PRIVATE-CERT-SERIAL-NUMBER --private-cert-csr PRIVATE-CERT-CSR --config-action-intermediate-certificate-authority CONFIG-ACTION-INTERMEDIATE-CERTIFICATE-AUTHORITY --imported-cert-certificate IMPORTED-CERT-CERTIFICATE] [--config-type CONFIG-TYPE]
+ibmcloud secrets-manager configuration-action-create --name NAME {--config-action-prototype (CONFIG-ACTION-PROTOTYPE | @CONFIG-ACTION-PROTOTYPE-FILE) | --config-action-action-type private_cert_configuration_action_rotate_crl | private_cert_configuration_action_sign_intermediate | private_cert_configuration_action_sign_csr | private_cert_configuration_action_set_signed | private_cert_configuration_action_revoke_ca_certificate | private_cert_configuration_action_rotate_intermediate --certificate-common-name CERTIFICATE-COMMON-NAME --certificate-alt-names CERTIFICATE-ALT-NAMES --private-cert-ip-sans PRIVATE-CERT-IP-SANS --private-cert-uri-sans PRIVATE-CERT-URI-SANS --private-cert-other-sans PRIVATE-CERT-OTHER-SANS --private-cert-ttl PRIVATE-CERT-TTL --private-cert-format pem | pem_bundle --private-cert-max-path-length PRIVATE-CERT-MAX-PATH-LENGTH --private-cert-exclude-cn-from-sans=PRIVATE-CERT-EXCLUDE-CN-FROM-SANS --private-cert-permitted-dns-domains PRIVATE-CERT-PERMITTED-DNS-DOMAINS --config-action-use-csr-values=CONFIG-ACTION-USE-CSR-VALUES --private-cert-subject-organizational-unit PRIVATE-CERT-SUBJECT-ORGANIZATIONAL-UNIT --private-cert-subject-organization PRIVATE-CERT-SUBJECT-ORGANIZATION --private-cert-subject-country PRIVATE-CERT-SUBJECT-COUNTRY --private-cert-subject-locality PRIVATE-CERT-SUBJECT-LOCALITY --private-cert-subject-province PRIVATE-CERT-SUBJECT-PROVINCE --private-cert-subject-street-address PRIVATE-CERT-SUBJECT-STREET-ADDRESS --private-cert-subject-postal-code PRIVATE-CERT-SUBJECT-POSTAL-CODE --private-cert-serial-number PRIVATE-CERT-SERIAL-NUMBER --private-cert-csr PRIVATE-CERT-CSR --config-action-intermediate-certificate-authority CONFIG-ACTION-INTERMEDIATE-CERTIFICATE-AUTHORITY --imported-cert-certificate IMPORTED-CERT-CERTIFICATE} [--config-type public_cert_configuration_dns_cloud_internet_services | public_cert_configuration_dns_classic_infrastructure | public_cert_configuration_ca_lets_encrypt | private_cert_configuration_root_ca | private_cert_configuration_intermediate_ca | private_cert_configuration_template | iam_credentials_configuration | custom_credentials_configuration] [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -3329,7 +3308,7 @@ ibmcloud secrets-manager configuration-action-create --name NAME [--config-actio
 `--config-action-prototype` ([`ConfigurationActionPrototype`](#cli-configuration-action-prototype-example-schema))
 :   The request body to specify the properties of the action to create a configuration. This JSON option can instead be provided by setting individual fields with other options. It is mutually exclusive with those options.
 
-    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--config-action-prototype=@path/to/file.json`.
+    Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, for example, `--config-action-prototype=@path/to/file.json`.
 
 `--config-type` (string)
 :   The configuration type of this configuration - use this header to resolve 300 error responses.
@@ -3486,7 +3465,7 @@ Create a registration between a Secrets Manager instance and [Event Notification
 A successful request adds Secrets Manager as a source that you can reference from your Event Notifications instance. For more information about enabling notifications for Secrets Manager, check out the [docs](/docs/secrets-manager?topic=secrets-manager-event-notifications).
 
 ```sh
-ibmcloud secrets-manager notifications-registration-create --event-notifications-instance-crn EVENT-NOTIFICATIONS-INSTANCE-CRN --event-notifications-source-name EVENT-NOTIFICATIONS-SOURCE-NAME [--event-notifications-source-description EVENT-NOTIFICATIONS-SOURCE-DESCRIPTION]
+ibmcloud secrets-manager notifications-registration-create --event-notifications-instance-crn EVENT-NOTIFICATIONS-INSTANCE-CRN --event-notifications-source-name EVENT-NOTIFICATIONS-SOURCE-NAME [--event-notifications-source-description EVENT-NOTIFICATIONS-SOURCE-DESCRIPTION] [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -3537,7 +3516,7 @@ Example Notifications registration configuration details for Event Notifications
 Get the details of the registration between your Secrets Manager instance and Event Notifications.
 
 ```sh
-ibmcloud secrets-manager notifications-registration
+ibmcloud secrets-manager notifications-registration [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -3569,7 +3548,7 @@ Delete the registration between your Secrets Manager instance and Event Notifica
 A successful request removes your Secrets Manager instance as a source in Event Notifications.
 
 ```sh
-ibmcloud secrets-manager notifications-registration-delete
+ibmcloud secrets-manager notifications-registration-delete [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
@@ -3589,7 +3568,7 @@ Send a test event from a Secrets Manager instance to a configured [Event Notific
 A successful request sends a test event to the Event Notifications instance. For more information about enabling notifications for Secrets Manager, check out the [docs](/docs/secrets-manager?topic=secrets-manager-event-notifications).
 
 ```sh
-ibmcloud secrets-manager notifications-registration-test
+ibmcloud secrets-manager notifications-registration-test [--instance-id INSTANCE-ID] [--region REGION] [-j, --jmes-query JMES-QUERY] [--output OUTPUT] [-q, --quiet]
 ```
 
 
