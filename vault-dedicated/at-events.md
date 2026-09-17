@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-09-16"
+lastupdated: "2026-09-17"
 
 keywords: activity tracking events for Vault Dedicated, Vault Dedicated events, Secrets Manager Vault Dedicated audit events
 
@@ -59,19 +59,22 @@ subcollection: secrets-manager
 # Activity tracking events for the Vault Dedicated plan
 {: #vault-dedicated-at-events}
 
-{{site.data.keyword.cloud_notm}} services, such as {{site.data.keyword.secrets-manager_full}}, generate activity tracking events. For the Vault Dedicated plan, these events are specific to instance management operations.
+{{site.data.keyword.cloud_notm}} services, such as {{site.data.keyword.secrets-manager_full}}, generate activity tracking events. 
 {: shortdesc}
+
+Vault audit devices are service managed in Vault Dedicated.
+{: note}
 
 Activity tracking events report on activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use the events to investigate abnormal activity and critical actions and to comply with regulatory audit requirements.
 
-You can use {{site.data.keyword.logs_full_notm}}, a platform service to route auditing events in your account to destinations of your choice by configuring targets and routes that define where activity tracking events are sent. For more information, see [About {{site.data.keyword.logs_full_notm}}](/docs/cloud-logs?topic=cloud-logs-about-cl).
+You can use {{site.data.keyword.logs_full_notm}}, a platform service, to route auditing events in your account to destinations of your choice by configuring targets and routes that define where activity tracking events are sent. For more information, see [About {{site.data.keyword.logs_full_notm}}](/docs/cloud-logs?topic=cloud-logs-about-cl).
 
 You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on events that are generated in your account and routed to an {{site.data.keyword.logs_full_notm}} instance.
 
 ## Locations where activity tracking events are generated
 {: #at-locations}
 
-Vault Dedicated sends activity tracking events to {{site.data.keyword.logs_full_notm}} in the regions that are indicated in the following table. The following table lists the regions where activity tracking events are sent for the Vault Dedicated plan.
+The following table lists the regions where Vault Dedicated sends activity tracking events to {{site.data.keyword.logs_full_notm}}.
 
 | Dallas (`us-south`) | Frankfurt (`eu-de`) |
 |---------------------|---------------------|
