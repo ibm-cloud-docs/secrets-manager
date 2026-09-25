@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-09-20"
+lastupdated: "2026-09-25"
 
 keywords: known issues for {{site.data.keyword.secrets-manager_short}}, known limitations for {{site.data.keyword.secrets-manager_short}}, trial and standard plans
 
@@ -163,9 +163,9 @@ The following limits apply to IAM credentials.
 #### Limits for key-value secrets
 {: #key-value-limits}
 
-The following limits apply to key-value secrets. 
+The following limits apply to key-value secrets.
 
-| Attribute | Limit | 
+| Attribute | Limit |
 | --- | --- |
 | Name | 2 - 256 characters  \n  \n The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
 | Description | 2 - 1024 characters |
@@ -255,9 +255,9 @@ The following limits apply to custom credentials.
 | A {{site.data.keyword.secrets-manager_short}} instance can be configured with up to 10 custom credentials configurations. | Create a new {{site.data.keyword.secrets-manager_short}} instance. |
 | A custom credentials secret maintains a history of 100 tasks. | Refer to {{site.data.keyword.atracker_full_notm}} in {{site.data.keyword.logs_full_notm}} to review task history. |
 |{{site.data.keyword.secrets-manager_short}} will apply daily retries for failed ‘delete credentials’ tasks for up to 10 days. | Monitor Event Notifications and logs for failed task events and periodically check your external credentials provider for stale or expired credentials. |
-| {{site.data.keyword.secrets-manager_short}}’s secret tasks are throttled to avoid overloading {{site.data.keyword.codeengineshort}}. Slowness may be experienced during operations that change custom credentials secret states when dealing with a large queue. | Design your workloads that consume custom credentials to expect possible delays until secrets are rotated. 
+| {{site.data.keyword.secrets-manager_short}}’s secret tasks are throttled to avoid overloading {{site.data.keyword.codeengineshort}}. Slowness may be experienced during operations that change custom credentials secret states when dealing with a large queue. | Design your workloads that consume custom credentials to expect possible delays until secrets are rotated.
 | Secret lock mode `remove_previous_and_delete` is not supported. | Use lock mode `remove_previous` and call the delete secret version data API, specifying secret version `id=previous`. |
-| Avoid using personal identifiers (for example, email addresses, social security numbers) or confidential data as input parameters and as credential IDs. {{site.data.keyword.secrets-manager_short}} treats the input parameters and credential ID as metadata, not as sensitive secret data. | Use parameter type `secret_id` to pass a reference to a secret managed in {{site.data.keyword.secrets-manager_short}} containing the confidential data. Then in the credentials provider job retrieve the secret to access its confidential data. 
+| Avoid using personal identifiers (for example, email addresses, social security numbers) or confidential data as input parameters and as credential IDs. {{site.data.keyword.secrets-manager_short}} treats the input parameters and credential ID as metadata, not as sensitive secret data. | Use parameter type `secret_id` to pass a reference to a secret managed in {{site.data.keyword.secrets-manager_short}} containing the confidential data. Then in the credentials provider job retrieve the secret to access its confidential data.
 | Updates made to a secret `ttl` and parameters fields are applied to a new version of the secret. | Rotate the secret to create a new version to apply the changes. |
 | Deleting a {{site.data.keyword.secrets-manager_short}} instance will not bulk delete the managed third-party credentials. | When planning to permanently delete a {{site.data.keyword.secrets-manager_short}} instance first delete all its secrets. |
 {: caption="Custom credential limits" caption-side="bottom"}
@@ -274,7 +274,8 @@ When the Private Certificates Engine issues certificates, it embeds certificate 
 
 If your instance was originally configured with the public endpoint enabled, certificates issued by that certificate authority contains CRL URLs that reference the public endpoint. If you later disable the public endpoint, those CRL URLs become unreachable, which might cause revocation checks to fail for clients that strictly enforce CRL validation.
 
-**Recommendation**: If you plan to disable the public endpoint, reconfigure or recreate the certificate authority after you disable the public endpoint, and then reissue any certificates that were signed by the previous certificate authority. Clients that do not enforce CRL validation are not affected.
+If you plan to disable the public endpoint, reconfigure or recreate the certificate authority after you disable the public endpoint, and then reissue any certificates that were signed by the previous certificate authority. Clients that do not enforce CRL validation are not affected.
+{: tip}
 
 ### Event notification URL fields
 {: #limitation-event-notifications}
