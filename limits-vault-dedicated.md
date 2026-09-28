@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-25"
+lastupdated: "2026-09-28"
 
 keywords: known issues for {{site.data.keyword.secrets-manager_short}}, known limitations for {{site.data.keyword.secrets-manager_short}}, vault dedicated plan
 
@@ -68,11 +68,8 @@ Review the following known issues that you might encounter as you use {{site.dat
 
 | Issue | Workaround |
 | --- | --- |
-| Storage-path encryption in transit between Vault pods and the mounted File Storage for VPC path is not enabled. | The residual risk is mitigated through Vault encryption of persisted data, managed auto-unseal with {{site.data.keyword.keymanagementservicefull}}, private managed infrastructure boundaries, workload isolation controls, and service-managed operational controls. |
 | Customer control to enable or disable public endpoint access after provisioning is not supported. | Determine the required endpoint posture at provisioning time. To change the endpoint posture, you must provision a new instance with the required configuration. |
 | Cross-region failover and replication-based recovery are not supported. | Design workloads with awareness that cross-region failover is not available. When more than one availability zone becomes unavailable, the region is considered to be in a disaster state. |
-| Vault data-plane operations do not inherit {{site.data.keyword.cloud_notm}} IAM Context-Based Restrictions automatically. | Use Vault-native policies and auth method configuration to apply access restrictions to Vault data-plane operations. |
-| Admin tokens are not retained by the service after generation. If an admin token is lost before use, it cannot be recovered. | Generate a new admin token using the control-plane API or UI. Revoke all active admin tokens before generating a new one if required. |
 | Destination provisioning is asynchronous and may remain in a pending or failed state if managed network artifacts cannot be successfully created or validated. | Monitor the destination lifecycle state through the control-plane API or UI. Delete and recreate the destination resource if it remains in a failed state. |
 | A configured destination enables bounded network reachability only and does not validate customer Vault plugin configuration or remote service authorization correctness. | Validate Vault plugin configuration and remote service authorization independently after destination activation. |
 | Destination resources are intended to be immutable after creation except for limited metadata updates. Changes to the connectivity target require creating a new destination resource and deleting the old one. | Create a new destination resource with the updated target and delete the previous one. |
@@ -121,18 +118,15 @@ The following limits apply to Vault Dedicated service instances.
 
 | Resource | Limit |
 | --- | --- |
-| Vault cluster nodes | 3 nodes per instance (multi-zone, service-managed) |
 | Admin token TTL | 1 hour maximum |
 | Vault namespaces | Limited to customer-managed administrative scope. Root namespace access is reserved for service operations. |
 | Outbound destinations | Subject to per-instance quota and rate limiting. Only explicitly approved destination types are supported. |
 | Supported auth methods | Token, AppRole, Userpass. JWT with static local verification material is supported with limitations. |
 | Supported secrets engines | KV v2, Transit, PKI (self-contained), Transform, TOTP, and related core Vault workflows. |
-| Customer-provided Vault Enterprise licenses (BYOL) | Not supported. |
 | Customer-managed native audit devices | Not supported. Audit device lifecycle is service-managed. |
 | External plugin installation | Not supported. Plugin lifecycle is service-managed. |
 | Customer-controlled backup and restore | Not supported. Backup lifecycle is service-managed. |
 | Customer-controlled scaling or upgrade scheduling | Not supported. Cluster topology and Vault version lifecycle are service-managed. |
-| Root namespace access | Not available to customers. Reserved for service operations. |
 | General-purpose outbound connectivity | Not supported. Outbound connectivity is blocked by default and enabled only for explicitly approved destination types. |
 {: caption="Vault Dedicated limits per instance" caption-side="bottom"}
 
@@ -154,4 +148,7 @@ The following capabilities remain under service control and are not customer-ope
 | Plugin lifecycle | Plugin installation and management are service-managed. |
 | Recovery key handling | Recovery material is handled by the service as part of provisioning and recovery operations. |
 | Cluster topology management | Node count, zone distribution, and cluster infrastructure are service-managed. |
+| Missing rate limit for admin token creation | Maximum 10 per instance per hour. |
+| Missing rate limit for vault api requests | Rate limit: 100 requests per instance per second. |
+| Missing limit for destination resources | 
 {: caption="Service-managed controls for Vault Dedicated" caption-side="bottom"}
