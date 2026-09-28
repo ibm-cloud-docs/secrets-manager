@@ -148,7 +148,7 @@ The following capabilities remain under service control and are not customer-ope
 | Plugin lifecycle | Plugin installation and management are service-managed. |
 | Recovery key handling | Recovery material is handled by the service as part of provisioning and recovery operations. |
 | Cluster topology management | Node count, zone distribution, and cluster infrastructure are service-managed. |
-| Missing rate limit for admin token creation | Maximum 10 per instance per hour. |
-| Missing rate limit for vault api requests | Rate limit: 100 requests per instance per second. |
-| Missing limit for destination resources | Rate Limit: 10 requests per instance per minute<br>Quota: Maximum 20 destinations per instance. |
+| Admin token creation | Maximum of 10 requests per instance per hour. |
+| Vault API requests | Maximum of 100 requests per instance per second. |
+| Destination resources | Maximum of 10 requests per instance per minute, with a quota of 20 destinations per instance. |
 {: caption="Service-managed controls for Vault Dedicated" caption-side="bottom"}
