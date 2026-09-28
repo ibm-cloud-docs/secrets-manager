@@ -150,5 +150,5 @@ The following capabilities remain under service control and are not customer-ope
 | Cluster topology management | Node count, zone distribution, and cluster infrastructure are service-managed. |
 | Missing rate limit for admin token creation | Maximum 10 per instance per hour. |
 | Missing rate limit for vault api requests | Rate limit: 100 requests per instance per second. |
-| Missing limit for destination resources | 
+| Missing limit for destination resources | Rate Limit: 10 requests per instance per minute<br>Quota: Maximum 20 destinations per instance. |
 {: caption="Service-managed controls for Vault Dedicated" caption-side="bottom"}
