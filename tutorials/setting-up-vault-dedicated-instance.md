@@ -135,10 +135,6 @@ For more information about provisioning an instance, see [Creating an instance](
 
 Open the native Vault Web UI directly from the instance dashboard to begin your initial configuration. The experience depends on your IAM role.
 
-### Opening the Vault Web UI from the {{site.data.keyword.cloud_notm}} console
-{: #setting-up-vault-dedicated-vault-ui-console}
-{: ui}
-
 1. In the {{site.data.keyword.secrets-manager_short}} instance dashboard, click **Launch Vault Web UI**.
 
 If you have the IAM Manager role, your browser redirects you directly to an authenticated Vault Web UI session. You can immediately begin configuring your Vault environment.
