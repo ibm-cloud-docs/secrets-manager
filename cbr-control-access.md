@@ -118,11 +118,11 @@ If you use the API, you can specify `"api_type_id": "crn:v1:bluemix:public:secre
 #### Vault Dedicated management APIs
 {: #cbr-api-type-vault-dedicated-management}
 
-[Vault Dedicated]{: tag-green} management APIs are used by applications and clients to manage, configure, and perform administrative operations on Vault Dedicated resources.
+[Vault Dedicated]{: tag-green} plan management APIs are used by applications and clients to manage, configure, and perform administrative operations on Vault Dedicated resources.
 
 CBR rules that apply to the Vault Dedicated management API type control access to Vault Dedicated administration operations, configuration operations, which include admin token creation and revocation.
 
-This API type applies only to {{site.data.keyword.secrets-manager_short}} instances on the Vault Dedicated plan.
+This API type applies only to {{site.data.keyword.secrets-manager_short}} instances on the [Vault Dedicated]{: tag-green} plan.
 {: note}
 
 If you use the CLI, you can specify the `--api-types` option and the `crn:v1:bluemix:public:secrets-manager::::api-type:vault-dedicated-management` type.
@@ -134,7 +134,7 @@ If you use the API, you can specify `"api_type_id": "crn:v1:bluemix:public:secre
 
 Protect access to the APIs used by applications and clients to access and consume Vault Dedicated resources during runtime.
 
-This API type applies only to {{site.data.keyword.secrets-manager_short}} instances on the Vault Dedicated plan.
+This API type applies only to {{site.data.keyword.secrets-manager_short}} instances on the [Vault Dedicated]{: tag-green} plan.
 {: note}
 
 If you use the CLI, you can specify the `--api-types` option and the `crn:v1:bluemix:public:secrets-manager::::api-type:vault-dedicated-runtime` type.
@@ -167,9 +167,9 @@ Make sure to add {{site.data.keyword.secrets-manager_short}} to network zones fo
 To create rules, follow the steps in [Creating context-based restrictions](/docs/iam?topic=iam-context-restrictions-create). When you create a rule for {{site.data.keyword.secrets-manager_short}}, select **Secrets Manager** as the service, then choose the API types you want to protect under **Service APIs** or **Platform APIs**:
 
 **Service APIs**
-- **Standard and Trial** — Applies only to instances on the Trial and Standard plans.
-- **Vault Dedicated Management** — Applies only to Management API's of instances on the Vault Dedicated plan.
-- **Vault Dedicated Runtime** — Applies only to Runtime API's of instances on the Vault Dedicated plan.
+- **Standard and Trial** — Applies only to instances on the [Trial and Standard]{: tag-blue} plans.
+- **Vault Dedicated Management** — Applies only to Management API's of instances on the [Vault Dedicated]{: tag-green} plan.
+- **Vault Dedicated Runtime** — Applies only to Runtime API's of instances on the [Vault Dedicated]{: tag-green} plan.
 
 **Platform APIs**
 - **Resource Management** - Applies only to Resource Controller and Global Search APIs.
