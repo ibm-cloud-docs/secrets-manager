@@ -82,14 +82,14 @@ To get started with protecting your {{site.data.keyword.secrets-manager_short}} 
 
 You can create context-based restrictions (CBR) for {{site.data.keyword.secrets-manager_short}} service APIs and platform APIs. With context-based restrictions, you can protect the following API types.
 
-[Trial and Standard]{: tag-blue} APIs
-:   Protect access to the APIs used by applications and clients to manage and access standard {{site.data.keyword.secrets-manager_short}} resources and perform secret management operations. For example, you can protect the APIs used to manage secret groups, configurations, and notifications registrations, as well as the APIs used to create, read, rotate, or lock secrets and their versions. This API type applies only to instances on the Trial and Standard plans.
+Trial and Standard APIs
+:   Protect access to the APIs used by applications and clients to manage and access standard {{site.data.keyword.secrets-manager_short}} resources and perform secret management operations. For example, you can protect the APIs used to manage secret groups, configurations, and notifications registrations, as well as the APIs used to create, read, rotate, or lock secrets and their versions. This API type applies only to instances on the [Trial and Standard]{: tag-blue} plans.
 
-[Vault Dedicated]{: tag-green} management APIs
-:   Protect access to the APIs used by applications and clients to manage, configure, and perform administrative operations on Vault Dedicated resources. For example, you can protect the APIs used for admin token creation and revocation. This API type applies only to instances on the Vault Dedicated plan.
+Vault Dedicated management APIs
+:   Protect access to the APIs used by applications and clients to manage, configure, and perform administrative operations on Vault Dedicated resources. For example, you can protect the APIs used for admin token creation and revocation. This API type applies only to instances on the [Vault Dedicated]{: tag-green} plan.
 
-[Vault Dedicated]{: tag-green} runtime APIs
-:   Protect access to the APIs used by applications and clients to access and consume Vault Dedicated resources during runtime. This API type applies only to instances on the Vault Dedicated plan.
+Vault Dedicated runtime APIs
+:   Protect access to the APIs used by applications and clients to access and consume Vault Dedicated resources during runtime. This API type applies only to instances on the [Vault Dedicated]{: tag-green} plan.
 
 Platform APIs — Resource management
 :   Protect access to the platform-level APIs used to manage the lifecycle of your {{site.data.keyword.secrets-manager_short}} service instance, such as provisioning, de-provisioning, and managing resource keys and bindings.
@@ -101,12 +101,12 @@ To restrict access, you must create [zones](/docs/iam?topic=iam-context-restrict
 
 You can create CBR rules to protect the following API types for {{site.data.keyword.secrets-manager_short}}.
 
-#### Standard and Trial plan APIs
+#### Trial and Standard APIs
 {: #cbr-api-type-standard}
 
-[Trial and Standard]{: tag-blue} APIs are used by applications and clients to manage and access {{site.data.keyword.secrets-manager_short}} resources and perform secret management operations.
+Trial and Standard APIs are used by applications and clients to manage and access {{site.data.keyword.secrets-manager_short}} resources and perform secret management operations.
 
-CBR rules that apply to the [Trial and Standard]{: tag-blue} API type control access to secret management and service administration operations, which include managing secret groups, configurations, destinations, and notifications registrations, viewing instance details and endpoints, and creating, reading, rotating, importing, revoking, and deleting secrets and their versions, managing secret version data, metadata, and policies, and managing locks on secrets and secret versions.
+CBR rules that apply to the Trial and Standard API type control access to secret management and service administration operations, which include managing secret groups, configurations, destinations, and notifications registrations, viewing instance details and endpoints, and creating, reading, rotating, importing, revoking, and deleting secrets and their versions, managing secret version data, metadata, and policies, and managing locks on secrets and secret versions.
 
 This API type applies only to {{site.data.keyword.secrets-manager_short}} instances on the [Trial and Standard]{: tag-blue} plans.
 {: note}
