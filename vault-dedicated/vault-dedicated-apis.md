@@ -56,24 +56,24 @@ subcollection: secrets-manager
 {:release-note: data-hd-content-type='release-note'}
 {{site.data.keyword.attribute-definition-list}}
 
-# Instance management API reference
+# Instance Management API reference
 {: #vault-dedicated-apis}
 
-Use the IBM Cloud Secrets Manager instance management API to manage service instances of the `Vault Dedicated` plan. For Vault runtime operations such as secrets management, authentication methods, and policies, use the HashiCorp Vault API.
+Use the {{site.data.keyword.secrets-manager_full}} instance management API to manage service instances of the `Vault Dedicated` plan. For Vault runtime operations such as secrets management, authentication methods, and policies, use the HashiCorp Vault API.
 {: shortdesc}
 
 For the interactive API reference with SDK examples, see the [Instance Management API reference](https://{DomainName}/apidocs/secrets-manager/secrets-manager-instance-management-v2){: external}.
 {: tip}
 
-## IBM Cloud Secrets Manager Instance Management API
+## {{site.data.keyword.secrets-manager_short}} Instance Management API
 {: #ibm-cloud-instance-management-api}
 
-The IBM Cloud Secrets Manager instance management API provides control plane operations for managing your Vault Dedicated service instances. These APIs allow you to retrieve instance metadata, manage admin tokens, and configure instance settings.
+The {{site.data.keyword.secrets-manager_short}} instance management API provides control plane operations for managing your Vault Dedicated service instances. These APIs allow you to retrieve instance metadata, manage admin tokens, and configure instance settings.
 
 ### Authentication
 {: #api-authentication}
 
-All API requests require authentication using an IBM Cloud IAM token. Include your IAM token in the `Authorization` header of each request:
+All API requests require authentication using an {{site.data.keyword.cloud_notm}} IAM token. Include your IAM token in the `Authorization` header of each request:
 
 ```sh
 Authorization: Bearer {iam_token}

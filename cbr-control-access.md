@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-29"
+lastupdated: "2026-10-05"
 
 keywords: context-based restrictions, access allowlist, network security, Vault Dedicated, API types, standard API, vault dedicated management API, vault dedicated runtime API
 
@@ -129,7 +129,7 @@ If you use the CLI, you can specify the `--api-types` option and the `crn:v1:blu
 
 If you use the API, you can specify `"api_type_id": "crn:v1:bluemix:public:secrets-manager::::api-type:vault-dedicated-management"` in the `"operations"` spec.
 
-#### Vault Dedicated Runtime APIs
+#### Vault Dedicated runtime APIs
 {: #cbr-api-type-vault-dedicated-runtime}
 
 Protect access to the APIs used by applications and clients to access and consume Vault Dedicated resources during runtime.
@@ -141,7 +141,7 @@ If you use the CLI, you can specify the `--api-types` option and the `crn:v1:blu
 
 If you use the API, you can specify `"api_type_id": "crn:v1:bluemix:public:secrets-manager::::api-type:vault-dedicated-runtime"` in the `"operations"` spec.
 
-#### Platform APIs — Resource Management
+#### Platform APIs — Resource management
 {: #cbr-api-type-resource-management}
 
 Protect access to the platform-level APIs used to manage the lifecycle of your {{site.data.keyword.secrets-manager_short}} service instance.
@@ -149,7 +149,6 @@ Protect access to the platform-level APIs used to manage the lifecycle of your {
 If you use the CLI, you can specify the `--api-types` option and the `crn:v1:bluemix:public:secrets-manager::::api-type:platform-resource-management` type.
 
 If you use the API, you can specify `"api_type_id": "crn:v1:bluemix:public:secrets-manager::::api-type:platform-resource-management"` in the `"operations"` spec.
-
 
 ## Creating network zones
 {: #cbr-network-zones}
@@ -161,7 +160,6 @@ The `serviceRef` attribute for {{site.data.keyword.secrets-manager_short}} is `s
 
 Make sure to add {{site.data.keyword.secrets-manager_short}} to network zones for rules that target other {{site.data.keyword.cloud_notm}} resources, or some operations in your workflow might fail.
 {: important}
-
 
 ## Understanding rules
 {: #cbr-rules}
@@ -176,7 +174,6 @@ To create rules, follow the steps in [Creating context-based restrictions](/docs
 **Platform APIs**
 - **Resource Management** - Applies only to Resource Controller and Global Search APIs.
 
-
 ## Limitations
 {: #cbr-limitations}
 
@@ -190,14 +187,13 @@ Review the following limitations before you create CBR rules for {{site.data.key
 
 **Some platform API actions are not protected**
 :   Context-based restrictions protect actions associated with the [{{site.data.keyword.secrets-manager_short}} API](/apidocs/secrets-manager/secrets-manager-v2) and the Resource Management API type. The following platform API actions are not protected by context-based restrictions. Refer to the API docs for the specific action IDs.
-   - [Resource Instance APIs](/apidocs/resource-controller/resource-controller)
-   - [Resource Keys APIs](/apidocs/resource-controller/resource-controller)
-   - [IAM Policy APIs](/apidocs/iam-policy-management#list-policies)
-   - [Global Search APIs](/apidocs/search)
-   - Global Tagging [Attach](/apidocs/tagging#attach-tag) and [Detach](/apidocs/tagging#detach-tag) APIs
-   - [Context-based Restriction Rule APIs](/apidocs/context-based-restrictions#create-rule)
+   - [Resource instance APIs](/apidocs/resource-controller/resource-controller)
+   - [Resource keys APIs](/apidocs/resource-controller/resource-controller)
+   - [IAM policy APIs](/apidocs/iam-policy-management#list-policies)
+   - [Global search APIs](/apidocs/search)
+   - Global tagging [Attach](/apidocs/tagging#attach-tag) and [Detach](/apidocs/tagging#detach-tag) APIs
+   - [Context-based restriction rule APIs](/apidocs/context-based-restrictions#create-rule)
    - [Secrets Manager APIs](/apidocs/secrets-manager/secrets-manager-v2)
-
 
 ## Next steps
 {: #cbr-next-steps}

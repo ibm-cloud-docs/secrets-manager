@@ -76,6 +76,8 @@ toc:
             navtitle: Setting up Terraform
           - topic: deploy-da.md
             navtitle: Working with the Secrets Manager deployable architecture
+          - topic: manage-endpoint-access.md
+            navtitle: Managing public endpoint access
       - secret-what-is.md
       - topicgroup:
           label: Working with secrets by using the Trial and Standard plans
