@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-09-01"
+lastupdated: "2026-09-25"
 
-keywords: known issues for {{site.data.keyword.secrets-manager_short}}, known limitations for {{site.data.keyword.secrets-manager_short}}
+keywords: known issues for {{site.data.keyword.secrets-manager_short}}, known limitations for {{site.data.keyword.secrets-manager_short}}, trial and standard plans
 
 subcollection: secrets-manager
 
@@ -55,7 +55,7 @@ subcollection: secrets-manager
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
 
-# Known issues and limits
+# Known issues and limits for Trial and Standard plans
 {: #known-issues-and-limits}
 
 {{site.data.keyword.secrets-manager_full}} includes the following known issues and limits that might impact your experience.
@@ -163,9 +163,9 @@ The following limits apply to IAM credentials.
 #### Limits for key-value secrets
 {: #key-value-limits}
 
-The following limits apply to key-value secrets. 
+The following limits apply to key-value secrets.
 
-| Attribute | Limit | 
+| Attribute | Limit |
 | --- | --- |
 | Name | 2 - 256 characters  \n  \n The name of the secret can contain only alphanumeric characters, dashes, and dots. It must start and end with an alphanumeric character. |
 | Description | 2 - 1024 characters |
@@ -255,9 +255,38 @@ The following limits apply to custom credentials.
 | A {{site.data.keyword.secrets-manager_short}} instance can be configured with up to 10 custom credentials configurations. | Create a new {{site.data.keyword.secrets-manager_short}} instance. |
 | A custom credentials secret maintains a history of 100 tasks. | Refer to {{site.data.keyword.atracker_full_notm}} in {{site.data.keyword.logs_full_notm}} to review task history. |
 |{{site.data.keyword.secrets-manager_short}} will apply daily retries for failed ‘delete credentials’ tasks for up to 10 days. | Monitor Event Notifications and logs for failed task events and periodically check your external credentials provider for stale or expired credentials. |
-| {{site.data.keyword.secrets-manager_short}}’s secret tasks are throttled to avoid overloading {{site.data.keyword.codeengineshort}}. Slowness may be experienced during operations that change custom credentials secret states when dealing with a large queue. | Design your workloads that consume custom credentials to expect possible delays until secrets are rotated. 
+| {{site.data.keyword.secrets-manager_short}}’s secret tasks are throttled to avoid overloading {{site.data.keyword.codeengineshort}}. Slowness may be experienced during operations that change custom credentials secret states when dealing with a large queue. | Design your workloads that consume custom credentials to expect possible delays until secrets are rotated.
 | Secret lock mode `remove_previous_and_delete` is not supported. | Use lock mode `remove_previous` and call the delete secret version data API, specifying secret version `id=previous`. |
-| Avoid using personal identifiers (for example, email addresses, social security numbers) or confidential data as input parameters and as credential IDs. {{site.data.keyword.secrets-manager_short}} treats the input parameters and credential ID as metadata, not as sensitive secret data. | Use parameter type `secret_id` to pass a reference to a secret managed in {{site.data.keyword.secrets-manager_short}} containing the confidential data. Then in the credentials provider job retrieve the secret to access its confidential data. 
+| Avoid using personal identifiers (for example, email addresses, social security numbers) or confidential data as input parameters and as credential IDs. {{site.data.keyword.secrets-manager_short}} treats the input parameters and credential ID as metadata, not as sensitive secret data. | Use parameter type `secret_id` to pass a reference to a secret managed in {{site.data.keyword.secrets-manager_short}} containing the confidential data. Then in the credentials provider job retrieve the secret to access its confidential data.
 | Updates made to a secret `ttl` and parameters fields are applied to a new version of the secret. | Rotate the secret to create a new version to apply the changes. |
 | Deleting a {{site.data.keyword.secrets-manager_short}} instance will not bulk delete the managed third-party credentials. | When planning to permanently delete a {{site.data.keyword.secrets-manager_short}} instance first delete all its secrets. |
 {: caption="Custom credential limits" caption-side="bottom"}
+
+## Known limitations
+{: #manage-endpoint-access-limitations}
+
+Review the following limitations before managing public endpoint access for your instance.
+
+### Private Certificate Engine: CRL distribution points in issued certificates
+{: #limitation-crl-urls}
+
+When the Private Certificates Engine issues certificates, it embeds certificate revocation list (CRL) distribution point URLs directly into each certificate. These URLs are determined by the instance endpoint at the time that the certificate authority is configured, and they cannot be changed.
+
+If your instance was originally configured with the public endpoint enabled, certificates issued by that certificate authority contains CRL URLs that reference the public endpoint. If you later disable the public endpoint, those CRL URLs become unreachable, which might cause revocation checks to fail for clients that strictly enforce CRL validation.
+
+If you plan to disable the public endpoint, reconfigure or recreate the certificate authority after you disable the public endpoint, and then reissue any certificates that were signed by the previous certificate authority. Clients that do not enforce CRL validation are not affected.
+{: tip}
+
+### Event notification URL fields
+{: #limitation-event-notifications}
+
+Event notifications sent by {{site.data.keyword.secrets-manager_short}} include two URL fields: `source_instance_api_private_url` and `source_instance_api_public_url`.
+
+| Field | Description |
+|-------|-------------|
+| `source_instance_api_private_url` | The private endpoint URL of the instance. |
+| `source_instance_api_public_url` | Intended to be the public endpoint URL; however, this field currently always returns the private endpoint URL regardless of whether the public endpoint is enabled or disabled. |
+{: caption="Event notification URL fields" caption-side="bottom"}
+
+Due to a known limitation, the `source_instance_api_public_url` field is always present in event notification payloads. If your instance has the public endpoint that is disabled, do not rely on this field to reach your instance; use `source_instance_api_private_url` instead.
+{: note}

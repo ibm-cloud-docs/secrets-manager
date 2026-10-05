@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-09-01"
+lastupdated: "2026-09-22"
 
 keywords: rotate, manually rotate, renew, import, reorder, manual rotation
 
@@ -391,7 +391,8 @@ To rotate an IAM credential secret by using the {{site.data.keyword.secrets-mana
 
 ```sh
 ibmcloud secrets-manager secret-version-create \    
-   --secret-id SECRET_ID
+   --secret-id SECRET_ID \
+   --secret-version-prototype '{}'
 ```
 {: codeblock}
 
