@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-01"
+lastupdated: "2026-10-05"
 
 keywords: pricing plan, billing, cost
 
@@ -54,17 +54,20 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Pricing for {{site.data.keyword.secrets-manager_short}} on {{site.data.keyword.cloud_notm}}
 {: #pricing}
 
-Pricing in IBM Cloud Secrets Manager is based on the number of service instances in an account, and the number of active secrets in each of those instances. The `Trial` plan is free for 30 days. The `Standard` plan is billed monthly. For an overview of what each plan includes, see [Secrets Manager plans and features](/docs/secrets-manager?topic=secrets-manager-feature-overview).
+Pricing in IBM Cloud Secrets Manager is based on the number of service instances in an account, and the number of active secrets in each of those instances. The `Trial` plan is free for 30 days. The `Standard` plan is billed monthly.
 {: shortdesc}
 
 For an overview of what each plan includes, see [Secrets Manager plans and features](/docs/secrets-manager?topic=secrets-manager-feature-overview).
 
 ## Trial and Standard plans
 {: #plans}
+
+The [Trial and Standard]{: tag-blue} plans run on shared multi-tenant infrastructure and are billed based on the number of active instances and secrets in your account.
 
 ### What you get
 {: #trial-standard-what-you-get}
@@ -88,9 +91,9 @@ You can create only one Trial instance of Secrets Manager per account. Before yo
 ## Vault Dedicated plan
 {: #vault-dedicated-plan}
 
-The `Vault Dedicated` plan is a distinct offering that provides enterprise Vault capabilities for organizations that need stronger isolation, broader deployment flexibility, and advanced compliance support.
+The [Vault Dedicated]{: tag-green} is a distinct offering that provides enterprise Vault capabilities for organizations that need stronger isolation, broader deployment flexibility, and advanced compliance support.
 
-The Vault Dedicated plan is currently available as a public beta. Beta features are provided for evaluation and testing purposes and have limitations compared to generally available features.
+The [Vault Dedicated]{: tag-green} is currently available as a public beta. Beta features are provided for evaluation and testing purposes and have limitations compared to generally available features.
 {: beta}
 
 ### Vault Dedicated public beta limitations
@@ -137,7 +140,7 @@ Resource units are priced on a tiered model. Higher monthly RU volumes qualify f
 | 100,000 | $14.40 | $1.20 | $1,440,000 | $120,000 |
 {: caption="Vault Dedicated resource unit pricing tiers" caption-side="bottom"}
 
-#### How Resource units are calculated
+#### How resource units are calculated
 {: #vault-dedicated-ru-calculation}
 
 The number of resource units consumed depends on the type of secret or credential.

@@ -54,6 +54,7 @@ subcollection: secrets-manager
 {:go: .ph data-hd-programlang='go'}
 {:unity: .ph data-hd-programlang='unity'}
 {:release-note: data-hd-content-type='release-note'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Protecting {{site.data.keyword.secrets-manager_short}} resources with context-based restrictions
 {: #access-control-cbr}
@@ -76,22 +77,21 @@ Any {{site.data.keyword.cloudaccesstraillong_notm}} or audit log events that are
 
 To get started with protecting your {{site.data.keyword.secrets-manager_short}} resources with context-based restrictions, see the tutorial for [Leveraging context-based restrictions to secure your resources](/docs/iam?topic=iam-context-restrictions-tutorial).
 
-
 ## How {{site.data.keyword.secrets-manager_short}} integrates with context-based restrictions
 {: #cbr-overview}
 
 You can create context-based restrictions (CBR) for {{site.data.keyword.secrets-manager_short}} service APIs and platform APIs. With context-based restrictions, you can protect the following API types.
 
-[Trial and Standard]{: tag-blue} plans APIs
+[Trial and Standard]{: tag-blue} APIs
 :   Protect access to the APIs used by applications and clients to manage and access standard {{site.data.keyword.secrets-manager_short}} resources and perform secret management operations. For example, you can protect the APIs used to manage secret groups, configurations, and notifications registrations, as well as the APIs used to create, read, rotate, or lock secrets and their versions. This API type applies only to instances on the Trial and Standard plans.
 
-[Vault Dedicated]{: tag-green} plan management APIs
+[Vault Dedicated]{: tag-green} management APIs
 :   Protect access to the APIs used by applications and clients to manage, configure, and perform administrative operations on Vault Dedicated resources. For example, you can protect the APIs used for admin token creation and revocation. This API type applies only to instances on the Vault Dedicated plan.
 
-[Vault Dedicated]{: tag-green} plan runtime API
+[Vault Dedicated]{: tag-green} runtime APIs
 :   Protect access to the APIs used by applications and clients to access and consume Vault Dedicated resources during runtime. This API type applies only to instances on the Vault Dedicated plan.
 
-Platform APIs — Resource Management
+Platform APIs — Resource management
 :   Protect access to the platform-level APIs used to manage the lifecycle of your {{site.data.keyword.secrets-manager_short}} service instance, such as provisioning, de-provisioning, and managing resource keys and bindings.
 
 To restrict access, you must create [zones](/docs/iam?topic=iam-context-restrictions-create&interface=ui#network-zones-create) and [rules](/docs/iam?topic=iam-context-restrictions-create&interface=ui#context-restrictions-create-rules). After you create or update a zone or a rule, it might take a few minutes for the change to take effect.
@@ -101,14 +101,14 @@ To restrict access, you must create [zones](/docs/iam?topic=iam-context-restrict
 
 You can create CBR rules to protect the following API types for {{site.data.keyword.secrets-manager_short}}.
 
-#### Standard and Trial APIs
+#### Standard and Trial plan APIs
 {: #cbr-api-type-standard}
 
-Protect access to the APIs used by applications and clients to manage and access standard {{site.data.keyword.secrets-manager_short}} resources and perform secret management operations.
+[Trial and Standard]{: tag-blue} APIs are used by applications and clients to manage and access {{site.data.keyword.secrets-manager_short}} resources and perform secret management operations.
 
-CBR rules that apply to the Standard and Trial API type control access to secret management and service administration operations, which include managing secret groups, configurations, destinations, and notifications registrations, viewing instance details and endpoints, and creating, reading, rotating, importing, revoking, and deleting secrets and their versions, managing secret version data, metadata, and policies, and managing locks on secrets and secret versions.
+CBR rules that apply to the [Trial and Standard]{: tag-blue} API type control access to secret management and service administration operations, which include managing secret groups, configurations, destinations, and notifications registrations, viewing instance details and endpoints, and creating, reading, rotating, importing, revoking, and deleting secrets and their versions, managing secret version data, metadata, and policies, and managing locks on secrets and secret versions.
 
-This API type applies only to {{site.data.keyword.secrets-manager_short}} instances on the Trial and Standard plans.
+This API type applies only to {{site.data.keyword.secrets-manager_short}} instances on the [Trial and Standard]{: tag-blue} plans.
 {: note}
 
 If you use the CLI, you can specify the `--api-types` option and the `crn:v1:bluemix:public:secrets-manager::::api-type:standard` type.
@@ -118,7 +118,7 @@ If you use the API, you can specify `"api_type_id": "crn:v1:bluemix:public:secre
 #### Vault Dedicated management APIs
 {: #cbr-api-type-vault-dedicated-management}
 
-Protect access to the APIs used by applications and clients to manage, configure, and perform administrative operations on Vault Dedicated resources.
+[Vault Dedicated]{: tag-green} management APIs are used by applications and clients to manage, configure, and perform administrative operations on Vault Dedicated resources.
 
 CBR rules that apply to the Vault Dedicated management API type control access to Vault Dedicated administration operations, configuration operations, which include admin token creation and revocation.
 
