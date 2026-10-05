@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-01"
+lastupdated: "2026-10-05"
 
 keywords: Vault Dedicated, Vault as a Service, setting up vault dedicated, admin token, Vault UI, vault dedicated setup
 
@@ -67,7 +67,7 @@ completion-time: 10m
 {: toc-services="secrets-manager"}
 {: toc-completion-time="10m"}
 
-In this tutorial, you learn how to set up a `Vault Dedicated` plan instance of {{site.data.keyword.secrets-manager_full}} by provisioning the instance, retrieving its endpoints, generating an admin token, and signing in to the Vault UI for initial configuration.
+In this tutorial, you learn how to set up a `Vault Dedicated` plan instance of {{site.data.keyword.secrets-manager_full}} by provisioning the instance, retrieving its endpoints, and launching the Vault Web UI for initial configuration.
 {: shortdesc}
 
 The `Vault Dedicated` plan delivers Vault Enterprise as a managed service in {{site.data.keyword.cloud_notm}}. After your instance is provisioned, you can use the instance dashboard to find connection details and open the Vault UI to begin configuring your Vault environment.
@@ -95,7 +95,7 @@ These limitations are temporary and apply only during the public beta period. It
 Before you begin, make sure that you have an {{site.data.keyword.cloud_notm}} account and the required IAM access to work with the service.
 
 You need the following roles:
-- The [**Manager** service role](/docs/secrets-manager?topic=secrets-manager-iam) to provision an instance and generate an admin token.
+- The [**Manager** service role](/docs/secrets-manager?topic=secrets-manager-iam) to provision an instance and launch the Vault Web UI with an authenticated session.
 - The [**Writer**, **Reader**, or **Viewer** service role](/docs/secrets-manager?topic=secrets-manager-iam) to view instance details.
 
 ## Provision a Vault Dedicated plan instance
@@ -129,54 +129,125 @@ Provisioning typically completes within a few minutes, but it can take up to 15 
 
 For more information about provisioning an instance, see [Creating an instance](/docs/secrets-manager?topic=secrets-manager-create-instance).
 
-## Generate an admin token
-{: #setting-up-vault-dedicated-admin-token}
+## Open the Vault Web UI
+{: #setting-up-vault-dedicated-vault-ui}
 {: step}
 
-To access the Vault UI for initial configuration, generate an admin token.
+Open the native Vault Web UI directly from the instance dashboard to begin your initial configuration. The experience depends on your IAM role.
 
-Admin tokens are intended for initial setup and emergency access only. Revoke them as soon as you complete your setup tasks.
-{: important}
-
-### Generating an admin token in the UI
-{: #setting-up-vault-dedicated-admin-token-ui}
+### Opening the Vault Web UI from the {{site.data.keyword.cloud_notm}} console
+{: #setting-up-vault-dedicated-vault-ui-console}
 {: ui}
 
-1. In your {{site.data.keyword.secrets-manager_short}} instance dashboard, click **Create token** in the **Create new admin token** section.
-2. Copy the generated admin token and store it securely. You'll need this token to sign in to the Vault UI.
+1. In the {{site.data.keyword.secrets-manager_short}} instance dashboard, click **Launch Vault Web UI**.
 
-### Generating an admin token from the CLI
+If you have the IAM Manager role, your browser redirects you directly to an authenticated Vault Web UI session. You can immediately begin configuring your Vault environment.
+
+If you do not have the IAM Manager role, your browser redirects you to the native Vault Web UI login screen. Authenticate by using a Vault token or another authentication method that your Vault administrator has provisioned for you.
+
+The Vault session is backed by a 1-hour, non-renewable admin token. The Vault Web UI automatically logs you out when the token expires. To start a new session, return to the instance dashboard and click **Launch Vault Web UI** again.
+{: note}
+
+### Generating an admin token for CLI or API access
 {: #setting-up-vault-dedicated-admin-token-cli}
 {: cli}
 
-To generate a new Vault admin token by using the {{site.data.keyword.cloud_notm}} CLI, run the following command.
+You can generate a plain admin token for direct API or CLI use, or a wrapped token for secure, single-use access to the Vault Web UI.
+
+#### Plain admin token
+{: #setting-up-vault-dedicated-plain-admin-token-cli}
+
+To generate a plain Vault admin token, run the following command. The token is valid for an hour and is non-renewable. Store it securely and revoke it as soon as you no longer need it.
 
 ```sh
 ibmcloud secrets-manager-instance-management admin-token-create --id {instance_id}
 ```
 {: pre}
 
-The command returns the Vault admin token. Store it securely — you need this token to sign in to the Vault UI.
+#### Wrapped admin token (for Vault Web UI login)
+{: #setting-up-vault-dedicated-wrapped-admin-token-cli}
 
-### Generating an admin token with the API
+To open the Vault Web UI without exposing the real admin token, generate a wrapped token and navigate to the Vault UI URL in your browser.
+
+```sh
+ibmcloud secrets-manager-instance-management admin-token-create \
+  --id {instance_id} \
+  --response-wrapping true
+```
+{: pre}
+
+Navigate to the following URL, replacing `{vault_ui_endpoint}` with the `vault_ui` value from your instance endpoints and `{wrapping_token}` with the value returned by the command:
+
+```
+https://{vault_ui_endpoint}/ui/vault/auth?wrapped_token={wrapping_token}
+```
+{: codeblock}
+
+The Vault UI automatically unwraps the token and establishes an authenticated session. The wrapping token is single-use and expires after 30 seconds.
+
+The Vault session is backed by a 1-hour, non-renewable admin token. The Vault Web UI automatically logs you out when the token expires. To start a new session, generate a new wrapped token and navigate to the URL again.
+{: note}
+
+### Generating an admin token for CLI or API access
 {: #setting-up-vault-dedicated-admin-token-api}
 {: api}
+
+#### Plain admin token
+{: #setting-up-vault-dedicated-plain-admin-token-api}
+
+To generate a plain Vault admin token, omit the request body, send an empty object `{}`, or set `response_wrapping` to `false`. The token is valid for 1 hour and is non-renewable.
 
 ```sh
 curl -X POST \
   -H "Authorization: Bearer {iam_token}" \
   -H "Accept: application/json" \
+  -H "Content-Type: application/json" \
+  -d '{}' \
   "https://{region}.secrets-manager.cloud.ibm.com/v2/instances/{id}/admintokens"
 ```
 {: codeblock}
 
-A successful request returns HTTP `201 Created`. The response contains a single `token` field — store it securely and use it to sign in to the Vault UI. The token is valid for 1 hour.
+A successful request returns HTTP `201 Created`:
+
+```json
+{
+  "token": "hvs.CAESIJ..."
+}
+```
+{: codeblock}
+
+#### Wrapped admin token (for Vault Web UI login)
+{: #setting-up-vault-dedicated-wrapped-admin-token-api}
+
+To open the Vault Web UI without exposing the real admin token, generate a wrapped token.
+
+```sh
+curl -X POST \
+  -H "Authorization: Bearer {iam_token}" \
+  -H "Accept: application/json" \
+  -H "Content-Type: application/json" \
+  -d '{"response_wrapping": true}' \
+  "https://{region}.secrets-manager.cloud.ibm.com/v2/instances/{id}/admintokens"
+```
+{: codeblock}
+
+A successful request returns HTTP `201 Created` with a `wrapped_token` field. Navigate to the following URL in your browser to open an authenticated Vault Web UI session:
+
+```
+https://{vault_ui_endpoint}/ui/vault/auth?wrapped_token={wrapped_token}
+```
+{: codeblock}
+
+The wrapping token is single-use and expires after 30 seconds.
+
+The Vault session is backed by a 1-hour, non-renewable admin token. The Vault Web UI automatically logs you out when the token expires. To start a new session, request a new wrapped token and navigate to the URL again.
+{: note}
 
 ### Generating an admin token with Terraform
 {: #setting-up-vault-dedicated-admin-token-terraform}
 {: terraform}
 
-To generate a Vault admin token with Terraform, use the `ibm_sm_admin_token` resource. The token is valid for 1 hour, and is automatically refreshed when it is close to expiry.
+To generate a Vault admin token with Terraform, use the `ibm_sm_admin_token` resource. The token is valid for 1 hour and is automatically refreshed when it is close to expiry. Use the token to authenticate directly to the Vault API.
 
 ```terraform
 resource "ibm_sm_admin_token" "sm_admin_token" {
@@ -186,15 +257,6 @@ resource "ibm_sm_admin_token" "sm_admin_token" {
 {: codeblock}
 
 After the resource is created, the Vault admin token is available in the `token` attribute.
-
-## Open the Vault UI
-{: #setting-up-vault-dedicated-vault-ui}
-{: step}
-
-Use the Vault API endpoint to open the Vault UI and sign in with the admin token.
-
-1. In the {{site.data.keyword.secrets-manager_short}} instance dashboard, click **Launch web UI** to access the Vault native UI.
-2. On the Vault sign-in page, use the admin token that you created and complete your initial Vault configuration.
 
 ## Revoke the admin token
 {: #setting-up-vault-dedicated-revoke-token}

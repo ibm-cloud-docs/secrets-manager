@@ -2,9 +2,9 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-01"
+lastupdated: "2026-10-05"
 
-keywords: Secrets Manager, Vault Dedicated, API, admin tokens, instance details
+keywords: Secrets Manager, Vault Dedicated, API, admin tokens, instance details, wrapped token
 
 subcollection: secrets-manager
 
@@ -210,38 +210,56 @@ data.ibm_sm_instance.sm_instance.endpoints.0.public.0.vault_api
 ## Managing admin tokens
 {: #managing-admin-tokens}
 
-Admin tokens provide root-level access to your Vault Dedicated cluster and are required for initial setup and administrative operations.
+Admin tokens provide root-level access to your Vault Dedicated cluster and are required for administrative operations performed through the CLI, API, or Terraform.
 
 Treat admin tokens as highly sensitive credentials. Generate them only when needed for administrative tasks, and revoke them immediately after use.
 {: important}
-
-### Generating an admin token in the UI
-{: #generate-admin-token-ui}
-{: ui}
-
-1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> Resource List**.
-2. From the list of services, select your Vault Dedicated instance.
-3. In the instance dashboard, click **Create token** in the **Create new admin token** section.
-4. Copy the generated admin token and store it securely. You need this token to sign in to the Vault UI.
 
 ### Generating an admin token from the CLI
 {: #generate-admin-token-cli}
 {: cli}
 
-To generate a new Vault admin token by using the {{site.data.keyword.cloud_notm}} CLI, run the following command.
+#### Plain admin token
+{: #generate-plain-admin-token-cli}
+
+Generate a plain Vault admin token by using the {{site.data.keyword.cloud_notm}} CLI.
 
 ```sh
 ibmcloud secrets-manager-instance-management admin-token-create --id {instance_id}
 ```
 {: pre}
 
-The command returns the Vault admin token. Store it securely — you need this token to sign in to the Vault UI. The token is valid for 1 hour.
+The command returns the Vault admin token. The token is valid for an hour and is non-renewable. Store it securely and revoke it as soon as you no longer need it.
+
+#### Wrapped admin token (for Vault Web UI login)
+{: #generate-wrapped-admin-token-cli}
+
+Generate a response-wrapped token. For example, to open the Vault Web UI from a script or automated workflow without exposing the real admin token, pass the `--response-wrapping` flag.
+
+```sh
+ibmcloud secrets-manager-instance-management admin-token-create \
+  --id {instance_id} \
+  --response-wrapping true
+```
+{: pre}
+
+The command returns a short-lived wrapping token (valid for 30 seconds) instead of the real admin token. To open the Vault Web UI with this token, navigate to the following URL in your browser:
+
+```
+https://{vault_ui_endpoint}/ui/vault/auth?wrapped_token={wrapping_token}
+```
+{: codeblock}
+
+Replace `{vault_ui_endpoint}` with the `vault_ui` value from your instance endpoints and `{wrapping_token}` with the value returned by the command. The Vault UI automatically unwraps the token and establishes an authenticated session. The wrapping token is single-use and expires after 30 seconds.
+
+The Vault session is backed by a 1-hour, non-renewable admin token. The Vault Web UI automatically logs you out when this token expires. To start a new session, generate a new wrapped token and navigate to the URL again.
+{: note}
 
 ### Generating an admin token with the API
 {: #generate-admin-token-api}
 {: api}
 
-Generate a new Vault admin token for authenticating to your Vault Dedicated cluster. This token provides root-level access and should be used only for initial setup and administrative operations. The token is valid for 1 hour.
+The `POST /v2/instances/{id}/admintokens` endpoint supports two modes controlled by the optional `response_wrapping` field in the request body.
 
 #### Request
 {: #generate-token-request}
@@ -251,24 +269,26 @@ POST /v2/instances/{id}/admintokens
 ```
 {: codeblock}
 
-#### Example request
-{: #generate-token-example-request}
+#### Plain admin token
+{: #generate-plain-admin-token-api}
+
+Omit the request body, send an empty object `{}`, or set `response_wrapping` to `false` to receive the plain admin token. The token is valid for an hour and is non-renewable.
+
+**Example request**
 
 ```sh
 curl -X POST \
   -H "Authorization: Bearer {iam_token}" \
   -H "Accept: application/json" \
+  -H "Content-Type: application/json" \
+  -d '{}' \
   "https://{region}.secrets-manager.cloud.ibm.com/v2/instances/{id}/admintokens"
 ```
 {: codeblock}
 
-#### Response
-{: #generate-token-response}
+**Example response**
 
-A successful request returns HTTP `201 Created` with a JSON object containing the Vault admin token.
-
-#### Example response
-{: #generate-token-example-response}
+A successful request returns HTTP `201 Created`:
 
 ```json
 {
@@ -276,6 +296,46 @@ A successful request returns HTTP `201 Created` with a JSON object containing th
 }
 ```
 {: codeblock}
+
+#### Wrapped admin token (for Vault Web UI login)
+{: #generate-wrapped-admin-token-api}
+
+Set `response_wrapping` to `true` to receive a response-wrapped token instead of the plain admin token. The wrapping token is single-use and expires after 30 seconds.
+
+**Example request**
+
+```sh
+curl -X POST \
+  -H "Authorization: Bearer {iam_token}" \
+  -H "Accept: application/json" \
+  -H "Content-Type: application/json" \
+  -d '{"response_wrapping": true}' \
+  "https://{region}.secrets-manager.cloud.ibm.com/v2/instances/{id}/admintokens"
+```
+{: codeblock}
+
+**Example response**
+
+A successful request returns HTTP `201 Created`:
+
+```json
+{
+  "wrapped_token": "hvs.yyy..."
+}
+```
+{: codeblock}
+
+To open the Vault Web UI with this token, navigate to the following URL:
+
+```
+https://{vault_ui_endpoint}/ui/vault/auth?wrapped_token={wrapped_token}
+```
+{: codeblock}
+
+The Vault UI automatically calls `POST /v1/sys/wrapping/unwrap`, exchanges the wrapping token for the real admin token, and establishes an authenticated session. The wrapping token is consumed on first use.
+
+The Vault session is backed by a 1-hour, non-renewable admin token. The Vault Web UI automatically logs you out when this token expires. To start a new session, request a new wrapped token and navigate to the URL again.
+{: note}
 
 ### Generating an admin token with Terraform
 {: #generate-admin-token-terraform}
