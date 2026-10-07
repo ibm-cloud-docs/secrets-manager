@@ -342,17 +342,6 @@ curl -X GET \
 ```
 {: codeblock}
 
-### Revoking all admin tokens in the UI
-{: #revoke-admin-tokens-ui}
-{: ui}
-
-1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> Resource List**.
-2. From the list of services, select your Vault Dedicated instance.
-3. In the instance dashboard, click **Revoke** in the **Revoke all admin tokens** section.
-4. Confirm the revocation when prompted.
-
-Revoking the token immediately invalidates it and helps reduce the risk of unintended access.
-
 ### Revoking all admin tokens from the CLI
 {: #revoke-admin-tokens-cli}
 {: cli}
