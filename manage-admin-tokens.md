@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-06"
+lastupdated: "2026-10-07"
 
 keywords: Secrets Manager, Vault Dedicated, admin tokens, instance management API
 
@@ -80,7 +80,7 @@ The admin token does not provide access to service-managed operations such as se
 
 When a user with service Manager role clicks **Launch Vault Web UI** in the {{site.data.keyword.cloud_notm}} console, the service automatically generates a Vault admin token using Vault response wrapping and uses that wrapped token to authenticate the user into the Vault Web UI.
 
-For more information, [Launch the Vault Web UI](/docs/secrets-manager?topic=secrets-manager-setting-up-vault-dedicated-instance&interface=ui#setting-up-vault-dedicated-vault-ui).
+For more information, see [Open the Vault Web UI](/docs/secrets-manager?topic=secrets-manager-setting-up-vault-dedicated-instance&interface=ui#setting-up-vault-dedicated-vault-ui).
 
 ## Accessing Vault through the CLI, API, or Terraform
 {: #admin-token-cli-api-access}

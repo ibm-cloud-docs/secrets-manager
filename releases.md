@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-09-01"
+lastupdated: "2026-10-07"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -63,6 +63,26 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 {: shortdesc}
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
+
+## 05 October 2026
+{: #secrets-manager-oct526}
+{: release-note}
+
+Vault Dedicated APIs now support context-based restrictions
+:   [Vault Dedicated]{: tag-green} plan instances now support context-based restrictions (CBR). You can create CBR rules to protect the following API types:
+
+   - **Vault Dedicated management APIs**: Controls access to administrative operations such as admin token creation and revocation.
+   - **Vault Dedicated runtime APIs**: Controls access to Vault Dedicated resources during runtime.
+
+   For more information, see [Protecting specific APIs](/docs/secrets-manager?topic=secrets-manager-access-control-cbr#cbr-specific-apis).
+
+Manage public endpoint access for your instance
+:   You can now enable or disable the public endpoint for your {{site.data.keyword.secrets-manager_short}} instance across all plans. Plan-specific behavior applies when the public endpoint is disabled:
+
+   - **[Trial and Standard]{: tag-blue}**: Connect by using Virtual Private Endpoint (VPE) gateways or Cloud Service Endpoints (CSE).
+   - **[Vault Dedicated]{: tag-green}**: Only VPE gateway connectivity is supported. Cloud Service Endpoints are not available.
+
+   For more information, see [Managing public endpoint access for {{site.data.keyword.secrets-manager_short}}](/docs/secrets-manager?topic=secrets-manager-manage-endpoint-access).
 
 ## 01 September 2026
 {: #secrets-manager-sept126}

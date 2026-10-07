@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-05"
+lastupdated: "2026-10-07"
 
 keywords: Vault Dedicated, Vault as a Service, setting up vault dedicated, admin token, Vault UI, vault dedicated setup
 
@@ -67,7 +67,7 @@ completion-time: 10m
 {: toc-services="secrets-manager"}
 {: toc-completion-time="10m"}
 
-In this tutorial, you learn how to set up a `Vault Dedicated` plan instance of {{site.data.keyword.secrets-manager_full}} by provisioning the instance, retrieving its endpoints, and launching the Vault Web UI for initial configuration.
+In this tutorial, you learn how to set up a `Vault Dedicated` plan instance of {{site.data.keyword.secrets-manager_full}} by provisioning the instance, retrieving its endpoints, and opening the Vault Web UI for initial configuration.
 {: shortdesc}
 
 The `Vault Dedicated` plan delivers Vault Enterprise as a managed service in {{site.data.keyword.cloud_notm}}. After your instance is provisioned, you can use the instance dashboard to find connection details and open the Vault UI to begin configuring your Vault environment.
@@ -95,7 +95,7 @@ These limitations are temporary and apply only during the public beta period. It
 Before you begin, make sure that you have an {{site.data.keyword.cloud_notm}} account and the required IAM access to work with the service.
 
 You need the following roles:
-- The [**Manager** service role](/docs/secrets-manager?topic=secrets-manager-iam) to provision an instance and launch the Vault Web UI with an authenticated session.
+- The [**Manager** service role](/docs/secrets-manager?topic=secrets-manager-iam) to provision an instance and open the Vault Web UI with an authenticated session.
 - The [**Writer**, **Reader**, or **Viewer** service role](/docs/secrets-manager?topic=secrets-manager-iam) to view instance details.
 
 ## Provision a Vault Dedicated plan instance

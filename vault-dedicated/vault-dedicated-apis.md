@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-05"
+lastupdated: "2026-10-07"
 
 keywords: Secrets Manager, Vault Dedicated, API, admin tokens, instance details, wrapped token
 
@@ -93,19 +93,6 @@ https://{region}.secrets-manager.cloud.ibm.com
 {: codeblock}
 
 Replace `{region}` with the region where your instance is deployed (for example, `us-south`, `eu-de`).
-
-## Getting instance details
-{: #instance-details-api}
-
-Use the instance details API to retrieve metadata about your Vault Dedicated service instance, including cluster state, endpoints, and key management service configuration.
-
-### Getting instance details in the UI
-{: #get-instance-details-ui}
-{: ui}
-
-1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> Resource List**.
-2. From the list of services, select your Vault Dedicated instance.
-3. In the instance dashboard, review the **Endpoints** section to find the cluster state, Vault API endpoint, and other instance details.
 
 ### Getting instance details from the CLI
 {: #get-instance-details-cli}
@@ -206,14 +193,6 @@ After your data source is created, you can reference its attributes. For example
 data.ibm_sm_instance.sm_instance.endpoints.0.public.0.vault_api
 ```
 {: codeblock}
-
-## Managing admin tokens
-{: #managing-admin-tokens}
-
-Admin tokens provide root-level access to your Vault Dedicated cluster and are required for administrative operations performed through the CLI, API, or Terraform.
-
-Treat admin tokens as highly sensitive credentials. Generate them only when needed for administrative tasks, and revoke them immediately after use.
-{: important}
 
 ### Generating an admin token from the CLI
 {: #generate-admin-token-cli}
@@ -362,17 +341,6 @@ curl -X GET \
   "{vault_api_endpoint}/v1/sys/health"
 ```
 {: codeblock}
-
-### Revoking all admin tokens in the UI
-{: #revoke-admin-tokens-ui}
-{: ui}
-
-1. In the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> Resource List**.
-2. From the list of services, select your Vault Dedicated instance.
-3. In the instance dashboard, click **Revoke** in the **Revoke all admin tokens** section.
-4. Confirm the revocation when prompted.
-
-Revoking the token immediately invalidates it and helps reduce the risk of unintended access.
 
 ### Revoking all admin tokens from the CLI
 {: #revoke-admin-tokens-cli}
