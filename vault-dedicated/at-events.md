@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-09-20"
+lastupdated: "2026-10-14"
 
 keywords: activity tracking events for Vault Dedicated, Vault Dedicated events, Secrets Manager Vault Dedicated audit events
 
@@ -91,7 +91,7 @@ You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on event
 
 For information on starting the {{site.data.keyword.logs_full_notm}} UI, see [Launching the UI](/docs/cloud-logs?topic=cloud-logs-instance-launch).
 
-## Analyzing events
+## Analyzing Vault Dedicated activity tracking events
 {: #at-analyze}
 
 Vault Dedicated plan instances generate successful events that contain various fields to help you identify the initiator, the target resource, and the outcome of each completed action.
@@ -99,7 +99,7 @@ Vault Dedicated plan instances generate successful events that contain various f
 You can create views and alerts from all your Vault Dedicated instances, or from a specific instance.  
 To target a specific instance, replace `host:secrets-manager` with `app:{INSTANCE_CRN}`.
 
-### Query for finding all Vault Dedicated actions
+### Find all Vault Dedicated actions
 {: #query-all-at}
 
 Run the following query to find all Vault Dedicated instance management actions.
@@ -112,7 +112,7 @@ host:secrets-manager action:secrets-manager.instance.read OR action:secrets-mana
 The action value can be replaced with any other applicable action.
 {: note}
 
-### Query for finding unauthorized access attempts
+### Find unauthorized access attempts
 {: #query-specific-at}
 
 To see unauthorized access attempts, run the following query.
@@ -122,7 +122,7 @@ host:secrets-manager reason.reasonType:Unauthorized
 ```
 {: codeblock}
 
-## Understanding generated events
+## How event fields are structured
 {: #gen-events}
 
 The following events are generated for Vault Dedicated instance management operations.
@@ -141,12 +141,12 @@ The following table lists the instance operation actions that generate an event.
 
 
 
-## How events are built
+## How activity tracking events are built
 {: #how-events-are-built}
 
 Activity tracking events for the Vault Dedicated plan are dynamically constructed from underlying vault operations and request metadata. Review the following details to understand how key event properties, such as actions, severity levels, and outcomes, are mapped and filtered. 
 
-## Instance management operations
+## Instance management operation events
 {: #instance-management-operations}
 
 The {{site.data.keyword.secrets-manager_short}} service layer handles instance management operations as part of the {{site.data.keyword.cloud_notm}} control plane.
@@ -162,7 +162,7 @@ The following table lists the activity tracking events for instance management o
 
 
 
-## Key value secrets operations
+## Key value secrets operation events
 {: #kv-secrets-operations}
 
 Key value secrets operations generate activity tracking events when you create, retrieve, update, or delete secrets and secret metadata. These events use dynamic action patterns that map vault secret paths to event action strings.
@@ -178,7 +178,7 @@ The following table lists the activity tracking events for key value secrets ope
 | `secrets-manager.metadata.<path>` | `secrets/metadata/<path>` | `list` | `normal` |
 {: caption="Key-value (KV) secrets operation events" caption-side="bottom"}
  
-## Access control list policy operations
+## Access control list policy operation events
 {: #acl-policy-operations}
 
 Access control list policy operations generate activity tracking events when you create, view, update, delete, or list access control list policies. These events use dynamic action patterns that are constructed by appending the policy name to the event action string.
@@ -193,7 +193,7 @@ The following table lists the activity tracking events for access control list p
 | `secrets-manager.policies.acl.<name>` | `sys/policies/acl/<name>` | `delete` | `critical` |
 {: caption="Access Control List policy operation events" caption-side="bottom"}
  
-## Token operations
+## Token operation events
 {: #token-operations}
 
 Token operations generate activity tracking events when authentication tokens are created, inspected, renewed, or revoked. To help monitor these events, you can track token lifecycles and secure client access to your instance resources.
@@ -210,7 +210,7 @@ The following table lists the activity tracking events for token operations:
  
 Vault records all `POST` calls to `auth/token/*` as `update` in its audit log. Therefore, all token operations produce `warning` severity, including token creation.
 
-## Auth method operations
+## Auth method operation events
 {: #auth-method-operations}
 
 Auth method operations generate activity tracking events when you enable, configure, tune, or list authentication methods. These events help you to audit changes to your authentication mechanisms and helps to ensure that only authorized authentication engines are configured in your instance.
@@ -223,7 +223,7 @@ The following table lists the activity tracking events for authentication method
 | `secrets-manager.auth.<method>` | `sys/auth/<method>` | `update` (enable or tune) | `warning` |
 {: caption="Authentication method configuration events" caption-side="bottom"}
  
-## AppRole auth operations
+## AppRole auth operation events
 {: #approle-auth-operations}
 
 AppRole authentication operations generate activity tracking events when you create, retrieve, or delete roles, or when you manage role IDs and secret IDs. Monitoring these events allows you to audit machine-to-machine authentication setup and helps ensure that application credentials are securely configured.
@@ -240,7 +240,7 @@ The following table lists the activity tracking events for AppRole authenticatio
 | `secrets-manager.approle.role.<name>.secret-id` | `auth/approle/role/<name>/secret-id/` | `list` | `normal` |
 {: caption="AppRole authentication operation events" caption-side="bottom"}
  
-## Secret engine mount operations
+## Secret engine mount operation events
 {: #secret-engine-mount-operations}
 
 Secret engine mount operations generate activity tracking events when you enable, configure, tune, or disable secret engine mounts. These events use dynamic action patterns that are constructed by appending the mount path name to the event action string.
@@ -279,7 +279,7 @@ The following table lists the activity tracking events for KV v2 secrets engine 
 | Update KV engine configuration | `secrets-manager.config` | `warning` | `<mount>/config` |
 {: caption="KV v2 secrets engine events" caption-side="bottom"}
 
-### Examples
+### KV v2 event examples
 {: #kv-v2-full-examples}
 
 The following examples show activity tracking events that are generated for Key value version 2.0 secrets engine operations.
@@ -435,7 +435,7 @@ The following table lists the activity tracking events for PKI secrets engine op
 | Update URL configuration | `secrets-manager.config.urls` | `warning` | `<mount>/config/urls` |
 {: caption="PKI secrets engine events" caption-side="bottom"}
 
-### Examples
+### PKI event examples
 {: #pki-full-examples}
 
 The following examples show activity tracking events that are generated for PKI secrets engine operations.
@@ -508,8 +508,8 @@ The following examples show activity tracking events that are generated for PKI 
    ```
    {: codeblock}
 
-## Token operations events
-{: #token-operations-events}
+## Token events
+{: #token-events}
 
 These events are generated for operations on Vault tokens.
 
@@ -526,7 +526,7 @@ The following table lists the activity tracking events for token operations:
 
 All token operations record as `update` in the Vault audit log, so all produce `warning` severity — including token creation.
 
-### Example
+### Token event example
 {: #token-full-examples}
 
 The following example shows the activity tracking events that are generated for token operations.
@@ -566,7 +566,7 @@ The following table lists the activity tracking events for AppRole auth method o
 | List Secret IDs | `secrets-manager.approle.role.<name>.secret-id` | `normal` | `auth/approle/role/<name>/secret-id/` |
 {: caption="AppRole auth method events" caption-side="bottom"}
 
-### Examples
+### AppRole event examples
 {: #approle-full-examples}
 
 The following examples show activity tracking events that are generated for AppRole auth method operations.
@@ -610,7 +610,7 @@ The following examples show activity tracking events that are generated for AppR
 
 These events are generated for operations on Vault access control list policies.
 
-The following table lists the activity tracking events for access control list policy operations:
+The following table lists the activity tracking events for Access Control List (ACL) policy operations:
 
 | Operation | Action | Severity | target.name |
 |---|---|---|---|
@@ -620,7 +620,7 @@ The following table lists the activity tracking events for access control list p
 | Delete a policy | `secrets-manager.policies.acl.<name>` | `critical` | `sys/policies/acl/<name>` |
 {: caption="ACL policy events" caption-side="bottom"}
 
-### Example
+### ACL policy event example
 {: #acl-full-examples}
 
 The following example shows an activity tracking event that is generated for an access control list policy operation.
@@ -671,7 +671,7 @@ The following table lists the activity tracking events for secret engine mount o
 | Disable a secrets engine | `secrets-manager.mounts.<name>` | `critical` | `sys/mounts/<name>` |
 {: caption="Secret engine mount events" caption-side="bottom"}
 
-### Example
+### Secret engine mount event example
 {: #mount-full-examples}
 
 The following example shows an activity tracking event that is generated for a secret engine mount operation.
@@ -752,8 +752,8 @@ Example — unauthorized read attempt:
 ```
 {: codeblock}
 
-## Generic rules
-{: #generic-rules}
+## Event construction rules
+{: #event-rules}
 
 All events you receive in your IBM Cloud Logs instance are governed by the following rules. Understanding these rules lets you predict the exact action and severity for any Vault operation — including operations on engines not listed in this page.
 
