@@ -59,7 +59,7 @@ subcollection: secrets-manager
 # Activity tracking events for the Vault Dedicated plan
 {: #vault-dedicated-at-events}
 
-{{site.data.keyword.cloud_notm}} services, such as {{site.data.keyword.secrets-manager_full}}, generate activity tracking events. 
+Review activity tracking events that Vault Dedicated generates in {{site.data.keyword.secrets-manager_full}}, to monitor operations, detect unauthorized access, and meet audit requirements.
 {: shortdesc}
 
 Vault audit devices are service managed in Vault Dedicated.
@@ -68,8 +68,6 @@ Vault audit devices are service managed in Vault Dedicated.
 Activity tracking events report on activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use the events to investigate abnormal activity and critical actions and to comply with regulatory audit requirements.
 
 You can use {{site.data.keyword.logs_full_notm}}, a platform service, to route auditing events in your account to destinations of your choice by configuring targets and routes that define where activity tracking events are sent. For more information, see [About {{site.data.keyword.logs_full_notm}}](/docs/cloud-logs?topic=cloud-logs-about-cl).
-
-You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on events that are generated in your account and routed to an {{site.data.keyword.logs_full_notm}} instance.
 
 ## Locations where activity tracking events are generated
 {: #at-locations}
@@ -96,7 +94,8 @@ For information on starting the {{site.data.keyword.logs_full_notm}} UI, see [La
 
 Vault Dedicated plan instances generate successful events that contain various fields to help you identify the initiator, the target resource, and the outcome of each completed action.
 
-You can create views and alerts from all your Vault Dedicated instances, or from a specific instance.  
+You can create views and alerts from all your Vault Dedicated instances, or from a specific instance.
+
 To target a specific instance, replace `host:secrets-manager` with `app:{INSTANCE_CRN}`.
 
 ### Find all Vault Dedicated actions
