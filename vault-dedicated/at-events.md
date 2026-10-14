@@ -62,12 +62,12 @@ subcollection: secrets-manager
 Review activity tracking events that Vault Dedicated generates in {{site.data.keyword.secrets-manager_full}}, to monitor operations, detect unauthorized access, and meet audit requirements.
 {: shortdesc}
 
-Vault audit devices in Vault Dedicated are managed by the service. You cannot configure or disable them.
+Vault audit devices are service managed in Vault Dedicated.
 {: note}
 
 Activity tracking events report on activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use the events to investigate abnormal activity and critical actions and to comply with regulatory audit requirements.
 
-{{site.data.keyword.logs_full_notm}} is the platform service you use to route Vault Dedicated activity tracking events to destinations of your choice. You configure targets and routes to control where events are sent. For more information, see [About {{site.data.keyword.logs_full_notm}}](/docs/cloud-logs?topic=cloud-logs-about-cl).
+You can use {{site.data.keyword.logs_full_notm}}, a platform service, to route auditing events in your account to destinations of your choice by configuring targets and routes that define where activity tracking events are sent. For more information, see [About {{site.data.keyword.logs_full_notm}}](/docs/cloud-logs?topic=cloud-logs-about-cl).
 
 ## Locations where activity tracking events are generated
 {: #at-locations}
@@ -94,8 +94,9 @@ For information on starting the {{site.data.keyword.logs_full_notm}} UI, see [La
 
 Vault Dedicated plan instances generate successful events that contain various fields to help you identify the initiator, the target resource, and the outcome of each completed action.
 
-In {{site.data.keyword.logs_full_notm}}, you can create views and alerts from all your Vault Dedicated instances or from a specific instance. 
-To target a specific instance in your queries, replace `host:secrets-manager` with `app:{INSTANCE_CRN}`.
+You can create views and alerts from all your Vault Dedicated instances, or from a specific instance.
+
+To target a specific instance, replace `host:secrets-manager` with `app:{INSTANCE_CRN}`.
 
 ### Find all Vault Dedicated actions
 {: #query-all-at}
@@ -123,7 +124,7 @@ host:secrets-manager reason.reasonType:Unauthorized
 ## How event fields are structured
 {: #gen-events}
 
-Vault Dedicated generates activity tracking events for instance read, admin token creation, and admin token revocation operations.
+The following events are generated for Vault Dedicated instance management operations.
 
 ### Instance operations events
 {: #at-configuration-instance-operations}
@@ -147,7 +148,7 @@ Activity tracking events for the Vault Dedicated plan are dynamically constructe
 ## Instance management operation events
 {: #instance-management-operations}
 
-{{site.data.keyword.secrets-manager_full}} handles instance management operations, such as reading instance details and managing log destinations, as part of the IBM Cloud control plane. The action values for these operations are fixed strings, not path-derived.
+The {{site.data.keyword.secrets-manager_short}} service layer handles instance management operations as part of the {{site.data.keyword.cloud_notm}} control plane.
 
 The following table lists the activity tracking events for instance management operations:
 
@@ -194,7 +195,7 @@ The following table lists the activity tracking events for access control list p
 ## Token operation events
 {: #token-operations}
 
-Vault Dedicated generates activity tracking events when authentication tokens are created, inspected, renewed, or revoked. Monitor these events in {{site.data.keyword.logs_full_notm}} to track token lifecycles and audit client access to your Vault Dedicated instance.
+Token operations generate activity tracking events when authentication tokens are created, inspected, renewed, or revoked. To help monitor these events, you can track token lifecycles and secure client access to your instance resources.
 
 The following table lists the activity tracking events for token operations:
 
@@ -211,7 +212,7 @@ Vault records all `POST` calls to `auth/token/*` as `update` in its audit log. T
 ## Auth method operation events
 {: #auth-method-operations}
 
-Auth method operations in Vault Dedicated generate activity tracking events when you enable, configure, tune, or list authentication methods. Use these events to audit changes to authentication mechanisms and verify that only authorized authentication engines are active in your instance.
+Auth method operations generate activity tracking events when you enable, configure, tune, or list authentication methods. These events help you to audit changes to your authentication mechanisms and helps to ensure that only authorized authentication engines are configured in your instance.
 
 The following table lists the activity tracking events for authentication method configuration operations:
 
@@ -224,7 +225,7 @@ The following table lists the activity tracking events for authentication method
 ## AppRole auth operation events
 {: #approle-auth-operations}
 
-AppRole authentication operations in Vault Dedicated generate activity tracking events when you create, retrieve, or delete roles, or when you manage role IDs and secret IDs. Monitor these events to audit machine-to-machine authentication setup and verify that application credentials are correctly configured.
+AppRole authentication operations generate activity tracking events when you create, retrieve, or delete roles, or when you manage role IDs and secret IDs. Monitoring these events allows you to audit machine-to-machine authentication setup and helps ensure that application credentials are securely configured.
 
 The following table lists the activity tracking events for AppRole authentication operations:
 
@@ -255,7 +256,7 @@ The following table lists the activity tracking events for secrets engine mount 
 ## Key value version 2.0 secrets engine events
 {: #kv-v2-secrets-engine-events}
 
-Vault Dedicated generates activity tracking events for every operation on a KV v2 secrets engine mount, including reads, writes, deletes, and metadata operations.
+These events are generated for every operation on a Key value version 2.0 secrets engine mount.
 
 The following table lists the activity tracking events for KV v2 secrets engine operations:
 
@@ -509,7 +510,7 @@ The following examples show activity tracking events that are generated for PKI 
 ## Token events
 {: #token-events}
 
-Vault Dedicated generates activity tracking events for all token operations, including token creation, lookup, renewal, and revocation." — adds product context, names operations.
+These events are generated for operations on Vault tokens.
 
 The following table lists the activity tracking events for token operations:
 
@@ -643,7 +644,7 @@ Create a policy named `app-policy`:
 ## Auth method management events
 {: #auth-method-management-events}
 
-Vault Dedicated generates activity tracking events when you enable, disable, or list authentication methods on your instance.
+These events are generated when you enable or disable authentication methods.
 
 The following table lists the activity tracking events for auth method management operations:
 
@@ -657,7 +658,7 @@ The following table lists the activity tracking events for auth method managemen
 ## Secret engine mount events
 {: #secret-engine-mount-events}
 
-Vault Dedicated generates activity tracking events when you enable, tune, disable, or list secrets engine mounts. These events use the mount path name to construct the action string.
+These events are generated when you enable, tune, or disable secrets engines.
 
 The following table lists the activity tracking events for secret engine mount operations:
 
@@ -694,7 +695,7 @@ Enable a key value version 2.0 engine at mount path `my-kv`:
 ## System-generated events
 {: #system-generated-events}
 
-Vault Dedicated automatically generates a `secrets-manager.internal.ui.mounts.secrets` event as a background side effect of every KV CLI and UI operation. This event is not triggered by your actions and can be safely filtered out in {{site.data.keyword.logs_full_notm}}.
+These events appear automatically in your logs as a side effect of Vault CLI and UI operations. They are not triggered directly by you.
 
 The following table lists the system-generated events:
 
