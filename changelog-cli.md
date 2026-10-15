@@ -66,7 +66,7 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 ## Version 2.0.20
 {: #2.0.20}
 
-Version 2.0.16 was released on 14 August 2026. This release includes the following updates:
+Version 2.0.20 was released on 14 August 2026. This release includes the following updates:
 - packages updates.
 
 ## Version 2.0.16
