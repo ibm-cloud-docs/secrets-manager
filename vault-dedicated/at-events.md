@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-10-14"
+lastupdated: "2026-10-21"
 
 keywords: activity tracking events for Vault Dedicated, Vault Dedicated events, Secrets Manager Vault Dedicated audit events
 
@@ -721,7 +721,6 @@ The following table lists the activity tracking events for instance management o
 | Read a log destination | `secrets-manager.destination.read` | `normal` |
 | Update a log destination | `secrets-manager.destination.update` | `warning` |
 | Delete a log destination | `secrets-manager.destination.delete` | `critical` |
-| Test a log destination | `secrets-manager.destination.test` | `warning` |
 {: caption="Instance management events" caption-side="bottom"}
 
 ## Failure events
