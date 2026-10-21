@@ -166,11 +166,6 @@ The following actions are specific to the [Vault Dedicated]{: tag-green} plan:
 | `secrets-manager.admin-token.create` | Create a Vault admin token. | Manager |
 | `secrets-manager.admin-tokens.delete` | Revoke all admin tokens. | Manager |
 | `secrets-manager.instance.read` | Read the details of an instance. | Manager, Reader, Writer, SecretsReader |
-| `secrets-manager.destination.create` | Create a destination resource for the instance. | Manager |
-| `secrets-manager.destinations.list` | List destination resources for the instance. | Manager, Reader, Writer, SecretsReader |
-| `secrets-manager.destination.read` | Read a destination resource for the instance. | Manager, Reader, Writer, SecretsReader |
-| `secrets-manager.destination.update` | Update a destination resource for the instance. | Manager |
-| `secrets-manager.destination.delete` | Delete a destination resource for the instance. | Manager |
 {: caption="Service actions - {{site.data.keyword.secrets-manager_short}} Vault Dedicated plan" caption-side="bottom"}
 
 ## Assigning access to {{site.data.keyword.secrets-manager_short}}
