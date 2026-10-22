@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-05"
+lastupdated: "2026-10-22"
 
 keywords: pricing plan, billing, cost
 
@@ -152,19 +152,5 @@ The number of resource units consumed depends on the type of secret or credentia
 | **PKI credentials** | Duration-adjusted (730 hrs = 1 RU) | Each certificate's active hours within the month are divided by 730. |
 | **SSH credentials** | Duration-adjusted (730 hrs = 1 RU) | Each credential's active hours within the month are divided by 730. |
 {: caption="Resource unit ratios by secret type" caption-side="bottom"}
-
-#### Resource unit examples
-{: #vault-dedicated-ru-examples}
-
-The following examples illustrate how RUs are calculated in common scenarios.
-
-- **100 static secrets, 20 deleted during the month**: RU count = 100 (monthly high-water mark applies).
-- **80 secrets in a production cluster and 20 in a non-production cluster**: RU count = 100 (all instances in the account are counted together).
-- **100 secrets rotated daily**: RU count = 100 (rotation does not increase the RU count).
-- **100 dynamic secrets**: RU count = 100 (counted by roles configured, not versions issued).
-- **100 PKI certificates active for the entire month (730 hours)**: RU count = 100.
-- **100 PKI certificates active within the month, renewed daily**: RU count = 100.
-- **1 certificate active for 500 hours within a month**: RU count = 1 (500 hrs ÷ 730 hrs, rounded up).
-- **1 certificate active for 500 hours and a second active for 230 hours**: RU count = 1 (500 + 230 = 730 hrs = 1 RU).
 
 For pricing details, see the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external} or contact your IBM representative.
