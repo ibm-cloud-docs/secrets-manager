@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-05"
+lastupdated: "2026-10-28"
 
 keywords: context-based restrictions, access allowlist, network security, Vault Dedicated, API types, standard API, vault dedicated management API, vault dedicated runtime API
 
@@ -146,9 +146,9 @@ If you use the API, you can specify `"api_type_id": "crn:v1:bluemix:public:secre
 
 Protect access to the platform-level APIs used to manage the lifecycle of your {{site.data.keyword.secrets-manager_short}} service instance.
 
-If you use the CLI, you can specify the `--api-types` option and the `crn:v1:bluemix:public:secrets-manager::::api-type:platform-resource-management` type.
+If you use the CLI, you can specify the `--api-types` option and the `crn:v1:bluemix:public:context-based-restrictions::::platform-api-type:resource-management` type.
 
-If you use the API, you can specify `"api_type_id": "crn:v1:bluemix:public:secrets-manager::::api-type:platform-resource-management"` in the `"operations"` spec.
+If you use the API, you can specify `"api_type_id": "crn:v1:bluemix:public:context-based-restrictions::::platform-api-type:resource-management"` in the `"operations"` spec.
 
 ## Creating network zones
 {: #cbr-network-zones}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-22"
+lastupdated: "2026-10-28"
 
 keywords: pricing plan, billing, cost
 
@@ -73,7 +73,6 @@ The [Trial and Standard]{: tag-blue} plans run on shared multi-tenant infrastruc
 {: #trial-standard-what-you-get}
 
 The `Trial` plan provides unlimited access to all service capabilities for a limited time of 30 days. The `Standard` plan provides an unlimited number of Secrets Manager instances per IBM Cloud account, and unlimited access to all service capabilities.
-{: shortdesc}
 
 A service instance is billed based on the day it was provisioned in the month.
 {: note}
@@ -108,8 +107,9 @@ During the public beta period, the [Vault Dedicated]{: tag-green} plan has the f
 - **Beta to GA migration**: Data migration from beta instances to GA instances is not supported.
 
 These limitations are temporary and apply only during the public beta period. It will be removed or modified when the [Vault Dedicated]{: tag-green} plan reaches general availability.
-{: important}
+{: important} 
 
+<production>
 ### How Vault Dedicated is billed
 {: #vault-dedicated-billing}
 
@@ -152,5 +152,8 @@ The number of resource units consumed depends on the type of secret or credentia
 | **PKI credentials** | Duration-adjusted (730 hrs = 1 RU) | Each certificate's active hours within the month are divided by 730. |
 | **SSH credentials** | Duration-adjusted (730 hrs = 1 RU) | Each credential's active hours within the month are divided by 730. |
 {: caption="Resource unit ratios by secret type" caption-side="bottom"}
+</production>
+
+
 
 For pricing details, see the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external} or contact your IBM representative.
