@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-22"
+lastupdated: "2026-10-28"
 
 keywords: pricing plan, billing, cost
 
@@ -93,23 +93,6 @@ You can create only one Trial instance of Secrets Manager per account. Before yo
 
 The [Vault Dedicated]{: tag-green} is a distinct offering that provides enterprise Vault capabilities for organizations that need stronger isolation, broader deployment flexibility, and advanced compliance support.
 
-The [Vault Dedicated]{: tag-green} is currently available as a public beta. Beta features are provided for evaluation and testing purposes and have limitations compared to generally available features.
-{: beta}
-
-### Vault Dedicated public beta limitations
-{: #vault-dedicated-beta-limitations}
-
-During the public beta period, the [Vault Dedicated]{: tag-green} plan has the following temporary restrictions:
-
-- **Instance limit**: Only 1 [Vault Dedicated]{: tag-green} instance per account during beta.
-- **No upgrade path**: Cannot upgrade from beta to GA. All beta instances will be deleted before general availability.
-- **Regional availability**: Available in Dallas and Frankfurt.
-- **Free during beta**: No charges apply during the beta period.
-- **Beta to GA migration**: Data migration from beta instances to GA instances is not supported.
-
-These limitations are temporary and apply only during the public beta period. It will be removed or modified when the [Vault Dedicated]{: tag-green} plan reaches general availability.
-{: important}
-
 ### How Vault Dedicated is billed
 {: #vault-dedicated-billing}
 
@@ -117,30 +100,23 @@ The [Vault Dedicated]{: tag-green} plan uses two billing metrics.
 
 | Metric | What it measures |
 |--------|-----------------|
-| **Install (cluster)** | A monthly charge per running production install. |
-| **Resource Unit (RU)** | A consumption-based metric covering the secrets and credentials issued or managed in your instance. |
+| **Enterprise Vault Installation** | A monthly charge per deployment instance and its entitlements. |
+| **Resource Unit (RU)** | A consumption-based metric that measures monthly secrets usage across secrets, keys, certificates, and data protection operations. |
 {: caption="Vault Dedicated billing metrics" caption-side="bottom"}
 
-#### Resource unit pricing
-{: #vault-dedicated-ru-pricing}
+New instances are billed only for the days they were provisioned during the billing cycle.
+{: note}
 
-Resource units are priced on a tiered model. Higher monthly RU volumes qualify for lower per-unit rates.
+### Vault Dedicated pricing
+{: #vault-dedicated-pricing}
 
-| Resource units (monthly) | Annual unit price | Monthly unit price | Total annual | Total monthly |
-|-------------------------:|------------------:|-------------------:|-------------:|--------------:|
-| 1 | $48.00 | $4.00 | $48 | $4 |
-| 500 | $33.60 | $2.80 | $16,800 | $1,400 |
-| 1,000 | $31.20 | $2.60 | $31,200 | $2,600 |
-| 2,500 | $28.80 | $2.40 | $72,000 | $6,000 |
-| 5,000 | $26.40 | $2.20 | $132,000 | $11,000 |
-| 10,000 | $24.00 | $2.00 | $240,000 | $20,000 |
-| 25,000 | $21.60 | $1.80 | $540,000 | $45,000 |
-| 50,000 | $19.20 | $1.60 | $960,000 | $80,000 |
-| 75,000 | $16.80 | $1.40 | $1,260,000 | $105,000 |
-| 100,000 | $14.40 | $1.20 | $1,440,000 | $120,000 |
-{: caption="Vault Dedicated resource unit pricing tiers" caption-side="bottom"}
+| Metric | Monthly price |
+|--------|--------------|
+| **Enterprise Vault Installation** | $7,000.00 USD per instance |
+| **Resource Unit (RU)** | $4.00 USD per resource unit |
+{: caption="Vault Dedicated pricing" caption-side="bottom"}
 
-#### How resource units are calculated
+### How resource units are calculated
 {: #vault-dedicated-ru-calculation}
 
 The number of resource units consumed depends on the type of secret or credential.

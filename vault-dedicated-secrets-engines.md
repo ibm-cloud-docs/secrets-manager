@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-01"
+lastupdated: "2026-10-28"
 
 keywords: Vault Dedicated, secrets engines, KV, PKI, transit, transform, TOTP
 
@@ -67,6 +67,7 @@ A secrets engine is a component that stores, generates, or encrypts data. You en
 
 During the public beta, Vault Dedicated supports the following secrets engines:
 
+
 | Secrets engine | What it does | HashiCorp docs |
 |----------------|--------------|----------------|
 | **KV v2** | Store and retrieve arbitrary static secrets as key-value pairs, with versioning support. | [KV secrets engine v2](https://developer.hashicorp.com/vault/docs/secrets/kv/kv-v2){: external} |
@@ -76,6 +77,8 @@ During the public beta, Vault Dedicated supports the following secrets engines:
 | **Transform** | Tokenize, encode, and format sensitive data to protect it while preserving its structure. | [Transform secrets engine](https://developer.hashicorp.com/vault/docs/secrets/transform){: external} |
 | **TOTP** | Generate and validate time-based one-time passwords (TOTP) for multi-factor authentication. | [TOTP secrets engine](https://developer.hashicorp.com/vault/docs/secrets/totp){: external} |
 {: caption="Supported secrets engines for Vault Dedicated" caption-side="bottom"}
+
+
 
 ## Before you begin
 {: #vault-dedicated-secrets-engines-prereqs}
