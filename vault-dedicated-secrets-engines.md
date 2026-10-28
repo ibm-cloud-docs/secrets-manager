@@ -76,9 +76,8 @@ During the public beta, Vault Dedicated supports the following secrets engines:
 | **PKI external CA** | Issue certificates signed by an external certificate authority, with support for Let's Encrypt and DigiCert. | [PKI secrets engine - external CA](https://developer.hashicorp.com/vault/docs/secrets/pki-external-ca){: external} |
 | **Transform** | Tokenize, encode, and format sensitive data to protect it while preserving its structure. | [Transform secrets engine](https://developer.hashicorp.com/vault/docs/secrets/transform){: external} |
 | **TOTP** | Generate and validate time-based one-time passwords (TOTP) for multi-factor authentication. | [TOTP secrets engine](https://developer.hashicorp.com/vault/docs/secrets/totp){: external} |
+
 {: caption="Supported secrets engines for Vault Dedicated" caption-side="bottom"}
-
-
 
 ## Before you begin
 {: #vault-dedicated-secrets-engines-prereqs}
