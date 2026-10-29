@@ -66,7 +66,7 @@ To learn about general updates and improvements to the {{site.data.keyword.secre
 ## Version 2.0.22
 {: #2.0.22}
 
-Version 2.0.22 was released on 30 October 2026. This release includes the following updates:
+Version 2.0.22 was released on 29 October 2026. This release includes the following updates:
 - packages updates.
 
 ## Version 2.0.20
