@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-09-01"
+lastupdated: "2026-10-30"
 
 keywords: provsion Secrets Manager, create Secrets Manager instance, dedicated instance, trial plan
 
@@ -74,23 +74,6 @@ Before you create an instance, it's important to understand the key differences 
 | **Instance limits** | One trial instance per account. | Multiple instances allowed. |
 | **Use case** | {{site.data.keyword.cloud_notm}}-native secret management. | Enterprise Vault workloads requiring native Vault features. |
 {: caption="Plan comparison" caption-side="bottom"}
-
-The [Vault Dedicated]{: tag-green} plan is currently available as a public beta. Beta features are provided for evaluation and testing purposes and have limitations compared to generally available features.
-{: beta}
-
-### Vault Dedicated public beta limitations
-{: #vault-dedicated-beta-limitations}
-
-During the public beta period, the [Vault Dedicated]{: tag-green} has the following temporary restrictions:
-
-- **Instance limit**: Only 1 Vault Dedicated instance per account during beta.
-- **No upgrade path**: Cannot upgrade from beta to GA. All beta instances will be deleted before general availability.
-- **Regional availability**: Available in Dallas and Frankfurt.
-- **Free during beta**: No charges apply during the beta period.
-- **Beta to GA migration**: Data migration from beta instances to GA instances is not supported.
-
-These limitations are temporary and apply only during the public beta period. It will be removed or modified when the [Vault Dedicated]{: tag-green} reaches general availability.
-{: important}
 
 Key points to remember:
 - **Trial instances** can only be upgraded to Standard plan. To use the [Vault Dedicated]{: tag-green}, you must provision a new Vault Dedicated instance.

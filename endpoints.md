@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-09-01"
+lastupdated: "2026-10-30"
 
 keywords: Secrets Manager availability, regions, Secrets Manager endpoints, Vault endpoint
 
@@ -111,23 +111,6 @@ The [Vault Dedicated]{: tag-green} is available in the following regions.
 |---------------------|---------------------|------------------|
 | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
 {: caption="Regions where Vault Dedicated plan is available" caption-side="bottom"}
-
-The Vault Dedicated plan is currently available as a public beta. Beta features are provided for evaluation and testing purposes and have limitations compared to generally available features.
-{: beta}
-
-#### Vault Dedicated public beta limitations
-{: #vault-dedicated-regions-beta-limitations}
-
-During the public beta period, the Vault Dedicated plan has the following temporary restrictions:
-
-- **Instance limit**: Only 1 Vault Dedicated instance per account during beta.
-- **No upgrade path**: Cannot upgrade from beta to GA. All beta instances will be deleted before general availability.
-- **Regional availability**: Available in Dallas and Frankfurt.
-- **Free during beta**: No charges apply during the beta period.
-- **Beta to GA migration**: Data migration from beta instances to GA instances is not supported.
-
-These limitations will be removed or modified when the Vault Dedicated plan reaches general availability.
-{: important}
 
 ## Service endpoints
 {: #service-endpoints}

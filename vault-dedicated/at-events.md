@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-10-21"
+lastupdated: "2026-10-30"
 
 keywords: activity tracking events for Vault Dedicated, Vault Dedicated events, Secrets Manager Vault Dedicated audit events
 
@@ -129,6 +129,11 @@ The following events are generated for Vault Dedicated instance management opera
 ### Instance operations events
 {: #at-configuration-instance-operations}
 
+The following table lists the instance operation actions that generate an event:
+
+### Instance operations events
+{: #at-configuration-instance-operations}
+
 The following table lists the instance operation actions that generate an event.
 
 | Action                                     | Description                      |
@@ -136,16 +141,19 @@ The following table lists the instance operation actions that generate an event.
 | `secrets-manager.instance.read` | Read the details of a Vault Dedicated plan for instance. |
 | `secrets-manager.admin-token.create` | Generate an admin token for initial Vault access. |
 | `secrets-manager.admin-tokens.delete` | Revoke active admin tokens for a Vault Dedicated plan instance. |
+| `secrets-manager.destination.create` | Create a destination resource for the instance. |
+| `secrets-manager.destinations.list` | List destination resources for the instance. |
+| `secrets-manager.destination.read` | Read a destination resource for the instance. |
+| `secrets-manager.destination.update` | Update a destination resource for the instance. |
+| `secrets-manager.destination.delete` | Delete a destination resource for the instance. |
 {: caption="List of instance operation events for Vault Dedicated plan" caption-side="bottom"}
-
-
 
 ## How activity tracking events are built
 {: #how-events-are-built}
 
 Activity tracking events for the Vault Dedicated plan are dynamically constructed from underlying vault operations and request metadata. Review the following details to understand how key event properties, such as actions, severity levels, and outcomes, are mapped and filtered. 
 
-## Instance management operation events
+## Instance management operations
 {: #instance-management-operations}
 
 The {{site.data.keyword.secrets-manager_short}} service layer handles instance management operations as part of the {{site.data.keyword.cloud_notm}} control plane.
@@ -157,9 +165,12 @@ The following table lists the activity tracking events for instance management o
 | `secrets-manager.instance.read` | Read instance details | `normal` |
 | `secrets-manager.admin-token.create` | Generate admin token (`auth/token/create-orphan` in `admin/` namespace) | `critical` |
 | `secrets-manager.admin-tokens.delete` | Revoke admin tokens (`auth/token/revoke-accessor` in `admin/` namespace) | `critical` |
+| `secrets-manager.destination.create` | Create a destination | `warning` |
+| `secrets-manager.destinations.list` | List destinations | `normal` |
+| `secrets-manager.destination.read` | Read a destination | `normal` |
+| `secrets-manager.destination.update` | Update a destination | `warning` |
+| `secrets-manager.destination.delete` | Delete a destination | `critical` |
 {: caption="Instance management operation events" caption-side="bottom"}
-
-
 
 ## Key value secrets operation events
 {: #kv-secrets-operations}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-28"
+lastupdated: "2026-10-30"
 
 keywords: pricing plan, billing, cost
 
@@ -92,68 +92,49 @@ You can create only one Trial instance of Secrets Manager per account. Before yo
 
 The [Vault Dedicated]{: tag-green} is a distinct offering that provides enterprise Vault capabilities for organizations that need stronger isolation, broader deployment flexibility, and advanced compliance support.
 
-The [Vault Dedicated]{: tag-green} is currently available as a public beta. Beta features are provided for evaluation and testing purposes and have limitations compared to generally available features.
-{: beta}
-
-### Vault Dedicated public beta limitations
-{: #vault-dedicated-beta-limitations}
-
-During the public beta period, the [Vault Dedicated]{: tag-green} plan has the following temporary restrictions:
-
-- **Instance limit**: Only 1 [Vault Dedicated]{: tag-green} instance per account during beta.
-- **No upgrade path**: Cannot upgrade from beta to GA. All beta instances will be deleted before general availability.
-- **Regional availability**: Available in Dallas and Frankfurt.
-- **Free during beta**: No charges apply during the beta period.
-- **Beta to GA migration**: Data migration from beta instances to GA instances is not supported.
-
-These limitations are temporary and apply only during the public beta period. It will be removed or modified when the [Vault Dedicated]{: tag-green} plan reaches general availability.
-{: important} 
-
-<production>
 ### How Vault Dedicated is billed
 {: #vault-dedicated-billing}
 
 The [Vault Dedicated]{: tag-green} plan uses two billing metrics.
 
+The following table describes each billing metric.
+
 | Metric | What it measures |
 |--------|-----------------|
-| **Install (cluster)** | A monthly charge per running production install. |
-| **Resource Unit (RU)** | A consumption-based metric covering the secrets and credentials issued or managed in your instance. |
+| **Enterprise Vault Installation** | A monthly charge per deployment instance and its entitlements. |
+| **Resource Unit** | A consumption-based metric that measures monthly secrets usage across secrets, keys, certificates, and data protection operations. |
 {: caption="Vault Dedicated billing metrics" caption-side="bottom"}
 
-#### Resource unit pricing
-{: #vault-dedicated-ru-pricing}
+New instances are billed only for the days they were provisioned during the billing cycle.
+{: note}
 
-Resource units are priced on a tiered model. Higher monthly RU volumes qualify for lower per-unit rates.
+### Vault Dedicated pricing
+{: #vault-dedicated-pricing}
 
-| Resource units (monthly) | Annual unit price | Monthly unit price | Total annual | Total monthly |
-|-------------------------:|------------------:|-------------------:|-------------:|--------------:|
-| 1 | $48.00 | $4.00 | $48 | $4 |
-| 500 | $33.60 | $2.80 | $16,800 | $1,400 |
-| 1,000 | $31.20 | $2.60 | $31,200 | $2,600 |
-| 2,500 | $28.80 | $2.40 | $72,000 | $6,000 |
-| 5,000 | $26.40 | $2.20 | $132,000 | $11,000 |
-| 10,000 | $24.00 | $2.00 | $240,000 | $20,000 |
-| 25,000 | $21.60 | $1.80 | $540,000 | $45,000 |
-| 50,000 | $19.20 | $1.60 | $960,000 | $80,000 |
-| 75,000 | $16.80 | $1.40 | $1,260,000 | $105,000 |
-| 100,000 | $14.40 | $1.20 | $1,440,000 | $120,000 |
-{: caption="Vault Dedicated resource unit pricing tiers" caption-side="bottom"}
+The [Vault Dedicated]{: tag-green} plan is billed monthly based on the number of instances and resource units in your account.
 
-#### How resource units are calculated
-{: #vault-dedicated-ru-calculation}
+The following table outlines the monthly price for each billing metric:
 
-The number of resource units consumed depends on the type of secret or credential.
+| Metric | Monthly price |
+|--------|--------------|
+| **Enterprise Vault Installation** | $7,000.00 USD per instance |
+| **Resource Unit** | $4.00 USD per resource unit |
+{: caption="Vault Dedicated pricing" caption-side="bottom"}
 
-| Resource type | RU ratio | How it is counted |
-|---------------|----------|-------------------|
-| **Static secrets** | 1 secret = 1 RU | Based on the monthly high-water mark of unique secrets. |
-| **Dynamic / auto-rotated secrets** | 1 dynamic secret role = 1 RU | Counted by the number of roles configured, regardless of how many versions are issued. |
-| **PKI credentials** | Duration-adjusted (730 hrs = 1 RU) | Each certificate's active hours within the month are divided by 730. |
-| **SSH credentials** | Duration-adjusted (730 hrs = 1 RU) | Each credential's active hours within the month are divided by 730. |
-{: caption="Resource unit ratios by secret type" caption-side="bottom"}
-</production>
+### What counts as a resource unit
+{: #vault-dedicated-ru-types}
 
+A resource unit measures your monthly secrets usage.
 
+The following terms define what qualifies as each type of resource unit in the [Vault Dedicated]{: tag-green} plan:
+
+| Term | Definition |
+|------|------------|
+| **Secret** | A Static Secret or Dynamic Secret Role managed by a [Vault Dedicated]{: tag-green} instance. Excludes Cryptographic Keys, secrets and roles that directly support Data Protection Operations and credential issuance, and any secrets or roles managed by the KMIP secrets engine. |
+| **Dynamic Secret Role** | A named role in an applicable secrets engine that generates credentials on demand according to its configuration. Applicable engines include AWS, Azure, Google Cloud, databases, Terraform, Kubernetes, LDAP, and Local Accounts. |
+| **Cryptographic Key** | A cryptographic key managed by the KMSE (Key Management Secrets Engine) or TOTP (Time-based One-Time Password) secrets engines. |
+| **Credential Unit** | A measure of the validity period of a unique, cryptographically secured digital attestation of identity, such as x.509 certificates, JSON Web Tokens (JWTs), SPIFFE Verifiable Identity Documents (SVIDs), SSH certificates, and SSH one-time passwords. |
+| **Data Protection Operation** | An API call that uses the Transit, Transform, or Google Cloud KMS secrets engines. |
+{: caption="Resource unit terms and definitions" caption-side="bottom"}
 
 For pricing details, see the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external} or contact your IBM representative.

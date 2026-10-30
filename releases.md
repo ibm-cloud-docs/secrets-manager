@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-10-07"
+lastupdated: "2026-10-30"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -63,6 +63,20 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 {: shortdesc}
 
 For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-manager_short}} API change log](/docs/secrets-manager?topic=secrets-manager-api-change-log).
+
+## 01 November 2026
+{: #secrets-manager-nov526}
+{: release-note}
+
+Updated pricing for the Vault Dedicated plan
+:   The [Vault Dedicated]{: tag-green} plan's pricing is updated for general availability. The plan is now billed at a flat monthly rate and new instances are billed only for the days they were provisioned during the billing cycle. For more information, see [Pricing](/docs/secrets-manager?topic=secrets-manager-pricing#vault-dedicated-plan).
+
+Configuring outbound connectivity destinations for Vault Dedicated
+:   You can now configure outbound connectivity destinations to establish a private network link between your Vault Dedicated cluster and an {{site.data.keyword.cloud_notm}} Databases instance. Destinations are required before you can use the Databases secrets engine to generate dynamic credentials. For more information, see [Configuring outbound connectivity destinations](/docs/secrets-manager?topic=secrets-manager-vault-dedicated-destinations).
+
+Configuring the database credentials engine with {{site.data.keyword.databases-for-postgresql_full}}
+:   Learn how to configure the Databases secrets engine in your Vault Dedicated instance to generate dynamic credentials for an {{site.data.keyword.databases-for-postgresql_full}} instance. You can create a destination, enable the database credentials engine, configure a database connection, define a role, and generate short-lived credentials. For more information, see [Configuring the database credentials engine with {{site.data.keyword.databases-for-postgresql_full}}](/docs/secrets-manager?topic=secrets-manager-tutorial-db-credentials-engine-postgresql).
+
 
 ## 05 October 2026
 {: #secrets-manager-oct526}

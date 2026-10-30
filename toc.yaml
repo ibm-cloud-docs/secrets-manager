@@ -42,6 +42,8 @@ toc:
       topics:
       - topic: tutorials/setting-up-vault-dedicated-instance.md
         navtitle: Setting up your Vault Dedicated instance
+      - topic: tutorials/db-credentials-engine-postgresql.md
+        navtitle: Configuring the database credentials engine
       - tutorials/access-storage.md
       - topicgroup:
           label: Secure secrets for apps that run in your Kubernetes cluster
@@ -178,6 +180,8 @@ toc:
             navtitle: Configuring authentication methods
           - topic: vault-dedicated-secrets-engines.md
             navtitle: Working with secrets engines
+          - topic: vault-dedicated-destinations.md
+            navtitle: Configuring outbound connectivity destinations
       - topicgroup:
           label: Connecting integrations
           topics:
@@ -294,8 +298,15 @@ toc:
   - navgroup:
       id: help
       topics:
-      - topic: faqs.md
-        navtitle: FAQ
+      - topicgroup:
+          label: FAQ
+          topics:
+          - topic: faqs.md
+            navtitle: FAQ for Secrets Manager
+          - topic: faqs-trial-standard.md
+            navtitle: By using the Trial and Standard plans
+          - topic: vault-dedicated-faqs.md
+            navtitle: By using the Vault Dedicated plan
       - topicgroup:
           label: Known issues and limits
           topics:

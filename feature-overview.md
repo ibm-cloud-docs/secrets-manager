@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-01"
+lastupdated: "2026-10-30"
 
 keywords: feature overview, trial plan, standard plan, vault dedicated plan
 
@@ -104,23 +104,6 @@ For more information about pricing, see [Pricing for the Trial and Standard plan
 {: #vault-dedicated-plan-overview}
 
 The [Vault Dedicated]{: tag-green} plan is a distinct offering that delivers Vault Enterprise as a managed service in {{site.data.keyword.cloud_notm}}. It is designed for workloads that need dedicated Vault capabilities together with managed operations in {{site.data.keyword.cloud_notm}}.
-
-The [Vault Dedicated]{: tag-green} is currently available as a public beta. Beta features are provided for evaluation and testing purposes and have limitations compared to generally available features.
-{: beta}
-
-### Vault Dedicated public beta limitations
-{: #vault-dedicated-beta-limitations}
-
-During the public beta period, the [Vault Dedicated]{: tag-green} plan has the following temporary restrictions:
-
-- **Instance limit**: Only 1 Vault Dedicated instance per account during beta.
-- **No upgrade path**: Cannot upgrade from beta to GA. All beta instances will be deleted before general availability.
-- **Regional availability**: Available in Dallas and Frankfurt.
-- **Free during beta**: No charges apply during the beta period.
-- **Beta to GA migration**: Data migration from beta instances to GA instances is not supported.
-
-These limitations will be removed or modified when the Vault Dedicated plan reaches general availability.
-{: important}
 
 ### vault Dedicated capabilities
 {: #vault-dedicated-capabilities}

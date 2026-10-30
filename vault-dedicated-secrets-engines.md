@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-28"
+lastupdated: "2026-10-30"
 
 keywords: Vault Dedicated, secrets engines, KV, PKI, transit, transform, TOTP
 
@@ -65,8 +65,7 @@ A secrets engine is a component that stores, generates, or encrypts data. You en
 ## Supported secrets engines
 {: #vault-dedicated-secrets-engines-supported}
 
-During the public beta, Vault Dedicated supports the following secrets engines:
-
+Vault Dedicated supports the following secrets engines:
 
 | Secrets engine | What it does | HashiCorp docs |
 |----------------|--------------|----------------|
@@ -76,7 +75,7 @@ During the public beta, Vault Dedicated supports the following secrets engines:
 | **PKI external CA** | Issue certificates signed by an external certificate authority, with support for Let's Encrypt and DigiCert. | [PKI secrets engine - external CA](https://developer.hashicorp.com/vault/docs/secrets/pki-external-ca){: external} |
 | **Transform** | Tokenize, encode, and format sensitive data to protect it while preserving its structure. | [Transform secrets engine](https://developer.hashicorp.com/vault/docs/secrets/transform){: external} |
 | **TOTP** | Generate and validate time-based one-time passwords (TOTP) for multi-factor authentication. | [TOTP secrets engine](https://developer.hashicorp.com/vault/docs/secrets/totp){: external} |
-
+| **Databases** | Generate dynamic credentials for supported database engines, including PostgreSQL, MySQL, and others. Before you use this engine, you must configure a [destination](/docs/secrets-manager?topic=secrets-manager-vault-dedicated-destinations) to establish a private network link to the target database instance. | [Database secrets engine](https://developer.hashicorp.com/vault/docs/secrets/databases){: external} |
 {: caption="Supported secrets engines for Vault Dedicated" caption-side="bottom"}
 
 ## Before you begin

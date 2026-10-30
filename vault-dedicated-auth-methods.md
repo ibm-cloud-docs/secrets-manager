@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-31"
+lastupdated: "2026-10-30"
 
 keywords: Vault Dedicated, authentication, auth methods, AppRole, Userpass, token
 
@@ -68,7 +68,7 @@ The admin token is intended for initial configuration and emergency access only.
 ## Supported authentication methods
 {: #vault-dedicated-auth-methods-supported}
 
-During the public beta, Vault Dedicated supports the following authentication methods:
+Vault Dedicated supports the following authentication methods:
 
 | Auth method | Best for | HashiCorp docs |
 |-------------|----------|----------------|
