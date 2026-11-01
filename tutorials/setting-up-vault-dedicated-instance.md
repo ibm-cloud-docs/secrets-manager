@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-07"
+lastupdated: "2026-10-30"
 
 keywords: Vault Dedicated, Vault as a Service, setting up vault dedicated, admin token, Vault UI, vault dedicated setup
 
@@ -71,23 +71,6 @@ In this tutorial, you learn how to set up a `Vault Dedicated` plan instance of {
 {: shortdesc}
 
 The `Vault Dedicated` plan delivers Vault Enterprise as a managed service in {{site.data.keyword.cloud_notm}}. After your instance is provisioned, you can use the instance dashboard to find connection details and open the Vault UI to begin configuring your Vault environment.
-
-The Vault Dedicated plan is currently available as a public beta. Beta features are provided for evaluation and testing purposes and have limitations compared to generally available features.
-{: beta}
-
-## Vault Dedicated public beta limitations
-{: #setting-up-vault-dedicated-beta-limitations}
-
-During the public beta period, the [Vault Dedicated]{: tag-green} plan has the following temporary restrictions:
-
-- **Instance limit**: Only 1 Vault Dedicated instance per account during beta.
-- **No upgrade path**: Cannot upgrade from beta to GA. All beta instances will be deleted before general availability.
-- **Regional availability**: Available in Dallas and Frankfurt.
-- **Free during beta**: No charges apply during the beta period.
-- **Beta to GA migration**: Data migration from beta instances to GA instances is not supported.
-
-These limitations are temporary and apply only during the public beta period. It will be removed or modified when the [Vault Dedicated]{: tag-green} plan reaches general availability.
-{: important}
 
 ## Before you begin
 {: #setting-up-vault-dedicated-prereqs}

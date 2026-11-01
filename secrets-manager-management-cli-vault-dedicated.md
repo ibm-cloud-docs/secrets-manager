@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-16"
+lastupdated: "2026-10-30"
 
 keywords: Secrets Manager CLI, Vault Dedicated, instance management CLI, command line, terminal
 
@@ -65,9 +65,6 @@ You can use the {{site.data.keyword.secrets-manager_full}} instance management c
 {: shortdesc}
 
 Current version: **`2.0.7`**
-
-The Vault Dedicated plan is currently available as a public beta. Beta features are provided for evaluation and testing purposes and have limitations compared to generally available features.
-{: beta}
 
 ## Before you begin
 {: #secrets-manager-management-cli-prereq}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-08-31"
+lastupdated: "2026-10-30"
 
 keywords: secrets, secret types, supported secrets, static secrets, dynamic secrets,
 
@@ -79,4 +79,4 @@ For the [Vault Dedicated]{: tag-green} plan, secrets are managed through native 
 The following topics apply:
 
 - [Working with secrets engines](/docs/secrets-manager?topic=secrets-manager-vault-dedicated-secrets-engines): An overview of how secrets engines work in Vault Dedicated and how to enable them.
-- [Supported secrets engines](/docs/secrets-manager?topic=secrets-manager-vault-dedicated-secrets-engines#vault-dedicated-secrets-engines-supported): The secrets engines available during the public beta, including KV v2, Transit, PKI, Transform, and TOTP.
+- [Supported secrets engines](/docs/secrets-manager?topic=secrets-manager-vault-dedicated-secrets-engines#vault-dedicated-secrets-engines-supported): The secrets engines available in Vault Dedicated, including KV v2, Transit, PKI, Transform, TOTP, and Databases.

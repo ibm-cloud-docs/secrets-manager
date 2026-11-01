@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-31"
+lastupdated: "2026-10-30"
 
 keywords: change log for Secrets Manager CLI, CLI changelog, Vault Dedicated, instance management CLI
 
@@ -64,6 +64,6 @@ In this change log, you can learn about the latest changes, improvements, and up
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
 
 ## Version 2.0.7
-{: #management-cli-2.0.0}
+{: #management-cli-2.0.7}
 
 Version 2.0.7 was released on 1 September 2026. This was the initial beta release of the {{site.data.keyword.secrets-manager_short}} instance management CLI plug-in for the Vault Dedicated plan.
