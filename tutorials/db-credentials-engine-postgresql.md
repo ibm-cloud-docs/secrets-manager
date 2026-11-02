@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-30"
+lastupdated: "2026-11-02"
 
 keywords: Vault Dedicated, database credentials engine, PostgreSQL, ICD, IBM Cloud Databases, dynamic credentials, DB engine
 
@@ -79,7 +79,7 @@ Dynamic database credentials are short-lived and scoped to the roles that you de
 
 Before you begin, make sure that you have the following:
 
-- A [Vault Dedicated plan instance](docs/secrets-manager?topic=secrets-manager-setting-up-vault-dedicated-instance&interface=ui) of {{site.data.keyword.secrets-manager_full}}.
+- A [Vault Dedicated plan instance](/docs/secrets-manager?topic=secrets-manager-setting-up-vault-dedicated-instance&interface=ui) of {{site.data.keyword.secrets-manager_full}}.
 - An [{{site.data.keyword.cloud_notm}} Databases for PostgreSQL](https://cloud.ibm.com/catalog/services/databases-for-postgresql){: external} instance.
 
    Only Gen 1 {{site.data.keyword.cloud_notm}} Databases instances are supported.
