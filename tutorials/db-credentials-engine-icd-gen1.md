@@ -74,7 +74,7 @@ In this tutorial, you learn how to configure the database credentials engine in 
 
 Dynamic database credentials are short-lived and scoped to the roles that you define. Instead of sharing long-lived passwords, Vault creates and revokes database users on demand. This reduces the risk of credential exposure and eliminates the need for manual credential rotation.
 
-This tutorial uses the Vault Web UI and a TLS certificate from your service credential. If your instance is Gen2, or if you use Redis, follow [Configuring the database credentials engine with {{site.data.keyword.cloud_notm}} Databases Gen2](/docs/secrets-manager?topic=secrets-manager-tutorial-db-credentials-engine-icd-gen2) instead. {{site.data.keyword.databases-for-redis_full}} Gen 1 instances don't support dynamic roles.
+This tutorial uses the Vault Web UI and a TLS certificate from your service credential. If your instance is Gen2, or if you use Redis, follow [Configuring the database credentials engine with {{site.data.keyword.cloud_notm}} Databases Gen2](/docs/secrets-manager?topic=secrets-manager-tutorial-db-credentials-engine-icd-gen2) instead.
 {: note}
 
 ## Before you begin
@@ -312,14 +312,15 @@ You need the username and password values that are returned in the next step.
 
 Use the generated credentials to connect to your database from a host that can reach it over the private network.
 
-1. For MongoDB, install the MongoDB shell. Skip this step for the other databases, whose clients are typically already available.
+1. Install the client for your database on the host, if it isn't already installed. The following commands are for Ubuntu. Run `sudo apt-get update` first. On other operating systems, use the equivalent commands.
 
-   ```sh
-   curl -sL https://downloads.mongodb.com/compass/mongosh-2.3.1-linux-x64.tgz -o mongosh.tgz
-   tar -xzf mongosh.tgz
-   export PATH="$PATH:$(pwd)/mongosh-2.3.1-linux-x64/bin"
-   ```
-   {: pre}
+   | Database | Client | Install |
+   |----------|--------|---------|
+   | PostgreSQL | `psql` | `sudo apt-get install -y postgresql-common postgresql-client` |
+   | MongoDB | `mongosh` | `wget https://downloads.mongodb.com/compass/mongosh-2.3.1-linux-x64.tgz`<br>`tar -zxvf mongosh-2.3.1-linux-x64.tgz`<br>`export PATH="$PATH:$(pwd)/mongosh-2.3.1-linux-x64/bin"` |
+   | MySQL | `mysql` | `wget "https://repo.mysql.com/apt/ubuntu/pool/mysql-8.4-lts/m/mysql-community/mysql-community-client_8.4.0-1ubuntu22.04_amd64.deb"`<br>`wget "https://repo.mysql.com/apt/ubuntu/pool/mysql-8.4-lts/m/mysql-community/mysql-community-client-core_8.4.0-1ubuntu22.04_amd64.deb"`<br>`wget https://repo.mysql.com/apt/ubuntu/pool/mysql-8.4-lts/m/mysql-community/mysql-community-client-plugins_8.4.0-1ubuntu22.04_amd64.deb`<br>`wget "https://repo.mysql.com/apt/ubuntu/pool/mysql-8.4-lts/m/mysql-community/mysql-common_8.4.0-1ubuntu22.04_amd64.deb"`<br>`sudo dpkg -i mysql-community-client-plugins_8.4.0-1ubuntu22.04_amd64.deb`<br>`sudo dpkg -i mysql-community-client-core_8.4.0-1ubuntu22.04_amd64.deb`<br>`sudo dpkg -i mysql-common_8.4.0-1ubuntu22.04_amd64.deb`<br>`sudo dpkg -i mysql-community-client_8.4.0-1ubuntu22.04_amd64.deb` |
+   | Elasticsearch | `curl` | No installation is needed. |
+   {: caption="Database clients" caption-side="bottom"}
 
 2. Save the TLS certificate from your service credential to a local file, such as `/path/to/TLS_certificate`.
 
