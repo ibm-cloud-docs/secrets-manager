@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-10-30"
+lastupdated: "2026-11-03"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -69,14 +69,16 @@ For the latest changes to the APIs, check out the [{{site.data.keyword.secrets-m
 {: release-note}
 
 Updated pricing for the Vault Dedicated plan
-:   The [Vault Dedicated]{: tag-green} plan's pricing is updated for general availability. The plan is now billed at a flat monthly rate and new instances are billed only for the days they were provisioned during the billing cycle. For more information, see [Pricing](/docs/secrets-manager?topic=secrets-manager-pricing#vault-dedicated-plan).
+:   The [Vault Dedicated]{: tag-green} plan is now generally available. Pricing consists of a monthly charge of $7,000.00 USD per instance (Enterprise Vault Installation) and $4.00 USD per resource unit (RU), which measures monthly secrets usage across secrets, keys, certificates, and data protection operations. New instances are billed only for the days they were provisioned during the billing cycle. For more information, see [Pricing](/docs/secrets-manager?topic=secrets-manager-pricing#vault-dedicated-plan).
 
 Configuring outbound connectivity destinations for Vault Dedicated
 :   You can now configure outbound connectivity destinations to establish a private network link between your Vault Dedicated cluster and an {{site.data.keyword.cloud_notm}} Databases instance. Destinations are required before you can use the Databases secrets engine to generate dynamic credentials. For more information, see [Configuring outbound connectivity destinations](/docs/secrets-manager?topic=secrets-manager-vault-dedicated-destinations).
 
-Configuring the database credentials engine with {{site.data.keyword.databases-for-postgresql_full}}
-:   Learn how to configure the Databases secrets engine in your Vault Dedicated instance to generate dynamic credentials for an {{site.data.keyword.databases-for-postgresql_full}} instance. You can create a destination, enable the database credentials engine, configure a database connection, define a role, and generate short-lived credentials. For more information, see [Configuring the database credentials engine with {{site.data.keyword.databases-for-postgresql_full}}](/docs/secrets-manager?topic=secrets-manager-tutorial-db-credentials-engine-postgresql).
+Configuring the database credentials engine with {{site.data.keyword.cloud_notm}} Databases
+:   Learn how to configure the Databases secrets engine in your Vault Dedicated instance to generate dynamic credentials for {{site.data.keyword.cloud_notm}} Databases. You can create a destination, enable the database credentials engine, configure a database connection, define a role, and generate short-lived credentials. Two tutorials are available:
 
+   - For Gen2 instances of PostgreSQL, MongoDB, MySQL, Redis, and Elasticsearch, see [Configuring the database credentials engine with {{site.data.keyword.cloud_notm}} Databases Gen2](/docs/secrets-manager?topic=secrets-manager-tutorial-db-credentials-engine-icd-gen2).
+   - For Gen 1 instances of PostgreSQL, MongoDB, MySQL, and Elasticsearch, see [Configuring the database credentials engine with {{site.data.keyword.cloud_notm}} Databases Gen 1](/docs/secrets-manager?topic=secrets-manager-tutorial-db-credentials-engine-icd-gen1).
 
 ## 05 October 2026
 {: #secrets-manager-oct526}

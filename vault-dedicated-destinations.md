@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-30"
+lastupdated: "2026-11-03"
 
 keywords: Vault Dedicated destinations, destination resource, private network link, IBM Cloud Databases private endpoint, Vault Dedicated outbound connectivity, create destination, delete destination, destination lifecycle states, ibm_cloud_database, Vault database secrets engine
 
@@ -67,9 +67,12 @@ Destination resources are control-plane objects. You create and manage them thro
 {: #vault-dedicated-destinations-before-you-begin}
 
 - You must have the IAM **Writer** or **Manager** role on the Vault Dedicated instance.
-- You must create a service-to-service (S2S) IAM authorization policy with Secrets Manager as the source and the target {{site.data.keyword.cloud_notm}} Databases instance as the target, granting the **Viewer** and **Authorization Delegator** roles.
+- You must create a service-to-service IAM authorization policy with {{site.data.keyword.secrets-manager_short}} as the source and the target {{site.data.keyword.cloud_notm}} Databases instance as the target, granting the **Viewer** and **Authorization Delegator** roles. For instructions, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth){: external}.
 - The target {{site.data.keyword.cloud_notm}} Databases instance must have private endpoints enabled. ICD instances with only public endpoints are not supported. If the instance has no private endpoints, the API returns an HTTP 422 error.
 - Have the CRN of the target {{site.data.keyword.cloud_notm}} Databases instance ready.
+
+Without the service-to-service authorization, {{site.data.keyword.secrets-manager_short}} cannot establish a destination to the target database instance.
+{: important}
 
 ## Supported destination types
 {: #vault-dedicated-destinations-supported-types}
@@ -79,6 +82,8 @@ The following table lists the supported destination types that the Vault Dedicat
 | Type | Description |
 |---|---|
 | `ibm_cloud_database` | Private network link to an {{site.data.keyword.cloud_notm}} Databases instance with private endpoints enabled. |
+
+After the destination state is `succeeded`, you can configure the Databases secrets engine. See [Working with the Databases secrets engine](/docs/secrets-manager?topic=secrets-manager-vault-dedicated-db-engine). For end-to-end examples that create a destination in the console, see [Configuring the database credentials engine with {{site.data.keyword.cloud_notm}} Databases Gen2](/docs/secrets-manager?topic=secrets-manager-tutorial-db-credentials-engine-icd-gen2).
 
 ## Destination lifecycle states
 {: #vault-dedicated-destinations-lifecycle-states}
@@ -206,7 +211,7 @@ Remove the corresponding Vault configuration, such as the database secrets engin
 
 - Maximum 20 destinations per instance. Destinations in `failed` state count against this quota until deleted.
 - Only `ibm_cloud_database` with private endpoints enabled is supported. ICD instances with only public endpoints are not supported.
-- Redis Gen 1 is not supported as a destination type.
+- {{site.data.keyword.databases-for-redis_full}} Gen 1 instances are not supported because they do not support dynamic roles. Use a Gen2 instance instead.
 - The `crn` field is immutable after creation. To change the target, delete and re-create the destination.
 - General outbound egress to arbitrary endpoints is not supported.
 - If you delete the target {{site.data.keyword.cloud_notm}} Databases instance without first deleting the destination, the destination and its associated outbound network connection remain in place. The destination is not automatically removed. Delete the destination explicitly to clean up the network artifacts.
