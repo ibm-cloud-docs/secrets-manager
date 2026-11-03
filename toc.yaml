@@ -42,8 +42,10 @@ toc:
       topics:
       - topic: tutorials/setting-up-vault-dedicated-instance.md
         navtitle: Setting up your Vault Dedicated instance
-      - topic: tutorials/db-credentials-engine-postgresql.md
-        navtitle: Configuring the database credentials engine
+      - topic: tutorials/db-credentials-engine-icd-gen1.md
+        navtitle: Configuring the database credentials engine with Databases Gen 1
+      - topic: tutorials/db-credentials-engine-icd-gen2.md
+        navtitle: Configuring the database credentials engine with Databases Gen2
       - tutorials/access-storage.md
       - topicgroup:
           label: Secure secrets for apps that run in your Kubernetes cluster
@@ -180,6 +182,8 @@ toc:
             navtitle: Configuring authentication methods
           - topic: vault-dedicated-secrets-engines.md
             navtitle: Working with secrets engines
+          - topic: vault-dedicated-db-engine.md
+            navtitle: Working with the Databases secrets engine
           - topic: vault-dedicated-destinations.md
             navtitle: Configuring outbound connectivity destinations
       - topicgroup:
