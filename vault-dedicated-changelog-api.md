@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-01"
+lastupdated: "2026-11-04"
 
 keywords: change log for Secrets Manager APIs, API changelog, updates to Secrets Manager APIs, Vault Dedicated
 
@@ -58,7 +58,7 @@ subcollection: secrets-manager
 # {{site.data.keyword.secrets-manager_short}} Instance Management API change log
 {: #vault-dedicated-api-change-log}
 
-In this change log, you can learn about the latest changes, improvements, and updates for the [{{site.data.keyword.secrets-manager_short}} Instance Management API](/apidocs/secrets-manager/secrets-manager-instance-management-v2). The change log lists changes that have been made, ordered by the date they were released. Changes to existing API versions are designed to be compatible with existing client applications.
+In this change log, you can learn about the latest changes, improvements, and updates for the [{{site.data.keyword.secrets-manager_short}} Instance Management API](/apidocs/secrets-manager-instance-management/secrets-manager-instance-management-v2). The change log lists changes that have been made, ordered by the date they were released. Changes to existing API versions are designed to be compatible with existing client applications.
 {: shortdesc}
 
 To learn about general updates and improvements to the {{site.data.keyword.secrets-manager_short}} service, see [Release notes](/docs/secrets-manager?topic=secrets-manager-release-notes).
