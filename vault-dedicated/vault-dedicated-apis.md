@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-07"
+lastupdated: "2026-11-04"
 
 keywords: Secrets Manager, Vault Dedicated, API, admin tokens, instance details, wrapped token
 
@@ -62,7 +62,7 @@ subcollection: secrets-manager
 Use the {{site.data.keyword.secrets-manager_full}} instance management API to manage service instances of the `Vault Dedicated` plan. For Vault runtime operations such as secrets management, authentication methods, and policies, use the HashiCorp Vault API.
 {: shortdesc}
 
-For the interactive API reference with SDK examples, see the [Instance Management API reference](https://{DomainName}/apidocs/secrets-manager/secrets-manager-instance-management-v2){: external}.
+For the interactive API reference with SDK examples, see the [Instance Management API reference](https://{DomainName}/apidocs/secrets-manager-instance-management/secrets-manager-instance-management-v2){: external}.
 {: tip}
 
 ## {{site.data.keyword.secrets-manager_short}} Instance Management API
