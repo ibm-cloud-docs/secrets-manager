@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-11-03"
+lastupdated: "2026-11-05"
 
 keywords: Vault Dedicated, database credentials engine, Gen2, ICD, IBM Cloud Databases, PostgreSQL, MongoDB, MySQL, Redis, Elasticsearch, dynamic credentials, DB engine
 
@@ -61,7 +61,7 @@ completion-time: 60m
 {:release-note: data-hd-content-type='release-note'}
 {{site.data.keyword.attribute-definition-list}}
 
-# Configuring the database credentials engine with {{site.data.keyword.cloud_notm}} Databases Gen2
+# Configuring the database credentials engine with {{site.data.keyword.cloud_notm}} Databases Gen 2
 {: #tutorial-db-credentials-engine-icd-gen2}
 {: toc-content-type="tutorial"}
 {: toc-services="secrets-manager, databases-for-postgresql, databases-for-mongodb, databases-for-mysql, databases-for-redis, databases-for-elasticsearch"}

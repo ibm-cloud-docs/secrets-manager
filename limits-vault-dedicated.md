@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-08"
+lastupdated: "2026-11-05"
 
 keywords: known issues for {{site.data.keyword.secrets-manager_short}}, known limitations for {{site.data.keyword.secrets-manager_short}}, vault dedicated plan
 
@@ -88,7 +88,7 @@ Review the following limitations before managing public endpoint access for your
 Customer control to enable or disable public endpoint access after provisioning is not supported. If you require a specific endpoint posture, determine it before configuring any PKI certificate authorities.
 {: note}
 
-When a PKI secrets engine certificate authority issues certificates, it embeds certificate revocation list (CRL) distribution point URLs directly into each certificate. These URLs are determined by the instance endpoint at the time that the certificate authority is configured, and they cannot be changed.
+When a PKI secrets engine certificate authority in the Vault Dedicated plan issues certificates, it embeds certificate revocation list (CRL) distribution point URLs directly into each certificate. These URLs are determined by the instance endpoint at the time that the certificate authority is configured, and they cannot be changed, including in certificates that were already issued.
 
 If your instance was originally configured with the public endpoint enabled, certificates issued by that certificate authority contain CRL URLs that reference the public endpoint. If you later disable the public endpoint, those CRL URLs become unreachable, which might cause revocation checks to fail for clients that strictly enforce CRL validation.
 

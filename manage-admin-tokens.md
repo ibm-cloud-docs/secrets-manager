@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-07"
+lastupdated: "2026-11-05"
 
 keywords: Secrets Manager, Vault Dedicated, admin tokens, instance management API
 
@@ -98,7 +98,7 @@ For day-to-day operations, configure Vault authentication methods such as AppRol
 - Use the admin token to perform initial setup: enable secrets engines, configure authentication methods, and define access policies.
 - Revoke the admin token after each administrative session.
 - Avoid storing the admin token in scripts or automation. Use a dedicated authentication method instead.
-- A rate limit applies to admin token generation to prevent abuse. If you exceed the limit, wait before requesting a new token.
+- A rate limit of 10 admin token requests per instance per hour applies to admin token generation to prevent abuse. If you exceed the limit, wait before requesting a new token. For more information, see [Known issues and limits for the Vault Dedicated plan](/docs/secrets-manager?topic=secrets-manager-known-issues-and-limits-vault-dedicated).
 
 ## API operations
 {: #admin-token-api-operations}

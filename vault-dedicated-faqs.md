@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-10-30"
+lastupdated: "2026-11-05"
 
 keywords: faqs, Frequently Asked Questions, Vault Dedicated, admin token, secrets engine, destination, billing, resource unit, authentication method, namespace
 
@@ -163,6 +163,26 @@ For the complete definitions table, see [What counts as a resource unit](/docs/s
 {: faq}
 
 If you delete the target {{site.data.keyword.cloud_notm}} Databases instance without first deleting the destination, the destination and its associated outbound network connection remain in place. The destination is not automatically removed. You must delete the destination explicitly to clean up the network artifacts.
+
+## Can I configure cross-region failover for the Vault Dedicated plan?
+{: #faq-vd-cross-region-failover}
+{: faq}
+
+No. The {{site.data.keyword.secrets-manager_short}} Vault Dedicated plan does not support cross-region failover or replication-based recovery. If more than one availability zone becomes unavailable, the region is considered to be in a disaster state. Design your workloads with this in mind.
+
+Automated data replication and snapshots across instances are also not supported. To keep a copy of your data elsewhere, you must export and import your secrets and configuration by using HashiCorp Vault's native tools. For more information, see [Understanding data portability by using the Vault Dedicated plan](/docs/secrets-manager?topic=secrets-manager-data-portability-vault-dedicated) and [Known issues and limits for the Vault Dedicated plan](/docs/secrets-manager?topic=secrets-manager-known-issues-and-limits-vault-dedicated).
+
+## Why is my destination stuck in the provisioning state?
+{: #faq-vd-destination-provisioning}
+{: faq}
+
+Creating a destination is an asynchronous operation. A destination can remain in the `not_started` or `provisioning` state, or move to `failed`, if the managed network artifacts cannot be successfully created or validated.
+
+1. Check the destination state by sending a `GET /v2/instances/{instance_id}/destinations/{destination_id}` request, and read the `message` field.
+2. Confirm that the target {{site.data.keyword.cloud_notm}} Databases instance has private endpoints enabled and that the required service-to-service authorization exists.
+3. If the destination is in the `failed` state, delete it, resolve the underlying issue, and create a new destination. A `failed` destination counts against your quota of 20 destinations per instance until you delete it.
+
+For more information, see [Configuring outbound connectivity destinations](/docs/secrets-manager?topic=secrets-manager-vault-dedicated-destinations#vault-dedicated-destinations-lifecycle-states).
 
 ## Where can I find the Vault API and CLI references for Vault Dedicated?
 {: #faq-vd-api-reference}

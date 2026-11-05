@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-10-30"
+lastupdated: "2026-11-05"
 
 keywords: activity tracking events for Vault Dedicated, Vault Dedicated events, Secrets Manager Vault Dedicated audit events
 
@@ -117,9 +117,12 @@ The action value can be replaced with any other applicable action.
 To see unauthorized access attempts, run the following query.
 
 ```sh
-host:secrets-manager reason.reasonType:Unauthorized
+host:secrets-manager reason.reasonType:unauthorized
 ```
 {: codeblock}
+
+The `reason.reasonType` value is emitted in all lowercase. A query that uses `Unauthorized` (capital U) returns no results. For more information, see [Known issues and limits for the Vault Dedicated plan](/docs/secrets-manager?topic=secrets-manager-known-issues-and-limits-vault-dedicated).
+{: note}
 
 ## How event fields are structured
 {: #gen-events}
