@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-11-03"
+lastupdated: "2026-11-05"
 
 keywords: release notes for Secrets Manager, what's new, enhancements, fixes, improvements, Secrets Manager
 
@@ -77,7 +77,7 @@ Configuring outbound connectivity destinations for Vault Dedicated
 Configuring the database credentials engine with {{site.data.keyword.cloud_notm}} Databases
 :   Learn how to configure the Databases secrets engine in your Vault Dedicated instance to generate dynamic credentials for {{site.data.keyword.cloud_notm}} Databases. You can create a destination, enable the database credentials engine, configure a database connection, define a role, and generate short-lived credentials. Two tutorials are available:
 
-   - For Gen2 instances of PostgreSQL, MongoDB, MySQL, Redis, and Elasticsearch, see [Configuring the database credentials engine with {{site.data.keyword.cloud_notm}} Databases Gen2](/docs/secrets-manager?topic=secrets-manager-tutorial-db-credentials-engine-icd-gen2).
+   - For Gen 2 instances of PostgreSQL, MongoDB, MySQL, Redis, and Elasticsearch, see [Configuring the database credentials engine with {{site.data.keyword.cloud_notm}} Databases Gen2](/docs/secrets-manager?topic=secrets-manager-tutorial-db-credentials-engine-icd-gen2).
    - For Gen 1 instances of PostgreSQL, MongoDB, MySQL, and Elasticsearch, see [Configuring the database credentials engine with {{site.data.keyword.cloud_notm}} Databases Gen 1](/docs/secrets-manager?topic=secrets-manager-tutorial-db-credentials-engine-icd-gen1).
 
 ## 05 October 2026
